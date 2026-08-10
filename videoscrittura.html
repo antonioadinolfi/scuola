@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <script>
+    // Protezione accesso (come in classe.html) 
+    if (sessionStorage.getItem("isLoggedIn") !== "true") {
+        alert("Accesso negato. Effettua il login.");
+        window.location.href = "index.html";
+    }
+  </script>
+  <meta charset="UTF-8" />
+  <title>Videoscrittura Classe Prima - Prof. Adinolfi</title>
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <style>
+    :root { --primary: #004080; --bg: #f8f9fa; }
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; height: 100vh; display: flex; flex-direction: column; overflow: hidden; background: var(--bg); }
+    
+    /* Layout simile al tuo editor Python  */
+    #main-layout { display: flex; flex: 1; overflow: hidden; }
+    #traccia { width: 45%; border-right: 2px solid #ddd; background: white; display: flex; flex-direction: column; }
+    #editor-section { width: 55%; display: flex; flex-direction: column; background: white; }
+
+    .toolbar { padding: 10px 20px; background: white; border-bottom: 1px solid #ddd; display: flex; align-items: center; gap: 15px; }
+    .scroll-area { flex: 1; overflow-y: auto; padding: 20px; }
+    
+    #editor-container { flex: 1; border: none !important; }
+    .btn-send { background: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+    input[type="text"] { padding: 8px; border: 1px solid #ccc; border-radius: 4px; flex-grow: 1; }
+    
+    /* Impedisce selezione e copia  */
+    body { user-select: none; -webkit-user-select: none; }
+  </style>
+
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0b3b75"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+</head>
+<body oncontextmenu="return false;" onpaste="return false;">
+
+<div class="toolbar">
+  <input type="text" id="nomeStudente" placeholder="Inserisci Nome e Cognome dello studente">
+  <div id="timer" style="font-weight: bold; color: #dc3545;">Tempo: 45:00</div>
+  <button class="btn-send" onclick="consegnaVideoscrittura()">☁️ INVIA AL PROF</button>
+  <button style="background:#dc3545; color:white; border:none; padding:10px; border-radius:6px; cursor:pointer;" onclick="location.href='index.html'">Esci</button>
+</div>
+
+<div id="main-layout">
+  <div id="traccia">
+    <div class="scroll-area">
+      <h3 style="color: var(--primary)">Esercitazione: Convocazione Assemblea</h3>
+      <img src="tracce/esercizio_word_1.png" style="width:100%; border: 1px solid #eee;">
+      <p><small>Trascrivi e formatta il testo seguendo i 31 punti indicati.</small></p>
+    </div>
+  </div>
+
+  <div id="editor-section">
+    <div id="editor-container">
+      </div>
+  </div>
+</div>
+
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+<script>
+  // Inizializza l'editor (Word-like)
+  var quill = new Quill('#editor-container', {
+    theme: 'snow',
+    modules: {
+      toolbar: [
+        [{ 'header': [1, 2, 3, false] }],
+        ['bold', 'italic', 'underline'],
+        [{ 'color': [] }, { 'background': [] }],
+        [{ 'align': [] }],
+        ['list', 'ordered'],
+        ['clean']
+      ]
+    }
+  });
+
+  // Gestione Timer (come in classe.html) 
+  let tempo = 2700; 
+  setInterval(() => {
+    if (tempo > 0) {
+        tempo--;
+        let m = Math.floor(tempo / 60);
+        let s = tempo % 60;
+        document.getElementById('timer').textContent = `Tempo: ${m}:${s.toString().padStart(2, '0')}`;
+    } else {
+        alert("Tempo scaduto!");
+        consegnaVideoscrittura(true);
+    }
+  }, 1000);
+
+  function consegnaVideoscrittura(isAutomatico = false) {
+    const nome = document.getElementById('nomeStudente').value.trim();
+    const testo = quill.root.innerHTML;
+
+    if (!nome && !isAutomatico) return alert("Inserisci il tuo nome!");
+
+    // Usa lo stesso GAS_URL del tuo file classe.html 
+    const GAS_URL = "TUO_URL_DI_GOOGLE_SCRIPT"; 
+    
+    console.log("Invio esercizio Classe Prima...", { studente: nome, contenuto: testo });
+    alert("✅ Lavoro inviato correttamente!");
+    window.location.href = 'index.html';
+  }
+</script>
+
+<script src="pwa-register.js"></script>
+</body>
+</html>

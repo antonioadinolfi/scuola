@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agenda mensile 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --coral:#D85A30;--coral-light:#FAECE7;--coral-mid:#F0997B;
+  --gold:#BA7517;--paper:#FDFAF6;--paper-dark:#F5F0E8;
+  --ink:#2C2C2A;--ink-light:#888780;--line:rgba(44,44,42,0.12);
+  --green:#5B9A6E;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--paper-dark)}
+.wrap{max-width:920px;margin:0 auto;padding:12px 8px 28px}
+.tabs{display:flex;gap:4px;padding:0 20px;position:relative;z-index:2}
+.tab{padding:7px 16px;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border-radius:8px 8px 0 0;border:1px solid rgba(216,90,48,.3);border-bottom:none;background:var(--coral-light);color:var(--coral);cursor:pointer}
+.tab.active{background:var(--paper);font-weight:600}
+.book{display:flex;background:var(--paper);border:1px solid rgba(216,90,48,.25);border-radius:0 12px 12px 12px;overflow:hidden;box-shadow:4px 6px 24px rgba(0,0,0,.12);min-height:620px;position:relative}
+.spine{width:26px;background:var(--paper-dark);border-right:1px solid rgba(216,90,48,.2);display:flex;flex-direction:column;align-items:center;padding:20px 0;gap:20px;flex-shrink:0}
+.ring{width:13px;height:13px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#bbb,#666);box-shadow:0 1px 3px rgba(0,0,0,.3);flex-shrink:0}
+.page-left{flex:1;padding:16px;border-right:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
+.month-nav{display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.nav-btn{width:24px;height:24px;border-radius:50%;border:1px solid rgba(216,90,48,.4);background:transparent;color:var(--coral);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.nav-btn:hover{background:var(--coral-light)}
+.month-select{border:none;background:transparent;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:var(--ink-light);cursor:pointer;outline:none;letter-spacing:.05em}
+.month-badge{display:inline-block;color:#fff;font-family:'Playfair Display',serif;font-size:24px;font-style:italic;padding:7px 16px 9px;border-radius:6px;margin-bottom:10px}
+.days-table{flex:1;overflow-y:auto}
+table.cal{width:100%;border-collapse:collapse;font-size:12px}
+table.cal thead th{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);font-weight:500;padding:4px 6px;text-align:left;border-bottom:1px solid var(--coral-mid)}
+table.cal tbody tr{border-bottom:1px solid var(--line)}
+table.cal tbody tr:hover{background:var(--coral-light)}
+table.cal tbody td{padding:2px 5px;vertical-align:middle;color:var(--ink)}
+td.dn{width:24px;font-size:11px;font-weight:500;color:var(--coral);white-space:nowrap}
+td.dw{width:30px;font-size:10px;color:var(--ink-light)}
+td.nc{padding:2px 3px}
+td.nc input{width:100%;border:none;background:transparent;font-family:'DM Sans',sans-serif;font-size:11.5px;color:var(--ink);outline:none;height:22px;padding:0 2px}
+td.nc input::placeholder{color:transparent}
+tr:hover td.nc input::placeholder{color:var(--ink-light)}
+tr.sun td.dn,tr.sun td.dw{color:var(--coral);opacity:.65}
+.page-right{flex:1;padding:16px 20px;display:flex;flex-direction:column;gap:14px;min-width:0;position:relative}
+.plan-title{font-family:'DM Sans',sans-serif;font-size:18px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);display:flex;align-items:flex-start;gap:10px}
+.bookmark{width:26px;height:40px;background:var(--paper-dark);border:1px solid var(--line);clip-path:polygon(0 0,100% 0,100% 100%,50% 80%,0 100%);flex-shrink:0}
+.slabel{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-light);font-weight:500;margin-bottom:6px}
+.obj-list{display:flex;flex-direction:column;gap:7px}
+.obj-row{display:flex;align-items:center;gap:7px}
+.pin{width:9px;height:9px;border-radius:50% 50% 50% 0;background:var(--coral);transform:rotate(-45deg);flex-shrink:0}
+.obj-row input,.nline input{width:100%;border:none;border-bottom:1px solid var(--line);background:transparent;font-family:'DM Sans',sans-serif;font-size:12px;color:var(--ink);outline:none;padding:3px 0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.date-box{background:var(--paper-dark);border-radius:6px;min-height:90px;padding:8px;position:relative;overflow:hidden}
+.date-box::before{content:'';position:absolute;top:7px;left:50%;transform:translateX(-50%);width:16px;height:20px;border:1.5px solid var(--coral-mid);border-radius:50%;opacity:.5}
+.date-box::after{content:'';position:absolute;top:14px;left:50%;width:1.5px;height:9px;background:var(--coral-mid);opacity:.5}
+.date-box textarea,.ver-area textarea{width:100%;border:none;background:transparent;font-family:'DM Sans',sans-serif;font-size:11.5px;color:var(--ink);resize:none;outline:none}
+.date-box textarea{height:70px;margin-top:28px}
+.nlines{display:flex;flex-direction:column;gap:6px}
+.nline input{font-size:11.5px}
+.ver-area{flex:1}
+.ver-area textarea{min-height:60px;line-height:1.8;border-bottom:1px solid var(--line)}
+.deco-row{display:flex;justify-content:space-between;align-items:flex-end;margin-top:auto}
+.washi{width:55px;height:14px;background:repeating-linear-gradient(45deg,rgba(216,90,48,.25),rgba(216,90,48,.25) 4px,rgba(255,255,255,.3) 4px,rgba(255,255,255,.3) 8px);border-radius:2px}
+.side-tab{position:absolute;right:-1px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font-size:9px;letter-spacing:.12em;text-transform:uppercase;background:var(--coral);color:#fff;padding:9px 5px;border-radius:4px 0 0 4px;font-weight:500}
+.status-bar{display:flex;align-items:center;justify-content:space-between;padding:5px 10px 0;min-height:22px}
+.sync-status{font-size:10px;color:var(--ink-light);display:flex;align-items:center;gap:5px}
+.sync-dot{width:7px;height:7px;border-radius:50%;background:var(--ink-light);flex-shrink:0}
+.sync-dot.ok{background:var(--green)}
+.sync-dot.syncing{background:#C9A227;animation:pulse 1s infinite}
+.sync-dot.error{background:#D85A30}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.year-bar{text-align:center;font-size:10px;letter-spacing:.15em;color:var(--ink-light);text-transform:uppercase;padding-top:3px}
+.overlay{position:fixed;inset:0;background:rgba(253,250,246,.85);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:100;font-size:13px;color:var(--ink-light)}
+.spinner{width:28px;height:28px;border:2px solid var(--coral-light);border-top-color:var(--coral);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media (max-width: 760px){
+  .wrap{padding:8px 6px 20px}
+  .tabs{padding:0 10px;overflow-x:auto}
+  .book{flex-direction:column;min-height:auto;border-radius:0 10px 10px 10px}
+  .spine{display:none}
+  .page-left{border-right:none;border-bottom:1px solid var(--line)}
+  .page-right{padding:14px}
+  .two-col{grid-template-columns:1fr}
+  .side-tab{display:none}
+}
+</style>
+<link rel="stylesheet" href="design-system.css">
+</head>
+<body>
+
+<div class="wrap">
+  <div id="overlay" class="overlay"><div class="spinner"></div><span>Caricamento agenda locale...</span></div>
+  <div class="tabs">
+    <div class="tab active">Agenda</div>
+    <div class="tab">Scuola</div>
+    <div class="tab">Registro</div>
+    <div class="tab">···</div>
+  </div>
+  <div class="book">
+    <div class="spine" id="spine"></div>
+    <div class="page-left">
+      <div class="month-nav">
+        <button class="nav-btn" id="prev">&#8249;</button>
+        <select class="month-select" id="msel">
+          <option value="0">Gennaio</option><option value="1">Febbraio</option>
+          <option value="2">Marzo</option><option value="3">Aprile</option>
+          <option value="4">Maggio</option><option value="5">Giugno</option>
+          <option value="6">Luglio</option><option value="7">Agosto</option>
+          <option value="8">Settembre</option><option value="9">Ottobre</option>
+          <option value="10">Novembre</option><option value="11">Dicembre</option>
+        </select>
+        <button class="nav-btn" id="next">&#8250;</button>
+      </div>
+      <div class="month-badge" id="badge">Giugno</div>
+      <div class="days-table">
+        <table class="cal">
+          <thead><tr>
+            <th style="width:24px">N</th>
+            <th style="width:30px">Gg</th>
+            <th>Note del giorno</th>
+          </tr></thead>
+          <tbody id="cal-body"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="page-right">
+      <div class="plan-title">
+        <div class="bookmark"></div>
+        <div>PLANNING<br>MENSILE</div>
+      </div>
+      <div>
+        <div class="slabel">Obiettivi del mese</div>
+        <div class="obj-list" id="obj-list"></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="slabel">Date da ricordare</div>
+          <div class="date-box"><textarea id="date-ric" placeholder="Date importanti..."></textarea></div>
+        </div>
+        <div>
+          <div class="slabel">Note importanti</div>
+          <div class="nlines" id="nlines"></div>
+        </div>
+      </div>
+      <div class="ver-area">
+        <div class="slabel">Verifiche / Compiti / Attività particolari</div>
+        <textarea id="verifiche" placeholder="Inserisci verifiche, compiti e attività..."></textarea>
+      </div>
+      <div class="deco-row">
+        <div class="washi"></div>
+        <div class="washi" style="transform:rotate(-3deg)"></div>
+      </div>
+      <div class="side-tab" id="side-tab">Giu</div>
+    </div>
+  </div>
+  <div class="status-bar">
+    <div class="sync-status">
+      <div class="sync-dot" id="sync-dot"></div>
+      <span id="sync-label">Connessione...</span>
+    </div>
+    <div style="font-size:10px;color:var(--ink-light)">Salvataggio locale browser</div>
+  </div>
+  <div class="year-bar">Agenda 2026 · Salvataggio locale nel browser</div>
+</div>
+
+<script>
+const MONTHS=['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
+const SHORT=['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
+const WD=['Dom','Lun','Mar','Mer','Gio','Ven','Sab'];
+const YEAR=2026;
+const COLORS=['#4A8FBF','#D85A30','#5B9A6E','#C9A227','#9B6B9E','#BA7517','#3E8A7A','#C07A2A','#D85A30','#8B5E3C','#3A6B9E','#2C6E8A'];
+
+const STORAGE_KEY='agenda2026';
+let cur=new Date().getMonth();
+let data={};
+let fileSha=null;
+let saveTimer=null;
+
+function setStatus(state,msg){
+  const dot=document.getElementById('sync-dot');
+  const lbl=document.getElementById('sync-label');
+  dot.className='sync-dot '+state;
+  lbl.textContent=msg;
+}
+
+function loadAgenda(){
+  try{
+    setStatus('syncing','Caricamento dati locali...');
+    const raw=localStorage.getItem(STORAGE_KEY);
+    data=raw ? JSON.parse(raw) : {};
+    setStatus('ok','Pronta · dati locali');
+  }catch(e){
+    data={};
+    setStatus('error','Errore lettura dati locali');
+  }
+  document.getElementById('overlay').style.display='none';
+  renderMonth(cur);
+}
+
+function saveAgenda(){
+  try{
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
+    setStatus('ok','Salvata · '+new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'}));
+  }catch(e){
+    setStatus('error','Errore salvataggio locale');
+  }
+}
+
+function scheduleSave(){
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(saveAgenda,450);
+}
+
+function gk(m,type,idx){return `${m}__${type}__${idx}`;}
+function getDays(m){return new Date(YEAR,m+1,0).getDate();}
+function getFirst(m){return new Date(YEAR,m,1).getDay();}
+
+function makeInput(key,placeholder,tag){
+  const el=document.createElement(tag||'input');
+  if(tag==='textarea'){el.placeholder=placeholder;el.rows=2;}
+  else{el.type='text';el.placeholder=placeholder;}
+  el.value=data[key]||'';
+  el.addEventListener('input',()=>{data[key]=el.value;scheduleSave();});
+  return el;
+}
+
+function renderMonth(m){
+  const badge=document.getElementById('badge');
+  badge.textContent=MONTHS[m];
+  badge.style.background=COLORS[m];
+  document.getElementById('side-tab').textContent=SHORT[m];
+  document.getElementById('msel').value=m;
+
+  const body=document.getElementById('cal-body');
+  body.innerHTML='';
+  const days=getDays(m),first=getFirst(m);
+  for(let d=1;d<=days;d++){
+    const dow=(first+d-1)%7;
+    const tr=document.createElement('tr');
+    if(dow===0) tr.className='sun';
+    const tdN=document.createElement('td');tdN.className='dn';tdN.textContent=d;
+    const tdW=document.createElement('td');tdW.className='dw';tdW.textContent=WD[dow];
+    const tdC=document.createElement('td');tdC.className='nc';
+    tdC.appendChild(makeInput(gk(m,'day',d),''));
+    tr.appendChild(tdN);tr.appendChild(tdW);tr.appendChild(tdC);
+    body.appendChild(tr);
+  }
+
+  const ol=document.getElementById('obj-list');ol.innerHTML='';
+  for(let i=0;i<3;i++){
+    const row=document.createElement('div');row.className='obj-row';
+    const pin=document.createElement('div');pin.className='pin';
+    row.appendChild(pin);row.appendChild(makeInput(gk(m,'obj',i),'Obiettivo '+(i+1)+'...'));
+    ol.appendChild(row);
+  }
+
+  const nl=document.getElementById('nlines');nl.innerHTML='';
+  for(let i=0;i<5;i++){
+    const div=document.createElement('div');div.className='nline';
+    div.appendChild(makeInput(gk(m,'nline',i),''));nl.appendChild(div);
+  }
+
+  const dr=document.getElementById('date-ric');
+  dr.value=data[gk(m,'date-ric',0)]||'';
+  dr.oninput=()=>{data[gk(m,'date-ric',0)]=dr.value;scheduleSave();};
+
+  const ver=document.getElementById('verifiche');
+  ver.value=data[gk(m,'ver',0)]||'';
+  ver.oninput=()=>{data[gk(m,'ver',0)]=ver.value;scheduleSave();};
+}
+
+// rings
+const spine=document.getElementById('spine');
+for(let i=0;i<18;i++){const r=document.createElement('div');r.className='ring';spine.appendChild(r);}
+
+document.getElementById('prev').addEventListener('click',()=>{cur=(cur+11)%12;renderMonth(cur);});
+document.getElementById('next').addEventListener('click',()=>{cur=(cur+1)%12;renderMonth(cur);});
+document.getElementById('msel').addEventListener('change',e=>{cur=parseInt(e.target.value);renderMonth(cur);});
+
+loadAgenda();
+</script>
+
+</body>
+</html>

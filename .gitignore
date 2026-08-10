@@ -1,0 +1,27 @@
+﻿# Git
+.git/
+
+# Editor e IDE
+.vscode/
+.idea/
+
+# File temporanei
+*.tmp
+*.temp
+*.log
+*.bak
+*~
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Configurazioni locali / segreti
+.env
+.env.*
+*.pem
+*.key
+
+# Cache
+.cache/

@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classe Shell Windows - PRO</title>
+  <style>
+    :root{
+      --bg:#07111f; --bg2:#0c1728; --bg3:#10203a;
+      --panel:rgba(14,24,41,.82); --panel2:rgba(10,18,30,.92);
+      --text:#eef4ff; --muted:#9db0d1; --line:rgba(255,255,255,.10);
+      --primary:#5b8cff; --primary2:#8a7dff; --ok:#35d07f; --warn:#f59e0b; --danger:#ef476f;
+      --shadow:0 20px 60px rgba(0,0,0,.28); --soft:0 10px 25px rgba(0,0,0,.16);
+      --radius:22px; --radius2:16px;
+    }
+    html[data-theme="light"]{
+      --bg:#f4f7fc; --bg2:#eef3fb; --bg3:#e8eef8;
+      --panel:rgba(255,255,255,.92); --panel2:rgba(255,255,255,.98);
+      --text:#122033; --muted:#5d6f89; --line:rgba(18,32,51,.10);
+      --primary:#2f6fed; --primary2:#6d5efc; --ok:#14b86a; --warn:#cf7a10; --danger:#d83f5f;
+      --shadow:0 20px 50px rgba(31,53,84,.10); --soft:0 10px 22px rgba(31,53,84,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{min-height:100%}
+    body{
+      margin:0; color:var(--text); font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(circle at 10% 12%, rgba(91,140,255,.18), transparent 25%),
+        radial-gradient(circle at 88% 10%, rgba(138,125,255,.14), transparent 24%),
+        linear-gradient(180deg,var(--bg) 0%,var(--bg2) 46%,var(--bg3) 100%);
+      overflow-x:hidden; overflow-y:auto;
+    }
+    .app{display:grid;grid-template-columns:360px 1fr;grid-template-rows:auto 1fr;gap:18px;min-height:100vh;padding:18px;align-content:start}
+    .topbar{
+      grid-column:1/-1; display:flex; justify-content:space-between; align-items:center; gap:16px;
+      padding:16px 18px; border:1px solid var(--line); border-radius:26px; background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
+      box-shadow:var(--shadow); backdrop-filter:blur(14px)
+    }
+    .brand{display:flex;align-items:center;gap:16px;min-width:0}
+    .logo{
+      width:60px;height:60px;border-radius:18px;display:grid;place-items:center;font-weight:800;letter-spacing:.05em;
+      background:linear-gradient(135deg,var(--color-accent,#c8963e),var(--color-accent-light,#e8b96a)); color:#0d1b2e; border:1px solid rgba(255,255,255,.18)
+    }
+    .brand h1{margin:0;font-size:1.35rem}
+    .brand p{margin:.3rem 0 0;color:var(--muted);line-height:1.45}
+    .header-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
+      background:rgba(255,255,255,.05); border:1px solid var(--line); color:var(--muted); font-weight:700; font-size:.82rem
+    }
+    .panel,.card,.result-box,.meta-card,.exercise-btn{
+      background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018)),var(--panel);
+      border:1px solid var(--line); border-radius:24px; box-shadow:var(--shadow); backdrop-filter:blur(12px)
+    }
+    .sidebar{display:flex;flex-direction:column;min-height:calc(100vh - 36px)}
+    .sidebar-head{padding:20px 20px 16px;border-bottom:1px solid var(--line)}
+    .sidebar-head h2{margin:0 0 8px;font-size:1.16rem}
+    .sidebar-head p{margin:0;color:var(--muted);line-height:1.5}
+    .meta{padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px;border-bottom:1px solid var(--line)}
+    .meta-card{padding:14px;border-radius:18px;box-shadow:var(--soft)}
+    .meta-card .label{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px;display:block}
+    .meta-card .value{font-size:1.15rem;font-weight:800}
+    .student-box{grid-column:1/-1}
+    .student-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+    input{
+      width:100%; background:rgba(255,255,255,.05); border:1px solid var(--line); color:var(--text);
+      border-radius:14px; padding:12px 13px; outline:none
+    }
+    input:focus{border-color:rgba(91,140,255,.55); box-shadow:0 0 0 4px rgba(91,140,255,.12)}
+    .exercise-list{padding:16px;display:grid;gap:12px;overflow:auto;flex:1;align-content:start}
+    .exercise-btn{
+      border-radius:18px; padding:14px 15px; cursor:pointer; text-align:left; box-shadow:var(--soft); position:relative; overflow:hidden
+    }
+    .exercise-btn:before{
+      content:""; position:absolute; left:0; top:0; bottom:0; width:4px;
+      background:linear-gradient(180deg,var(--primary),var(--primary2)); opacity:0
+    }
+    .exercise-btn.active:before,.exercise-btn:hover:before{opacity:1}
+    .exercise-btn strong{display:block;margin-bottom:7px}
+    .exercise-btn span{display:block;color:var(--muted);font-size:.88rem;line-height:1.45}
+    .exercise-btn:hover{transform:translateY(-1px)}
+    .exercise-btn.locked{opacity:.62; cursor:not-allowed}
+    .sidebar-foot{padding:16px 18px 20px;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem;line-height:1.5}
+    .main{display:grid;grid-template-rows:auto 1fr auto;min-height:calc(100vh - 36px)}
+    .toolbar{
+      display:flex;justify-content:space-between;align-items:center;gap:14px;
+      padding:18px 20px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.03)
+    }
+    .title-wrap h2{margin:0 0 6px;font-size:1.28rem}
+    .title-wrap p{margin:0;color:var(--muted)}
+    .toolbar-actions{display:flex;gap:10px;flex-wrap:wrap}
+    button{
+      appearance:none;border:1px solid var(--line);border-radius:14px;padding:11px 15px;cursor:pointer;font-weight:700;
+      background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),var(--panel2); color:var(--text); box-shadow:var(--soft)
+    }
+    button:hover{transform:translateY(-1px)}
+    button.primary{background:linear-gradient(135deg,var(--primary),var(--primary2)); color:#fff; border-color:transparent}
+    button.success{background:linear-gradient(135deg,#46d98d,var(--ok)); color:#072313; border-color:transparent}
+    button.danger{background:rgba(239,71,111,.12); color:#ffd7e1; border-color:rgba(239,71,111,.28)}
+    .workspace{display:grid;grid-template-columns:minmax(320px,1.08fr) 10px minmax(360px,.92fr);gap:0;padding:18px;min-height:0;align-items:stretch}
+    .splitter{
+      min-width:10px;margin-inline:10px;border-radius:999px;cursor:col-resize;position:relative;
+      background:linear-gradient(180deg,rgba(91,140,255,.16),rgba(255,255,255,.04)); border-inline:1px solid rgba(255,255,255,.06)
+    }
+    .splitter::after{content:"";position:absolute;top:50%;left:50%;width:4px;height:52px;transform:translate(-50%,-50%);background:rgba(255,255,255,.28);border-radius:999px}
+    .card{min-height:0;display:flex;flex-direction:column}
+    .card-head{padding:15px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.03)}
+    .card-head h3{margin:0;font-size:1rem}
+    .card-body{padding:18px;min-height:0;overflow:auto}
+    .exercise-text{white-space:pre-wrap;line-height:1.72}
+    .terminal{
+      background:linear-gradient(180deg,#050b14,#02060e); color:#e8fff0; border-radius:18px; min-height:420px; padding:16px;
+      display:flex;flex-direction:column; border:1px solid rgba(255,255,255,.08); font-family:Consolas,"Cascadia Mono",monospace
+    }
+    html[data-theme="light"] .terminal{
+      background:linear-gradient(180deg,#fdfefe,#f5f8fd); color:#162438; border-color:rgba(18,32,51,.08)
+    }
+    .terminal-output{flex:1;white-space:pre-wrap;overflow:auto;line-height:1.55}
+    .terminal-input-row{display:flex;align-items:center;gap:10px;margin-top:14px;padding:12px 10px 10px;border-top:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:12px}
+    .prompt{color:#72f2a2;font-weight:700;white-space:nowrap}
+    html[data-theme="light"] .prompt{color:#14804a}
+    .terminal-input{flex:1;background:transparent;border:none;outline:none;color:inherit;font:inherit}
+    .results{display:grid;grid-template-columns:minmax(220px,1fr) 10px minmax(220px,1fr) 10px minmax(220px,1fr);gap:0;padding:0 18px 18px;align-items:stretch}
+    .result-box{padding:16px;border-radius:20px;box-shadow:var(--soft)}
+    .result-box .label{display:block;color:var(--muted);font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:10px}
+    .result-box .value{line-height:1.55}
+    .status-pill{padding:8px 12px;border-radius:999px;border:1px solid rgba(53,208,127,.26);background:rgba(53,208,127,.12);color:#9ff0be;font-weight:700;font-size:.82rem}
+    .status-pill.warning{background:rgba(245,158,11,.12);border-color:rgba(245,158,11,.24);color:#ffd69b}
+    .ok{color:#86f4a6}.ko{color:#ffacb6}.warn{color:#ffd18f}.muted{color:var(--muted)}
+    .hidden{display:none !important}
+    .verify-banner{
+      margin-top:10px;padding:10px 12px;border-radius:14px;border:1px solid rgba(245,158,11,.22);background:rgba(245,158,11,.10); color:#ffd69b;font-size:.88rem;font-weight:700
+    }
+    @media (max-width:1200px){
+      .app{grid-template-columns:1fr}
+      .sidebar,.main{min-height:auto}
+      .workspace,.results{grid-template-columns:1fr}
+      .splitter{display:none}
+      .topbar,.toolbar{flex-direction:column;align-items:flex-start}
+      .student-grid{grid-template-columns:1fr}
+    }
+  </style>
+  <link rel="stylesheet" href="design-system.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">LSC</div>
+        <div>
+          <h1>Simulatore Shell Windows • PRO</h1>
+          <p>Verifica guidata con terminale simulato, consegne HTML/JSON, modalità verifica e integrazione con parametri della piattaforma.</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <span class="chip" id="chipClass">Classe: generica</span>
+        <span class="chip" id="chipDate">Data: -</span>
+        <span class="chip" id="chipMode">Modalità: libera</span>
+      </div>
+    </header>
+
+    <aside class="panel sidebar">
+      <div class="sidebar-head">
+        <h2>Simulatore Shell Windows</h2>
+        <p>Compatibile con caricamento da JSON, selezione esercizio, correzione automatica e consegna finale.</p>
+        <div id="verifyBanner" class="verify-banner hidden">Modalità verifica attiva: cambio esercizio bloccato dopo il primo comando utile, copia/incolla disabilitati, timer vincolante.</div>
+      </div>
+
+      <div class="meta">
+        <div class="meta-card student-box">
+          <span class="label">Studente</span>
+          <div class="student-grid">
+            <input id="studentName" type="text" placeholder="Nome" />
+            <input id="studentSurname" type="text" placeholder="Cognome" />
+            <input id="studentClass" type="text" placeholder="Classe" />
+          </div>
+        </div>
+        <div class="meta-card">
+          <span class="label">Tempo residuo</span>
+          <div class="value" id="timer">60:00</div>
+        </div>
+        <div class="meta-card">
+          <span class="label">Punteggio</span>
+          <div class="value"><span id="score">0</span>/<span id="scoreMax">30</span></div>
+        </div>
+      </div>
+
+      <div class="exercise-list" id="exerciseList"></div>
+
+      <div class="sidebar-foot">
+        Lo stato viene salvato nel browser. Le consegne possono essere esportate in HTML e JSON. In modalità verifica, l’uscita dalla pagina mostra un avviso.
+      </div>
+    </aside>
+
+    <main class="panel main">
+      <div class="toolbar">
+        <div class="title-wrap">
+          <h2 id="exerciseTitle">Caricamento esercizio...</h2>
+          <p id="exerciseSubtitle">Ambiente Windows Command Prompt simulato</p>
+        </div>
+        <div class="toolbar-actions">
+          <span class="status-pill warning" id="globalStatus">Pronto</span>
+          <button id="btnTheme">Tema chiaro</button>
+          <button id="btnMode">Modalità verifica</button>
+          <button id="btnRun" class="primary">Esegui</button>
+          <button id="btnCheck" class="success">Correggi esercizio</button>
+          <button id="btnConsegnaHtml">Consegna HTML</button>
+          <button id="btnConsegnaJson">Consegna JSON</button>
+          <button id="btnResetExercise" class="danger">Reset esercizio</button>
+        </div>
+      </div>
+
+      <div class="workspace" id="workspaceGrid">
+        <section class="card">
+          <div class="card-head">
+            <h3>Consegna</h3>
+            <span class="muted" id="exercisePoints">0 punti</span>
+          </div>
+          <div class="card-body">
+            <div class="exercise-text" id="exerciseText"></div>
+          </div>
+        </section>
+
+        <div class="splitter" id="workspaceSplitter"></div>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Terminale cmd simulato</h3>
+            <span class="muted" id="cwdLabel">C:\Users\Studente&gt;</span>
+          </div>
+          <div class="card-body">
+            <div class="terminal">
+              <div class="terminal-output" id="terminalOutput"></div>
+              <div class="terminal-input-row">
+                <span class="prompt" id="prompt">C:\Users\Studente&gt;</span>
+                <input id="terminalInput" class="terminal-input" type="text" autocomplete="off" spellcheck="false" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="results" id="resultsGrid">
+        <div class="result-box">
+          <span class="label">Esito correzione</span>
+          <div class="value" id="checkResult">Nessuna correzione eseguita.</div>
+        </div>
+        <div class="splitter" id="resultsSplitter1"></div>
+        <div class="result-box">
+          <span class="label">Storico comandi</span>
+          <div class="value" id="historyInfo">0 comandi eseguiti</div>
+        </div>
+        <div class="splitter" id="resultsSplitter2"></div>
+        <div class="result-box">
+          <span class="label">Note del sistema</span>
+          <div class="value" id="systemNote">Seleziona un esercizio e lavora dal prompt.</div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'classe_shell_windows_pro_v1';
+    const params = new URLSearchParams(location.search);
+    const platformClass = params.get('classe') || 'generica';
+    const platformDate = params.get('data') || new Date().toISOString().slice(0,10);
+    const jsonConfigUrl = params.get('config') || params.get('json') || '';
+
+    const DEFAULT_EXERCISES = [
+      {
+        id:'ex1',
+        title:'Esercizio 1 - Struttura cartelle e file',
+        subtitle:'Creazione directory, navigazione e redirezione output',
+        points:10,
+        initialCwd:'C:\\Users\\Studente',
+        text:`Realizza in ambiente Windows la seguente struttura a partire dalla cartella corrente:\n\nC:\\Users\\Studente\\Esercizio\\\n    ├── Test\\\n    └── Dati\\\n\nSuccessivamente entra nella cartella Test e crea un file chiamato prova.txt contenente esattamente la scritta:\n\nVerifica Informatica`,
+        check(state){
+          const fs=state.fs;
+          const base='C:\\Users\\Studente\\Esercizio', test=base+'\\Test', dati=base+'\\Dati', file=test+'\\prova.txt';
+          const errors=[];
+          if(!fs.dirs[base]) errors.push('Manca la cartella Esercizio.');
+          if(!fs.dirs[test]) errors.push('Manca la cartella Test.');
+          if(!fs.dirs[dati]) errors.push('Manca la cartella Dati.');
+          if(!fs.files[file]) errors.push('Manca il file prova.txt.');
+          if(fs.files[file] && fs.files[file].trim()!=='Verifica Informatica') errors.push('Il contenuto di prova.txt non è corretto.');
+          return scoreFromErrors(errors,10,'Struttura corretta: cartelle e file creati correttamente.');
+        }
+      },
+      {
+        id:'ex2',
+        title:'Esercizio 2 - Pipeline con dir e find',
+        subtitle:'Filtraggio dei file .txt nella cartella corrente',
+        points:8,
+        initialCwd:'C:\\Users\\Studente\\Archivio',
+        setup(state){
+          ensureDir(state.fs,'C:\\Users\\Studente\\Archivio');
+          writeFile(state.fs,'C:\\Users\\Studente\\Archivio\\appunti.txt','A');
+          writeFile(state.fs,'C:\\Users\\Studente\\Archivio\\schema.doc','B');
+          writeFile(state.fs,'C:\\Users\\Studente\\Archivio\\verifica.txt','C');
+          writeFile(state.fs,'C:\\Users\\Studente\\Archivio\\dati.csv','D');
+        },
+        text:`Nella cartella corrente sono già presenti alcuni file.\n\nObiettivo: mostrare dal prompt soltanto i file con estensione .txt usando una pipeline di comandi di Windows cmd.`,
+        check(state){
+          const last=findLastMeaningfulCommand(state.commandHistory); const errors=[];
+          if(!last) errors.push('Non risulta alcun comando utile eseguito.');
+          if(last && !last.includes('|')) errors.push('Non è stata usata una pipeline con il simbolo |.');
+          if(last && !/\bdir\b/i.test(last)) errors.push('Manca il comando dir.');
+          if(last && !/\bfind\b/i.test(last)) errors.push('Manca il comando find.');
+          if(last && !/\.txt/i.test(last)) errors.push('Il filtro non riguarda l’estensione .txt.');
+          return scoreFromErrors(errors,8,'Pipeline corretta: dir, pipe e find usati correttamente.');
+        }
+      },
+      {
+        id:'ex3',
+        title:'Esercizio 3 - Gestione processi',
+        subtitle:'Visualizzare i processi e chiudere Blocco Note',
+        points:6,
+        initialCwd:'C:\\Users\\Studente',
+        setup(state){
+          state.processes=[{name:'explorer.exe',pid:1884},{name:'notepad.exe',pid:4240},{name:'chrome.exe',pid:9020},{name:'cmd.exe',pid:6012}];
+        },
+        text:`Visualizza l'elenco dei processi attivi e poi termina il processo relativo al Blocco Note.\n\nLa prova è considerata corretta se nello storico compare prima un comando di visualizzazione dei processi e poi un comando coerente di chiusura di notepad.exe.`,
+        check(state){
+          const hist=state.commandHistory.map(x=>x.trim().toLowerCase()); const errors=[];
+          if(!hist.some(cmd=>cmd==='tasklist')) errors.push('Non è stato eseguito tasklist.');
+          if(!hist.some(cmd=>/^taskkill\s+\/im\s+notepad\.exe$/i.test(cmd))) errors.push('Non è stato eseguito correttamente taskkill /IM notepad.exe.');
+          if(state.processes.some(p=>p.name.toLowerCase()==='notepad.exe')) errors.push('Il processo notepad.exe risulta ancora attivo nel simulatore.');
+          return scoreFromErrors(errors,6,'Gestione processi corretta: elenco richiesto e chiusura riuscita.');
+        }
+      },
+      {
+        id:'ex4',
+        title:'Esercizio 4 - Script batch e salvataggio elenco',
+        subtitle:'Automazione con file .bat e redirezione verso lista.txt',
+        points:6,
+        initialCwd:'C:\\Users\\Studente\\Script',
+        setup(state){
+          ensureDir(state.fs,'C:\\Users\\Studente\\Script');
+          writeFile(state.fs,'C:\\Users\\Studente\\Script\\uno.txt','1');
+          writeFile(state.fs,'C:\\Users\\Studente\\Script\\due.txt','2');
+          writeFile(state.fs,'C:\\Users\\Studente\\Script\\tre.log','3');
+          writeFile(state.fs,'C:\\Users\\Studente\\Script\\quattro.txt','4');
+        },
+        text:`Nella cartella corrente sono già presenti alcuni file.\n\nObiettivo: creare dal prompt un file batch chiamato elenco.bat che, se eseguito, produca un file lista.txt contenente l'elenco dei file .txt presenti nella cartella corrente.\n\nNel simulatore è sufficiente creare il file batch con una riga di comando corretta e poi lanciarlo.`,
+        check(state){
+          const batPath='C:\\Users\\Studente\\Script\\elenco.bat';
+          const listPath='C:\\Users\\Studente\\Script\\lista.txt';
+          const bat=state.fs.files[batPath] || '';
+          const list=state.fs.files[listPath] || '';
+          const errors=[];
+          if(!bat) errors.push('Manca il file elenco.bat.');
+          if(bat && !/dir\s+\*\.txt\s*>\s*lista\.txt/i.test(bat)) errors.push('Il contenuto di elenco.bat non è coerente con la consegna.');
+          if(!list) errors.push('Il file lista.txt non è stato generato.');
+          if(list && !/uno\.txt/i.test(list)) errors.push('lista.txt non contiene i file attesi.');
+          return scoreFromErrors(errors,6,'Script batch corretto: elenco.bat creato ed eseguito con produzione di lista.txt.');
+        }
+      }
+    ];
+
+    function initialFS(){ return { dirs:{'C:\\':true,'C:\\Users':true,'C:\\Users\\Studente':true}, files:{} }; }
+    function scoreFromErrors(errors,max,msg){ return {ok:errors.length===0, score: errors.length===0?max:Math.max(0,max-errors.length*2), message: errors.length===0?msg:errors.join(' ')}; }
+
+    const defaultState = () => ({
+      exercises: DEFAULT_EXERCISES,
+      currentExerciseId: (params.get('exerciseId') || DEFAULT_EXERCISES[0].id),
+      timeLeft: Number(params.get('minutes') || 60) * 60,
+      totalSeconds: Number(params.get('minutes') || 60) * 60,
+      scoreByExercise: {},
+      feedbackByExercise: {},
+      commandHistory: [],
+      fs: initialFS(),
+      cwd: 'C:\\Users\\Studente',
+      processes: [],
+      student: {name:'',surname:'',className:platformClass},
+      examStartedAt: null,
+      examFinishedAt: null,
+      theme: 'dark',
+      verifyMode: params.get('mode') === 'verify',
+      exerciseLocked: false,
+      delivered: false,
+      deliveryRegistry: []
+    });
+
+    let state = loadState();
+    let EXERCISES = state.exercises || DEFAULT_EXERCISES;
+    let currentExercise = null;
+    let historyIndex = -1;
+
+    const els = {
+      timer: document.getElementById('timer'),
+      score: document.getElementById('score'),
+      scoreMax: document.getElementById('scoreMax'),
+      exerciseList: document.getElementById('exerciseList'),
+      exerciseTitle: document.getElementById('exerciseTitle'),
+      exerciseSubtitle: document.getElementById('exerciseSubtitle'),
+      exerciseText: document.getElementById('exerciseText'),
+      exercisePoints: document.getElementById('exercisePoints'),
+      terminalOutput: document.getElementById('terminalOutput'),
+      terminalInput: document.getElementById('terminalInput'),
+      prompt: document.getElementById('prompt'),
+      cwdLabel: document.getElementById('cwdLabel'),
+      checkResult: document.getElementById('checkResult'),
+      historyInfo: document.getElementById('historyInfo'),
+      systemNote: document.getElementById('systemNote'),
+      globalStatus: document.getElementById('globalStatus'),
+      btnRun: document.getElementById('btnRun'),
+      btnCheck: document.getElementById('btnCheck'),
+      btnResetExercise: document.getElementById('btnResetExercise'),
+      btnConsegnaHtml: document.getElementById('btnConsegnaHtml'),
+      btnConsegnaJson: document.getElementById('btnConsegnaJson'),
+      btnTheme: document.getElementById('btnTheme'),
+      btnMode: document.getElementById('btnMode'),
+      studentName: document.getElementById('studentName'),
+      studentSurname: document.getElementById('studentSurname'),
+      studentClass: document.getElementById('studentClass'),
+      workspaceGrid: document.getElementById('workspaceGrid'),
+      workspaceSplitter: document.getElementById('workspaceSplitter'),
+      resultsGrid: document.getElementById('resultsGrid'),
+      resultsSplitter1: document.getElementById('resultsSplitter1'),
+      resultsSplitter2: document.getElementById('resultsSplitter2'),
+      verifyBanner: document.getElementById('verifyBanner'),
+      chipClass: document.getElementById('chipClass'),
+      chipDate: document.getElementById('chipDate'),
+      chipMode: document.getElementById('chipMode')
+    };
+
+    function loadState(){
+      try{
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : defaultState();
+      }catch{
+        return defaultState();
+      }
+    }
+    function saveState(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+
+    function formatDateTime(date){
+      if(!date) return '-';
+      const d=new Date(date), p=n=>String(n).padStart(2,'0');
+      return `${p(d.getDate())}/${p(d.getMonth()+1)}/${d.getFullYear()} ${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
+    }
+    function formatTimer(seconds){ const m=Math.floor(seconds/60), s=seconds%60; return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`; }
+    function escapeHtml(str){ return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
+    function normalizePath(path){ return path.replace(/\\+/g,'\\').replace(/\\$/,'').replace(/^([A-Z]:)$/i,'$1\\'); }
+    function splitPath(path){ return normalizePath(path).split('\\').filter(Boolean); }
+    function parentPath(path){ const p=normalizePath(path); const parts=splitPath(p); if(parts.length<=1) return p; return parts.slice(0,-1).join('\\').replace(/^C:$/,'C:\\'); }
+    function basename(path){ const parts=splitPath(path); return parts[parts.length-1] || path; }
+    function ensureDir(fs,path){ path=normalizePath(path); const parts=splitPath(path); let cur=''; for(let i=0;i<parts.length;i++){ cur=i===0?parts[i]+'\\':normalizePath(cur+'\\'+parts[i]); fs.dirs[cur]=true; } }
+    function writeFile(fs,path,content){ path=normalizePath(path); ensureDir(fs,parentPath(path)); fs.files[path]=content; }
+    function resolvePath(inputPath){
+      if(!inputPath || !inputPath.trim()) return state.cwd;
+      const trimmed=inputPath.trim().replace(/\//g,'\\');
+      if(/^[A-Za-z]:\\/.test(trimmed)) return normalizePath(trimmed);
+      if(/^[A-Za-z]:$/.test(trimmed)) return normalizePath(trimmed+'\\');
+      if(trimmed === '..') return parentPath(state.cwd);
+      if(trimmed.startsWith('..\\')) return normalizePath(parentPath(state.cwd)+'\\'+trimmed.slice(3));
+      return normalizePath(state.cwd+'\\'+trimmed);
+    }
+    function listDirectory(fs,path){
+      path=normalizePath(path); const dirs=[], files=[];
+      Object.keys(fs.dirs).forEach(d=>{ if(d!==path && parentPath(d)===path) dirs.push({name:basename(d),type:'DIR'}); });
+      Object.keys(fs.files).forEach(f=>{ if(parentPath(f)===path) files.push({name:basename(f),type:'FILE'}); });
+      return [...dirs.sort((a,b)=>a.name.localeCompare(b.name)), ...files.sort((a,b)=>a.name.localeCompare(b.name))];
+    }
+    function matchWildcard(name, pattern){ const esc=pattern.replace(/\./g,'\\.').replace(/\*/g,'.*'); return new RegExp(`^${esc}$`,'i').test(name); }
+    function findLastMeaningfulCommand(history){ for(let i=history.length-1;i>=0;i--){ const cmd=(history[i]||'').trim(); if(cmd) return cmd; } return ''; }
+
+    function print(text=''){ els.terminalOutput.textContent += text + '\n'; els.terminalOutput.scrollTop = els.terminalOutput.scrollHeight; }
+    function updatePrompt(){ const p = state.cwd + '>'; els.prompt.textContent = p; els.cwdLabel.textContent = p; }
+
+    function applyTheme(theme){
+      const t = theme === 'light' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+      state.theme = t;
+      els.btnTheme.textContent = t === 'light' ? 'Tema scuro' : 'Tema chiaro';
+      saveState();
+    }
+    function toggleTheme(){ applyTheme(state.theme === 'light' ? 'dark' : 'light'); }
+
+    function applyVerifyModeUI(){
+      const on = !!state.verifyMode;
+      els.verifyBanner.classList.toggle('hidden', !on);
+      els.btnMode.textContent = on ? 'Modalità libera' : 'Modalità verifica';
+      els.chipMode.textContent = 'Modalità: ' + (on ? 'verifica' : 'libera');
+    }
+    function toggleVerifyMode(){
+      if(state.exerciseLocked || state.commandHistory.length>0){
+        els.systemNote.textContent = 'La modalità non può essere cambiata dopo l’avvio operativo della prova.';
+        return;
+      }
+      state.verifyMode = !state.verifyMode;
+      applyVerifyModeUI();
+      saveState();
+    }
+    function lockExerciseIfNeeded(){
+      if(state.verifyMode && !state.exerciseLocked){
+        state.exerciseLocked = true;
+        saveState();
+        renderExercises();
+      }
+    }
+
+    function updateHeaderChips(){
+      els.chipClass.textContent = 'Classe: ' + (state.student.className || platformClass);
+      els.chipDate.textContent = 'Data: ' + platformDate;
+      applyVerifyModeUI();
+    }
+
+    function renderExercises(){
+      els.exerciseList.innerHTML='';
+      EXERCISES.forEach(ex=>{
+        const btn=document.createElement('button');
+        const locked = state.verifyMode && state.exerciseLocked && state.currentExerciseId !== ex.id;
+        btn.className='exercise-btn' + (state.currentExerciseId===ex.id?' active':'') + (locked?' locked':'');
+        const obtained=state.scoreByExercise[ex.id] || 0;
+        btn.innerHTML=`<strong>${escapeHtml(ex.title)}</strong><span>${escapeHtml(ex.subtitle || '')}</span><span>Punti: ${obtained}/${ex.points}</span>`;
+        btn.addEventListener('click',()=>{
+          if(locked){ els.systemNote.textContent='In modalità verifica il cambio esercizio è bloccato dopo il primo comando.'; return; }
+          switchExercise(ex.id);
+        });
+        els.exerciseList.appendChild(btn);
+      });
+    }
+
+    function resetExerciseEnvironment(exercise){
+      state.fs = initialFS();
+      state.cwd = exercise.initialCwd || 'C:\\Users\\Studente';
+      state.commandHistory = [];
+      state.processes = [{name:'explorer.exe',pid:1884},{name:'cmd.exe',pid:6012}];
+      ensureDir(state.fs, state.cwd);
+      if(typeof exercise.setup === 'function') exercise.setup(state);
+      saveState();
+    }
+
+    function switchExercise(id){
+      state.currentExerciseId = id;
+      currentExercise = EXERCISES.find(ex=>ex.id===id) || EXERCISES[0];
+      resetExerciseEnvironment(currentExercise);
+      renderCurrentExercise();
+      printBanner();
+      renderExercises();
+    }
+
+    function renderCurrentExercise(){
+      currentExercise = EXERCISES.find(ex=>ex.id===state.currentExerciseId) || EXERCISES[0];
+      els.exerciseTitle.textContent = currentExercise.title;
+      els.exerciseSubtitle.textContent = currentExercise.subtitle || '';
+      els.exerciseText.textContent = currentExercise.text;
+      els.exercisePoints.textContent = `${currentExercise.points} punti`;
+      els.checkResult.innerHTML = state.feedbackByExercise[currentExercise.id] || 'Nessuna correzione eseguita.';
+      els.studentName.value = state.student?.name || '';
+      els.studentSurname.value = state.student?.surname || '';
+      els.studentClass.value = state.student?.className || '';
+      els.terminalOutput.textContent = '';
+      updatePrompt();
+      printBanner();
+      updateSummary();
+      renderExercises();
+      saveState();
+    }
+
+    function printBanner(){
+      print('Microsoft Windows [Versione simulata didattica]');
+      print('(c) Simulatore didattico per esercitazioni cmd');
+      print('');
+      print('Consegna attiva: ' + currentExercise.title);
+      print('Digita i comandi direttamente al prompt.');
+      if(state.verifyMode) print('Modalità verifica attiva.');
+      print('');
+    }
+
+    function updateSummary(){
+      const total = EXERCISES.reduce((sum,ex)=>sum+(state.scoreByExercise[ex.id] || 0),0);
+      const max = EXERCISES.reduce((sum,ex)=>sum+ex.points,0);
+      els.score.textContent = total;
+      els.scoreMax.textContent = max;
+      els.timer.textContent = formatTimer(Math.max(0,state.timeLeft));
+      els.historyInfo.textContent = `${state.commandHistory.length} comandi eseguiti`;
+      els.systemNote.textContent = `Directory corrente: ${state.cwd} · Inizio prova: ${formatDateTime(state.examStartedAt)} · Fine prova: ${formatDateTime(state.examFinishedAt)} · Consegne salvate: ${state.deliveryRegistry.length}`;
+      const allDone = EXERCISES.every(ex=>(state.scoreByExercise[ex.id]||0) >= ex.points);
+      els.globalStatus.textContent = state.delivered ? 'Consegna effettuata' : (allDone ? 'Verifica completata' : 'Pronto');
+      els.globalStatus.className = 'status-pill' + ((state.delivered || allDone) ? '' : ' warning');
+      updateHeaderChips();
+      updatePrompt();
+    }
+
+    function startTimer(){
+      els.timer.textContent = formatTimer(state.timeLeft);
+      setInterval(()=>{
+        if(state.timeLeft > 0 && !state.delivered){
+          state.timeLeft -= 1;
+          els.timer.textContent = formatTimer(state.timeLeft);
+          if(state.timeLeft <= 0){
+            state.timeLeft = 0;
+            state.examFinishedAt = new Date().toISOString();
+            els.systemNote.textContent = 'Tempo scaduto: consegna ancora possibile ma prova bloccata.';
+            lockAllActionsExceptDelivery();
+          }
+          saveState();
+        }
+      },1000);
+    }
+
+    function lockAllActionsExceptDelivery(){
+      els.btnRun.disabled = true;
+      els.btnCheck.disabled = true;
+      els.btnResetExercise.disabled = true;
+      els.terminalInput.disabled = true;
+    }
+
+    function unlockActionsIfAllowed(){
+      const locked = state.delivered || state.timeLeft<=0;
+      els.btnRun.disabled = locked;
+      els.btnCheck.disabled = locked;
+      els.btnResetExercise.disabled = locked;
+      els.terminalInput.disabled = locked;
+    }
+
+    function handleDir(arg){
+      let targetPath = state.cwd, filter = null;
+      const trimmed = (arg||'').trim();
+      if(trimmed && trimmed !== '.'){ if(trimmed.includes('*')) filter = trimmed; else targetPath = resolvePath(trimmed); }
+      if(!state.fs.dirs[targetPath]){ print('File o directory non trovato.'); return; }
+      const items = listDirectory(state.fs, targetPath);
+      print(` Directory di ${targetPath}`); print('');
+      items.forEach(item => {
+        if(filter && !matchWildcard(item.name, filter)) return;
+        print(item.type==='DIR' ? `    <DIR>          ${item.name}` : `                   ${item.name}`);
+      });
+      print('');
+    }
+
+    function handleEcho(command){
+      const rest = command.replace(/^echo\s+/i, '');
+      let idxAppend = rest.lastIndexOf('>>');
+      let idxWrite = rest.lastIndexOf('>');
+      let idx = -1, op = null;
+      if(idxAppend > idxWrite){ idx = idxAppend; op='>>'; }
+      else if(idxWrite !== -1){ idx = idxWrite; op='>'; }
+      if(idx !== -1){
+        const content = rest.slice(0, idx).trim().replace(/\^>/g,'>').replace(/^"(.*)"$/s,'$1');
+        const target = rest.slice(idx + op.length).trim().replace(/^"(.*)"$/s,'$1');
+        const path = resolvePath(target);
+        const prev = state.fs.files[path] || '';
+        writeFile(state.fs, path, op === '>>' ? prev + (prev ? '\n' : '') + content : content);
+        print('');
+        return;
+      }
+      print(rest.replace(/\^>/g,'>').replace(/^"(.*)"$/s,'$1'));
+    }
+
+    function evaluateCommand(command){
+      if(/^dir(\s+.*)?$/i.test(command)){
+        const arg = command.replace(/^dir/i,'').trim();
+        let targetPath = state.cwd, filter = null;
+        if(arg){ if(arg.includes('*')) filter = arg; else targetPath = resolvePath(arg); }
+        if(!state.fs.dirs[targetPath]) return ['File o directory non trovato.'];
+        return listDirectory(state.fs, targetPath)
+          .filter(item => !filter || matchWildcard(item.name, filter))
+          .map(item => item.name);
+      }
+      return [`Comando ${command} non supportato in pipe.`];
+    }
+    function evaluateFilter(command, lines){
+      const countMatch = command.match(/^find\s+\/c\s+"(.+)"$/i);
+      if(countMatch){ const needle=countMatch[1].toLowerCase(); return [String(lines.filter(line=>line.toLowerCase().includes(needle)).length)]; }
+      const findMatch = command.match(/^find\s+"(.+)"$/i);
+      if(findMatch){ const needle=findMatch[1].toLowerCase(); return lines.filter(line=>line.toLowerCase().includes(needle)); }
+      return ['Filtro non supportato nella pipeline.'];
+    }
+    function handlePipeline(command){
+      const parts = command.split('|').map(s=>s.trim());
+      if(parts.length !== 2){ print('Pipeline non supportata in questa simulazione.'); return; }
+      const leftOutput = evaluateCommand(parts[0]);
+      const filtered = evaluateFilter(parts[1], leftOutput);
+      filtered.forEach(line=>print(line));
+      if(filtered.length===0) print('Nessun risultato.');
+    }
+    function runBatch(path){
+      const content = state.fs.files[path];
+      if(content == null){ print('Impossibile trovare il file batch specificato.'); return; }
+      const lines = content.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+      lines.forEach(line=>{
+        if(/^@echo off$/i.test(line)) return;
+        if(/^dir\s+\*\.txt\s*>\s*lista\.txt$/i.test(line)){
+          const items = listDirectory(state.fs, state.cwd).filter(x=>x.type==='FILE' && /\.txt$/i.test(x.name)).map(x=>x.name).join('\n');
+          writeFile(state.fs, resolvePath('lista.txt'), items);
+          print('Script eseguito: lista.txt creato.');
+        } else {
+          handleCommand(line, true);
+        }
+      });
+    }
+
+    function handleCommand(raw, nested=false){
+      const command = raw.trim();
+      if(!nested) print(`${state.cwd}>${raw}`);
+      if(!command){ print(''); return; }
+
+      if(!state.examStartedAt) state.examStartedAt = new Date().toISOString();
+      lockExerciseIfNeeded();
+      state.commandHistory.push(command);
+      historyIndex = state.commandHistory.length;
+
+      if(command.includes('|')){ handlePipeline(command); saveState(); updateSummary(); return; }
+
+      if(/^mkdir\s+/i.test(command)){
+        ensureDir(state.fs, resolvePath(command.replace(/^mkdir\s+/i,''))); print('');
+      }else if(/^cd\s+/i.test(command)){
+        const target = resolvePath(command.replace(/^cd\s+/i,''));
+        if(state.fs.dirs[target]) state.cwd = target; else print('Il percorso specificato non esiste.');
+      }else if(/^dir(\s+.*)?$/i.test(command)){
+        handleDir(command.replace(/^dir/i,''));
+      }else if(/^echo\s+/i.test(command)){
+        handleEcho(command);
+      }else if(/^type\s+/i.test(command)){
+        const filePath = resolvePath(command.replace(/^type\s+/i,''));
+        if(state.fs.files[filePath] != null) print(state.fs.files[filePath]); else print('Impossibile trovare il file specificato.');
+      }else if(/^tasklist$/i.test(command)){
+        print('Nome immagine                 PID');
+        state.processes.forEach(p=>print(`${p.name.padEnd(28,' ')} ${String(p.pid).padStart(5,' ')}`));
+      }else if(/^taskkill\s+\/im\s+/i.test(command)){
+        const procName = command.replace(/^taskkill\s+\/im\s+/i,'').trim().toLowerCase();
+        const before = state.processes.length;
+        state.processes = state.processes.filter(p=>p.name.toLowerCase() !== procName);
+        print(state.processes.length < before ? `SUCCESS: processo ${procName} terminato.` : `ERRORE: processo ${procName} non trovato.`);
+      }else if(/^[^\s]+\.bat$/i.test(command)){
+        runBatch(resolvePath(command));
+      }else{
+        print(`'${command}' non è riconosciuto come comando interno o esterno.`);
+      }
+      updatePrompt(); saveState(); updateSummary();
+    }
+
+    function checkExercise(){
+      const result = currentExercise.check(state);
+      state.scoreByExercise[currentExercise.id] = Math.max(state.scoreByExercise[currentExercise.id] || 0, result.score);
+      state.feedbackByExercise[currentExercise.id] = result.ok ? `<span class="ok">✔ ${result.message}</span>` : `<span class="ko">✖ ${result.message}</span>`;
+      els.checkResult.innerHTML = state.feedbackByExercise[currentExercise.id];
+      saveState(); renderExercises(); updateSummary();
+    }
+
+    function resetCurrentExercise(){
+      if(state.verifyMode && state.exerciseLocked){
+        els.systemNote.textContent = 'In modalità verifica il reset dell’esercizio non è consentito dopo l’avvio.';
+        return;
+      }
+      resetExerciseEnvironment(currentExercise);
+      state.feedbackByExercise[currentExercise.id] = 'Esercizio ripristinato. Puoi ricominciare dal prompt.';
+      renderCurrentExercise();
+    }
+
+    function buildDeliveryPayload(type){
+      const ex = currentExercise;
+      if(!state.student?.name || !state.student?.surname || !state.student?.className){
+        els.systemNote.textContent = 'Compila nome, cognome e classe prima della consegna.';
+        return null;
+      }
+      if(!state.examStartedAt) state.examStartedAt = new Date().toISOString();
+      state.examFinishedAt = new Date().toISOString();
+      const payload = {
+        versione:'1.0',
+        formato:type,
+        studente:{ nome:state.student.name, cognome:state.student.surname, classe:state.student.className },
+        piattaforma:{ classe:platformClass, data:platformDate, mode:state.verifyMode ? 'verify' : 'free', config: jsonConfigUrl || null },
+        esercizio:{ id:ex.id, titolo:ex.title, puntiMassimi:ex.points, puntiOttenuti:state.scoreByExercise[ex.id] || 0 },
+        prova:{ inizio:state.examStartedAt, fine:state.examFinishedAt, tempoResiduo:state.timeLeft, consegnata:true },
+        ambiente:{ cwd:state.cwd, files:state.fs.files, dirs:Object.keys(state.fs.dirs), processes:state.processes },
+        comandi:[...state.commandHistory],
+        esito:state.feedbackByExercise[ex.id] || 'Nessuna correzione disponibile.'
+      };
+      return payload;
+    }
+
+    function downloadFile(name, content, type){
+      const blob = new Blob([content], {type});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = name;
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(()=>URL.revokeObjectURL(url), 1000);
+    }
+
+    function saveDeliveryRegistry(payload){
+      state.deliveryRegistry.push({
+        when:new Date().toISOString(),
+        exerciseId:payload.esercizio.id,
+        student:`${payload.studente.nome} ${payload.studente.cognome}`.trim(),
+        score:payload.esercizio.puntiOttenuti,
+        mode:payload.piattaforma.mode
+      });
+      saveState();
+      try{
+        localStorage.setItem(STORAGE_KEY + ':deliveries', JSON.stringify(state.deliveryRegistry));
+      }catch{}
+    }
+
+    function deliverHTML(){
+      const payload = buildDeliveryPayload('html'); if(!payload) return;
+      const html = `<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8"><title>Consegna ${escapeHtml(payload.esercizio.titolo)}</title><style>
+      body{font-family:Segoe UI,Arial,sans-serif;margin:32px;color:#122033;line-height:1.55;background:#f7f9fc}
+      h1,h2{color:#10203a} .box{background:#fff;border:1px solid #dbe3ef;border-radius:12px;padding:16px;margin-bottom:18px}
+      pre{white-space:pre-wrap;background:#0f172a;color:#eef4ff;padding:14px;border-radius:10px;overflow:auto}
+      code{background:#eff4fb;padding:2px 4px;border-radius:6px}
+      </style></head><body>
+      <h1>Consegna esercizio - Simulatore Shell Windows</h1>
+      <div class="box"><strong>Studente:</strong> ${escapeHtml(payload.studente.nome)} ${escapeHtml(payload.studente.cognome)}<br><strong>Classe:</strong> ${escapeHtml(payload.studente.classe)}<br><strong>Esercizio:</strong> ${escapeHtml(payload.esercizio.titolo)}<br><strong>Punteggio:</strong> ${payload.esercizio.puntiOttenuti}/${payload.esercizio.puntiMassimi}<br><strong>Inizio prova:</strong> ${escapeHtml(formatDateTime(payload.prova.inizio))}<br><strong>Fine prova:</strong> ${escapeHtml(formatDateTime(payload.prova.fine))}<br><strong>Tempo residuo:</strong> ${escapeHtml(formatTimer(payload.prova.tempoResiduo))}</div>
+      <div class="box"><h2>Comandi eseguiti</h2><pre>${escapeHtml(payload.comandi.join('\n') || 'Nessun comando eseguito.')}</pre></div>
+      <div class="box"><h2>File presenti</h2><pre>${escapeHtml(Object.keys(payload.ambiente.files).map(k=>k + ' => ' + payload.ambiente.files[k]).join('\n\n') || 'Nessun file.')}</pre></div>
+      <div class="box"><h2>Esito correzione</h2>${payload.esito}</div></body></html>`;
+      downloadFile(`consegna_${payload.esercizio.id}.html`, html, 'text/html;charset=utf-8');
+      finalizeDelivery(payload, 'Consegna HTML generata correttamente.');
+    }
+    function deliverJSON(){
+      const payload = buildDeliveryPayload('json'); if(!payload) return;
+      downloadFile(`consegna_${payload.esercizio.id}.json`, JSON.stringify(payload,null,2), 'application/json;charset=utf-8');
+      finalizeDelivery(payload, 'Consegna JSON generata correttamente.');
+    }
+    function finalizeDelivery(payload, note){
+      state.delivered = true;
+      saveDeliveryRegistry(payload);
+      lockAllActionsExceptDelivery();
+      updateSummary();
+      els.systemNote.textContent = note;
+    }
+
+    function initSplitter(grid, splitter, leftIndex, rightIndex, minLeft=220, minRight=220){
+      if(!grid || !splitter || window.innerWidth <= 1200) return;
+      let startX=0, startLeft=0, startRight=0;
+      const onMove = e => {
+        const dx=e.clientX-startX;
+        const newLeft=Math.max(minLeft,startLeft+dx);
+        const newRight=Math.max(minRight,startRight-dx);
+        const cols=getComputedStyle(grid).gridTemplateColumns.split(' ');
+        if(cols.length===3) grid.style.gridTemplateColumns=`${newLeft}px 10px ${newRight}px`;
+        else if(cols.length===5){
+          const arr=cols.slice(); arr[leftIndex]=`${newLeft}px`; arr[rightIndex]=`${newRight}px`; grid.style.gridTemplateColumns=arr.join(' ');
+        }
+      };
+      const onUp=()=>{document.removeEventListener('mousemove',onMove); document.removeEventListener('mouseup',onUp);};
+      splitter.addEventListener('mousedown', e=>{
+        const styles=getComputedStyle(grid).gridTemplateColumns.split(' ');
+        startX=e.clientX; startLeft=parseFloat(styles[leftIndex]); startRight=parseFloat(styles[rightIndex]);
+        document.addEventListener('mousemove',onMove); document.addEventListener('mouseup',onUp);
+      });
+    }
+
+    function startInterfaceFocus(){ setTimeout(()=>els.terminalInput.focus(),0); }
+
+    function bindProtection(){
+      const block = e => { if(state.verifyMode){ e.preventDefault(); return false; } };
+      ['copy','cut','paste','contextmenu','drop'].forEach(evt=>els.terminalInput.addEventListener(evt, block));
+      document.addEventListener('keydown', e=>{
+        if(state.verifyMode && (e.ctrlKey || e.metaKey) && ['c','v','x'].includes((e.key||'').toLowerCase())){ e.preventDefault(); }
+      });
+      window.addEventListener('beforeunload', e=>{
+        if(state.verifyMode && !state.delivered){
+          e.preventDefault();
+          e.returnValue = 'Verifica in corso.';
+        }
+      });
+    }
+
+    async function loadExternalExercises(){
+      if(!jsonConfigUrl) return;
+      try{
+        const res = await fetch(jsonConfigUrl);
+        if(!res.ok) throw new Error('config non raggiungibile');
+        const data = await res.json();
+        const items = Array.isArray(data) ? data : (data.exercises || data.esercizi || []);
+        if(!Array.isArray(items) || !items.length) return;
+        EXERCISES = items.map((item, idx)=>({
+          id:item.id || `ext${idx+1}`,
+          title:item.title || item.titolo || `Esercizio ${idx+1}`,
+          subtitle:item.subtitle || item.sottotitolo || '',
+          points:Number(item.points || item.punti || 6),
+          initialCwd:item.initialCwd || item.cwd || 'C:\\Users\\Studente',
+          text:item.text || item.traccia || 'Nessuna traccia disponibile.',
+          setup: item.setup ? new Function('state','ensureDir','writeFile', item.setup) : undefined,
+          check: item.check ? new Function('state','ensureDir','writeFile','scoreFromErrors','findLastMeaningfulCommand', item.check) :
+            (()=>({ok:true,score:Number(item.points || item.punti || 6),message:'Correzione esterna non definita: punteggio pieno assegnato.'}))
+        }));
+        state.exercises = EXERCISES;
+        if(!EXERCISES.find(x=>x.id===state.currentExerciseId)) state.currentExerciseId = EXERCISES[0].id;
+        saveState();
+      }catch(err){
+        console.warn(err);
+        els.systemNote.textContent = 'Configurazione JSON non caricata: uso esercizi interni.';
+      }
+    }
+
+    els.btnRun.addEventListener('click',()=>{ const value=els.terminalInput.value; els.terminalInput.value=''; handleCommand(value); startInterfaceFocus(); });
+    els.btnCheck.addEventListener('click',()=>{ checkExercise(); startInterfaceFocus(); });
+    els.btnResetExercise.addEventListener('click',()=>resetCurrentExercise());
+    els.btnConsegnaHtml.addEventListener('click',()=>deliverHTML());
+    els.btnConsegnaJson.addEventListener('click',()=>deliverJSON());
+    els.btnTheme.addEventListener('click',()=>toggleTheme());
+    els.btnMode.addEventListener('click',()=>toggleVerifyMode());
+
+    ['studentName','studentSurname','studentClass'].forEach(key=>{
+      els[key].addEventListener('input',()=>{
+        if(!state.examStartedAt) state.examStartedAt = new Date().toISOString();
+        state.student = { name:els.studentName.value.trim(), surname:els.studentSurname.value.trim(), className:els.studentClass.value.trim() };
+        saveState(); updateSummary();
+      });
+    });
+
+    els.terminalInput.addEventListener('keydown', ev=>{
+      if(ev.key==='Enter'){ ev.preventDefault(); els.btnRun.click(); }
+      else if(ev.key==='ArrowUp'){ ev.preventDefault(); if(!state.commandHistory.length) return; historyIndex=Math.max(0,historyIndex-1); els.terminalInput.value=state.commandHistory[historyIndex]||''; }
+      else if(ev.key==='ArrowDown'){ ev.preventDefault(); if(!state.commandHistory.length) return; historyIndex=Math.min(state.commandHistory.length,historyIndex+1); els.terminalInput.value=state.commandHistory[historyIndex]||''; }
+    });
+
+    (async function init(){
+      await loadExternalExercises();
+      if(!state.exercises) state.exercises = EXERCISES;
+      EXERCISES = state.exercises;
+      currentExercise = EXERCISES.find(ex=>ex.id===state.currentExerciseId) || EXERCISES[0];
+      if(!state.fs || !state.fs.dirs) state = defaultState();
+      if(!state.cwd) state.cwd = currentExercise.initialCwd;
+      if(!state.processes || !Array.isArray(state.processes)) state.processes = [];
+      if(!state.student) state.student = {name:'',surname:'',className:platformClass};
+      if(!state.examStartedAt) state.examStartedAt = new Date().toISOString();
+      if(!state.fs.dirs[currentExercise.initialCwd]) resetExerciseEnvironment(currentExercise);
+
+      applyTheme(state.theme || 'dark');
+      applyVerifyModeUI();
+      renderCurrentExercise();
+      updateHeaderChips();
+      initSplitter(els.workspaceGrid, els.workspaceSplitter, 0, 2, 300, 300);
+      initSplitter(els.resultsGrid, els.resultsSplitter1, 0, 2, 180, 180);
+      initSplitter(els.resultsGrid, els.resultsSplitter2, 2, 4, 180, 180);
+      startTimer();
+      unlockActionsIfAllowed();
+      bindProtection();
+      startInterfaceFocus();
+    })();
+  </script>
+</body>
+</html>

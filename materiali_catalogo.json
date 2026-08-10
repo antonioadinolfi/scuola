@@ -1,0 +1,31 @@
+[
+  {"classe": "Prima","titolo": "L'Informatica e il pensiero algoritmico","descrizione": "Hardware e Software.","tipo": "slide","file_path": "materiali/slide/Tibone_powerpoint_parte_1.pdf","target_page": "","ordine": 1,"attivo": true},
+  {"classe": "Prima","titolo": "La shell di Windows","descrizione": "Interfaccia a Linea di Comando.","tipo": "slide","file_path": "materiali/slide/Windows_Shell_Blueprint.pdf","target_page": "","ordine": 2,"attivo": true},
+  {"classe": "Prima","titolo": "Esercizio 1","descrizione": "Interfaccia a Linea di Comando.","tipo": "slide","file_path": "classe_CLI.html","target_page": "","ordine": 3,"attivo": true},
+  {"classe": "Prima","titolo": "Verifica MAggio 2026 - Generale","descrizione": "Hardware e Software","tipo": "esercizio","file_path": "materiali/verifiche/Verifica _Classe_1_Maggio_2026.bat","target_page": "","ordine": 3,"attivo": true},
+  {"classe": "Seconda","titolo": "Gli elementi base del linguaggio","descrizione": "Strutture selettive e iterative.","tipo": "slide","file_path": "materiali/slide/Tibone_powerpoint_parte_2.pdf","target_page": "","ordine": 1,"attivo": true},
+  {"classe": "Seconda","titolo": "Gli elementi base del linguaggio","descrizione": "Librerie di funzioni in Pyhton.","tipo": "slide","file_path": "materiali/slide/Tibone_powerpoint_parte_2.1.pdf","target_page": "","ordine": 1,"attivo": true},
+  {"classe": "Seconda","titolo": "Esercizio 1","descrizione": "Strutture iterative","tipo": "slide","file_path": "tracce/Seconde/Esercizio_10.pdf","target_page": "","ordine": 2,"attivo": true},
+  {"classe": "Seconda","titolo": "Esercizio 2","descrizione": "Uso della libreria random.","tipo": "slide","file_path": "tracce/Seconde/Esercizio_20.pdf","target_page": "","ordine": 3,"attivo": true},
+  {"classe": "Seconda","titolo": "Esercizio 3","descrizione": "Uso della libreria turtle.","tipo": "slide","file_path": "tracce/Seconde/Esercizio_30.pdf","target_page": "","ordine": 3,"attivo": true},
+  {"classe": "Seconda","titolo": "Esercizio 4","descrizione": "Uso del foglio Excel.","tipo": "slide","file_path": "tracce/Seconde/Esercizio_40.pdf","target_page": "","ordine": 3,"attivo": true},
+  {"classe": "Seconda","titolo": "Esercizio 5","descrizione": "Uso della libreria random.","tipo": "slide","file_path": "tracce/Seconde/Esercizio_II_13052026.pdf","target_page": "","ordine": 3,"attivo": true},
+  {"classe": "Seconda","titolo": "Verifica MAggio 2026 - Generale","descrizione": "Python - strutture di controllo","tipo": "esercizio","file_path": "materiali/verifiche/Verifica _Classe_2_Maggio_2026.bat","target_page": "","ordine": 3,"attivo": true},
+  {"classe": "Terza","titolo": "Le strutture dati complesse","descrizione": "Liste, Tuple, Set e Dizionari","tipo": "slide","file_path": "materiali/slide/Tibone_powerpoint_parte_3.pdf","target_page": "","ordine": 1,"attivo": true},
+  {"classe": "Terza","titolo": "Gestione dei file in Python","descrizione": "File","tipo": "slide","file_path": "materiali/slide/Python_File_Handling.pdf","target_page": "","ordine": 1,"attivo": true},
+  {"classe": "Terza","titolo": "Esercizio 19","descrizione": "","tipo": "slide","file_path": "tracce/Terze/Esercizio_19.pdf","target_page": "","ordine": 2,"attivo": true},
+  {"classe": "Terza","titolo": "Esercizio 20","descrizione": "","tipo": "slide","file_path": "tracce/Terze/Esercizio_20.pdf","target_page": "","ordine": 3,"attivo": true},
+  {"classe": "Terza","titolo": "Esercizio 21","descrizione": "","tipo": "slide","file_path": "tracce/Terze/Esercizio_21.pdf","target_page": "","ordine": 3,"attivo": true},
+  {"classe": "Terza","titolo": "Verifica Maggio 2026 -File","descrizione": "","tipo": "slide","file_path": "materiali/verifiche/Verifica _Classe_3_Maggio_2026.bat","target_page": "","ordine": 3,"attivo": true},
+  {"classe": "Quarta","titolo": "Esercizio 1","descrizione": "","tipo": "slide","file_path": "tracce/Quarte/Esercizio_15.pdf","target_page": "","ordine": 2,"attivo": true},
+  {"classe": "Quarta","titolo": "Introduzione ai database","descrizione": "Normalizzazione e progettazione concettuale.","tipo": "slide","file_path": "materiali/slide/Introduzione_ai_Database_Relazionali.pdf","target_page": "","ordine": 1,"attivo": true},
+  {"classe": "Quarta","titolo": "Esercizio 2 - Automotosprint","descrizione": "Automotosprint","tipo": "slide","file_path": "https://script.google.com/a/macros/lscortese.com/s/AKfycbykAiMBwrsFhAVtJTpF7kTSpiQlF08WNVjydA1GesRUhI4X5oNi0T43_xGzwZwgBXVvEw/exec","target_page": "","ordine": 1,"attivo": true},
+  {"classe": "Quarta","titolo": "Esercizio 3 - PrenotazioneVolo","descrizione": "PrenotazioneVolo","tipo": "slide","file_path": "https://script.google.com/macros/s/AKfycbzG7iU1Udt3WRviniKdAiulmviP7KM_pzU2Oof_A03ZRnw1YfaON5gsmMSQgKbYBF2j/exec","target_page": "","ordine": 1,"attivo": true},
+  {"classe": "Quarta","titolo": "Esercizio 4 - OrdiniImpiegati","descrizione": "Ordini aziendali","tipo": "esercizio","file_path": "https://script.google.com/a/macros/lscortese.com/s/AKfycbxr2hGSWjLdMqBPgF1N4Tij2O9hj9X1LCN6XfjYzx_y2EOcNcagxTGvBvUMyYQz1hfx/exec","target_page": "","ordine": 1,"attivo": true},
+  {"classe": "Quarta","titolo": "Verifica Maggio 2026 - SQL","descrizione": "database","tipo": "esercizio","file_path": "materiali/verifiche/Verifica _Classe_4_Maggio_2026.bat","target_page": "","ordine": 1,"attivo": true},
+  {"classe": "Quinta","titolo": "Crittografia e sicurezza","descrizione": "Concetti base di sicurezza informatica.","tipo": "slide","file_path": "materiali/slide/crittografia_sicurezza.pdf","target_page": "","ordine": 1,"attivo": true},
+  {"classe": "STEM","titolo": "Robotica educativa","descrizione": "Sensori, attuatori e laboratorio.","tipo": "slide","file_path": "materiali/slide/robotica_educativa.pdf","target_page": "","ordine": 1,"attivo": true}  
+]
+
+
+

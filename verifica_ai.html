@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifica Quarta: AI e Algoritmi - Prof. Adinolfi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #002d4d;
+            --secondary-color: #28a745;
+            --bg-color: #f8f9fa;
+        }
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; display: flex; height: 100vh; overflow: hidden; background-color: var(--bg-color); }
+        
+        #left-panel { width: 45%; height: 100%; display: flex; flex-direction: column; background: #e0e0e0; border-right: 3px solid var(--primary-color); }
+        #right-panel { width: 55%; height: 100%; overflow-y: auto; padding: 30px; box-sizing: border-box; display: flex; flex-direction: column; }
+        
+        .header-box { background: var(--primary-color); color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        
+        .input-studente {
+            width: 100%; padding: 12px; margin-top: 10px; border-radius: 5px; border: none; font-size: 1rem; color: var(--primary-color); font-weight: bold;
+        }
+
+        .question-card { background: white; padding: 20px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #ddd; }
+        .question-card h4 { margin-top: 0; color: var(--primary-color); }
+        
+        textarea { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-family: inherit; resize: vertical; box-sizing: border-box; }
+        .btn-send { background-color: var(--secondary-color); color: white; border: none; padding: 18px; border-radius: 5px; cursor: pointer; width: 100%; font-size: 1.1em; font-weight: bold; text-transform: uppercase; margin-top: 20px; transition: 0.3s; }
+        .btn-send:disabled { background-color: #6c757d; cursor: not-allowed; }
+        .btn-send:hover:not(:disabled) { background-color: #218838; }
+        
+        #timer-display { font-family: 'Courier New', monospace; font-weight: bold; font-size: 1.3em; color: #ffeb3b; margin-top: 10px; display: block; }
+    </style>
+
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0b3b75"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+</head>
+<body>
+
+    <div id="left-panel">
+        <div style="padding: 15px; background: #fff; border-bottom: 1px solid #ccc;">
+            <strong>TRACCIA DELLA VERIFICA</strong>
+        </div>
+        <iframe id="pdf-viewer" src="tracce/Cittadinanza_digitale.pdf" style="flex-grow:1; border:none;"></iframe>
+    </div>
+
+    <div id="right-panel">
+        <div class="header-box">
+            <label style="font-weight: bold; display: block;"><i class="fas fa-user-edit"></i> COGNOME E NOME STUDENTE:</label>
+            <input type="text" id="manual-name" class="input-studente" placeholder="Inserisci qui il tuo nome completo..." required>
+            <span id="timer-display"><i class="fas fa-clock"></i> Tempo Rimanente: 20:00</span>
+        </div>
+       
+        <form id="quizForm">
+          <div class="question-card">
+            <h4>1. Qual è la principale differenza tra un "utente" e un "cittadino digitale"?</h4>
+            <label><input type="radio" name="Risposta_1" value="A" required> L'utente usa solo servizi gratuiti, il cittadino solo quelli pubblici.</label><br>
+            <label><input type="radio" name="Risposta_1" value="B" required> L'utente utilizza un servizio tramite un regolamento; il cittadino ha diritti, doveri e competenze per navigare in sicurezza.</label><br>
+            <label><input type="radio" name="Risposta_1" value="C" required> Non c'è differenza, sono sinonimi nel mondo del web.</label>
+          </div>
+          
+          <div class="question-card">
+            <h4>2. Completa la frase: L'insieme dei dati che identificano l'utente di un servizio digitale e a cui si accede tramite login si chiama __________.</h4>
+            <textarea name="Risposta_2" rows="2" placeholder="Scrivi il termine corretto..." required></textarea>
+          </div>
+
+          <div class="question-card">
+            <h4>3. Cos'è la "Netiquette"?</h4>
+            <label><input type="radio" name="Risposta_3" value="A" required> Un software per la protezione della privacy.</label><br>
+            <label><input type="radio" name="Risposta_3" value="B" required> Il regolamento contrattuale di Google.</label><br>
+            <label><input type="radio" name="Risposta_3" value="C" required> L'insieme delle buone maniere da usare in rete.</label>
+          </div>
+
+          <div class="question-card">
+            <h4>4. Cosa stabilisce il principio di "Minimizzazione dei dati" nel GDPR?</h4>
+            <label><input type="radio" name="Risposta_4" value="A" required> Le aziende devono chiedere solo le informazioni strettamente utili a fornire il servizio.</label><br>
+            <label><input type="radio" name="Risposta_4" value="B" required> I dati devono essere scritti con caratteri molto piccoli per risparmiare spazio.</label><br>
+            <label><input type="radio" name="Risposta_4" value="C" required> Gli utenti devono passare meno tempo possibile online.</label>
+          </div>
+
+          <div class="question-card">
+            <h4>5. Spiega brevemente cosa garantisce il "Diritto all'oblio".</h4>
+            <textarea name="Risposta_5" rows="3" placeholder="Scrivi la tua risposta..." required></textarea>
+          </div>
+
+          <div class="question-card">
+            <h4>6. Il GDPR è stato varato dall'Unione Europea nel:</h4>
+            <label><input type="radio" name="Risposta_6" value="2016" required> 2016</label><br>
+            <label><input type="radio" name="Risposta_6" value="2020" required> 2020</label><br>
+            <label><input type="radio" name="Risposta_6" value="2021" required> 2021</label>
+          </div>
+
+          <div class="question-card">
+            <h4>7. Perché il "Like" può generare dipendenza, secondo il testo?</h4>
+            <label><input type="radio" name="Risposta_7" value="A" required> Perché fa guadagnare soldi immediati all'utente.</label><br>
+            <label><input type="radio" name="Risposta_7" value="B" required> Perché stimola il rilascio di dopamina, legata alla sensazione di piacere.</label><br>
+            <label><input type="radio" name="Risposta_7" value="C" required> Perché obbliga l'utente a rimanere connesso per ore.</label>
+          </div>
+
+          <div class="question-card">
+            <h4>8. Cos'è lo "Sharenting"?</h4>
+            <textarea name="Risposta_8" rows="2" placeholder="Definisci il fenomeno descritto nel testo..." required></textarea>
+          </div>
+
+          <div class="question-card">
+            <h4>9. Qual è il rischio principale degli influencer citato nel testo?</h4>
+            <label><input type="radio" name="Risposta_9" value="A" required> Che non sappiano usare bene i social network.</label><br>
+            <label><input type="radio" name="Risposta_9" value="B" required> Che i loro consigli non siano genuini perché legati a sponsorizzazioni non dichiarate.</label><br>
+            <label><input type="radio" name="Risposta_9" value="C" required> Che pubblichino troppi video di alta qualità.</label>
+          </div>
+
+          <div class="question-card">
+            <h4>10. Perché il cyberbullismo è considerato più grave del bullismo fisico per certi aspetti?</h4>
+            <label><input type="radio" name="Risposta_10" value="A" required> Perché le offese possono essere replicate all'infinito e restano tracce online.</label><br>
+            <label><input type="radio" name="Risposta_10" value="B" required> Perché non esistono leggi per punirlo.</label><br>
+            <label><input type="radio" name="Risposta_10" value="C" required> Perché accade solo di notte.</label>
+          </div>
+
+          <div class="question-card">
+            <h4>11. La tecnica di adescamento in rete da parte di adulti malintenzionati è chiamata:</h4>
+            <label><input type="radio" name="Risposta_11" value="A" required> Tagging</label><br>
+            <label><input type="radio" name="Risposta_11" value="B" required> Grooming</label><br>
+            <label><input type="radio" name="Risposta_11" value="C" required> Happy Slapping</label>
+          </div>
+
+          <div class="question-card">
+            <h4>12. Secondo la legge italiana, a che età un minore inizia a rispondere personalmente davanti al Tribunale per i minorenni?</h4>
+            <label><input type="radio" name="Risposta_12" value="14" required> Dai 14 anni</label><br>
+            <label><input type="radio" name="Risposta_12" value="18" required> Dai 18 anni</label><br>
+            <label><input type="radio" name="Risposta_12" value="10" required> Dai 10 anni</label>
+          </div>
+
+          <div class="question-card">
+            <h4>13. Quali sono i due fattori che determinano il "Digital Divide"?</h4>
+            <textarea name="Risposta_13" rows="3" placeholder="Indica il primo e il secondo livello citati..." required></textarea>
+          </div>
+
+          <div class="question-card">
+            <h4>14. Il digital divide di 2° livello riguarda:</h4>
+            <label><input type="radio" name="Risposta_14" value="A" required> La mancanza di una connessione veloce.</label><br>
+            <label><input type="radio" name="Risposta_14" value="B" required> Il costo troppo elevato dei dispositivi.</label><br>
+            <label><input type="radio" name="Risposta_14" value="C" required> La mancanza di competenze per gestire gli ambienti digitali.</label>
+          </div>
+
+          <div class="question-card">
+            <h4>15. Indica un ente o associazione (tra quelli citati nel testo) a cui ci si può rivolgere se si è vittime di comportamenti lesivi online.</h4>
+            <textarea name="Risposta_15" rows="2" placeholder="Esempio: Polizia Postale..." required></textarea>
+          </div>
+
+          <button type="button" id="btnSubmit" class="btn-send" onclick="inviaConsegna(false)">
+            <i class="fas fa-paper-plane"></i> INVIA VERIFICA ADESSO
+          </button>
+        </form>
+    </div>
+
+   <script>
+    // Configurazione e variabili globali
+    let secondsLeft = 45 * 60; // 45 minuti
+    let timerInterval;
+    let submitted = false;
+
+    // Inizializzazione al caricamento della pagina
+    window.onload = function() {
+        startTimer();
+    };
+
+    function startTimer() {
+        const timerDisplay = document.getElementById('timer-display');
+        const timerBar = document.getElementById('timer-bar');
+        const totalTime = secondsLeft;
+
+        timerInterval = setInterval(() => {
+            if (submitted) return;
+            
+            secondsLeft--;
+            
+            // Aggiorna testo timer
+            const mins = Math.floor(secondsLeft / 60);
+            const secs = secondsLeft % 60;
+            timerDisplay.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            
+            // Aggiorna barra progressiva
+            const percent = (secondsLeft / totalTime) * 100;
+            timerBar.style.width = percent + "%";
+
+            if (secondsLeft <= 0) {
+                clearInterval(timerInterval);
+                alert("⏰ TEMPO SCADUTO! La verifica verrà inviata automaticamente.");
+                inviaConsegna(true);
+            }
+        }, 1000);
+    }
+
+    function inviaConsegna(isAutomatico) {
+        if (submitted) return;
+
+        const nomeInput = document.getElementById("manual-name");
+        const nomeStudente = nomeInput.value.trim();
+        const formElement = document.getElementById("quizForm");
+        const btn = document.querySelector(".btn-send");
+
+        // Validazione se invio manuale
+        if (!isAutomatico) {
+            if (nomeStudente === "") {
+                alert("⚠️ ERRORE: Inserisci Nome e Cognome!");
+                nomeInput.focus();
+                return;
+            }
+            if (!formElement.checkValidity()) {
+                alert("⚠️ ATTENZIONE: Rispondi a tutte le domande!");
+                formElement.reportValidity(); 
+                return;
+            }
+            if (!confirm("Inviare la verifica definitivamente?")) return;
+        }
+
+        submitted = true;
+        clearInterval(timerInterval);
+
+        // Feedback visivo sul bottone
+        btn.disabled = true;
+        btn.innerHTML = "<i class='fas fa-spinner fa-spin'></i> INVIO...";
+
+        const identificativo = (nomeStudente === "") ? "Studente_Anonimo_Timeout" : nomeStudente;
+        
+        // --- COSTRUZIONE DEL REPORT DELLE RISPOSTE ---
+        let report = `VERIFICA AI - ${isAutomatico ? 'TIMEOUT' : 'MANUALE'}\n`;
+        report += `STUDENTE: ${identificativo}\n--------------------------\n\n`;
+
+        const formData = new FormData(formElement);
+        formData.forEach((value, key) => {
+            report += `${key.toUpperCase()}:\n${value}\n`;
+            report += `--------------------------\n`;
+        });
+
+        // --- INVIO TRAMITE FORM INVISIBILE (Metodo GAS funzionante) ---
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbyXYR1fJ2yYKKbgd_cIdNUTbIG5fZH3piPQ75Bw2TC-YkMcUaM7bOvzUQWNNGGmjcdg/exec";
+        
+        const hiddenForm = document.createElement('form');
+        hiddenForm.method = 'POST'; 
+        hiddenForm.action = GAS_URL; 
+        hiddenForm.style.display = 'none';
+
+        const addField = (n, v) => {
+            const i = document.createElement('input'); 
+            i.type = 'hidden'; i.name = n; i.value = v;
+            hiddenForm.appendChild(i);
+        };
+
+        addField('nomeStudente', identificativo);
+        addField('classe', '4A_INF');
+        addField('dataOra', new Date().toLocaleString());
+        addField('rtfContent', report);
+        addField('pyContent', isAutomatico ? 'TIMEOUT' : 'MANUALE');
+        
+        document.body.appendChild(hiddenForm);
+        hiddenForm.submit();
+        
+        setTimeout(() => {
+            alert("✅ Consegna effettuata con successo!");
+            window.location.href = "index.html";
+        }, 1500);
+    }
+
+    // Protezione chiusura pagina
+    window.onbeforeunload = function() {
+        if (!submitted) return "Hai una verifica in corso. Sei sicuro di voler uscire?";
+    };
+</script>
+
+
+<script src="pwa-register.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

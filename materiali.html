@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>materiali.html - Studio materiali</title>
+  <meta name="description" content="Archivio materiali con classi, elenco file, lettore integrato e note esportabili.">
+  <link rel="manifest" href="manifest.webmanifest"/>
+  <meta name="theme-color" content="#0b3b75"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+  <style>
+    /* ── XYplorer-style Windows file manager theme ─────────────────── */
+    :root{
+      --bg:#f0f0f0;
+      --panel-bg:#ffffff;
+      --header-bg:#f5f5f5;
+      --toolbar-bg:#f5f5f5;
+      --border:#c0c0c0;
+      --border-light:#d4d4d4;
+      --text:#1a1a1a;
+      --muted:#555;
+      --accent:#0078d4;
+      --accent-hover:#106ebe;
+      --sel-bg:#cce4ff;
+      --sel-bg-focus:#0078d4;
+      --sel-text-focus:#fff;
+      --col-header:#e8e8e8;
+      --statusbar-bg:#f0f0f0;
+      --header-h:92px;
+      --left-w:400px;
+      --classes-h:42%;
+      --notes-w:340px;
+      --gap:0px;
+      --note-font-size:13px;
+      --classes-font-size:12px;
+      --files-font-size:12px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;overflow:hidden}
+    body{
+      font-family:"Segoe UI",Arial,sans-serif;
+      font-size:12px;
+      color:var(--text);
+      background:var(--bg);
+    }
+
+    /* ── Title bar ─────────────────────────────────────── */
+    .titlebar{
+      height:28px;
+      background:var(--color-primary,#0d1b2e);
+      border-bottom:2px solid var(--color-accent,#c8963e);
+      display:flex;align-items:center;gap:8px;
+      padding:0 8px;font-size:11px;color:#f0ece2;
+      user-select:none;
+    }
+    .titlebar-icon{width:16px;height:16px;border-radius:4px;background:var(--color-accent,#c8963e);color:var(--color-primary,#0d1b2e);font-weight:700;font-size:10px;display:flex;align-items:center;justify-content:center;font-family:var(--font-sans,inherit);}
+    .titlebar-title{flex:1;font-weight:600;font-size:11px;color:#f0ece2;letter-spacing:.2px}
+    .titlebar-title .titlebar-sub{opacity:.65;font-weight:400}
+    .titlebar-btns{display:flex;gap:0}
+    .titlebar-btn{
+      width:30px;height:28px;border:none;background:transparent;cursor:pointer;
+      font-size:13px;color:#cbd0d8;display:grid;place-items:center;
+    }
+    .titlebar-btn:hover{background:rgba(255,255,255,0.12)}
+    .titlebar-btn.close:hover{background:#c42b1c;color:white}
+
+    /* ── Menubar ─────────────────────────────────────────── */
+    .menubar{
+      height:22px;
+      background:var(--header-bg);
+      border-bottom:1px solid var(--border-light);
+      display:flex;align-items:center;padding:0 4px;gap:0;
+      font-size:11.5px;
+    }
+    .menu-item{
+      padding:2px 8px;cursor:pointer;border-radius:2px;
+      color:#1a1a1a;white-space:nowrap;
+    }
+    .menu-item:hover{background:#d0d0d0}
+
+    /* ── Toolbar ─────────────────────────────────────────── */
+    .toolbar-bar{
+      height:38px;
+      background:linear-gradient(180deg,#f8f8f8,#ebebeb);
+      border-bottom:1px solid var(--border);
+      display:flex;align-items:center;padding:0 4px;gap:2px;
+    }
+    .tb-sep{width:1px;height:24px;background:var(--border);margin:0 4px}
+    .tb-btn{
+      height:28px;min-width:28px;padding:0 8px;
+      border:1px solid transparent;border-radius:3px;
+      background:transparent;cursor:pointer;
+      font-size:11.5px;color:#222;
+      display:inline-flex;align-items:center;gap:5px;
+      white-space:nowrap;
+    }
+    .tb-btn:hover{background:#d4e4f7;border-color:#a8c6e8}
+    .tb-btn.active{background:#c8ddf5;border-color:#80b3e8}
+    .tb-btn .icon{font-size:14px;line-height:1}
+    .tb-search{
+      margin-left:auto;margin-right:4px;
+      height:22px;width:220px;
+      border:1px solid #a0a0a0;border-radius:2px;
+      padding:0 6px;font-size:11.5px;background:#fff;color:#222;outline:none;
+    }
+    .tb-search:focus{border-color:#0078d4;box-shadow:0 0 0 1px #0078d4}
+
+    /* ── Address bar ─────────────────────────────────────── */
+    .addressbar{
+      height:24px;
+      background:#fff;
+      border-bottom:1px solid var(--border);
+      display:flex;align-items:center;padding:0 6px;gap:6px;
+      font-size:11.5px;
+    }
+    .addr-label{color:#555;white-space:nowrap}
+    .addr-path{
+      flex:1;height:18px;border:1px solid #b0b0b0;border-radius:2px;
+      padding:0 6px;font-size:11.5px;background:#fff;color:#222;outline:none;
+    }
+    .addr-path:focus{border-color:#0078d4}
+
+    /* ── Main layout ─────────────────────────────────────── */
+    .app{
+      height:100vh;
+      display:grid;
+      grid-template-rows:28px 22px 38px 24px 1fr 22px;
+    }
+    .layout{
+      display:grid;
+      grid-template-columns:var(--left-w) 4px 1fr;
+      min-height:0;
+      background:var(--bg);
+      will-change:grid-template-columns;
+    }
+    .left-stack{
+      min-height:0;
+      display:grid;
+      grid-template-rows:minmax(120px,var(--classes-h)) 4px minmax(120px,calc(100% - var(--classes-h)));
+      background:var(--bg);
+      will-change:grid-template-rows;
+    }
+
+    /* ── Panels ─────────────────────────────────────────── */
+    .panel{
+      min-height:0;
+      background:var(--panel-bg);
+      border-right:1px solid var(--border);
+      overflow:hidden;
+      display:flex;flex-direction:column;
+    }
+    .panel-colhead{
+      height:20px;
+      background:var(--col-header);
+      border-bottom:1px solid var(--border);
+      display:flex;align-items:center;
+      padding:0 6px;
+      font-size:11px;font-weight:600;color:#333;
+      user-select:none;
+    }
+    .panel-scroll{flex:1 1 auto;overflow:auto}
+
+    /* ── Tree (classes panel) ────────────────────────────── */
+    .tree-root{padding:4px 0}
+    .tree-section{padding:4px 0 2px}
+    .tree-section-label{
+      padding:2px 8px;font-size:11px;font-weight:700;
+      color:#666;text-transform:uppercase;letter-spacing:.06em;
+    }
+    .class-btn{
+      width:100%;text-align:left;border:none;background:transparent;
+      padding:3px 8px 3px 20px;cursor:pointer;color:var(--text);
+      display:flex;align-items:center;gap:6px;font-size:var(--classes-font-size);
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    }
+    .class-btn:hover{background:#e8f0fb}
+    .class-btn.active{background:var(--sel-bg-focus);color:var(--sel-text-focus)}
+    .class-btn.active .class-count{background:rgba(255,255,255,.25);color:#fff}
+    .class-btn .tree-icon{font-size:13px;flex:0 0 auto}
+    .class-btn strong{font-weight:400;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis}
+    .class-count{
+      margin-left:auto;font-size:10px;font-weight:700;color:#666;
+      background:#e0e0e0;border-radius:8px;padding:1px 6px;flex:0 0 auto;
+    }
+
+    /* ── Files panel ─────────────────────────────────────── */
+    .files-col-header{
+      display:grid;
+      grid-template-columns:1fr 52px 140px;
+      height:20px;background:var(--col-header);
+      border-bottom:1px solid var(--border);
+      user-select:none;
+    }
+    .col-cell{
+      padding:2px 6px;font-size:11px;font-weight:600;color:#333;
+      border-right:1px solid var(--border-light);
+      display:flex;align-items:center;gap:4px;
+      overflow:hidden;white-space:nowrap;cursor:pointer;
+    }
+    .col-cell:hover{background:#d8d8d8}
+    .col-cell:last-child{border-right:none}
+    .files-body{min-height:0;overflow:auto;flex:1 1 auto}
+    .file-list{display:flex;flex-direction:column}
+    .file-row{
+      display:grid;grid-template-columns:1fr 46px 1fr;
+      width:100%;text-align:left;border:none;background:transparent;
+      cursor:pointer;color:var(--text);
+      border-bottom:1px solid transparent;
+    }
+    .file-row:hover .fc{background:#e8f0fb}
+    .file-row.active .fc{background:var(--sel-bg-focus);color:var(--sel-text-focus)}
+    .file-row.active .fc .file-ext-tag{background:rgba(255,255,255,.2);color:#fff;border-color:rgba(255,255,255,.3)}
+    .fc{
+      padding:2px 6px;font-size:var(--files-font-size);
+      border-right:1px solid #ebebeb;
+      display:flex;align-items:center;gap:5px;
+      height:20px;overflow:hidden;white-space:nowrap;
+    }
+    .fc:last-child{border-right:none}
+    .file-icon-sm{
+      width:16px;height:16px;border-radius:2px;flex:0 0 16px;
+      display:grid;place-items:center;font-size:8px;font-weight:900;
+      background:#d4e8ff;color:#0058a9;border:1px solid #a8c6e8;
+      text-transform:uppercase;
+    }
+    .file-icon-sm.ext-pdf{background:#ffd4d4;color:#b00020;border-color:#e8a0a0}
+    .file-icon-sm.ext-pptx,.file-icon-sm.ext-ppt{background:#fde4cf;color:#c43e00;border-color:#e8b080}
+    .file-icon-sm.ext-html,.file-icon-sm.ext-htm{background:#d4fdd4;color:#1a7a1a;border-color:#90d890}
+    .file-icon-sm.ext-txt{background:#f0f0f0;color:#444;border-color:#c0c0c0}
+    .file-icon-sm.ext-py{background:#e8d4ff;color:#6200aa;border-color:#c080e8}
+    .file-name-text{overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0}
+    .file-ext-tag{
+      font-size:9px;font-weight:700;text-transform:uppercase;
+      background:#ebebeb;border:1px solid #ccc;border-radius:2px;
+      padding:0 3px;color:#555;flex:0 0 auto;
+    }
+    .empty-list,.empty{
+      padding:24px;text-align:center;color:var(--muted);line-height:1.8;
+    }
+    .empty strong{display:block;font-size:13px;color:var(--text);margin-bottom:6px}
+
+    /* ── Right section: viewer + notes ────────────────────── */
+    .viewer-stack{
+      min-width:0;display:grid;
+      grid-template-columns:1fr 4px var(--notes-w);
+      height:100%;
+      background:var(--bg);
+      will-change:grid-template-columns;
+    }
+    .viewer-panel{
+      display:flex;flex-direction:column;
+      background:var(--panel-bg);
+      border-right:1px solid var(--border);
+      min-width:0;
+    }
+    .viewer-topbar{
+      height:28px;background:var(--col-header);
+      border-bottom:1px solid var(--border);
+      display:flex;align-items:center;padding:0 8px;gap:8px;
+      font-size:11.5px;color:#444;
+    }
+    .viewer-topbar strong{color:#222;font-weight:600}
+    .viewer-topbar-actions{margin-left:auto;display:flex;gap:4px}
+    .vbtn{
+      height:20px;padding:0 8px;border:1px solid #b0b0b0;border-radius:2px;
+      background:linear-gradient(180deg,#f8f8f8,#e8e8e8);cursor:pointer;
+      font-size:11px;color:#222;display:inline-flex;align-items:center;gap:4px;
+    }
+    .vbtn:hover{background:linear-gradient(180deg,#e8f0fb,#d0e4f7);border-color:#80b0e0}
+    .vbtn.ok{background:linear-gradient(180deg,#e8f8e8,#d0ead0);border-color:#80b880}
+    .vbtn.warn{background:linear-gradient(180deg,#fff0e0,#f8dcc0);border-color:#d0a060}
+    .viewer-body{flex:1 1 auto;min-height:0;display:flex;background:#e8e8e8;padding:3px}
+    .viewer-frame{flex:1 1 auto;min-height:0;background:#fff;overflow:hidden;
+      border:1px solid #aaa;box-shadow:1px 1px 4px rgba(0,0,0,.12)}
+    iframe{width:100%;height:100%;border:none;display:block;background:#fff}
+
+    /* ── Notes panel ─────────────────────────────────────── */
+    .notes-panel{
+      background:var(--panel-bg);
+      display:flex;flex-direction:column;min-width:0;
+    }
+    .notes-topbar{
+      height:28px;background:var(--col-header);
+      border-bottom:1px solid var(--border);
+      display:flex;align-items:center;padding:0 8px;gap:6px;
+      font-size:11.5px;color:#333;font-weight:600;
+    }
+    .notes-topbar-actions{margin-left:auto;display:flex;gap:4px}
+    .notes-title{
+      margin:4px 6px 2px;height:22px;border:1px solid #b0b0b0;border-radius:2px;
+      padding:0 6px;font-size:12px;background:#fff;color:#222;outline:none;width:calc(100% - 12px);
+    }
+    .notes-title:focus{border-color:#0078d4;box-shadow:0 0 0 1px #0078d4}
+    .notes-body{min-height:0;flex:1 1 auto;padding:0 6px 4px;display:flex;flex-direction:column;gap:4px}
+    .notes-area{
+      flex:1 1 auto;resize:none;
+      border:1px solid #b0b0b0;border-radius:2px;
+      background:#fff;color:#1a1a1a;
+      padding:6px 8px;
+      font:var(--note-font-size)/1.55 Consolas,Monaco,monospace;
+      outline:none;
+    }
+    .notes-area:focus{border-color:#0078d4}
+    .notes-footer{
+      padding:3px 6px 4px;border-top:1px solid var(--border-light);
+      font-size:11px;color:#666;display:flex;flex-direction:column;gap:2px;
+    }
+    .notes-meta span{color:#333;font-weight:600}
+    .hint{font-size:10px;color:#888}
+
+    /* ── Splitters ─────────────────────────────────────────── */
+    .splitter{
+      position:relative;z-index:5;user-select:none;touch-action:none;
+      background:linear-gradient(180deg,#e0e0e0,#c8c8c8,#e0e0e0);
+      border-left:1px solid #b8b8b8;border-right:1px solid #b8b8b8;
+    }
+    .splitter.vertical{width:4px;cursor:col-resize;align-self:stretch}
+    .splitter.horizontal{
+      height:4px;cursor:row-resize;align-self:stretch;
+      background:linear-gradient(90deg,#e0e0e0,#c8c8c8,#e0e0e0);
+      border-top:1px solid #b8b8b8;border-bottom:1px solid #b8b8b8;border-left:none;border-right:none;
+    }
+    .splitter:hover,.splitter.dragging{background:linear-gradient(180deg,#c8ddf5,#90c0f0,#c8ddf5)}
+    .splitter.horizontal:hover,.splitter.horizontal.dragging{background:linear-gradient(90deg,#c8ddf5,#90c0f0,#c8ddf5)}
+
+    /* ── Status bar ─────────────────────────────────────────── */
+    .statusbar{
+      height:22px;
+      background:linear-gradient(180deg,#f0f0f0,#e8e8e8);
+      border-top:1px solid var(--border);
+      display:flex;align-items:center;padding:0 8px;gap:16px;
+      font-size:11px;color:#444;
+    }
+    .sb-item{display:flex;align-items:center;gap:4px;white-space:nowrap}
+    .sb-sep{width:1px;height:14px;background:var(--border)}
+    .sb-right{margin-left:auto;display:flex;align-items:center;gap:16px}
+
+    /* QR overlay */
+    #qrOverlay{
+      position:fixed!important;
+      top:50%;left:50%;transform:translate(-50%,-50%);z-index:999;
+      background:#fff;border:1px solid #a0a0a0;
+      box-shadow:2px 2px 16px rgba(0,0,0,.35);
+      padding:16px 18px;text-align:center;min-width:220px;
+    }
+    #qrOverlay .qr-title{font-weight:700;font-size:12px;color:#222;margin-bottom:8px;border-bottom:1px solid #ddd;padding-bottom:6px}
+
+    /* ── Badge adapters (keep JS working) ────────────────── */
+    .badge{display:none}
+    .badge.compact{display:none}
+
+    /* ── Responsive ─────────────────────────────────────── */
+    @media(max-width:1120px){
+      body{overflow:auto}
+      .app{height:auto;min-height:100vh;grid-template-rows:28px 22px 38px 24px auto 22px}
+      .layout{grid-template-columns:1fr;grid-template-rows:minmax(380px,460px) 4px auto;height:auto}
+      #splitterMain{display:none}
+      .left-stack{grid-template-rows:minmax(160px,220px) 4px minmax(160px,220px)}
+      .splitter.vertical{display:none}
+      .viewer-stack{grid-template-columns:1fr;grid-template-rows:minmax(480px,1fr) 4px minmax(280px,340px)}
+      .splitter.horizontal{width:auto;height:4px;cursor:row-resize}
+      .panel{min-height:160px}
+    }
+    @media(max-width:760px){
+      .titlebar-title{display:none}
+      .menubar{display:none}
+      .tb-search{width:140px}
+    }
+
+    /* ── Dark theme ─────────────────────────────────────────── */
+    html.dark{
+      --bg:#1a1a1a;
+      --panel-bg:#242424;
+      --header-bg:#2a2a2a;
+      --toolbar-bg:#2a2a2a;
+      --border:#3a3a3a;
+      --border-light:#333;
+      --text:#e8e8e8;
+      --muted:#999;
+      --accent:#4da3ff;
+      --accent-hover:#3a90f0;
+      --sel-bg:#1e3a5a;
+      --sel-bg-focus:#1a5fa8;
+      --sel-text-focus:#fff;
+      --col-header:#2e2e2e;
+      --statusbar-bg:#222;
+    }
+    html.dark .titlebar{background:var(--color-primary-dark,#081422);border-bottom-color:var(--color-accent,#c8963e);color:#f0ece2}
+    html.dark .titlebar-btn{color:#cbd0d8}
+    html.dark .titlebar-btn:hover{background:#3a3a3a}
+    html.dark .titlebar-btn.close:hover{background:#c42b1c;color:#fff}
+    html.dark .menubar{background:#2a2a2a;border-color:#3a3a3a}
+    html.dark .menu-item{color:#ccc}
+    html.dark .menu-item:hover{background:#3a3a3a}
+    html.dark .toolbar-bar{background:linear-gradient(180deg,#2e2e2e,#262626);border-color:#3a3a3a}
+    html.dark .tb-btn{color:#ccc}
+    html.dark .tb-btn:hover{background:#1e3a5a;border-color:#2a5a8a}
+    html.dark .tb-btn.ok{background:linear-gradient(180deg,#1a3a2a,#163020);border-color:#2a5a3a;color:#8fd4a0}
+    html.dark .tb-sep{background:#3a3a3a}
+    html.dark .tb-search{background:#1e1e1e;border-color:#444;color:#e0e0e0}
+    html.dark .tb-search:focus{border-color:#4da3ff}
+    html.dark .addressbar{background:#1e1e1e;border-color:#3a3a3a}
+    html.dark .addr-label{color:#888}
+    html.dark .addr-path{background:#1a1a1a;border-color:#3a3a3a;color:#ccc}
+    html.dark #viewerDescription{color:#888!important}
+    html.dark .col-cell{color:#aaa}
+    html.dark .col-cell:hover{background:#333}
+    html.dark .file-row:hover .fc{background:#1e3a5a}
+    html.dark .fc{color:#d0d0d0;border-color:#2e2e2e}
+    html.dark .file-name-text{color:#e0e0e0}
+    html.dark .file-ext-tag{background:#333;border-color:#444;color:#aaa}
+    html.dark .file-icon-sm{background:#1e3055;color:#6ab0ff;border-color:#2a5080}
+    html.dark .file-icon-sm.ext-pdf{background:#3a1820;color:#f06080;border-color:#5a2030}
+    html.dark .file-icon-sm.ext-pptx,.file-icon-sm.ext-ppt{background:#3a2010;color:#f09040;border-color:#5a3010}
+    html.dark .file-icon-sm.ext-html,.file-icon-sm.ext-htm{background:#1a3a1a;color:#60c060;border-color:#2a5a2a}
+    html.dark .file-icon-sm.ext-py{background:#2a1a40;color:#a060f0;border-color:#4a2a60}
+    html.dark .file-icon-sm.ext-txt{background:#2a2a2a;color:#aaa;border-color:#3a3a3a}
+    html.dark .panel-colhead{color:#aaa}
+    html.dark .class-btn{color:#d0d0d0}
+    html.dark .class-btn:hover{background:#1e3050}
+    html.dark .class-count{background:#2a3a4a;color:#8ab8e8}
+    html.dark .viewer-topbar{background:#2e2e2e;border-color:#3a3a3a;color:#aaa}
+    html.dark .viewer-body{background:#111}
+    html.dark .viewer-frame{border-color:#444}
+    html.dark .vbtn{background:linear-gradient(180deg,#2e2e2e,#262626);border-color:#444;color:#ccc}
+    html.dark .vbtn:hover{background:linear-gradient(180deg,#1e3a5a,#162e4a);border-color:#2a5a8a}
+    html.dark .vbtn.ok{background:linear-gradient(180deg,#1a3a2a,#132a1e);border-color:#2a5a3a;color:#6ad090}
+    html.dark .vbtn.warn{background:linear-gradient(180deg,#3a2010,#2a1808);border-color:#6a3818;color:#e09040}
+    html.dark .notes-topbar{background:#2e2e2e;border-color:#3a3a3a;color:#ccc}
+    html.dark .notes-title{background:#1a1a1a;border-color:#444;color:#e0e0e0}
+    html.dark .notes-area{background:#181818;border-color:#3a3a3a;color:#d8d8d8}
+    html.dark .notes-footer{border-color:#3a3a3a;color:#888}
+    html.dark .statusbar{background:linear-gradient(180deg,#222,#1a1a1a);border-color:#3a3a3a;color:#888}
+    html.dark .splitter{background:linear-gradient(180deg,#333,#2a2a2a,#333);border-color:#444}
+    html.dark .splitter.horizontal{background:linear-gradient(90deg,#333,#2a2a2a,#333)}
+    html.dark .splitter:hover,.splitter.dragging{background:linear-gradient(180deg,#1e3a5a,#2a5a8a,#1e3a5a)}
+    html.dark .splitter.horizontal:hover,.splitter.horizontal.dragging{background:linear-gradient(90deg,#1e3a5a,#2a5a8a,#1e3a5a)}
+    html.dark #qrOverlay{background:#222;border-color:#444}
+    html.dark #qrOverlay .qr-title{color:#ccc;border-color:#3a3a3a}
+    html.dark .empty,.empty-list{color:#666}
+    html.dark .empty strong{color:#aaa}
+
+    /* Theme toggle button */
+    .theme-toggle{
+      height:22px;padding:0 10px;
+      border:1px solid var(--border);border-radius:10px;
+      background:var(--col-header);cursor:pointer;
+      font-size:11px;color:var(--text);
+      display:inline-flex;align-items:center;gap:5px;
+      transition:background .15s,border-color .15s;
+      user-select:none;margin-left:6px;
+    }
+    .theme-toggle:hover{border-color:var(--accent);background:var(--sel-bg)}
+
+    /* ── Zoom hints on panels ─────────────────────────────── */
+    .panel-colhead{position:relative;}
+    .zoom-hint-pill{
+      margin-left:auto;font-size:9px;color:#aaa;
+      background:#f0f0f0;border:1px solid #d0d0d0;border-radius:8px;
+      padding:0 5px;line-height:16px;user-select:none;white-space:nowrap;
+    }
+    html.dark .zoom-hint-pill{background:#2a2a2a;border-color:#444;color:#666}
+
+    /* ── Zoom toast ───────────────────────────────────────── */
+    #zoomToast{
+      position:fixed;bottom:32px;left:50%;transform:translateX(-50%);
+      background:rgba(0,0,0,.75);color:#fff;font-size:12px;font-family:"Segoe UI",Arial,sans-serif;
+      padding:5px 16px;border-radius:20px;pointer-events:none;
+      opacity:0;transition:opacity .2s;z-index:9999;white-space:nowrap;
+    }
+    #zoomToast.show{opacity:1}
+
+    /* ── QR Generator panel (full-featured) ──────────────── */
+    #qrOverlay{
+      position:fixed!important;
+      top:50%;left:50%;transform:translate(-50%,-50%);z-index:999;
+      background:#fff;border:1px solid #a0a0a0;
+      box-shadow:4px 4px 24px rgba(0,0,0,.30);
+      padding:0;text-align:center;min-width:300px;max-width:360px;
+      border-radius:4px;overflow:hidden;
+    }
+    #qrOverlay .qr-titlebar{
+      background:linear-gradient(180deg,#f0f0f0,#e0e0e0);
+      border-bottom:1px solid #c0c0c0;
+      padding:6px 10px;display:flex;align-items:center;justify-content:space-between;
+      font-size:11px;font-weight:600;color:#222;user-select:none;
+    }
+    #qrOverlay .qr-body{padding:12px 14px;display:flex;flex-direction:column;gap:10px;align-items:center;}
+    #qrOverlay .qr-canvas-wrap{
+      background:white;padding:8px;border:1px solid #e0e0e0;border-radius:3px;
+      display:inline-block;
+    }
+    #qrOverlay .qr-url-row{width:100%;display:flex;gap:4px;}
+    #qrOverlay .qr-url-input{
+      flex:1;height:24px;border:1px solid #b0b0b0;border-radius:2px;
+      padding:0 6px;font-size:11px;color:#222;background:#fff;outline:none;
+    }
+    #qrOverlay .qr-url-input:focus{border-color:#0078d4}
+    #qrOverlay .qr-opts{width:100%;display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:11px;color:#555;}
+    #qrOverlay .qr-opts label{display:flex;align-items:center;gap:4px;}
+    #qrOverlay .qr-opts input[type=color]{width:24px;height:18px;border:1px solid #b0b0b0;padding:0;cursor:pointer;border-radius:2px;}
+    #qrOverlay .qr-size-select{height:20px;border:1px solid #b0b0b0;border-radius:2px;font-size:11px;padding:0 4px;}
+    #qrOverlay .qr-file-label{font-size:10px;color:#888;max-width:260px;word-break:break-all;text-align:center;}
+    #qrOverlay .qr-footer{
+      width:100%;display:flex;gap:4px;justify-content:flex-end;
+      padding:6px 14px 10px;border-top:1px solid #e8e8e8;
+    }
+    html.dark #qrOverlay{background:#242424;border-color:#444;box-shadow:4px 4px 24px rgba(0,0,0,.6);}
+    html.dark #qrOverlay .qr-titlebar{background:linear-gradient(180deg,#2e2e2e,#262626);border-color:#3a3a3a;color:#ccc;}
+    html.dark #qrOverlay .qr-url-input{background:#1a1a1a;border-color:#444;color:#ccc;}
+    html.dark #qrOverlay .qr-opts{color:#aaa;}
+    html.dark #qrOverlay .qr-file-label{color:#666;}
+    html.dark #qrOverlay .qr-footer{border-color:#3a3a3a;}
+    html.dark #qrOverlay .qr-canvas-wrap{border-color:#3a3a3a;}
+    html.dark #zoomToast{background:rgba(40,40,40,.92);}
+  </style>
+  <script>document.documentElement.classList.add("auth-checking");</script>
+  <link href="enterprise-auth.css" rel="stylesheet">
+  <link rel="stylesheet" href="design-system.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Title bar -->
+    <div class="titlebar">
+      <span class="titlebar-icon" aria-hidden="true">A</span>
+      <span class="titlebar-title">Studio Materiali <span class="titlebar-sub">· Prof. Antonio Adinolfi</span></span>
+      <div class="titlebar-btns">
+        <button class="titlebar-btn" title="Riduci a icona">&#x2014;</button>
+        <button class="titlebar-btn" title="Ingrandisci">&#x2750;</button>
+        <button class="titlebar-btn close" title="Chiudi">&#x2715;</button>
+      </div>
+    </div>
+
+    <!-- Menu bar -->
+    <div class="menubar">
+      <span class="menu-item">File</span>
+      <span class="menu-item">Modifica</span>
+      <span class="menu-item">Visualizza</span>
+      <span class="menu-item">Vai</span>
+      <span class="menu-item">Strumenti</span>
+      <span class="menu-item">Finestra</span>
+      <span class="menu-item">Aiuto</span>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar-bar">
+      <button class="tb-btn" onclick="history.back()" title="Indietro"><span class="icon">◀</span></button>
+      <button class="tb-btn" onclick="history.forward()" title="Avanti"><span class="icon">▶</span></button>
+      <button class="tb-btn" onclick="location.reload()" title="Aggiorna"><span class="icon">↻</span></button>
+      <div class="tb-sep"></div>
+      <button class="tb-btn" title="Su"><span class="icon">⬆</span> Su</button>
+      <div class="tb-sep"></div>
+      <a class="tb-btn ok" id="openFileBtn" href="#" target="_blank" rel="noopener" title="Apri in nuova scheda"><span class="icon">🔗</span> Apri</a>
+      <a class="tb-btn ok" id="openInClassBtn" href="classe.html" target="_blank" rel="noopener" title="Apri nel Laboratorio"><span class="icon">🧪</span> Laboratorio</a>
+      <div class="tb-sep"></div>
+      <a class="tb-btn" href="index.html"><span class="icon">🏠</span> Index</a>
+      <span class="badge" id="viewerClassBadge" style="display:none">Classe</span>
+      <span class="badge compact" id="viewerFileBadge" style="display:none">Nessun file selezionato</span>
+      <input id="searchBox" class="tb-search" type="search" placeholder="Cerca titolo, classe, tipo…" />
+      <button class="theme-toggle" id="themeToggle" title="Cambia tema chiaro/scuro">☀️ Chiaro</button>
+    </div>
+
+    <!-- Address bar -->
+    <div class="addressbar">
+      <span class="addr-label">Percorso:</span>
+      <input class="addr-path" id="addrPath" readonly value="antonioadinolfi.it › Materiali" />
+      <span id="viewerDescription" style="color:#555;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:400px">Seleziona un materiale</span>
+    </div>
+
+    <!-- Main content -->
+    <main class="layout" id="layout">
+
+      <section class="left-stack" id="leftStack">
+        <aside class="panel classes-panel" id="classesPanel">
+          <div class="panel-colhead"><span>📂 Classi</span><span class="zoom-hint-pill" title="Ctrl+rotellina per zoom">Ctrl+⬆⬇</span></div>
+          <div class="panel-scroll" id="classScroll"></div>
+        </aside>
+
+        <div class="splitter horizontal" id="splitterLeftStack" title="Ridimensiona"></div>
+
+        <section class="panel files-panel" id="filesPanel">
+          <div class="files-col-header" style="display:grid;grid-template-columns:1fr 46px 1fr">
+            <div class="col-cell">▲ Nome &nbsp;<span style="color:#aaa;font-weight:400;font-size:10px" id="filesPanelTitle"></span></div>
+            <div class="col-cell">Est.</div>
+            <div class="col-cell">Descrizione &nbsp;<span style="color:#aaa;font-weight:400" id="filesCountNote"></span><span class="zoom-hint-pill" style="margin-left:auto" title="Ctrl+rotellina per zoom">Ctrl+⬆⬇</span></div>
+          </div>
+          <div class="files-body" id="filesScroll"></div>
+          <span style="display:none" id="filesPanelDesc"></span>
+          <span style="display:none" id="filesActiveClass"></span>
+        </section>
+      </section>
+
+      <div class="splitter vertical" id="splitterMain" title="Ridimensiona"></div>
+
+      <section class="viewer-stack">
+
+        <section class="viewer-panel" style="position:relative">
+          <!-- ── QR Generator Panel ── -->
+          <div id="qrOverlay" style="display:none">
+            <div class="qr-titlebar">
+              <span>▦ QR Code Generator — condividi con gli studenti</span>
+              <button id="qrCloseBtn" class="vbtn" type="button" style="height:18px;padding:0 8px;font-size:10px">✕ Chiudi</button>
+            </div>
+            <div class="qr-body">
+              <div class="qr-url-row">
+                <input id="qrUrlInput" class="qr-url-input" type="text" placeholder="URL del file…" />
+                <button id="qrRegenBtn" class="vbtn" type="button" title="Rigenera QR">↻</button>
+                <button id="qrCopyBtn" class="vbtn" type="button" title="Copia URL negli appunti">📋</button>
+              </div>
+              <div class="qr-opts">
+                <label>Dim: <select id="qrSize" class="qr-size-select">
+                  <option value="160">Piccolo (160px)</option>
+                  <option value="220" selected>Medio (220px)</option>
+                  <option value="300">Grande (300px)</option>
+                </select></label>
+                <label title="Colore punti QR">🎨 <input type="color" id="qrColorDark" value="#071325"></label>
+                <label title="Colore sfondo QR">bg <input type="color" id="qrColorLight" value="#ffffff"></label>
+                <button id="qrDownloadBtn" class="vbtn ok" type="button" style="margin-left:auto" title="Salva come immagine PNG">⬇ PNG</button>
+              </div>
+              <div class="qr-canvas-wrap"><div id="qrCanvas"></div></div>
+              <div class="qr-file-label" id="qrFileLabel"></div>
+            </div>
+          </div>
+
+          <div class="viewer-topbar">
+            <span>👁 Anteprima</span>
+            <div class="viewer-topbar-actions">
+              <button id="qrBtn" class="vbtn" type="button" title="Genera QR Code per condividere il link del file con gli studenti">▦ QR Code</button>
+              <button class="vbtn" onclick="document.getElementById('openFileBtn').click()">🗗 Focus</button>
+            </div>
+          </div>
+          <div class="viewer-body">
+            <div class="viewer-frame" id="viewerFrame">
+              <div class="empty"><div><strong>Nessun materiale selezionato</strong>Scegli una classe e poi un file dall'elenco.</div></div>
+            </div>
+          </div>
+        </section>
+
+        <div class="splitter horizontal" id="splitterNotes" title="Ridimensiona area note"></div>
+
+        <section class="notes-panel">
+          <div class="notes-topbar">
+            <span>📝 Note personali</span>
+            <div class="notes-topbar-actions">
+              <button id="exportDocBtn" class="vbtn ok" type="button">Esporta</button>
+              <button id="clearNotesBtn" class="vbtn warn" type="button">Svuota</button>
+            </div>
+          </div>
+          <input id="notesTitle" class="notes-title" type="text" placeholder="Titolo delle note…" />
+          <div class="notes-body">
+            <textarea id="notesArea" class="notes-area" placeholder="Appunti, sintesi, formule, osservazioni…"></textarea>
+          </div>
+          <div class="notes-footer">
+            <div>Materiale: <span id="notesLinkedFile" style="color:#222">Nessuno</span></div>
+            <div>Salvato: <span id="notesSavedAt">—</span></div>
+            <div class="hint">Ctrl + rotellina = zoom area note</div>
+          </div>
+        </section>
+
+      </section>
+    </main>
+
+    <!-- Status bar -->
+    <div class="statusbar">
+      <div class="sb-item">📁 <span id="sbClass">—</span></div>
+      <div class="sb-sep"></div>
+      <div class="sb-item">📄 <span id="sbFile">Nessun file selezionato</span></div>
+      <div class="sb-right">
+        <div class="sb-item">antonioadinolfi.it &nbsp;·&nbsp; Materiali didattici</div>
+      </div>
+    </div>
+
+    <!-- Zoom toast -->
+    <div id="zoomToast"></div>
+
+  </div>
+  <script>
+    const CLASS_ORDER = ['Prima','Seconda','Terza','Quarta','Quinta','STEM'];
+    let materials = [];
+    let selectedClass = '';
+    let selectedItem = null;
+    let notesAutosaveTimer = null;
+
+    const classScroll = document.getElementById('classScroll');
+    const filesScroll = document.getElementById('filesScroll');
+    const searchBox = document.getElementById('searchBox');
+    const filesPanelTitle = document.getElementById('filesPanelTitle');
+    const filesPanelDesc = document.getElementById('filesPanelDesc');
+    const filesCountNote = document.getElementById('filesCountNote');
+    const filesActiveClass = document.getElementById('filesActiveClass');
+    const viewerDescription = document.getElementById('viewerDescription');
+    const viewerFrame = document.getElementById('viewerFrame');
+    const viewerClassBadge = document.getElementById('viewerClassBadge');
+    const viewerFileBadge = document.getElementById('viewerFileBadge');
+    const openFileBtn = document.getElementById('openFileBtn');
+    const openInClassBtn = document.getElementById('openInClassBtn');
+    const notesTitle = document.getElementById('notesTitle');
+    const notesArea = document.getElementById('notesArea');
+    const notesLinkedFile = document.getElementById('notesLinkedFile');
+    const notesSavedAt = document.getElementById('notesSavedAt');
+    const exportDocBtn = document.getElementById('exportDocBtn');
+    const clearNotesBtn = document.getElementById('clearNotesBtn');
+    const root = document.documentElement;
+    const layout = document.getElementById('layout');
+    const leftStack = document.getElementById('leftStack');
+
+    function norm(v){
+      return (v || '').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+
+    function resolveHref(path){
+      if (!path) return '#';
+      try { return new URL(path, window.location.href).toString(); }
+      catch(e){ return path; }
+    }
+
+    function buildClassUrl(item){
+      const url = new URL(item.target_page || 'classe.html', window.location.href);
+      if (item.file_path) url.searchParams.set('file', item.file_path);
+      if (item.classe) url.searchParams.set('classe', item.classe);
+      if (item.titolo) url.searchParams.set('title', item.titolo);
+      if (item.tipo) url.searchParams.set('tipo', item.tipo);
+      return url.toString();
+    }
+
+    function getFilteredMaterials(){
+      const q = norm(searchBox.value.trim());
+      return materials.filter(m => {
+        if (m.attivo === false || norm(m.attivo) === 'no') return false;
+        const hay = norm([m.classe,m.titolo,m.descrizione,m.file_path,m.tipo].join(' '));
+        return !q || hay.includes(q);
+      });
+    }
+
+    function getVisibleClasses(){
+      const filtered = getFilteredMaterials();
+      return CLASS_ORDER.filter(cls => filtered.some(m => m.classe === cls));
+    }
+
+    function getClassItems(cls){
+      return getFilteredMaterials()
+        .filter(m => m.classe === cls)
+        .sort((a,b) => Number(a.ordine || 999) - Number(b.ordine || 999));
+    }
+
+    function extFromPath(path){
+      const last = (path || '').split('.').pop();
+      return last ? last.toLowerCase() : '—';
+    }
+
+    function noteKey(item){
+      if (!item) return '';
+      return `materialiNote:${item.classe || 'generica'}:${item.file_path || item.titolo || 'senza_file'}`;
+    }
+
+    function formatDateTime(iso){
+      if (!iso) return '—';
+      const d = new Date(iso);
+      if (Number.isNaN(d.getTime())) return '—';
+      return d.toLocaleString('it-IT', { dateStyle:'short', timeStyle:'short' });
+    }
+
+    function saveNotes(forceMessage = true){
+      if (!selectedItem) return;
+      const payload = {
+        title: notesTitle.value.trim(),
+        body: notesArea.value,
+        savedAt: new Date().toISOString(),
+        classe: selectedItem.classe || '',
+        titolo: selectedItem.titolo || '',
+        file_path: selectedItem.file_path || ''
+      };
+      localStorage.setItem(noteKey(selectedItem), JSON.stringify(payload));
+      notesSavedAt.textContent = formatDateTime(payload.savedAt);
+      if (forceMessage) notesSavedAt.title = 'Salvataggio completato';
+    }
+
+    function loadNotesForItem(item){
+      notesTitle.value = '';
+      notesArea.value = '';
+      notesSavedAt.textContent = '—';
+      notesLinkedFile.textContent = item ? (item.titolo || item.file_path || 'Materiale') : 'Nessuno';
+      if (!item) return;
+      const raw = localStorage.getItem(noteKey(item));
+      if (!raw) return;
+      try{
+        const parsed = JSON.parse(raw);
+        notesTitle.value = parsed.title || '';
+        notesArea.value = parsed.body || '';
+        notesSavedAt.textContent = formatDateTime(parsed.savedAt);
+      } catch(e){}
+    }
+
+    function queueAutosave(){
+      clearTimeout(notesAutosaveTimer);
+      notesAutosaveTimer = setTimeout(() => saveNotes(false), 500);
+    }
+
+    function escapeHtml(v){
+      return String(v || '')
+        .replace(/&/g,'&amp;')
+        .replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;')
+        .replace(/"/g,'&quot;')
+        .replace(/'/g,'&#39;');
+    }
+
+    function nl2br(v){
+      return escapeHtml(v).replace(/\n/g,'<br>');
+    }
+
+    function showUnsupportedPreview(fileUrl, fileName){
+      viewerFrame.innerHTML = `<iframe title="Anteprima non disponibile" srcdoc="<html><body style='margin:0;padding:24px;font-family:Segoe UI,Arial,sans-serif;background:white;color:#111;line-height:1.55;'><h3 style='margin-top:0;'>Anteprima non disponibile</h3><p>Il file <strong>${escapeHtml(fileName)}</strong> non è supportato in anteprima diretta.</p><p><a href='${fileUrl}' target='_blank' rel='noopener'>Apri il file in una nuova scheda</a></p></body></html>"></iframe>`;
+    }
+
+    function setViewerContentFromUrl(fileUrl, fileName='Materiale'){
+      const lower = fileUrl.toLowerCase().split('?')[0];
+      if(lower.endsWith('.pdf')){
+        const iframe = document.createElement('iframe');
+        iframe.title = fileName;
+        iframe.src = fileUrl;
+        viewerFrame.innerHTML = '';
+        viewerFrame.appendChild(iframe);
+      }
+      else if (/(png|jpg|jpeg|webp)$/i.test(lower)) {
+        viewerFrame.innerHTML = `<iframe title="${escapeHtml(fileName)}" srcdoc="<html><body style='margin:0;background:#111;display:flex;align-items:center;justify-content:center;'><img src='${fileUrl}' style='max-width:100%;max-height:100vh;object-fit:contain'></body></html>"></iframe>`;
+      }
+      else if (lower.endsWith('.txt')) {
+        fetch(fileUrl).then(r => r.text()).then(text => {
+          viewerFrame.innerHTML = `<iframe title="${escapeHtml(fileName)}" srcdoc="<html><body style='margin:0;padding:18px;font-family:Segoe UI,Arial,sans-serif;line-height:1.5;background:white;color:#111;'><pre style='white-space:pre-wrap;'>${escapeHtml(text)}</pre></body></html>"></iframe>`;
+        }).catch(() => showUnsupportedPreview(fileUrl, fileName));
+      }
+      else if (lower.endsWith('.html') || lower.endsWith('.htm')) {
+        const iframe = document.createElement('iframe');
+        iframe.title = fileName;
+        iframe.src = fileUrl;
+        viewerFrame.innerHTML = '';
+        viewerFrame.appendChild(iframe);
+      }
+      else {
+        showUnsupportedPreview(fileUrl, fileName);
+      }
+    }
+
+    function setEmptyPreview(){
+      viewerDescription.textContent = 'Il materiale selezionato verrà mostrato qui.';
+      viewerClassBadge.textContent = 'Classe';
+      viewerFileBadge.textContent = 'Nessun file selezionato';
+      openFileBtn.href = '#';
+      openInClassBtn.href = 'classe.html';
+      openInClassBtn.style.pointerEvents = 'none';
+      openInClassBtn.style.opacity = '.55';
+      viewerFrame.innerHTML = '<div class="empty"><div><strong>Nessun materiale selezionato</strong>Scegli una voce dall’elenco centrale.</div></div>';
+      loadNotesForItem(null);
+    }
+
+    function openItem(item){
+      if (!item) return setEmptyPreview();
+      const fileHref = resolveHref(item.file_path);
+      viewerDescription.textContent = [item.classe || '', item.tipo || '', item.descrizione || item.file_path || ''].filter(Boolean).join(' · ');
+      viewerClassBadge.textContent = item.classe || 'Classe';
+      viewerFileBadge.textContent = item.titolo || item.file_path || 'Materiale';
+      openFileBtn.href = fileHref;
+      openInClassBtn.href = buildClassUrl(item);
+      openInClassBtn.style.pointerEvents = 'auto';
+      openInClassBtn.style.opacity = '1';
+      setViewerContentFromUrl(fileHref, item.titolo || 'Materiale');
+      loadNotesForItem(item);
+      // Update status bar and address bar
+      const sbClass = document.getElementById('sbClass');
+      const sbFile = document.getElementById('sbFile');
+      const addrPath = document.getElementById('addrPath');
+      if (sbClass) sbClass.textContent = item.classe || '—';
+      if (sbFile) sbFile.textContent = (item.titolo || item.file_path || 'Nessun file') + (item.tipo ? '  ·  ' + item.tipo : '');
+      if (addrPath) addrPath.value = 'antonioadinolfi.it › Materiali › ' + (item.classe || '') + ' › ' + (item.titolo || item.file_path || '');
+    }
+
+    function renderClasses(){
+      const visible = getVisibleClasses();
+      classScroll.innerHTML = '';
+      const list = document.createElement('ul');
+      list.className = 'class-list';
+
+      visible.forEach(cls => {
+        const count = getClassItems(cls).length;
+        const li = document.createElement('li');
+        const btn = document.createElement('button');
+        btn.className = 'class-btn';
+        if (selectedClass === cls) btn.classList.add('active');
+        btn.innerHTML = `<span class="tree-icon">📁</span><strong>${cls}</strong><span class="class-count">${count}</span>`;
+        btn.addEventListener('click', () => {
+          selectedClass = cls;
+          const items = getClassItems(cls);
+          selectedItem = items[0] || null;
+          renderClasses();
+          renderFiles();
+          if (selectedItem) openItem(selectedItem); else setEmptyPreview();
+        });
+        li.appendChild(btn);
+        list.appendChild(li);
+      });
+
+      classScroll.appendChild(list);
+
+      if (!visible.length) {
+        classScroll.innerHTML = '<div class="empty-list"><div><strong>Nessuna classe trovata</strong><br>Controlla il catalogo JSON o il testo di ricerca.</div></div>';
+        selectedClass = '';
+      } else if (!selectedClass || !visible.includes(selectedClass)) {
+        selectedClass = visible[0];
+      }
+    }
+
+    function renderFiles(){
+      if (!selectedClass) {
+        filesPanelTitle.textContent = 'Archivio file';
+        filesPanelDesc.textContent = 'Scegli una classe e poi un materiale dall’elenco.';
+        filesCountNote.textContent = '0 file disponibili';
+        filesActiveClass.textContent = '—';
+        filesScroll.innerHTML = '<div class="empty-list"><div><strong>Nessuna classe selezionata</strong><br>Seleziona una classe per vedere i file.</div></div>';
+        return;
+      }
+
+      const items = getClassItems(selectedClass);
+      filesPanelTitle.textContent = `${selectedClass} · Materiali`;
+      filesPanelDesc.textContent = 'Elenco ordinato dei materiali della classe selezionata.';
+      filesCountNote.textContent = `${items.length} file disponibili`;
+      filesActiveClass.textContent = selectedClass;
+      filesScroll.innerHTML = '';
+
+      if (!items.length) {
+        filesScroll.innerHTML = '<div class="empty-list"><div><strong>Nessun file disponibile</strong><br>Questa classe non ha materiali attivi nel catalogo.</div></div>';
+        selectedItem = null;
+        setEmptyPreview();
+        return;
+      }
+
+      const list = document.createElement('div');
+      list.className = 'file-list';
+
+      items.forEach(item => {
+        const row = document.createElement('button');
+        row.className = 'file-row';
+        if (selectedItem === item) row.classList.add('active');
+
+        const ext = extFromPath(item.file_path);
+        const desc = item.descrizione || item.file_path || '';
+        row.innerHTML = `
+          <div class="fc"><span class="file-icon-sm ext-${ext}">${ext.length<=4?ext.toUpperCase():'FILE'}</span><span class="file-name-text" title="${escapeHtml(item.titolo || '')}">${item.titolo || 'Senza titolo'}</span></div>
+          <div class="fc"><span class="file-ext-tag">${ext.toUpperCase()}</span></div>
+          <div class="fc" style="color:#555;font-size:11px" title="${escapeHtml(desc)}">${desc}</div>`;
+
+        row.addEventListener('click', () => {
+          saveNotes(false);
+          selectedItem = item;
+          renderFiles();
+          openItem(item);
+        });
+
+        list.appendChild(row);
+      });
+
+      filesScroll.appendChild(list);
+      if (!selectedItem || !items.includes(selectedItem)) selectedItem = items[0];
+    }
+
+    async function loadJson(){
+      try{
+        const response = await fetch('materiali_catalogo.json', {cache:'no-store'});
+        if (!response.ok) throw new Error('Catalogo JSON non trovato');
+        const rows = await response.json();
+        if (Array.isArray(rows) && rows.length) {
+          materials = rows.map(r => ({
+            classe: r.classe || '',
+            titolo: r.titolo || '',
+            descrizione: r.descrizione || '',
+            tipo: r.tipo || '',
+            file_path: r.file_path || '',
+            target_page: r.target_page || '',
+            ordine: Number(r.ordine || 999),
+            attivo: r.attivo
+          })).sort((a,b) => a.ordine - b.ordine);
+          return;
+        }
+      } catch(e) {}
+      materials = [];
+    }
+
+    function refreshLayout(){
+      renderClasses();
+      renderFiles();
+      if (selectedItem) openItem(selectedItem); else setEmptyPreview();
+    }
+
+    function downloadBlob(filename, content, type){
+      const blob = new Blob([content], { type });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function safeFilename(v){
+      return (v || 'note_materiale').replace(/[\\/:*?"<>|]+/g, '_').replace(/\s+/g,'_');
+    }
+
+    function exportNotesAsTxt(){
+      const base = safeFilename(notesTitle.value.trim() || (selectedItem && selectedItem.titolo) || 'note_materiale');
+      const content = [
+        `Classe: ${selectedItem?.classe || ''}`,
+        `Materiale: ${selectedItem?.titolo || selectedItem?.file_path || ''}`,
+        `Percorso: ${selectedItem?.file_path || ''}`,
+        `Titolo note: ${notesTitle.value.trim() || ''}`,
+        '',
+        notesArea.value
+      ].join('\n');
+      downloadBlob(`${base}.txt`, content, 'text/plain;charset=utf-8');
+    }
+
+    function exportNotesAsDoc(){
+      const base = safeFilename(notesTitle.value.trim() || (selectedItem && selectedItem.titolo) || 'note_materiale');
+      const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>${escapeHtml(base)}</title></head><body style="font-family:Calibri,Arial,sans-serif;line-height:1.5;color:#111;">
+        <h1 style="color:#0b3b75;margin-bottom:8px;">${escapeHtml(notesTitle.value.trim() || 'Note personali')}</h1>
+        <p><strong>Classe:</strong> ${escapeHtml(selectedItem?.classe || '')}</p>
+        <p><strong>Materiale:</strong> ${escapeHtml(selectedItem?.titolo || selectedItem?.file_path || '')}</p>
+        <p><strong>Percorso file:</strong> ${escapeHtml(selectedItem?.file_path || '')}</p>
+        <hr>
+        <div>${nl2br(notesArea.value)}</div>
+      </body></html>`;
+      downloadBlob(`${base}.doc`, html, 'application/msword;charset=utf-8');
+    }
+
+    function clearCurrentNotes(){
+      if (!selectedItem) return;
+      notesTitle.value = '';
+      notesArea.value = '';
+      localStorage.removeItem(noteKey(selectedItem));
+      notesSavedAt.textContent = '—';
+    }
+
+    function setNoteFontSize(px){
+      const n = Math.max(12, Math.min(28, px));
+      document.documentElement.style.setProperty('--note-font-size', `${n}px`);
+      localStorage.setItem('materialiNotesZoom', String(n));
+    }
+
+    function restoreNoteFontSize(){
+      setNoteFontSize(Number(localStorage.getItem('materialiNotesZoom') || 15));
+    }
+
+    function bindNoteZoom(){
+      notesArea.addEventListener('wheel', (e) => {
+        if(!e.ctrlKey) return;
+        e.preventDefault();
+        const c = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--note-font-size')) || 15;
+        setNoteFontSize(e.deltaY < 0 ? c + 1 : c - 1);
+      }, { passive:false });
+    }
+
+    function savePanelState(){
+      localStorage.setItem('materialiLayout', JSON.stringify({
+        leftW:getComputedStyle(root).getPropertyValue('--left-w').trim(),
+        classesH:getComputedStyle(root).getPropertyValue('--classes-h').trim(),
+        notesW:getComputedStyle(root).getPropertyValue('--notes-w').trim()
+      }));
+    }
+
+    function restorePanelState(){
+      try{
+        const raw = localStorage.getItem('materialiLayout');
+        if(!raw) return;
+        const p = JSON.parse(raw);
+        if(p.leftW) root.style.setProperty('--left-w', p.leftW);
+        if(p.classesH) root.style.setProperty('--classes-h', p.classesH);
+        if(p.notesW) root.style.setProperty('--notes-w', p.notesW);
+      } catch(e){}
+    }
+
+    
+    
+    function installMainSplitter(){
+      const splitter = document.getElementById('splitterMain');
+      let dragging = false;
+      let rafPending = false;
+
+      function onMove(e){
+        if (!dragging || window.innerWidth <= 1120) return;
+        if (rafPending) return;
+        rafPending = true;
+        requestAnimationFrame(() => {
+          rafPending = false;
+          const rect = layout.getBoundingClientRect();
+          let value = e.clientX - rect.left;
+          value = Math.max(240, Math.min(620, value));
+          root.style.setProperty('--left-w', value + 'px');
+        });
+      }
+
+      function stop(){
+        if (!dragging) return;
+        dragging = false;
+        splitter.classList.remove('dragging');
+        document.body.style.cursor = '';
+        document.body.style.userSelect = '';
+        document.querySelectorAll('iframe').forEach(f => f.style.pointerEvents = '');
+        window.removeEventListener('mousemove', onMove);
+        window.removeEventListener('mouseup', stop);
+        savePanelState();
+      }
+
+      splitter.addEventListener('mousedown', (e) => {
+        if (window.innerWidth <= 1120) return;
+        dragging = true;
+        splitter.classList.add('dragging');
+        document.body.style.cursor = 'col-resize';
+        document.body.style.userSelect = 'none';
+        document.querySelectorAll('iframe').forEach(f => f.style.pointerEvents = 'none');
+        e.preventDefault();
+        window.addEventListener('mousemove', onMove);
+        window.addEventListener('mouseup', stop);
+      });
+    }
+
+    function installLeftStackSplitter(){
+      const splitter = document.getElementById('splitterLeftStack');
+      let dragging = false;
+      let rafPending = false;
+
+      function onMove(e){
+        if (!dragging) return;
+        if (rafPending) return;
+        rafPending = true;
+        requestAnimationFrame(() => {
+          rafPending = false;
+          const rect = leftStack.getBoundingClientRect();
+          const localY = e.clientY - rect.top;
+          const value = Math.max(120, Math.min(rect.height - 120, localY));
+          root.style.setProperty('--classes-h', value + 'px');
+        });
+      }
+
+      function stop(){
+        if (!dragging) return;
+        dragging = false;
+        splitter.classList.remove('dragging');
+        document.body.style.cursor = '';
+        document.body.style.userSelect = '';
+        window.removeEventListener('mousemove', onMove);
+        window.removeEventListener('mouseup', stop);
+        savePanelState();
+      }
+
+      splitter.addEventListener('mousedown', (e) => {
+        dragging = true;
+        splitter.classList.add('dragging');
+        document.body.style.cursor = 'row-resize';
+        document.body.style.userSelect = 'none';
+        e.preventDefault();
+        window.addEventListener('mousemove', onMove);
+        window.addEventListener('mouseup', stop);
+      });
+    }
+
+    function installHorizontalSplitter(){
+      const splitter = document.getElementById('splitterNotes');
+      let dragging = false;
+      let rafPending = false;
+
+      function onMove(e){
+        if (!dragging || window.innerWidth <= 1120) return;
+        if (rafPending) return;
+        rafPending = true;
+        requestAnimationFrame(() => {
+          rafPending = false;
+          const stack = document.querySelector('.viewer-stack').getBoundingClientRect();
+          const localX = e.clientX - stack.left;
+          const totalW = stack.width;
+          const notesW = Math.max(220, Math.min(600, totalW - localX - 4));
+          root.style.setProperty('--notes-w', notesW + 'px');
+        });
+      }
+
+      function stop(){
+        if (!dragging) return;
+        dragging = false;
+        splitter.classList.remove('dragging');
+        document.body.style.cursor = '';
+        document.body.style.userSelect = '';
+        document.querySelectorAll('iframe').forEach(f => f.style.pointerEvents = '');
+        window.removeEventListener('mousemove', onMove);
+        window.removeEventListener('mouseup', stop);
+        savePanelState();
+      }
+
+      splitter.addEventListener('mousedown', (e) => {
+        if (window.innerWidth <= 1120) return;
+        dragging = true;
+        splitter.classList.add('dragging');
+        document.body.style.cursor = 'col-resize';
+        document.body.style.userSelect = 'none';
+        document.querySelectorAll('iframe').forEach(f => f.style.pointerEvents = 'none');
+        e.preventDefault();
+        window.addEventListener('mousemove', onMove);
+        window.addEventListener('mouseup', stop);
+      });
+    }
+
+searchBox.addEventListener('input', () => {
+      const visible = getVisibleClasses();
+      if (!visible.includes(selectedClass)) selectedClass = visible[0] || '';
+      selectedItem = selectedClass ? getClassItems(selectedClass)[0] || null : null;
+      refreshLayout();
+    });
+
+    notesTitle.addEventListener('input', queueAutosave);
+    notesArea.addEventListener('input', queueAutosave);
+    exportDocBtn.addEventListener('click', exportNotesAsDoc);
+    clearNotesBtn.addEventListener('click', clearCurrentNotes);
+    window.addEventListener('beforeunload', () => saveNotes(false));
+
+    restorePanelState();
+    restoreNoteFontSize();
+    bindNoteZoom();
+    installMainSplitter();
+    installLeftStackSplitter();
+    installHorizontalSplitter();
+
+    loadJson().then(() => {
+      refreshLayout();
+    });
+
+    // ── Panel zoom (Ctrl+wheel) ────────────────────────────────────────────────
+    const zoomToast = document.getElementById('zoomToast');
+    let zoomToastTimer = null;
+
+    function showZoomToast(label, pxVal){
+      zoomToast.textContent = `${label}: ${Math.round(pxVal)}px`;
+      zoomToast.classList.add('show');
+      clearTimeout(zoomToastTimer);
+      zoomToastTimer = setTimeout(() => zoomToast.classList.remove('show'), 1200);
+    }
+
+    function setPanelFontSize(varName, storeKey, px){
+      const n = Math.max(9, Math.min(22, px));
+      root.style.setProperty(varName, n + 'px');
+      localStorage.setItem(storeKey, String(n));
+      return n;
+    }
+
+    // Classes panel zoom
+    document.getElementById('classesPanel').addEventListener('wheel', (e) => {
+      if (!e.ctrlKey) return;
+      e.preventDefault();
+      const cur = parseFloat(getComputedStyle(root).getPropertyValue('--classes-font-size')) || 12;
+      const n = setPanelFontSize('--classes-font-size', 'materialiClassesZoom', cur + (e.deltaY < 0 ? 1 : -1));
+      showZoomToast('Classi', n);
+    }, { passive: false });
+
+    // Files panel zoom
+    document.getElementById('filesPanel').addEventListener('wheel', (e) => {
+      if (!e.ctrlKey) return;
+      e.preventDefault();
+      const cur = parseFloat(getComputedStyle(root).getPropertyValue('--files-font-size')) || 12;
+      const n = setPanelFontSize('--files-font-size', 'materialiFilesZoom', cur + (e.deltaY < 0 ? 1 : -1));
+      showZoomToast('File', n);
+    }, { passive: false });
+
+    // Restore saved zoom levels
+    (function restorePanelZoom(){
+      const cz = localStorage.getItem('materialiClassesZoom');
+      const fz = localStorage.getItem('materialiFilesZoom');
+      if (cz) root.style.setProperty('--classes-font-size', cz + 'px');
+      if (fz) root.style.setProperty('--files-font-size', fz + 'px');
+    })();
+
+    // ── QR Code Generator ─────────────────────────────────────────────────────
+    let _qrLibReady = false;
+    function loadQrLib(cb){
+      if (_qrLibReady){ cb(); return; }
+      const s = document.createElement('script');
+      s.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+      s.onload = () => { _qrLibReady = true; cb(); };
+      document.head.appendChild(s);
+    }
+
+    const qrBtn       = document.getElementById('qrBtn');
+    const qrOverlay   = document.getElementById('qrOverlay');
+    const qrCanvas    = document.getElementById('qrCanvas');
+    const qrFileLabel = document.getElementById('qrFileLabel');
+    const qrCloseBtn  = document.getElementById('qrCloseBtn');
+    const qrUrlInput  = document.getElementById('qrUrlInput');
+    const qrRegenBtn  = document.getElementById('qrRegenBtn');
+    const qrCopyBtn   = document.getElementById('qrCopyBtn');
+    const qrSize      = document.getElementById('qrSize');
+    const qrColorDark = document.getElementById('qrColorDark');
+    const qrColorLight= document.getElementById('qrColorLight');
+    const qrDownloadBtn = document.getElementById('qrDownloadBtn');
+
+    function buildQR(url){
+      if (!url) return;
+      const size = parseInt(qrSize.value) || 220;
+      qrCanvas.innerHTML = '';
+      new QRCode(qrCanvas, {
+        text: url,
+        width: size, height: size,
+        colorDark: qrColorDark.value,
+        colorLight: qrColorLight.value,
+        correctLevel: QRCode.CorrectLevel.M
+      });
+      qrFileLabel.textContent = url;
+    }
+
+    function openQrPanel(){
+      const url = selectedItem?.file_path ? resolveHref(selectedItem.file_path) : window.location.href;
+      loadQrLib(() => {
+        qrUrlInput.value = url;
+        buildQR(url);
+        qrOverlay.style.display = 'block';
+      });
+    }
+
+    qrBtn.addEventListener('click', openQrPanel);
+
+    qrRegenBtn.addEventListener('click', () => {
+      loadQrLib(() => buildQR(qrUrlInput.value.trim() || window.location.href));
+    });
+
+    qrUrlInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') loadQrLib(() => buildQR(qrUrlInput.value.trim()));
+    });
+
+    [qrSize, qrColorDark, qrColorLight].forEach(el => {
+      el.addEventListener('change', () => {
+        loadQrLib(() => buildQR(qrUrlInput.value.trim() || window.location.href));
+      });
+    });
+
+    qrCopyBtn.addEventListener('click', () => {
+      const url = qrUrlInput.value.trim();
+      if (!url) return;
+      navigator.clipboard.writeText(url).then(() => {
+        qrCopyBtn.textContent = '✓';
+        setTimeout(() => qrCopyBtn.textContent = '📋', 1500);
+      }).catch(() => {
+        qrUrlInput.select();
+        document.execCommand('copy');
+      });
+    });
+
+    qrDownloadBtn.addEventListener('click', () => {
+      const img = qrCanvas.querySelector('img') || qrCanvas.querySelector('canvas');
+      if (!img) return;
+      let dataUrl;
+      if (img.tagName === 'CANVAS') {
+        dataUrl = img.toDataURL('image/png');
+      } else {
+        // img tag — draw on a temp canvas
+        const c = document.createElement('canvas');
+        const sz = parseInt(qrSize.value) || 220;
+        c.width = sz; c.height = sz;
+        c.getContext('2d').drawImage(img, 0, 0, sz, sz);
+        dataUrl = c.toDataURL('image/png');
+      }
+      const a = document.createElement('a');
+      a.href = dataUrl;
+      const fname = (selectedItem?.titolo || 'qr').replace(/[^a-z0-9]/gi,'_');
+      a.download = `QR_${fname}.png`;
+      a.click();
+    });
+
+    qrCloseBtn.addEventListener('click', () => {
+      qrOverlay.style.display = 'none';
+      qrCanvas.innerHTML = '';
+    });
+    qrOverlay.addEventListener('click', (e) => {
+      if (e.target === qrOverlay){ qrOverlay.style.display = 'none'; qrCanvas.innerHTML = ''; }
+    });
+
+    // ── Theme toggle ──────────────────────────────────────────────────────────
+    const themeToggle = document.getElementById('themeToggle');
+
+    function applyTheme(dark){
+      if(dark){
+        document.documentElement.classList.add('dark');
+        themeToggle.textContent = '🌙 Scuro';
+      } else {
+        document.documentElement.classList.remove('dark');
+        themeToggle.textContent = '☀️ Chiaro';
+      }
+    }
+
+    // Restore saved preference, fallback to system preference
+    const savedTheme = localStorage.getItem('materialiTheme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(savedTheme === 'dark' || (savedTheme === null && prefersDark));
+
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      applyTheme(!isDark);
+      localStorage.setItem('materialiTheme', isDark ? 'light' : 'dark');
+    });
+  </script>
+
+  <script src="pwa-register.js"></script>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="auth-enterprise.js"></script>
+  <script>
+    LSCAuth.requireAuth({ loginUrl: "login.html" });
+  </script>
+</body>
+</html>

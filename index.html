@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Antonio Adinolfi, docente di Informatica presso il Liceo Scientifico Nino Cortese di Maddaloni (Caserta). Materiali didattici, progetti STEM e risorse per gli studenti.">
+<meta property="og:title" content="Prof. Antonio Adinolfi | Liceo Scientifico N. Cortese">
+<meta property="og:description" content="Risorse didattiche, materiali per le classi e bacheca news del Dipartimento di Informatica.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0d1b2e">
+<title>Prof. Antonio Adinolfi – Docente di Informatica | Liceo Scientifico Nino Cortese Maddaloni</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="design-system.css">
+<style>
+/* ── RESET & ROOT ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Le variabili storiche di questa pagina (--navy, --gold, ecc.)
+   sono mantenute per compatibilità con tutte le regole sottostanti,
+   ma ora derivano dalla fonte unica design-system.css (FASE 2),
+   così l'identità visiva resta coerente con le altre pagine del sito. */
+:root {
+  --navy:        var(--color-primary);
+  --navy2:       var(--color-primary-light);
+  --navy3:       var(--color-secondary);
+  --gold:        var(--color-accent);
+  --gold-light:  var(--color-accent-light);
+  --gold-pale:   var(--color-accent-pale);
+  --cream:       var(--color-background);
+  --cream2:      var(--color-background-2);
+  --white:       var(--color-surface);
+  --text:        var(--color-text);
+  --text-muted:  var(--color-muted);
+  --accent:      var(--color-secondary);
+  --border:      var(--color-border);
+  --border-gold: var(--color-border-accent);
+  --serif:       var(--font-serif);
+  --sans:        var(--font-sans);
+  --mono:        var(--font-mono);
+  /* --radius, --radius-lg, --shadow, --shadow-hover: stesso nome
+     in design-system.css, ereditate direttamente senza rimappatura
+     (rimapparle con lo stesso nome creerebbe un riferimento
+     circolare CSS non valido). */
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── UTILITY ── */
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* ── NAV ── */
+nav {
+  background: var(--navy);
+  padding: 0 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  border-bottom: 1px solid var(--border-gold);
+}
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.nav-badge {
+  width: 36px;
+  height: 36px;
+  background: var(--gold);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  color: #fff;
+  font-size: 17px;
+  font-style: italic;
+  flex-shrink: 0;
+}
+.nav-name  { color: #fff; font-size: 14px; font-weight: 500; letter-spacing: 0.2px; }
+.nav-inst  { color: rgba(255,255,255,0.4); font-size: 11px; letter-spacing: 0.6px; text-transform: uppercase; margin-top: 1px; }
+.nav-links { display: flex; gap: 0.2rem; }
+.nav-links a {
+  color: rgba(255,255,255,0.55);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 4px;
+  transition: color .18s, background .18s;
+}
+.nav-links a:hover { color: var(--gold-light); background: rgba(255,255,255,0.05); }
+.nav-links a.active { color: var(--gold-light); }
+.nav-cta {
+  background: var(--gold);
+  color: #fff !important;
+  border-radius: 4px;
+  padding: 6px 16px !important;
+}
+.nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+/* hamburger (mobile) */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+.hamburger span { width: 22px; height: 2px; background: rgba(255,255,255,0.7); border-radius: 2px; transition: all .2s; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--navy);
+  padding: 5rem 3rem 0;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 4rem;
+  align-items: end;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 40%, var(--gold-light) 60%, transparent 100%);
+}
+/* decorative grid */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,150,62,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,150,62,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--gold);
+  margin-bottom: 1.1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+  display: inline-block;
+}
+.hero-name {
+  font-family: var(--serif);
+  font-size: 3.6rem;
+  color: #fff;
+  line-height: 1.04;
+  margin-bottom: 0.7rem;
+  position: relative;
+}
+.hero-name em { color: var(--gold-light); font-style: italic; }
+.hero-role {
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.3px;
+}
+.hero-desc {
+  font-size: 15px;
+  color: rgba(255,255,255,0.68);
+  max-width: 520px;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 2.4rem;
+}
+.tag {
+  font-size: 10.5px;
+  letter-spacing: 0.7px;
+  padding: 5px 13px;
+  border: 1px solid rgba(200,150,62,0.3);
+  color: rgba(255,255,255,0.55);
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: border-color .2s, color .2s;
+}
+.tag:hover { border-color: var(--gold); color: var(--gold-light); }
+.hero-btns {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  background: var(--gold);
+  color: #fff;
+  padding: 11px 26px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  transition: background .2s, transform .15s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+.btn-secondary {
+  border: 1px solid rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.65);
+  padding: 11px 26px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all .2s;
+  display: inline-block;
+}
+.btn-secondary:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+/* PHOTO COLUMN */
+.hero-photo-col { display: flex; justify-content: center; align-items: flex-end; }
+.hero-photo-frame {
+  width: 230px;
+  height: 300px;
+  background: var(--navy2);
+  border-radius: 10px 10px 0 0;
+  border: 1px solid var(--border-gold);
+  border-bottom: none;
+  overflow: hidden;
+  position: relative;
+}
+.hero-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.hero-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.avatar-circle {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: rgba(200,150,62,0.12);
+  border: 2px solid rgba(200,150,62,0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 30px;
+  color: var(--gold-light);
+  font-style: italic;
+}
+.photo-label { font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 1px; text-transform: uppercase; }
+
+/* ── MAIN CONTAINER ── */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3.5rem 3rem;
+}
+
+/* ── SECTION HEADER ── */
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.section-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  color: var(--navy);
+  line-height: 1.1;
+}
+
+/* ── PROFILE STRIP ── */
+.profile-strip {
+  background: var(--navy);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-gold);
+  padding: 2rem 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+.profile-item {}
+.profile-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.profile-value {
+  font-size: 14px;
+  color: rgba(255,255,255,0.82);
+  font-weight: 500;
+  line-height: 1.5;
+}
+.profile-value a { color: var(--gold-light); }
+.profile-value a:hover { text-decoration: underline; }
+
+/* ── STAT BAR ── */
+.stat-bar {
+  background: var(--navy);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius);
+  padding: 1.6rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.stat-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), transparent);
+}
+.stat { text-align: center; padding: 0.5rem 0; }
+.stat + .stat { border-left: 1px solid rgba(255,255,255,0.06); }
+.stat-num {
+  font-family: var(--serif);
+  font-size: 2.2rem;
+  color: var(--gold-light);
+  line-height: 1;
+  display: block;
+  margin-bottom: 6px;
+}
+.stat-lbl {
+  font-size: 10.5px;
+  color: rgba(255,255,255,0.38);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 500;
+}
+
+/* ── CARDS GRID ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 3rem;
+}
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  transition: transform .22s, box-shadow .22s;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+.card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+.card-icon.c-navy  { background: var(--navy);  }
+.card-icon.c-gold  { background: var(--gold-pale); }
+.card-icon.c-teal  { background: #e1f5ee; }
+.card-icon.c-blue  { background: #e6f1fb; }
+.card-icon.c-green { background: #eaf3de; }
+.card-icon.c-coral { background: #faece7; }
+.card-h { font-weight: 600; font-size: 14.5px; margin-bottom: 7px; color: var(--navy); }
+.card-p { font-size: 13px; color: var(--text-muted); line-height: 1.65; flex: 1; }
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: 14px;
+  letter-spacing: 0.3px;
+  transition: gap .15s, color .15s;
+}
+.card-link:hover { gap: 8px; color: var(--navy); }
+
+/* ── PULL QUOTE ── */
+.pull-quote {
+  border-left: 3px solid var(--gold);
+  padding: 1.3rem 1.8rem;
+  background: var(--white);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin-bottom: 3rem;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--navy);
+  font-style: italic;
+  line-height: 1.6;
+  box-shadow: var(--shadow);
+}
+.pull-quote cite {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+/* ── INFO ROW ── */
+.info-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 3rem;
+}
+.info-block {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+.info-block-h {
+  font-weight: 600;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--navy);
+  margin-bottom: 1rem;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--cream2);
+}
+.info-list { list-style: none; }
+.info-list li {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 7px 0;
+  border-bottom: 1px solid var(--cream2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1.5;
+}
+.info-list li:last-child { border: none; padding-bottom: 0; }
+.bullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ── NEWS STRIP ── */
+.news-strip {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 3rem;
+  box-shadow: var(--shadow);
+}
+.news-header {
+  background: var(--navy2);
+  padding: 1.1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--border-gold);
+}
+.news-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+.news-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.7); }
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.news-col {
+  padding: 1.2rem 1.4rem;
+  border-right: 1px solid var(--border);
+}
+.news-col:last-child { border-right: none; }
+.news-col-title {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--gold);
+  margin-bottom: 0.7rem;
+}
+.news-item {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  padding: 6px 0;
+  border-bottom: 1px solid var(--cream2);
+  line-height: 1.45;
+  cursor: pointer;
+  transition: color .15s;
+}
+.news-item:last-child { border: none; padding-bottom: 0; }
+.news-item:hover { color: var(--navy); }
+
+/* ── GLOSSARY TEASER ── */
+.glossary-block {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy3) 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: center;
+}
+.glossary-title {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--gold-light);
+  margin-bottom: 0.5rem;
+}
+.glossary-desc { font-size: 13.5px; color: rgba(255,255,255,0.55); line-height: 1.65; }
+.glossary-stat { text-align: center; flex-shrink: 0; }
+.glossary-num { font-family: var(--serif); font-size: 3rem; color: var(--gold); line-height: 1; display: block; }
+.glossary-lbl { font-size: 10px; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 4px; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  border-top: 1px solid var(--border-gold);
+  padding: 2.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.footer-badge {
+  width: 32px;
+  height: 32px;
+  background: var(--gold);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  color: #fff;
+  font-size: 15px;
+  font-style: italic;
+}
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.35); }
+.footer-copy strong { color: rgba(255,255,255,0.65); font-weight: 500; }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); transition: color .15s; }
+.footer-links a:hover { color: var(--gold-light); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; padding: 3.5rem 2rem 0; gap: 2rem; }
+  .hero-photo-col { display: none; }
+  .hero-name { font-size: 2.8rem; }
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--navy2); padding: 1rem; border-bottom: 1px solid var(--border-gold); }
+  .hamburger { display: flex; }
+  .cards-grid { grid-template-columns: 1fr 1fr; }
+  .profile-strip { grid-template-columns: 1fr; gap: 1.2rem; }
+  .stat-bar { grid-template-columns: repeat(2, 1fr); }
+  .stat + .stat { border-left: none; }
+  .stat:nth-child(odd) + .stat { border-left: 1px solid rgba(255,255,255,0.06); }
+  .news-grid { grid-template-columns: 1fr; }
+  .news-col { border-right: none; border-bottom: 1px solid var(--border); }
+  .news-col:last-child { border-bottom: none; }
+  .info-row { grid-template-columns: 1fr; }
+  .glossary-block { grid-template-columns: 1fr; }
+  .container { padding: 2.5rem 1.5rem; }
+  nav { padding: 0 1.5rem; }
+  footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 600px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .hero-name { font-size: 2.2rem; }
+  .stat-bar { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="index.html" class="nav-brand">
+    <div class="nav-badge">A</div>
+    <div>
+      <div class="nav-name">Prof. Antonio Adinolfi</div>
+      <div class="nav-inst">Liceo Scientifico N. Cortese · Maddaloni</div>
+    </div>
+  </a>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#profilo">Profilo</a>
+    <a href="#strumenti">Didattica</a>
+    <a href="#laboratori">Laboratori</a>
+    <a href="#notizie">Notizie</a>
+    <a href="#contatti">Contatti</a>
+    <a href="https://www.liceoscientificocortese.edu.it" target="_blank" class="nav-cta">Sito Liceo</a>
+  </div>
+
+  <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Dipartimento di Informatica · Classe di concorso A041</div>
+    <h1 class="hero-name">Prof. Antonio<br><em>Adinolfi</em></h1>
+    <p class="hero-role">Docente di Informatica · Liceo Scientifico "Nino Cortese", Maddaloni (CE)</p>
+    <p class="hero-desc">
+      Un ambiente digitale per lezioni, esercitazioni e progetti STEM.
+      Materiali didattici, laboratorio SQL, Python nel browser, glossario interattivo
+      e risorse aggiornate per gli studenti.
+    </p>
+    <div class="hero-tags">
+      <span class="tag">Informatica</span>
+      <span class="tag">STEM</span>
+      <a href="classe.html" class="tag">Python Lab</a>
+      <span class="tag">SQL</span>
+      <span class="tag">INVALSI</span>
+      <span class="tag">Progetti EU</span>
+      <span class="tag">AI &amp; Robotica</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#strumenti" class="btn-primary">Vai alla Didattica</a>
+      <a href="pubblicazioni.html" class="btn-secondary">Pubblicazioni</a>
+    </div>
+  </div>
+  <div class="hero-photo-col">
+    <div class="hero-photo-frame">
+      <img
+        src="http://antonioadinolfiscuola.it/immagini/foto_adinolfi.jpg"
+        alt="Prof. Antonio Adinolfi"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+      >
+      <div class="hero-photo-placeholder" style="display:none">
+        <div class="avatar-circle">AA</div>
+        <span class="photo-label">Foto docente</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MAIN ═══ -->
+<main>
+<div class="container">
+
+  <!-- ── PROFILO ── -->
+  <div id="profilo" style="padding-top:2rem">
+    <div class="section-header">
+      <span class="section-num">01 —</span>
+      <h2 class="section-title">Identità e Ruolo</h2>
+    </div>
+
+    <div class="profile-strip">
+      <div class="profile-item">
+        <div class="profile-label">Classe di concorso</div>
+        <div class="profile-value">A041 · Informatica<br>Liceo Scientifico (Scienze Applicate)</div>
+      </div>
+      <div class="profile-item">
+        <div class="profile-label">Istituto</div>
+        <div class="profile-value">
+          <a href="https://www.liceoscientificocortese.edu.it" target="_blank">
+            Liceo Scientifico "Nino Cortese"
+          </a><br>Maddaloni, Caserta
+        </div>
+      </div>
+      <div class="profile-item">
+        <div class="profile-label">Ricevimento</div>
+        <div class="profile-value">Mercoledì 10:00 – 11:00<br>Su appuntamento</div>
+      </div>
+    </div>
+
+    <div class="stat-bar">
+      <div class="stat">
+        <span class="stat-num">5+</span>
+        <span class="stat-lbl">Classi attive</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">3</span>
+        <span class="stat-lbl">Progetti STEM</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">2026</span>
+        <span class="stat-lbl">Anno accademico</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">∞</span>
+        <span class="stat-lbl">Curiosità digitale</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STRUMENTI ── -->
+  <div id="strumenti">
+    <div class="section-header">
+      <span class="section-num">02 —</span>
+      <h2 class="section-title">Strumenti Didattici</h2>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon c-navy">🐍</div>
+        <div class="card-h">Python Lab</div>
+        <p class="card-p">Esercitazioni Python direttamente nel browser con Skulpt. Input personalizzato e librerie shim per numpy e matplotlib.</p>
+        <a href="classe.html" class="card-link">Apri laboratorio →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon c-teal">🗄️</div>
+        <div class="card-h">Laboratorio SQL</div>
+        <p class="card-p">Query SELECT, JOIN, GROUP BY su database scolastico. Output tabellare e consegna HTML integrata nel browser.</p>
+        <a href="classe_sql.html" class="card-link">Apri SQL →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon c-gold">🧩</div>
+        <div class="card-h">PanQuiz Kiosk</div>
+        <p class="card-p">Sistema quiz per verifiche in classe. Avvio dedicato per ogni gruppo, modalità kiosk Windows.</p>
+        <a href="classe.html#kiosk" class="card-link">Avvia quiz →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon c-blue">📅</div>
+        <div class="card-h">Agenda Lezioni</div>
+        <p class="card-p">Calendario settimanale delle lezioni per classe. Accesso rapido agli esercizi collegati a ogni sessione.</p>
+        <a href="classe.html#agenda" class="card-link">Vedi agenda →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon c-green">📚</div>
+        <div class="card-h">Materiali</div>
+        <p class="card-p">Schede operative, dispense e risorse didattiche organizzate per classe e argomento con accesso Google OAuth.</p>
+        <a href="materiali.html" class="card-link">Sfoglia →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon c-coral">🔬</div>
+        <div class="card-h">Progetti STEM</div>
+        <p class="card-p">Project work interdisciplinari, RomeCup, iniziative EU e attività di ricerca con gli studenti.</p>
+        <a href="classe.html#stem" class="card-link">Scopri →</a>
+      </div>
+    </div>
+
+    <blockquote class="pull-quote">
+      Teoria essenziale, pratica al computer, verifica e restituzione immediata:
+      così si costruisce la competenza digitale autentica.
+      <cite>— Metodo didattico · Dipartimento di Informatica A041</cite>
+    </blockquote>
+  </div>
+
+  <!-- ── ATTIVITÀ ── -->
+  <div id="laboratori">
+    <div class="section-header">
+      <span class="section-num">03 —</span>
+      <h2 class="section-title">Aree di Attività</h2>
+    </div>
+
+    <div class="info-row">
+      <div class="info-block">
+        <div class="info-block-h">Didattica</div>
+        <ul class="info-list">
+          <li><span class="bullet"></span>Informatica Liceo Scientifico (Scienze Applicate)</li>
+          <li><span class="bullet"></span>Laboratori di coding Python e SQL in browser</li>
+          <li><span class="bullet"></span>Glossario interattivo con ricerca e filtro alfabetico</li>
+          <li><span class="bullet"></span>Agenda lezioni e materiali riservati per classe</li>
+          <li><span class="bullet"></span>Accesso OAuth Google istituzionale @lscortese.com</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <div class="info-block-h">Coordinamento e Progetti</div>
+        <ul class="info-list">
+          <li><span class="bullet"></span>Coordinatore INVALSI – valutazione nazionale 2II</li>
+          <li><span class="bullet"></span>Progetti EU e fondi ministeriali (DM 129/2025)</li>
+          <li><span class="bullet"></span>STEM e RomeCup 2026 – AI e Robotica, Sapienza</li>
+          <li><span class="bullet"></span>Formazione AICA · Competenze digitali certificate</li>
+          <li><span class="bullet"></span>Iniziativa EJERE – Giornale scientifico studentesco</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <div class="info-block-h">Area Riservata Studenti</div>
+        <ul class="info-list">
+          <li><span class="bullet"></span>Accesso con account Google @lscortese.com</li>
+          <li><span class="bullet"></span>Esercizi guidati e laboratori pratici</li>
+          <li><span class="bullet"></span>Verifica consegne e feedback immediato</li>
+          <li><span class="bullet"></span>Risorse STEM e approfondimenti</li>
+          <li><span class="bullet"></span>PanQuiz – quiz e verifiche interattive</li>
+        </ul>
+      </div>
+      <div class="info-block" id="contatti">
+        <div class="info-block-h">Contatti e Riferimenti</div>
+        <ul class="info-list">
+          <li><span class="bullet"></span>Ricevimento: mercoledì 10:00–11:00</li>
+          <li><span class="bullet"></span>Email istituzionale disponibile sul sito del Liceo</li>
+          <li><span class="bullet"></span><a href="https://www.liceoscientificocortese.edu.it" target="_blank" style="color:var(--accent)">liceoscientificocortese.edu.it</a></li>
+          <li><span class="bullet"></span><a href="pubblicazioni.html" style="color:var(--accent)">Pubblicazioni e contributi</a></li>
+          <li><span class="bullet"></span><a href="privacy.html" style="color:var(--accent)">Informativa Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- CALENDARIO LEZIONI -->
+<div class="info-block" style="margin-bottom:3rem;">
+    <div class="info-block-h">Calendario Lezioni</div>
+
+    <iframe
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT6N59KgOv1FAKALUJRJwl9DUj8-YmoZ0VE-KHYRjJPdLIKrnGDi0qWB4dkryO10i5tlHFGjmaVaEmk/pubhtml?gid=183527466&single=true"
+        width="100%"
+        height="500"
+        frameborder="0"
+        style="border-radius:var(--radius); border:1px solid var(--border); margin-top:1rem;">
+    </iframe>
+</div>
+
+<!-- ── GLOSSARIO ── -->
+<div id="glossario">
+
+    <div class="section-header">
+        <span class="section-num">04 —</span>
+        <h2 class="section-title">Glossario</h2>
+    </div>
+
+    <div class="glossary-block">
+
+        <div>
+            <div class="glossary-title">Glossario Informatico</div>
+
+            <p class="glossary-desc">
+                Ricerca immediata tra i termini fondamentali dell'informatica:
+                filtro alfabetico, definizioni essenziali e indice navigabile.
+                Strumento di studio sempre aggiornato.
+            </p>
+
+            <a href="glossario.html"
+               class="btn-primary"
+               style="margin-top:1.2rem;display:inline-block">
+               Apri Glossario →
+            </a>
+        </div>
+
+        <div class="glossary-stat">
+            <span class="glossary-num">200+</span>
+            <span class="glossary-lbl">Termini disponibili</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ── NOTIZIE ── -->
+<div id="notizie">
+ 
+  </div>
+  <!-- ── NOTIZIE ── -->
+  <div id="notizie">
+    <div class="section-header">
+      <span class="section-num">05 —</span>
+      <h2 class="section-title">Notizie e Aggiornamenti</h2>
+    </div>
+
+    <div class="news-strip">
+      <div class="news-header">
+        <div class="news-dot"></div>
+        <div class="news-title">Feed aggiornati automaticamente</div>
+      </div>
+      <div class="news-grid">
+        <div class="news-col">
+          <div class="news-col-title">Circolari Liceo Cortese</div>
+          <div class="news-item" id="feed-liceo">Caricamento in corso…</div>
+        </div>
+        <div class="news-col">
+          <div class="news-col-title">Orizzonte Scuola</div>
+          <div class="news-item" id="feed-orizzonte">Caricamento in corso…</div>
+        </div>
+        <div class="news-col">
+          <div class="news-col-title">Wired Italia · AI</div>
+          <div class="news-item" id="feed-wired">Caricamento in corso…</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-left">
+    <div class="footer-badge">A</div>
+    <div class="footer-copy">
+      © 2026 <strong>Prof. Antonio Adinolfi</strong> ·
+      Liceo Scientifico "Nino Cortese", Maddaloni (CE)
+    </div>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.liceoscientificocortese.edu.it" target="_blank">Sito del Liceo</a>
+    <a href="pubblicazioni.html">Pubblicazioni</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+</footer>
+
+<script>
+/* ── RSS FEED LOADER ── */
+/* ── RSS FEED LOADER (con proxy locale) ── */
+const feeds = [
+  {
+    id: 'feed-liceo',
+    url: 'https://www.liceoscientificocortese.edu.it/?feed=rss2',
+    label: 'Liceo Cortese'
+  },
+  {
+    id: 'feed-orizzonte',
+    url: 'https://www.orizzontescuola.it/feed/',
+    label: 'Orizzonte Scuola'
+  },
+  {
+    id: 'feed-wired',
+    url: 'https://www.wired.it/feed/rss',
+    label: 'Wired'
+  }
+];
+
+// Sostituisci con l'URL del tuo proxy locale (es. https://tuo-proxy.glitch.me)
+const PROXY_URL = 'https://tuo-proxy.glitch.me/proxy?url=';
+
+async function loadFeed({ id, url, label }) {
+  const container = document.getElementById(id);
+  if (!container) {
+    console.warn(`Elemento con ID "${id}" non trovato.`);
+    return;
+  }
+
+  // Mostra "Caricamento in corso..." all'inizio
+  container.innerHTML = '<div class="news-item">Caricamento in corso...</div>';
+
+  const cacheKey = `rss_${id}`;
+  const cachedHTML = localStorage.getItem(cacheKey);
+  const cacheTime = localStorage.getItem(`${cacheKey}_ts`);
+
+  // Controlla la cache (30 minuti)
+  if (cachedHTML && cacheTime && (Date.now() - cacheTime) < 30 * 60 * 1000) {
+    container.innerHTML = cachedHTML;
+    return;
+  }
+
+  try {
+    // Usa il proxy locale
+    const proxyUrl = `${PROXY_URL}${encodeURIComponent(url)}`;
+    const response = await fetch(proxyUrl, {
+      mode: 'cors',
+      headers: { 'Accept': 'text/xml' }
+    });
+
+    if (!response.ok) {
+      throw new Error(`Errore HTTP: ${response.status}`);
+    }
+
+    const xmlText = await response.text();
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+
+    // Estrai gli item dal feed RSS
+    const items = xmlDoc.querySelectorAll('item');
+    if (items.length === 0) {
+      throw new Error(`Nessun articolo trovato nel feed ${label}`);
+    }
+
+    // Crea l'HTML per ogni articolo
+    const html = Array.from(items)
+      .slice(0, 4) // Prendi solo i primi 4 articoli
+      .map(
+        (item) => {
+          const title = item.querySelector('title')?.textContent || 'Nessun titolo';
+          const link = item.querySelector('link')?.textContent || '#';
+          const description = item.querySelector('description')?.textContent || 'Nessuna descrizione';
+          return `
+            <div class="news-item">
+              <h4>${title}</h4>
+              <p>${description.substring(0, 100)}...</p>
+              <a href="${link}" target="_blank" rel="noopener noreferrer">Leggi tutto</a>
+            </div>
+          `;
+        }
+      )
+      .join('');
+
+    container.innerHTML = html;
+
+    // Salva in cache
+    localStorage.setItem(cacheKey, html);
+    localStorage.setItem(`${cacheKey}_ts`, Date.now());
+
+  } catch (error) {
+    console.error(`Errore nel caricamento del feed ${label}:`, error);
+    container.innerHTML = `
+      <div class="news-item">
+        <p>Impossibile caricare il feed ${label}. <a href="${url}" target="_blank">Prova ad aprire il feed direttamente</a>.</p>
+      </div>
+    `;
+  }
+}
+
+// Carica tutti i feed
+feeds.forEach(loadFeed);
+</script>
+</body>
+</html>

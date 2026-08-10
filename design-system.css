@@ -1,0 +1,86 @@
+/* ============================================================
+   DESIGN SYSTEM 2026 — Prof. Antonio Adinolfi
+   Piattaforma didattica digitale — Informatica
+   ------------------------------------------------------------
+   Fonte unica di verità per colori, tipografia, spaziatura e
+   componenti condivisi in tutte le pagine del sito.
+   Ogni pagina la include con:
+     <link rel="stylesheet" href="design-system.css">
+   PRIMA del proprio <style> locale, così può continuare a
+   usare i propri nomi di variabile (es. --navy, --gold in
+   index.html) mappandoli su queste variabili canoniche, senza
+   dover riscrivere selettori o classi già in uso da JavaScript.
+   ============================================================ */
+
+:root {
+  /* ---- Colore: identità "Modern Educational Technology" ---- */
+  /* PRIMARY — blu profondo/tecnologico (base dell'identità già
+     collaudata in index.html, qui reso variabile condivisa) */
+  --color-primary:        #0d1b2e;
+  --color-primary-dark:   #081422;
+  --color-primary-light:  #1e3250;
+
+  /* SECONDARY — indaco controllato, per dare il taglio "tech"
+     richiesto dal prompt accanto al navy istituzionale */
+  --color-secondary:      #3a4a7a;
+  --color-secondary-light:#5a6aa0;
+
+  /* ACCENT — usato SOLO per CTA, stato attivo, informazioni
+     importanti (mai come colore diffuso) */
+  --color-accent:         #c8963e;
+  --color-accent-light:   #e8b96a;
+  --color-accent-pale:    rgba(200,150,62,0.12);
+
+  /* Superfici e sfondo */
+  --color-background:     #f7f4ef;
+  --color-background-2:   #efe9df;
+  --color-surface:        #ffffff;
+
+  /* Testo */
+  --color-text:           #1a1a1a;
+  --color-muted:          #5c5c5c;
+
+  /* Bordi e stati */
+  --color-border:         rgba(0,0,0,0.09);
+  --color-border-accent:  rgba(200,150,62,0.22);
+  --color-success:        #2e7d4f;
+  --color-warning:        #b8862c;
+  --color-danger:         #b33d3d;
+
+  /* ---- Tipografia ---- */
+  /* Sans-serif contemporaneo per corpo testo, nav, bottoni:
+     leggibilità ottima su ogni dispositivo. Il serif elegante
+     resta riservato, con parsimonia, a titoli/numeri display. */
+  --font-sans:  'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-mono:  'DM Mono', 'Courier New', monospace;
+
+  /* Scala tipografica */
+  --text-h1:    clamp(2.2rem, 4vw, 3.6rem);
+  --text-h2:    clamp(1.6rem, 2.5vw, 2.1rem);
+  --text-h3:    1.4rem;
+  --text-h4:    1.15rem;
+  --text-body:  1rem;
+  --text-small: 0.875rem;
+  --text-caption: 0.75rem;
+
+  /* ---- Spaziatura, superfici, raggio ---- */
+  --radius:       8px;
+  --radius-lg:    12px;
+  --shadow:       0 4px 20px rgba(0,0,0,0.07);
+  --shadow-hover: 0 10px 32px rgba(0,0,0,0.12);
+
+  /* Transizioni — micro-interazioni eleganti, mai aggressive */
+  --transition-fast: 150ms ease;
+  --transition-base: 220ms ease;
+}
+
+/* Rispetto delle preferenze di accessibilità utente */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

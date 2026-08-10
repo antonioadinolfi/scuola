@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard Docente – Consegne Quiz</title>
+  <link rel="stylesheet" href="teacher.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <div class="row">
+        <div>
+          <div class="title">Dashboard Docente</div>
+          <div class="sub">Importa consegne .json (drag&drop o selezione multipla) e genera report.</div>
+        </div>
+        <div class="row">
+          <button class="btn secondary" id="btnClear">Svuota</button>
+          <button class="btn" id="btnExportCsv" disabled>Esporta CSV</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <div class="row" style="justify-content:space-between; align-items:flex-start;">
+        <div>
+          <div class="h">Import</div>
+          <div class="muted">Trascina qui i file oppure scegli dal PC. Non carica nulla online: tutto resta nel browser.</div>
+        </div>
+
+        <label class="btn">
+          Seleziona file
+          <input id="fileInput" type="file" accept="application/json,.json" multiple hidden />
+        </label>
+      </div>
+
+      <div id="dropZone" class="drop">
+        <div class="dropTitle">Drop file .json qui</div>
+        <div class="muted small">Puoi selezionare anche una cartella e trascinare tutti i file insieme.</div>
+      </div>
+
+      <div class="row" style="margin-top:14px; gap:12px;">
+        <div class="pill"><span class="muted">Consegne:</span> <b id="kCount">0</b></div>
+        <div class="pill"><span class="muted">Classi:</span> <b id="kClasses">—</b></div>
+        <div class="pill"><span class="muted">Media %:</span> <b id="kAvg">—</b></div>
+        <div class="pill"><span class="muted">Min/Max %:</span> <b id="kMinMax">—</b></div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <section class="card">
+        <div class="h">Distribuzione punteggi</div>
+        <div class="muted small">Fasce percentuali: 0–49, 50–59, 60–69, 70–79, 80–89, 90–100</div>
+        <div id="hist" class="hist"></div>
+      </section>
+
+      <section class="card">
+        <div class="h">Filtri</div>
+        <div class="row" style="margin-top:10px;">
+          <select id="fClass" class="sel">
+            <option value="">Tutte le classi</option>
+          </select>
+          <input id="fSearch" class="inp" placeholder="Cerca studente (nome/file)" />
+        </div>
+        <div class="muted small" style="margin-top:10px;">
+          Suggerimento: il nome studente è preso da <code>student.name</code> nel JSON. Se manca, usa il nome file.
+        </div>
+      </section>
+    </section>
+
+    <section class="card">
+      <div class="h">Risultati</div>
+      <div class="muted small">Click su intestazioni per ordinare.</div>
+
+      <div class="tableWrap">
+        <table id="tbl">
+          <thead>
+            <tr>
+              <th data-sort="classe">Classe</th>
+              <th data-sort="studente">Studente</th>
+              <th data-sort="pct">% </th>
+              <th data-sort="ok">OK</th>
+              <th data-sort="total">Tot</th>
+              <th data-sort="when">Consegna</th>
+              <th>File</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div id="errors" class="errors" style="display:none;"></div>
+    </section>
+  </main>
+
+  <script src="teacher.js"></script>
+</body>
+</html>

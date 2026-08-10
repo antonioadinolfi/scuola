@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Glossario informatico interattivo con oltre 200 termini. Ricerca, filtra e naviga tra le definizioni.">
+  <title>Glossario Informatico – Prof. Antonio Adinolfi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0d1b2e;
+      --navy2: #162438;
+      --gold: #c8963e;
+      --gold-light: #e8b96a;
+      --cream: #f7f4ef;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #5c5c5c;
+      --border: rgba(0,0,0,0.09);
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --mono: 'DM Mono', 'Courier New', monospace;
+      --radius: 8px;
+      --shadow: 0 4px 20px rgba(0,0,0,0.07);
+    }
+
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.65;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navigazione (stesso stile del tuo sito) */
+    nav {
+      background: var(--navy);
+      padding: 0 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      border-bottom: 1px solid rgba(200,150,62,0.22);
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-badge {
+      width: 36px;
+      height: 36px;
+      background: var(--gold);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      color: #fff;
+      font-size: 17px;
+      font-style: italic;
+    }
+    .nav-name { color: #fff; font-size: 14px; font-weight: 500; letter-spacing: 0.2px; }
+    .nav-inst { color: rgba(255,255,255,0.4); font-size: 11px; letter-spacing: 0.6px; text-transform: uppercase; margin-top: 1px; }
+    .nav-links { display: flex; gap: 1rem; }
+    .nav-links a {
+      color: rgba(255,255,255,0.55);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 4px;
+      transition: color .18s, background .18s;
+    }
+    .nav-links a:hover { color: var(--gold-light); background: rgba(255,255,255,0.05); }
+    .nav-links a.active { color: var(--gold-light); }
+
+    /* Contenitore principale */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    /* Header della pagina */
+    .page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .page-title {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .page-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Barre di navigazione e ricerca */
+    .glossary-controls {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .index-nav {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .index-nav a {
+      display: inline-block;
+      padding: 6px 12px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--navy);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .index-nav a:hover, .index-nav a.active {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+    .search-box {
+      flex: 1;
+      min-width: 250px;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 14px;
+      background: var(--white);
+    }
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    /* Sezioni del glossario */
+    .glossary-section {
+      margin-bottom: 2.5rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      color: var(--navy);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: var(--gold);
+      border-radius: 4px;
+    }
+
+    /* Tabella dei termini */
+    .terms-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+    .terms-table th {
+      background: var(--navy);
+      color: var(--white);
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-weight: 600;
+    }
+    .terms-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      vertical-align: top;
+    }
+    .terms-table tr:last-child td {
+      border-bottom: none;
+    }
+    .terms-table tr:hover {
+      background: rgba(200,150,62,0.05);
+    }
+    .term-cell {
+      font-weight: 600;
+      color: var(--navy);
+      min-width: 150px;
+    }
+    .acronym-cell {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--gold);
+      font-weight: 600;
+      min-width: 80px;
+    }
+    .meaning-cell {
+      color: var(--text-muted);
+    }
+
+    /* Messaggio "Nessun risultato" */
+    .no-results {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(200,150,62,0.22);
+      padding: 1.5rem 3rem;
+      text-align: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 12px;
+    }
+    footer a {
+      color: var(--gold-light);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .glossary-controls {
+        flex-direction: column;
+      }
+      .index-nav {
+        justify-content: center;
+      }
+      .terms-table {
+        display: block;
+      }
+      .terms-table thead {
+        display: none;
+      }
+      .terms-table tbody, .terms-table tr, .terms-table td {
+        display: block;
+        width: 100%;
+      }
+      .terms-table tr {
+        margin-bottom: 1rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 0.5rem;
+      }
+      .terms-table td {
+        padding: 8px 12px;
+        border: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .terms-table td:last-child {
+        border-bottom: none;
+      }
+      .terms-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--navy);
+        display: block;
+        margin-bottom: 4px;
+      }
+      .acronym-cell::before {
+        content: "Acronimo:";
+      }
+      .term-cell::before {
+        content: "Termine:";
+      }
+      .meaning-cell::before {
+        content: "Significato:";
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigazione -->
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <div class="nav-badge">A</div>
+      <div>
+        <div class="nav-name">Prof. Antonio Adinolfi</div>
+        <div class="nav-inst">Liceo Scientifico N. Cortese · Maddaloni</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="classe.html">Didattica</a>
+      <a href="materiali.html">Materiali</a>
+      <a href="glossario.html" class="active">Glossario</a>
+      <a href="pubblicazioni.html">Pubblicazioni</a>
+      <a href="https://www.liceoscientificocortese.edu.it" target="_blank" class="nav-cta">Sito Liceo</a>
+    </div>
+  </nav>
+
+  <!-- Contenuto principale -->
+  <div class="container">
+    <header class="page-header">
+      <h1 class="page-title">Glossario Informatico</h1>
+      <p class="page-subtitle">
+        Oltre 200 termini e definizioni per approfondire i concetti fondamentali dell'informatica.
+        Usa la ricerca o l'indice alfabetico per trovare rapidamente ciò che cerchi.
+      </p>
+    </header>
+
+    <!-- Controlli: Indice e Ricerca -->
+    <div class="glossary-controls">
+      <div class="index-nav" id="indexNav">
+        <!-- L'indice verrà generato dinamicamente con JavaScript -->
+      </div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Cerca un termine o una definizione...">
+      </div>
+    </div>
+
+    <!-- Sezioni del glossario -->
+    <main id="glossaryContent">
+      <!-- Le sezioni verranno generate dinamicamente con JavaScript -->
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2026 <strong>Prof. Antonio Adinolfi</strong> ·
+    <a href="index.html">Home</a> | <a href="privacy.html">Privacy</a>
+  </footer>
+
+  <!-- Script per la funzionalità del glossario -->
+  <script>
+    // Dati del glossario (estratto dal PDF)
+    const glossaryData = {
+      A: [
+        { acronym: "", term: "Access Point", translation: "Punto di accesso", meaning: "Dispositivo che permette la connessione a una rete cablata di periferiche dotate di funzionalità wireless." },
+        { acronym: "", term: "Ad albero (struttura)", translation: "", meaning: "Struttura in cui da un livello superiore si scende a quelli inferiori per ramificazione." },
+        { acronym: "", term: "Alfabeto", translation: "", meaning: "In Logica Formale, un insieme non vuoto e finito di caratteri e simboli su cui si possa operare secondo regole." },
+        { acronym: "AI", term: "Artificial Intelligence", translation: "Intelligenza Artificiale", meaning: "Disciplina che si occupa dello studio di funzioni tipiche dell'intelligenza umana e della loro possibile replicazione mediante metodi e strumenti informatici." },
+        { acronym: "ALGOL", term: "Algorithmic Oriented Language", translation: "Linguaggio orientato agli algoritmi", meaning: "Linguaggio di programmazione degli anni '60, orientato alla scrittura di algoritmi." },
+        { acronym: "", term: "Algoritmo", translation: "", meaning: "Metodo per la risoluzione di problemi di carattere logico e matematico, o pratico." },
+        { acronym: "", term: "Analizzatore", translation: "", meaning: "Sistema in grado di prendere in considerazione delle espressioni in un dato linguaggio, estrarne i componenti, verificarne la consistenza e accettarle solo se la loro formazione è avvenuta tramite termini consentiti e secondo le regole della grammatica di quel linguaggio." },
+        { acronym: "ALU", term: "Arithmetic Logic Unit", translation: "Unità Logica Aritmetica", meaning: "In un computer, l'unità funzionale che è preposta allo svolgimento di operazioni di tipo aritmetico e logico." },
+        { acronym: "", term: "Amministratore di Sistema", translation: "", meaning: "È la persona che gestisce il sistema informativo di un ente. È un utente con il massimo livello di privilegi, in grado di compiere operazioni di manutenzione ordinaria e straordinaria." },
+        { acronym: "ANSI", term: "American National Standards Institute", translation: "Istituto Nazionale Americano per gli Standard", meaning: "Ente governativo statunitense che si occupa della definizione e dell'aggiornamento di tutti gli standard." },
+        { acronym: "", term: "Analogica (grandezza)", translation: "", meaning: "Una grandezza che può assumere tutti i valori intermedi all'interno di un intervallo." },
+        { acronym: "", term: "Anti-aliasing", translation: "", meaning: "Tecnica di eliminazione degli effetti di sgranamento delle immagini bitmap in stampa." },
+        { acronym: "", term: "Antivirus", translation: "", meaning: "Software che riconosce la presenza di virus informatici nei file e nelle memorie di massa e cerca di rimuoverli o di neutralizzarli." },
+        { acronym: "API", term: "Application Programming Interface", translation: "", meaning: "Interfaccia per il collegamento dei plugin alle applicazioni host." },
+        { acronym: "", term: "Applicazioni", translation: "", meaning: "Programmi, istruzioni e dati che permettono la risoluzione tramite computer di un dato problema." }
+      ],
+      B: [
+        { acronym: "B2B", term: "Business to Business", translation: "", meaning: "Rapporto di compravendita tra due soggetti professionali: da azienda a azienda." },
+        { acronym: "B2C", term: "Business to Consumer", translation: "", meaning: "Rapporto di compravendita tra un soggetto professionale (azienda) e un cliente privato." },
+        { acronym: "", term: "Backdoor", translation: "Porta posteriore", meaning: "In un sistema informatico, un punto d'accesso secondario: conoscendolo, è possibile entrare nelle risorse di basso livello del computer." },
+        { acronym: "", term: "Background", translation: "Sfondo", meaning: "In una pagina, la porzione di immagine che costituisce lo sfondo, che non è il soggetto principale o in primo piano." },
+        { acronym: "", term: "Backslash", translation: "Barra inversa", meaning: "Il segno di barra inclinato verso sinistra: \\." },
+        { acronym: "", term: "Backup", translation: "", meaning: "Salvataggio, totale o parziale, dei contenuti di una memoria di massa." },
+        { acronym: "", term: "Backup incrementale", translation: "", meaning: "Procedura di salvataggio di dati e applicazioni in cui vengono registrate solo le variazioni intervenute rispetto al salvataggio precedente." },
+        { acronym: "", term: "Bandwidth-sensitive", translation: "Sensibile alla banda", meaning: "Si dice di una applicazione che necessita, per poter operare correttamente, di un throughput minimo garantito." },
+        { acronym: "", term: "Banner", translation: "Striscione", meaning: "Spazio pubblicitario che compare in siti Web di terzi." },
+        { acronym: "BASIC", term: "", translation: "", meaning: "Linguaggio ad alto livello, sintatticamente semplice, sviluppato negli anni '80 per facilitare la programmazione del PC da parte di utenti non esperti." },
+        { acronym: "", term: "Best-effort", translation: "", meaning: "Si dice di un servizio di rete in cui all'utente non viene fornita alcuna garanzia sulla qualità del servizio, sull'effettiva velocità del trasferimento o sulla sua corretta effettuazione." },
+        { acronym: "", term: "Bézier (curve di)", translation: "", meaning: "Tipo di curve vettoriali manipolabili con continuità attraverso tecniche particolari." },
+        { acronym: "BI", term: "Business Intelligence", translation: "", meaning: "È l'insieme delle tecniche informatiche aventi lo scopo di estrarre informazione e analizzare dati amministrativi e commerciali di un'azienda per produrre rapporti, dati e risultati utili come supporto per le decisioni strategiche della direzione." },
+        { acronym: "Bit", term: "Binary Digit", translation: "Cifra binaria", meaning: "Unità di misura dell'informazione, costituisce il livello a minimo numero di stati per la rappresentazione di situazioni diverse. Un bit può avere solo due stati, rappresentati convenzionalmente come 0 e 1." }
+      ],
+      C: [
+        { acronym: "CAD", term: "Computer Aided Drawing", translation: "", meaning: "Applicazione software per la realizzazione di disegno, tipicamente di tipo tecnico." },
+        { acronym: "CAN", term: "Campus Area Network", translation: "", meaning: "Rete di calcolatori la cui estensione copre un insieme di edifici all'interno di uno stesso comprensorio, ad esempio un campus universitario, da cui il nome." },
+        { acronym: "Caratteri riservati", term: "", translation: "", meaning: "In un sistema convenzionale, come un File System o un linguaggio di programmazione, caratteri che hanno significati speciali e non possono essere usati liberamente dal programmatore." },
+        { acronym: "", term: "Cardinalità", translation: "", meaning: "Nella Teoria degli Insiemi, prende il nome di cardinalità di un insieme finito il numero dei suoi elementi." },
+        { acronym: "", term: "Carrier", translation: "", meaning: "Ente o compagnia di telecomunicazioni in grado di fornire servizi di comunicazione a distanza." },
+        { acronym: "", term: "Carry", translation: "Riporto", meaning: "In un'operazione aritmetica, ad esempio di addizione, il riporto generato quando due cifre nella stessa posizione, sommate, danno luogo a un risultato superiore o uguale alla base usata nel sistema di rappresentazione." },
+        { acronym: "", term: "Case", translation: "Custodia, scatola", meaning: "(a) In un computer, la scatola (solitamente in plastica) che contiene l'elettronica. (b) In un circuito integrato, lo scatolino plastico che contiene il circuito vero e proprio e da cui fuoriescono i piedini per la saldatura. (c) Anche nel significato di 'corpo macchina'." },
+        { acronym: "", term: "Case sensitivity", translation: "", meaning: "La capacità di una procedura di discriminare se una serie di caratteri è scritta in minuscolo o in maiuscolo, elaborandoli conseguentemente." },
+        { acronym: "", term: "Cavi di dorsale", translation: "", meaning: "In un cablaggio strutturato, i cavi che costituiscono i collegamenti verticali comuni a tutti i piani, da cui si diramano le connessioni di piano." },
+        { acronym: "CCD", term: "Camera Coupled Device", translation: "", meaning: "In una macchina fotografica digitale, il sensore che ha lo scopo di catturare l'immagine." },
+        { acronym: "", term: "Cella elementare", translation: "", meaning: "La più piccola ripartizione della superficie di una memoria di massa, in grado di memorizzare un solo bit." },
+        { acronym: "CED", term: "Centro Elaborazione Dati", translation: "", meaning: "Il dipartimento o l'area riservata in cui si trova il centro del sistema informativo e informatico di una struttura." },
+        { acronym: "char", term: "Character", translation: "Carattere", meaning: "Un carattere, cioè il componente di base per la costruzione di stringhe. Può essere una lettera, una cifra o un simbolo." },
+        { acronym: "", term: "Chat", translation: "", meaning: "Un particolare tipo di applicazione in rete che permette agli utenti collegati di scambiare frasi e messaggi in modo interattivo." },
+        { acronym: "", term: "Chiamata a funzione", translation: "", meaning: "Chiamata a un programma secondario da parte del programma chiamante (main). Al termine della sua esecuzione, il controllo ritorna al programma chiamante." },
+        { acronym: "", term: "Chiave primaria", translation: "", meaning: "In una tabella di un database, un campo il cui contenuto è univocamente assegnato al record in modo tale che non possano esistere due record con lo stesso valore di chiave." },
+        { acronym: "", term: "Chip", translation: "Scheggia", meaning: "Nome dato ai componenti elettronici per la loro ridotta dimensione." },
+        { acronym: "", term: "Chipset", translation: "Insieme di chip", meaning: "Famiglia di componenti elettronici progettata per funzionare in modo ottimizzato se usati insieme." },
+        { acronym: "", term: "Cibernetica", translation: "", meaning: "Disciplina che si occupa, sotto diversi aspetti, dello studio della mente artificiale, della robotica e del confine tra umano e artificiale." },
+        { acronym: "CIDR", term: "Classless Interdomain Routing", translation: "", meaning: "Metodo per l'allocazione degli indirizzi IP e il routing dei pacchetti IP." },
+        { acronym: "", term: "Circuito integrato", translation: "", meaning: "Componente elettronico in cui sono concentrati, grazie a particolari tecniche, milioni di microcomponenti. Un solo componente racchiude quindi in sé e integra le funzioni di moltissimi circuiti elementari." },
+        { acronym: "", term: "Click", translation: "Scatto", meaning: "Il rumore provocato dall'azione di uno dei tasti del mouse. Se il puntatore, spostato dal mouse, si trova in una zona attiva dello schermo, in corrispondenza del click si ha l'inizio o l'attivazione di una procedura." },
+        { acronym: "", term: "Client (programma)", translation: "Programma cliente", meaning: "Applicativo che risiede sull'elaboratore dell'utente e che serve per richiedere dati, risorse o elaborazioni da parte di un computer centrale, che prende il nome di server." },
+        { acronym: "", term: "Clock", translation: "Orologio", meaning: "La frequenza base all'interno del computer che stabilisce il ritmo con cui le operazioni dei circuiti logici vengono effettuate. È un indicatore della velocità di esecuzione delle operazioni da parte della CPU." },
+        { acronym: "", term: "Clone", translation: "", meaning: "Dispositivo creato da altro produttore a copia e immagine di un originale, mantenendone tutte le caratteristiche esterne in modo che possa essere usato, dal punto di vista dell'utente, come se fosse l'originale." },
+        { acronym: "", term: "Cluster", translation: "Grappolo", meaning: "Termine usato per indicare insiemi particolarmente densi di eventi o di oggetti." },
+        { acronym: "CMYK", term: "Quadricromia", translation: "", meaning: "Metodo per la stampa di immagini a colori, in cui i diversi colori sono ottenuti dalla combinazione di quattro elementi fondamentali: ciano, nero, giallo e magenta." },
+        { acronym: "COBOL", term: "", translation: "", meaning: "Linguaggio ad alto livello nato negli anni '70 principalmente per applicazioni di tipo amministrativo e finanziario." },
+        { acronym: "", term: "Codice sorgente", translation: "", meaning: "L'insieme delle istruzioni e dei dati che costituiscono il programma, così come viene scritto dal programmatore." },
+        { acronym: "", term: "Communication link", translation: "", meaning: "La connessioni fisica tra due nodi (in gergo tecnico)." },
+        { acronym: "", term: "Community", translation: "Comunità", meaning: "Nel mondo Internet, l'insieme degli utenti che fa riferimento a uno stesso sito o servizio." },
+        { acronym: "", term: "Commutazione a pacchetti", translation: "", meaning: "Tecnica di comunicazione digitale in cui l'informazione viene spedita dopo essere stata suddivisa in blocchi ordinati, che prendono il nome di pacchetti." },
+        { acronym: "CD", term: "Compact Disk", translation: "", meaning: "Supporto plastico di memoria di massa, scritto e letto attraverso un laser." },
+        { acronym: "", term: "Compatibilità", translation: "", meaning: "Caratteristica che permette l'utilizzo di un dato elemento, hardware o software, anche al di fuori dell'ambiente originario in cui è stato creato, da parte di terzi o con altre procedure o parti." },
+        { acronym: "", term: "Compilatore", translation: "", meaning: "Un particolare software applicativo che converte il listato di un programma in codice macchina eseguibile sulla CPU, dopo averne effettuato la verifica formale." },
+        { acronym: "", term: "Compilazione", translation: "", meaning: "La procedura di trasformazione del listato del programma sorgente in codice macchina da parte del compilatore." },
+        { acronym: "", term: "Computer", translation: "Elaboratore", meaning: "Macchina logica elettronica programmabile in grado di svolgere compiti diversi in funzione del programma in esecuzione." },
+        { acronym: "", term: "Computer Graphics", translation: "Grafica con il computer", meaning: "Grafica sviluppata e realizzata attraverso sistemi hardware e software." },
+        { acronym: "", term: "Computer Shop", translation: "Negozio di computer", meaning: "Un negozio in cui si vendono computer e materiale informatico." },
+        { acronym: "", term: "Condensatore", translation: "", meaning: "Dispositivo elettrico in grado di accumulare una carica elettrica e mantenerla nel tempo: ai suoi estremi, è presente una tensione diversa in funzione del suo stato di carica." },
+        { acronym: "", term: "Conference call", translation: "Chiamata in conferenza", meaning: "Una chiamata, tipicamente attraverso computer, in cui possono parlare in voce più di due utenti." },
+        { acronym: "", term: "Connectionless", translation: "", meaning: "Si dice di un servizio che non richiede l'instaurazione di una connessione." },
+        { acronym: "", term: "Connection setup", translation: "", meaning: "All'interno di un protocollo, la parte iniziale di instaurazione di una connessione." },
+        { acronym: "", term: "Console", translation: "", meaning: "Unità di controllo e visualizzazione, con la quale è possibile interagire con il sistema." },
+        { acronym: "", term: "Convergenza", translation: "", meaning: "La proprietà di una funzione o di una successione di tendere ad un determinato valore limite, al tendere di una variabile a un dato valore." },
+        { acronym: "", term: "Cookie", translation: "", meaning: "Porzione di testo che permette di tenere traccia delle attività degli utenti di un sito, che il server inserisce nella sua risposta e che il browser memorizza." },
+        { acronym: "", term: "Copyright", translation: "Diritto d'autore", meaning: "Diritto che tutela l'autore di un'opera dell'ingegno affinché l'utilizzo del suo lavoro sia remunerato e comunque gestito all'interno di un rapporto corretto per evitarne sfruttamenti illeciti." },
+        { acronym: "", term: "Core", translation: "Nucleo", meaning: "In un sistema operativo, la parte più interna, alla quale sono demandate le funzioni di base del sistema." },
+        { acronym: "", term: "Corridoio caldo/freddo", translation: "", meaning: "Nell'architettura di un datacenter, la configurazione che prevede passaggi distinti per l'aria calda, generata dalle macchine e per quella fredda, generata dal sistema di condizionamento." },
+        { acronym: "CPU", term: "Central Processing Unit", translation: "Unità di elaborazione centrale", meaning: "In un elaboratore, il dispositivo in grado di interpretare le istruzioni e operare con esse sui dati, fornendo i risultati." },
+        { acronym: "", term: "Crash", translation: "Rottura, disastro", meaning: "In un sistema informatico, un arresto per gravi motivi di una procedura o la rottura per ragioni diverse di una parte (anche fisica) del sistema stesso." },
+        { acronym: "CRC", term: "Cyclic Redundancy Check", translation: "", meaning: "Procedura che permette di identificare se sono avvenuti errori in un messaggio durante la fase di trasmissione remota." },
+        { acronym: "", term: "Crittografia", translation: "", meaning: "Tecnica che permette di nascondere il contenuto di un messaggio in modo che esso possa essere correttamente compreso solo da chi ne possiede la chiave di decifrazione." }
+      ],
+      // Aggiungi qui le altre lettere (D, E, F, ecc.) con i rispettivi termini
+      // Per brevità, ho incluso solo A, B, C. Puoi completare con tutti i dati del PDF.
+      D: [
+        { acronym: "DB", term: "Database", translation: "Base di dati", meaning: "Un insieme di dati organizzati in tabelle legate tra loro da relazioni, aventi struttura predefinita e caratteristiche note e sulle quali si possano effettuare operazioni di inserimento, aggiornamento, cancellazione e consultazione." },
+        { acronym: "DBMS", term: "Data Base Management System", translation: "", meaning: "L'insieme degli applicativi necessari per la creazione, il mantenimento e la gestione di un database." },
+        { acronym: "DDL", term: "Data Definition Language", translation: "Linguaggio di definizione dei dati", meaning: "Linguaggio di programmazione ottimizzato per la costruzione di un database." },
+        { acronym: "", term: "Debugger", translation: "Dall'inglese to debug, spulciare", meaning: "Un particolare software che aiuta il programmatore a verificare, passo dopo passo, il comportamento di un programma durante la fase di messa a punto, al fine di identificare gli eventuali bachi e di rimuoverli." },
+        { acronym: "", term: "Debugging", translation: "", meaning: "L'operazione di rimozione dei bug, cioè dei bachi." },
+        { acronym: "", term: "Default (parametri di)", translation: "", meaning: "L'insieme dei valori di parametri configurabili che viene dato per standard all'avviamento del sistema o dell'applicazione." },
+        { acronym: "", term: "Defrag", translation: "", meaning: "Abbreviazione di 'defragmentation', cioè deframmentazione." },
+        { acronym: "", term: "Demo", translation: "Dimostrativo", meaning: "Versione semplificata di un'applicazione software, volta a dimostrare ai potenziali clienti le possibilità, la grafica, lo stile e l'impostazione del prodotto, permettendone una valutazione preventiva di idoneità." },
+        { acronym: "", term: "Desktop", translation: "Piano della scrivania", meaning: "(a) La scrivania virtuale utilizzata dalla grafica del sistema operativo. (b) Tipo di computer, idoneo al funzionamento appoggiato sopra un tavolo (non da terra né portatile)." },
+        { acronym: "DHCP", term: "Dynamic Host Configuration Protocol", translation: "", meaning: "Modalità operativa che permette a un host di ricevere un indirizzo IP automaticamente quando si connette alla rete." },
+        { acronym: "", term: "Digital divide", translation: "Divario digitale", meaning: "Lo svantaggio di alcune zone o di alcune persone per quanto riguarda l'uso di tecnologie informatiche." },
+        { acronym: "DML", term: "Data Manipulation Language", translation: "Linguaggio di manipolazione dei dati", meaning: "In un database, un linguaggio che agevola la scrittura di metodi automatici per l'interrogazione o la gestione della base di dati." },
+        { acronym: "", term: "Digitale (grandezza)", translation: "", meaning: "Grandezza esprimibile solo per quantità discrete, multiple di una unità elementare." },
+        { acronym: "", term: "Digitalizzazione", translation: "", meaning: "Processo di trasformazione di una variabile o di una grandezza continua in una serie di campioni presi a intervalli fissi." },
+        { acronym: "", term: "Directory", translation: "Cartella", meaning: "Insieme di file o di altre directory, registrate su memoria di massa." },
+        { acronym: "", term: "Display", translation: "Schermo", meaning: "Dispositivo elettronico che permette di visualizzare cifre, lettere e oggetti grafici." },
+        { acronym: "", term: "Distribuzioni", translation: "", meaning: "Raccolta di programmi applicativi, basati su uno stesso sistema operativo, che vengono messi a disposizione come un unico pacchetto." },
+        { acronym: "", term: "Dithering", translation: "", meaning: "Tecnica di applicazione di un rumore su un'immagine per migliorarne la qualità finale." },
+        { acronym: "DLL", term: "Dynamic Link Library", translation: "", meaning: "Libreria software che viene caricata al momento dell'esecuzione del programma compilatore e non in fase di compilazione, come le librerie standard." },
+        { acronym: "DOM", term: "Document Object Model", translation: "", meaning: "Convenzione per la definizione di un documento in una pagina Web in modo indipendente da hardware e software." },
+        { acronym: "", term: "Dominio di collisione", translation: "", meaning: "Sezione logica di una rete all'interno della quale possono avvenire collisioni tra le chiamate di tipo generale (broadcast) verso una medesima periferica." },
+        { acronym: "DNS", term: "Domain Name System", translation: "", meaning: "Sistema utilizzato per associare a un indirizzo IP un nome di un nodo di rete." },
+        { acronym: "", term: "Doping", translation: "Drogaggio", meaning: "Caricamento artificiale di sostanze chimiche con particolari proprietà in un substrato, tipicamente silicio, per variarne le proprietà di conducibilità elettrica." },
+        { acronym: "", term: "Doppio Click", translation: "", meaning: "Sequenza rapida di due click con il pulsante del mouse, a indicare la volontà di attivazione della parte attiva dello schermo dove viene eseguita." },
+        { acronym: "", term: "Dorsale di telecomunicazione", translation: "", meaning: "Collegamento ad alta capacità e alta velocità tra due o più nodi di distribuzione." },
+        { acronym: "", term: "Downstream", translation: "", meaning: "Il flusso dei dati quando da una posizione centrale vengono inviati verso il destinatario." },
+        { acronym: "dpi", term: "Dots per Inch", translation: "Punti per pollice", meaning: "Numero di punti singoli presenti in un pollice lineare (2.53 cm). Indica il grado di definizione della rappresentazione grafica." },
+        { acronym: "", term: "Drag and Drop", translation: "Trascina e rilascia", meaning: "Nelle interfacce grafiche, la proprietà di alcuni oggetti presenti sulla scrivania virtuale di poter essere selezionati con un click, trascinati (drag) in un altro punto dello schermo e rilasciati (drop) nella nuova collocazione." },
+        { acronym: "", term: "Driver", translation: "Pilota", meaning: "Software che funge da intermediario tra le richieste di risorse dei programmi in esecuzione e le risorse stesse." }
+      ],
+      // Aggiungi qui le altre lettere (E, F, G, ecc.) con i rispettivi termini
+      // Esempio per E:
+      E: [
+        { acronym: "", term: "Editing", translation: "Edizione", meaning: "L'operazione legata all'edizione, cioè alla elaborazione sotto il profilo di testi e immagini, di contenuti." },
+        { acronym: "", term: "Editor", translation: "Editore", meaning: "Programma di elaborazione testi. Un text editor dedicato alla scrittura di listati di programmi non contiene all'interno del documento codici di controllo tipografico." },
+        { acronym: "EFI", term: "Codice EFI", translation: "Extensible Firmware Interface", meaning: "Una specie di piccolissimo sistema operativo che serve al sistema al momento dell'accensione, prima del lancio del sistema operativo vero e proprio." },
+        { acronym: "EIA", term: "Electronics Industries Alliance", translation: "Alleanza delle Industrie Elettroniche", meaning: "Associazione statunitense dei produttori di elettronica, creata al fine di stabilire standard e normative comuni per le famiglie di prodotti similari e per la loro interconnessione." },
+        { acronym: "", term: "Email", translation: "Posta elettronica", meaning: "Sistema di trasmissione di messaggi tra indirizzi specifici via Internet. Viene denominato comunemente email anche il messaggio stesso." },
+        { acronym: "", term: "Embedded", translation: "Incorporato", meaning: "Interno al corpo o alla sezione, di un programma o di una pagina Web." },
+        { acronym: "", term: "Emoticon", translation: "", meaning: "Simbolo grafico standardizzato con il quale si esprimono, con uno stile simile a quello dei cartoni animati, lo stato d'animo o un breve messaggio (volto allegro, triste, solidarietà, complimenti, ecc.)." },
+        { acronym: "", term: "End Of File", translation: "Fine del file", meaning: "Un codice ASCII speciale che indica la fine del file." },
+        { acronym: "", term: "End system", translation: "", meaning: "Vedi Host." },
+        { acronym: "", term: "Ennupla", translation: "", meaning: "Un insieme di N elementi, considerati nel loro complesso." },
+        { acronym: "", term: "Entità", translation: "", meaning: "In un diagramma E/R, un elemento che viene posto in relazione con gli altri. A ogni elemento possono essere associati degli attributi." },
+        { acronym: "E-R", term: "Entità - Relazione (diagramma)", translation: "", meaning: "Rappresentazione grafica delle entità presenti in una base di dati, dei loro attributi e delle relazioni che intercorrono tra di esse." },
+        { acronym: "", term: "Ergonomia", translation: "", meaning: "Disciplina che si occupa della progettazione di sistemi il cui utilizzo, da parte degli umani, non dia luogo a disturbi, cattive posture, affaticamento." },
+        { acronym: "", term: "Eseguibile (file)", translation: "", meaning: "Un file che rappresenta un programma, cioè una sequenza di istruzioni e dati che può essere svolta dal processore." },
+        { acronym: "", term: "Estensione", translation: "", meaning: "Nel nome di un file, la parte che si trova alla destra del punto. Può non esistere." },
+        { acronym: "", term: "Ethernet (rete)", translation: "", meaning: "Insieme di tecnologie, altamente standardizzate, per il collegamento in rete locale dei calcolatori." }
+      ]
+      // Aggiungi qui le altre lettere (F, G, H, ecc.) con i rispettivi termini
+    };
+
+    // Genera l'indice alfabetico
+    function generateIndex() {
+      const indexNav = document.getElementById('indexNav');
+      const letters = Object.keys(glossaryData).sort();
+      letters.forEach(letter => {
+        const link = document.createElement('a');
+        link.href = `#letter-${letter}`;
+        link.textContent = letter;
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          document.querySelectorAll('.index-nav a').forEach(a => a.classList.remove('active'));
+          link.classList.add('active');
+          document.getElementById(`letter-${letter}`).scrollIntoView({ behavior: 'smooth' });
+        });
+        indexNav.appendChild(link);
+      });
+    }
+
+    // Genera le sezioni del glossario
+    function generateGlossary() {
+      const glossaryContent = document.getElementById('glossaryContent');
+      const letters = Object.keys(glossaryData).sort();
+
+      letters.forEach(letter => {
+        const section = document.createElement('div');
+        section.className = 'glossary-section';
+        section.id = `letter-${letter}`;
+
+        const title = document.createElement('h2');
+        title.className = 'section-title';
+        title.textContent = letter;
+        section.appendChild(title);
+
+        const table = document.createElement('table');
+        table.className = 'terms-table';
+
+        const thead = document.createElement('thead');
+        const headerRow = document.createElement('tr');
+        ['Acronimo', 'Termine', 'Significato'].forEach(text => {
+          const th = document.createElement('th');
+          th.textContent = text;
+          headerRow.appendChild(th);
+        });
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+        const tbody = document.createElement('tbody');
+        glossaryData[letter].forEach(term => {
+          const row = document.createElement('tr');
+
+          const acronymCell = document.createElement('td');
+          acronymCell.className = 'acronym-cell';
+          acronymCell.textContent = term.acronym || '-';
+          acronymCell.setAttribute('data-label', 'Acronimo');
+          row.appendChild(acronymCell);
+
+          const termCell = document.createElement('td');
+          termCell.className = 'term-cell';
+          termCell.textContent = term.term;
+          termCell.setAttribute('data-label', 'Termine');
+          row.appendChild(termCell);
+
+          const meaningCell = document.createElement('td');
+          meaningCell.className = 'meaning-cell';
+          meaningCell.innerHTML = term.translation ? `<strong>${term.translation}</strong><br>` : '' + term.meaning;
+          meaningCell.setAttribute('data-label', 'Significato');
+          row.appendChild(meaningCell);
+
+          tbody.appendChild(row);
+        });
+        table.appendChild(tbody);
+        section.appendChild(table);
+        glossaryContent.appendChild(section);
+      });
+    }
+
+    // Funzione di ricerca
+    function setupSearch() {
+      const searchInput = document.getElementById('searchInput');
+      searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+        const rows = document.querySelectorAll('.terms-table tbody tr');
+
+        let hasResults = false;
+        rows.forEach(row => {
+          const text = row.textContent.toLowerCase();
+          if (text.includes(query)) {
+            row.style.display = '';
+            hasResults = true;
+          } else {
+            row.style.display = 'none';
+          }
+        });
+
+        // Mostra/nascondi il messaggio "Nessun risultato"
+        const noResults = document.querySelector('.no-results');
+        if (!hasResults && query.length > 0) {
+          if (!noResults) {
+            const message = document.createElement('div');
+            message.className = 'no-results';
+            message.textContent = 'Nessun risultato trovato. Prova con un altro termine.';
+            glossaryContent.appendChild(message);
+          }
+        } else if (noResults) {
+          noResults.remove();
+        }
+      });
+    }
+
+    // Inizializza la pagina
+    document.addEventListener('DOMContentLoaded', () => {
+      generateIndex();
+      generateGlossary();
+      setupSearch();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+/* enterprise-auth.css
+   Layer di autenticazione stile Google Classroom per antonioadinolfi.it.
+   Non modifica layout, editor, viewer o funzioni esistenti.
+*/
+
+html.auth-checking body {
+  visibility: hidden;
+}
+
+html.auth-ok body,
+html:not(.auth-checking) body {
+  visibility: visible;
+}
+
+.login-wall-modern.enterprise-login {
+  position: static !important;
+  inset: auto !important;
+  min-height: 420px;
+  background: linear-gradient(135deg, #eef5ff 0%, #f8fbff 100%) !important;
+  display: grid;
+  place-items: center !important;
+  padding: 48px 24px !important;
+  border-radius: 28px;
+  border: 1px solid #dbeafe;
+  box-shadow: 0 16px 50px rgba(15, 23, 42, .08);
+}
+
+.login-wall-modern.enterprise-login .login-box {
+  max-width: 760px;
+  width: 100%;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 28px;
+  padding: 42px;
+  box-shadow: 0 20px 60px rgba(15,23,42,.12);
+}
+
+.login-wall-modern.enterprise-login h3 {
+  color: #0f172a !important;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1;
+  letter-spacing: -.04em;
+  margin: 16px 0 14px;
+}
+
+.login-wall-modern.enterprise-login p {
+  color: #475569 !important;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.login-wall-modern.enterprise-login .lock-box {
+  margin: 0 auto 10px;
+  width: 72px;
+  height: 72px;
+  border-radius: 24px;
+  display: grid;
+  place-items: center;
+  color: #2563eb;
+  background: #dbeafe;
+}
+
+#google-login-inline,
+#google-login {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.auth-pill,
+#auth-info {
+  color: #0f172a;
+}
+
+.auth-user-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #e0f2fe;
+  border: 1px solid #bae6fd;
+  color: #075985;
+  font: 700 12px/1.2 Inter, Segoe UI, Arial, sans-serif;
+}
+
+.auth-user-badge img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.auth-user-badge button {
+  margin-left: 4px;
+  border: 0;
+  border-radius: 999px;
+  padding: 5px 9px;
+  background: #0b3b75;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 11px;
+}
+
+
+/* FIX v2: nessun overlay/riquadro login quando la sessione è già valida */
+html.auth-ok .login-wall-modern.enterprise-login,html.auth-ok #login-wall,body.auth-ok #login-wall{display:none !important;}
+html.auth-ok #protected-content,body.auth-ok #protected-content{display:block !important;}
+body.dark-theme .glossario-alpha button,body.dark-theme #glossaryAlphaWrap button,html.dark-theme .glossario-alpha button,html.dark-theme #glossaryAlphaWrap button{color:#eaf2ff !important;background:#1e293b !important;border-color:#3b82f6 !important;opacity:1 !important;}
+body.dark-theme .glossario-alpha button.active,body.dark-theme #glossaryAlphaWrap button.active,html.dark-theme .glossario-alpha button.active,html.dark-theme #glossaryAlphaWrap button.active{color:#fff !important;background:#3b82f6 !important;}
+
+
+/* FIX v3 theme compatibility */
+
+/* FIX v3: tema chiaro/scuro realmente applicato alla home */
+html.light-theme,
+body.light-theme {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+body.light-theme .site-header,
+body.light-theme .clean-topbar,
+body.light-theme footer {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #dbeafe !important;
+}
+
+body.light-theme .hero-clean {
+  background: linear-gradient(135deg,#eaf3ff 0%,#f8fbff 55%,#dbeafe 100%) !important;
+  color: #0f172a !important;
+}
+
+body.light-theme .hero-clean h1,
+body.light-theme .hero-clean p,
+body.light-theme .hero-clean-copy h1,
+body.light-theme .hero-clean-copy p {
+  color: #0f172a !important;
+}
+
+body.light-theme .container,
+body.light-theme main.container {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+body.light-theme .tab-content,
+body.light-theme .profile-feature-card,
+body.light-theme .mini-info-card,
+body.light-theme .info-card,
+body.light-theme .glossario-native,
+body.light-theme .glossario-results-panel,
+body.light-theme .glossario-stat,
+body.light-theme .login-wall-modern,
+body.light-theme .didattica-shell,
+body.light-theme .didattica-inner,
+body.light-theme .weekly-lessons-panel,
+body.light-theme .weekly-detail,
+body.light-theme .weekly-grid-wrap,
+body.light-theme .didattica-content {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+body.light-theme .tab-btn {
+  background: #e2e8f0 !important;
+  color: #334155 !important;
+  border-color: #cbd5e1 !important;
+}
+
+body.light-theme .tab-btn.active {
+  background: #ffffff !important;
+  color: #0b3b75 !important;
+  border-color: #93c5fd !important;
+}
+
+body.light-theme .glossario-native *,
+body.light-theme .glossario-results-list *,
+body.light-theme .weekly-lessons-panel *,
+body.light-theme .didattica-content * {
+  color: inherit;
+}
+
+body.light-theme .glossario-search,
+body.light-theme .glossario-search input {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+body.light-theme .glossario-alpha button,
+body.light-theme #glossaryAlphaWrap button {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+  opacity: 1 !important;
+}
+
+body.light-theme .glossario-alpha button.active,
+body.light-theme #glossaryAlphaWrap button.active {
+  background: #0b3b75 !important;
+  color: #ffffff !important;
+  border-color: #0b3b75 !important;
+}
+
+/* Tema scuro esplicito */
+html.dark-theme,
+body.dark-theme {
+  background: #020617 !important;
+  color: #eaf2ff !important;
+}
+
+body.dark-theme .site-header,
+body.dark-theme .clean-topbar,
+body.dark-theme footer {
+  background: #020617 !important;
+  color: #eaf2ff !important;
+  border-color: #1e293b !important;
+}
+
+body.dark-theme .hero-clean:not(.hero-banner-img) {
+  background: linear-gradient(135deg,#020617 0%,#0f172a 45%,#0b3b75 100%) !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .hero-clean h1,
+body.dark-theme .hero-clean p,
+body.dark-theme .hero-clean-copy h1,
+body.dark-theme .hero-clean-copy p {
+  color: #ffffff !important;
+}
+
+body.dark-theme .container,
+body.dark-theme main.container {
+  background: #020617 !important;
+  color: #eaf2ff !important;
+}
+
+body.dark-theme .tab-content,
+body.dark-theme .profile-feature-card,
+body.dark-theme .mini-info-card,
+body.dark-theme .info-card,
+body.dark-theme .glossario-native,
+body.dark-theme .glossario-results-panel,
+body.dark-theme .glossario-stat,
+body.dark-theme .didattica-shell,
+body.dark-theme .didattica-inner,
+body.dark-theme .weekly-lessons-panel,
+body.dark-theme .weekly-detail,
+body.dark-theme .weekly-grid-wrap,
+body.dark-theme .didattica-content {
+  background: #0f172a !important;
+  color: #eaf2ff !important;
+  border-color: #334155 !important;
+}
+
+body.dark-theme .tab-btn {
+  background: #1e293b !important;
+  color: #cbd5e1 !important;
+  border-color: #334155 !important;
+}
+
+body.dark-theme .tab-btn.active {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+  border-color: #93c5fd !important;
+}
+
+body.dark-theme .glossario-native *,
+body.dark-theme .glossario-results-list *,
+body.dark-theme .weekly-lessons-panel *,
+body.dark-theme .didattica-content * {
+  color: inherit;
+}
+
+body.dark-theme .glossario-search,
+body.dark-theme .glossario-search input {
+  background: #111827 !important;
+  color: #eaf2ff !important;
+  border-color: #334155 !important;
+}
+
+body.dark-theme .glossario-alpha button,
+body.dark-theme #glossaryAlphaWrap button {
+  background: #1e293b !important;
+  color: #eaf2ff !important;
+  border: 1px solid #3b82f6 !important;
+  opacity: 1 !important;
+}
+
+body.dark-theme .glossario-alpha button.active,
+body.dark-theme #glossaryAlphaWrap button.active {
+  background: #3b82f6 !important;
+  color: #ffffff !important;
+  border-color: #60a5fa !important;
+}
+
+body.dark-theme a {
+  color: #93c5fd !important;
+}
+
+body.light-theme a {
+  color: #0b3b75 !important;
+}

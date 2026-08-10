@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>classe_sql.html - Laboratorio SQL</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root{
+      --bg:#f0f0f0; --panel-bg:#ffffff; --header-bg:#f5f5f5;
+      --border:#c0c0c0; --border-light:#d4d4d4;
+      --text:#1a1a1a; --muted:#555;
+      --accent:#0078d4; --sel-bg-focus:#0078d4; --sel-text-focus:#fff;
+      --col-header:#e8e8e8;
+      --split-left:42%; --right-top:62%; --editor-font-size:13px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;overflow:hidden}
+    body{font-family:"Segoe UI",Arial,sans-serif;font-size:12px;color:var(--text);background:var(--bg);}
+    .app{height:100vh;display:grid;grid-template-rows:28px 22px 38px 24px 1fr 22px;}
+    .titlebar{height:28px;background:var(--color-primary,#0d1b2e);border-bottom:2px solid var(--color-accent,#c8963e);display:flex;align-items:center;gap:8px;padding:0 8px;font-size:11px;color:#f0ece2;user-select:none;}
+    .titlebar-icon{width:16px;height:16px;border-radius:4px;background:var(--color-accent,#c8963e);color:var(--color-primary,#0d1b2e);font-weight:700;font-size:10px;display:flex;align-items:center;justify-content:center;font-family:var(--font-sans,inherit);}
+    .titlebar-title{flex:1;font-weight:600;font-size:11px;color:#f0ece2;letter-spacing:.2px}
+    .titlebar-title .titlebar-sub{opacity:.65;font-weight:400}
+    .titlebar-btns{display:flex}
+    .titlebar-btn{width:30px;height:28px;border:none;background:transparent;cursor:pointer;font-size:13px;color:#cbd0d8;display:grid;place-items:center;}
+    .titlebar-btn:hover{background:rgba(255,255,255,0.12)}
+    .menubar{height:22px;background:var(--header-bg);border-bottom:1px solid var(--border-light);display:flex;align-items:center;padding:0 4px;font-size:11.5px;}
+    .menu-item{padding:2px 8px;cursor:pointer;border-radius:2px;color:#1a1a1a;white-space:nowrap;}
+    .menu-item:hover{background:#d0d0d0}
+    .toolbar-bar{height:38px;background:linear-gradient(180deg,#f8f8f8,#ebebeb);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 4px;gap:2px;}
+    .tb-sep{width:1px;height:24px;background:var(--border);margin:0 4px}
+    .tb-btn{height:28px;min-width:28px;padding:0 8px;border:1px solid transparent;border-radius:3px;background:transparent;cursor:pointer;font-size:11.5px;color:#222;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;text-decoration:none;}
+    .tb-btn:hover{background:#d4e4f7;border-color:#a8c6e8}
+    .tb-btn.ok{background:linear-gradient(180deg,#e8f8e8,#d0ead0);border-color:#80b880;color:#1a5a1a}
+    .tb-btn.warn{background:linear-gradient(180deg,#fff0e0,#f8dcc0);border-color:#d0a060;color:#6a3000}
+    .tb-btn.primary{background:linear-gradient(180deg,#cce0ff,#b0ccf8);border-color:#6090d0;color:#003070}
+    .tb-btn:disabled{opacity:.5;cursor:not-allowed}
+    .student-input{height:22px;width:180px;border:1px solid #a0a0a0;border-radius:2px;padding:0 6px;font-size:11.5px;color:#222;background:#fff;outline:none;}
+    .timer-widget{display:flex;align-items:center;gap:6px;padding:0 10px;height:26px;border:1px solid var(--border);border-radius:3px;background:#fff;font-size:11.5px;}
+    .timer-widget.warning{ background:#fff0f0; border-color:#e08080; }
+    .timer-widget #timerValue{font-weight:700;font-family:Consolas,monospace;color:#222;min-width:44px;}
+    .theme-toggle{height:22px;padding:0 10px;border:1px solid var(--border);border-radius:10px;background:var(--col-header);cursor:pointer;font-size:11px;color:var(--text);display:inline-flex;align-items:center;gap:5px;user-select:none;margin-left:4px;}
+    .addressbar{height:24px;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 6px;gap:6px;font-size:11.5px;}
+    .addr-label{color:#555;white-space:nowrap}
+    .addr-path{flex:1;height:18px;border:1px solid #b0b0b0;border-radius:2px;padding:0 6px;font-size:11.5px;background:#fff;color:#222;outline:none;}
+    .addr-badges{display:flex;gap:6px;align-items:center;margin-left:4px;}
+    .addr-badge{font-size:10.5px;padding:1px 7px;border:1px solid #c0c0c0;border-radius:2px;background:#f0f0f0;color:#333;white-space:nowrap;max-width:200px;overflow:hidden;text-overflow:ellipsis;}
+    .workspace{min-height:0;display:grid;grid-template-columns:minmax(320px,var(--split-left)) 4px minmax(360px,calc(100% - var(--split-left)));will-change:grid-template-columns;}
+    .stack-right{min-height:0;display:grid;grid-template-rows:minmax(180px,var(--right-top)) 4px minmax(120px,calc(100% - var(--right-top)));will-change:grid-template-rows;}
+    .panel{min-height:0;background:var(--panel-bg);border:1px solid var(--border);overflow:hidden;display:flex;flex-direction:column;}
+    .panel-header{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 8px;height:28px;border-bottom:1px solid var(--border);background:var(--col-header);}
+    .panel-title{font-size:11.5px;font-weight:600;color:#222;}
+    .toolbar{display:flex;gap:4px;flex-wrap:wrap;align-items:center;}
+    .exercise-list-wrap{padding:4px 6px;border-bottom:1px solid var(--border-light);background:var(--col-header);}
+    .exercise-select{width:100%;height:22px;border:1px solid #b0b0b0;border-radius:2px;background:#fff;color:#222;font-size:11.5px;padding:0 4px;outline:none;}
+    .trace-wrap{min-height:0;flex:1 1 auto;background:#fff;padding:18px;overflow:auto;line-height:1.55}
+    .trace-wrap h3{margin-bottom:10px}
+    .trace-wrap .schema{background:#f7f8fb;border:1px solid #dfe5ef;border-radius:10px;padding:12px;margin-top:12px}
+    .trace-wrap .hint{color:#666;font-size:12px}
+    .editor-wrap{min-height:0;flex:1 1 auto;padding:0;display:flex;flex-direction:column;background:#1e1e1e;}
+    #sqlEditor{width:100%;height:100%;resize:none;background:#1e1e1e;color:#d4d4d4;padding:8px 10px;font:var(--editor-font-size)/1.5 Consolas,Monaco,monospace;outline:none;border:none;}
+    .output-wrap{min-height:0;flex:1 1 auto;display:flex;flex-direction:column;background:#1e1e1e;}
+    #output{flex:1 1 auto;min-height:0;overflow:auto;white-space:pre-wrap;background:#1e1e1e;padding:8px 10px;color:#cccccc;font:13px/1.45 Consolas,Monaco,monospace;border:none;}
+    table.sql-table{border-collapse:collapse;width:100%;font:13px/1.4 "Segoe UI",Arial,sans-serif;background:#fff;color:#111}
+    table.sql-table th, table.sql-table td{border:1px solid #d4dbe5;padding:6px 8px;text-align:left}
+    table.sql-table th{background:#eef4fb}
+    .output-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:2px 8px;background:var(--col-header);border-bottom:1px solid var(--border);font-size:11px;color:#666;flex-shrink:0;}
+    .status-pill{display:inline-flex;align-items:center;gap:5px;padding:2px 7px;border:1px solid #c0c0c0;border-radius:999px;background:#f5f5f5;color:#333}
+    .status-pill.done{background:#e8f8e8;border-color:#9fd39f;color:#225522}
+    .status-pill.lock{background:#fff3cd;border-color:#f2d58a;color:#7a5a00}
+    .splitter{position:relative;z-index:5;user-select:none;touch-action:none;background:linear-gradient(180deg,#e0e0e0,#c8c8c8,#e0e0e0);border-left:1px solid #b8b8b8;border-right:1px solid #b8b8b8;}
+    .splitter.vertical{width:4px;cursor:col-resize;align-self:stretch;}
+    .splitter.horizontal{height:4px;cursor:row-resize;align-self:stretch;background:linear-gradient(90deg,#e0e0e0,#c8c8c8,#e0e0e0);border-top:1px solid #b8b8b8;border-bottom:1px solid #b8b8b8;border-left:none;border-right:none;}
+    .app-statusbar{height:22px;background:linear-gradient(180deg,#f0f0f0,#e8e8e8);border-top:1px solid var(--border);display:flex;align-items:center;padding:0 8px;gap:16px;font-size:11px;color:#444;}
+    .sb-item{display:flex;align-items:center;gap:4px;white-space:nowrap;}
+    .sb-sep{width:1px;height:14px;background:var(--border);}
+    .sb-right{margin-left:auto;display:flex;align-items:center;gap:16px;}
+    .completed-list{margin-top:12px;padding:10px;border:1px solid #dfe5ef;border-radius:8px;background:#fafbfd}
+    .completed-list ul{padding-left:18px}
+    .completed-list li{margin:4px 0}
+    body.focus-editor .workspace{grid-template-columns:1fr;}
+    body.focus-editor .trace-side, body.focus-editor #mainSplitter{display:none !important;}
+    html.dark{
+      --bg:#1a1a1a; --panel-bg:#252526; --header-bg:#2d2d2d; --border:#3a3a3a; --border-light:#333; --text:#d4d4d4; --muted:#999; --col-header:#2d2d2d;
+    }
+    html.dark .titlebar{background:var(--color-primary-dark,#081422);border-bottom-color:var(--color-accent,#c8963e);color:#f0ece2;}
+    html.dark .titlebar-btn{color:#cbd0d8}.dark .titlebar-btn:hover{background:#3a3a3a}
+    html.dark .menubar, html.dark .addressbar, html.dark .panel-header, html.dark .exercise-list-wrap, html.dark .output-meta{background:#2d2d2d;border-color:#3a3a3a;color:#ccc}
+    html.dark .menu-item{color:#ccc}.dark .menu-item:hover{background:#3a3a3a}
+    html.dark .toolbar-bar{background:linear-gradient(180deg,#2e2e2e,#262626);border-color:#3a3a3a;}
+    html.dark .tb-btn{color:#ccc}.dark .tb-btn:hover{background:#1e3a5a;border-color:#2a5a8a}
+    html.dark .tb-btn.ok{background:linear-gradient(180deg,#1a3a2a,#163020);border-color:#2a5a3a;color:#6ad090}
+    html.dark .tb-btn.warn{background:linear-gradient(180deg,#3a2010,#2a1808);border-color:#6a3818;color:#e09040}
+    html.dark .tb-btn.primary{background:linear-gradient(180deg,#1a3060,#102040);border-color:#2a5090;color:#80b0f0}
+    html.dark .student-input, html.dark .addr-path, html.dark .exercise-select{background:#1e1e1e;border-color:#444;color:#ccc}
+    html.dark .addr-badge, html.dark .theme-toggle, html.dark .status-pill{background:#2a2a2a;border-color:#444;color:#aaa}
+    html.dark .trace-wrap{background:#1f1f1f;color:#ddd}
+    html.dark .trace-wrap .schema, html.dark .completed-list{background:#232323;border-color:#444}
+    html.dark .splitter{background:linear-gradient(180deg,#333,#2a2a2a,#333);border-color:#444;}
+    html.dark .app-statusbar{background:linear-gradient(180deg,#222,#1a1a1a);border-color:#3a3a3a;color:#888;}
+    @media(max-width:900px){
+      body{overflow:auto}
+      .app{height:auto;min-height:100vh;grid-template-rows:28px 22px 38px 24px auto 22px;}
+      .workspace{grid-template-columns:1fr;height:auto;}
+      .splitter.vertical{display:none}
+      .stack-right{grid-template-rows:minmax(400px,1fr) 4px minmax(220px,300px);}
+      .panel{min-height:240px}
+    }
+  </style>
+  <link rel="stylesheet" href="design-system.css">
+</head>
+<body>
+  <div class="app">
+    <div class="titlebar">
+      <span class="titlebar-icon" aria-hidden="true">A</span>
+      <span class="titlebar-title">Laboratorio SQL <span class="titlebar-sub">· Prof. Antonio Adinolfi</span></span>
+      <div class="titlebar-btns">
+        <button class="titlebar-btn">—</button><button class="titlebar-btn">❐</button><button class="titlebar-btn">✕</button>
+      </div>
+    </div>
+    <div class="menubar">
+      <span class="menu-item">File</span><span class="menu-item">Modifica</span><span class="menu-item">Visualizza</span><span class="menu-item">Esegui</span><span class="menu-item">Strumenti</span><span class="menu-item">Aiuto</span>
+    </div>
+    <div class="toolbar-bar">
+      <button class="tb-btn ok" id="runBtn" type="button">▶ Esegui</button>
+      <button class="tb-btn warn" id="resetBtn" type="button">↺ Reset</button>
+      <div class="tb-sep"></div>
+      <button class="tb-btn primary" id="deliverBtn" type="button" disabled>📤 Consegna finale</button>
+      <div class="tb-sep"></div>
+      <button class="tb-btn" id="focusBtn" type="button">⛶ Focus</button>
+      <a class="tb-btn" id="dbFiddleBtn" href="https://www.db-fiddle.com/" target="_blank" rel="noopener noreferrer">🌐 DB-FIDDLE</a>
+      <div class="tb-sep"></div>
+      <a class="tb-btn" href="materiali.html">🏠 Materiali</a>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
+        <div class="timer-widget" id="timerBox"><span>⏱</span><span id="timerValue">45:00</span><span style="color:#777">residuo</span></div>
+        <div class="tb-sep"></div>
+        <input id="studentName" class="student-input" type="text" placeholder="Nome e Cognome Studente" />
+        <button class="theme-toggle" id="themeToggle" title="Cambia tema">☀️ Chiaro</button>
+      </div>
+    </div>
+    <div class="addressbar">
+      <span class="addr-label">Classe:</span>
+      <input class="addr-path" id="addrPath" readonly value="antonioadinolfi.it › Laboratorio SQL" />
+      <div class="addr-badges">
+        <span class="addr-badge" id="addrClass">—</span>
+        <span class="addr-badge" id="addrProgress">0/0 completati</span>
+      </div>
+    </div>
+
+    <main class="workspace" id="workspace">
+      <section class="panel trace-side">
+        <div class="panel-header">
+          <span class="panel-title">👁 Traccia / Esercizio</span>
+          <div class="toolbar"><span class="status-pill lock" id="lockState">Consegna bloccata</span></div>
+        </div>
+        <div class="exercise-list-wrap">
+          <select id="exerciseSelect" class="exercise-select"></select>
+        </div>
+        <div class="trace-wrap" id="traceBox"></div>
+      </section>
+
+      <div class="splitter vertical" id="mainSplitter"></div>
+
+      <section class="stack-right">
+        <section class="panel editor-panel">
+          <div class="panel-header">
+            <span class="panel-title">🧾 Editor SQL</span>
+            <div class="toolbar"><span id="currentExerciseLabel" style="font-size:11px;color:#777"></span></div>
+          </div>
+          <div class="editor-wrap">
+            <textarea id="sqlEditor" spellcheck="false"></textarea>
+          </div>
+        </section>
+        <div class="splitter horizontal" id="rightSplitter"></div>
+        <section class="panel output-panel">
+          <div class="panel-header">
+            <span class="panel-title">⬛ Output</span>
+            <div class="toolbar"><span id="datasetInfo" style="font-size:11px;color:#777"></span></div>
+          </div>
+          <div class="output-meta">
+            <span id="runStatus">In attesa · Ctrl+Enter = Esegui</span>
+            <span id="progressStatus" class="status-pill">0/0 completati</span>
+          </div>
+          <div class="output-wrap"><div id="output"></div></div>
+        </section>
+      </section>
+    </main>
+
+    <div class="app-statusbar">
+      <div class="sb-item">🗄️ <span id="sbClass">—</span></div>
+      <div class="sb-sep"></div>
+      <div class="sb-item"><span id="sbExercise">Nessun esercizio</span></div>
+      <div class="sb-right"><div class="sb-item">antonioadinolfi.it · Laboratorio SQL</div></div>
+    </div>
+  </div>
+
+<script>
+window.SQL_LAB_DEFAULT_CONFIG = 'scuola';
+window.SQL_LAB_CONFIGS = {
+  scuola: {
+    meta: {
+      titolo: 'Laboratorio SQL · Database Scuola',
+      sottotitolo: 'Query su classi, studenti, docenti, materie, relazione N:M e valutazioni.',
+      datasetInfo: 'Dataset: scuola (6 tabelle, 1 tabella associativa)',
+      dbFiddleUrl: 'https://www.db-fiddle.com/'
+    },
+    schema: `Tabelle del database SCUOLA
+
+classe(
+  id_classe PK,
+  nome_classe,
+  anno_scolastico
+)
+
+studente(
+  id_studente PK,
+  nome,
+  cognome,
+  data_nascita,
+  email,
+  id_classe FK -> CLASSE.id_classe
+)
+
+docente(
+  id_docente PK,
+  nome,
+  cognome
+)
+
+materia(
+  id_materia PK,
+  nome_materia
+)
+
+docente_materia(
+  id_docente FK -> DOCENTE.id_docente,
+  id_materia FK -> MATERIA.id_materia,
+  PK(id_docente, id_materia)
+)
+
+valutazione(
+  id_valutazione PK,
+  id_studente FK -> STUDENTE.id_studente,
+  id_materia FK -> MATERIA.id_materia,
+  voto,
+  data_valutazione
+)`,
+    db: {
+      classe: [
+        {id_classe:1, nome_classe:'3A', anno_scolastico:'2025/2026'},
+        {id_classe:2, nome_classe:'4B', anno_scolastico:'2025/2026'},
+        {id_classe:3, nome_classe:'5A', anno_scolastico:'2025/2026'}
+      ],
+      studente: [
+        {id_studente:1, nome:'Luca', cognome:'Rossi', data_nascita:'2008-03-15', email:'luca.rossi@scuola.it', id_classe:1},
+        {id_studente:2, nome:'Maria', cognome:'Bianchi', data_nascita:'2008-07-22', email:'maria.bianchi@scuola.it', id_classe:1},
+        {id_studente:3, nome:'Giovanni', cognome:'Verdi', data_nascita:'2007-11-10', email:'giovanni.verdi@scuola.it', id_classe:2},
+        {id_studente:4, nome:'Anna', cognome:'Neri', data_nascita:'2006-01-05', email:'anna.neri@scuola.it', id_classe:3}
+      ],
+      docente: [
+        {id_docente:1, nome:'Paolo', cognome:'Esposito'},
+        {id_docente:2, nome:'Laura', cognome:'Romano'},
+        {id_docente:3, nome:'Chiara', cognome:'Greco'},
+        {id_docente:4, nome:'Marco', cognome:'Ferrari'}
+      ],
+      materia: [
+        {id_materia:1, nome_materia:'Informatica'},
+        {id_materia:2, nome_materia:'Matematica'},
+        {id_materia:3, nome_materia:'Italiano'},
+        {id_materia:4, nome_materia:'Sistemi e Reti'}
+      ],
+      docente_materia: [
+        {id_docente:1, id_materia:1},
+        {id_docente:1, id_materia:4},
+        {id_docente:2, id_materia:2},
+        {id_docente:3, id_materia:3},
+        {id_docente:4, id_materia:1},
+        {id_docente:4, id_materia:2}
+      ],
+      valutazione: [
+        {id_valutazione:1, id_studente:1, id_materia:1, voto:7.50, data_valutazione:'2026-02-10'},
+        {id_valutazione:2, id_studente:1, id_materia:1, voto:8.00, data_valutazione:'2026-03-05'},
+        {id_valutazione:3, id_studente:1, id_materia:2, voto:6.50, data_valutazione:'2026-02-18'},
+        {id_valutazione:4, id_studente:2, id_materia:1, voto:9.00, data_valutazione:'2026-02-11'},
+        {id_valutazione:5, id_studente:2, id_materia:3, voto:7.00, data_valutazione:'2026-02-20'},
+        {id_valutazione:6, id_studente:3, id_materia:2, voto:8.50, data_valutazione:'2026-03-01'},
+        {id_valutazione:7, id_studente:3, id_materia:4, voto:7.25, data_valutazione:'2026-03-10'},
+        {id_valutazione:8, id_studente:4, id_materia:1, voto:6.00, data_valutazione:'2026-02-25'},
+        {id_valutazione:9, id_studente:4, id_materia:3, voto:8.75, data_valutazione:'2026-03-12'}
+      ]
+    },
+    exercises: [
+      {
+        titolo: 'Q1 · Elenco studenti della classe 3A',
+        testo: `<h3>Q1 · Elenco studenti della classe 3A</h3>
+<p><strong>Richiesta.</strong> Visualizza nome, cognome ed email degli studenti appartenenti alla classe <code>3A</code>.</p>
+<p class="hint">Usa <code>studente</code> e <code>classe</code> con una JOIN su <code>id_classe</code>.</p>`,
+        starter: "-- Scrivi qui la tua query SQL",
+        solution: `SELECT s.nome, s.cognome, s.email
+FROM studente s
+JOIN classe c ON s.id_classe = c.id_classe
+WHERE c.nome_classe = '3A';`
+      },
+      {
+        titolo: 'Q2 · Media dei voti per studente',
+        testo: `<h3>Q2 · Media dei voti per studente</h3>
+<p><strong>Richiesta.</strong> Calcola la media dei voti per ciascuno studente, mostrando nome, cognome e media.</p>
+<p class="hint">Usa <code>AVG(voto)</code> e <code>GROUP BY</code>.</p>`,
+        starter: "-- Scrivi qui la tua query SQL",
+        solution: `SELECT s.nome, s.cognome, AVG(v.voto) AS media_voti
+FROM studente s
+JOIN valutazione v ON s.id_studente = v.id_studente
+GROUP BY s.nome, s.cognome
+ORDER BY media_voti DESC;`
+      },
+      {
+        titolo: 'Q3 · Voti di Informatica',
+        testo: `<h3>Q3 · Voti di Informatica</h3>
+<p><strong>Richiesta.</strong> Elenca gli studenti con i voti ottenuti nella materia <code>Informatica</code>, ordinando per data valutazione.</p>`,
+        starter: "-- Scrivi qui la tua query SQL",
+        solution: `SELECT s.nome, s.cognome, m.nome_materia, v.voto, v.data_valutazione
+FROM valutazione v
+JOIN studente s ON v.id_studente = s.id_studente
+JOIN materia m ON v.id_materia = m.id_materia
+WHERE m.nome_materia = 'Informatica'
+ORDER BY v.data_valutazione;`
+      },
+      {
+        titolo: 'Q4 · Docenti che insegnano Informatica',
+        testo: `<h3>Q4 · Docenti che insegnano Informatica</h3>
+<p><strong>Richiesta.</strong> Mostra nome e cognome dei docenti che insegnano <code>Informatica</code>.</p>
+<p class="hint">Serve la tabella associativa <code>docente_materia</code>.</p>`,
+        starter: "-- Scrivi qui la tua query SQL",
+        solution: `SELECT d.nome, d.cognome
+FROM docente d
+JOIN docente_materia dm ON d.id_docente = dm.id_docente
+JOIN materia m ON dm.id_materia = m.id_materia
+WHERE m.nome_materia = 'Informatica';`
+      },
+      {
+        titolo: 'Q5 · Materie insegnate da Ferrari',
+        testo: `<h3>Q5 · Materie insegnate da Ferrari</h3>
+<p><strong>Richiesta.</strong> Elenca le materie insegnate dal docente con cognome <code>Ferrari</code>.</p>`,
+        starter: "-- Scrivi qui la tua query SQL",
+        solution: `SELECT d.cognome, m.nome_materia
+FROM docente d
+JOIN docente_materia dm ON d.id_docente = dm.id_docente
+JOIN materia m ON dm.id_materia = m.id_materia
+WHERE d.cognome = 'Ferrari';`
+      },
+      {
+        titolo: 'Q6 · Numero studenti per classe',
+        testo: `<h3>Q6 · Numero studenti per classe</h3>
+<p><strong>Richiesta.</strong> Conta quanti studenti ci sono in ogni classe.</p>
+<p class="hint">Usa <code>COUNT</code> e <code>GROUP BY</code>.</p>`,
+        starter: "-- Scrivi qui la tua query SQL",
+        solution: `SELECT c.nome_classe, COUNT(s.id_studente) AS numero_studenti
+FROM classe c
+JOIN studente s ON c.id_classe = s.id_classe
+GROUP BY c.nome_classe
+ORDER BY c.nome_classe;`
+      }
+    ]
+  }
+};
+</script>
+<script>
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const className = params.get('classe') || 'generica';
+  const lessonDate = params.get('data') || new Date().toISOString().slice(0,10);
+  const configName = params.get('config') || window.SQL_LAB_DEFAULT_CONFIG || 'scuola';
+  const CONFIGS = window.SQL_LAB_CONFIGS || {};
+  const ACTIVE_CONFIG = CONFIGS[configName] || CONFIGS[window.SQL_LAB_DEFAULT_CONFIG] || CONFIGS.scuola;
+  if(!ACTIVE_CONFIG){
+    document.body.innerHTML = '<div style="padding:24px;font-family:Segoe UI,Arial,sans-serif"><h2>Configurazione mancante</h2></div>';
+    return;
+  }
+  const meta = ACTIVE_CONFIG.meta || {};
+  const db = ACTIVE_CONFIG.db || {};
+  const exercises = ACTIVE_CONFIG.exercises || [];
+  const schemaText = (ACTIVE_CONFIG.schema || '').trim();
+
+  const $ = id => document.getElementById(id);
+  const els = {
+    exerciseSelect:$('exerciseSelect'), traceBox:$('traceBox'), sqlEditor:$('sqlEditor'), output:$('output'),
+    runBtn:$('runBtn'), resetBtn:$('resetBtn'), deliverBtn:$('deliverBtn'), focusBtn:$('focusBtn'),
+    timerValue:$('timerValue'), studentName:$('studentName'), themeToggle:$('themeToggle'),
+    addrPath:$('addrPath'), addrClass:$('addrClass'), addrProgress:$('addrProgress'),
+    sbClass:$('sbClass'), sbExercise:$('sbExercise'), currentExerciseLabel:$('currentExerciseLabel'),
+    datasetInfo:$('datasetInfo'), dbFiddleBtn:$('dbFiddleBtn'), progressStatus:$('progressStatus'),
+    lockState:$('lockState'), workspace:$('workspace'), mainSplitter:$('mainSplitter'), rightSplitter:$('rightSplitter')
+  };
+  const timerKey = `classeSqlTimer:${className}:${lessonDate}`;
+  const studentKey = `classeSqlStudent:${className}`;
+  const progressKey = `classeSqlProgress:${configName}:${className}:${lessonDate}`;
+  const exerciseKey = `classeSqlExercise:${configName}:${className}:${lessonDate}`;
+  const layoutKey = `classeSqlLayout:${className}`;
+  const focusKey = `classeSqlFocus:${className}`;
+  const themeKey = 'classeSqlTheme';
+  let secondsLeft = 45*60, timerInterval = null, currentExerciseIndex = 0, lastResult = [], completionMap = {};
+  els.datasetInfo.textContent = meta.datasetInfo || 'Dataset';
+  els.dbFiddleBtn.href = meta.dbFiddleUrl || 'https://www.db-fiddle.com/';
+  els.addrClass.textContent = className;
+  els.sbClass.textContent = className;
+  els.addrPath.value = `antonioadinolfi.it › Laboratorio SQL › ${className}`;
+  els.studentName.value = localStorage.getItem(studentKey) || '';
+
+  function escapeHtml(v){ return String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+  function cloneRows(rows){ return rows.map(r => ({...r})); }
+  function stableRows(rows){
+    return rows.map(row => {
+      const obj = {};
+      Object.keys(row).sort().forEach(k => obj[k] = row[k]);
+      return obj;
+    }).sort((a,b) => JSON.stringify(a).localeCompare(JSON.stringify(b)));
+  }
+
+  function hasAggregate(selectClause){ return /(count|avg|min|max|sum)\s*\(/i.test(selectClause); }
+  function cleanLabel(field){ return field.replace(/^distinct\s+/i,'').replace(/^.*\./,'').trim(); }
+  function splitSelectFields(selectClause){ return selectClause.replace(/^distinct\s+/i,'').split(',').map(s => s.trim()); }
+  function resolveValue(row, key){ return row[key] ?? row[key.replace(/^distinct\s+/i,'')] ?? row[key.replace(/^.*\./,'')]; }
+  function parseLiteral(s){
+    s = s.trim();
+    if(/^'.*'$/.test(s)) return s.slice(1,-1);
+    if(/^".*"$/.test(s)) return s.slice(1,-1);
+    if(/^\d+(\.\d+)?$/.test(s)) return Number(s);
+    return {field:s};
+  }
+  function evaluateCondition(row, cond){
+    const m = cond.match(/^([a-z_][\w\.]*)\s*(=|!=|<>|>=|<=|>|<|like)\s*(.+)$/i);
+    if(!m) throw new Error(`Condizione WHERE non supportata: ${cond}`);
+    const left = resolveValue(row, m[1]);
+    const op = m[2].toLowerCase();
+    const rightParsed = parseLiteral(m[3]);
+    const right = typeof rightParsed === 'object' && rightParsed.field ? resolveValue(row, rightParsed.field) : rightParsed;
+    if(op === '=') return left == right;
+    if(op === '!=' || op === '<>') return left != right;
+    if(op === '>') return left > right;
+    if(op === '<') return left < right;
+    if(op === '>=') return left >= right;
+    if(op === '<=') return left <= right;
+    if(op === 'like'){
+      const pattern = String(right).replace(/%/g, '.*');
+      return new RegExp(`^${pattern}$`, 'i').test(String(left));
+    }
+    return false;
+  }
+  function evaluateHaving(aggRow, cond){
+    const m = cond.match(/^([a-z_]\w*)\s*(=|!=|<>|>=|<=|>|<)\s*(.+)$/i);
+    if(!m) throw new Error(`HAVING non supportato: ${cond}`);
+    const left = aggRow[m[1]];
+    const rightParsed = parseLiteral(m[3]);
+    const right = typeof rightParsed === 'object' ? aggRow[rightParsed.field] : rightParsed;
+    const op = m[2];
+    if(op === '=') return left == right;
+    if(op === '!=' || op === '<>') return left != right;
+    if(op === '>') return left > right;
+    if(op === '<') return left < right;
+    if(op === '>=') return left >= right;
+    if(op === '<=') return left <= right;
+    return false;
+  }
+  function evaluateExpression(rows, expr){
+    expr = expr.trim();
+    let m = expr.match(/^count\s*\(\s*\*\s*\)$/i);
+    if(m) return rows.length;
+    m = expr.match(/^(avg|min|max|sum|count)\s*\(\s*([a-z_][\w\.]*)\s*\)$/i);
+    if(m){
+      const fn = m[1].toLowerCase(), field = m[2];
+      const vals = rows.map(r => Number(resolveValue(r, field))).filter(v => !Number.isNaN(v));
+      if(fn === 'count') return rows.map(r => resolveValue(r, field)).filter(v => v !== undefined && v !== null).length;
+      if(!vals.length) return null;
+      if(fn === 'avg') return Number((vals.reduce((a,b)=>a+b,0)/vals.length).toFixed(2));
+      if(fn === 'sum') return vals.reduce((a,b)=>a+b,0);
+      if(fn === 'min') return Math.min(...vals);
+      if(fn === 'max') return Math.max(...vals);
+    }
+    return resolveValue(rows[0] || {}, expr);
+  }
+  function buildSelectRow(selectClause, rows){
+    const fields = splitSelectFields(selectClause);
+    const out = {};
+    for(const field of fields){
+      const asMatch = field.match(/(.+?)\s+as\s+([a-z_]\w*)$/i);
+      const expr = asMatch ? asMatch[1].trim() : field;
+      const label = asMatch ? asMatch[2].trim() : cleanLabel(field);
+      out[label] = evaluateExpression(rows, expr);
+    }
+    return out;
+  }
+  function runQuery(sql){
+    let query = sql.trim().replace(/;+\s*$/,'');
+    if(!query) throw new Error('Query vuota.');
+    if(!/^select\s/i.test(query)) throw new Error('Sono consentite solo query SELECT nel laboratorio interno.');
+    const q = query.replace(/\s+/g,' ').trim();
+    const fromMatch = q.match(/from\s+([a-z_]+)(?:\s+([a-z]\w*))?/i);
+    if(!fromMatch) throw new Error('FROM mancante o non riconosciuto.');
+    const baseTable = fromMatch[1];
+    const baseAlias = fromMatch[2] || baseTable;
+    if(!db[baseTable]) throw new Error(`Tabella non trovata: ${baseTable}`);
+    let rows = cloneRows(db[baseTable]).map(r => {
+      const out = {};
+      for(const [k,v] of Object.entries(r)){ out[k]=v; out[`${baseAlias}.${k}`]=v; out[`${baseTable}.${k}`]=v; }
+      return out;
+    });
+
+    const joinRegex = /join\s+([a-z_]+)(?:\s+([a-z]\w*))?\s+on\s+([a-z_]\w*)\.([a-z_]\w*)\s*=\s*([a-z_]\w*)\.([a-z_]\w*)/ig;
+    let m;
+    while((m = joinRegex.exec(q)) !== null){
+      const joinTable = m[1], joinAlias = m[2] || joinTable, leftA = m[3], leftC = m[4], rightA = m[5], rightC = m[6];
+      if(!db[joinTable]) throw new Error(`Tabella JOIN non trovata: ${joinTable}`);
+      const joined = [];
+      for(const row of rows){
+        for(const jr of db[joinTable]){
+          const merged = {...row};
+          for(const [k,v] of Object.entries(jr)){ merged[k] = merged[k] ?? v; merged[`${joinAlias}.${k}`]=v; merged[`${joinTable}.${k}`]=v; }
+          const leftVal = merged[`${leftA}.${leftC}`] ?? merged[leftC];
+          const rightVal = merged[`${rightA}.${rightC}`] ?? merged[rightC];
+          if(leftVal === rightVal) joined.push(merged);
+        }
+      }
+      rows = joined;
+    }
+
+    const whereMatch = q.match(/where\s+(.+?)(?=\s+group\s+by|\s+having|\s+order\s+by|$)/i);
+    if(whereMatch){
+      const conds = whereMatch[1].split(/\s+and\s+/i).map(s => s.trim());
+      rows = rows.filter(row => conds.every(cond => evaluateCondition(row, cond)));
+    }
+
+    const selectMatch = q.match(/^select\s+(.+?)\s+from\s/i);
+    if(!selectMatch) throw new Error('SELECT non riconosciuto.');
+    const selectClause = selectMatch[1].trim();
+    const groupMatch = q.match(/group\s+by\s+(.+?)(?=\s+having|\s+order\s+by|$)/i);
+    const havingMatch = q.match(/having\s+(.+?)(?=\s+order\s+by|$)/i);
+    const orderMatch = q.match(/order\s+by\s+(.+?)(?=$)/i);
+    let resultRows = [];
+
+    if(groupMatch){
+      const groupFields = groupMatch[1].split(',').map(s => s.trim());
+      const grouped = new Map();
+      for(const row of rows){
+        const key = JSON.stringify(groupFields.map(f => resolveValue(row, f)));
+        if(!grouped.has(key)) grouped.set(key, []);
+        grouped.get(key).push(row);
+      }
+      for(const rowsInGroup of grouped.values()){
+        const aggRow = buildSelectRow(selectClause, rowsInGroup);
+        if(!havingMatch || evaluateHaving(aggRow, havingMatch[1])) resultRows.push(aggRow);
+      }
+    } else {
+      if (selectClause.trim() === '*') {
+        resultRows = rows.map(row => {
+          const plain = {};
+          for (const [k, v] of Object.entries(row)) if (!k.includes('.')) plain[k] = v;
+          return plain;
+        });
+      } else if(hasAggregate(selectClause)){
+        resultRows = [buildSelectRow(selectClause, rows)];
+      } else {
+        resultRows = rows.map(row => buildSelectRow(selectClause, [row]));
+      }
+    }
+
+    if(orderMatch){
+      const orderRaw = orderMatch[1].trim();
+      const orderField = orderRaw.replace(/\s+(asc|desc)\b/i,'').trim();
+      const desc = /\bdesc\b/i.test(orderRaw);
+      resultRows.sort((a,b)=>{
+        const av = a[orderField] ?? a[cleanLabel(orderField)];
+        const bv = b[orderField] ?? b[cleanLabel(orderField)];
+        if(av === bv) return 0;
+        return (av > bv ? 1 : -1) * (desc ? -1 : 1);
+      });
+    }
+    if(/^select\s+distinct\s+/i.test(q)){
+      const seen = new Set();
+      resultRows = resultRows.filter(r => { const k = JSON.stringify(r); if(seen.has(k)) return false; seen.add(k); return true; });
+    }
+    return resultRows;
+  }
+
+  function renderTable(rows){
+    if(!rows || !rows.length){
+      els.output.innerHTML = '<div style="color:#ccc">Query eseguita correttamente. Nessun record restituito.</div>';
+      return;
+    }
+    const cols = Object.keys(rows[0]);
+    const thead = `<tr>${cols.map(c=>`<th>${escapeHtml(c)}</th>`).join('')}</tr>`;
+    const tbody = rows.map(r => `<tr>${cols.map(c=>`<td>${escapeHtml(String(r[c] ?? ''))}</td>`).join('')}</tr>`).join('');
+    els.output.innerHTML = `<table class="sql-table"><thead>${thead}</thead><tbody>${tbody}</tbody></table>`;
+  }
+
+  function buildTraceHtml(ex){
+    const idx = currentExerciseIndex;
+    const done = completionMap[idx] ? '<span class="status-pill done">Completato</span>' : '<span class="status-pill">Da completare</span>';
+    return `${ex.testo || ''}<div style="margin-top:10px">${done}</div><div class="schema"><pre>${escapeHtml(schemaText)}</pre></div>
+      <div class="completed-list">
+        <strong>Stato prova</strong>
+        <ul>${exercises.map((e,i)=>`<li>${completionMap[i] ? '✅' : '⬜'} ${escapeHtml(e.titolo)}</li>`).join('')}</ul>
+      </div>`;
+  }
+
+  function saveProgress(){
+    localStorage.setItem(progressKey, JSON.stringify(completionMap));
+  }
+  function loadProgress(){
+    try { completionMap = JSON.parse(localStorage.getItem(progressKey) || '{}') || {}; }
+    catch { completionMap = {}; }
+  }
+  function completedCount(){
+    return exercises.filter((_,i)=>completionMap[i]).length;
+  }
+  function updateProgressUi(){
+    const done = completedCount(), total = exercises.length;
+    const txt = `${done}/${total} completati`;
+    els.addrProgress.textContent = txt;
+    els.progressStatus.textContent = txt;
+    const unlocked = done === total && total > 0;
+    els.deliverBtn.disabled = !unlocked;
+    els.lockState.textContent = unlocked ? 'Consegna sbloccata' : 'Consegna bloccata';
+    els.lockState.className = 'status-pill ' + (unlocked ? 'done' : 'lock');
+  }
+
+  function renderExercise(i){
+    currentExerciseIndex = i;
+    localStorage.setItem(exerciseKey, String(i));
+    const ex = exercises[i];
+    els.traceBox.innerHTML = buildTraceHtml(ex);
+    els.sqlEditor.value = ex.starter || '';
+    els.exerciseSelect.value = String(i);
+    els.currentExerciseLabel.textContent = ex.titolo || `Esercizio ${i+1}`;
+    els.sbExercise.textContent = ex.titolo || `Esercizio ${i+1}`;
+    els.output.innerHTML = '<div style="color:#9ca3af">Scrivi la query e premi Esegui.</div>';
+    document.getElementById('runStatus').textContent = 'In attesa · Ctrl+Enter = Esegui';
+  }
+
+  function populateExercises(){
+    els.exerciseSelect.innerHTML = '';
+    exercises.forEach((ex, i) => {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = `${completionMap[i] ? '✅ ' : ''}${ex.titolo || `Esercizio ${i+1}`}`;
+      els.exerciseSelect.appendChild(opt);
+    });
+  }
+
+  function validateCurrent(rows){
+    const ex = exercises[currentExerciseIndex];
+    const expectedRows = runQuery(ex.solution || ex.starter || '');
+    const ok = JSON.stringify(stableRows(rows)) === JSON.stringify(stableRows(expectedRows));
+    if(ok){
+      completionMap[currentExerciseIndex] = true;
+      saveProgress();
+      populateExercises();
+      updateProgressUi();
+      els.traceBox.innerHTML = buildTraceHtml(ex);
+    }
+    return ok;
+  }
+
+  function formatTime(t){ return `${String(Math.floor(t/60)).padStart(2,'0')}:${String(t%60).padStart(2,'0')}`; }
+  function saveTimerState(){ localStorage.setItem(timerKey, JSON.stringify({ secondsLeft, savedAt:Date.now() })); }
+  function loadTimerState(){
+    const raw = localStorage.getItem(timerKey);
+    if(!raw){ secondsLeft = 45*60; return; }
+    try{
+      const p = JSON.parse(raw);
+      const prev = Number(p.secondsLeft);
+      const savedAt = Number(p.savedAt || Date.now());
+      if(!Number.isFinite(prev) || prev <= 0){ secondsLeft = 45*60; saveTimerState(); return; }
+      const elapsed = Math.max(0, Math.floor((Date.now() - savedAt) / 1000));
+      const remaining = Math.max(0, prev - elapsed);
+      secondsLeft = remaining > 0 ? remaining : 45*60;
+    } catch { secondsLeft = 45*60; }
+  }
+  function updateTimer(){
+    els.timerValue.textContent = formatTime(Math.max(secondsLeft,0));
+    $('timerBox').classList.toggle('warning', secondsLeft <= 300);
+    if(secondsLeft <= 0){
+      clearInterval(timerInterval);
+      els.deliverBtn.disabled = true;
+      $('lockState').textContent = 'Tempo scaduto';
+      $('lockState').className = 'status-pill lock';
+      saveTimerState();
+      return;
+    }
+    secondsLeft--;
+    saveTimerState();
+  }
+  function startTimer(){
+    loadTimerState();
+    els.timerValue.textContent = formatTime(secondsLeft);
+    timerInterval = setInterval(updateTimer, 1000);
+  }
+
+  function bindSplitters(){
+    function attachDrag(handle, moveFn){
+      handle.addEventListener('pointerdown', ev => {
+        ev.preventDefault();
+        function onMove(e){ moveFn(e); }
+        function onUp(){ window.removeEventListener('pointermove', onMove); window.removeEventListener('pointerup', onUp); saveLayoutState(); }
+        window.addEventListener('pointermove', onMove);
+        window.addEventListener('pointerup', onUp);
+      });
+    }
+    attachDrag(els.mainSplitter, e => {
+      const rect = els.workspace.getBoundingClientRect();
+      const x = Math.min(Math.max(e.clientX - rect.left, 320), rect.width - 360);
+      document.documentElement.style.setProperty('--split-left', `${(x/rect.width)*100}%`);
+    });
+    attachDrag(els.rightSplitter, e => {
+      const rect = document.querySelector('.stack-right').getBoundingClientRect();
+      const y = Math.min(Math.max(e.clientY - rect.top, 180), rect.height - 120);
+      document.documentElement.style.setProperty('--right-top', `${(y/rect.height)*100}%`);
+    });
+  }
+  function saveLayoutState(){
+    localStorage.setItem(layoutKey, JSON.stringify({
+      splitLeft:getComputedStyle(document.documentElement).getPropertyValue('--split-left').trim(),
+      rightTop:getComputedStyle(document.documentElement).getPropertyValue('--right-top').trim()
+    }));
+  }
+  function restoreLayoutState(){
+    try{
+      const p = JSON.parse(localStorage.getItem(layoutKey) || '{}');
+      if(p.splitLeft) document.documentElement.style.setProperty('--split-left', p.splitLeft);
+      if(p.rightTop) document.documentElement.style.setProperty('--right-top', p.rightTop);
+    }catch{}
+  }
+  function setFocusMode(enabled){
+    document.body.classList.toggle('focus-editor', enabled);
+    localStorage.setItem(focusKey, enabled ? '1' : '0');
+    els.focusBtn.textContent = enabled ? '⛶ Esci Focus' : '⛶ Focus';
+  }
+  function applyTheme(dark){
+    document.documentElement.classList.toggle('dark', dark);
+    els.themeToggle.textContent = dark ? '🌙 Scuro' : '☀️ Chiaro';
+    localStorage.setItem(themeKey, dark ? 'dark' : 'light');
+  }
+
+  els.studentName.addEventListener('input', ()=> localStorage.setItem(studentKey, els.studentName.value));
+  els.exerciseSelect.addEventListener('change', ()=> renderExercise(Number(els.exerciseSelect.value)));
+  els.runBtn.addEventListener('click', ()=>{
+    try{
+      const rows = runQuery(els.sqlEditor.value);
+      lastResult = rows;
+      renderTable(rows);
+      const ok = validateCurrent(rows);
+      document.getElementById('runStatus').textContent = ok ? 'Esecuzione completata' : 'Esecuzione completata';
+      if(ok){
+        els.output.insertAdjacentHTML('beforeend', '<div style="margin-top:10px;color:#14532d;background:#ecfdf5;border:1px solid #86efac;padding:6px 8px;border-radius:6px">Esercizio registrato come completato.</div>');
+      }
+    } catch(err){
+      lastResult = [];
+      els.output.innerHTML = `<div style="color:#fecaca;font-weight:700;">Errore: ${escapeHtml(err.message || String(err))}</div>`;
+      document.getElementById('runStatus').textContent = 'Errore di esecuzione';
+    }
+  });
+  els.resetBtn.addEventListener('click', ()=> renderExercise(currentExerciseIndex));
+  els.focusBtn.addEventListener('click', ()=> setFocusMode(!document.body.classList.contains('focus-editor')));
+  document.addEventListener('keydown', e => {
+    if((e.ctrlKey || e.metaKey) && e.key === 'Enter'){ e.preventDefault(); els.runBtn.click(); }
+    if(e.key === 'Escape' && document.body.classList.contains('focus-editor')) setFocusMode(false);
+  });
+  els.themeToggle.addEventListener('click', ()=> applyTheme(!document.documentElement.classList.contains('dark')));
+  els.deliverBtn.addEventListener('click', ()=>{
+    if(els.deliverBtn.disabled) return;
+    const stud = (els.studentName.value || 'Studente').trim();
+    const report = `<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8"><title>Consegna SQL</title><style>
+    body{font-family:Segoe UI,Arial,sans-serif;margin:32px;color:#111;line-height:1.5}
+    h1{margin-top:0}.meta{margin-bottom:18px;padding:14px;border:1px solid #d7dee8;border-radius:12px;background:#f7f9fc}
+    pre{white-space:pre-wrap;background:#0b1020;color:#f4f8ff;padding:14px;border-radius:10px;overflow:auto}
+    li{margin:6px 0}
+    </style></head><body>
+    <h1>Consegna prova SQL</h1>
+    <div class="meta">
+    <p><strong>Studente:</strong> ${escapeHtml(stud)}</p>
+    <p><strong>Classe:</strong> ${escapeHtml(className)}</p>
+    <p><strong>Data:</strong> ${escapeHtml(lessonDate)}</p>
+    <p><strong>Configurazione:</strong> ${escapeHtml(configName)}</p>
+    </div>
+    <h2>Esercizi completati</h2>
+    <ul>${exercises.map((e,i)=>`<li>${completionMap[i] ? '✅' : '⬜'} ${escapeHtml(e.titolo)}</li>`).join('')}</ul>
+    <h2>Ultima query eseguita</h2><pre>${escapeHtml(els.sqlEditor.value)}</pre>
+    <h2>Ultimo risultato</h2><pre>${escapeHtml(JSON.stringify(lastResult, null, 2))}</pre>
+    </body></html>`;
+    const blob = new Blob([report], {type:'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `${stud.replace(/\s+/g,'_')}_consegna_sql.html`;
+    document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+  });
+
+  restoreLayoutState();
+  bindSplitters();
+  loadProgress();
+  populateExercises();
+  renderExercise(Number(localStorage.getItem(exerciseKey) || 0));
+  updateProgressUi();
+  startTimer();
+  setFocusMode(localStorage.getItem(focusKey) === '1');
+  applyTheme(localStorage.getItem(themeKey) === 'dark');
+  window.addEventListener('beforeunload', saveTimerState);
+})();
+</script>
+</body>
+</html>

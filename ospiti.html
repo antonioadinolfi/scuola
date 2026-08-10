@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Area Ospiti - Prof. Antonio Adinolfi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #004080;
+      --bg: #f4f7f9;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --accent: #f7a81b;
+      --radius: 12px;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .top-bar {
+      background-color: var(--primary);
+      color: white;
+      padding: 15px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-back { 
+      color: white; text-decoration: none; font-weight: 600; font-size: 14px; 
+      background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 8px;
+    }
+
+    main { max-width: 1000px; margin: 40px auto; padding: 0 24px; }
+
+    .hero-section { text-align: center; margin-bottom: 40px; }
+    h1 { color: var(--primary); font-weight: 800; }
+
+    /* Griglia Contenuti */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .card h2 { 
+      margin-top: 0; 
+      color: var(--primary); 
+      border-bottom: 2px solid var(--bg); 
+      padding-bottom: 10px;
+      font-size: 20px;
+    }
+
+    /* Lista link */
+    .resource-list { list-style: none; padding: 0; }
+    .resource-list li { margin-bottom: 15px; }
+    .resource-list a { 
+      color: var(--primary); 
+      text-decoration: none; 
+      font-weight: 600; 
+      display: block;
+    }
+    .resource-list span { font-size: 13px; color: var(--text-muted); }
+
+    /* Programma */
+    .program-item { margin-bottom: 15px; border-left: 3px solid var(--accent); padding-left: 15px; }
+    .program-item strong { display: block; color: var(--text-main); }
+
+    @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } }
+  </style>
+
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0b3b75"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+</head>
+<body>
+
+<nav class="top-bar">
+    <div style="font-weight: 800;">Prof. Antonio Adinolfi</div>
+    <a href="index.html" class="btn-back">&larr; Torna al Login</a>
+</nav>
+
+<main>
+    <div class="hero-section">
+        <h1>Risorse Didattiche Pubbliche</h1>
+        <p>Benvenuti nell'area aperta del corso. Qui sono disponibili informazioni generali sul percorso di studi e link a strumenti gratuiti per l'apprendimento dell'informatica.</p>
+    </div>
+
+    <div class="content-grid">
+        <div class="card">
+            <h2>Percorso Formativo</h2>
+            <div class="program-item">
+                <strong>Biennio: Basi del Pensiero Computazionale</strong>
+                <p style="font-size: 14px; margin: 5px 0;">Logica, algoritmi fondamentali e introduzione alla programmazione visuale e testuale.</p>
+            </div>
+            <div class="program-item">
+                <strong>Triennio: Sviluppo e Dati</strong>
+                <p style="font-size: 14px; margin: 5px 0;">Sviluppo Web (HTML/CSS), basi di dati SQL, programmazione ad oggetti (Python/Java) e reti.</p>
+            </div>
+            <div class="program-item">
+                <strong>Progetti Finali</strong>
+                <p style="font-size: 14px; margin: 5px 0;">Realizzazione di applicazioni full-stack e preparazione all'Esame di Stato.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Strumenti e Risorse Link</h2>
+            <ul class="resource-list">
+                <li>
+                    <a href="https://www.python.org/" target="_blank">Python.org &nearrow;</a>
+                    <span>Sito ufficiale e documentazione del linguaggio principale del corso.</span>
+                </li>
+                <li>
+                    <a href="https://www.w3schools.com/" target="_blank">W3Schools &nearrow;</a>
+                    <span>Ottimo portale per il ripasso di HTML, CSS e SQL.</span>
+                </li>
+                <li>
+                    <a href="https://visualgo.net/it" target="_blank">VisuAlgo &nearrow;</a>
+                    <span>Visualizzazione interattiva di algoritmi e strutture dati.</span>
+                </li>
+                <li>
+                    <a href="https://bbycroft.net/llm" target="_blank">Visualizzazione LLM &nearrow;</a>
+                    <span>Animazione dei modelli GPT.</span>
+                </li>
+                <li>
+                    <a href="https://github.com/" target="_blank">GitHub &nearrow;</a>
+                    <span>La piattaforma standard per il versionamento del codice.</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+
+<footer style="text-align: center; padding: 40px; color: var(--text-muted); font-size: 13px;">
+  &copy; 2025 Prof. Antonio Adinolfi - Liceo Scientifico "N. Cortese"
+</footer>
+
+
+<script src="pwa-register.js"></script>
+</body>
+</html>

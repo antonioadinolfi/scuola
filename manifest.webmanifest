@@ -1,0 +1,69 @@
+{
+  "name": "Prof. Adinolfi — Informatica Liceo Cortese",
+  "short_name": "Adinolfi",
+  "description": "Materiali didattici, glossario informatico e risorse per gli studenti del Liceo Scientifico Nino Cortese di Maddaloni.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#0b3b75",
+  "background_color": "#020817",
+  "lang": "it",
+  "categories": ["education"],
+
+  "icons": [
+    {
+      "src": "/immagini/logo_liceo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/immagini/logo_liceo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+
+  "screenshots": [
+    {
+      "src": "/immagini/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Home — Profilo docente"
+    }
+  ],
+
+  "shortcuts": [
+    {
+      "name": "Glossario informatico",
+      "short_name": "Glossario",
+      "description": "Consulta il glossario dei termini informatici",
+      "url": "/?tab=glossario",
+      "icons": [{ "src": "/immagini/logo_liceo.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Laboratorio SQL",
+      "short_name": "Lab SQL",
+      "description": "Apri il laboratorio SQL nel browser",
+      "url": "/classe_sql.html",
+      "icons": [{ "src": "/immagini/logo_liceo.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Laboratorio Python",
+      "short_name": "Lab Python",
+      "description": "Apri il laboratorio Python nel browser",
+      "url": "/classe.html",
+      "icons": [{ "src": "/immagini/logo_liceo.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Materiali didattici",
+      "short_name": "Materiali",
+      "description": "Archivio materiali per le classi",
+      "url": "/materiali.html",
+      "icons": [{ "src": "/immagini/logo_liceo.png", "sizes": "96x96" }]
+    }
+  ]
+}
