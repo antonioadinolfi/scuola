@@ -85,6 +85,8 @@ tr.sun td.dn,tr.sun td.dw{color:var(--coral);opacity:.65}
 }
 </style>
 <link rel="stylesheet" href="design-system.css">
+<script>document.documentElement.classList.add("auth-checking");</script>
+<link href="enterprise-auth.css" rel="stylesheet">
 </head>
 <body>
 
@@ -278,6 +280,12 @@ document.getElementById('next').addEventListener('click',()=>{cur=(cur+1)%12;ren
 document.getElementById('msel').addEventListener('change',e=>{cur=parseInt(e.target.value);renderMonth(cur);});
 
 loadAgenda();
+</script>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="auth-enterprise.js"></script>
+<script>
+  LSCAuth.requireAuth({ loginUrl: "login.html" });
 </script>
 
 </body>

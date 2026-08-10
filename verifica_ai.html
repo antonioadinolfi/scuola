@@ -38,6 +38,8 @@
 <meta name="theme-color" content="#0b3b75"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<script>document.documentElement.classList.add("auth-checking");</script>
+<link href="enterprise-auth.css" rel="stylesheet">
 </head>
 <body>
 
@@ -274,6 +276,12 @@
 
 
 <script src="pwa-register.js"></script>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="auth-enterprise.js"></script>
+<script>
+  LSCAuth.requireAuth({ loginUrl: "login.html" });
+</script>
 </body>
 </html>
 

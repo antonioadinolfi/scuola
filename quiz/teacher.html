@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dashboard Docente – Consegne Quiz</title>
   <link rel="stylesheet" href="teacher.css" />
+  <script>document.documentElement.classList.add("auth-checking");</script>
+  <link href="../enterprise-auth.css" rel="stylesheet">
 </head>
 <body>
   <header class="top">
@@ -96,5 +98,11 @@
   </main>
 
   <script src="teacher.js"></script>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="../auth-enterprise.js"></script>
+  <script>
+    LSCAuth.requireAuth({ loginUrl: "../login.html" });
+  </script>
 </body>
 </html>
