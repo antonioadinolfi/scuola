@@ -141,6 +141,8 @@
     }
   </style>
   <link rel="stylesheet" href="design-system.css">
+  <script>document.documentElement.classList.add("auth-checking");</script>
+  <link href="enterprise-auth.css" rel="stylesheet">
 </head>
 <body>
   <div class="app">
@@ -936,6 +938,12 @@
       bindProtection();
       startInterfaceFocus();
     })();
+  </script>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="auth-enterprise.js"></script>
+  <script>
+    LSCAuth.requireAuth({ loginUrl: "login.html" });
   </script>
 </body>
 </html>
