@@ -11,7 +11,7 @@
 <title>Prof. Antonio Adinolfi – Docente di Informatica | Liceo Scientifico Nino Cortese Maddaloni</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="design-system.css">
 <style>
 /* ── RESET & ROOT ── */
@@ -19,8 +19,8 @@
 
 /* Le variabili storiche di questa pagina (--navy, --gold, ecc.)
    sono mantenute per compatibilità con tutte le regole sottostanti,
-   ma ora derivano dalla fonte unica design-system.css (FASE 2),
-   così l'identità visiva resta coerente con le altre pagine del sito. */
+   ma derivano dalla fonte unica design-system.css, così l'identità
+   visiva resta coerente con le altre pagine del sito. */
 :root {
   --navy:        var(--color-primary);
   --navy2:       var(--color-primary-light);
@@ -39,10 +39,6 @@
   --serif:       var(--font-serif);
   --sans:        var(--font-sans);
   --mono:        var(--font-mono);
-  /* --radius, --radius-lg, --shadow, --shadow-hover: stesso nome
-     in design-system.css, ereditate direttamente senza rimappatura
-     (rimapparle con lo stesso nome creerebbe un riferimento
-     circolare CSS non valido). */
 }
 
 html { scroll-behavior: smooth; }
@@ -58,6 +54,15 @@ body {
 /* ── UTILITY ── */
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
+:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; border-radius: 2px; }
+
+.skip-link {
+  position: absolute; top: -48px; left: 12px; z-index: 999;
+  background: var(--gold); color: #fff; padding: 10px 18px;
+  border-radius: 4px; font-size: 13px; font-weight: 600;
+  transition: top .18s;
+}
+.skip-link:focus { top: 12px; }
 
 /* ── NAV ── */
 nav {
@@ -72,568 +77,256 @@ nav {
   z-index: 200;
   border-bottom: 1px solid var(--border-gold);
 }
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-}
+.nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .nav-badge {
-  width: 36px;
-  height: 36px;
-  background: var(--gold);
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--serif);
-  color: #fff;
-  font-size: 17px;
-  font-style: italic;
-  flex-shrink: 0;
+  width: 36px; height: 36px; background: var(--gold); border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); color: #fff; font-size: 17px; font-style: italic; flex-shrink: 0;
 }
-.nav-name  { color: #fff; font-size: 14px; font-weight: 500; letter-spacing: 0.2px; }
-.nav-inst  { color: rgba(255,255,255,0.4); font-size: 11px; letter-spacing: 0.6px; text-transform: uppercase; margin-top: 1px; }
-.nav-links { display: flex; gap: 0.2rem; }
+.nav-name { color: #fff; font-size: 14px; font-weight: 500; letter-spacing: 0.2px; }
+.nav-inst { color: rgba(255,255,255,0.4); font-size: 11px; letter-spacing: 0.6px; text-transform: uppercase; margin-top: 1px; }
+.nav-links { display: flex; gap: 0.2rem; align-items: center; }
 .nav-links a {
-  color: rgba(255,255,255,0.55);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: 4px;
-  transition: color .18s, background .18s;
+  color: rgba(255,255,255,0.55); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.6px; text-transform: uppercase; padding: 6px 14px;
+  border-radius: 4px; transition: color .18s, background .18s;
 }
 .nav-links a:hover { color: var(--gold-light); background: rgba(255,255,255,0.05); }
 .nav-links a.active { color: var(--gold-light); }
-.nav-cta {
-  background: var(--gold);
-  color: #fff !important;
-  border-radius: 4px;
-  padding: 6px 16px !important;
-}
+.nav-cta { background: var(--gold); color: #fff !important; border-radius: 4px; padding: 6px 16px !important; }
 .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
 
 /* hamburger (mobile) */
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; }
 .hamburger span { width: 22px; height: 2px; background: rgba(255,255,255,0.7); border-radius: 2px; transition: all .2s; }
+.hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ── HERO ── */
+/* ── HERO (asimmetrico: contenuto + sidebar identità) ── */
 .hero {
   background: var(--navy);
-  padding: 5rem 3rem 0;
+  padding: 4.5rem 3rem 4rem;
   display: grid;
-  grid-template-columns: 1fr 280px;
+  grid-template-columns: 1fr 340px;
   gap: 4rem;
-  align-items: end;
+  align-items: start;
   position: relative;
   overflow: hidden;
 }
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, var(--gold) 40%, var(--gold-light) 60%, transparent 100%);
-}
-/* decorative grid */
 .hero::before {
   content: '';
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background-image:
     linear-gradient(rgba(200,150,62,0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(200,150,62,0.04) 1px, transparent 1px);
   background-size: 48px 48px;
   pointer-events: none;
 }
-
 .hero-eyebrow {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  color: var(--gold);
-  margin-bottom: 1.1rem;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px; color: var(--gold);
+  margin-bottom: 1.2rem; font-weight: 600; display: flex; align-items: center; gap: 10px;
 }
-.hero-eyebrow::before {
-  content: '';
-  width: 28px;
-  height: 1px;
-  background: var(--gold);
-  display: inline-block;
-}
+.hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); display: inline-block; }
 .hero-name {
-  font-family: var(--serif);
-  font-size: 3.6rem;
-  color: #fff;
-  line-height: 1.04;
-  margin-bottom: 0.7rem;
-  position: relative;
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(2.4rem, 4.6vw, 4.1rem);
+  color: #fff; line-height: 1.06; margin-bottom: 1.1rem; max-width: 15ch;
 }
 .hero-name em { color: var(--gold-light); font-style: italic; }
-.hero-role {
-  font-size: 13.5px;
-  color: rgba(255,255,255,0.45);
-  margin-bottom: 1.6rem;
-  letter-spacing: 0.3px;
-}
-.hero-desc {
-  font-size: 15px;
-  color: rgba(255,255,255,0.68);
-  max-width: 520px;
-  line-height: 1.75;
-  margin-bottom: 2rem;
-}
-.hero-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 2.4rem;
-}
+.hero-role { font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 1.7rem; letter-spacing: 0.2px; }
+.hero-desc { font-size: 15.5px; color: rgba(255,255,255,0.72); max-width: 540px; line-height: 1.8; margin-bottom: 2rem; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2.6rem; }
 .tag {
-  font-size: 10.5px;
-  letter-spacing: 0.7px;
-  padding: 5px 13px;
-  border: 1px solid rgba(200,150,62,0.3);
-  color: rgba(255,255,255,0.55);
-  border-radius: 2px;
-  text-transform: uppercase;
-  font-weight: 500;
-  transition: border-color .2s, color .2s;
+  font-size: 10.5px; letter-spacing: 0.6px; padding: 6px 13px;
+  border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.03);
+  color: rgba(255,255,255,0.6); border-radius: 999px; text-transform: uppercase;
+  font-weight: 500; transition: border-color .2s, color .2s, background .2s;
 }
-.tag:hover { border-color: var(--gold); color: var(--gold-light); }
-.hero-btns {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 3.5rem;
-  flex-wrap: wrap;
-}
+.tag:hover { border-color: var(--gold); color: var(--gold-light); background: rgba(200,150,62,0.08); }
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
 .btn-primary {
-  background: var(--gold);
-  color: #fff;
-  padding: 11px 26px;
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.4px;
-  transition: background .2s, transform .15s;
-  display: inline-block;
+  background: var(--gold); color: #fff; padding: 12px 26px; border-radius: 4px;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.4px;
+  transition: background .2s, transform .15s; display: inline-block;
 }
 .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
 .btn-secondary {
-  border: 1px solid rgba(255,255,255,0.22);
-  color: rgba(255,255,255,0.65);
-  padding: 11px 26px;
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: 500;
-  transition: all .2s;
-  display: inline-block;
+  border: 1px solid rgba(255,255,255,0.22); color: rgba(255,255,255,0.68);
+  padding: 12px 26px; border-radius: 4px; font-size: 13px; font-weight: 500;
+  transition: all .2s; display: inline-block;
 }
 .btn-secondary:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
 
-/* PHOTO COLUMN */
-.hero-photo-col { display: flex; justify-content: center; align-items: flex-end; }
-.hero-photo-frame {
-  width: 230px;
-  height: 300px;
-  background: var(--navy2);
-  border-radius: 10px 10px 0 0;
+/* ── HERO IDENTITY CARD (sidebar: foto + dati chiave + statistiche) ── */
+.hero-card {
+  background: rgba(255,255,255,0.04);
   border: 1px solid var(--border-gold);
-  border-bottom: none;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  position: relative;
+  backdrop-filter: blur(6px);
 }
-.hero-photo-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-}
-.hero-photo-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
+.hero-card-photo { width: 100%; aspect-ratio: 4 / 3; position: relative; background: var(--navy2); }
+.hero-card-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.hero-card-photo-fallback {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 10px;
 }
 .avatar-circle {
-  width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  background: rgba(200,150,62,0.12);
-  border: 2px solid rgba(200,150,62,0.28);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--serif);
-  font-size: 30px;
-  color: var(--gold-light);
-  font-style: italic;
+  width: 68px; height: 68px; border-radius: 50%; background: rgba(200,150,62,0.14);
+  border: 2px solid rgba(200,150,62,0.3); display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 24px; color: var(--gold-light); font-style: italic;
 }
-.photo-label { font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 1px; text-transform: uppercase; }
+.photo-label { font-size: 10.5px; color: rgba(255,255,255,0.3); letter-spacing: 1px; text-transform: uppercase; }
+.hero-card-facts { list-style: none; padding: 1.3rem 1.4rem 0.6rem; }
+.hero-card-facts div { padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.hero-card-facts div:last-child { border-bottom: none; }
+.hero-card-facts dt {
+  font-size: 9.5px; text-transform: uppercase; letter-spacing: 1.4px;
+  color: rgba(255,255,255,0.32); font-weight: 600; margin-bottom: 4px;
+}
+.hero-card-facts dd { font-size: 13px; color: rgba(255,255,255,0.85); font-weight: 500; line-height: 1.45; }
+.hero-card-facts dd a { color: var(--gold-light); }
+.hero-card-facts dd a:hover { text-decoration: underline; }
+.hero-card-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--border-gold); background: rgba(0,0,0,0.12);
+}
+.hero-card-stats div { text-align: center; padding: 12px 4px; border-right: 1px solid rgba(255,255,255,0.06); }
+.hero-card-stats div:last-child { border-right: none; }
+.hero-card-stats strong {
+  display: block; font-family: var(--serif); font-size: 1.3rem; color: var(--gold-light); line-height: 1; margin-bottom: 4px;
+}
+.hero-card-stats span { font-size: 8.5px; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.6px; }
 
 /* ── MAIN CONTAINER ── */
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 3.5rem 3rem;
-}
+.container { max-width: 980px; margin: 0 auto; padding: 4.5rem 3rem; }
 
 /* ── SECTION HEADER ── */
-.section-header {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border);
+.section-header { margin-bottom: 2.2rem; }
+.section-eyebrow {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem;
 }
-.section-num {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--gold);
-  letter-spacing: 1px;
-  flex-shrink: 0;
+.section-num { font-family: var(--mono); font-size: 11px; color: var(--gold); letter-spacing: 1px; }
+.section-badge {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 999px;
 }
-.section-title {
-  font-family: var(--serif);
-  font-size: 1.75rem;
-  color: var(--navy);
-  line-height: 1.1;
-}
+.section-badge.restricted { background: rgba(200,150,62,0.12); color: #9a6c1e; border: 1px solid var(--border-gold); }
+.section-badge.public { background: #eaf3de; color: #4a7a2e; border: 1px solid rgba(74,122,46,0.25); }
+.section-title { font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 2.6vw, 2.1rem); color: var(--navy); line-height: 1.15; }
+.section-sub { font-size: 13.5px; color: var(--text-muted); margin-top: 0.5rem; max-width: 60ch; }
 
-/* ── PROFILE STRIP ── */
-.profile-strip {
-  background: var(--navy);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-gold);
-  padding: 2rem 2.5rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-bottom: 3rem;
+/* ── TOOL GRID (strumenti didattici, stile editoriale numerato) ── */
+.tool-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 2.8rem; }
+.tool-card {
+  background: var(--white); padding: 1.6rem 1.5rem; display: flex; flex-direction: column;
+  transition: background var(--transition-base);
 }
-.profile-item {}
-.profile-label {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1.8px;
-  color: rgba(255,255,255,0.3);
-  margin-bottom: 6px;
-  font-weight: 500;
-}
-.profile-value {
-  font-size: 14px;
-  color: rgba(255,255,255,0.82);
-  font-weight: 500;
-  line-height: 1.5;
-}
-.profile-value a { color: var(--gold-light); }
-.profile-value a:hover { text-decoration: underline; }
-
-/* ── STAT BAR ── */
-.stat-bar {
-  background: var(--navy);
-  border: 1px solid var(--border-gold);
-  border-radius: var(--radius);
-  padding: 1.6rem 2rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  margin-bottom: 3rem;
-  position: relative;
-  overflow: hidden;
-}
-.stat-bar::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), transparent);
-}
-.stat { text-align: center; padding: 0.5rem 0; }
-.stat + .stat { border-left: 1px solid rgba(255,255,255,0.06); }
-.stat-num {
-  font-family: var(--serif);
-  font-size: 2.2rem;
-  color: var(--gold-light);
-  line-height: 1;
-  display: block;
-  margin-bottom: 6px;
-}
-.stat-lbl {
-  font-size: 10.5px;
-  color: rgba(255,255,255,0.38);
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  font-weight: 500;
-}
-
-/* ── CARDS GRID ── */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-bottom: 3rem;
-}
-.card {
-  background: var(--white);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  padding: 1.5rem;
-  transition: transform .22s, box-shadow .22s;
-  display: flex;
-  flex-direction: column;
-}
-.card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
-.card-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  margin-bottom: 1rem;
-  flex-shrink: 0;
-}
-.card-icon.c-navy  { background: var(--navy);  }
-.card-icon.c-gold  { background: var(--gold-pale); }
-.card-icon.c-teal  { background: #e1f5ee; }
-.card-icon.c-blue  { background: #e6f1fb; }
-.card-icon.c-green { background: #eaf3de; }
-.card-icon.c-coral { background: #faece7; }
-.card-h { font-weight: 600; font-size: 14.5px; margin-bottom: 7px; color: var(--navy); }
-.card-p { font-size: 13px; color: var(--text-muted); line-height: 1.65; flex: 1; }
-.card-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--accent);
-  margin-top: 14px;
-  letter-spacing: 0.3px;
-  transition: gap .15s, color .15s;
-}
-.card-link:hover { gap: 8px; color: var(--navy); }
+.tool-card:hover { background: var(--cream); }
+.tool-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.9rem; }
+.tool-num { font-family: var(--mono); font-size: 11px; color: var(--gold); letter-spacing: 1px; }
+.tool-icon { font-size: 19px; }
+.tool-h { font-weight: 600; font-size: 14.5px; margin-bottom: 6px; color: var(--navy); }
+.tool-p { font-size: 12.8px; color: var(--text-muted); line-height: 1.65; flex: 1; }
+.tool-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 1.1rem; padding-top: 0.9rem; border-top: 1px solid var(--cream2); }
+.tool-lock { display: inline-flex; align-items: center; gap: 4px; font-size: 10.5px; color: var(--text-muted); letter-spacing: 0.3px; }
+.tool-link { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; color: var(--accent); transition: gap .15s, color .15s; }
+.tool-link:hover { gap: 8px; color: var(--navy); }
 
 /* ── PULL QUOTE ── */
 .pull-quote {
-  border-left: 3px solid var(--gold);
-  padding: 1.3rem 1.8rem;
-  background: var(--white);
-  border-radius: 0 var(--radius) var(--radius) 0;
-  margin-bottom: 3rem;
-  font-family: var(--serif);
-  font-size: 1.15rem;
-  color: var(--navy);
-  font-style: italic;
-  line-height: 1.6;
-  box-shadow: var(--shadow);
+  border-left: 3px solid var(--gold); padding: 1.3rem 1.8rem; background: var(--white);
+  border-radius: 0 var(--radius) var(--radius) 0; margin-bottom: 3.4rem;
+  font-family: var(--serif); font-size: 1.1rem; color: var(--navy); font-style: italic;
+  line-height: 1.6; box-shadow: var(--shadow);
 }
-.pull-quote cite {
-  display: block;
-  margin-top: 10px;
-  font-family: var(--sans);
-  font-style: normal;
-  font-size: 12px;
-  color: var(--text-muted);
-  letter-spacing: 0.5px;
-}
+.pull-quote cite { display: block; margin-top: 10px; font-family: var(--sans); font-style: normal; font-size: 12px; color: var(--text-muted); letter-spacing: 0.5px; }
 
-/* ── INFO ROW ── */
-.info-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 3rem;
-}
-.info-block {
-  background: var(--white);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  padding: 1.5rem;
-  box-shadow: var(--shadow);
-}
-.info-block-h {
-  font-weight: 600;
-  font-size: 11.5px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--navy);
-  margin-bottom: 1rem;
-  padding-bottom: 10px;
-  border-bottom: 2px solid var(--cream2);
-}
-.info-list { list-style: none; }
-.info-list li {
-  font-size: 13px;
-  color: var(--text-muted);
-  padding: 7px 0;
-  border-bottom: 1px solid var(--cream2);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  line-height: 1.5;
-}
-.info-list li:last-child { border: none; padding-bottom: 0; }
-.bullet {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--gold);
-  flex-shrink: 0;
-}
+/* ── ACTIVITY GRID (aree di attività) ── */
+.activity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 2.6rem; }
+.activity-block { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); border-top: 3px solid var(--gold); padding: 1.5rem; box-shadow: var(--shadow); }
+.activity-block.alt { border-top-color: var(--navy3); }
+.activity-h { font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--navy); margin-bottom: 1rem; }
+.activity-list { list-style: none; }
+.activity-list li { font-size: 13px; color: var(--text-muted); padding: 7px 0; border-bottom: 1px solid var(--cream2); display: flex; align-items: center; gap: 10px; line-height: 1.5; }
+.activity-list li:last-child { border: none; padding-bottom: 0; }
+.bullet { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+/* ── CALENDARIO ── */
+.calendar-block { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 1.5rem; margin-bottom: 3.4rem; }
+.calendar-h { font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--navy); margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+.calendar-block iframe { border-radius: var(--radius); border: 1px solid var(--border); width: 100%; }
+
+/* ── GLOSSARY TEASER (split, non più a gradiente) ── */
+.glossary-block { display: grid; grid-template-columns: 1.4fr 1fr; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 3.4rem; border: 1px solid var(--border-gold); }
+.glossary-copy { background: var(--navy); padding: 2.4rem; position: relative; }
+.glossary-copy::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent 70%); }
+.glossary-title { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; color: var(--gold-light); margin-bottom: 0.6rem; }
+.glossary-desc { font-size: 13.5px; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 42ch; margin-bottom: 1.3rem; }
+.glossary-stat { background: var(--cream2); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
+.glossary-num { font-family: var(--serif); font-size: 3.2rem; color: var(--navy); line-height: 1; display: block; }
+.glossary-lbl { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 6px; }
 
 /* ── NEWS STRIP ── */
-.news-strip {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  margin-bottom: 3rem;
-  box-shadow: var(--shadow);
-}
-.news-header {
-  background: var(--navy2);
-  padding: 1.1rem 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border-bottom: 1px solid var(--border-gold);
-}
+.news-strip { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 1rem; box-shadow: var(--shadow); }
+.news-header { background: var(--navy2); padding: 1.1rem 1.5rem; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border-gold); }
 .news-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
 .news-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.7); }
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-.news-col {
-  padding: 1.2rem 1.4rem;
-  border-right: 1px solid var(--border);
-}
+.news-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+.news-col { padding: 1.2rem 1.4rem; border-right: 1px solid var(--border); }
 .news-col:last-child { border-right: none; }
-.news-col-title {
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  color: var(--gold);
-  margin-bottom: 0.7rem;
-}
-.news-item {
-  font-size: 12.5px;
-  color: var(--text-muted);
-  padding: 6px 0;
-  border-bottom: 1px solid var(--cream2);
-  line-height: 1.45;
-  cursor: pointer;
-  transition: color .15s;
-}
+.news-col-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--gold); margin-bottom: 0.7rem; }
+.news-item { font-size: 12.5px; color: var(--text-muted); padding: 6px 0; border-bottom: 1px solid var(--cream2); line-height: 1.45; cursor: pointer; transition: color .15s; }
 .news-item:last-child { border: none; padding-bottom: 0; }
 .news-item:hover { color: var(--navy); }
 
-/* ── GLOSSARY TEASER ── */
-.glossary-block {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy3) 100%);
-  border: 1px solid var(--border-gold);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem;
-  margin-bottom: 3rem;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 2rem;
-  align-items: center;
-}
-.glossary-title {
-  font-family: var(--serif);
-  font-size: 1.4rem;
-  color: var(--gold-light);
-  margin-bottom: 0.5rem;
-}
-.glossary-desc { font-size: 13.5px; color: rgba(255,255,255,0.55); line-height: 1.65; }
-.glossary-stat { text-align: center; flex-shrink: 0; }
-.glossary-num { font-family: var(--serif); font-size: 3rem; color: var(--gold); line-height: 1; display: block; }
-.glossary-lbl { font-size: 10px; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 4px; }
-
 /* ── FOOTER ── */
-footer {
-  background: var(--navy);
-  border-top: 1px solid var(--border-gold);
-  padding: 2.5rem 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-.footer-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.footer-badge {
-  width: 32px;
-  height: 32px;
-  background: var(--gold);
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--serif);
-  color: #fff;
-  font-size: 15px;
-  font-style: italic;
-}
-.footer-copy { font-size: 12px; color: rgba(255,255,255,0.35); }
-.footer-copy strong { color: rgba(255,255,255,0.65); font-weight: 500; }
-.footer-links { display: flex; gap: 1.5rem; }
-.footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); transition: color .15s; }
-.footer-links a:hover { color: var(--gold-light); }
+footer { background: var(--navy); border-top: 1px solid var(--border-gold); padding: 3rem 3rem 2rem; }
+.footer-grid { max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; padding-bottom: 2rem; }
+.footer-brand { display: flex; align-items: flex-start; gap: 12px; }
+.footer-badge { width: 32px; height: 32px; background: var(--gold); border-radius: 5px; display: flex; align-items: center; justify-content: center; font-family: var(--serif); color: #fff; font-size: 15px; font-style: italic; flex-shrink: 0; }
+.footer-tagline { font-size: 12.5px; color: rgba(255,255,255,0.4); line-height: 1.6; margin-top: 6px; max-width: 30ch; }
+.footer-col-h { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: rgba(255,255,255,0.35); margin-bottom: 0.9rem; }
+.footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.55); padding: 5px 0; transition: color .15s; }
+.footer-col a:hover { color: var(--gold-light); }
+.footer-bottom { max-width: 980px; margin: 0 auto; padding-top: 1.6rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 12px; color: rgba(255,255,255,0.35); }
+.footer-bottom strong { color: rgba(255,255,255,0.6); font-weight: 500; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; padding: 3.5rem 2rem 0; gap: 2rem; }
-  .hero-photo-col { display: none; }
-  .hero-name { font-size: 2.8rem; }
+  .hero { grid-template-columns: 1fr; padding: 3rem 2rem; gap: 2.2rem; }
+  .hero-card { max-width: 380px; }
   .nav-links { display: none; }
-  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--navy2); padding: 1rem; border-bottom: 1px solid var(--border-gold); }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0;
+    background: var(--navy2); padding: 0.6rem; border-bottom: 1px solid var(--border-gold);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+  }
+  .nav-links.open a { padding: 12px 14px; }
   .hamburger { display: flex; }
-  .cards-grid { grid-template-columns: 1fr 1fr; }
-  .profile-strip { grid-template-columns: 1fr; gap: 1.2rem; }
-  .stat-bar { grid-template-columns: repeat(2, 1fr); }
-  .stat + .stat { border-left: none; }
-  .stat:nth-child(odd) + .stat { border-left: 1px solid rgba(255,255,255,0.06); }
+  .tool-grid { grid-template-columns: 1fr 1fr; }
+  .activity-grid { grid-template-columns: 1fr; }
   .news-grid { grid-template-columns: 1fr; }
   .news-col { border-right: none; border-bottom: 1px solid var(--border); }
   .news-col:last-child { border-bottom: none; }
-  .info-row { grid-template-columns: 1fr; }
   .glossary-block { grid-template-columns: 1fr; }
-  .container { padding: 2.5rem 1.5rem; }
+  .container { padding: 3rem 1.5rem; }
   nav { padding: 0 1.5rem; }
-  footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+  footer { padding: 2.4rem 1.5rem 1.6rem; }
+  .footer-grid { grid-template-columns: 1fr; gap: 1.6rem; }
 }
 
 @media (max-width: 600px) {
-  .cards-grid { grid-template-columns: 1fr; }
-  .hero-name { font-size: 2.2rem; }
-  .stat-bar { grid-template-columns: repeat(2, 1fr); }
+  .tool-grid { grid-template-columns: 1fr; }
+  .hero-card-stats { grid-template-columns: repeat(2, 1fr); }
+  .hero-card-stats div:nth-child(2) { border-right: none; }
 }
 </style>
 </head>
 <body>
+
+<a href="#main" class="skip-link">Vai al contenuto principale</a>
 
 <!-- ═══ NAV ═══ -->
 <nav>
@@ -655,21 +348,21 @@ footer {
     <a href="https://www.liceoscientificocortese.edu.it" target="_blank" class="nav-cta">Sito Liceo</a>
   </div>
 
-  <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+  <button class="hamburger" id="hamburger" aria-label="Apri il menu" aria-expanded="false" aria-controls="navLinks">
     <span></span><span></span><span></span>
-  </div>
+  </button>
 </nav>
 
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="home">
-  <div class="hero-content">
-    <div class="hero-eyebrow">Dipartimento di Informatica · Classe di concorso A041</div>
-    <h1 class="hero-name">Prof. Antonio<br><em>Adinolfi</em></h1>
-    <p class="hero-role">Docente di Informatica · Liceo Scientifico "Nino Cortese", Maddaloni (CE)</p>
+  <div class="hero-main">
+    <p class="hero-eyebrow">Dipartimento di Informatica · Classe di concorso A041</p>
+    <h1 class="hero-name">Didattica, tecnologia<br>e intelligenza <em>artificiale</em></h1>
+    <p class="hero-role">Prof. Antonio Adinolfi · Liceo Scientifico "Nino Cortese", Maddaloni (CE)</p>
     <p class="hero-desc">
-      Un ambiente digitale per lezioni, esercitazioni e progetti STEM.
-      Materiali didattici, laboratorio SQL, Python nel browser, glossario interattivo
-      e risorse aggiornate per gli studenti.
+      Un ambiente digitale per lezioni, esercitazioni e progetti STEM: materiali didattici,
+      laboratorio SQL, Python nel browser, glossario interattivo e risorse aggiornate
+      per studenti e famiglie.
     </p>
     <div class="hero-tags">
       <span class="tag">Informatica</span>
@@ -685,115 +378,94 @@ footer {
       <a href="pubblicazioni.html" class="btn-secondary">Pubblicazioni</a>
     </div>
   </div>
-  <div class="hero-photo-col">
-    <div class="hero-photo-frame">
+
+  <aside class="hero-card" id="profilo">
+    <div class="hero-card-photo">
       <img
-        src="http://antonioadinolfiscuola.it/immagini/foto_adinolfi.jpg"
+        src="immagini/foto_adinolfi.jpg"
         alt="Prof. Antonio Adinolfi"
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
       >
-      <div class="hero-photo-placeholder" style="display:none">
+      <div class="hero-card-photo-fallback" style="display:none">
         <div class="avatar-circle">AA</div>
         <span class="photo-label">Foto docente</span>
       </div>
     </div>
-  </div>
+    <dl class="hero-card-facts">
+      <div>
+        <dt>Classe di concorso</dt>
+        <dd>A041 · Informatica — Liceo Scientifico (Scienze Applicate)</dd>
+      </div>
+      <div>
+        <dt>Istituto</dt>
+        <dd><a href="https://www.liceoscientificocortese.edu.it" target="_blank">Liceo Scientifico "Nino Cortese"</a> — Maddaloni, Caserta</dd>
+      </div>
+      <div>
+        <dt>Ricevimento</dt>
+        <dd>Mercoledì 10:00–11:00, su appuntamento</dd>
+      </div>
+    </dl>
+    <div class="hero-card-stats">
+      <div><strong>5+</strong><span>Classi</span></div>
+      <div><strong>3</strong><span>Progetti STEM</span></div>
+      <div><strong>2026</strong><span>A.A.</span></div>
+      <div><strong>∞</strong><span>Curiosità</span></div>
+    </div>
+  </aside>
 </section>
 
 <!-- ═══ MAIN ═══ -->
-<main>
+<main id="main">
 <div class="container">
-
-  <!-- ── PROFILO ── -->
-  <div id="profilo" style="padding-top:2rem">
-    <div class="section-header">
-      <span class="section-num">01 —</span>
-      <h2 class="section-title">Identità e Ruolo</h2>
-    </div>
-
-    <div class="profile-strip">
-      <div class="profile-item">
-        <div class="profile-label">Classe di concorso</div>
-        <div class="profile-value">A041 · Informatica<br>Liceo Scientifico (Scienze Applicate)</div>
-      </div>
-      <div class="profile-item">
-        <div class="profile-label">Istituto</div>
-        <div class="profile-value">
-          <a href="https://www.liceoscientificocortese.edu.it" target="_blank">
-            Liceo Scientifico "Nino Cortese"
-          </a><br>Maddaloni, Caserta
-        </div>
-      </div>
-      <div class="profile-item">
-        <div class="profile-label">Ricevimento</div>
-        <div class="profile-value">Mercoledì 10:00 – 11:00<br>Su appuntamento</div>
-      </div>
-    </div>
-
-    <div class="stat-bar">
-      <div class="stat">
-        <span class="stat-num">5+</span>
-        <span class="stat-lbl">Classi attive</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">3</span>
-        <span class="stat-lbl">Progetti STEM</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">2026</span>
-        <span class="stat-lbl">Anno accademico</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">∞</span>
-        <span class="stat-lbl">Curiosità digitale</span>
-      </div>
-    </div>
-  </div>
 
   <!-- ── STRUMENTI ── -->
   <div id="strumenti">
     <div class="section-header">
-      <span class="section-num">02 —</span>
+      <div class="section-eyebrow">
+        <span class="section-num">01 —</span>
+        <span class="section-badge restricted">🔒 Accesso riservato @lscortese.com</span>
+      </div>
       <h2 class="section-title">Strumenti Didattici</h2>
+      <p class="section-sub">L'area didattica è riservata a studenti e personale autorizzati del Liceo "Nino Cortese": l'accesso richiede il login con l'account Google istituzionale.</p>
     </div>
 
-    <div class="cards-grid">
-      <div class="card">
-        <div class="card-icon c-navy">🐍</div>
-        <div class="card-h">Python Lab</div>
-        <p class="card-p">Esercitazioni Python direttamente nel browser con Skulpt. Input personalizzato e librerie shim per numpy e matplotlib.</p>
-        <a href="classe.html" class="card-link">Apri laboratorio →</a>
-      </div>
-      <div class="card">
-        <div class="card-icon c-teal">🗄️</div>
-        <div class="card-h">Laboratorio SQL</div>
-        <p class="card-p">Query SELECT, JOIN, GROUP BY su database scolastico. Output tabellare e consegna HTML integrata nel browser.</p>
-        <a href="classe_sql.html" class="card-link">Apri SQL →</a>
-      </div>
-      <div class="card">
-        <div class="card-icon c-gold">🧩</div>
-        <div class="card-h">PanQuiz Kiosk</div>
-        <p class="card-p">Sistema quiz per verifiche in classe. Avvio dedicato per ogni gruppo, modalità kiosk Windows.</p>
-        <a href="classe.html#kiosk" class="card-link">Avvia quiz →</a>
-      </div>
-      <div class="card">
-        <div class="card-icon c-blue">📅</div>
-        <div class="card-h">Agenda Lezioni</div>
-        <p class="card-p">Calendario settimanale delle lezioni per classe. Accesso rapido agli esercizi collegati a ogni sessione.</p>
-        <a href="classe.html#agenda" class="card-link">Vedi agenda →</a>
-      </div>
-      <div class="card">
-        <div class="card-icon c-green">📚</div>
-        <div class="card-h">Materiali</div>
-        <p class="card-p">Schede operative, dispense e risorse didattiche organizzate per classe e argomento con accesso Google OAuth.</p>
-        <a href="materiali.html" class="card-link">Sfoglia →</a>
-      </div>
-      <div class="card">
-        <div class="card-icon c-coral">🔬</div>
-        <div class="card-h">Progetti STEM</div>
-        <p class="card-p">Project work interdisciplinari, RomeCup, iniziative EU e attività di ricerca con gli studenti.</p>
-        <a href="classe.html#stem" class="card-link">Scopri →</a>
-      </div>
+    <div class="tool-grid">
+      <a href="classe.html" class="tool-card">
+        <div class="tool-card-top"><span class="tool-num">01</span><span class="tool-icon">🐍</span></div>
+        <div class="tool-h">Python Lab</div>
+        <p class="tool-p">Esercitazioni Python direttamente nel browser con Skulpt. Input personalizzato e librerie shim per numpy e matplotlib.</p>
+        <div class="tool-foot"><span class="tool-lock">🔒 Riservato</span><span class="tool-link">Apri →</span></div>
+      </a>
+      <a href="classe_sql.html" class="tool-card">
+        <div class="tool-card-top"><span class="tool-num">02</span><span class="tool-icon">🗄️</span></div>
+        <div class="tool-h">Laboratorio SQL</div>
+        <p class="tool-p">Query SELECT, JOIN, GROUP BY su database scolastico. Output tabellare e consegna HTML integrata nel browser.</p>
+        <div class="tool-foot"><span class="tool-lock">🔒 Riservato</span><span class="tool-link">Apri →</span></div>
+      </a>
+      <a href="classe.html#kiosk" class="tool-card">
+        <div class="tool-card-top"><span class="tool-num">03</span><span class="tool-icon">🧩</span></div>
+        <div class="tool-h">PanQuiz Kiosk</div>
+        <p class="tool-p">Sistema quiz per verifiche in classe. Avvio dedicato per ogni gruppo, modalità kiosk Windows.</p>
+        <div class="tool-foot"><span class="tool-lock">🔒 Riservato</span><span class="tool-link">Apri →</span></div>
+      </a>
+      <a href="classe.html#agenda" class="tool-card">
+        <div class="tool-card-top"><span class="tool-num">04</span><span class="tool-icon">📅</span></div>
+        <div class="tool-h">Agenda Lezioni</div>
+        <p class="tool-p">Calendario settimanale delle lezioni per classe. Accesso rapido agli esercizi collegati a ogni sessione.</p>
+        <div class="tool-foot"><span class="tool-lock">🔒 Riservato</span><span class="tool-link">Apri →</span></div>
+      </a>
+      <a href="materiali.html" class="tool-card">
+        <div class="tool-card-top"><span class="tool-num">05</span><span class="tool-icon">📚</span></div>
+        <div class="tool-h">Materiali</div>
+        <p class="tool-p">Schede operative, dispense e risorse didattiche organizzate per classe e argomento con accesso Google OAuth.</p>
+        <div class="tool-foot"><span class="tool-lock">🔒 Riservato</span><span class="tool-link">Apri →</span></div>
+      </a>
+      <a href="classe.html#stem" class="tool-card">
+        <div class="tool-card-top"><span class="tool-num">06</span><span class="tool-icon">🔬</span></div>
+        <div class="tool-h">Progetti STEM</div>
+        <p class="tool-p">Project work interdisciplinari, RomeCup, iniziative EU e attività di ricerca con gli studenti.</p>
+        <div class="tool-foot"><span class="tool-lock">🔒 Riservato</span><span class="tool-link">Apri →</span></div>
+      </a>
     </div>
 
     <blockquote class="pull-quote">
@@ -806,14 +478,14 @@ footer {
   <!-- ── ATTIVITÀ ── -->
   <div id="laboratori">
     <div class="section-header">
-      <span class="section-num">03 —</span>
+      <div class="section-eyebrow"><span class="section-num">02 —</span></div>
       <h2 class="section-title">Aree di Attività</h2>
     </div>
 
-    <div class="info-row">
-      <div class="info-block">
-        <div class="info-block-h">Didattica</div>
-        <ul class="info-list">
+    <div class="activity-grid">
+      <div class="activity-block">
+        <div class="activity-h">Didattica</div>
+        <ul class="activity-list">
           <li><span class="bullet"></span>Informatica Liceo Scientifico (Scienze Applicate)</li>
           <li><span class="bullet"></span>Laboratori di coding Python e SQL in browser</li>
           <li><span class="bullet"></span>Glossario interattivo con ricerca e filtro alfabetico</li>
@@ -821,9 +493,9 @@ footer {
           <li><span class="bullet"></span>Accesso OAuth Google istituzionale @lscortese.com</li>
         </ul>
       </div>
-      <div class="info-block">
-        <div class="info-block-h">Coordinamento e Progetti</div>
-        <ul class="info-list">
+      <div class="activity-block alt">
+        <div class="activity-h">Coordinamento e Progetti</div>
+        <ul class="activity-list">
           <li><span class="bullet"></span>Coordinatore INVALSI – valutazione nazionale 2II</li>
           <li><span class="bullet"></span>Progetti EU e fondi ministeriali (DM 129/2025)</li>
           <li><span class="bullet"></span>STEM e RomeCup 2026 – AI e Robotica, Sapienza</li>
@@ -831,9 +503,9 @@ footer {
           <li><span class="bullet"></span>Iniziativa EJERE – Giornale scientifico studentesco</li>
         </ul>
       </div>
-      <div class="info-block">
-        <div class="info-block-h">Area Riservata Studenti</div>
-        <ul class="info-list">
+      <div class="activity-block">
+        <div class="activity-h">Area Riservata Studenti</div>
+        <ul class="activity-list">
           <li><span class="bullet"></span>Accesso con account Google @lscortese.com</li>
           <li><span class="bullet"></span>Esercizi guidati e laboratori pratici</li>
           <li><span class="bullet"></span>Verifica consegne e feedback immediato</li>
@@ -841,9 +513,9 @@ footer {
           <li><span class="bullet"></span>PanQuiz – quiz e verifiche interattive</li>
         </ul>
       </div>
-      <div class="info-block" id="contatti">
-        <div class="info-block-h">Contatti e Riferimenti</div>
-        <ul class="info-list">
+      <div class="activity-block alt" id="contatti">
+        <div class="activity-h">Contatti e Riferimenti</div>
+        <ul class="activity-list">
           <li><span class="bullet"></span>Ricevimento: mercoledì 10:00–11:00</li>
           <li><span class="bullet"></span>Email istituzionale disponibile sul sito del Liceo</li>
           <li><span class="bullet"></span><a href="https://www.liceoscientificocortese.edu.it" target="_blank" style="color:var(--accent)">liceoscientificocortese.edu.it</a></li>
@@ -852,109 +524,125 @@ footer {
         </ul>
       </div>
     </div>
-  </div>
-  <!-- CALENDARIO LEZIONI -->
-<div class="info-block" style="margin-bottom:3rem;">
-    <div class="info-block-h">Calendario Lezioni</div>
 
-    <iframe
-        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT6N59KgOv1FAKALUJRJwl9DUj8-YmoZ0VE-KHYRjJPdLIKrnGDi0qWB4dkryO10i5tlHFGjmaVaEmk/pubhtml?gid=183527466&single=true"
-        width="100%"
-        height="500"
-        frameborder="0"
-        style="border-radius:var(--radius); border:1px solid var(--border); margin-top:1rem;">
-    </iframe>
-</div>
+    <!-- CALENDARIO LEZIONI -->
+    <div class="calendar-block">
+      <div class="calendar-h">📅 Calendario Lezioni</div>
+      <iframe
+          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT6N59KgOv1FAKALUJRJwl9DUj8-YmoZ0VE-KHYRjJPdLIKrnGDi0qWB4dkryO10i5tlHFGjmaVaEmk/pubhtml?gid=183527466&single=true"
+          width="100%"
+          height="500"
+          frameborder="0"
+          title="Calendario lezioni settimanale">
+      </iframe>
+    </div>
 
-<!-- ── GLOSSARIO ── -->
-<div id="glossario">
-
-    <div class="section-header">
-        <span class="section-num">04 —</span>
+    <!-- ── GLOSSARIO ── -->
+    <div id="glossario">
+      <div class="section-header">
+        <div class="section-eyebrow">
+          <span class="section-num">03 —</span>
+          <span class="section-badge public">Accesso libero</span>
+        </div>
         <h2 class="section-title">Glossario</h2>
-    </div>
+      </div>
 
-    <div class="glossary-block">
-
-        <div>
-            <div class="glossary-title">Glossario Informatico</div>
-
-            <p class="glossary-desc">
-                Ricerca immediata tra i termini fondamentali dell'informatica:
-                filtro alfabetico, definizioni essenziali e indice navigabile.
-                Strumento di studio sempre aggiornato.
-            </p>
-
-            <a href="glossario.html"
-               class="btn-primary"
-               style="margin-top:1.2rem;display:inline-block">
-               Apri Glossario →
-            </a>
+      <div class="glossary-block">
+        <div class="glossary-copy">
+          <div class="glossary-title">Glossario Informatico</div>
+          <p class="glossary-desc">
+            Ricerca immediata tra i termini fondamentali dell'informatica:
+            filtro alfabetico, definizioni essenziali e indice navigabile.
+            Strumento di studio sempre aggiornato, aperto a tutti.
+          </p>
+          <a href="glossario.html" class="btn-primary">Apri Glossario →</a>
         </div>
-
         <div class="glossary-stat">
-            <span class="glossary-num">200+</span>
-            <span class="glossary-lbl">Termini disponibili</span>
-        </div>
-
-    </div>
-
-</div>
-
-<!-- ── NOTIZIE ── -->
-<div id="notizie">
- 
-  </div>
-  <!-- ── NOTIZIE ── -->
-  <div id="notizie">
-    <div class="section-header">
-      <span class="section-num">05 —</span>
-      <h2 class="section-title">Notizie e Aggiornamenti</h2>
-    </div>
-
-    <div class="news-strip">
-      <div class="news-header">
-        <div class="news-dot"></div>
-        <div class="news-title">Feed aggiornati automaticamente</div>
-      </div>
-      <div class="news-grid">
-        <div class="news-col">
-          <div class="news-col-title">Circolari Liceo Cortese</div>
-          <div class="news-item" id="feed-liceo">Caricamento in corso…</div>
-        </div>
-        <div class="news-col">
-          <div class="news-col-title">Orizzonte Scuola</div>
-          <div class="news-item" id="feed-orizzonte">Caricamento in corso…</div>
-        </div>
-        <div class="news-col">
-          <div class="news-col-title">Wired Italia · AI</div>
-          <div class="news-item" id="feed-wired">Caricamento in corso…</div>
+          <span class="glossary-num">200+</span>
+          <span class="glossary-lbl">Termini disponibili</span>
         </div>
       </div>
     </div>
-  </div>
 
+    <!-- ── NOTIZIE ── -->
+    <div id="notizie">
+      <div class="section-header">
+        <div class="section-eyebrow"><span class="section-num">04 —</span></div>
+        <h2 class="section-title">Notizie e Aggiornamenti</h2>
+      </div>
+
+      <div class="news-strip">
+        <div class="news-header">
+          <div class="news-dot"></div>
+          <div class="news-title">Feed aggiornati automaticamente</div>
+        </div>
+        <div class="news-grid">
+          <div class="news-col">
+            <div class="news-col-title">Circolari Liceo Cortese</div>
+            <div class="news-item" id="feed-liceo">Caricamento in corso…</div>
+          </div>
+          <div class="news-col">
+            <div class="news-col-title">Orizzonte Scuola</div>
+            <div class="news-item" id="feed-orizzonte">Caricamento in corso…</div>
+          </div>
+          <div class="news-col">
+            <div class="news-col-title">Wired Italia · AI</div>
+            <div class="news-item" id="feed-wired">Caricamento in corso…</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div><!-- /container -->
 </main>
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
-  <div class="footer-left">
-    <div class="footer-badge">A</div>
-    <div class="footer-copy">
-      © 2026 <strong>Prof. Antonio Adinolfi</strong> ·
-      Liceo Scientifico "Nino Cortese", Maddaloni (CE)
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-badge">A</div>
+      <div>
+        <div class="nav-name">Prof. Antonio Adinolfi</div>
+        <p class="footer-tagline">Docente di Informatica, Liceo Scientifico "Nino Cortese", Maddaloni (CE). Didattica, tecnologia e intelligenza artificiale.</p>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-h">Naviga</div>
+      <a href="#strumenti">Didattica</a>
+      <a href="glossario.html">Glossario</a>
+      <a href="#notizie">Notizie</a>
+      <a href="login.html">Area riservata</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-h">Informazioni</div>
+      <a href="https://www.liceoscientificocortese.edu.it" target="_blank">Sito del Liceo</a>
+      <a href="pubblicazioni.html">Pubblicazioni</a>
+      <a href="privacy.html">Privacy</a>
     </div>
   </div>
-  <div class="footer-links">
-    <a href="https://www.liceoscientificocortese.edu.it" target="_blank">Sito del Liceo</a>
-    <a href="pubblicazioni.html">Pubblicazioni</a>
-    <a href="privacy.html">Privacy</a>
+  <div class="footer-bottom">
+    © 2026 <strong>Prof. Antonio Adinolfi</strong> · Liceo Scientifico "Nino Cortese", Maddaloni (CE)
   </div>
 </footer>
 
 <script>
-/* ── RSS FEED LOADER ── */
+/* ── MENU MOBILE ── */
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
 /* ── RSS FEED LOADER (con proxy locale) ── */
 const feeds = [
   {
