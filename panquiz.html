@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <script>
-    // Controllo tramite localStorage per condivisione tra schede
-    if (localStorage.getItem("isLoggedIn") !== "true") {
-        alert("Accesso negato. Effettua prima il login sulla home page.");
-        window.location.href = "index.html";
-    }
-  </script>
   <meta charset="UTF-8" />
   <title>Test Online - Prof. Antonio Adinolfi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -128,16 +121,17 @@
 
    function confermaUscita() {
       if (confirm("Sei sicuro di voler uscire? Assicurati di aver inviato il test su PanQuiz prima di chiudere.")) {
-          // SVUOTA LA SESSIONE PRIMA DI USCIRE
-          localStorage.removeItem("isLoggedIn");
-          localStorage.removeItem("userName");
-          
-          window.location.href = "index.html";
+          LSCAuth.logout();
       }
-    }
     }
   </script>
 
-<script src="pwa-register.js"></script>
+  <script src="pwa-register.js"></script>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="auth-enterprise.js"></script>
+  <script>
+    LSCAuth.requireAuth({ loginUrl: "login.html" });
+  </script>
 </body>
 </html>

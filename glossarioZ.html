@@ -8,22 +8,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="design-system.css">
   <style>
     :root {
-      --navy: #0d1b2e;
-      --navy2: #162438;
-      --gold: #c8963e;
-      --gold-light: #e8b96a;
-      --cream: #f7f4ef;
-      --white: #ffffff;
-      --text: #1a1a1a;
-      --text-muted: #5c5c5c;
-      --border: rgba(0,0,0,0.09);
-      --serif: 'DM Serif Display', Georgia, serif;
-      --sans: 'DM Sans', system-ui, sans-serif;
-      --mono: 'DM Mono', 'Courier New', monospace;
-      --radius: 8px;
-      --shadow: 0 4px 20px rgba(0,0,0,0.07);
+      --navy: var(--color-primary);
+      --navy2: var(--color-primary-light);
+      --gold: var(--color-accent);
+      --gold-light: var(--color-accent-light);
+      --cream: var(--color-background);
+      --white: var(--color-surface);
+      --text: var(--color-text);
+      --text-muted: var(--color-muted);
+      --border: var(--color-border);
+      --serif: var(--font-serif);
+      --sans: var(--font-sans);
+      --mono: var(--font-mono);
     }
 
     body {
@@ -85,7 +84,7 @@
 
     /* Contenitore principale */
     .container {
-      max-width: 960px;
+      max-width: var(--container-narrow);
       margin: 0 auto;
       padding: 3rem 2rem;
     }
