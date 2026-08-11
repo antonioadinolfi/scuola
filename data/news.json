@@ -1,8 +1,128 @@
 {
-  "updatedAt": null,
+  "updatedAt": "2026-08-11T15:52:50+00:00",
   "feeds": [
-    { "source": "Liceo Cortese", "items": [] },
-    { "source": "Orizzonte Scuola", "items": [] },
-    { "source": "Wired", "items": [] }
+    {
+      "source": "Liceo Cortese",
+      "items": [
+        {
+          "title": "Orario di apertura degli Uffici di Segreteria",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/07/22/nuovo-orari-di-apertura-degli-uffici-di-segreteria/",
+          "pubDate": "Wed, 22 Jul 2026 11:23:10 +0000",
+          "description": "Lunedì dalle 10:00 alle 12:00 Mercoledì dalle 8:15 alle 10:15 Si ricorda che l&#8217;orario di apertura della scuola è il seguente: dal lunedì al venerdì dalle…"
+        },
+        {
+          "title": "Congratulazioni ai nostri colleghi!",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/07/15/congratulazioni-ai-nostri-colleghi/",
+          "pubDate": "Wed, 15 Jul 2026 18:50:13 +0000",
+          "description": "Congratulazioni ai proff. Jessica Amatiello, Gianni Criscione, Antonio D&#8217;Angelo, Grazia Pettrone e Anna Vigliotti, che stamattina hanno sostenuto e supera…"
+        },
+        {
+          "title": "Pubblicazione elenco classi prime a.s. 2026/27",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/07/15/pubblicazione-elenco-classi-prime/",
+          "pubDate": "Wed, 15 Jul 2026 12:23:50 +0000",
+          "description": "timbro_PUBBLICAZIONE CLASSI PRIME 2026-2027 &#160;"
+        },
+        {
+          "title": "Il Liceo Cortese promuove una rete scolastica per la parità di genere",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/06/29/il-liceo-cortese-promuove-una-rete-scolastica-per-la-parita-di-genere/",
+          "pubDate": "Mon, 29 Jun 2026 12:45:07 +0000",
+          "description": "Il Liceo Scientifico &#8220;Nino Cortese&#8221; di Maddaloni, diretto dal Dirigente Scolastico, dott. prof. Marcellino Falcone, ha promosso la costituzione di u…"
+        },
+        {
+          "title": "Il Liceo Cortese all’IC Gesuè: una lezione speciale alla scoperta del latino",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/06/20/il-liceo-cortese-allic-gesue-una-lezione-speciale-alla-scoperta-del-latino/",
+          "pubDate": "Sat, 20 Jun 2026 14:35:48 +0000",
+          "description": "Il Dirigente scolastico del Liceo Scientifico &#8220;N. Cortese&#8221; di Maddaloni, dott. prof. Marcellino Falcone, ha accolto con entusiasmo l&#8217;invito de…"
+        },
+        {
+          "title": "Riorganizzazione dell’orario scolastico: introduzione della settimana corta – A.S. 2026/2027",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/06/19/riorganizzazione-dellorario-scolastico-introduzione-della-settimana-corta-a-s-2026-2027/",
+          "pubDate": "Fri, 19 Jun 2026 11:48:45 +0000",
+          "description": "A partire dall’anno scolastico 2026/2027, il Liceo Scientifico Statale &#8220;Nino Cortese&#8221;, diretto dal Dott. Prof. Marcellino Falcone, adotterà un’organ…"
+        }
+      ]
+    },
+    {
+      "source": "Orizzonte Scuola",
+      "items": [
+        {
+          "title": "Mini call veloce dal 14 agosto ore 14.00: ecco l’elenco dei posti disponibili [AGGIORNATO]",
+          "link": "https://www.orizzontescuola.it/mini-call-veloce-dal-14-agosto-ore-14-00-ecco-lelenco-dei-posti-disponibili-aggiornato/",
+          "pubDate": "Tue, 11 Aug 2026 14:54:46 +0000",
+          "description": "Mini call veloce per l'assunzione di docenti a.s. 2026/27 su posti sostegno. Dopo lo scorrimento della prima fascia GPS sostegno, avvenuta solo in 7 regione e s…"
+        },
+        {
+          "title": "GPS docenti, le graduatorie per il 2026/28 [AGGIORNATO]",
+          "link": "https://www.orizzontescuola.it/gps-docenti-2026-27-ecco-le-prime-graduatorie-in-aggiornamento/",
+          "pubDate": "Tue, 11 Aug 2026 14:53:26 +0000",
+          "description": "Gli Uffici scolastici provinciali iniziano a pubblicare le GPS 2026/28, graduatorie provinciali per le supplenze dei docenti, di cui all’O.M. n. 27 del 14 febbr…"
+        },
+        {
+          "title": "Anno 1, n. 27 – Mondo ATA. Immissioni in ruolo: 3 risposte rapide ai dubbi di Ferragosto. Iscriviti gratuitamente",
+          "link": "https://www.orizzontescuola.it/anno-1-n-26-mondo-ata-sbloccate-le-posizioni-economiche-a-breve-le-indicazioni-per-il-pagamento-iscriviti-gratuitamente/",
+          "pubDate": "Tue, 11 Aug 2026 14:44:31 +0000",
+          "description": "Mondo ATA è la newsletter pensata per chi lavora nella scuola, per chi è in graduatoria e per chi aspira a entrarci. Niente confusione, solo ciò che serve davve…"
+        },
+        {
+          "title": "Elenchi regionali “salvano” le immissioni in ruolo: si potrà presentare domanda ogni anno, anche in regione diversa. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/elenchi-regionali-salvano-le-immissioni-in-ruolo-si-potra-presentare-domanda-ogni-anno-anche-in-regione-diversa-pillole-di-question-time/",
+          "pubDate": "Tue, 11 Aug 2026 14:30:57 +0000",
+          "description": "Nel Question Time del 6 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Chiara Cozzetto, rappresentante della segreteria…"
+        },
+        {
+          "title": "Incarichi specifici ATA, il compenso resta dovuto anche con la posizione economica. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/incarichi-specifici-ata-il-compenso-resta-dovuto-anche-con-la-posizione-economica-pillole-di-question-time/",
+          "pubDate": "Tue, 11 Aug 2026 14:29:22 +0000",
+          "description": "Nel Question Time del 7 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Alberico Sorrentino (ANIEF-Condir), è stato affro…"
+        },
+        {
+          "title": "Decreto PA, dirigenti scolastici tenuti all’invito formale per docenti e ATA riguardo ferie non godute",
+          "link": "https://www.orizzontescuola.it/decreto-pa-dirigenti-scolastici-tenuti-allinvito-formale-per-docenti-e-ata-per-ferie-non-godute/",
+          "pubDate": "Tue, 11 Aug 2026 14:25:23 +0000",
+          "description": "È stato pubblicato nella Gazzetta Ufficiale del 7 agosto il decreto-legge n. 144/2026, recante Disposizioni urgenti per la funzionalità della pubblica amministr…"
+        }
+      ]
+    },
+    {
+      "source": "Wired",
+      "items": [
+        {
+          "title": "Le migliori tende da campeggio tra modelli ultraleggeri, familiari e gonfiabili",
+          "link": "https://www.wired.it/gallery/migliori-tende-campeggio/",
+          "pubDate": "Wed, 01 Jul 2026 07:00:00 +0000",
+          "description": "Dalle tende ultraleggere da trekking ai modelli familiari con vere e proprie stanze, passando per soluzioni gonfiabili e a montaggio rapido"
+        },
+        {
+          "title": "Dreame SF25 tritura e fa essiccare i tuoi avanzi fino a ridurli in polvere e senza odori",
+          "link": "https://www.wired.it/review/dreame-sf25/",
+          "pubDate": "Tue, 30 Jun 2026 15:13:12 +0000",
+          "description": "Gli dai in pasto l'umido di casa e lui ne riduce il volume del 90%, così puoi conservarlo in casa finché proprio devi. Ecco com'è il tritarifiuti Dreame tra pre…"
+        },
+        {
+          "title": "I migliori ventilatori a soffitto per rinfrescare casa senza ingombri",
+          "link": "https://www.wired.it/gallery/migliori-ventilatori-a-soffitto/",
+          "pubDate": "Tue, 30 Jun 2026 15:02:30 +0000",
+          "description": "Non occupano spazio a terra e le versioni più evolute fanno anche luce e muovono aria calda in inverno: ecco i ventilatori a soffitto più convincenti dell'estat…"
+        },
+        {
+          "title": "I migliori ventilatori a torre da scegliere quest'estate",
+          "link": "https://www.wired.it/gallery/migliori-ventilatori-a-torre/",
+          "pubDate": "Tue, 30 Jun 2026 11:15:36 +0000",
+          "description": "Compatti e discreti, migliorano il comfort domestico senza occupare eccessivamente spazio e senza fare rumore. Ecco i migliori modelli in circolazione"
+        },
+        {
+          "title": "Levoit Core 300s Pro è un purificatore piccino picciò, perfetto per stanze e piccoli appartamenti",
+          "link": "https://www.wired.it/review/levoit-core-300s-pro/",
+          "pubDate": "Tue, 30 Jun 2026 10:38:12 +0000",
+          "description": "Lo porti sottobraccio da una stanza all'altra e si prende cura dell'aria circostante aiutandoti con allergie, pollini e molto altro. Ecco a chi è indicato e chi…"
+        },
+        {
+          "title": "Il dna per ritrovare casa",
+          "link": "https://www.wired.it/article/dna-per-ritrovare-casa/",
+          "pubDate": "Tue, 30 Jun 2026 09:00:00 +0000",
+          "description": "I genitori, in Cina, l’hanno abbandonata appena nata, e lei viene data in adozione negli Stati Uniti. Dopo quattordici anni di ricerche, Youxue ritrova la via d…"
+        }
+      ]
+    }
   ]
 }
