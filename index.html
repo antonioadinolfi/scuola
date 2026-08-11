@@ -200,7 +200,7 @@ nav {
 .hero-card-stats span { font-size: 8.5px; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.6px; }
 
 /* ── MAIN CONTAINER ── */
-.container { max-width: 980px; margin: 0 auto; padding: 4.5rem 3rem; }
+.container { max-width: var(--container-max); margin: 0 auto; padding: var(--space-section) var(--container-pad); }
 
 /* ── SECTION HEADER ── */
 .section-header { margin-bottom: 2.2rem; }
@@ -283,14 +283,14 @@ nav {
 
 /* ── FOOTER ── */
 footer { background: var(--navy); border-top: 1px solid var(--border-gold); padding: 3rem 3rem 2rem; }
-.footer-grid { max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; padding-bottom: 2rem; }
+.footer-grid { max-width: var(--container-max); margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; padding-bottom: 2rem; }
 .footer-brand { display: flex; align-items: flex-start; gap: 12px; }
 .footer-badge { width: 32px; height: 32px; background: var(--gold); border-radius: 5px; display: flex; align-items: center; justify-content: center; font-family: var(--serif); color: #fff; font-size: 15px; font-style: italic; flex-shrink: 0; }
 .footer-tagline { font-size: 12.5px; color: rgba(255,255,255,0.4); line-height: 1.6; margin-top: 6px; max-width: 30ch; }
 .footer-col-h { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: rgba(255,255,255,0.35); margin-bottom: 0.9rem; }
 .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.55); padding: 5px 0; transition: color .15s; }
 .footer-col a:hover { color: var(--gold-light); }
-.footer-bottom { max-width: 980px; margin: 0 auto; padding-top: 1.6rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 12px; color: rgba(255,255,255,0.35); }
+.footer-bottom { max-width: var(--container-max); margin: 0 auto; padding-top: 1.6rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 12px; color: rgba(255,255,255,0.35); }
 .footer-bottom strong { color: rgba(255,255,255,0.6); font-weight: 500; }
 
 /* ── RESPONSIVE ── */
@@ -340,12 +340,12 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
 
   <div class="nav-links" id="navLinks">
     <a href="#profilo">Profilo</a>
-    <a href="#strumenti">Didattica</a>
+    <a href="#strumenti" class="nav-cta">Didattica</a>
     <a href="#laboratori">Laboratori</a>
-    <a href="glossario.html">Glossario</a>
-    <a href="#notizie">Notizie</a>
+    <a href="#progetti">Progetti</a>
+    <a href="glossario.html">Risorse</a>
     <a href="#contatti">Contatti</a>
-    <a href="https://www.liceoscientificocortese.edu.it" target="_blank" class="nav-cta">Sito Liceo</a>
+    <a href="https://www.liceoscientificocortese.edu.it" target="_blank">Sito Liceo</a>
   </div>
 
   <button class="hamburger" id="hamburger" aria-label="Apri il menu" aria-expanded="false" aria-controls="navLinks">
@@ -537,11 +537,39 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
       </iframe>
     </div>
 
+    <!-- ── PROGETTI ── -->
+    <div id="progetti" style="margin-bottom: 3.4rem;">
+      <div class="section-header">
+        <div class="section-eyebrow"><span class="section-num">03 —</span></div>
+        <h2 class="section-title">Progetti</h2>
+        <p class="section-sub">STEM, intelligenza artificiale, data science, PCTO e progetti europei: le iniziative di ricerca e sperimentazione didattica del Dipartimento di Informatica.</p>
+      </div>
+      <div class="activity-grid">
+        <div class="activity-block">
+          <div class="activity-h">STEM &amp; AI</div>
+          <ul class="activity-list">
+            <li><span class="bullet"></span>RomeCup 2026 — AI e Robotica, Sapienza Università di Roma</li>
+            <li><span class="bullet"></span>Progetti interdisciplinari di project work</li>
+            <li><span class="bullet"></span>Adaptive Learning 5.0 — CLAE / F.L.O.W. framework</li>
+          </ul>
+        </div>
+        <div class="activity-block alt">
+          <div class="activity-h">Data Science &amp; PCTO</div>
+          <ul class="activity-list">
+            <li><span class="bullet"></span>Percorsi PCTO orientati a informatica e ingegneria</li>
+            <li><span class="bullet"></span>Progetti europei e fondi ministeriali (DM 129/2025)</li>
+            <li><span class="bullet"></span>Iniziativa EJERE — Giornale scientifico studentesco</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top: 1.2rem;"><a href="pubblicazioni.html" class="tool-link">Approfondisci su Pubblicazioni →</a></p>
+    </div>
+
     <!-- ── GLOSSARIO ── -->
     <div id="glossario">
       <div class="section-header">
         <div class="section-eyebrow">
-          <span class="section-num">03 —</span>
+          <span class="section-num">04 —</span>
           <span class="section-badge public">Accesso libero</span>
         </div>
         <h2 class="section-title">Glossario</h2>
@@ -567,7 +595,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
     <!-- ── NOTIZIE ── -->
     <div id="notizie">
       <div class="section-header">
-        <div class="section-eyebrow"><span class="section-num">04 —</span></div>
+        <div class="section-eyebrow"><span class="section-num">05 —</span></div>
         <h2 class="section-title">Notizie e Aggiornamenti</h2>
       </div>
 
@@ -610,7 +638,8 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
     <div class="footer-col">
       <div class="footer-col-h">Naviga</div>
       <a href="#strumenti">Didattica</a>
-      <a href="glossario.html">Glossario</a>
+      <a href="#progetti">Progetti</a>
+      <a href="glossario.html">Risorse</a>
       <a href="#notizie">Notizie</a>
       <a href="login.html">Area riservata</a>
     </div>
