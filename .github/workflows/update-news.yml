@@ -1,0 +1,49 @@
+name: Aggiorna cache news (RSS)
+
+# Scarica periodicamente i feed RSS (Liceo Cortese, Orizzonte Scuola, Wired),
+# li normalizza in data/news.json e committa il risultato solo se è cambiato.
+# La homepage (index.html) legge esclusivamente questo file statico: nessuna
+# fetch RSS/proxy viene più effettuata dal browser dell'utente.
+#
+# Esecuzione manuale: tab "Actions" del repository → "Aggiorna cache news
+# (RSS)" → pulsante "Run workflow".
+
+on:
+  schedule:
+    # Ogni 2 ore, entro il range 1-3h richiesto.
+    - cron: "0 */2 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-news
+  cancel-in-progress: false
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Imposta Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Scarica e normalizza i feed RSS
+        run: python scripts/fetch_news.py
+
+      - name: Committa data/news.json se cambiato
+        run: |
+          if git diff --quiet -- data/news.json; then
+            echo "Nessuna modifica a data/news.json, niente da committare."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/news.json
+          git commit -m "chore(news): aggiorna cache feed RSS [skip ci]"
+          git push

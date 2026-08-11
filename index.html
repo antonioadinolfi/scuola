@@ -672,107 +672,90 @@ if (hamburger && navLinks) {
   });
 }
 
-/* ── RSS FEED LOADER (con proxy locale) ── */
-const feeds = [
-  {
-    id: 'feed-liceo',
-    url: 'https://www.liceoscientificocortese.edu.it/?feed=rss2',
-    label: 'Liceo Cortese'
-  },
-  {
-    id: 'feed-orizzonte',
-    url: 'https://www.orizzontescuola.it/feed/',
-    label: 'Orizzonte Scuola'
-  },
-  {
-    id: 'feed-wired',
-    url: 'https://www.wired.it/feed/rss',
-    label: 'Wired'
-  }
-];
+/* ── NEWS LOADER (data/news.json generato da GitHub Actions) ──
+   Sostituisce il precedente meccanismo basato su fetch RSS diretta +
+   proxy (PROXY_URL), che dipendeva da un endpoint placeholder mai
+   attivato e quindi sempre fallito. La homepage ora legge solo il
+   file statico data/news.json, aggiornato periodicamente dal workflow
+   .github/workflows/update-news.yml — nessuna fetch verso feed esterni
+   viene più effettuata dal browser. */
+const NEWS_JSON_URL = 'data/news.json';
+const NEWS_SOURCE_TO_ELEMENT_ID = {
+  'Liceo Cortese': 'feed-liceo',
+  'Orizzonte Scuola': 'feed-orizzonte',
+  'Wired': 'feed-wired'
+};
 
-// Sostituisci con l'URL del tuo proxy locale (es. https://tuo-proxy.glitch.me)
-const PROXY_URL = 'https://tuo-proxy.glitch.me/proxy?url=';
+function renderNewsItems(elementId, items) {
+  const container = document.getElementById(elementId);
+  if (!container) return;
 
-async function loadFeed({ id, url, label }) {
-  const container = document.getElementById(id);
-  if (!container) {
-    console.warn(`Elemento con ID "${id}" non trovato.`);
+  if (!items || items.length === 0) {
+    container.innerHTML = '<div class="news-item"><p>Nessuna notizia disponibile al momento.</p></div>';
     return;
   }
 
-  // Mostra "Caricamento in corso..." all'inizio
-  container.innerHTML = '<div class="news-item">Caricamento in corso...</div>';
+  container.innerHTML = items
+    .slice(0, 4)
+    .map(item => {
+      const title = item.title || 'Senza titolo';
+      const link = item.link || '#';
+      const description = item.description || '';
+      return `
+        <div class="news-item">
+          <h4>${title}</h4>
+          ${description ? `<p>${description}</p>` : ''}
+          <a href="${link}" target="_blank" rel="noopener noreferrer">Leggi tutto</a>
+        </div>
+      `;
+    })
+    .join('');
+}
 
-  const cacheKey = `rss_${id}`;
-  const cachedHTML = localStorage.getItem(cacheKey);
-  const cacheTime = localStorage.getItem(`${cacheKey}_ts`);
+function renderNewsError() {
+  Object.values(NEWS_SOURCE_TO_ELEMENT_ID).forEach(elementId => {
+    const container = document.getElementById(elementId);
+    if (container) {
+      container.innerHTML = '<div class="news-item"><p>Notizie momentaneamente non disponibili.</p></div>';
+    }
+  });
+}
 
-  // Controlla la cache (30 minuti)
-  if (cachedHTML && cacheTime && (Date.now() - cacheTime) < 30 * 60 * 1000) {
-    container.innerHTML = cachedHTML;
-    return;
-  }
-
+async function loadNews() {
+  // Query string oraria: evita che una CDN/il browser mostri
+  // indefinitamente una copia in cache dopo un aggiornamento del file.
+  const cacheBust = new Date().toISOString().slice(0, 13);
   try {
-    // Usa il proxy locale
-    const proxyUrl = `${PROXY_URL}${encodeURIComponent(url)}`;
-    const response = await fetch(proxyUrl, {
-      mode: 'cors',
-      headers: { 'Accept': 'text/xml' }
-    });
-
+    const response = await fetch(`${NEWS_JSON_URL}?v=${cacheBust}`, { cache: 'no-store' });
     if (!response.ok) {
       throw new Error(`Errore HTTP: ${response.status}`);
     }
+    const data = await response.json();
+    const feeds = Array.isArray(data.feeds) ? data.feeds : [];
 
-    const xmlText = await response.text();
-    const parser = new DOMParser();
-    const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+    feeds.forEach(feed => {
+      const elementId = NEWS_SOURCE_TO_ELEMENT_ID[feed.source];
+      if (elementId) {
+        renderNewsItems(elementId, feed.items);
+      }
+    });
 
-    // Estrai gli item dal feed RSS
-    const items = xmlDoc.querySelectorAll('item');
-    if (items.length === 0) {
-      throw new Error(`Nessun articolo trovato nel feed ${label}`);
-    }
-
-    // Crea l'HTML per ogni articolo
-    const html = Array.from(items)
-      .slice(0, 4) // Prendi solo i primi 4 articoli
-      .map(
-        (item) => {
-          const title = item.querySelector('title')?.textContent || 'Nessun titolo';
-          const link = item.querySelector('link')?.textContent || '#';
-          const description = item.querySelector('description')?.textContent || 'Nessuna descrizione';
-          return `
-            <div class="news-item">
-              <h4>${title}</h4>
-              <p>${description.substring(0, 100)}...</p>
-              <a href="${link}" target="_blank" rel="noopener noreferrer">Leggi tutto</a>
-            </div>
-          `;
-        }
-      )
-      .join('');
-
-    container.innerHTML = html;
-
-    // Salva in cache
-    localStorage.setItem(cacheKey, html);
-    localStorage.setItem(`${cacheKey}_ts`, Date.now());
-
+    // Copre il caso di una fonte assente dal JSON (es. struttura futura
+    // diversa): mostra comunque il messaggio discreto invece di lasciare
+    // "Caricamento in corso…" bloccato a schermo.
+    const foundSources = new Set(feeds.map(f => f.source));
+    Object.entries(NEWS_SOURCE_TO_ELEMENT_ID).forEach(([source, elementId]) => {
+      if (!foundSources.has(source)) {
+        renderNewsItems(elementId, []);
+      }
+    });
   } catch (error) {
-    console.error(`Errore nel caricamento del feed ${label}:`, error);
-    container.innerHTML = `
-      <div class="news-item">
-        <p>Impossibile caricare il feed ${label}. <a href="${url}" target="_blank">Prova ad aprire il feed direttamente</a>.</p>
-      </div>
-    `;
+    console.error('Impossibile caricare data/news.json:', error);
+    renderNewsError();
   }
 }
 
-// Carica tutti i feed
-feeds.forEach(loadFeed);
+loadNews();
 </script>
 </body>
 </html>
