@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-11T15:52:50+00:00",
+  "updatedAt": "2026-08-11T17:00:21+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,40 +46,40 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Doppio canale, Pacifico: “Decreto legge per una soluzione urgente per i precari”. Pittoni: “Richiesta senza intesa con Bruxelles mette a rischio il sistema”",
+          "link": "https://www.orizzontescuola.it/doppio-canale-pacifico-decreto-legge-per-una-soluzione-urgente-per-i-precari-pittoni-richiesta-senza-intesa-con-bruxelles-mette-a-rischio-il-sistema/",
+          "pubDate": "Tue, 11 Aug 2026 16:58:56 +0000",
+          "description": "Il sistema di reclutamento dei docenti in Italia è al centro di un dibattito che coinvolge sindacati e forze politiche. Al centro della discussione vi è la prop…"
+        },
+        {
+          "title": "Decreto PA, i soldi risparmiati dalle riduzioni degli stipendi dei dirigenti finanziano la loro formazione",
+          "link": "https://www.orizzontescuola.it/decreto-pa-i-soldi-risparmiati-dalle-riduzioni-degli-stipendi-dei-dirigenti-finanziano-la-loro-formazione/",
+          "pubDate": "Tue, 11 Aug 2026 16:31:02 +0000",
+          "description": "Che fine fanno i soldi risparmiati con i tagli legati alla valutazione dei dirigenti scolastici? L'articolo 1, comma 7, del decreto-legge n. 144/2026, pubblicat…"
+        },
+        {
+          "title": "Caro benzina sopra i 2 euro, anche la scuola trema. Gli esperti: “Possibile arrivo a 3 euro”. Docenti e ATA in affanno tra rimborsi ridotti al lumicino e trasporti nel caos",
+          "link": "https://www.orizzontescuola.it/caro-benzina-sopra-i-2-euro-la-scuola-trema-tra-rimborsi-ridotti-al-lumicino-e-pullman-a-rischio-gli-esperti-possibile-arrivo-a-3-euro/",
+          "pubDate": "Tue, 11 Aug 2026 16:21:22 +0000",
+          "description": "Gli automobilisti hanno riaperto i conti con la realtà dei prezzi dei carburanti, tornati stabilmente sopra i due euro al litro. Un aumento di oltre 40 centesim…"
+        },
+        {
+          "title": "Nomine in ruolo da GPS sostegno prima fascia, sono state pochissime. Nessun posto neanche in Abruzzo [SPECIALE aggiornato]",
+          "link": "https://www.orizzontescuola.it/nomine-in-ruolo-eventuali-da-gps-sostegno-prima-fascia-dal-31-luglio-al-13-agosto-ecco-in-quali-province-lo-speciale/",
+          "pubDate": "Tue, 11 Aug 2026 16:17:50 +0000",
+          "description": "Sommario Chi partecipa Chi ha richiesto nomina in ruolo da GPS sostegno in prima fascia, in caso di posti vacanti, nell&#8217;apposita sezione della domanda 150…"
+        },
+        {
+          "title": "“Ma il professore sa riconoscere un compito scritto dall’AI?”, ecco cosa nessun regolamento può evitare: “La sfida (vera) è insegnare a chi insegna”",
+          "link": "https://www.orizzontescuola.it/ma-il-professore-sa-riconoscere-un-compito-scritto-dallai-ecco-cosa-nessun-regolamento-puo-evitare-la-sfida-vera-e-insegnare-a-chi-insegna/",
+          "pubDate": "Tue, 11 Aug 2026 16:11:52 +0000",
+          "description": "Che l'intelligenza artificiale fosse entrata nelle aule, ormai, non era più un segreto per nessuno. Ma la velocità con cui si è imposta, scavalcando ogni filtro…"
+        },
+        {
           "title": "Mini call veloce dal 14 agosto ore 14.00: ecco l’elenco dei posti disponibili [AGGIORNATO]",
           "link": "https://www.orizzontescuola.it/mini-call-veloce-dal-14-agosto-ore-14-00-ecco-lelenco-dei-posti-disponibili-aggiornato/",
           "pubDate": "Tue, 11 Aug 2026 14:54:46 +0000",
           "description": "Mini call veloce per l'assunzione di docenti a.s. 2026/27 su posti sostegno. Dopo lo scorrimento della prima fascia GPS sostegno, avvenuta solo in 7 regione e s…"
-        },
-        {
-          "title": "GPS docenti, le graduatorie per il 2026/28 [AGGIORNATO]",
-          "link": "https://www.orizzontescuola.it/gps-docenti-2026-27-ecco-le-prime-graduatorie-in-aggiornamento/",
-          "pubDate": "Tue, 11 Aug 2026 14:53:26 +0000",
-          "description": "Gli Uffici scolastici provinciali iniziano a pubblicare le GPS 2026/28, graduatorie provinciali per le supplenze dei docenti, di cui all’O.M. n. 27 del 14 febbr…"
-        },
-        {
-          "title": "Anno 1, n. 27 – Mondo ATA. Immissioni in ruolo: 3 risposte rapide ai dubbi di Ferragosto. Iscriviti gratuitamente",
-          "link": "https://www.orizzontescuola.it/anno-1-n-26-mondo-ata-sbloccate-le-posizioni-economiche-a-breve-le-indicazioni-per-il-pagamento-iscriviti-gratuitamente/",
-          "pubDate": "Tue, 11 Aug 2026 14:44:31 +0000",
-          "description": "Mondo ATA è la newsletter pensata per chi lavora nella scuola, per chi è in graduatoria e per chi aspira a entrarci. Niente confusione, solo ciò che serve davve…"
-        },
-        {
-          "title": "Elenchi regionali “salvano” le immissioni in ruolo: si potrà presentare domanda ogni anno, anche in regione diversa. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/elenchi-regionali-salvano-le-immissioni-in-ruolo-si-potra-presentare-domanda-ogni-anno-anche-in-regione-diversa-pillole-di-question-time/",
-          "pubDate": "Tue, 11 Aug 2026 14:30:57 +0000",
-          "description": "Nel Question Time del 6 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Chiara Cozzetto, rappresentante della segreteria…"
-        },
-        {
-          "title": "Incarichi specifici ATA, il compenso resta dovuto anche con la posizione economica. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/incarichi-specifici-ata-il-compenso-resta-dovuto-anche-con-la-posizione-economica-pillole-di-question-time/",
-          "pubDate": "Tue, 11 Aug 2026 14:29:22 +0000",
-          "description": "Nel Question Time del 7 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Alberico Sorrentino (ANIEF-Condir), è stato affro…"
-        },
-        {
-          "title": "Decreto PA, dirigenti scolastici tenuti all’invito formale per docenti e ATA riguardo ferie non godute",
-          "link": "https://www.orizzontescuola.it/decreto-pa-dirigenti-scolastici-tenuti-allinvito-formale-per-docenti-e-ata-per-ferie-non-godute/",
-          "pubDate": "Tue, 11 Aug 2026 14:25:23 +0000",
-          "description": "È stato pubblicato nella Gazzetta Ufficiale del 7 agosto il decreto-legge n. 144/2026, recante Disposizioni urgenti per la funzionalità della pubblica amministr…"
         }
       ]
     },
