@@ -55,14 +55,26 @@
   --font-serif: 'DM Serif Display', Georgia, serif;
   --font-mono:  'DM Mono', 'Courier New', monospace;
 
-  /* Scala tipografica */
-  --text-h1:    clamp(2.2rem, 4vw, 3.6rem);
-  --text-h2:    clamp(1.6rem, 2.5vw, 2.1rem);
+  /* Scala tipografica — ricalibrata per il container allargato
+     (v. --container-max sotto): su 1320px i vecchi valori
+     apparivano piccoli e "annegati" nello spazio disponibile. */
+  --text-h1:    clamp(2.6rem, 5vw, 4.2rem);
+  --text-h2:    clamp(1.8rem, 3vw, 2.6rem);
   --text-h3:    1.4rem;
   --text-h4:    1.15rem;
   --text-body:  1rem;
   --text-small: 0.875rem;
   --text-caption: 0.75rem;
+
+  /* ---- Griglia e container ----
+     Prima di questa modifica ogni pagina definiva il proprio
+     max-width in modo indipendente (es. 980px in index.html,
+     920px in agenda.html), causando margini eccessivi su
+     schermi desktop. Queste variabili diventano la fonte unica. */
+  --container-max:    1320px;  /* contenuto denso, sezioni principali */
+  --container-narrow: 860px;   /* testo lungo/editoriale: privacy, pubblicazioni */
+  --container-pad:    clamp(1.25rem, 4vw, 3rem);
+  --space-section:    clamp(3rem, 6vw, 5.5rem);  /* ritmo verticale tra sezioni */
 
   /* ---- Spaziatura, superfici, raggio ---- */
   --radius:       8px;
