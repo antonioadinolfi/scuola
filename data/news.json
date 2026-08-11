@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-11T17:00:21+00:00",
+  "updatedAt": "2026-08-11T19:06:01+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,30 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Cartellone con bambino e iPhone, il Garante: “Normalizza il baby-sitting elettronico”. Novara: “Ho stentato a crederci”",
+          "link": "https://www.orizzontescuola.it/cartellone-con-bambino-e-iphone-il-garante-normalizza-il-baby-sitting-elettronico-novara-ho-stentato-a-crederci/",
+          "pubDate": "Tue, 11 Aug 2026 18:07:38 +0000",
+          "description": "Un cartellone pubblicitario di grandi dimensioni posizionato sul ponte che attraversa via Melchiorre Gioia a Milano, nel quartiere Isola, raffigura un bambino d…"
+        },
+        {
+          "title": "Docenti che insegnano all’estero: stipendio italiano e indennità variabile in base alla sede. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/docenti-che-insegnano-allestero-stipendio-italiano-e-indennita-variabile-in-base-alla-sede-pillole-di-question-time/",
+          "pubDate": "Tue, 11 Aug 2026 17:59:22 +0000",
+          "description": "Nel Question Time del 4 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Angelo Luongo, rappresentante della Uil Scuola Ru…"
+        },
+        {
+          "title": "Formazione tecnica, rientro dei cervelli e sostegno alla natalità. Ecco il manifesto di Futuro Nazionale per i prossimi 10 anni",
+          "link": "https://www.orizzontescuola.it/formazione-tecnica-rientro-dei-cervelli-e-sostegno-alla-natalita-ecco-il-manifesto-di-futuro-nazionale-per-i-prossimi-10-anni/",
+          "pubDate": "Tue, 11 Aug 2026 17:25:33 +0000",
+          "description": "“L’Italia ha bisogno di chiarezza, di coraggio e di un progetto vero. Oggi lo mettiamo nero su bianco. Pubblichiamo la prima parte della Base Ideologica e progr…"
+        },
+        {
+          "title": "Proroga fino al 24 ottobre per l’aggiudicazione dei lavori di edilizia scolastica. DECRETO in Gazzetta Ufficiale",
+          "link": "https://www.orizzontescuola.it/proroga-fino-al-24-ottobre-per-laggiudicazione-dei-lavori-di-edilizia-scolastica-decreto-in-gazzetta-ufficiale/",
+          "pubDate": "Tue, 11 Aug 2026 17:16:00 +0000",
+          "description": "Il Ministero dell'istruzione e del merito ha prorogato al 24 ottobre il termine entro il quale gli enti locali beneficiari devono effettuare l'aggiudicazione ef…"
+        },
+        {
           "title": "Doppio canale, Pacifico: “Decreto legge per una soluzione urgente per i precari”. Pittoni: “Richiesta senza intesa con Bruxelles mette a rischio il sistema”",
           "link": "https://www.orizzontescuola.it/doppio-canale-pacifico-decreto-legge-per-una-soluzione-urgente-per-i-precari-pittoni-richiesta-senza-intesa-con-bruxelles-mette-a-rischio-il-sistema/",
           "pubDate": "Tue, 11 Aug 2026 16:58:56 +0000",
@@ -56,30 +80,6 @@
           "link": "https://www.orizzontescuola.it/decreto-pa-i-soldi-risparmiati-dalle-riduzioni-degli-stipendi-dei-dirigenti-finanziano-la-loro-formazione/",
           "pubDate": "Tue, 11 Aug 2026 16:31:02 +0000",
           "description": "Che fine fanno i soldi risparmiati con i tagli legati alla valutazione dei dirigenti scolastici? L'articolo 1, comma 7, del decreto-legge n. 144/2026, pubblicat…"
-        },
-        {
-          "title": "Caro benzina sopra i 2 euro, anche la scuola trema. Gli esperti: “Possibile arrivo a 3 euro”. Docenti e ATA in affanno tra rimborsi ridotti al lumicino e trasporti nel caos",
-          "link": "https://www.orizzontescuola.it/caro-benzina-sopra-i-2-euro-la-scuola-trema-tra-rimborsi-ridotti-al-lumicino-e-pullman-a-rischio-gli-esperti-possibile-arrivo-a-3-euro/",
-          "pubDate": "Tue, 11 Aug 2026 16:21:22 +0000",
-          "description": "Gli automobilisti hanno riaperto i conti con la realtà dei prezzi dei carburanti, tornati stabilmente sopra i due euro al litro. Un aumento di oltre 40 centesim…"
-        },
-        {
-          "title": "Nomine in ruolo da GPS sostegno prima fascia, sono state pochissime. Nessun posto neanche in Abruzzo [SPECIALE aggiornato]",
-          "link": "https://www.orizzontescuola.it/nomine-in-ruolo-eventuali-da-gps-sostegno-prima-fascia-dal-31-luglio-al-13-agosto-ecco-in-quali-province-lo-speciale/",
-          "pubDate": "Tue, 11 Aug 2026 16:17:50 +0000",
-          "description": "Sommario Chi partecipa Chi ha richiesto nomina in ruolo da GPS sostegno in prima fascia, in caso di posti vacanti, nell&#8217;apposita sezione della domanda 150…"
-        },
-        {
-          "title": "“Ma il professore sa riconoscere un compito scritto dall’AI?”, ecco cosa nessun regolamento può evitare: “La sfida (vera) è insegnare a chi insegna”",
-          "link": "https://www.orizzontescuola.it/ma-il-professore-sa-riconoscere-un-compito-scritto-dallai-ecco-cosa-nessun-regolamento-puo-evitare-la-sfida-vera-e-insegnare-a-chi-insegna/",
-          "pubDate": "Tue, 11 Aug 2026 16:11:52 +0000",
-          "description": "Che l'intelligenza artificiale fosse entrata nelle aule, ormai, non era più un segreto per nessuno. Ma la velocità con cui si è imposta, scavalcando ogni filtro…"
-        },
-        {
-          "title": "Mini call veloce dal 14 agosto ore 14.00: ecco l’elenco dei posti disponibili [AGGIORNATO]",
-          "link": "https://www.orizzontescuola.it/mini-call-veloce-dal-14-agosto-ore-14-00-ecco-lelenco-dei-posti-disponibili-aggiornato/",
-          "pubDate": "Tue, 11 Aug 2026 14:54:46 +0000",
-          "description": "Mini call veloce per l'assunzione di docenti a.s. 2026/27 su posti sostegno. Dopo lo scorrimento della prima fascia GPS sostegno, avvenuta solo in 7 regione e s…"
         }
       ]
     },
