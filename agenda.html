@@ -1,292 +1,630 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agenda mensile 2026</title>
+<meta name="description" content="Agenda del Prof. Antonio Adinolfi: lezioni, seminari, PCTO/STEM, verifiche e scadenze del Dipartimento di Informatica, Liceo Scientifico Nino Cortese.">
+<meta name="theme-color" content="#0d1b2e">
+<title>Agenda | Prof. Antonio Adinolfi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="design-system.css">
+<link rel="manifest" href="manifest.webmanifest"/>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --coral:#D85A30;--coral-light:#FAECE7;--coral-mid:#F0997B;
-  --gold:#BA7517;--paper:#FDFAF6;--paper-dark:#F5F0E8;
-  --ink:#2C2C2A;--ink-light:#888780;--line:rgba(44,44,42,0.12);
-  --green:#5B9A6E;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-background);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
-body{font-family:'DM Sans',sans-serif;background:var(--paper-dark)}
-.wrap{max-width:920px;margin:0 auto;padding:12px 8px 28px}
-.tabs{display:flex;gap:4px;padding:0 20px;position:relative;z-index:2}
-.tab{padding:7px 16px;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border-radius:8px 8px 0 0;border:1px solid rgba(216,90,48,.3);border-bottom:none;background:var(--coral-light);color:var(--coral);cursor:pointer}
-.tab.active{background:var(--paper);font-weight:600}
-.book{display:flex;background:var(--paper);border:1px solid rgba(216,90,48,.25);border-radius:0 12px 12px 12px;overflow:hidden;box-shadow:4px 6px 24px rgba(0,0,0,.12);min-height:620px;position:relative}
-.spine{width:26px;background:var(--paper-dark);border-right:1px solid rgba(216,90,48,.2);display:flex;flex-direction:column;align-items:center;padding:20px 0;gap:20px;flex-shrink:0}
-.ring{width:13px;height:13px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#bbb,#666);box-shadow:0 1px 3px rgba(0,0,0,.3);flex-shrink:0}
-.page-left{flex:1;padding:16px;border-right:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
-.month-nav{display:flex;align-items:center;gap:6px;margin-bottom:8px}
-.nav-btn{width:24px;height:24px;border-radius:50%;border:1px solid rgba(216,90,48,.4);background:transparent;color:var(--coral);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.nav-btn:hover{background:var(--coral-light)}
-.month-select{border:none;background:transparent;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:var(--ink-light);cursor:pointer;outline:none;letter-spacing:.05em}
-.month-badge{display:inline-block;color:#fff;font-family:'Playfair Display',serif;font-size:24px;font-style:italic;padding:7px 16px 9px;border-radius:6px;margin-bottom:10px}
-.days-table{flex:1;overflow-y:auto}
-table.cal{width:100%;border-collapse:collapse;font-size:12px}
-table.cal thead th{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);font-weight:500;padding:4px 6px;text-align:left;border-bottom:1px solid var(--coral-mid)}
-table.cal tbody tr{border-bottom:1px solid var(--line)}
-table.cal tbody tr:hover{background:var(--coral-light)}
-table.cal tbody td{padding:2px 5px;vertical-align:middle;color:var(--ink)}
-td.dn{width:24px;font-size:11px;font-weight:500;color:var(--coral);white-space:nowrap}
-td.dw{width:30px;font-size:10px;color:var(--ink-light)}
-td.nc{padding:2px 3px}
-td.nc input{width:100%;border:none;background:transparent;font-family:'DM Sans',sans-serif;font-size:11.5px;color:var(--ink);outline:none;height:22px;padding:0 2px}
-td.nc input::placeholder{color:transparent}
-tr:hover td.nc input::placeholder{color:var(--ink-light)}
-tr.sun td.dn,tr.sun td.dw{color:var(--coral);opacity:.65}
-.page-right{flex:1;padding:16px 20px;display:flex;flex-direction:column;gap:14px;min-width:0;position:relative}
-.plan-title{font-family:'DM Sans',sans-serif;font-size:18px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);display:flex;align-items:flex-start;gap:10px}
-.bookmark{width:26px;height:40px;background:var(--paper-dark);border:1px solid var(--line);clip-path:polygon(0 0,100% 0,100% 100%,50% 80%,0 100%);flex-shrink:0}
-.slabel{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-light);font-weight:500;margin-bottom:6px}
-.obj-list{display:flex;flex-direction:column;gap:7px}
-.obj-row{display:flex;align-items:center;gap:7px}
-.pin{width:9px;height:9px;border-radius:50% 50% 50% 0;background:var(--coral);transform:rotate(-45deg);flex-shrink:0}
-.obj-row input,.nline input{width:100%;border:none;border-bottom:1px solid var(--line);background:transparent;font-family:'DM Sans',sans-serif;font-size:12px;color:var(--ink);outline:none;padding:3px 0}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.date-box{background:var(--paper-dark);border-radius:6px;min-height:90px;padding:8px;position:relative;overflow:hidden}
-.date-box::before{content:'';position:absolute;top:7px;left:50%;transform:translateX(-50%);width:16px;height:20px;border:1.5px solid var(--coral-mid);border-radius:50%;opacity:.5}
-.date-box::after{content:'';position:absolute;top:14px;left:50%;width:1.5px;height:9px;background:var(--coral-mid);opacity:.5}
-.date-box textarea,.ver-area textarea{width:100%;border:none;background:transparent;font-family:'DM Sans',sans-serif;font-size:11.5px;color:var(--ink);resize:none;outline:none}
-.date-box textarea{height:70px;margin-top:28px}
-.nlines{display:flex;flex-direction:column;gap:6px}
-.nline input{font-size:11.5px}
-.ver-area{flex:1}
-.ver-area textarea{min-height:60px;line-height:1.8;border-bottom:1px solid var(--line)}
-.deco-row{display:flex;justify-content:space-between;align-items:flex-end;margin-top:auto}
-.washi{width:55px;height:14px;background:repeating-linear-gradient(45deg,rgba(216,90,48,.25),rgba(216,90,48,.25) 4px,rgba(255,255,255,.3) 4px,rgba(255,255,255,.3) 8px);border-radius:2px}
-.side-tab{position:absolute;right:-1px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font-size:9px;letter-spacing:.12em;text-transform:uppercase;background:var(--coral);color:#fff;padding:9px 5px;border-radius:4px 0 0 4px;font-weight:500}
-.status-bar{display:flex;align-items:center;justify-content:space-between;padding:5px 10px 0;min-height:22px}
-.sync-status{font-size:10px;color:var(--ink-light);display:flex;align-items:center;gap:5px}
-.sync-dot{width:7px;height:7px;border-radius:50%;background:var(--ink-light);flex-shrink:0}
-.sync-dot.ok{background:var(--green)}
-.sync-dot.syncing{background:#C9A227;animation:pulse 1s infinite}
-.sync-dot.error{background:#D85A30}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.year-bar{text-align:center;font-size:10px;letter-spacing:.15em;color:var(--ink-light);text-transform:uppercase;padding-top:3px}
-.overlay{position:fixed;inset:0;background:rgba(253,250,246,.85);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:100;font-size:13px;color:var(--ink-light)}
-.spinner{width:28px;height:28px;border:2px solid var(--coral-light);border-top-color:var(--coral);border-radius:50%;animation:spin .8s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--color-accent-light); outline-offset: 2px; border-radius: 2px; }
 
-@media (max-width: 760px){
-  .wrap{padding:8px 6px 20px}
-  .tabs{padding:0 10px;overflow-x:auto}
-  .book{flex-direction:column;min-height:auto;border-radius:0 10px 10px 10px}
-  .spine{display:none}
-  .page-left{border-right:none;border-bottom:1px solid var(--line)}
-  .page-right{padding:14px}
-  .two-col{grid-template-columns:1fr}
-  .side-tab{display:none}
+/* ── NAV (stessa identità di index.html/glossario.html) ── */
+nav {
+  background: var(--color-primary);
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; position: sticky; top: 0; z-index: 200;
+  border-bottom: 1px solid var(--color-border-accent);
+}
+.nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-badge {
+  width: 36px; height: 36px; background: var(--color-accent); border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif); color: #fff; font-size: 17px; font-style: italic; flex-shrink: 0;
+}
+.nav-name { color: #fff; font-size: 14px; font-weight: 500; letter-spacing: 0.2px; }
+.nav-inst { color: rgba(255,255,255,0.4); font-size: 11px; letter-spacing: 0.6px; text-transform: uppercase; margin-top: 1px; }
+.nav-links { display: flex; gap: 0.2rem; align-items: center; }
+.nav-links a {
+  color: rgba(255,255,255,0.55); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.6px; text-transform: uppercase; padding: 6px 14px;
+  border-radius: 4px; transition: color .18s, background .18s;
+}
+.nav-links a:hover { color: var(--color-accent-light); background: rgba(255,255,255,0.05); }
+.nav-links a.active { color: var(--color-accent-light); }
+.nav-cta { background: var(--color-accent); color: #fff !important; border-radius: 4px; padding: 6px 16px !important; }
+.nav-cta:hover { background: var(--color-accent-light) !important; color: var(--color-primary) !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; }
+.hamburger span { width: 22px; height: 2px; background: rgba(255,255,255,0.7); border-radius: 2px; transition: all .2s; }
+.hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── HERO ── */
+.agenda-hero { background: var(--color-primary); padding: clamp(2.5rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 3rem) 2rem; }
+.agenda-hero-inner { max-width: var(--container-max); margin: 0 auto; }
+.agenda-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px; color: var(--color-accent); font-weight: 600; margin-bottom: 0.8rem; }
+.agenda-title { font-family: var(--font-serif); font-weight: 400; font-size: clamp(2rem, 4vw, 3rem); color: #fff; line-height: 1.1; margin-bottom: 0.6rem; }
+.agenda-sub { font-size: 14.5px; color: rgba(255,255,255,0.65); max-width: 62ch; }
+
+/* ── CONTAINER ── */
+.container { max-width: var(--container-max); margin: 0 auto; padding: var(--space-section) var(--container-pad); }
+
+/* ── TOOLBAR ── */
+.agenda-toolbar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 1rem; margin-bottom: 1.8rem;
+}
+.agenda-nav-controls { display: flex; align-items: center; gap: 10px; }
+.agenda-nav-btn {
+  width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--color-border);
+  background: var(--color-surface); color: var(--color-primary); font-size: 16px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+.agenda-nav-btn:hover { background: var(--color-accent-pale); border-color: var(--color-border-accent); }
+.agenda-period-label { font-family: var(--font-serif); font-size: 1.3rem; color: var(--color-primary); min-width: 180px; text-align: center; }
+.agenda-today-btn {
+  background: var(--color-accent); color: #fff; border: none; padding: 8px 16px;
+  border-radius: 4px; font-size: 12.5px; font-weight: 600; cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.agenda-today-btn:hover { background: var(--color-accent-light); }
+.agenda-view-toggle { display: flex; border: 1px solid var(--color-border); border-radius: 6px; overflow: hidden; }
+.agenda-view-toggle button {
+  background: var(--color-surface); border: none; padding: 8px 16px; font-size: 12.5px;
+  font-weight: 600; color: var(--color-muted); cursor: pointer; transition: background var(--transition-fast), color var(--transition-fast);
+}
+.agenda-view-toggle button.active { background: var(--color-primary); color: #fff; }
+.agenda-view-toggle button:not(.active):hover { background: var(--color-background-2); }
+
+/* ── LEGENDA CATEGORIE ── */
+.agenda-legend { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-bottom: 1.6rem; }
+.agenda-legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--color-muted); }
+.agenda-legend-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--cat-color); flex-shrink: 0; }
+
+/* ── LAYOUT PRINCIPALE: calendario + prossimi eventi ── */
+.agenda-layout { display: grid; grid-template-columns: 1fr 320px; gap: 1.8rem; align-items: start; }
+
+/* ── VISTA MESE ── */
+.month-grid { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
+.month-grid-header { display: grid; grid-template-columns: repeat(7, 1fr); background: var(--color-background-2); }
+.month-grid-header div { padding: 10px 8px; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--color-muted); text-align: center; }
+.month-grid-body { display: grid; grid-template-columns: repeat(7, 1fr); }
+.month-cell {
+  min-height: 96px; border-right: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);
+  padding: 6px; display: flex; flex-direction: column; gap: 4px; cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.month-cell:nth-child(7n) { border-right: none; }
+.month-cell:hover { background: var(--color-background-2); }
+.month-cell.outside { background: var(--color-background-2); opacity: 0.45; }
+.month-cell.today { background: var(--color-accent-pale); }
+.month-cell.selected { outline: 2px solid var(--color-accent); outline-offset: -2px; }
+.month-cell-num { font-size: 12px; font-weight: 600; color: var(--color-primary); }
+.month-cell-events { display: flex; flex-direction: column; gap: 2px; }
+.month-event-pill {
+  display: flex; align-items: center; gap: 4px; font-size: 10px; color: var(--color-text);
+  background: var(--color-background); border-left: 3px solid var(--cat-color);
+  padding: 2px 4px; border-radius: 2px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+}
+.month-event-more { font-size: 9.5px; color: var(--color-muted); padding-left: 4px; }
+
+/* ── VISTA SETTIMANA ── */
+.week-list { display: flex; flex-direction: column; gap: 10px; }
+.week-day-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+.week-day-card.today { border-color: var(--color-border-accent); }
+.week-day-header { background: var(--color-background-2); padding: 8px 14px; font-size: 12px; font-weight: 700; color: var(--color-primary); text-transform: capitalize; }
+.week-day-events { padding: 8px 14px; display: flex; flex-direction: column; gap: 8px; }
+.week-day-empty { padding: 10px 14px; font-size: 12.5px; color: var(--color-muted); font-style: italic; }
+
+/* ── EVENT CARD (riusata da vista giorno / prossimi eventi) ── */
+.event-card { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--color-background-2); }
+.event-card:last-child { border-bottom: none; }
+.event-card-bar { width: 4px; border-radius: 2px; background: var(--cat-color); flex-shrink: 0; }
+.event-card-body { flex: 1; min-width: 0; }
+.event-card-title { font-size: 13px; font-weight: 600; color: var(--color-text); }
+.event-card-meta { font-size: 11px; color: var(--color-muted); margin-top: 2px; display: flex; flex-wrap: wrap; gap: 6px; }
+.event-card-desc { font-size: 11.5px; color: var(--color-muted); margin-top: 3px; }
+.event-card-link { font-size: 11px; font-weight: 600; color: var(--color-accent); margin-top: 3px; display: inline-block; }
+.event-card-link:hover { text-decoration: underline; }
+
+/* ── PANNELLO GIORNO SELEZIONATO ── */
+.day-panel { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: 1.2rem 1.4rem; margin-top: 1.4rem; }
+.day-panel-title { font-family: var(--font-serif); font-size: 1.1rem; color: var(--color-primary); margin-bottom: 0.6rem; text-transform: capitalize; }
+.day-panel-empty { font-size: 12.5px; color: var(--color-muted); font-style: italic; }
+
+/* ── SIDEBAR: PROSSIMI EVENTI ── */
+.sidebar-block { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: 1.2rem 1.4rem; }
+.sidebar-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--color-accent); margin-bottom: 0.9rem; }
+.sidebar-empty { font-size: 12.5px; color: var(--color-muted); font-style: italic; }
+
+/* ── STATO CARICAMENTO / ERRORE ── */
+.agenda-status { font-size: 12.5px; color: var(--color-muted); padding: 1rem 0; text-align: center; }
+
+/* ── FOOTER ── */
+footer { background: var(--color-primary); border-top: 1px solid var(--color-border-accent); padding: 2rem clamp(1.25rem, 4vw, 3rem); }
+.footer-inner { max-width: var(--container-max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.footer-inner a { color: var(--color-accent-light); font-size: 12.5px; }
+.footer-inner a:hover { text-decoration: underline; }
+.footer-note { font-size: 11.5px; color: rgba(255,255,255,0.35); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0;
+    background: var(--color-primary-light); padding: 0.6rem; border-bottom: 1px solid var(--color-border-accent);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2); z-index: 199;
+  }
+  .nav-links.open a { padding: 12px 14px; }
+  .hamburger { display: flex; }
+  .agenda-layout { grid-template-columns: 1fr; }
+  .month-cell { min-height: 72px; }
+}
+@media (max-width: 600px) {
+  .month-grid-header div:nth-child(n) { font-size: 9px; }
+  .month-cell { min-height: 58px; padding: 4px; }
+  .month-cell-num { font-size: 10.5px; }
+  .month-event-pill { display: none; }
+  .month-cell-events::after { content: attr(data-count); font-size: 9px; color: var(--color-accent); }
 }
 </style>
-<link rel="stylesheet" href="design-system.css">
-<script>document.documentElement.classList.add("auth-checking");</script>
-<link href="enterprise-auth.css" rel="stylesheet">
 </head>
 <body>
 
-<div class="wrap">
-  <div id="overlay" class="overlay"><div class="spinner"></div><span>Caricamento agenda locale...</span></div>
-  <div class="tabs">
-    <div class="tab active">Agenda</div>
-    <div class="tab">Scuola</div>
-    <div class="tab">Registro</div>
-    <div class="tab">···</div>
-  </div>
-  <div class="book">
-    <div class="spine" id="spine"></div>
-    <div class="page-left">
-      <div class="month-nav">
-        <button class="nav-btn" id="prev">&#8249;</button>
-        <select class="month-select" id="msel">
-          <option value="0">Gennaio</option><option value="1">Febbraio</option>
-          <option value="2">Marzo</option><option value="3">Aprile</option>
-          <option value="4">Maggio</option><option value="5">Giugno</option>
-          <option value="6">Luglio</option><option value="7">Agosto</option>
-          <option value="8">Settembre</option><option value="9">Ottobre</option>
-          <option value="10">Novembre</option><option value="11">Dicembre</option>
-        </select>
-        <button class="nav-btn" id="next">&#8250;</button>
-      </div>
-      <div class="month-badge" id="badge">Giugno</div>
-      <div class="days-table">
-        <table class="cal">
-          <thead><tr>
-            <th style="width:24px">N</th>
-            <th style="width:30px">Gg</th>
-            <th>Note del giorno</th>
-          </tr></thead>
-          <tbody id="cal-body"></tbody>
-        </table>
-      </div>
+<nav>
+  <a href="index.html" class="nav-brand">
+    <div class="nav-badge">A</div>
+    <div>
+      <div class="nav-name">Prof. Antonio Adinolfi</div>
+      <div class="nav-inst">Liceo Scientifico N. Cortese · Maddaloni</div>
     </div>
-    <div class="page-right">
-      <div class="plan-title">
-        <div class="bookmark"></div>
-        <div>PLANNING<br>MENSILE</div>
-      </div>
-      <div>
-        <div class="slabel">Obiettivi del mese</div>
-        <div class="obj-list" id="obj-list"></div>
-      </div>
-      <div class="two-col">
-        <div>
-          <div class="slabel">Date da ricordare</div>
-          <div class="date-box"><textarea id="date-ric" placeholder="Date importanti..."></textarea></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html#profilo">Profilo</a>
+    <a href="index.html#strumenti" class="nav-cta">Didattica</a>
+    <a href="index.html#laboratori">Laboratori</a>
+    <a href="index.html#progetti">Progetti</a>
+    <a href="glossario.html">Risorse</a>
+    <a href="index.html#contatti">Contatti</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Apri il menu" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="agenda-hero">
+  <div class="agenda-hero-inner">
+    <p class="agenda-eyebrow">Dipartimento di Informatica · Classe di concorso A041</p>
+    <h1 class="agenda-title">Agenda</h1>
+    <p class="agenda-sub">Lezioni, seminari, PCTO/STEM, verifiche e scadenze. Pagina pubblica e sempre aggiornata; il Google Sheet storico resta disponibile come sorgente dati alternativa.</p>
+  </div>
+</section>
+
+<main class="container">
+
+  <div class="agenda-toolbar">
+    <div class="agenda-nav-controls">
+      <button class="agenda-nav-btn" id="prevBtn" aria-label="Periodo precedente">&#8249;</button>
+      <div class="agenda-period-label" id="periodLabel">—</div>
+      <button class="agenda-nav-btn" id="nextBtn" aria-label="Periodo successivo">&#8250;</button>
+      <button class="agenda-today-btn" id="todayBtn">Oggi</button>
+    </div>
+    <div class="agenda-view-toggle" role="group" aria-label="Vista agenda">
+      <button id="viewMonthBtn" class="active">Mese</button>
+      <button id="viewWeekBtn">Settimana</button>
+    </div>
+  </div>
+
+  <div class="agenda-legend" id="agendaLegend">
+    <div class="agenda-legend-item cat-lezione"><span class="agenda-legend-dot"></span>Lezione</div>
+    <div class="agenda-legend-item cat-seminario"><span class="agenda-legend-dot"></span>Seminario</div>
+    <div class="agenda-legend-item cat-evento"><span class="agenda-legend-dot"></span>Evento</div>
+    <div class="agenda-legend-item cat-pcto-stem"><span class="agenda-legend-dot"></span>PCTO / STEM</div>
+    <div class="agenda-legend-item cat-appuntamento"><span class="agenda-legend-dot"></span>Appuntamento</div>
+    <div class="agenda-legend-item cat-verifica"><span class="agenda-legend-dot"></span>Verifica / Esame</div>
+    <div class="agenda-legend-item cat-scadenza"><span class="agenda-legend-dot"></span>Scadenza</div>
+  </div>
+
+  <div id="agendaStatus" class="agenda-status">Caricamento agenda…</div>
+
+  <div class="agenda-layout" id="agendaLayout" style="display:none;">
+    <div>
+      <div id="monthView">
+        <div class="month-grid">
+          <div class="month-grid-header">
+            <div>Lun</div><div>Mar</div><div>Mer</div><div>Gio</div><div>Ven</div><div>Sab</div><div>Dom</div>
+          </div>
+          <div class="month-grid-body" id="monthGridBody"></div>
         </div>
-        <div>
-          <div class="slabel">Note importanti</div>
-          <div class="nlines" id="nlines"></div>
+        <div class="day-panel" id="dayPanel" style="display:none;">
+          <div class="day-panel-title" id="dayPanelTitle"></div>
+          <div id="dayPanelBody"></div>
         </div>
       </div>
-      <div class="ver-area">
-        <div class="slabel">Verifiche / Compiti / Attività particolari</div>
-        <textarea id="verifiche" placeholder="Inserisci verifiche, compiti e attività..."></textarea>
-      </div>
-      <div class="deco-row">
-        <div class="washi"></div>
-        <div class="washi" style="transform:rotate(-3deg)"></div>
-      </div>
-      <div class="side-tab" id="side-tab">Giu</div>
+      <div id="weekView" class="week-list" style="display:none;"></div>
     </div>
+
+    <aside class="sidebar-block">
+      <div class="sidebar-title">Prossimi eventi</div>
+      <div id="upcomingList"></div>
+    </aside>
   </div>
-  <div class="status-bar">
-    <div class="sync-status">
-      <div class="sync-dot" id="sync-dot"></div>
-      <span id="sync-label">Connessione...</span>
-    </div>
-    <div style="font-size:10px;color:var(--ink-light)">Salvataggio locale browser</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-note">© 2026 Prof. Antonio Adinolfi · Liceo Scientifico "Nino Cortese", Maddaloni (CE)</span>
+    <a href="index.html">← Torna alla home</a>
   </div>
-  <div class="year-bar">Agenda 2026 · Salvataggio locale nel browser</div>
-</div>
+</footer>
 
 <script>
-const MONTHS=['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
-const SHORT=['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
-const WD=['Dom','Lun','Mar','Mer','Gio','Ven','Sab'];
-const YEAR=2026;
-const COLORS=['#4A8FBF','#D85A30','#5B9A6E','#C9A227','#9B6B9E','#BA7517','#3E8A7A','#C07A2A','#D85A30','#8B5E3C','#3A6B9E','#2C6E8A'];
-
-const STORAGE_KEY='agenda2026';
-let cur=new Date().getMonth();
-let data={};
-let fileSha=null;
-let saveTimer=null;
-
-function setStatus(state,msg){
-  const dot=document.getElementById('sync-dot');
-  const lbl=document.getElementById('sync-label');
-  dot.className='sync-dot '+state;
-  lbl.textContent=msg;
+/* ── MENU MOBILE (stesso pattern delle altre pagine) ── */
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+  });
 }
 
-function loadAgenda(){
-  try{
-    setStatus('syncing','Caricamento dati locali...');
-    const raw=localStorage.getItem(STORAGE_KEY);
-    data=raw ? JSON.parse(raw) : {};
-    setStatus('ok','Pronta · dati locali');
-  }catch(e){
-    data={};
-    setStatus('error','Errore lettura dati locali');
+/* ============================================================
+   AGENDA — logica dati e rendering
+   ------------------------------------------------------------
+   Sorgente dati primaria: data/events.json (struttura documentata
+   in fondo a questo file). Il Google Sheet storico non viene
+   eliminato: se in futuro si vuole usarlo come sorgente, basta
+   pubblicarlo come endpoint JSON con la STESSA struttura (ad
+   esempio tramite un piccolo Google Apps Script Web App che legge
+   il foglio e restituisce { "events": [...] } nello stesso
+   formato) e valorizzare GOOGLE_SHEETS_JSON_URL qui sotto: se
+   impostato, l'Agenda proverà prima quella fonte e ripiegherà su
+   data/events.json in caso di errore.
+   ============================================================ */
+const GOOGLE_SHEETS_JSON_URL = ''; // lasciare vuoto per usare solo data/events.json
+const LOCAL_EVENTS_URL = 'data/events.json';
+
+const CATEGORY_LABELS = {
+  'lezione': 'Lezione',
+  'seminario': 'Seminario',
+  'evento': 'Evento',
+  'pcto-stem': 'PCTO / STEM',
+  'appuntamento': 'Appuntamento',
+  'verifica': 'Verifica / Esame',
+  'scadenza': 'Scadenza'
+};
+
+const MONTH_LABELS = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
+
+let allEvents = [];           // eventi normalizzati, deduplicati per id
+let eventsByDate = new Map(); // 'YYYY-MM-DD' -> array di eventi
+let viewMode = 'month';       // 'month' | 'week'
+let focusDate = new Date();   // giorno "a fuoco" per la navigazione
+let selectedDayKey = null;    // giorno selezionato nella vista mese (per il day-panel)
+
+function pad2(n) { return String(n).padStart(2, '0'); }
+function dateKey(d) { return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`; }
+function isSameDay(a, b) { return dateKey(a) === dateKey(b); }
+function startOfWeek(d) {
+  // settimana che inizia di Lunedì
+  const day = (d.getDay() + 6) % 7; // 0 = lunedì
+  const res = new Date(d);
+  res.setDate(d.getDate() - day);
+  res.setHours(0,0,0,0);
+  return res;
+}
+
+/* ── Caricamento dati con fallback e cache-bust ──
+   Stesso pattern già in uso nel sito (vedi loadNews() in
+   index.html e il fetch di materiali_catalogo.json): query
+   string oraria + {cache:'no-store'} per evitare che il browser
+   o una CDN mostrino indefinitamente una copia in cache. */
+async function fetchJson(url) {
+  const cacheBust = new Date().toISOString().slice(0, 13);
+  const response = await fetch(`${url}?v=${cacheBust}`, { cache: 'no-store' });
+  if (!response.ok) throw new Error(`Errore HTTP: ${response.status}`);
+  return response.json();
+}
+
+function normalizeEvents(rawEvents) {
+  const seenIds = new Set();
+  const normalized = [];
+  for (const ev of rawEvents || []) {
+    if (!ev || !ev.date || !ev.title) continue;
+    const id = ev.id || `${ev.category || 'evento'}-${ev.date}-${ev.title}`;
+    if (seenIds.has(id)) continue; // evita duplicati (requisito 9)
+    seenIds.add(id);
+    normalized.push({
+      id,
+      title: ev.title,
+      date: ev.date,
+      start: ev.start || '',
+      end: ev.end || '',
+      category: CATEGORY_LABELS[ev.category] ? ev.category : 'evento',
+      class: ev.class || '',
+      location: ev.location || '',
+      description: ev.description || '',
+      url: ev.url || ''
+    });
   }
-  document.getElementById('overlay').style.display='none';
-  renderMonth(cur);
+  return normalized;
 }
 
-function saveAgenda(){
-  try{
-    localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
-    setStatus('ok','Salvata · '+new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'}));
-  }catch(e){
-    setStatus('error','Errore salvataggio locale');
-  }
-}
+async function loadEvents() {
+  const statusEl = document.getElementById('agendaStatus');
+  const layoutEl = document.getElementById('agendaLayout');
 
-function scheduleSave(){
-  clearTimeout(saveTimer);
-  saveTimer=setTimeout(saveAgenda,450);
-}
+  let rawEvents = null;
 
-function gk(m,type,idx){return `${m}__${type}__${idx}`;}
-function getDays(m){return new Date(YEAR,m+1,0).getDate();}
-function getFirst(m){return new Date(YEAR,m,1).getDay();}
-
-function makeInput(key,placeholder,tag){
-  const el=document.createElement(tag||'input');
-  if(tag==='textarea'){el.placeholder=placeholder;el.rows=2;}
-  else{el.type='text';el.placeholder=placeholder;}
-  el.value=data[key]||'';
-  el.addEventListener('input',()=>{data[key]=el.value;scheduleSave();});
-  return el;
-}
-
-function renderMonth(m){
-  const badge=document.getElementById('badge');
-  badge.textContent=MONTHS[m];
-  badge.style.background=COLORS[m];
-  document.getElementById('side-tab').textContent=SHORT[m];
-  document.getElementById('msel').value=m;
-
-  const body=document.getElementById('cal-body');
-  body.innerHTML='';
-  const days=getDays(m),first=getFirst(m);
-  for(let d=1;d<=days;d++){
-    const dow=(first+d-1)%7;
-    const tr=document.createElement('tr');
-    if(dow===0) tr.className='sun';
-    const tdN=document.createElement('td');tdN.className='dn';tdN.textContent=d;
-    const tdW=document.createElement('td');tdW.className='dw';tdW.textContent=WD[dow];
-    const tdC=document.createElement('td');tdC.className='nc';
-    tdC.appendChild(makeInput(gk(m,'day',d),''));
-    tr.appendChild(tdN);tr.appendChild(tdW);tr.appendChild(tdC);
-    body.appendChild(tr);
+  if (GOOGLE_SHEETS_JSON_URL) {
+    try {
+      const data = await fetchJson(GOOGLE_SHEETS_JSON_URL);
+      rawEvents = data.events;
+    } catch (err) {
+      console.warn('Google Sheets non raggiungibile, uso data/events.json:', err);
+    }
   }
 
-  const ol=document.getElementById('obj-list');ol.innerHTML='';
-  for(let i=0;i<3;i++){
-    const row=document.createElement('div');row.className='obj-row';
-    const pin=document.createElement('div');pin.className='pin';
-    row.appendChild(pin);row.appendChild(makeInput(gk(m,'obj',i),'Obiettivo '+(i+1)+'...'));
-    ol.appendChild(row);
+  if (!rawEvents) {
+    try {
+      const data = await fetchJson(LOCAL_EVENTS_URL);
+      rawEvents = data.events;
+    } catch (err) {
+      console.error('Impossibile caricare data/events.json:', err);
+      statusEl.textContent = 'Agenda momentaneamente non disponibile. Riprova più tardi.';
+      return;
+    }
   }
 
-  const nl=document.getElementById('nlines');nl.innerHTML='';
-  for(let i=0;i<5;i++){
-    const div=document.createElement('div');div.className='nline';
-    div.appendChild(makeInput(gk(m,'nline',i),''));nl.appendChild(div);
+  allEvents = normalizeEvents(rawEvents);
+  eventsByDate = new Map();
+  for (const ev of allEvents) {
+    if (!eventsByDate.has(ev.date)) eventsByDate.set(ev.date, []);
+    eventsByDate.get(ev.date).push(ev);
   }
 
-  const dr=document.getElementById('date-ric');
-  dr.value=data[gk(m,'date-ric',0)]||'';
-  dr.oninput=()=>{data[gk(m,'date-ric',0)]=dr.value;scheduleSave();};
-
-  const ver=document.getElementById('verifiche');
-  ver.value=data[gk(m,'ver',0)]||'';
-  ver.oninput=()=>{data[gk(m,'ver',0)]=ver.value;scheduleSave();};
+  statusEl.style.display = 'none';
+  layoutEl.style.display = 'grid';
+  renderAll();
 }
 
-// rings
-const spine=document.getElementById('spine');
-for(let i=0;i<18;i++){const r=document.createElement('div');r.className='ring';spine.appendChild(r);}
+/* ── Rendering: event card (riusata in più punti) ── */
+function renderEventCard(ev) {
+  const timeStr = ev.start ? `${ev.start}${ev.end ? '–' + ev.end : ''}` : '';
+  const metaParts = [timeStr, ev.class, ev.location].filter(Boolean);
+  return `
+    <div class="event-card">
+      <div class="event-card-bar cat-${ev.category}"></div>
+      <div class="event-card-body">
+        <div class="event-card-title">${ev.title}</div>
+        ${metaParts.length ? `<div class="event-card-meta">${metaParts.map(m => `<span>${m}</span>`).join('<span>·</span>')}</div>` : ''}
+        ${ev.description ? `<div class="event-card-desc">${ev.description}</div>` : ''}
+        ${ev.url ? `<a class="event-card-link" href="${ev.url}" target="_blank" rel="noopener noreferrer">Apri collegamento →</a>` : ''}
+      </div>
+    </div>
+  `;
+}
 
-document.getElementById('prev').addEventListener('click',()=>{cur=(cur+11)%12;renderMonth(cur);});
-document.getElementById('next').addEventListener('click',()=>{cur=(cur+1)%12;renderMonth(cur);});
-document.getElementById('msel').addEventListener('change',e=>{cur=parseInt(e.target.value);renderMonth(cur);});
+/* ── Vista mensile ── */
+function renderMonthView() {
+  const body = document.getElementById('monthGridBody');
+  body.innerHTML = '';
 
-loadAgenda();
+  const year = focusDate.getFullYear();
+  const month = focusDate.getMonth();
+  const firstOfMonth = new Date(year, month, 1);
+  const gridStart = startOfWeek(firstOfMonth);
+  const today = new Date();
+
+  for (let i = 0; i < 42; i++) {
+    const cellDate = new Date(gridStart);
+    cellDate.setDate(gridStart.getDate() + i);
+    const key = dateKey(cellDate);
+    const isOutside = cellDate.getMonth() !== month;
+    const isToday = isSameDay(cellDate, today);
+    const dayEvents = eventsByDate.get(key) || [];
+
+    const cell = document.createElement('div');
+    cell.className = 'month-cell' + (isOutside ? ' outside' : '') + (isToday ? ' today' : '') + (key === selectedDayKey ? ' selected' : '');
+    cell.dataset.key = key;
+
+    const num = document.createElement('div');
+    num.className = 'month-cell-num';
+    num.textContent = cellDate.getDate();
+    cell.appendChild(num);
+
+    const eventsWrap = document.createElement('div');
+    eventsWrap.className = 'month-cell-events';
+    eventsWrap.dataset.count = dayEvents.length ? `${dayEvents.length} ev.` : '';
+    const visible = dayEvents.slice(0, 3);
+    visible.forEach(ev => {
+      const pill = document.createElement('div');
+      pill.className = `month-event-pill cat-${ev.category}`;
+      pill.textContent = ev.title;
+      eventsWrap.appendChild(pill);
+    });
+    if (dayEvents.length > visible.length) {
+      const more = document.createElement('div');
+      more.className = 'month-event-more';
+      more.textContent = `+${dayEvents.length - visible.length} altri`;
+      eventsWrap.appendChild(more);
+    }
+    cell.appendChild(eventsWrap);
+
+    cell.addEventListener('click', () => {
+      selectedDayKey = (selectedDayKey === key) ? null : key;
+      renderMonthView();
+      renderDayPanel();
+    });
+
+    body.appendChild(cell);
+  }
+
+  document.getElementById('periodLabel').textContent = `${MONTH_LABELS[month]} ${year}`;
+}
+
+function renderDayPanel() {
+  const panel = document.getElementById('dayPanel');
+  const title = document.getElementById('dayPanelTitle');
+  const bodyEl = document.getElementById('dayPanelBody');
+
+  if (!selectedDayKey) {
+    panel.style.display = 'none';
+    return;
+  }
+
+  panel.style.display = 'block';
+  const [y, m, d] = selectedDayKey.split('-').map(Number);
+  const dayDate = new Date(y, m - 1, d);
+  title.textContent = dayDate.toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' });
+
+  const dayEvents = (eventsByDate.get(selectedDayKey) || []).sort((a, b) => (a.start || '').localeCompare(b.start || ''));
+  bodyEl.innerHTML = dayEvents.length
+    ? dayEvents.map(renderEventCard).join('')
+    : '<div class="day-panel-empty">Nessun evento in questo giorno.</div>';
+}
+
+/* ── Vista settimanale ── */
+function renderWeekView() {
+  const container = document.getElementById('weekView');
+  container.innerHTML = '';
+
+  const weekStart = startOfWeek(focusDate);
+  const today = new Date();
+  const weekEnd = new Date(weekStart);
+  weekEnd.setDate(weekStart.getDate() + 6);
+
+  for (let i = 0; i < 7; i++) {
+    const dayDate = new Date(weekStart);
+    dayDate.setDate(weekStart.getDate() + i);
+    const key = dateKey(dayDate);
+    const isToday = isSameDay(dayDate, today);
+    const dayEvents = (eventsByDate.get(key) || []).sort((a, b) => (a.start || '').localeCompare(b.start || ''));
+
+    const card = document.createElement('div');
+    card.className = 'week-day-card' + (isToday ? ' today' : '');
+
+    const header = document.createElement('div');
+    header.className = 'week-day-header';
+    header.textContent = dayDate.toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' });
+    card.appendChild(header);
+
+    const eventsWrap = document.createElement('div');
+    eventsWrap.className = 'week-day-events';
+    if (dayEvents.length) {
+      eventsWrap.innerHTML = dayEvents.map(renderEventCard).join('');
+    } else {
+      eventsWrap.innerHTML = '<div class="week-day-empty">Nessun evento.</div>';
+    }
+    card.appendChild(eventsWrap);
+
+    container.appendChild(card);
+  }
+
+  const fmt = (d) => d.toLocaleDateString('it-IT', { day: 'numeric', month: 'short' });
+  document.getElementById('periodLabel').textContent = `${fmt(weekStart)} – ${fmt(weekEnd)}`;
+}
+
+/* ── Prossimi eventi (sidebar) ── */
+function renderUpcoming() {
+  const list = document.getElementById('upcomingList');
+  const now = new Date();
+  now.setHours(0,0,0,0);
+
+  const upcoming = allEvents
+    .filter(ev => {
+      const [y, m, d] = ev.date.split('-').map(Number);
+      const evDate = new Date(y, m - 1, d);
+      return evDate >= now;
+    })
+    .sort((a, b) => a.date.localeCompare(b.date) || (a.start || '').localeCompare(b.start || ''))
+    .slice(0, 6);
+
+  list.innerHTML = upcoming.length
+    ? upcoming.map(renderEventCard).join('')
+    : '<div class="sidebar-empty">Nessun prossimo evento in agenda.</div>';
+}
+
+/* ── Orchestrazione rendering ── */
+function renderAll() {
+  if (viewMode === 'month') {
+    document.getElementById('monthView').style.display = 'block';
+    document.getElementById('weekView').style.display = 'none';
+    renderMonthView();
+    renderDayPanel();
+  } else {
+    document.getElementById('monthView').style.display = 'none';
+    document.getElementById('weekView').style.display = 'flex';
+    renderWeekView();
+  }
+  renderUpcoming();
+}
+
+/* ── Controlli: prev/next/oggi/toggle vista ── */
+document.getElementById('prevBtn').addEventListener('click', () => {
+  if (viewMode === 'month') {
+    focusDate = new Date(focusDate.getFullYear(), focusDate.getMonth() - 1, 1);
+  } else {
+    const d = new Date(focusDate);
+    d.setDate(d.getDate() - 7);
+    focusDate = d;
+  }
+  renderAll();
+});
+
+document.getElementById('nextBtn').addEventListener('click', () => {
+  if (viewMode === 'month') {
+    focusDate = new Date(focusDate.getFullYear(), focusDate.getMonth() + 1, 1);
+  } else {
+    const d = new Date(focusDate);
+    d.setDate(d.getDate() + 7);
+    focusDate = d;
+  }
+  renderAll();
+});
+
+document.getElementById('todayBtn').addEventListener('click', () => {
+  focusDate = new Date();
+  selectedDayKey = null;
+  renderAll();
+});
+
+document.getElementById('viewMonthBtn').addEventListener('click', () => {
+  viewMode = 'month';
+  document.getElementById('viewMonthBtn').classList.add('active');
+  document.getElementById('viewWeekBtn').classList.remove('active');
+  renderAll();
+});
+
+document.getElementById('viewWeekBtn').addEventListener('click', () => {
+  viewMode = 'week';
+  document.getElementById('viewWeekBtn').classList.add('active');
+  document.getElementById('viewMonthBtn').classList.remove('active');
+  renderAll();
+});
+
+loadEvents();
 </script>
 
-<script src="https://accounts.google.com/gsi/client" async defer></script>
-<script src="auth-enterprise.js"></script>
-<script>
-  LSCAuth.requireAuth({ loginUrl: "login.html" });
-</script>
-
+<script src="pwa-register.js"></script>
 </body>
 </html>

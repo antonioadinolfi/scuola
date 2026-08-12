@@ -256,7 +256,17 @@ nav {
 /* ── CALENDARIO ── */
 .calendar-block { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 1.5rem; margin-bottom: 3.4rem; }
 .calendar-h { font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--navy); margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
-.calendar-block iframe { border-radius: var(--radius); border: 1px solid var(--border); width: 100%; }
+.calendar-preview-list { display: flex; flex-direction: column; gap: 0; margin-bottom: 1.1rem; }
+.calendar-preview-item { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.calendar-preview-item:last-child { border-bottom: none; }
+.calendar-preview-date { flex-shrink: 0; width: 52px; text-align: center; }
+.calendar-preview-day { font-family: var(--serif); font-size: 20px; color: var(--gold); line-height: 1; }
+.calendar-preview-month { font-size: 9px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--text-muted); }
+.calendar-preview-title { font-size: 13px; font-weight: 600; color: var(--text); }
+.calendar-preview-meta { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.calendar-preview-status { font-size: 12.5px; color: var(--text-muted); padding: 0.6rem 0 1.1rem; }
+.calendar-preview-btn { display: inline-block; font-size: 12.5px; font-weight: 600; color: var(--gold); }
+.calendar-preview-btn:hover { text-decoration: underline; }
 
 /* ── GLOSSARY TEASER (split, non più a gradiente) ── */
 .glossary-block { display: grid; grid-template-columns: 1.4fr 1fr; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 3.4rem; border: 1px solid var(--border-gold); }
@@ -525,16 +535,13 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
       </div>
     </div>
 
-    <!-- CALENDARIO LEZIONI -->
+    <!-- CALENDARIO LEZIONI: PREVIEW -->
     <div class="calendar-block">
       <div class="calendar-h">📅 Calendario Lezioni</div>
-      <iframe
-          src="https://docs.google.com/spreadsheets/d/1_POw2hDTzWQEtgXJAqp8rFXGOsZAn6O81Blcy7_lKHQ/edit?usp=drive_link"
-          width="100%"
-          height="500"
-          frameborder="0"
-          title="Calendario lezioni settimanale">
-      </iframe>
+      <div id="calendarPreviewList" class="calendar-preview-list">
+        <p class="calendar-preview-status">Caricamento prossimi appuntamenti…</p>
+      </div>
+      <a href="agenda.html" class="calendar-preview-btn">Apri agenda completa →</a>
     </div>
 
     <!-- ── PROGETTI ── -->
@@ -755,6 +762,62 @@ async function loadNews() {
   }
 }
 
+/* ── PREVIEW CALENDARIO (prossimi 3-5 eventi da data/events.json) ──
+   Stessa sorgente dati e stesso pattern di fetch (cache-bust orario
+   + {cache:'no-store'}) usati da agenda.html, a cui questa preview
+   rimanda tramite il pulsante "Apri agenda completa". */
+async function loadCalendarPreview() {
+  const container = document.getElementById('calendarPreviewList');
+  if (!container) return;
+
+  const MONTHS_SHORT = ['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
+
+  try {
+    const cacheBust = new Date().toISOString().slice(0, 13);
+    const response = await fetch(`data/events.json?v=${cacheBust}`, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`Errore HTTP: ${response.status}`);
+    const data = await response.json();
+
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+
+    const upcoming = (data.events || [])
+      .filter(ev => ev && ev.date && ev.title)
+      .filter(ev => {
+        const [y, m, d] = ev.date.split('-').map(Number);
+        return new Date(y, m - 1, d) >= now;
+      })
+      .sort((a, b) => a.date.localeCompare(b.date) || (a.start || '').localeCompare(b.start || ''))
+      .slice(0, 5);
+
+    if (upcoming.length === 0) {
+      container.innerHTML = '<p class="calendar-preview-status">Nessun prossimo appuntamento in agenda.</p>';
+      return;
+    }
+
+    container.innerHTML = upcoming.map(ev => {
+      const [y, m, d] = ev.date.split('-').map(Number);
+      const metaParts = [ev.start, ev.class, ev.location].filter(Boolean);
+      return `
+        <div class="calendar-preview-item">
+          <div class="calendar-preview-date">
+            <div class="calendar-preview-day">${d}</div>
+            <div class="calendar-preview-month">${MONTHS_SHORT[m - 1]}</div>
+          </div>
+          <div>
+            <div class="calendar-preview-title">${ev.title}</div>
+            ${metaParts.length ? `<div class="calendar-preview-meta">${metaParts.join(' · ')}</div>` : ''}
+          </div>
+        </div>
+      `;
+    }).join('');
+  } catch (error) {
+    console.error('Impossibile caricare la preview del calendario:', error);
+    container.innerHTML = '<p class="calendar-preview-status">Anteprima non disponibile al momento.</p>';
+  }
+}
+
+loadCalendarPreview();
 loadNews();
 </script>
 </body>

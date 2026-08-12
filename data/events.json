@@ -1,0 +1,90 @@
+{
+  "updatedAt": "2026-08-11T00:00:00+02:00",
+  "source": "manual",
+  "events": [
+    {
+      "id": "lezione-2026-09-15-4fsa",
+      "title": "Lezione di Informatica — Basi di dati",
+      "date": "2026-09-15",
+      "start": "09:00",
+      "end": "11:00",
+      "category": "lezione",
+      "class": "4FSA",
+      "location": "Laboratorio informatico",
+      "description": "Introduzione al modello relazionale e alle query SQL di base.",
+      "url": ""
+    },
+    {
+      "id": "seminario-2026-09-18-ai",
+      "title": "Seminario: Intelligenza Artificiale e scuola",
+      "date": "2026-09-18",
+      "start": "15:00",
+      "end": "17:00",
+      "category": "seminario",
+      "class": "",
+      "location": "Aula Magna",
+      "description": "Incontro aperto su AI, machine learning e didattica digitale.",
+      "url": ""
+    },
+    {
+      "id": "verifica-2026-09-22-3bsa",
+      "title": "Verifica di Informatica — Python",
+      "date": "2026-09-22",
+      "start": "10:00",
+      "end": "11:00",
+      "category": "verifica",
+      "class": "3BSA",
+      "location": "Laboratorio informatico",
+      "description": "Strutture dati e funzioni in Python.",
+      "url": ""
+    },
+    {
+      "id": "pcto-2026-09-25-robotica",
+      "title": "PCTO — Laboratorio di Robotica",
+      "date": "2026-09-25",
+      "start": "14:00",
+      "end": "17:00",
+      "category": "pcto-stem",
+      "class": "4FSA",
+      "location": "Laboratorio STEM",
+      "description": "Attività pratica in preparazione a RomeCup 2026.",
+      "url": ""
+    },
+    {
+      "id": "scadenza-2026-09-30-pubblicazioni",
+      "title": "Scadenza consegna materiali Didamatica 2026",
+      "date": "2026-09-30",
+      "start": "",
+      "end": "",
+      "category": "scadenza",
+      "class": "",
+      "location": "",
+      "description": "Termine ultimo per l'invio del contributo definitivo.",
+      "url": ""
+    },
+    {
+      "id": "appuntamento-2026-10-01-ricevimento",
+      "title": "Ricevimento genitori",
+      "date": "2026-10-01",
+      "start": "10:00",
+      "end": "11:00",
+      "category": "appuntamento",
+      "class": "",
+      "location": "Aula docenti",
+      "description": "",
+      "url": ""
+    },
+    {
+      "id": "evento-2026-10-07-didamatica",
+      "title": "Didamatica 2026",
+      "date": "2026-10-07",
+      "start": "09:00",
+      "end": "18:00",
+      "category": "evento",
+      "class": "",
+      "location": "Padova",
+      "description": "Presentazione del framework CLAE / F.L.O.W. Adaptive Learning 5.0.",
+      "url": "https://www.didamatica.it"
+    }
+  ]
+}
