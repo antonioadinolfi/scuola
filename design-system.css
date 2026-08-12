@@ -85,7 +85,32 @@
   /* Transizioni — micro-interazioni eleganti, mai aggressive */
   --transition-fast: 150ms ease;
   --transition-base: 220ms ease;
+
+  /* ---- Agenda: colori categoria evento ----
+     Nessuna nuova tinta introdotta: ogni categoria riusa una
+     variabile di colore già definita sopra, così l'Agenda resta
+     coerente con la palette navy/oro del sito. Il JavaScript
+     dell'Agenda legge questi colori solo tramite le classi
+     .cat-* sottostanti — non li ha mai hardcoded. */
+  --cat-lezione:      var(--color-secondary);
+  --cat-seminario:    var(--color-primary-light);
+  --cat-evento:       var(--color-accent);
+  --cat-pcto-stem:    var(--color-success);
+  --cat-appuntamento: var(--color-secondary-light);
+  --cat-verifica:     var(--color-danger);
+  --cat-scadenza:     var(--color-warning);
 }
+
+/* Classi di categoria evento, riusate da agenda.html.
+   Un solo punto di verità: cambiare qui aggiorna automaticamente
+   pallini, bordi ed etichette ovunque nell'Agenda. */
+.cat-lezione      { --cat-color: var(--cat-lezione); }
+.cat-seminario    { --cat-color: var(--cat-seminario); }
+.cat-evento       { --cat-color: var(--cat-evento); }
+.cat-pcto-stem    { --cat-color: var(--cat-pcto-stem); }
+.cat-appuntamento { --cat-color: var(--cat-appuntamento); }
+.cat-verifica     { --cat-color: var(--cat-verifica); }
+.cat-scadenza     { --cat-color: var(--cat-scadenza); }
 
 /* Rispetto delle preferenze di accessibilità utente */
 @media (prefers-reduced-motion: reduce) {
