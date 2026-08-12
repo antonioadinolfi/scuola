@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-12T16:59:50+00:00",
+  "updatedAt": "2026-08-12T19:06:38+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,24 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Docenti fuori sede, Il CNDDU propone indennità e priorità per chi è lontano dalla residenza",
+          "link": "https://www.orizzontescuola.it/docenti-fuori-sede-il-cnddu-propone-indennita-e-priorita-per-chi-e-lontano-dalla-residenza/",
+          "pubDate": "Wed, 12 Aug 2026 18:36:21 +0000",
+          "description": "Il Coordinamento Nazionale Docenti della disciplina dei Diritti Umani ha espresso la propria preoccupazione in merito all'attuale fase inflazionistica, sempre p…"
+        },
+        {
+          "title": "“Niente smartphone fino ai 14 anni”, la scelta controcorrente di Giovanna Mezzogiorno per i suoi figli gemelli",
+          "link": "https://www.orizzontescuola.it/niente-smartphone-fino-ai-14-anni-la-scelta-controcorrente-di-giovanna-mezzogiorno-per-i-suoi-figli-gemelli/",
+          "pubDate": "Wed, 12 Aug 2026 17:50:18 +0000",
+          "description": "L'approccio di Giovanna Mezzogiorno alla tecnologia per i suoi gemelli Leone e Zeno è netto e consapevole: nessuno smartphone, nessun accesso a Internet, almeno…"
+        },
+        {
+          "title": "Caldo estremo, aule senza clima e precarietà docente, la scuola estiva ha dei limiti. Sofia: “Ci vogliono parchi, centri estivi e luoghi verdi”",
+          "link": "https://www.orizzontescuola.it/caldo-estremo-aule-senza-clima-e-precarieta-docente-la-scuola-estiva-ha-dei-limiti-sofia-ci-vogliono-parchi-centri-estivi-e-luoghi-verdi/",
+          "pubDate": "Wed, 12 Aug 2026 17:43:56 +0000",
+          "description": "Ogni estate il dibattito si riaccende con puntualità e rimbalza in continuazione su tante pagine social: da un lato le critiche rivolte al mondo della scuola pe…"
+        },
+        {
           "title": "In Germania un insegnante su dieci è in malattia (18 prof assenti da 10 anni!). E in Italia? Il problema è lo stesso, ma nessuno (o quasi) lo dice: stessa scuola, stessi guai",
           "link": "https://www.orizzontescuola.it/in-germania-un-insegnante-su-dieci-e-in-malattia-18-prof-assenti-da-10-anni-e-in-italia-il-problema-e-lo-stesso-ma-nessuno-o-quasi-lo-dice-stessa-scuola-stessi-guai/",
           "pubDate": "Wed, 12 Aug 2026 16:44:31 +0000",
@@ -62,24 +80,6 @@
           "link": "https://www.orizzontescuola.it/mini-call-veloce-dove-si-svolge-e-come-si-compila-la-domanda-question-time-con-cozzetto-anief-live-venerdi-14-agosto-alle-1430/",
           "pubDate": "Wed, 12 Aug 2026 15:57:52 +0000",
           "description": "Appuntamento speciale con Question Time, il format di consulenza in onda sui canali social di Orizzonte Scuola (Facebook e YouTube) alla vigilia di Ferragosto.…"
-        },
-        {
-          "title": "Stipendi scuola, Anief chiede 150 euro in più dal 2027 per recupero gap con PA",
-          "link": "https://www.orizzontescuola.it/stipendi-scuola-anief-chiede-150-euro-in-piu-dal-2027-per-recupero-gap-con-pa/",
-          "pubDate": "Wed, 12 Aug 2026 15:48:24 +0000",
-          "description": "Marcello Pacifico, presidente nazionale del sindacato Anief, ha avanzato una richiesta formale per l'aumento degli stipendi del personale del comparto istruzion…"
-        },
-        {
-          "title": "GPS 2026, perché compaiono ancora docenti già di ruolo. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/gps-2026-perche-compaiono-ancora-docenti-gia-di-ruolo-pillole-di-question-time/",
-          "pubDate": "Wed, 12 Aug 2026 15:41:18 +0000",
-          "description": "Nel Question Time del 10 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Sonia Cannas, docente ed esperta in normativa sc…"
-        },
-        {
-          "title": "Novara: “Se un alunno prende un 3, poi passa al 5 e infine passa al 7, per me è fuori discussione che la sua valutazione è 7”",
-          "link": "https://www.orizzontescuola.it/novara-se-un-alunno-prende-un-3-poi-passa-al-5-e-infine-passa-al-7-per-me-e-fuori-discussione-che-la-sua-valutazione-e-7/",
-          "pubDate": "Wed, 12 Aug 2026 15:29:50 +0000",
-          "description": "\"Ma noi valutiamo Sinner per come era a 12 anni?\" Con questa domanda provocatoria, il pedagogista Daniele Novara si interroga, su Facebook, su un tema cruciale…"
         }
       ]
     },
