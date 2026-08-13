@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-13T07:39:56+00:00",
+  "updatedAt": "2026-08-13T09:16:46+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Immissioni in ruolo ATA 2026/27, al via le domande per la scelta delle sedi. Attenzione ad avvisi e scadenze [AGGIORNATO]",
+          "link": "https://www.orizzontescuola.it/immissioni-in-ruolo-ata-2026-27-al-via-le-domande-per-la-scelta-delle-sedi-attenzione-ad-avvisi-e-scadenze/",
+          "pubDate": "Thu, 13 Aug 2026 08:11:07 +0000",
+          "description": "Sono partite le procedure per le immissioni in ruolo del personale ATA per l’anno scolastico 2026/2027. Gli Uffici scolastici territoriali stanno pubblicando gl…"
+        },
+        {
+          "title": "ATA 24 mesi 2026, ecco le graduatorie definitive [AGGIORNATO]",
+          "link": "https://www.orizzontescuola.it/ata-24-mesi-ecco-le-prime-graduatorie-provvisorie-reclamo-entro-10-giorni-in-aggiornamento/",
+          "pubDate": "Thu, 13 Aug 2026 08:06:19 +0000",
+          "description": "Sono in pubblicazione le graduatorie provvisorie ATA 24 mesi, valide per l’anno scolastico 2026/27. Le graduatorie definitive ATA 24 mesi saranno utilizzate per…"
+        },
+        {
           "title": "Rinuncia al ruolo dagli elenchi regionali: nessuna sanzione su concorsi o GPS. Pillole di Question Time",
           "link": "https://www.orizzontescuola.it/rinuncia-al-ruolo-dagli-elenchi-regionali-nessuna-sanzione-su-concorsi-o-gps-pillole-di-question-time/",
           "pubDate": "Thu, 13 Aug 2026 07:26:11 +0000",
@@ -64,22 +76,10 @@
           "description": "Tre webinar gratuiti per accompagnare la presa di servizio, conoscere diritti e adempimenti e affrontare con maggiore consapevolezza il nuovo incarico L’ingress…"
         },
         {
-          "title": "Abbandono scolastico precoce, l’UE al 9,1%, l’Italia al 10. Abbandonano più i ragazzi che le ragazze. I dati Eurostat",
+          "title": "Abbandono scolastico precoce, l’UE al 9,1. I ragazzi lasciano più delle ragazze. I dati Eurostat",
           "link": "https://www.orizzontescuola.it/abbandono-scolastico-precoce-lue-al-91-litalia-al-10-abbandonano-piu-i-ragazzi-che-le-ragazze-i-dati-eurostat/",
           "pubDate": "Thu, 13 Aug 2026 06:10:33 +0000",
           "description": "L’Europa si avvicina all’obiettivo fissato per il 2030 sulla dispersione scolastica, ma l’uscita precoce dai percorsi di istruzione continua a mostrare differen…"
-        },
-        {
-          "title": "Un genitore invia dati sensibili del proprio figlio via whatsapp, cosa deve fare il docente. I chiarimenti dell’Avvocato De Martino",
-          "link": "https://www.orizzontescuola.it/un-genitore-invia-dati-sensibili-del-proprio-figlio-ad-un-docente-via-whatsapp-cosa-deve-fare-il-docente-i-chiarimenti-dellavvocato-de-martino/",
-          "pubDate": "Thu, 13 Aug 2026 06:00:11 +0000",
-          "description": "Un genitore può comunicare a un docente tramite WhatsApp informazioni sensibili riguardanti il proprio figlio ? La domanda è stata posta da un lettore nel corso…"
-        },
-        {
-          "title": "Mini call veloce dal 14 agosto ore 14.00: ecco l’elenco dei posti disponibili, solo infanzia e primaria [AGGIORNATO]",
-          "link": "https://www.orizzontescuola.it/mini-call-veloce-dal-14-agosto-ore-14-00-ecco-lelenco-dei-posti-disponibili-aggiornato/",
-          "pubDate": "Thu, 13 Aug 2026 05:48:46 +0000",
-          "description": "Mini call veloce per l'assunzione di docenti a.s. 2026/27 su posti sostegno. Dopo lo scorrimento della prima fascia GPS sostegno, avvenuta solo in 7 regione e s…"
         }
       ]
     },
