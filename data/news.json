@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-13T19:07:18+00:00",
+  "updatedAt": "2026-08-13T20:49:01+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "ATA 24 mesi 2026, ecco le graduatorie definitive [AGGIORNATO]",
+          "link": "https://www.orizzontescuola.it/ata-24-mesi-ecco-le-prime-graduatorie-provvisorie-reclamo-entro-10-giorni-in-aggiornamento/",
+          "pubDate": "Thu, 13 Aug 2026 19:42:19 +0000",
+          "description": "Sono in pubblicazione le graduatorie provvisorie ATA 24 mesi, valide per l’anno scolastico 2026/27. Le graduatorie definitive ATA 24 mesi saranno utilizzate per…"
+        },
+        {
           "title": "Immissioni in ruolo ATA 2026/27, al via le domande per la scelta delle sedi. Attenzione ad avvisi e scadenze [AGGIORNATO]",
           "link": "https://www.orizzontescuola.it/immissioni-in-ruolo-ata-2026-27-al-via-le-domande-per-la-scelta-delle-sedi-attenzione-ad-avvisi-e-scadenze/",
           "pubDate": "Thu, 13 Aug 2026 18:33:07 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/mini-call-veloce-dal-14-agosto-ore-14-00-ecco-lelenco-dei-posti-disponibili-aggiornato/",
           "pubDate": "Thu, 13 Aug 2026 16:52:46 +0000",
           "description": "Mini call veloce per l'assunzione di docenti a.s. 2026/27 su posti sostegno. Dopo lo scorrimento della prima fascia GPS sostegno, avvenuta solo in 7 regione e s…"
-        },
-        {
-          "title": "Assunzioni sostegno a.s. 2026/27: si chiude scorrimento GPS sostegno, si apre la mini mini call veloce",
-          "link": "https://www.orizzontescuola.it/assunzioni-sostegno-a-s-2026-27-si-chiude-scorrimento-gps-sostegno-si-apre-la-mini-mini-call-veloce/",
-          "pubDate": "Thu, 13 Aug 2026 16:16:58 +0000",
-          "description": "Assunzioni su posto sostegno per l'a.s. 2026/27: sulla base della timeline proposta dal Ministero nell'allegato A, si chiude oggi 13 agosto lo scorrimento della…"
         }
       ]
     },
