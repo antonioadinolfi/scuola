@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-13T02:19:41+00:00",
+  "updatedAt": "2026-08-13T05:43:13+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,24 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Reware: computer aziendali rigenerati da 300 € con la Carta del Docente",
+          "link": "https://www.orizzontescuola.it/reware-computer-aziendali-rigenerati-da-300-e-con-la-carta-del-docente-2/",
+          "pubDate": "Thu, 13 Aug 2026 05:40:28 +0000",
+          "description": "Se lavori nella scuola, sai quanto sia importante avere un computer affidabile senza spendere una fortuna. Reware offre PC aziendali di fascia alta, completamen…"
+        },
+        {
+          "title": "Agenda del docente di Scienze Motorie 2026/2027 di Universal Kinesiology: uno strumento pensato per organizzare lezioni, UDA e valutazioni",
+          "link": "https://www.orizzontescuola.it/agenda-del-docente-di-scienze-motorie-2026-2027-di-universal-kinesiology-uno-strumento-pensato-per-organizzare-lezioni-uda-e-valutazioni/",
+          "pubDate": "Thu, 13 Aug 2026 05:35:33 +0000",
+          "description": "Dalla programmazione delle attività alla gestione delle classi, passando per valutazioni, Unità di Apprendimento e impegni scolastici: nasce un’agenda progettat…"
+        },
+        {
+          "title": "La classe in equilibrio: strategie per gestire conflitti, richiami e disattenzione. Corso pratico per docenti",
+          "link": "https://www.orizzontescuola.it/la-classe-in-equilibrio-strategie-per-gestire-conflitti-richiami-e-disattenzione-corso-pratico-per-docenti/",
+          "pubDate": "Thu, 13 Aug 2026 03:21:29 +0000",
+          "description": "Gestire una classe oggi richiede molto più della semplice applicazione di regole o richiami. Disattenzione, conflitti, difficoltà nel coinvolgere gli studenti,…"
+        },
+        {
           "title": "Educazione sessuo-affettiva a scuola, referendum contro la legge Valditara: oltre 105mila firme in una settimana",
           "link": "https://www.orizzontescuola.it/educazione-sessuo-affettiva-a-scuola-referendum-contro-la-legge-valditara-oltre-105mila-firme-in-una-settimana/",
           "pubDate": "Wed, 12 Aug 2026 19:16:08 +0000",
@@ -62,24 +80,6 @@
           "link": "https://www.orizzontescuola.it/niente-smartphone-fino-ai-14-anni-la-scelta-controcorrente-di-giovanna-mezzogiorno-per-i-suoi-figli-gemelli/",
           "pubDate": "Wed, 12 Aug 2026 17:50:18 +0000",
           "description": "L'approccio di Giovanna Mezzogiorno alla tecnologia per i suoi gemelli Leone e Zeno è netto e consapevole: nessuno smartphone, nessun accesso a Internet, almeno…"
-        },
-        {
-          "title": "Caldo estremo, aule senza clima e precarietà docente, la scuola estiva ha dei limiti. Sofia: “Ci vogliono parchi, centri estivi e luoghi verdi”",
-          "link": "https://www.orizzontescuola.it/caldo-estremo-aule-senza-clima-e-precarieta-docente-la-scuola-estiva-ha-dei-limiti-sofia-ci-vogliono-parchi-centri-estivi-e-luoghi-verdi/",
-          "pubDate": "Wed, 12 Aug 2026 17:43:56 +0000",
-          "description": "Ogni estate il dibattito si riaccende con puntualità e rimbalza in continuazione su tante pagine social: da un lato le critiche rivolte al mondo della scuola pe…"
-        },
-        {
-          "title": "In Germania un insegnante su dieci è in malattia (18 prof assenti da 10 anni!). E in Italia? Il problema è lo stesso, ma nessuno (o quasi) lo dice: stessa scuola, stessi guai",
-          "link": "https://www.orizzontescuola.it/in-germania-un-insegnante-su-dieci-e-in-malattia-18-prof-assenti-da-10-anni-e-in-italia-il-problema-e-lo-stesso-ma-nessuno-o-quasi-lo-dice-stessa-scuola-stessi-guai/",
-          "pubDate": "Wed, 12 Aug 2026 16:44:31 +0000",
-          "description": "L'anno scolastico in Germania è già in affanno, e non è solo questione di pochi supplenti. Il problema è strutturale, profondo, e assomiglia in modo inquietante…"
-        },
-        {
-          "title": "Immissioni in ruolo docenti 2026/27, nuova suddivisione dei posti [rettifica Lazio]",
-          "link": "https://www.orizzontescuola.it/immissioni-in-ruolo-docenti-2026-27-ecco-il-contingente-46-642-posti-e-la-suddivisione-per-regione/",
-          "pubDate": "Wed, 12 Aug 2026 16:16:40 +0000",
-          "description": "Il contingente autorizzato dal MEF per le assunzioni del personale docente dell'a.s. 2026/27 è di 46.642 posti. Ecco le modalità operative per la distribuzione…"
         }
       ]
     },
