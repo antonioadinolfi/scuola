@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-14T16:57:50+00:00",
+  "updatedAt": "2026-08-14T18:59:06+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Dichiarò una laurea inesistente e vinse il concorso. La Corte dei Conti: non si può processare due volte, anche per il danno erariale. La Procura perde l’appello sui 261mila euro",
+          "link": "https://www.orizzontescuola.it/dichiaro-una-laurea-inesistente-e-vinse-il-concorso-la-corte-dei-conti-non-si-puo-processare-due-volte-anche-per-il-danno-erariale-la-procura-perde-lappello-sui-261mila-euro/",
+          "pubDate": "Fri, 14 Aug 2026 17:54:23 +0000",
+          "description": "Un uomo si presenta a un concorso pubblico dichiarando di avere una laurea in Giurisprudenza e un dottorato di ricerca. Vince, viene assunto e per sette anni e…"
+        },
+        {
+          "title": "Pacifico (ANIEF): “Sì a congedo mestruale di 3 giorni per studentesse e lavoratrici per dismenorrea”",
+          "link": "https://www.orizzontescuola.it/pacifico-anief-si-a-congedo-mestruale-di-3-giorni-per-studentesse-e-lavoratrici-per-dismenorrea/",
+          "pubDate": "Fri, 14 Aug 2026 17:22:20 +0000",
+          "description": "La discussione sul cosiddetto “congedo mestruale” sta entrando nel vivo anche in Italia, grazie alla proposta di legge, attualmente all’esame della VII Commissi…"
+        },
+        {
           "title": "Ci sono state tante immissioni in ruolo di docenti, ma le supplenze non scompariranno. Pillole di Question Time",
           "link": "https://www.orizzontescuola.it/ci-sono-state-tante-immissioni-in-ruolo-di-docenti-ma-le-supplenze-non-scompariranno-pillole-di-question-time/",
           "pubDate": "Fri, 14 Aug 2026 16:28:13 +0000",
@@ -68,18 +80,6 @@
           "link": "https://www.orizzontescuola.it/mini-call-veloce-2660-posti-in-lombardia-elenco-delle-sedi-disponibili-provincia-per-provincia-scarica/",
           "pubDate": "Fri, 14 Aug 2026 15:31:08 +0000",
           "description": "Al via la procedura della mini call veloce. Ci sarà tempo, per inoltrare la domanda, fino alle 12:00 del 19 agosto. Dai bollettini diffusi dagli USR, i posti so…"
-        },
-        {
-          "title": "Posizioni economiche ATA, attribuzioni e arretrati attesi in autunno. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/posizioni-economiche-ata-attribuzioni-e-arretrati-attesi-in-autunno-pillole-di-question-time/",
-          "pubDate": "Fri, 14 Aug 2026 14:38:42 +0000",
-          "description": "Nel Question Time del 7 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Alberico Sorrentino (ANIEF-Condir), è stato affro…"
-        },
-        {
-          "title": "Maraini: “Non è possibile che gli insegnanti siano pagati meno di uno spazzino”",
-          "link": "https://www.orizzontescuola.it/maraini-non-e-possibile-che-gli-insegnanti-siano-pagati-meno-di-uno-spazzino/",
-          "pubDate": "Fri, 14 Aug 2026 14:05:22 +0000",
-          "description": "Nel corso dell'intervista per Orizzonte Scuola, la scrittrice Dacia Maraini ha sollevato una questione che da decenni accompagna il dibattito sulla scuola pubbl…"
         }
       ]
     },
