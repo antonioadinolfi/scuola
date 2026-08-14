@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-14T11:00:16+00:00",
+  "updatedAt": "2026-08-14T13:14:57+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,30 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Smishing con l’AI, l’allarme INPS: truffe via SMS sempre più sofisticate. Come riconoscerle e difendersi",
+          "link": "https://www.orizzontescuola.it/smishing-con-lai-lallarme-inps-truffe-via-sms-sempre-piu-sofisticate-come-riconoscerle-e-difendersi/",
+          "pubDate": "Fri, 14 Aug 2026 12:47:43 +0000",
+          "description": "Una nuova campagna di smishing a tema INPS sfrutta anche l’intelligenza artificiale per rendere più credibili i tentativi di frode e ottenere dati e documenti p…"
+        },
+        {
+          "title": "Mini call veloce, al via la procedura: 3.931 posti disponibili. Disponibilità regione per regione (scarica PDF) e GUIDA ufficiale del Ministero",
+          "link": "https://www.orizzontescuola.it/mini-call-veloce-si-parte-alle-1400-quali-posti-disponibili-e-dove-non-ce-disponibilita-tutte-le-info-utili/",
+          "pubDate": "Fri, 14 Aug 2026 12:00:25 +0000",
+          "description": "Si parte oggi, venerdì 14 agosto. Il Ministero ha aperto ufficialmente la piattaforma telematica per la \"mini call veloce\" destinata ai posti di sostegno rimast…"
+        },
+        {
+          "title": "Mini call veloce dal 14 agosto ore 14.00: ecco l’elenco dei posti disponibili, solo infanzia e primaria [AGGIORNATO]",
+          "link": "https://www.orizzontescuola.it/mini-call-veloce-dal-14-agosto-ore-14-00-ecco-lelenco-dei-posti-disponibili-aggiornato/",
+          "pubDate": "Fri, 14 Aug 2026 11:28:46 +0000",
+          "description": "Mini call veloce per l'assunzione di docenti a.s. 2026/27 su posti sostegno. Dopo lo scorrimento della prima fascia GPS sostegno, avvenuta solo in 7 regioni e s…"
+        },
+        {
+          "title": "Scuole italiane all’estero, le assenze si coprono con ore eccedenti del personale già in servizio. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/scuole-italiane-allestero-le-assenze-si-coprono-con-ore-eccedenti-del-personale-gia-in-servizio-pillole-di-question-time/",
+          "pubDate": "Fri, 14 Aug 2026 11:06:29 +0000",
+          "description": "Nel Question Time dell’11 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Salvatore Fina (ANIEF), è stato affrontato il t…"
+        },
+        {
           "title": "Assegno Unico agosto 2026, pagamento previsto dopo Ferragosto",
           "link": "https://www.orizzontescuola.it/assegno-unico-agosto-2026-pagamento-previsto-dopo-ferragosto/",
           "pubDate": "Fri, 14 Aug 2026 10:55:50 +0000",
@@ -56,30 +80,6 @@
           "link": "https://www.orizzontescuola.it/terremoto-a-napoli-380mila-euro-per-le-scuole-il-sindaco-sblocca-i-fondi-per-i-lavori/",
           "pubDate": "Fri, 14 Aug 2026 09:45:51 +0000",
           "description": "Il terremoto di magnitudo 4.7 che ha scosso Napoli e i comuni limitrofi lo scorso 31 luglio ha lasciato il segno. Non solo paura e notti passate all'aperto, ma…"
-        },
-        {
-          "title": "TFA sostegno, formazione e specializzazione resta importante anche senza ruolo. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/tfa-sostegno-formazione-e-specializzazione-resta-importante-anche-senza-ruolo-pillole-di-question-time/",
-          "pubDate": "Fri, 14 Aug 2026 09:31:33 +0000",
-          "description": "Nel Question Time del 10 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Sonia Cannas, docente ed esperta in normativa sc…"
-        },
-        {
-          "title": "Bollo sugli atti digitali della PA, attenzione a come si calcola l’imposta. La risposta dell’Agenzia delle Entrate",
-          "link": "https://www.orizzontescuola.it/bollo-sugli-atti-digitali-della-pa-attenzione-a-come-si-calcola-limposta-la-risposta-dellagenzia-delle-entrate/",
-          "pubDate": "Fri, 14 Aug 2026 09:31:13 +0000",
-          "description": "Un ente pubblico si trova a dover gestire decine di atti e contratti ogni giorno. Tra questi, alcuni vengono redatti e trasmessi esclusivamente in formato elett…"
-        },
-        {
-          "title": "La PA può assumere “consulenti gratis”? La Corte dei Conti dice sì, ma con regole ferree",
-          "link": "https://www.orizzontescuola.it/la-pa-puo-assumere-consulenti-gratis-la-corte-dei-conti-dice-si-ma-con-regole-ferree/",
-          "pubDate": "Fri, 14 Aug 2026 08:44:41 +0000",
-          "description": "Un Comune, come tanti altri, si è trovato a dover affrontare una sfida complessa: portare avanti progetti strategici senza avere in organico le competenze neces…"
-        },
-        {
-          "title": "Afghanistan, UNICEF: “A oltre 2,6 milioni di ragazze negata l’istruzione secondaria dal 2021”",
-          "link": "https://www.orizzontescuola.it/afghanistan-unicef-a-oltre-26-milioni-di-ragazze-negata-listruzione-secondaria-dal-2021/",
-          "pubDate": "Fri, 14 Aug 2026 08:24:45 +0000",
-          "description": "A oltre 2,6 milioni di ragazze in Afghanistan è stata negata l’istruzione secondaria nei cinque anni trascorsi dall’arrivo al potere delle autorità de facto. L'…"
         }
       ]
     },
