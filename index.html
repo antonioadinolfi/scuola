@@ -106,10 +106,10 @@ nav {
 /* ── HERO (asimmetrico: contenuto + sidebar identità) ── */
 .hero {
   background: var(--navy);
-  padding: 4.5rem 3rem 4rem;
+  padding: 2.4rem 3rem 2.3rem;
   display: grid;
   grid-template-columns: 1fr 340px;
-  gap: 4rem;
+  gap: 3.2rem;
   align-items: start;
   position: relative;
   overflow: hidden;
@@ -125,18 +125,18 @@ nav {
 }
 .hero-eyebrow {
   font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px; color: var(--gold);
-  margin-bottom: 1.2rem; font-weight: 600; display: flex; align-items: center; gap: 10px;
+  margin-bottom: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 10px;
 }
 .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); display: inline-block; }
 .hero-name {
   font-family: var(--serif); font-weight: 400;
-  font-size: clamp(2.4rem, 4.6vw, 4.1rem);
-  color: #fff; line-height: 1.06; margin-bottom: 1.1rem; max-width: 15ch;
+  font-size: clamp(2.2rem, 4.2vw, 3.6rem);
+  color: #fff; line-height: 1.05; margin-bottom: 0.8rem; max-width: 15ch;
 }
 .hero-name em { color: var(--gold-light); font-style: italic; }
-.hero-role { font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 1.7rem; letter-spacing: 0.2px; }
-.hero-desc { font-size: 15.5px; color: rgba(255,255,255,0.72); max-width: 540px; line-height: 1.8; margin-bottom: 2rem; }
-.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2.6rem; }
+.hero-role { font-size: 13.5px; color: rgba(255,255,255,0.5); margin-bottom: 1.1rem; letter-spacing: 0.2px; }
+.hero-desc { font-size: 14.5px; color: rgba(255,255,255,0.72); max-width: 540px; line-height: 1.62; margin-bottom: 1.3rem; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.6rem; }
 .tag {
   font-size: 10.5px; letter-spacing: 0.6px; padding: 6px 13px;
   border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.03);
@@ -166,20 +166,14 @@ nav {
   overflow: hidden;
   backdrop-filter: blur(6px);
 }
-.hero-card-photo { width: 100%; aspect-ratio: 4 / 3; position: relative; background: var(--navy2); }
-.hero-card-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
-.hero-card-photo-fallback {
-  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
-  justify-content: center; gap: 10px;
-}
+.hero-card-header { display: flex; justify-content: center; padding: 1.7rem 0 1.4rem; border-bottom: 1px solid var(--border-gold); }
 .avatar-circle {
-  width: 68px; height: 68px; border-radius: 50%; background: rgba(200,150,62,0.14);
+  width: 58px; height: 58px; border-radius: 50%; background: rgba(200,150,62,0.14);
   border: 2px solid rgba(200,150,62,0.3); display: flex; align-items: center; justify-content: center;
-  font-family: var(--serif); font-size: 24px; color: var(--gold-light); font-style: italic;
+  font-family: var(--serif); font-size: 21px; color: var(--gold-light); font-style: italic;
 }
-.photo-label { font-size: 10.5px; color: rgba(255,255,255,0.3); letter-spacing: 1px; text-transform: uppercase; }
-.hero-card-facts { list-style: none; padding: 1.3rem 1.4rem 0.6rem; }
-.hero-card-facts div { padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.hero-card-facts { list-style: none; padding: 1.2rem 1.4rem 0.7rem; }
+.hero-card-facts div { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
 .hero-card-facts div:last-child { border-bottom: none; }
 .hero-card-facts dt {
   font-size: 9.5px; text-transform: uppercase; letter-spacing: 1.4px;
@@ -192,10 +186,10 @@ nav {
   display: grid; grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid var(--border-gold); background: rgba(0,0,0,0.12);
 }
-.hero-card-stats div { text-align: center; padding: 12px 4px; border-right: 1px solid rgba(255,255,255,0.06); }
+.hero-card-stats div { text-align: center; padding: 11px 4px; border-right: 1px solid rgba(255,255,255,0.06); }
 .hero-card-stats div:last-child { border-right: none; }
 .hero-card-stats strong {
-  display: block; font-family: var(--serif); font-size: 1.3rem; color: var(--gold-light); line-height: 1; margin-bottom: 4px;
+  display: block; font-family: var(--serif); font-size: 1.25rem; color: var(--gold-light); line-height: 1; margin-bottom: 4px;
 }
 .hero-card-stats span { font-size: 8.5px; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.6px; }
 
@@ -203,7 +197,15 @@ nav {
 .container { max-width: var(--container-max); margin: 0 auto; padding: var(--space-section) var(--container-pad); }
 
 /* ── SECTION HEADER ── */
-.section-header { margin-bottom: 2.2rem; }
+.hp-section { margin-bottom: 2.6rem; }
+.resource-sub {
+  border-left: 3px solid var(--border-gold); padding-left: 1.4rem; margin-top: 1.8rem;
+}
+.resource-sub-label {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 1.4px; color: var(--gold);
+  font-weight: 600; margin-bottom: 0.5rem;
+}
+.section-header { margin-bottom: 1.8rem; }
 .section-eyebrow {
   display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem;
 }
@@ -218,9 +220,10 @@ nav {
 .section-sub { font-size: 13.5px; color: var(--text-muted); margin-top: 0.5rem; max-width: 60ch; }
 
 /* ── TOOL GRID (strumenti didattici, stile editoriale numerato) ── */
-.tool-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 2.8rem; }
+.tool-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 2.2rem; }
+.tool-grid-2up { grid-template-columns: repeat(2, 1fr); }
 .tool-card {
-  background: var(--white); padding: 1.6rem 1.5rem; display: flex; flex-direction: column;
+  background: var(--white); padding: 1.3rem 1.3rem; display: flex; flex-direction: column;
   transition: background var(--transition-base);
 }
 .tool-card:hover { background: var(--cream); }
@@ -244,7 +247,7 @@ nav {
 .pull-quote cite { display: block; margin-top: 10px; font-family: var(--sans); font-style: normal; font-size: 12px; color: var(--text-muted); letter-spacing: 0.5px; }
 
 /* ── ACTIVITY GRID (aree di attività) ── */
-.activity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 2.6rem; }
+.activity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 2rem; }
 .activity-block { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); border-top: 3px solid var(--gold); padding: 1.5rem; box-shadow: var(--shadow); }
 .activity-block.alt { border-top-color: var(--navy3); }
 .activity-h { font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--navy); margin-bottom: 1rem; }
@@ -252,6 +255,18 @@ nav {
 .activity-list li { font-size: 13px; color: var(--text-muted); padding: 7px 0; border-bottom: 1px solid var(--cream2); display: flex; align-items: center; gap: 10px; line-height: 1.5; }
 .activity-list li:last-child { border: none; padding-bottom: 0; }
 .bullet { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+/* ── ACCESSO RAPIDO ── */
+.quick-access-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 2rem; }
+.quick-card {
+  display: flex; flex-direction: column; gap: 5px; background: var(--white);
+  border: 1px solid var(--border); border-radius: var(--radius); padding: 0.9rem 0.95rem;
+  box-shadow: var(--shadow); transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+.quick-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); border-color: var(--border-gold); }
+.quick-card-icon { font-size: 20px; }
+.quick-card-h { font-weight: 600; font-size: 12.5px; color: var(--navy); }
+.quick-card-p { font-size: 11.5px; color: var(--text-muted); line-height: 1.45; }
 
 /* ── CALENDARIO ── */
 .calendar-block { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 1.5rem; margin-bottom: 3.4rem; }
@@ -269,8 +284,8 @@ nav {
 .calendar-preview-btn:hover { text-decoration: underline; }
 
 /* ── GLOSSARY TEASER (split, non più a gradiente) ── */
-.glossary-block { display: grid; grid-template-columns: 1.4fr 1fr; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 3.4rem; border: 1px solid var(--border-gold); }
-.glossary-copy { background: var(--navy); padding: 2.4rem; position: relative; }
+.glossary-block { display: grid; grid-template-columns: 1.4fr 1fr; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 0; border: 1px solid var(--border-gold); }
+.glossary-copy { background: var(--navy); padding: 1.8rem 2rem; position: relative; }
 .glossary-copy::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent 70%); }
 .glossary-title { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; color: var(--gold-light); margin-bottom: 0.6rem; }
 .glossary-desc { font-size: 13.5px; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 42ch; margin-bottom: 1.3rem; }
@@ -279,15 +294,15 @@ nav {
 .glossary-lbl { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 6px; }
 
 /* ── NEWS STRIP ── */
-.news-strip { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 1rem; box-shadow: var(--shadow); }
-.news-header { background: var(--navy2); padding: 1.1rem 1.5rem; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border-gold); }
-.news-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
-.news-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.7); }
+.news-strip { background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 1rem; }
+.news-header { background: var(--cream2); padding: 0.6rem 1.1rem; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border); }
+.news-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+.news-title { font-size: 10.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); }
 .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
-.news-col { padding: 1.2rem 1.4rem; border-right: 1px solid var(--border); }
+.news-col { padding: 0.75rem 1rem; border-right: 1px solid var(--border); }
 .news-col:last-child { border-right: none; }
-.news-col-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--gold); margin-bottom: 0.7rem; }
-.news-item { font-size: 12.5px; color: var(--text-muted); padding: 6px 0; border-bottom: 1px solid var(--cream2); line-height: 1.45; cursor: pointer; transition: color .15s; }
+.news-col-title { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); margin-bottom: 0.5rem; opacity: 0.85; }
+.news-item { font-size: 11.5px; color: var(--text-muted); padding: 5px 0; border-bottom: 1px solid var(--cream2); line-height: 1.4; cursor: pointer; transition: color .15s; }
 .news-item:last-child { border: none; padding-bottom: 0; }
 .news-item:hover { color: var(--navy); }
 
@@ -304,6 +319,61 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
 .footer-bottom strong { color: rgba(255,255,255,0.6); font-weight: 500; }
 
 /* ── RESPONSIVE ── */
+/* ── HERO STEM (banner introduttivo a piena larghezza, prima di #progetti) ──
+   Tecnica di "full-bleed" per uscire dai margini di .container senza
+   alterarne la struttura HTML: nessuna modifica al markup esistente. */
+.hero-stem {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-bottom: 3.4rem;
+  height: clamp(405px, 44.5vw, 660px);
+  background-image:
+    linear-gradient(to right, rgba(13,27,46,0.94) 0%, rgba(13,27,46,0.72) 32%, rgba(13,27,46,0.28) 62%, rgba(13,27,46,0.02) 82%),
+    url('immagini/hero_stem.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero-stem-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); width: 100%; }
+.hero-stem-content { max-width: 520px; }
+.hero-stem-eyebrow {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px;
+  color: var(--gold-light); font-weight: 600; margin-bottom: 0.6rem;
+}
+.hero-stem-title {
+  font-family: var(--serif); font-weight: 400; color: #fff;
+  font-size: clamp(3rem, 7vw, 5.2rem); line-height: 1; letter-spacing: -0.5px;
+  margin-bottom: 0.7rem;
+}
+.hero-stem-text { font-size: 14.5px; color: rgba(255,255,255,0.82); line-height: 1.6; max-width: 46ch; margin-bottom: 1.6rem; }
+.hero-stem-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .hero-stem { height: clamp(340px, 59vw, 488px); background-position: 62% center; }
+  .hero-stem-content { max-width: 420px; }
+  .hero-stem-title { font-size: clamp(2.4rem, 8vw, 3.4rem); }
+}
+@media (max-width: 600px) {
+  .hero-stem {
+    height: auto; min-height: 445px; padding: 2.4rem 0;
+    background-image:
+      linear-gradient(180deg, rgba(13,27,46,0.55) 0%, rgba(13,27,46,0.88) 55%, rgba(13,27,46,0.97) 100%),
+      url('immagini/hero_stem.jpg');
+    background-position: 78% center;
+    align-items: flex-end;
+  }
+  .hero-stem-content { max-width: 100%; }
+  .hero-stem-title { font-size: clamp(2.1rem, 13vw, 2.8rem); }
+  .hero-stem-text { font-size: 13.5px; }
+  .hero-stem-btns { flex-direction: column; align-items: stretch; }
+  .hero-stem-btns a { text-align: center; }
+}
+
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; padding: 3rem 2rem; gap: 2.2rem; }
   .hero-card { max-width: 380px; }
@@ -317,6 +387,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
   .hamburger { display: flex; }
   .tool-grid { grid-template-columns: 1fr 1fr; }
   .activity-grid { grid-template-columns: 1fr; }
+  .quick-access-grid { grid-template-columns: 1fr 1fr; }
   .news-grid { grid-template-columns: 1fr; }
   .news-col { border-right: none; border-bottom: 1px solid var(--border); }
   .news-col:last-child { border-bottom: none; }
@@ -329,6 +400,8 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
 
 @media (max-width: 600px) {
   .tool-grid { grid-template-columns: 1fr; }
+  .tool-grid-2up { grid-template-columns: 1fr; }
+  .quick-access-grid { grid-template-columns: 1fr; }
   .hero-card-stats { grid-template-columns: repeat(2, 1fr); }
   .hero-card-stats div:nth-child(2) { border-right: none; }
 }
@@ -350,10 +423,10 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
 
   <div class="nav-links" id="navLinks">
     <a href="#profilo">Profilo</a>
-    <a href="#strumenti" class="nav-cta">Didattica</a>
-    <a href="#laboratori">Laboratori</a>
+    <a href="#didattica" class="nav-cta">Didattica</a>
+    <a href="#strumenti">Laboratori</a>
     <a href="#progetti">Progetti</a>
-    <a href="glossario.html">Risorse</a>
+    <a href="#laboratori">Risorse</a>
     <a href="#contatti">Contatti</a>
     <a href="https://www.liceoscientificocortese.edu.it" target="_blank">Sito Liceo</a>
   </div>
@@ -363,11 +436,27 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
   </button>
 </nav>
 
+<!-- ── HERO STEM ── -->
+<section class="hero-stem" aria-labelledby="hero-stem-heading">
+  <div class="hero-stem-inner">
+    <div class="hero-stem-content">
+      <p class="hero-stem-eyebrow">Dipartimento di Informatica</p>
+      <h1 id="hero-stem-heading" class="hero-stem-title">STEM</h1>
+      <p class="hero-stem-eyebrow" style="margin-bottom:0.9rem;">Scienza · Tecnologia · Ingegneria · Matematica</p>
+      <p class="hero-stem-text">Costruiamo oggi le competenze per il futuro di domani.</p>
+      <div class="hero-stem-btns">
+        <a href="#progetti" class="btn-primary">Scopri i nostri progetti</a>
+        <a href="#attivita-stem" class="btn-secondary">Esplora le attività</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="home">
   <div class="hero-main">
     <p class="hero-eyebrow">Dipartimento di Informatica · Classe di concorso A041</p>
-    <h1 class="hero-name">Didattica, tecnologia<br>e intelligenza <em>artificiale</em></h1>
+    <h2 class="hero-name">Didattica, tecnologia<br>e intelligenza <em>artificiale</em></h2>
     <p class="hero-role">Prof. Antonio Adinolfi · Liceo Scientifico "Nino Cortese", Maddaloni (CE)</p>
     <p class="hero-desc">
       Un ambiente digitale per lezioni, esercitazioni e progetti STEM: materiali didattici,
@@ -384,22 +473,14 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
       <span class="tag">AI &amp; Robotica</span>
     </div>
     <div class="hero-btns">
-      <a href="#strumenti" class="btn-primary">Vai alla Didattica</a>
+      <a href="#didattica" class="btn-primary">Vai alla Didattica</a>
       <a href="pubblicazioni.html" class="btn-secondary">Pubblicazioni</a>
     </div>
   </div>
 
   <aside class="hero-card" id="profilo">
-    <div class="hero-card-photo">
-      <img
-        src="immagini/foto_adinolfi.jpg"
-        alt="Prof. Antonio Adinolfi"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-      >
-      <div class="hero-card-photo-fallback" style="display:none">
-        <div class="avatar-circle">AA</div>
-        <span class="photo-label">Foto docente</span>
-      </div>
+    <div class="hero-card-header">
+      <div class="avatar-circle">AA</div>
     </div>
     <dl class="hero-card-facts">
       <div>
@@ -413,6 +494,10 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
       <div>
         <dt>Ricevimento</dt>
         <dd>Mercoledì 10:00–11:00, su appuntamento</dd>
+      </div>
+      <div>
+        <dt>Ruoli e coordinamento</dt>
+        <dd>Coordinatore INVALSI – valutazione nazionale 2II · Formazione AICA, competenze digitali certificate</dd>
       </div>
     </dl>
     <div class="hero-card-stats">
@@ -428,18 +513,95 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
 <main id="main">
 <div class="container">
 
-  <!-- ── STRUMENTI ── -->
-  <div id="strumenti">
+  <!-- ── ACCESSO RAPIDO ── -->
+  <div id="accesso-rapido" class="hp-section">
     <div class="section-header">
-      <div class="section-eyebrow">
-        <span class="section-num">01 —</span>
-        <span class="section-badge restricted">🔒 Accesso riservato @lscortese.com</span>
-      </div>
-      <h2 class="section-title">Strumenti Didattici</h2>
-      <p class="section-sub">L'area didattica è riservata a studenti e personale autorizzati del Liceo "Nino Cortese": l'accesso richiede il login con l'account Google istituzionale.</p>
+      <div class="section-eyebrow"><span class="section-num">01 —</span></div>
+      <h2 class="section-title">Accesso Rapido</h2>
+      <p class="section-sub">I punti di ingresso principali del sito: materiali, laboratori, progetti e calendario.</p>
+    </div>
+    <div class="quick-access-grid">
+      <a href="#laboratori" class="quick-card">
+        <span class="quick-card-icon">📚</span>
+        <span class="quick-card-h">Materiali Didattici</span>
+        <span class="quick-card-p">Dispense, esercizi e risorse.</span>
+      </a>
+      <a href="#strumenti" class="quick-card">
+        <span class="quick-card-icon">🧪</span>
+        <span class="quick-card-h">Laboratori Online</span>
+        <span class="quick-card-p">SQL, Python e strumenti interattivi.</span>
+      </a>
+      <a href="#progetti" class="quick-card">
+        <span class="quick-card-icon">🔬</span>
+        <span class="quick-card-h">Progetti</span>
+        <span class="quick-card-p">STEM, PCTO, gare e iniziative.</span>
+      </a>
+      <a href="#data-science-pcto" class="quick-card">
+        <span class="quick-card-icon">📊</span>
+        <span class="quick-card-h">Data Science &amp; PCTO</span>
+        <span class="quick-card-p">Data analysis, IA e percorsi PCTO.</span>
+      </a>
+      <a href="agenda.html" class="quick-card">
+        <span class="quick-card-icon">📅</span>
+        <span class="quick-card-h">Calendario Lezioni</span>
+        <span class="quick-card-p">Orario, verifiche e appuntamenti.</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── DIDATTICA ── -->
+  <div id="didattica" class="hp-section">
+    <div class="section-header">
+      <div class="section-eyebrow"><span class="section-num">02 —</span></div>
+      <h2 class="section-title">Didattica</h2>
+      <p class="section-sub">Organizzazione dei contenuti e dell'accesso alle attività didattiche del Dipartimento di Informatica.</p>
     </div>
 
-    <div class="tool-grid">
+    <div class="activity-grid">
+      <div class="activity-block">
+        <div class="activity-h">Didattica</div>
+        <ul class="activity-list">
+          <li><span class="bullet"></span>Informatica Liceo Scientifico (Scienze Applicate)</li>
+          <li><span class="bullet"></span>Laboratori di coding Python e SQL in browser</li>
+          <li><span class="bullet"></span>Glossario interattivo con ricerca e filtro alfabetico</li>
+          <li><span class="bullet"></span>Agenda lezioni e materiali riservati per classe</li>
+          <li><span class="bullet"></span>Accesso OAuth Google istituzionale @lscortese.com</li>
+        </ul>
+      </div>
+      <div class="activity-block alt">
+        <div class="activity-h">Area Riservata Studenti</div>
+        <ul class="activity-list">
+          <li><span class="bullet"></span>Accesso con account Google @lscortese.com</li>
+          <li><span class="bullet"></span>Esercizi guidati e laboratori pratici</li>
+          <li><span class="bullet"></span>Verifica consegne e feedback immediato</li>
+          <li><span class="bullet"></span>Risorse STEM e approfondimenti</li>
+          <li><span class="bullet"></span>PanQuiz – quiz e verifiche interattive</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tool-grid" style="grid-template-columns: 1fr; max-width: 420px; margin-top: 0;">
+      <a href="classe.html#agenda" class="tool-card">
+        <div class="tool-card-top"><span class="tool-num">01</span><span class="tool-icon">📅</span></div>
+        <div class="tool-h">Agenda Lezioni</div>
+        <p class="tool-p">Calendario settimanale delle lezioni per classe. Accesso rapido agli esercizi collegati a ogni sessione.</p>
+        <div class="tool-foot"><span class="tool-lock">🔒 Riservato</span><span class="tool-link">Apri →</span></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── LABORATORI ONLINE ── -->
+  <div id="strumenti" class="hp-section">
+    <div class="section-header">
+      <div class="section-eyebrow">
+        <span class="section-num">03 —</span>
+        <span class="section-badge restricted">🔒 Accesso riservato @lscortese.com</span>
+      </div>
+      <h2 class="section-title">Laboratori Online</h2>
+      <p class="section-sub">Gli strumenti interattivi sono riservati a studenti e personale autorizzati del Liceo "Nino Cortese": l'accesso richiede il login con l'account Google istituzionale.</p>
+    </div>
+
+    <div class="tool-grid tool-grid-2up">
       <a href="classe.html" class="tool-card">
         <div class="tool-card-top"><span class="tool-num">01</span><span class="tool-icon">🐍</span></div>
         <div class="tool-h">Python Lab</div>
@@ -458,20 +620,8 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
         <p class="tool-p">Sistema quiz per verifiche in classe. Avvio dedicato per ogni gruppo, modalità kiosk Windows.</p>
         <div class="tool-foot"><span class="tool-lock">🔒 Riservato</span><span class="tool-link">Apri →</span></div>
       </a>
-      <a href="classe.html#agenda" class="tool-card">
-        <div class="tool-card-top"><span class="tool-num">04</span><span class="tool-icon">📅</span></div>
-        <div class="tool-h">Agenda Lezioni</div>
-        <p class="tool-p">Calendario settimanale delle lezioni per classe. Accesso rapido agli esercizi collegati a ogni sessione.</p>
-        <div class="tool-foot"><span class="tool-lock">🔒 Riservato</span><span class="tool-link">Apri →</span></div>
-      </a>
-      <a href="materiali.html" class="tool-card">
-        <div class="tool-card-top"><span class="tool-num">05</span><span class="tool-icon">📚</span></div>
-        <div class="tool-h">Materiali</div>
-        <p class="tool-p">Schede operative, dispense e risorse didattiche organizzate per classe e argomento con accesso Google OAuth.</p>
-        <div class="tool-foot"><span class="tool-lock">🔒 Riservato</span><span class="tool-link">Apri →</span></div>
-      </a>
       <a href="classe.html#stem" class="tool-card">
-        <div class="tool-card-top"><span class="tool-num">06</span><span class="tool-icon">🔬</span></div>
+        <div class="tool-card-top"><span class="tool-num">04</span><span class="tool-icon">🔬</span></div>
         <div class="tool-h">Progetti STEM</div>
         <p class="tool-p">Project work interdisciplinari, RomeCup, iniziative EU e attività di ricerca con gli studenti.</p>
         <div class="tool-foot"><span class="tool-lock">🔒 Riservato</span><span class="tool-link">Apri →</span></div>
@@ -485,44 +635,111 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
     </blockquote>
   </div>
 
-  <!-- ── ATTIVITÀ ── -->
-  <div id="laboratori">
+  <!-- ── PROGETTI ── -->
+  <div id="progetti" class="hp-section">
     <div class="section-header">
-      <div class="section-eyebrow"><span class="section-num">02 —</span></div>
-      <h2 class="section-title">Aree di Attività</h2>
+      <div class="section-eyebrow"><span class="section-num">04 —</span></div>
+      <h2 class="section-title">Progetti</h2>
+      <p class="section-sub">STEM, intelligenza artificiale, data science, PCTO e progetti europei: le iniziative di ricerca e sperimentazione didattica del Dipartimento di Informatica.</p>
+    </div>
+    <div class="activity-grid">
+      <div class="activity-block" id="attivita-stem">
+        <div class="activity-h">STEM &amp; AI</div>
+        <ul class="activity-list">
+          <li><span class="bullet"></span>RomeCup 2026 — AI e Robotica, Sapienza Università di Roma</li>
+          <li><span class="bullet"></span>Progetti interdisciplinari di project work</li>
+          <li><span class="bullet"></span>Adaptive Learning 5.0 — CLAE / F.L.O.W. framework</li>
+        </ul>
+      </div>
+      <div class="activity-block alt" id="data-science-pcto">
+        <div class="activity-h">Data Science &amp; PCTO</div>
+        <ul class="activity-list">
+          <li><span class="bullet"></span>Percorsi PCTO orientati a informatica e ingegneria</li>
+          <li><span class="bullet"></span>Progetti europei e fondi ministeriali (DM 129/2025)</li>
+          <li><span class="bullet"></span>Iniziativa EJERE — Giornale scientifico studentesco</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top: 1.2rem;"><a href="pubblicazioni.html" class="tool-link">Approfondisci su Pubblicazioni →</a></p>
+  </div>
+
+  <!-- ── RISORSE ── -->
+  <div id="laboratori" class="hp-section">
+    <div class="section-header">
+      <div class="section-eyebrow"><span class="section-num">05 —</span></div>
+      <h2 class="section-title">Risorse</h2>
+      <p class="section-sub">Materiali didattici, glossario, aggiornamenti e collegamenti utili.</p>
     </div>
 
-    <div class="activity-grid">
-      <div class="activity-block">
-        <div class="activity-h">Didattica</div>
-        <ul class="activity-list">
-          <li><span class="bullet"></span>Informatica Liceo Scientifico (Scienze Applicate)</li>
-          <li><span class="bullet"></span>Laboratori di coding Python e SQL in browser</li>
-          <li><span class="bullet"></span>Glossario interattivo con ricerca e filtro alfabetico</li>
-          <li><span class="bullet"></span>Agenda lezioni e materiali riservati per classe</li>
-          <li><span class="bullet"></span>Accesso OAuth Google istituzionale @lscortese.com</li>
-        </ul>
+    <div class="tool-grid" style="grid-template-columns: 1fr; max-width: 420px;">
+      <a href="materiali.html" class="tool-card">
+        <div class="tool-card-top"><span class="tool-num">01</span><span class="tool-icon">📚</span></div>
+        <div class="tool-h">Materiali</div>
+        <p class="tool-p">Schede operative, dispense e risorse didattiche organizzate per classe e argomento con accesso Google OAuth.</p>
+        <div class="tool-foot"><span class="tool-lock">🔒 Riservato</span><span class="tool-link">Apri →</span></div>
+      </a>
+    </div>
+
+    <div class="resource-sub">
+      <div class="resource-sub-label">In Risorse</div>
+
+      <!-- ── GLOSSARIO ── -->
+      <div id="glossario">
+        <div class="section-header" style="margin-bottom: 1rem;">
+          <div class="section-eyebrow">
+            <span class="section-badge public">Accesso libero</span>
+          </div>
+          <h3 class="section-title" style="font-size: 1.2rem; margin-top: 0.2rem;">Glossario</h3>
+        </div>
+
+        <div class="glossary-block">
+          <div class="glossary-copy">
+            <div class="glossary-title">Glossario Informatico</div>
+            <p class="glossary-desc">
+              Ricerca immediata tra i termini fondamentali dell'informatica:
+              filtro alfabetico, definizioni essenziali e indice navigabile.
+              Strumento di studio sempre aggiornato, aperto a tutti.
+            </p>
+            <a href="glossario.html" class="btn-primary">Apri Glossario →</a>
+          </div>
+          <div class="glossary-stat">
+            <span class="glossary-num">200+</span>
+            <span class="glossary-lbl">Termini disponibili</span>
+          </div>
+        </div>
       </div>
-      <div class="activity-block alt">
-        <div class="activity-h">Coordinamento e Progetti</div>
-        <ul class="activity-list">
-          <li><span class="bullet"></span>Coordinatore INVALSI – valutazione nazionale 2II</li>
-          <li><span class="bullet"></span>Progetti EU e fondi ministeriali (DM 129/2025)</li>
-          <li><span class="bullet"></span>STEM e RomeCup 2026 – AI e Robotica, Sapienza</li>
-          <li><span class="bullet"></span>Formazione AICA · Competenze digitali certificate</li>
-          <li><span class="bullet"></span>Iniziativa EJERE – Giornale scientifico studentesco</li>
-        </ul>
+
+      <!-- ── NOTIZIE ── -->
+      <div id="notizie" style="margin-top: 1.6rem; display: none;">
+        <div class="section-header" style="margin-bottom: 0.7rem;">
+          <h3 class="section-title" style="font-size: 1.05rem; color: var(--text-muted); font-weight: 500;">Notizie e Aggiornamenti</h3>
+        </div>
+
+        <div class="news-strip">
+          <div class="news-header">
+            <div class="news-dot"></div>
+            <div class="news-title">Feed aggiornati automaticamente</div>
+          </div>
+          <div class="news-grid">
+            <div class="news-col">
+              <div class="news-col-title">Circolari Liceo Cortese</div>
+              <div class="news-item" id="feed-liceo">Caricamento in corso…</div>
+            </div>
+            <div class="news-col">
+              <div class="news-col-title">Orizzonte Scuola</div>
+              <div class="news-item" id="feed-orizzonte">Caricamento in corso…</div>
+            </div>
+            <div class="news-col">
+              <div class="news-col-title">Wired Italia · AI</div>
+              <div class="news-item" id="feed-wired">Caricamento in corso…</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="activity-block">
-        <div class="activity-h">Area Riservata Studenti</div>
-        <ul class="activity-list">
-          <li><span class="bullet"></span>Accesso con account Google @lscortese.com</li>
-          <li><span class="bullet"></span>Esercizi guidati e laboratori pratici</li>
-          <li><span class="bullet"></span>Verifica consegne e feedback immediato</li>
-          <li><span class="bullet"></span>Risorse STEM e approfondimenti</li>
-          <li><span class="bullet"></span>PanQuiz – quiz e verifiche interattive</li>
-        </ul>
-      </div>
+    </div>
+
+    <!-- ── CONTATTI ── -->
+    <div class="activity-grid" style="grid-template-columns: 1fr; max-width: 420px; margin-top: 1.8rem;">
       <div class="activity-block alt" id="contatti">
         <div class="activity-h">Contatti e Riferimenti</div>
         <ul class="activity-list">
@@ -534,7 +751,15 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
         </ul>
       </div>
     </div>
+  </div>
 
+  <!-- ── CALENDARIO ── -->
+  <div id="calendario-sezione" class="hp-section" style="margin-top: 0.4rem;">
+    <div class="section-header">
+      <div class="section-eyebrow"><span class="section-num">06 —</span></div>
+      <h2 class="section-title">Calendario</h2>
+      <p class="section-sub">Prossimi appuntamenti e lezioni in programma.</p>
+    </div>
     <!-- CALENDARIO LEZIONI: PREVIEW -->
     <div class="calendar-block">
       <div class="calendar-h">📅 Calendario Lezioni</div>
@@ -543,92 +768,8 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
       </div>
       <a href="agenda.html" class="calendar-preview-btn">Apri agenda completa →</a>
     </div>
-
-    <!-- ── PROGETTI ── -->
-    <div id="progetti" style="margin-bottom: 3.4rem;">
-      <div class="section-header">
-        <div class="section-eyebrow"><span class="section-num">03 —</span></div>
-        <h2 class="section-title">Progetti</h2>
-        <p class="section-sub">STEM, intelligenza artificiale, data science, PCTO e progetti europei: le iniziative di ricerca e sperimentazione didattica del Dipartimento di Informatica.</p>
-      </div>
-      <div class="activity-grid">
-        <div class="activity-block">
-          <div class="activity-h">STEM &amp; AI</div>
-          <ul class="activity-list">
-            <li><span class="bullet"></span>RomeCup 2026 — AI e Robotica, Sapienza Università di Roma</li>
-            <li><span class="bullet"></span>Progetti interdisciplinari di project work</li>
-            <li><span class="bullet"></span>Adaptive Learning 5.0 — CLAE / F.L.O.W. framework</li>
-          </ul>
-        </div>
-        <div class="activity-block alt">
-          <div class="activity-h">Data Science &amp; PCTO</div>
-          <ul class="activity-list">
-            <li><span class="bullet"></span>Percorsi PCTO orientati a informatica e ingegneria</li>
-            <li><span class="bullet"></span>Progetti europei e fondi ministeriali (DM 129/2025)</li>
-            <li><span class="bullet"></span>Iniziativa EJERE — Giornale scientifico studentesco</li>
-          </ul>
-        </div>
-      </div>
-      <p style="margin-top: 1.2rem;"><a href="pubblicazioni.html" class="tool-link">Approfondisci su Pubblicazioni →</a></p>
-    </div>
-
-    <!-- ── GLOSSARIO ── -->
-    <div id="glossario">
-      <div class="section-header">
-        <div class="section-eyebrow">
-          <span class="section-num">04 —</span>
-          <span class="section-badge public">Accesso libero</span>
-        </div>
-        <h2 class="section-title">Glossario</h2>
-      </div>
-
-      <div class="glossary-block">
-        <div class="glossary-copy">
-          <div class="glossary-title">Glossario Informatico</div>
-          <p class="glossary-desc">
-            Ricerca immediata tra i termini fondamentali dell'informatica:
-            filtro alfabetico, definizioni essenziali e indice navigabile.
-            Strumento di studio sempre aggiornato, aperto a tutti.
-          </p>
-          <a href="glossario.html" class="btn-primary">Apri Glossario →</a>
-        </div>
-        <div class="glossary-stat">
-          <span class="glossary-num">200+</span>
-          <span class="glossary-lbl">Termini disponibili</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── NOTIZIE ── -->
-    <div id="notizie">
-      <div class="section-header">
-        <div class="section-eyebrow"><span class="section-num">05 —</span></div>
-        <h2 class="section-title">Notizie e Aggiornamenti</h2>
-      </div>
-
-      <div class="news-strip">
-        <div class="news-header">
-          <div class="news-dot"></div>
-          <div class="news-title">Feed aggiornati automaticamente</div>
-        </div>
-        <div class="news-grid">
-          <div class="news-col">
-            <div class="news-col-title">Circolari Liceo Cortese</div>
-            <div class="news-item" id="feed-liceo">Caricamento in corso…</div>
-          </div>
-          <div class="news-col">
-            <div class="news-col-title">Orizzonte Scuola</div>
-            <div class="news-item" id="feed-orizzonte">Caricamento in corso…</div>
-          </div>
-          <div class="news-col">
-            <div class="news-col-title">Wired Italia · AI</div>
-            <div class="news-item" id="feed-wired">Caricamento in corso…</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
+
 </div><!-- /container -->
 </main>
 
@@ -644,9 +785,9 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
     </div>
     <div class="footer-col">
       <div class="footer-col-h">Naviga</div>
-      <a href="#strumenti">Didattica</a>
+      <a href="#didattica">Didattica</a>
       <a href="#progetti">Progetti</a>
-      <a href="glossario.html">Risorse</a>
+      <a href="#laboratori">Risorse</a>
       <a href="#notizie">Notizie</a>
       <a href="login.html">Area riservata</a>
     </div>
@@ -719,13 +860,20 @@ function renderNewsItems(elementId, items) {
     .join('');
 }
 
-function renderNewsError() {
-  Object.values(NEWS_SOURCE_TO_ELEMENT_ID).forEach(elementId => {
-    const container = document.getElementById(elementId);
-    if (container) {
-      container.innerHTML = '<div class="news-item"><p>Notizie momentaneamente non disponibili.</p></div>';
-    }
-  });
+function showNewsSection() {
+  const section = document.getElementById('notizie');
+  if (section) section.style.display = '';
+}
+
+function hideNewsSection() {
+  // Visualizzazione condizionale: se non ci sono dati reali (fetch fallita
+  // o feed tutti vuoti), la sezione resta completamente nascosta — nessun
+  // titolo, nessuna card vuota, nessun placeholder residuo. Il sistema di
+  // caricamento (loadNews) e le funzioni di rendering restano intatti e
+  // pronti a mostrare la sezione non appena data/news.json conterrà
+  // articoli reali in un aggiornamento futuro della GitHub Action.
+  const section = document.getElementById('notizie');
+  if (section) section.style.display = 'none';
 }
 
 async function loadNews() {
@@ -740,6 +888,13 @@ async function loadNews() {
     const data = await response.json();
     const feeds = Array.isArray(data.feeds) ? data.feeds : [];
 
+    const hasRealContent = feeds.some(feed => Array.isArray(feed.items) && feed.items.length > 0);
+    if (!hasRealContent) {
+      hideNewsSection();
+      return;
+    }
+    showNewsSection();
+
     feeds.forEach(feed => {
       const elementId = NEWS_SOURCE_TO_ELEMENT_ID[feed.source];
       if (elementId) {
@@ -748,8 +903,9 @@ async function loadNews() {
     });
 
     // Copre il caso di una fonte assente dal JSON (es. struttura futura
-    // diversa): mostra comunque il messaggio discreto invece di lasciare
-    // "Caricamento in corso…" bloccato a schermo.
+    // diversa): mostra comunque un messaggio discreto per quella singola
+    // colonna, dato che le altre colonne hanno contenuti reali e la
+    // sezione è comunque visibile.
     const foundSources = new Set(feeds.map(f => f.source));
     Object.entries(NEWS_SOURCE_TO_ELEMENT_ID).forEach(([source, elementId]) => {
       if (!foundSources.has(source)) {
@@ -758,7 +914,7 @@ async function loadNews() {
     });
   } catch (error) {
     console.error('Impossibile caricare data/news.json:', error);
-    renderNewsError();
+    hideNewsSection();
   }
 }
 

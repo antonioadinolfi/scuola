@@ -162,6 +162,52 @@
             text-align: center;
             border-top: 1px solid #eee;
         }
+
+        /* ── AREA IDENTITARIA AUTORE (navy/oro, coerente con l'identità del sito) ── */
+        .pub-identity {
+            background: var(--color-primary);
+            border-radius: var(--radius-lg, 12px);
+            padding: 1.8rem 2.2rem;
+            margin: 20px 0 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .pub-identity-intro { max-width: 480px; }
+        .pub-identity-eyebrow {
+            font-family: var(--font-sans);
+            font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px;
+            color: var(--color-accent); font-weight: 600; margin: 0 0 0.6rem;
+        }
+        .pub-identity-heading {
+            font-family: var(--font-serif); font-weight: 400; color: #fff;
+            font-size: clamp(1.25rem, 2.2vw, 1.7rem); line-height: 1.35; margin: 0;
+        }
+        .pub-identity-author { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+        .pub-identity-photo {
+            width: 200px; height: 200px; border-radius: 10px; object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.16); display: block;
+        }
+        .pub-identity-photo-fallback {
+            width: 200px; height: 200px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.16);
+            background: rgba(255,255,255,0.04); align-items: center; justify-content: center;
+            font-family: var(--font-serif); font-style: italic; font-size: 34px; color: var(--color-accent-light, var(--color-accent));
+        }
+        .pub-identity-author-text { font-family: var(--font-sans); }
+        .pub-identity-author-name {
+            font-family: var(--font-serif); font-style: italic; color: #fff;
+            font-size: 15.5px; margin-bottom: 5px;
+        }
+        .pub-identity-author-role { font-size: 11.5px; color: rgba(255,255,255,0.55); line-height: 1.55; }
+
+        @media (max-width: 640px) {
+            .pub-identity { flex-direction: column; align-items: flex-start; padding: 1.5rem 1.4rem; }
+            .pub-identity-photo, .pub-identity-photo-fallback { width: 110px; height: 110px; }
+            .pub-identity-photo-fallback { font-size: 20px; }
+            .pub-identity-author { gap: 12px; }
+        }
     </style>
 
 <link rel="manifest" href="manifest.webmanifest"/>
@@ -187,6 +233,28 @@
     </div>
 
     <div class="container">
+
+        <div class="pub-identity">
+            <div class="pub-identity-intro">
+                <p class="pub-identity-eyebrow">Pubblicazioni</p>
+                <h2 class="pub-identity-heading">Ricerca, contributi e materiali<br>del Prof. Antonio Adinolfi</h2>
+            </div>
+            <div class="pub-identity-author">
+                <img
+                    src="immagini/foto_adinolfi.jpg"
+                    alt="Prof. Antonio Adinolfi"
+                    class="pub-identity-photo"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+                >
+                <div class="pub-identity-photo-fallback" style="display:none">AA</div>
+                <div class="pub-identity-author-text">
+                    <div class="pub-identity-author-name">Prof. Antonio Adinolfi</div>
+                    <div class="pub-identity-author-role">Docente di Informatica · A041</div>
+                    <div class="pub-identity-author-role">Liceo Scientifico "Nino Cortese" · Maddaloni</div>
+                </div>
+            </div>
+        </div>
+
         <h1 class="author-title">
             ADINOLFI, ANTONIO <i class="fas fa-microchip"></i>
         </h1>
