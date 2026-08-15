@@ -6,7 +6,7 @@
  * Aggiorna CACHE_VERSION ogni volta che pubblichi modifiche significative.
  */
 
-const CACHE_VERSION = 'adinolfi-v1';
+const CACHE_VERSION = 'adinolfi-v2';
 
 /* ---------------------------------------------------------------
    Asset da pre-cachare all'installazione (shell dell'app).
@@ -24,6 +24,7 @@ const PRECACHE_ASSETS = [
   '/immagini/logo_liceo_embedded.png',
   '/immagini/foto_adinolfi_embedded.png',
   '/immagini/logo_liceo.png',
+  '/immagini/hero_stem.jpg',
   // Font Awesome (da CDN — verrà cachato al primo caricamento,
   // non in pre-cache perché è su dominio esterno)
 ];
