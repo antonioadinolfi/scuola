@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-15T08:33:07+00:00",
+  "updatedAt": "2026-08-15T10:26:44+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,24 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Cile, via alle perquisizioni degli zaini nelle scuole. Il governo difende la legge, studenti in piazza: “È una caccia alle streghe”",
+          "link": "https://www.orizzontescuola.it/cile-via-alle-perquisizioni-degli-zaini-nelle-scuole-il-governo-difende-la-legge-studenti-in-piazza-e-una-caccia-alle-streghe/",
+          "pubDate": "Sat, 15 Aug 2026 09:45:53 +0000",
+          "description": "\"Perché qualcuno dovrebbe avere paura di mostrare cosa c'è nel suo zaino? Chi non ha nulla da nascondere non ha nulla da temere\". L'articolo Cile, via alle perq…"
+        },
+        {
+          "title": "“Il voto? Uccide la passione. Così la scuola è solo un parcheggio”. Barbasophia: “Studenti siano cittadini dal pensiero critico, non scimmie ammaestrate”",
+          "link": "https://www.orizzontescuola.it/il-voto-uccide-la-passione-cosi-la-scuola-e-solo-un-parcheggio-barbasophia-studenti-siano-cittadini-dal-pensiero-critico-non-scimmie-ammaestrate/",
+          "pubDate": "Sat, 15 Aug 2026 09:34:04 +0000",
+          "description": "Oltre 360mila visualizzazioni su YouTube per il video di Matteo Saudino, alias Barbasophia, al TEDx di Castelfranco Veneto. Il video risale a qualche anno fa. S…"
+        },
+        {
+          "title": "Lettori in calo nonostante l’offerta digitale: nel 2024 solo il 57,1% degli italiani legge un libro all’anno",
+          "link": "https://www.orizzontescuola.it/lettori-in-calo-nonostante-lofferta-digitale-nel-2024-solo-il-571-degli-italiani-legge-un-libro-allanno/",
+          "pubDate": "Sat, 15 Aug 2026 08:48:37 +0000",
+          "description": "Nonostante la crescente offerta di contenuti e formati digitali, l'abitudine alla lettura in Italia continua a mostrare segni di flessione. L'articolo Lettori i…"
+        },
+        {
           "title": "Tra promossi e bocciati, la geografia decide il voto: Nord severo, Sud magnanimo. Ma al di là dei numeri, resta l’urto con la prima superiore a far più male",
           "link": "https://www.orizzontescuola.it/tra-promossi-e-bocciati-la-geografia-decide-il-voto-nord-severo-sud-magnanimo-ma-al-di-la-dei-numeri-resta-lurto-con-la-prima-superiore-a-far-piu-male/",
           "pubDate": "Sat, 15 Aug 2026 08:27:20 +0000",
@@ -62,24 +80,6 @@
           "link": "https://www.orizzontescuola.it/da-500-a-10-000-lire-labisso-salariale-tra-maestri-e-professori-nellitalia-di-inizio-novecento-quanto-valeva-davvero-lo-stipendio-di-un-docente-nellitalia-liberale/",
           "pubDate": "Sat, 15 Aug 2026 07:32:46 +0000",
           "description": "Quando oggi si parla di stipendi dei docenti, il confronto con il passato è inevitabile. Quante volte abbiamo sentito dire: \"Una volta gli insegnanti erano risp…"
-        },
-        {
-          "title": "Posizioni economiche ATA: chi avrà gli arretrati dal 1° settembre 2024, cosa cambia per chi entra per scorrimento",
-          "link": "https://www.orizzontescuola.it/posizioni-economiche-ata-chi-avra-gli-arretrati-dal-1-settembre-2024/",
-          "pubDate": "Sat, 15 Aug 2026 06:55:05 +0000",
-          "description": "Il recente parere ARAN sulle nuove posizioni economiche ATA chiarisce anche da quando decorre il beneficio economico per il personale coinvolto nella procedura…"
-        },
-        {
-          "title": "Mini call veloce sostegno 2026/27, domanda inoltrata correttamente? I tre controlli da effettuare",
-          "link": "https://www.orizzontescuola.it/mini-call-veloce-sostegno-2026-27-domanda-inoltrata-correttamente-i-tre-controlli-da-effettuare/",
-          "pubDate": "Sat, 15 Aug 2026 06:20:05 +0000",
-          "description": "È partita venerdì 14 agosto alle ore 14 la procedura della mini call veloce per le assunzioni dei docenti su posto di sostegno per l’anno scolastico 2026/27. L'…"
-        },
-        {
-          "title": "Educazione civica, insegnarla attraverso la lettura de “Il sentiero dei nidi di ragno” di Italo Calvino",
-          "link": "https://www.orizzontescuola.it/educazione-civica-insegnarla-attraverso-la-lettura-de-il-sentiero-dei-nidi-di-ragno-di-italo-calvino/",
-          "pubDate": "Sat, 15 Aug 2026 05:55:33 +0000",
-          "description": "Corso di formazione professionale per docenti, organizzato e certificato da SO.GE.S (Società del gruppo Orizzonte Scuola), ente accreditato al Miur ai sensi del…"
         }
       ]
     },
