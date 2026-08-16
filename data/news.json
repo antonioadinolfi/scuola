@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-16T04:39:21+00:00",
+  "updatedAt": "2026-08-16T06:45:40+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Immissioni in ruolo ATA 2026/27, rinuncia o mancata domanda? Cosa cambia",
+          "link": "https://www.orizzontescuola.it/immissioni-in-ruolo-ata-2026-27-rinuncia-o-mancata-domanda-cosa-cambia/",
+          "pubDate": "Sun, 16 Aug 2026 06:14:44 +0000",
+          "description": "Sono in corso le operazioni per le immissioni in ruolo del personale ATA per l’anno scolastico 2026/27 e tra gli aspetti che possono generare dubbi c’è la diffe…"
+        },
+        {
           "title": "Minori e social network: Giorgino: “Serve educazione all’uso, non solo divieti” dopo la multa a Meta",
           "link": "https://www.orizzontescuola.it/minori-e-social-network-giorgino-serve-educazione-alluso-non-solo-divieti-dopo-la-multa-a-meta/",
           "pubDate": "Sat, 15 Aug 2026 17:33:02 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/separati-con-figli-arriva-il-contributo-affitto-fino-a-500-euro-15mila-i-potenziali-beneficiari-il-governo-lavora-al-decreto-attuativo/",
           "pubDate": "Sat, 15 Aug 2026 16:03:22 +0000",
           "description": "Una separazione non è mai un evento semplice. Oltre alla dimensione affettiva e relazionale, si aprono questioni pratiche che pesano sulle tasche e sulla vita q…"
-        },
-        {
-          "title": "10 anni di Alternanza scuola-lavoro obbligatoria, ma a cosa è servita? Quasi 4 studenti su 10 lasciano i banchi senza aver messo piede in un luogo di lavoro",
-          "link": "https://www.orizzontescuola.it/10-anni-di-alternanza-scuola-lavoro-obbligatoria-ma-a-cosa-e-servita-quasi-4-studenti-su-10-lasciano-i-banchi-senza-aver-messo-piede-in-un-luogo-di-lavoro/",
-          "pubDate": "Sat, 15 Aug 2026 13:50:21 +0000",
-          "description": "\"2026, Odissea nel futuro\": se la vita di alcuni maturandi fosse un film, questo potrebbe essere un titolo più che azzeccato. Perché quest'anno, almeno 1 neodip…"
         }
       ]
     },
