@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-16T18:34:31+00:00",
+  "updatedAt": "2026-08-16T20:27:12+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Mini call veloce, quasi 4mila posti: c’è tempo fino al 19 agosto. Ecco a cosa fare attenzione. QUESTION TIME con Cannas. LIVE Lunedì 17 agosto alle 14:30",
+          "link": "https://www.orizzontescuola.it/mini-call-veloce-quasi-4mila-posti-ce-tempo-fino-al-19-agosto-ecco-a-cosa-fare-attenzione-question-time-con-cannas-live-lunedi-17-agosto-alle-1430/",
+          "pubDate": "Sun, 16 Aug 2026 19:47:20 +0000",
+          "description": "Appuntamento con Question Time, il format di consulenza in onda sui canali social di Orizzonte Scuola (Facebook e YouTube). Fino alle 12.00 del 19 agosto sarà p…"
+        },
+        {
+          "title": "Trasporti, costi fino a 600 euro al mese per alcuni docenti e ATA. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/trasporti-costi-fino-a-600-euro-al-mese-per-alcuni-docenti-e-ata-pillole-di-question-time/",
+          "pubDate": "Sun, 16 Aug 2026 19:00:14 +0000",
+          "description": "Nel Question Time del 7 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Daniela Rosano, rappresentante della segreteria n…"
+        },
+        {
           "title": "“Dietro molte diagnosi si nasconde il bisogno di sicurezza dell’adulto, non del bambino”, la denuncia della logopedista Turchetti",
           "link": "https://www.orizzontescuola.it/dietro-molte-diagnosi-si-nasconde-il-bisogno-di-sicurezza-delladulto-non-del-bambino-la-denuncia-della-logopedista-turchetti/",
           "pubDate": "Sun, 16 Aug 2026 17:52:21 +0000",
@@ -68,18 +80,6 @@
           "link": "https://www.orizzontescuola.it/assicurazione-sanitaria-docenti-e-ata-adesione-volontaria-ma-non-ce-ancora-la-scadenza-pillole-di-question-time/",
           "pubDate": "Sun, 16 Aug 2026 16:18:44 +0000",
           "description": "Nel Question Time del 7 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Daniela Rosano, rappresentante della segreteria n…"
-        },
-        {
-          "title": "Schettini: “Cari docenti, godetevi il mestiere, non fissatevi sul precariato. Scuola sempre più burocratica, non va bene”",
-          "link": "https://www.orizzontescuola.it/schettini-cari-docenti-godetevi-il-mestiere-non-fissatevi-sul-precariato-scuola-sempre-piu-burocratica-non-va-bene/",
-          "pubDate": "Sun, 16 Aug 2026 15:44:56 +0000",
-          "description": "Vincenzo Schettini, insegnante di fisica, è stato ospite della rubrica I protagonisti di Orizzonte Scuola, intervistato da Francesco Brunetto. L'articolo Schett…"
-        },
-        {
-          "title": "“L’Intelligenza Artificiale non sostituirà mai un insegnante. Ma la scuola deve riscoprire il valore di chi insegna”, Pacifico (ANIEF): “Oltre 100mila docenti non si limitano a fare lezione”",
-          "link": "https://www.orizzontescuola.it/lintelligenza-artificiale-non-sostituira-mai-un-insegnante-ma-la-scuola-deve-riscoprire-il-valore-di-chi-insegna-pacifico-anief-oltre-100mila-docenti-non-si-limitano-a-fare-lezione/",
-          "pubDate": "Sun, 16 Aug 2026 15:36:12 +0000",
-          "description": "Viviamo in un’epoca in cui le macchine imparano da sole, i computer scrivono poesie e l’intelligenza artificiale supera esami di medicina. Eppure, c’è un luogo…"
         }
       ]
     },
