@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-16T10:27:05+00:00",
+  "updatedAt": "2026-08-16T12:46:18+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,24 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Didattica inclusiva attraverso alcune figure del mito greco",
+          "link": "https://www.orizzontescuola.it/didattica-inclusiva-attraverso-alcune-figure-del-mito-greco/",
+          "pubDate": "Sun, 16 Aug 2026 12:45:02 +0000",
+          "description": "Corso di formazione professionale per docenti, organizzato e certificato da SO.GE.S (Società del gruppo Orizzonte Scuola), ente accreditato al Miur ai sensi del…"
+        },
+        {
+          "title": "Sardegna, trasporto pubblico gratis fino a 14 anni: agevolazione estesa per gli spostamenti di scuola e quotidiani",
+          "link": "https://www.orizzontescuola.it/sardegna-trasporto-pubblico-gratis-fino-a-14-anni-agevolazione-estesa-per-gli-spostamenti-di-scuola-e-quotidiani/",
+          "pubDate": "Sun, 16 Aug 2026 12:00:56 +0000",
+          "description": "La Sardegna estende la gratuità del trasporto pubblico locale ai bambini e ai ragazzi fino al compimento dei 14 anni. L'articolo Sardegna, trasporto pubblico gr…"
+        },
+        {
+          "title": "Nidi comunali, 1,5 milioni dalla Regione Piemonte per ampliare gli orari: aperture anche il sabato e durante le vacanze",
+          "link": "https://www.orizzontescuola.it/nidi-comunali-15-milioni-dalla-regione-piemonte-per-ampliare-gli-orari-aperture-anche-il-sabato-e-durante-le-vacanze/",
+          "pubDate": "Sun, 16 Aug 2026 10:47:46 +0000",
+          "description": "Sono 77 i Comuni piemontesi che, nell’anno educativo 2026/2027, beneficeranno dei contributi regionali destinati ad ampliare gli orari di apertura dei nidi comu…"
+        },
+        {
           "title": "La biblioteca resiste: stabile al 15% la frequentazione, ma cresce l’utente ibrido tra scaffali e web",
           "link": "https://www.orizzontescuola.it/la-biblioteca-resiste-stabile-al-15-la-frequentazione-ma-cresce-lutente-ibrido-tra-scaffali-e-web/",
           "pubDate": "Sun, 16 Aug 2026 08:56:39 +0000",
@@ -62,24 +80,6 @@
           "link": "https://www.orizzontescuola.it/scuola-dellinfanzia-allestero-pochi-posti-e-graduatorie-piu-corte-pillole-di-question-time/",
           "pubDate": "Sun, 16 Aug 2026 08:07:48 +0000",
           "description": "Nel Question Time dell’11 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Salvatore Fina (ANIEF), è stato affrontato il t…"
-        },
-        {
-          "title": "Mini call veloce, c’è tempo fino alle 12 del 19 agosto. 3.931 posti disponibili. Disponibilità regione per regione e GUIDA alla compilazione (con TUTORIAL)",
-          "link": "https://www.orizzontescuola.it/mini-call-veloce-si-parte-alle-1400-quali-posti-disponibili-e-dove-non-ce-disponibilita-tutte-le-info-utili/",
-          "pubDate": "Sun, 16 Aug 2026 07:30:25 +0000",
-          "description": "Si parte, venerdì 14 agosto. Il Ministero ha aperto ufficialmente la piattaforma telematica per la \"mini call veloce\" destinata ai posti di sostegno rimasti vac…"
-        },
-        {
-          "title": "Divieto dei social sotto i 16 anni? Crepet: “Togliere non basta, serve un’alternativa”. E poi: “Formare il pensiero critico già alle elementari”",
-          "link": "https://www.orizzontescuola.it/divieto-dei-social-sotto-i-16-anni-crepet-togliere-non-basta-serve-unalternativa-e-poi-formare-il-pensiero-critico-gia-alle-elementari/",
-          "pubDate": "Sun, 16 Aug 2026 07:19:23 +0000",
-          "description": "Dieci ore al giorno trascorse sui social network rappresentano il dato medio indicato da Paolo Crepet nel corso di un'intervista a Orizzonte Scuola. L'articolo…"
-        },
-        {
-          "title": "Privacy a scuola, attenzione anche al nome dei file: il cognome di uno studente può rendere illecita la pubblicazione",
-          "link": "https://www.orizzontescuola.it/privacy-a-scuola-attenzione-anche-al-nome-dei-file-il-cognome-di-uno-studente-puo-rendere-illecita-la-pubblicazione/",
-          "pubDate": "Sun, 16 Aug 2026 07:04:48 +0000",
-          "description": "Quando una scuola pubblica un documento sul proprio sito istituzionale, il controllo dei dati personali non può limitarsi al contenuto della circolare o dell’av…"
         }
       ]
     },
