@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-16T16:29:55+00:00",
+  "updatedAt": "2026-08-16T18:34:31+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,24 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "“Dietro molte diagnosi si nasconde il bisogno di sicurezza dell’adulto, non del bambino”, la denuncia della logopedista Turchetti",
+          "link": "https://www.orizzontescuola.it/dietro-molte-diagnosi-si-nasconde-il-bisogno-di-sicurezza-delladulto-non-del-bambino-la-denuncia-della-logopedista-turchetti/",
+          "pubDate": "Sun, 16 Aug 2026 17:52:21 +0000",
+          "description": "La logopedista Ludovica Isotta Turchetti, nella rubrica I Protagonisti, condotta da Francesco Bunetto, ha denunciato una tendenza diffusa tra genitori e insegna…"
+        },
+        {
+          "title": "La sfida dell’IA a scuola. Lettera",
+          "link": "https://www.orizzontescuola.it/la-sfida-dellia-a-scuola-lettera/",
+          "pubDate": "Sun, 16 Aug 2026 17:36:31 +0000",
+          "description": "Inviata da Stefania Turchetta - L’anno scolastico che è ai nastri di partenza tra poco più di due settimane presenta sul tavolo numerose sfide. Di sicuro, la pi…"
+        },
+        {
+          "title": "Inps, bando per corsi di lingua 2026: 6.100 contributi per studenti di primarie, medie e superiori. C’è tempo fino al 2 settembre",
+          "link": "https://www.orizzontescuola.it/inps-bando-per-corsi-di-lingua-2026-6-100-contributi-per-studenti-di-primarie-medie-e-superiori-ce-tempo-fino-al-2-settembre/",
+          "pubDate": "Sun, 16 Aug 2026 17:00:16 +0000",
+          "description": "L'Inps ha pubblicato il bando \"Corso di lingue in Italia 2026\", un concorso che mette a disposizione contributi economici per sostenere le spese di un corso di…"
+        },
+        {
           "title": "Assicurazione sanitaria docenti e ATA, adesione volontaria ma non c’è ancora la scadenza. Pillole di Question Time",
           "link": "https://www.orizzontescuola.it/assicurazione-sanitaria-docenti-e-ata-adesione-volontaria-ma-non-ce-ancora-la-scadenza-pillole-di-question-time/",
           "pubDate": "Sun, 16 Aug 2026 16:18:44 +0000",
@@ -62,24 +80,6 @@
           "link": "https://www.orizzontescuola.it/lintelligenza-artificiale-non-sostituira-mai-un-insegnante-ma-la-scuola-deve-riscoprire-il-valore-di-chi-insegna-pacifico-anief-oltre-100mila-docenti-non-si-limitano-a-fare-lezione/",
           "pubDate": "Sun, 16 Aug 2026 15:36:12 +0000",
           "description": "Viviamo in un’epoca in cui le macchine imparano da sole, i computer scrivono poesie e l’intelligenza artificiale supera esami di medicina. Eppure, c’è un luogo…"
-        },
-        {
-          "title": "L’Accademia della Crusca si schiera: per intelligenza artificiale meglio la sigla “IA” che l’inglese “AI”",
-          "link": "https://www.orizzontescuola.it/laccademia-della-crusca-si-schiera-per-intelligenza-artificiale-meglio-la-sigla-ia-che-linglese-ai/",
-          "pubDate": "Sun, 16 Aug 2026 15:01:12 +0000",
-          "description": "La diffusione crescente dell’intelligenza artificiale nel linguaggio pubblico, nelle istituzioni e nella scuola ha acceso un dibattito anche sulla sigla da util…"
-        },
-        {
-          "title": "Barbacci (Cisl Scuola): “Nomine ATA avvengono solo per turnover, serve piano straordinario di assunzioni”",
-          "link": "https://www.orizzontescuola.it/barbacci-cisl-scuola-nomine-ata-avvengono-solo-per-turnover-serve-piano-straordinario-di-assunzioni/",
-          "pubDate": "Sun, 16 Aug 2026 13:56:36 +0000",
-          "description": "Una scelta che nel tempo si sta reiterando, quella di coprire esclusivamente con le nomine in ruolo del personale ATA il turnover, è stata indicata da Ivana Bar…"
-        },
-        {
-          "title": "Bruzzone: “Il conflitto non si vive più, si registra e si rilancia. È la trappola dei social. I ragazzi non percepiscono la gravità, sono catturati dall’immagine vincente”",
-          "link": "https://www.orizzontescuola.it/bruzzone-il-conflitto-non-si-vive-piu-si-registra-e-si-rilancia-e-la-trappola-dei-social-i-ragazzi-non-percepiscono-la-gravita-sono-catturati-dallimmagine-vincente/",
-          "pubDate": "Sun, 16 Aug 2026 13:27:01 +0000",
-          "description": "Un elemento centrale emerso dall'analisi di Roberta Bruzzone, psicologa forense e criminologa ospite della puntata de I Protagonisti, la rubrica di Orizzonte Sc…"
         }
       ]
     },
