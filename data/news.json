@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-16T08:33:39+00:00",
+  "updatedAt": "2026-08-16T10:27:05+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "La biblioteca resiste: stabile al 15% la frequentazione, ma cresce l’utente ibrido tra scaffali e web",
+          "link": "https://www.orizzontescuola.it/la-biblioteca-resiste-stabile-al-15-la-frequentazione-ma-cresce-lutente-ibrido-tra-scaffali-e-web/",
+          "pubDate": "Sun, 16 Aug 2026 08:56:39 +0000",
+          "description": "Mentre la lettura di libri arretra, la frequentazione delle biblioteche tiene. Secondo l'Indagine \"Aspetti della vita quotidiana\" del 2025, il 14,9% delle perso…"
+        },
+        {
+          "title": "Pellai: “Gli insegnanti sono la chiave per evitare che l’IA sostituisca il pensiero”",
+          "link": "https://www.orizzontescuola.it/pellai-gli-insegnanti-sono-la-chiave-per-evitare-che-lia-sostituisca-il-pensiero/",
+          "pubDate": "Sun, 16 Aug 2026 08:32:17 +0000",
+          "description": "Durante l'intervista a Orizzonte Scuola, Alberto Pellai ha introdotto una distinzione fondamentale tra due modalità di funzionamento mentale: il \"pensiero pensa…"
+        },
+        {
           "title": "Scuola dell’infanzia all’estero, pochi posti e graduatorie più corte. Pillole di Question Time",
           "link": "https://www.orizzontescuola.it/scuola-dellinfanzia-allestero-pochi-posti-e-graduatorie-piu-corte-pillole-di-question-time/",
           "pubDate": "Sun, 16 Aug 2026 08:07:48 +0000",
@@ -68,18 +80,6 @@
           "link": "https://www.orizzontescuola.it/privacy-a-scuola-attenzione-anche-al-nome-dei-file-il-cognome-di-uno-studente-puo-rendere-illecita-la-pubblicazione/",
           "pubDate": "Sun, 16 Aug 2026 07:04:48 +0000",
           "description": "Quando una scuola pubblica un documento sul proprio sito istituzionale, il controllo dei dati personali non può limitarsi al contenuto della circolare o dell’av…"
-        },
-        {
-          "title": "Immissioni in ruolo ATA 2026/27, rinuncia o mancata domanda? Cosa cambia",
-          "link": "https://www.orizzontescuola.it/immissioni-in-ruolo-ata-2026-27-rinuncia-o-mancata-domanda-cosa-cambia/",
-          "pubDate": "Sun, 16 Aug 2026 06:14:44 +0000",
-          "description": "Sono in corso le operazioni per le immissioni in ruolo del personale ATA per l’anno scolastico 2026/27 e tra gli aspetti che possono generare dubbi c’è la diffe…"
-        },
-        {
-          "title": "Minori e social network: Giorgino: “Serve educazione all’uso, non solo divieti” dopo la multa a Meta",
-          "link": "https://www.orizzontescuola.it/minori-e-social-network-giorgino-serve-educazione-alluso-non-solo-divieti-dopo-la-multa-a-meta/",
-          "pubDate": "Sat, 15 Aug 2026 17:33:02 +0000",
-          "description": "Francesco Giorgino, in un editoriale pubblicato su \"La Gazzetta del Mezzogiorno\", ha commentato la recente sentenza emessa contro Meta da un giudice del tribuna…"
         }
       ]
     },
