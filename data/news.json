@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-17T18:44:35+00:00",
+  "updatedAt": "2026-08-17T20:32:15+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "La “stabilità” dei docenti? “Al mio decimo anno ancora una cattedra su tre scuole, fino a 45 km da casa”",
+          "link": "https://www.orizzontescuola.it/la-stabilita-dei-docenti-al-mio-decimo-anno-ancora-una-cattedra-su-tre-scuole-fino-a-45-km-da-casa/",
+          "pubDate": "Mon, 17 Aug 2026 19:59:11 +0000",
+          "description": "Dieci anni di insegnamento, tre di ruolo e otto trascorsi lontano dalla propria regione. Poi il trasferimento in Campania, che sembrava poter segnare l'inizio d…"
+        },
+        {
+          "title": "Istruzione oltre il 2030, questionario UNESCO per studenti e giovani: partecipazione entro il 30 agosto",
+          "link": "https://www.orizzontescuola.it/istruzione-oltre-il-2030-questionario-unesco-per-studenti-e-giovani-partecipazione-entro-il-30-agosto/",
+          "pubDate": "Mon, 17 Aug 2026 18:47:45 +0000",
+          "description": "Nell’ambito della consultazione internazionale promossa dall’UNESCO “Education Beyond 2030 - Youth Education and Training Agenda” è stato predisposto un questio…"
+        },
+        {
           "title": "Sport di bambini e ragazzi, detrazione Irpef del 19%: spesa massima di 210 euro. Requisiti e documenti",
           "link": "https://www.orizzontescuola.it/sport-di-bambini-e-ragazzi-detrazione-irpef-del-19-spesa-massima-di-210-euro-requisiti-e-documenti/",
           "pubDate": "Mon, 17 Aug 2026 18:31:35 +0000",
@@ -68,18 +80,6 @@
           "link": "https://www.orizzontescuola.it/studente-18enne-scopre-un-tesoro-da-9-milioni-in-belgio-durante-un-lavoretto-estivo-di-ristrutturazione-pensavo-fossero-monete-da-un-euro/",
           "pubDate": "Mon, 17 Aug 2026 16:43:30 +0000",
           "description": "Immaginate di trascorrere le vacanze estive facendo un lavoretto stagionale e di imbattervi, quasi per caso, in un tesoro da favola. È esattamente quello che è…"
-        },
-        {
-          "title": "Mini call veloce, ultime ore per la presentazione della domanda: le info utili. QUESTION TIME con Semeraro. LIVE Martedì 18 agosto alle 14:30.",
-          "link": "https://www.orizzontescuola.it/mini-call-veloce-ultime-ore-per-la-presentazione-della-domanda-le-info-utili-question-time-con-semeraro-live-martedi-18-agosto-alle-1430/",
-          "pubDate": "Mon, 17 Aug 2026 16:39:32 +0000",
-          "description": "Appuntamento con Question Time, il format di consulenza in onda sui canali social di Orizzonte Scuola (Facebook e YouTube). Fino alle 12.00 del 19 agosto sarà p…"
-        },
-        {
-          "title": "Insegnare italiano all’estero: non servono sei anni di ruolo, ma almeno il quinto anno di servizio. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/insegnare-italiano-allestero-non-servono-sei-anni-di-ruolo-ma-almeno-il-quinto-anno-di-servizio-pillole-di-question-time/",
-          "pubDate": "Mon, 17 Aug 2026 16:16:35 +0000",
-          "description": "Nel Question Time dell’11 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Salvatore Fina (ANIEF), è stato affrontato il t…"
         }
       ]
     },
