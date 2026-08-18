@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-18T04:39:33+00:00",
+  "updatedAt": "2026-08-18T06:49:59+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Neoassunti nella scuola 2026: Anief ed Eurosofia al fianco di docenti, personale ATA e DSGA",
+          "link": "https://www.orizzontescuola.it/neoassunti-nella-scuola-2026-anief-ed-eurosofia-al-fianco-di-docenti-personale-ata-e-dsga-3/",
+          "pubDate": "Tue, 18 Aug 2026 06:30:33 +0000",
+          "description": "Tre webinar gratuiti per iniziare il nuovo percorso professionale con il supporto di esperti, conoscere diritti e adempimenti e affrontare il nuovo incarico con…"
+        },
+        {
+          "title": "Il collaboratore scolastico e l’operatore scolastico: Guida + Scheda rilevazione competenze + Bozza per incarico specifico per assistenza ad alunni con disabilità",
+          "link": "https://www.orizzontescuola.it/il-collaboratore-scolastico-e-loperatore-scolastico-guida-scheda-rilevazione-competenze-bozza-per-incarico-specifico-per-assistenza-ad-alunni-con-disabilita/",
+          "pubDate": "Tue, 18 Aug 2026 05:50:59 +0000",
+          "description": "Il CCNL comparto Istruzione e Ricerca del 18/1/2024, settore Scuola, ha ridisegnato tutti i profili professionali del personale ATA introducendone anche due nuo…"
+        },
+        {
           "title": "La “stabilità” dei docenti? “Al mio decimo anno ancora una cattedra su tre scuole, fino a 45 km da casa”",
           "link": "https://www.orizzontescuola.it/la-stabilita-dei-docenti-al-mio-decimo-anno-ancora-una-cattedra-su-tre-scuole-fino-a-45-km-da-casa/",
           "pubDate": "Mon, 17 Aug 2026 19:59:11 +0000",
@@ -68,18 +80,6 @@
           "link": "https://www.orizzontescuola.it/dsga-immissioni-in-ruolo-2026-27-al-via-come-avvengono-prima-la-procedura-valutativa-poi-il-concorso-ordinario-gli-avvisi-usr/",
           "pubDate": "Mon, 17 Aug 2026 18:25:14 +0000",
           "description": "Al via le immissioni in ruolo del personale da inquadrare nell’Area dei funzionari e dell’elevata qualificazione (ex DSGA) per l’anno scolastico 2026/2027. L'ar…"
-        },
-        {
-          "title": "Aumenti e arretrati contratto scuola, in arrivo sui conti correnti: cifre e info utili. QUESTION TIME con Cavallini (ANIEF) LIVE Mercoledì 19 agosto alle 14:30",
-          "link": "https://www.orizzontescuola.it/aumenti-e-arretrati-contratto-scuola-in-arrivo-sui-conti-correnti-cifre-e-info-utili-question-time-con-cavallini-anief-live-mercoledi-19-agosto-alle-1430/",
-          "pubDate": "Mon, 17 Aug 2026 17:02:40 +0000",
-          "description": "Il mese di agosto sarà il mese degli arretrati per oltre un milione di dipendenti della scuola e della ricerca, grazie al rinnovo del contratto 2025-2027. L'art…"
-        },
-        {
-          "title": "Studente 18enne scopre un tesoro da 9 milioni in Belgio durante un lavoretto estivo di ristrutturazione: “Pensavo fossero monete da un euro”",
-          "link": "https://www.orizzontescuola.it/studente-18enne-scopre-un-tesoro-da-9-milioni-in-belgio-durante-un-lavoretto-estivo-di-ristrutturazione-pensavo-fossero-monete-da-un-euro/",
-          "pubDate": "Mon, 17 Aug 2026 16:43:30 +0000",
-          "description": "Immaginate di trascorrere le vacanze estive facendo un lavoretto stagionale e di imbattervi, quasi per caso, in un tesoro da favola. È esattamente quello che è…"
         }
       ]
     },
