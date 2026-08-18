@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-18T18:42:31+00:00",
+  "updatedAt": "2026-08-18T20:28:36+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "OpenAI lancia ChatGPT per adolescenti con controlli parentali e modalità di studio guidata",
+          "link": "https://www.orizzontescuola.it/openai-lancia-chatgpt-per-adolescenti-con-controlli-parentali-e-modalita-di-studio-guidata/",
+          "pubDate": "Tue, 18 Aug 2026 18:51:13 +0000",
+          "description": "OpenAI ha reso disponibile ChatGPT for Teens, una versione della piattaforma progettata per utenti under 18. L'articolo OpenAI lancia ChatGPT per adolescenti co…"
+        },
+        {
           "title": "Dipendenza dei minori e dati rubati, al via il processo che può riscrivere le regole di Meta. L’accusa: “Ha reso i bambini schiavi dei like per fare soldi”",
           "link": "https://www.orizzontescuola.it/dipendenza-dei-minori-e-dati-rubati-al-via-il-processo-che-puo-riscrivere-le-regole-di-meta-laccusa-ha-reso-i-bambini-schiavi-dei-like-per-fare-soldi/",
           "pubDate": "Tue, 18 Aug 2026 18:06:36 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/posti-di-sostegno-in-deroga-prime-autorizzazioni-prima-del-31-agosto-altre-anche-durante-lanno-pillole-di-question-time/",
           "pubDate": "Tue, 18 Aug 2026 16:30:27 +0000",
           "description": "Nel Question Time del 6 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Chiara Cozzetto, rappresentante della segreteria…"
-        },
-        {
-          "title": "Piano Casa, a settembre al via il recupero delle case popolari: docenti e ATA tra i possibili beneficiari?",
-          "link": "https://www.orizzontescuola.it/piano-casa-a-settembre-al-via-il-recupero-delle-case-popolari-docenti-e-ata-tra-i-possibili-beneficiari/",
-          "pubDate": "Tue, 18 Aug 2026 15:15:47 +0000",
-          "description": "Il Piano Casa del governo, approvato in via definitiva dal Parlamento, si propone come un intervento organico per rispondere alla crisi abitativa che affligge i…"
         }
       ]
     },
