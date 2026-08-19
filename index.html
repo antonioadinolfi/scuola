@@ -14,6 +14,15 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="design-system.css">
 <style>
+/* ── RIFINITURA LAYOUT (solo homepage) ──
+   Override locale di --container-max: la variabile condivisa in
+   design-system.css resta 1320px (usata da agenda.html, glossario.html,
+   pubblicazioni.html, invariate). Qui, scoped a questa sola pagina,
+   viene portata a 1440px per correggere i margini laterali eccessivi
+   su desktop/monitor larghi, mantenendosi comunque nel range
+   professionale 1280–1440px indicato. */
+:root { --container-max: 1440px; }
+
 /* ── RESET & ROOT ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,15 +232,15 @@ nav {
 .tool-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 2.2rem; }
 .tool-grid-2up { grid-template-columns: repeat(2, 1fr); }
 .tool-card {
-  background: var(--white); padding: 1.3rem 1.3rem; display: flex; flex-direction: column;
+  background: var(--white); padding: 1.6rem 1.6rem; display: flex; flex-direction: column;
   transition: background var(--transition-base);
 }
 .tool-card:hover { background: var(--cream); }
-.tool-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.9rem; }
+.tool-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
 .tool-num { font-family: var(--mono); font-size: 11px; color: var(--gold); letter-spacing: 1px; }
 .tool-icon { font-size: 19px; }
-.tool-h { font-weight: 600; font-size: 14.5px; margin-bottom: 6px; color: var(--navy); }
-.tool-p { font-size: 12.8px; color: var(--text-muted); line-height: 1.65; flex: 1; }
+.tool-h { font-weight: 600; font-size: 15.5px; margin-bottom: 7px; color: var(--navy); }
+.tool-p { font-size: 13.3px; color: var(--text-muted); line-height: 1.62; flex: 1; }
 .tool-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 1.1rem; padding-top: 0.9rem; border-top: 1px solid var(--cream2); }
 .tool-lock { display: inline-flex; align-items: center; gap: 4px; font-size: 10.5px; color: var(--text-muted); letter-spacing: 0.3px; }
 .tool-link { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; color: var(--accent); transition: gap .15s, color .15s; }
@@ -248,25 +257,25 @@ nav {
 
 /* ── ACTIVITY GRID (aree di attività) ── */
 .activity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 2rem; }
-.activity-block { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); border-top: 3px solid var(--gold); padding: 1.5rem; box-shadow: var(--shadow); }
+.activity-block { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); border-top: 3px solid var(--gold); padding: 1.8rem; box-shadow: var(--shadow); }
 .activity-block.alt { border-top-color: var(--navy3); }
-.activity-h { font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--navy); margin-bottom: 1rem; }
+.activity-h { font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--navy); margin-bottom: 1.1rem; }
 .activity-list { list-style: none; }
-.activity-list li { font-size: 13px; color: var(--text-muted); padding: 7px 0; border-bottom: 1px solid var(--cream2); display: flex; align-items: center; gap: 10px; line-height: 1.5; }
+.activity-list li { font-size: 13.5px; color: var(--text-muted); padding: 9px 0; border-bottom: 1px solid var(--cream2); display: flex; align-items: center; gap: 10px; line-height: 1.5; }
 .activity-list li:last-child { border: none; padding-bottom: 0; }
 .bullet { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 
 /* ── ACCESSO RAPIDO ── */
-.quick-access-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 2rem; }
+.quick-access-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-bottom: 2rem; }
 .quick-card {
-  display: flex; flex-direction: column; gap: 5px; background: var(--white);
-  border: 1px solid var(--border); border-radius: var(--radius); padding: 0.9rem 0.95rem;
+  display: flex; flex-direction: column; gap: 6px; background: var(--white);
+  border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem 1.15rem;
   box-shadow: var(--shadow); transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 .quick-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); border-color: var(--border-gold); }
-.quick-card-icon { font-size: 20px; }
-.quick-card-h { font-weight: 600; font-size: 12.5px; color: var(--navy); }
-.quick-card-p { font-size: 11.5px; color: var(--text-muted); line-height: 1.45; }
+.quick-card-icon { font-size: 22px; }
+.quick-card-h { font-weight: 600; font-size: 13px; color: var(--navy); }
+.quick-card-p { font-size: 12px; color: var(--text-muted); line-height: 1.48; }
 
 /* ── CALENDARIO ── */
 .calendar-block { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 1.5rem; margin-bottom: 3.4rem; }
