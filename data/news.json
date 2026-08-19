@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-19T18:40:18+00:00",
+  "updatedAt": "2026-08-19T20:32:14+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Maturità e sostegno: lo studente scrive a Mattarella e Valditara e salva la sua prof grazie al principio dell’accomodamento ragionevole",
+          "link": "https://www.orizzontescuola.it/maturita-e-sostegno-lo-studente-scrive-a-mattarella-e-valditara-e-salva-la-sua-prof-grazie-al-principio-dellaccomodamento-ragionevole/",
+          "pubDate": "Wed, 19 Aug 2026 19:40:14 +0000",
+          "description": "Ci sono storie che sembrano destinate a finire male, e invece qualcuno decide di non lasciarle cadere. È quello che è successo a Bari, dove uno studente di 17 a…"
+        },
+        {
           "title": "Trasporto scolastico Umbria, l’abbonamento Busitalia costa 70 euro per gli studenti con ISEE entro i 30mila euro. Domande dal 26 agosto",
           "link": "https://www.orizzontescuola.it/trasporto-scolastico-umbria-labbonamento-busitalia-costa-70-euro-per-gli-studenti-con-isee-entro-i-30mila-euro-domande-dal-26-agosto/",
           "pubDate": "Wed, 19 Aug 2026 18:27:40 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/bruzzone-ai-genitori-spazzaneve-consideriamo-la-possibilita-che-vostro-figlio-sia-un-ciuccio-e-sulla-frustrazione-e-cio-che-ci-rende-adulti-in-grado-di-f/",
           "pubDate": "Wed, 19 Aug 2026 16:10:28 +0000",
           "description": "“Chi lavora a scuola lo sa meglio di me: ormai è una trincea”. Inizia così il discorso della criminologa Roberta Bruzzone nel corso di un recente intervento pub…"
-        },
-        {
-          "title": "Nuove Indicazioni Nazionali primo ciclo, un’attuazione in cinque anni: si parte nel 2026 con le classi prime. Ecco il calendario",
-          "link": "https://www.orizzontescuola.it/nuove-indicazioni-nazionali-primo-ciclo-unattuazione-in-cinque-anni-si-parte-nel-2026-con-le-classi-prime-ecco-il-calendario/",
-          "pubDate": "Wed, 19 Aug 2026 15:58:35 +0000",
-          "description": "Il Ministero dell'Istruzione e del Merito ha adottato il regolamento con le nuove Indicazioni nazionali per la scuola dell'infanzia e del primo ciclo di istruzi…"
         }
       ]
     },
