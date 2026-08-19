@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-19T03:00:45+00:00",
+  "updatedAt": "2026-08-19T04:40:53+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Potenzia le tue competenze informatiche: da esperto di Cyberbullismo all’uso di Workspace di Google, dalle competenze base, al CAD, ed esperto DPO",
+          "link": "https://www.orizzontescuola.it/potenzia-le-tue-competenze-informatiche-da-esperto-di-cyberbullismo-alluso-di-workspace-di-google-dalle-competenze-base-al-cad-ed-esperto-dpo/",
+          "pubDate": "Wed, 19 Aug 2026 03:07:41 +0000",
+          "description": "Fare l&#8217;animatore digitale: M1 &#124; Flipped Classroom M2 &#124; ePubEditor M3 &#124; Coding base M4 &#124; Coding avanzato (facoltativo) M5 &#124; Monito…"
+        },
+        {
           "title": "OpenAI lancia ChatGPT per adolescenti con controlli parentali e modalità di studio guidata",
           "link": "https://www.orizzontescuola.it/openai-lancia-chatgpt-per-adolescenti-con-controlli-parentali-e-modalita-di-studio-guidata/",
           "pubDate": "Tue, 18 Aug 2026 18:51:13 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/incendio-in-una-scuola-negli-usa-un-pitone-di-25-metri-al-centro-delle-indagini-ecco-cosa-sarebbe-successo/",
           "pubDate": "Tue, 18 Aug 2026 16:58:19 +0000",
           "description": "Un incendio si è sviluppato alla Forest Middle School, nella contea di Bedford, in Virginia, intorno all’una di notte. I vigili del fuoco sono intervenuti dopo…"
-        },
-        {
-          "title": "Posti di sostegno in deroga: prime autorizzazioni prima del 31 agosto, altre anche durante l’anno. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/posti-di-sostegno-in-deroga-prime-autorizzazioni-prima-del-31-agosto-altre-anche-durante-lanno-pillole-di-question-time/",
-          "pubDate": "Tue, 18 Aug 2026 16:30:27 +0000",
-          "description": "Nel Question Time del 6 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Chiara Cozzetto, rappresentante della segreteria…"
         }
       ]
     },
