@@ -333,10 +333,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
    alterarne la struttura HTML: nessuna modifica al markup esistente. */
 .hero-stem {
   position: relative;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  margin-bottom: 3.4rem;
+  overflow: hidden;
   height: clamp(405px, 44.5vw, 660px);
   background-image:
     linear-gradient(to right, rgba(13,27,46,0.94) 0%, rgba(13,27,46,0.72) 32%, rgba(13,27,46,0.28) 62%, rgba(13,27,46,0.02) 82%),
@@ -346,7 +343,6 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
-  overflow: hidden;
 }
 .hero-stem-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); width: 100%; }
 .hero-stem-content { max-width: 520px; }
@@ -356,7 +352,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
 }
 .hero-stem-title {
   font-family: var(--serif); font-weight: 400; color: #fff;
-  font-size: clamp(3rem, 7vw, 5.2rem); line-height: 1; letter-spacing: -0.5px;
+  font-size: clamp(3rem, 7vw, 5.2rem); line-height: 1.08; letter-spacing: -0.5px;
   margin-bottom: 0.7rem;
 }
 .hero-stem-text { font-size: 14.5px; color: rgba(255,255,255,0.82); line-height: 1.6; max-width: 46ch; margin-bottom: 1.6rem; }
