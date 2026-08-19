@@ -23,6 +23,12 @@
    professionale 1280–1440px indicato. */
 :root { --container-max: 1440px; }
 
+/* Override locale di --space-section: da 3-6vw-5.5rem a un valore più
+   contenuto, per il solo scopo di riportare 'Accesso Rapido' e le sue
+   5 card interamente nella prima schermata desktop (above the fold).
+   design-system.css resta invariato: altre pagine non impattate. */
+:root { --space-section: clamp(2rem, 4vw, 3.5rem); }
+
 /* ── RESET & ROOT ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -334,7 +340,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
 .hero-stem {
   position: relative;
   overflow: hidden;
-  height: clamp(405px, 44.5vw, 660px);
+  height: clamp(380px, 32vw, 620px);
   background-image:
     linear-gradient(to right, rgba(13,27,46,0.94) 0%, rgba(13,27,46,0.72) 32%, rgba(13,27,46,0.28) 62%, rgba(13,27,46,0.02) 82%),
     url('immagini/hero_stem.jpg');
