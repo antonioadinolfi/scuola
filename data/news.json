@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-20T14:40:06+00:00",
+  "updatedAt": "2026-08-20T16:38:44+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Docenti neoassunti, presa di servizio il 1° settembre: documenti necessari e chiarezza sulla Carta d’Identità cartacea",
+          "link": "https://www.orizzontescuola.it/docenti-neoassunti-presa-di-servizio-il-1-settembre-documenti-necessari-e-chiarezza-sulla-carta-didentita-cartacea/",
+          "pubDate": "Thu, 20 Aug 2026 16:10:11 +0000",
+          "description": "Il 1° settembre rappresenta una data cruciale per il mondo della scuola: tutti i docenti e il personale ATA neo immessi in ruolo, i neo trasferiti o chi ha otte…"
+        },
+        {
           "title": "Emergenza femminicidi, Boldrini: “Imperativo formare i giovani fin dai primi anni di scuola al rispetto e alla parità”",
           "link": "https://www.orizzontescuola.it/emergenza-femminicidi-boldrini-imperativo-formare-i-giovani-fin-dai-primi-anni-di-scuola-al-rispetto-e-alla-parita/",
           "pubDate": "Thu, 20 Aug 2026 14:21:13 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/aumenti-stipendi-docenti-e-ata-incremento-medio-complessivo-da-137-euro-lordi-in-busta-paga-dal-2027/",
           "pubDate": "Thu, 20 Aug 2026 13:11:20 +0000",
           "description": "Lo scorso 1 luglio è stato siglato, all’ARAN, l’accordo relativo alla parte economica per il CCNL 2025-27. L'articolo Aumenti stipendi docenti e ATA, incremento…"
-        },
-        {
-          "title": "ATA 24 mesi 2026, ecco le graduatorie definitive [AGGIORNATO con Venezia]",
-          "link": "https://www.orizzontescuola.it/ata-24-mesi-ecco-le-prime-graduatorie-provvisorie-reclamo-entro-10-giorni-in-aggiornamento/",
-          "pubDate": "Thu, 20 Aug 2026 13:04:19 +0000",
-          "description": "Sono in pubblicazione le graduatorie provvisorie ATA 24 mesi, valide per l’anno scolastico 2026/27. Le graduatorie definitive ATA 24 mesi saranno utilizzate per…"
         }
       ]
     },
