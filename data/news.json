@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-20T10:34:54+00:00",
+  "updatedAt": "2026-08-20T12:56:05+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,24 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Università, via libera alle assunzioni per il 2026: firmato il decreto da 1.703 punti organico. Ecco le regole del turnover",
+          "link": "https://www.orizzontescuola.it/universita-via-libera-alle-assunzioni-per-il-2026-firmato-il-decreto-da-1-703-punti-organico-ecco-le-regole-del-turnover/",
+          "pubDate": "Thu, 20 Aug 2026 12:23:16 +0000",
+          "description": "Il Ministero dell’Università e della Ricerca ha emanato il Decreto Ministeriale n. 1010 del 6 agosto 2026, firmato dalla ministra Anna Maria Bernini, che defini…"
+        },
+        {
+          "title": "Supplenze ATA 2026/27 al via, aspiranti I e II fascia convocati per la prossima settimana. Gli avvisi",
+          "link": "https://www.orizzontescuola.it/supplenze-ata-2026-27-proseguono-le-convocazioni-da-prima-e-seconda-fascia/",
+          "pubDate": "Thu, 20 Aug 2026 11:16:18 +0000",
+          "description": "Proseguono le convocazioni per le supplenze ATA 2026/27. Diversi Uffici scolastici territoriali stanno rendendo noti nuovi calendari per il conferimento degli i…"
+        },
+        {
+          "title": "Diritto di difesa contro riservatezza: il bilanciamento del giudice sull’accesso agli atti. Ecco cosa ha deciso il TAR",
+          "link": "https://www.orizzontescuola.it/diritto-di-difesa-contro-riservatezza-il-bilanciamento-del-giudice-sullaccesso-agli-atti-ecco-cosa-ha-deciso-il-tar/",
+          "pubDate": "Thu, 20 Aug 2026 10:54:23 +0000",
+          "description": "L'articolo 24 della legge 241/1990 non giustifica un diniego totale quando la richiesta riguarda un documento specifico e l'interesse del richiedente è concreto…"
+        },
+        {
           "title": "Inclusione e social, Davide Faraone: “Le foto di mia figlia Sara? Siamo felici e lo mostriamo. Le parole contano”",
           "link": "https://www.orizzontescuola.it/inclusione-e-social-davide-faraone-le-foto-di-mia-figlia-sara-siamo-felici-e-lo-mostriamo-le-parole-contano/",
           "pubDate": "Thu, 20 Aug 2026 10:11:11 +0000",
@@ -62,24 +80,6 @@
           "link": "https://www.orizzontescuola.it/graduatorie-ata-terza-fascia-non-visibili-ecco-perche-e-quando-torneranno-consultabili/",
           "pubDate": "Thu, 20 Aug 2026 09:32:12 +0000",
           "description": "In questi giorni alcuni aspiranti inseriti nelle graduatorie ATA di terza fascia potrebbero non riuscire a visualizzare la propria posizione o il proprio punteg…"
-        },
-        {
-          "title": "Supplenze docenti 2026/27, invito a ritirare la domanda per evitare nomine erronee [Entro quale data per provincia]",
-          "link": "https://www.orizzontescuola.it/supplenze-docenti-2026-27-invito-a-ritirare-la-domanda-per-evitare-nomine-erronee/",
-          "pubDate": "Thu, 20 Aug 2026 09:08:30 +0000",
-          "description": "Supplenze docenti anno scolastico 2026/27: procedura informatizzata. Invito dell'ufficio Scolastico di Taranto per evitare attribuzione erronee. L'articolo Supp…"
-        },
-        {
-          "title": "Paolo Ruffini dialoga con due bambini di 10 e 11 anni: “Grazie alla mia maestra ho capito di avere un piccolo problema, non capivo quello che leggevo”",
-          "link": "https://www.orizzontescuola.it/paolo-ruffini-dialoga-con-due-bambini-di-10-e-11-anni-grazie-alla-mia-maestra-ho-capito-di-avere-un-piccolo-problema-non-capivo-quello-che-leggevo/",
-          "pubDate": "Thu, 20 Aug 2026 08:55:17 +0000",
-          "description": "Negli studi radiofonici del programma Come Stai? su Radio 24, Paolo Ruffini accoglie ai microfoni Nicholas, un bambino di dieci anni dal pensiero lucido e diret…"
-        },
-        {
-          "title": "Selezioni all’estero, il servizio di ruolo oltre il minimo richiesto vale come punteggio. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/selezioni-allestero-il-servizio-di-ruolo-oltre-il-minimo-richiesto-vale-come-punteggio-pillole-di-question-time/",
-          "pubDate": "Thu, 20 Aug 2026 08:18:32 +0000",
-          "description": "Nel Question Time dell’11 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Salvatore Fina (ANIEF), è stato affrontato il t…"
         }
       ]
     },
