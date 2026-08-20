@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-20T16:38:44+00:00",
+  "updatedAt": "2026-08-20T18:44:31+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,24 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Caro affitti e stipendi bloccati: la corsa ad ostacoli dei docenti tra inflazione e assegnazioni provvisorie",
+          "link": "https://www.orizzontescuola.it/caro-affitti-e-stipendi-bloccati-la-corsa-ad-ostacoli-dei-docenti-tra-inflazione-e-assegnazioni-provvisorie/",
+          "pubDate": "Thu, 20 Aug 2026 17:57:43 +0000",
+          "description": "Mentre le famiglie cercano di destreggiarsi tra le impennate dei prezzi e le bollette che non accennano a calare, c'è una categoria di lavoratori che vive quest…"
+        },
+        {
+          "title": "Lollobrigida: “Chi fa l’istituto agrario o alberghiero non è un figlio ‘scemo’, ma fa una scelta di passione”",
+          "link": "https://www.orizzontescuola.it/lollobrigida-chi-fa-listituto-agrario-o-alberghiero-non-e-un-figlio-scemo-ma-fa-una-scelta-di-passione/",
+          "pubDate": "Thu, 20 Aug 2026 17:43:43 +0000",
+          "description": "Il ministro dell'Agricoltura, Francesco Lollobrigida, ospite dell'iniziativa di Fratelli d'Italia, \"Bar Italia\" a San Benedetto del Tronto, ha dichiarato che la…"
+        },
+        {
+          "title": "Stress e burnout nella scuola, ANIEF chiede test obbligatori e un monitoraggio nazionale per tutelare la salute mentale di docenti e Ata",
+          "link": "https://www.orizzontescuola.it/stress-e-burnout-nella-scuola-anief-chiede-test-obbligatori-e-un-monitoraggio-nazionale-per-tutelare-la-salute-mentale-di-docenti-e-ata/",
+          "pubDate": "Thu, 20 Aug 2026 17:30:09 +0000",
+          "description": "Che l’insegnamento sia una professione complessa e gravosa, lo sanno bene i milioni di docenti e operatori scolastici che ogni giorno affrontano aule affollate,…"
+        },
+        {
           "title": "Docenti neoassunti, presa di servizio il 1° settembre: documenti necessari e chiarezza sulla Carta d’Identità cartacea",
           "link": "https://www.orizzontescuola.it/docenti-neoassunti-presa-di-servizio-il-1-settembre-documenti-necessari-e-chiarezza-sulla-carta-didentita-cartacea/",
           "pubDate": "Thu, 20 Aug 2026 16:10:11 +0000",
@@ -62,24 +80,6 @@
           "link": "https://www.orizzontescuola.it/coe-da-gps-e-part-time-il-diniego-e-possibile-per-limiti-provinciali-o-esigenze-didattiche-pillole-di-question-time/",
           "pubDate": "Thu, 20 Aug 2026 14:00:59 +0000",
           "description": "Nel Question Time del 3 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Sonia Cannas, docente esperta in normativa scolas…"
-        },
-        {
-          "title": "Educazione sessuo-affettiva a scuola, l’allarme di Coluzzi: “Io non sono formato per fare questo, io faccio letteratura. Servono gli psicologi”",
-          "link": "https://www.orizzontescuola.it/educazione-sessuo-affettiva-a-scuola-lallarme-di-coluzzi-io-non-sono-formato-per-fare-questo-io-faccio-letteratura-servono-gli-psicologi/",
-          "pubDate": "Thu, 20 Aug 2026 13:51:27 +0000",
-          "description": "Mentre la cronaca registra quattro femminicidi in appena tre giorni, il paese sembra ormai essersi assuefatto a questa tragica contabilità estiva. Ma a fare ind…"
-        },
-        {
-          "title": "Studenti con giudizio finale sospeso, esami per i debiti formativi al via: le scuole devono comunicare gli esiti entro l’8 settembre",
-          "link": "https://www.orizzontescuola.it/studenti-con-giudizio-finale-sospeso-esami-di-riparazione-al-via-le-scuole-devono-comunicare-gli-esiti-entro-l8-settembre/",
-          "pubDate": "Thu, 20 Aug 2026 13:20:21 +0000",
-          "description": "Il Ministero dell’Istruzione e del Merito ha pubblicato, lo scorso 11 giugno, una nota che traccia le scadenze per gli esami di riparazione rivolti agli student…"
-        },
-        {
-          "title": "Aumenti stipendi docenti e ATA, incremento medio complessivo da 137 euro (lordi) in busta paga dal 2027",
-          "link": "https://www.orizzontescuola.it/aumenti-stipendi-docenti-e-ata-incremento-medio-complessivo-da-137-euro-lordi-in-busta-paga-dal-2027/",
-          "pubDate": "Thu, 20 Aug 2026 13:11:20 +0000",
-          "description": "Lo scorso 1 luglio è stato siglato, all’ARAN, l’accordo relativo alla parte economica per il CCNL 2025-27. L'articolo Aumenti stipendi docenti e ATA, incremento…"
         }
       ]
     },
