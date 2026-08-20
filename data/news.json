@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-20T18:44:31+00:00",
+  "updatedAt": "2026-08-20T20:32:44+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Conte: “Benzina oltre 2 euro, caro-scuola e bollette, serve un Consiglio dei Ministri straordinario”",
+          "link": "https://www.orizzontescuola.it/conte-benzina-oltre-2-euro-caro-scuola-e-bollette-serve-un-consiglio-dei-ministri-straordinario/",
+          "pubDate": "Thu, 20 Aug 2026 18:45:35 +0000",
+          "description": "Il presidente del Movimento Cinque Stelle Giuseppe Conte ha chiesto, in un messaggio pubblicato sui social, la convocazione di un Consiglio dei ministri straord…"
+        },
+        {
           "title": "Caro affitti e stipendi bloccati: la corsa ad ostacoli dei docenti tra inflazione e assegnazioni provvisorie",
           "link": "https://www.orizzontescuola.it/caro-affitti-e-stipendi-bloccati-la-corsa-ad-ostacoli-dei-docenti-tra-inflazione-e-assegnazioni-provvisorie/",
           "pubDate": "Thu, 20 Aug 2026 17:57:43 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/emergenza-femminicidi-boldrini-imperativo-formare-i-giovani-fin-dai-primi-anni-di-scuola-al-rispetto-e-alla-parita/",
           "pubDate": "Thu, 20 Aug 2026 14:21:13 +0000",
           "description": "Come si ferma un'ondata di violenza che sembra non arrestarsi mai? Per Laura Boldrini, che presiede il Comitato permanente della Camera sui diritti umani nel mo…"
-        },
-        {
-          "title": "COE da GPS e part-time: il diniego è possibile per limiti provinciali o esigenze didattiche. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/coe-da-gps-e-part-time-il-diniego-e-possibile-per-limiti-provinciali-o-esigenze-didattiche-pillole-di-question-time/",
-          "pubDate": "Thu, 20 Aug 2026 14:00:59 +0000",
-          "description": "Nel Question Time del 3 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Sonia Cannas, docente esperta in normativa scolas…"
         }
       ]
     },
