@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-21T04:42:08+00:00",
+  "updatedAt": "2026-08-21T06:53:54+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,24 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Intelligenza artificiale per gli universitari: l’offerta di Google per gli studenti tra i 18 e i 24 anni, con modelli 3d, test su misura e “quaderni digitali”",
+          "link": "https://www.orizzontescuola.it/intelligenza-artificiale-per-gli-universitari-lofferta-di-google-per-gli-studenti-tra-i-18-e-i-24-anni-con-modelli-3d-test-su-misura-e-quaderni-digitali/",
+          "pubDate": "Fri, 21 Aug 2026 06:49:23 +0000",
+          "description": "Il rientro nelle aule universitarie porta con sé la solita dose di ansia: esami da preparare, dispense da dividere e scadenze da rispettare. Per dare un aiuto c…"
+        },
+        {
+          "title": "Stipendio docenti e ATA, oggi accredito sul conto corrente: perché arriva il 21 agosto e non il 23? Dal 24 ecco gli arretrati",
+          "link": "https://www.orizzontescuola.it/stipendio-docenti-e-ata-oggi-laccredito-sul-conto-corrente/",
+          "pubDate": "Fri, 21 Aug 2026 05:54:41 +0000",
+          "description": "Il mese di agosto porta con sé una novità attesa da oltre un milione di lavoratori della scuola. L'articolo Stipendio docenti e ATA, oggi accredito sul conto co…"
+        },
+        {
+          "title": "Studenti stranieri, integrazione e inclusione, FORMAZIONE OBBLIGATORIA: Metodologie, Italiano L2, unità di apprendimento pronte, tic e valutazioni. 25 ore di certificazione",
+          "link": "https://www.orizzontescuola.it/studenti-stranieri-integrazione-e-inclusione-metodologie-italiano-l2-unita-di-apprendimento-pronte-tic-e-valutazioni-25-ore-di-certificazione/",
+          "pubDate": "Fri, 21 Aug 2026 04:49:14 +0000",
+          "description": "Il corso propone riflessioni e percorsi mirati ad accogliere e includere gli alunni NAI, attraverso l’uso di metodologie curvate sui loro bisogni specifici, nel…"
+        },
+        {
           "title": "Conte: “Benzina oltre 2 euro, caro-scuola e bollette, serve un Consiglio dei Ministri straordinario”",
           "link": "https://www.orizzontescuola.it/conte-benzina-oltre-2-euro-caro-scuola-e-bollette-serve-un-consiglio-dei-ministri-straordinario/",
           "pubDate": "Thu, 20 Aug 2026 18:45:35 +0000",
@@ -62,24 +80,6 @@
           "link": "https://www.orizzontescuola.it/caro-affitti-e-stipendi-bloccati-la-corsa-ad-ostacoli-dei-docenti-tra-inflazione-e-assegnazioni-provvisorie/",
           "pubDate": "Thu, 20 Aug 2026 17:57:43 +0000",
           "description": "Mentre le famiglie cercano di destreggiarsi tra le impennate dei prezzi e le bollette che non accennano a calare, c'è una categoria di lavoratori che vive quest…"
-        },
-        {
-          "title": "Lollobrigida: “Chi fa l’istituto agrario o alberghiero non è un figlio ‘scemo’, ma fa una scelta di passione”",
-          "link": "https://www.orizzontescuola.it/lollobrigida-chi-fa-listituto-agrario-o-alberghiero-non-e-un-figlio-scemo-ma-fa-una-scelta-di-passione/",
-          "pubDate": "Thu, 20 Aug 2026 17:43:43 +0000",
-          "description": "Il ministro dell'Agricoltura, Francesco Lollobrigida, ospite dell'iniziativa di Fratelli d'Italia, \"Bar Italia\" a San Benedetto del Tronto, ha dichiarato che la…"
-        },
-        {
-          "title": "Docenti neoassunti, presa di servizio il 1° settembre: documenti necessari e chiarezza sulla Carta d’Identità cartacea",
-          "link": "https://www.orizzontescuola.it/docenti-neoassunti-presa-di-servizio-il-1-settembre-documenti-necessari-e-chiarezza-sulla-carta-didentita-cartacea/",
-          "pubDate": "Thu, 20 Aug 2026 16:10:11 +0000",
-          "description": "Il 1° settembre rappresenta una data cruciale per il mondo della scuola: tutti i docenti e il personale ATA neo immessi in ruolo, i neo trasferiti o chi ha otte…"
-        },
-        {
-          "title": "Emergenza femminicidi, Boldrini: “Imperativo formare i giovani fin dai primi anni di scuola al rispetto e alla parità”",
-          "link": "https://www.orizzontescuola.it/emergenza-femminicidi-boldrini-imperativo-formare-i-giovani-fin-dai-primi-anni-di-scuola-al-rispetto-e-alla-parita/",
-          "pubDate": "Thu, 20 Aug 2026 14:21:13 +0000",
-          "description": "Come si ferma un'ondata di violenza che sembra non arrestarsi mai? Per Laura Boldrini, che presiede il Comitato permanente della Camera sui diritti umani nel mo…"
         }
       ]
     },
