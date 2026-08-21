@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-21T18:42:23+00:00",
+  "updatedAt": "2026-08-21T20:29:38+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Immissioni in ruolo ATA 2026/27, aperte le domande per scelta sedi. Attenzione ad avvisi e scadenze [AGGIORNATO]",
+          "link": "https://www.orizzontescuola.it/immissioni-in-ruolo-ata-2026-27-al-via-le-domande-per-la-scelta-delle-sedi-attenzione-ad-avvisi-e-scadenze/",
+          "pubDate": "Fri, 21 Aug 2026 19:46:07 +0000",
+          "description": "Sono partite le procedure per le immissioni in ruolo del personale ATA per l’anno scolastico 2026/2027. Gli Uffici scolastici territoriali stanno pubblicando gl…"
+        },
+        {
           "title": "Attacco informatico a Bergantini, Spaggiari rassicura le scuole: “Registro elettronico e gestioni mai coinvolti, i dati sono al sicuro”",
           "link": "https://www.orizzontescuola.it/attacco-informatico-a-bergantini-spaggiari-rassicura-le-scuole-registro-elettronico-e-gestioni-mai-coinvolti-i-dati-sono-al-sicuro/",
           "pubDate": "Fri, 21 Aug 2026 17:38:15 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/supplenze-ata-2026-27-proseguono-le-convocazioni-da-prima-e-seconda-fascia/",
           "pubDate": "Fri, 21 Aug 2026 17:16:18 +0000",
           "description": "Proseguono le convocazioni per le supplenze ATA 2026/27. Diversi Uffici scolastici territoriali stanno rendendo noti nuovi calendari per il conferimento degli i…"
-        },
-        {
-          "title": "GPS docenti, le graduatorie per il 2026/28 [AGGIORNATO con ripubblicazioni]",
-          "link": "https://www.orizzontescuola.it/gps-docenti-2026-27-ecco-le-prime-graduatorie-in-aggiornamento/",
-          "pubDate": "Fri, 21 Aug 2026 17:09:26 +0000",
-          "description": "Gli Uffici scolastici provinciali iniziano a pubblicare le GPS 2026/28, graduatorie provinciali per le supplenze dei docenti, di cui all’O.M. n. 27 del 14 febbr…"
         }
       ]
     },
