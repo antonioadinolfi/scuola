@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-22T02:57:49+00:00",
+  "updatedAt": "2026-08-22T04:36:51+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Interpelli scuola 2026/27, entra nel vivo la corsa alle supplenze: domande e scadenze da non perdere docenti.it",
+          "link": "https://www.orizzontescuola.it/interpelli-scuola-2026-27-entra-nel-vivo-la-corsa-alle-supplenze-domande-e-scadenze-da-non-perdere-docenti-it/",
+          "pubDate": "Sat, 22 Aug 2026 04:12:13 +0000",
+          "description": "Le prossime settimane saranno decisive per chi vuole insegnare. Gli Interpelli vengono pubblicati progressivamente dalle scuole e possono avere scadenze molto b…"
+        },
+        {
           "title": "Immissioni in ruolo ATA 2026/27, aperte le domande per scelta sedi. Attenzione ad avvisi e scadenze [AGGIORNATO]",
           "link": "https://www.orizzontescuola.it/immissioni-in-ruolo-ata-2026-27-al-via-le-domande-per-la-scelta-delle-sedi-attenzione-ad-avvisi-e-scadenze/",
           "pubDate": "Fri, 21 Aug 2026 19:46:07 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/pensioni-anief-uscita-a-60-anni-per-il-personale-scolastico-a-rischio-burnout/",
           "pubDate": "Fri, 21 Aug 2026 17:21:12 +0000",
           "description": "Anief torna a chiedere il riconoscimento della gravosità del lavoro svolto dal personale scolastico e rilancia la proposta di uno studio nazionale sul burnout d…"
-        },
-        {
-          "title": "Supplenze ATA 2026/27 al via, aspiranti I e II fascia convocati per la prossima settimana. Gli avvisi",
-          "link": "https://www.orizzontescuola.it/supplenze-ata-2026-27-proseguono-le-convocazioni-da-prima-e-seconda-fascia/",
-          "pubDate": "Fri, 21 Aug 2026 17:16:18 +0000",
-          "description": "Proseguono le convocazioni per le supplenze ATA 2026/27. Diversi Uffici scolastici territoriali stanno rendendo noti nuovi calendari per il conferimento degli i…"
         }
       ]
     },
