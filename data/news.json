@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-22T10:27:33+00:00",
+  "updatedAt": "2026-08-22T12:46:09+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Educazione civica, bullismo e cyberbullismo. CNDDU: “Più spazio ai docenti A-46 e alle discipline giuridico-economiche”",
+          "link": "https://www.orizzontescuola.it/educazione-civica-bullismo-e-cyberbullismo-cnddu-piu-spazio-ai-docenti-a-46-e-alle-discipline-giuridico-economiche/",
+          "pubDate": "Sat, 22 Aug 2026 10:33:39 +0000",
+          "description": "Il Coordinamento Nazionale Docenti della disciplina dei Diritti Umani (CNDDU) chiede al Ministero dell’Istruzione e del Merito un potenziamento della classe di…"
+        },
+        {
           "title": "DSGA, fino a 10mila euro in meno dei funzionari dei Ministeri. Sorrentino (Anief-Condir): “Disparità inaccettabile”",
           "link": "https://www.orizzontescuola.it/dsga-fino-a-10mila-euro-in-meno-dei-funzionari-dei-ministeri-sorrentino-anief-condir-disparita-inaccettabile/",
           "pubDate": "Sat, 22 Aug 2026 10:15:31 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/docenti-di-lingue-accesso-ai-bandi-per-scuole-allestero-lettorati-e-corsi-di-lingua-italiana-pillole-di-question-time/",
           "pubDate": "Sat, 22 Aug 2026 08:20:01 +0000",
           "description": "Nel Question Time dell’11 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Salvatore Fina (ANIEF), è stato affrontato il t…"
-        },
-        {
-          "title": "DSGA, 277 posti disponibili in Lombardia ma nessuna immissione in ruolo: l’USR convoca per gli incarichi annuali",
-          "link": "https://www.orizzontescuola.it/dsga-277-posti-disponibili-in-lombardia-ma-nessuna-immissione-in-ruolo-lusr-convoca-per-gli-incarichi-annuali/",
-          "pubDate": "Sat, 22 Aug 2026 08:15:26 +0000",
-          "description": "Sono 277 i posti disponibili in Lombardia nell’Area dei funzionari e dell’elevata qualificazione, ex DSGA, ma per l’anno scolastico 2026/27 non è prevista alcun…"
         }
       ]
     },
