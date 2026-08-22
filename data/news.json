@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-22T14:25:37+00:00",
+  "updatedAt": "2026-08-22T16:28:32+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,24 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Graduatorie ATA di terza fascia, aggiornamento atteso nel 2027 salvo nuove modifiche. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/graduatorie-ata-di-terza-fascia-aggiornamento-atteso-nel-2027-salvo-nuove-modifiche-pillole-di-question-time/",
+          "pubDate": "Sat, 22 Aug 2026 16:20:18 +0000",
+          "description": "Nel Question Time del 7 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Alberico Sorrentino (ANIEF-Condir), è stato affro…"
+        },
+        {
+          "title": "eTwinning, seminario internazionale in Polonia per docenti principianti: 12 posti per l’Italia, domande entro il 25 agosto",
+          "link": "https://www.orizzontescuola.it/etwinning-seminario-internazionale-in-polonia-per-docenti-principianti-12-posti-per-litalia-domande-entro-il-25-agosto/",
+          "pubDate": "Sat, 22 Aug 2026 15:14:49 +0000",
+          "description": "Un’opportunità di formazione internazionale per i docenti che vogliono avvicinarsi per la prima volta a eTwinning. L'articolo eTwinning, seminario internazional…"
+        },
+        {
+          "title": "ATA di ruolo e supplenza docente su spezzone: l’articolo 70 non è applicabile",
+          "link": "https://www.orizzontescuola.it/ata-di-ruolo-e-supplenza-docente-su-spezzone-larticolo-70-non-e-applicabile/",
+          "pubDate": "Sat, 22 Aug 2026 15:02:37 +0000",
+          "description": "Un lettore, personale ATA a tempo indeterminato e inserito nella GPS I fascia sostegno per la secondaria di secondo grado, ci chiede se possa usufruire dell’asp…"
+        },
+        {
           "title": "Dirigente in chemioterapia a 1.000 km, Miele (Lega): “Non strumentalizzare. Non ci sono posti per il ruolo. Dopo presa di servizio tutele per malattia”",
           "link": "https://www.orizzontescuola.it/dirigente-in-chemioterapia-a-1-000-km-miele-lega-non-strumentalizzare-non-ci-sono-posti-per-il-ruolo-dopo-presa-di-servizio-tutele-per-malattia/",
           "pubDate": "Sat, 22 Aug 2026 13:55:40 +0000",
@@ -62,24 +80,6 @@
           "link": "https://www.orizzontescuola.it/calendario-scolastico-2026-27-ponti-e-festivita-ecco-le-date-regione-per-regione/",
           "pubDate": "Sat, 22 Aug 2026 13:12:40 +0000",
           "description": "Il calendario scolastico 2026/27 prevede, oltre alle festività nazionali, diverse giornate di sospensione delle lezioni stabilite dalle Regioni. L'articolo Cale…"
-        },
-        {
-          "title": "Educazione civica, bullismo e cyberbullismo. CNDDU: “Più spazio ai docenti A-46 e alle discipline giuridico-economiche”",
-          "link": "https://www.orizzontescuola.it/educazione-civica-bullismo-e-cyberbullismo-cnddu-piu-spazio-ai-docenti-a-46-e-alle-discipline-giuridico-economiche/",
-          "pubDate": "Sat, 22 Aug 2026 10:33:39 +0000",
-          "description": "Il Coordinamento Nazionale Docenti della disciplina dei Diritti Umani (CNDDU) chiede al Ministero dell’Istruzione e del Merito un potenziamento della classe di…"
-        },
-        {
-          "title": "DSGA, fino a 10mila euro in meno dei funzionari dei Ministeri. Sorrentino (Anief-Condir): “Disparità inaccettabile”",
-          "link": "https://www.orizzontescuola.it/dsga-fino-a-10mila-euro-in-meno-dei-funzionari-dei-ministeri-sorrentino-anief-condir-disparita-inaccettabile/",
-          "pubDate": "Sat, 22 Aug 2026 10:15:31 +0000",
-          "description": "Il divario retributivo tra il personale della scuola e gli altri comparti della Pubblica amministrazione resta al centro delle rivendicazioni di Anief. L'artico…"
-        },
-        {
-          "title": "Addio a Rosellina Archinto, rivoluzionò i libri per bambini in Italia",
-          "link": "https://www.orizzontescuola.it/addio-a-rosellina-archinto-rivoluziono-i-libri-per-bambini-in-italia/",
-          "pubDate": "Sat, 22 Aug 2026 09:48:16 +0000",
-          "description": "È morta a 93 anni, a Santa Margherita Ligure, Rosellina Archinto, protagonista dell’editoria italiana e figura centrale nel rinnovamento della letteratura per l…"
         }
       ]
     },
