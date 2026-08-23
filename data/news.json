@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-23T08:34:23+00:00",
+  "updatedAt": "2026-08-23T10:28:12+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Immissioni in ruolo docenti, nel 2027 si attingerà direttamente dagli elenchi regionali?",
+          "link": "https://www.orizzontescuola.it/immissioni-in-ruolo-docenti-nel-2027-si-attingera-direttamente-dagli-elenchi-regionali/",
+          "pubDate": "Sun, 23 Aug 2026 09:24:17 +0000",
+          "description": "Gli elenchi regionali per il ruolo sono stati la novità delle assunzioni del personale docente nel 2026/27. Ma nel 207/28 potrebbero diventare i veri protagonis…"
+        },
+        {
+          "title": "Pec obbligatoria per auto e moto? La previsione nel nuovo Codice della strada: attualmente il testo è in consultazione",
+          "link": "https://www.orizzontescuola.it/pec-obbligatoria-per-auto-e-moto-la-previsione-nel-nuovo-codice-della-strada-attualmente-il-testo-e-in-consultazione/",
+          "pubDate": "Sun, 23 Aug 2026 09:17:32 +0000",
+          "description": "Il testo base del nuovo Codice della strada prevede l'obbligo di un domicilio digitale registrato nell'Inad, l'Indice nazionale dei domicili digitali, per lo sv…"
+        },
+        {
           "title": "Congedo legge 104, madre con disabilità e padre centenario: CNDDU chiede una valutazione caso per caso",
           "link": "https://www.orizzontescuola.it/congedo-legge-104-madre-con-disabilita-e-padre-centenario-cnddu-chiede-una-valutazione-caso-per-caso/",
           "pubDate": "Sun, 23 Aug 2026 08:27:04 +0000",
@@ -68,18 +80,6 @@
           "link": "https://www.orizzontescuola.it/calendario-scolastico-2026-2027-pochi-ponti-nellanno-solo-l8-dicembre-e-il-2-giugno-offrono-occasioni-di-pausa/",
           "pubDate": "Sun, 23 Aug 2026 07:07:20 +0000",
           "description": "Il ministero dell'Istruzione e del Merito ha emanato l'ordinanza contenente le date delle festività nazionali e degli esami per l'anno scolastico 2026/2027. L'a…"
-        },
-        {
-          "title": "Figure esterne in classe: gestione della procedura di autorizzazione con modello di richiesta del professionista e modello privacy",
-          "link": "https://www.orizzontescuola.it/figure-esterne-in-classe-gestione-della-procedura-di-autorizzazione-con-modello-di-richiesta-del-professionista-e-modello-privacy/",
-          "pubDate": "Sun, 23 Aug 2026 05:55:24 +0000",
-          "description": "L’ingresso di figure esterne in classe (professionisti, esperti, terapeuti, operatori di associazioni/enti) è un’esigenza sempre più frequente: progetti a titol…"
-        },
-        {
-          "title": "Passaggio da collaboratrice scolastica ad assistente amministrativa, si ha diritto alla ricostruzione della carriera no alla temporizzazione",
-          "link": "https://www.orizzontescuola.it/passaggio-da-collaboratrice-scolastica-ad-assistente-amministrativa-si-ha-diritto-alla-ricostruzione-della-carriera-no-alla-temporizzazione/",
-          "pubDate": "Sat, 22 Aug 2026 17:16:07 +0000",
-          "description": "La questione oggetto del contenzioso in commento riguarda una legittima richiesta di ricostruzione di carriera conseguente al passaggio della ricorrente da coll…"
         }
       ]
     },
