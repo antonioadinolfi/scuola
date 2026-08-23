@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-23T12:47:15+00:00",
+  "updatedAt": "2026-08-23T14:27:29+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Sistema integrato 0-6, INVALSI cerca esperienze innovative nelle scuole dell’infanzia: candidature entro il 15 settembre",
+          "link": "https://www.orizzontescuola.it/sistema-integrato-0-6-invalsi-cerca-esperienze-innovative-nelle-scuole-dellinfanzia-candidature-entro-il-15-settembre/",
+          "pubDate": "Sun, 23 Aug 2026 13:19:13 +0000",
+          "description": "INVALSI apre una Call for Poster rivolta alle scuole dell’infanzia statali e paritarie per raccogliere e valorizzare esperienze innovative realizzate nell’ambit…"
+        },
+        {
+          "title": "Sicurezza sul lavoro, Bozzer (Anmil): “Deve iniziare tra i banchi di scuola e diventare priorità per tutto il Paese”",
+          "link": "https://www.orizzontescuola.it/sicurezza-sul-lavoro-bozzer-anmil-deve-iniziare-tra-i-banchi-di-scuola-e-diventare-priorita-per-tutto-il-paese/",
+          "pubDate": "Sun, 23 Aug 2026 12:52:25 +0000",
+          "description": "Il tema della sicurezza sul lavoro deve entrare al centro della scuola prima ancora dell'ingresso nel mondo lavorativo. L'articolo Sicurezza sul lavoro, Bozzer…"
+        },
+        {
           "title": "Formazione internazionale e interculturale, il corso deve essere stato svolto presso un ente accreditato. Pillole di Question Time",
           "link": "https://www.orizzontescuola.it/formazione-internazionale-e-interculturale-il-corso-deve-essere-stato-svolto-presso-un-ente-accreditato-pillole-di-question-time/",
           "pubDate": "Sun, 23 Aug 2026 12:22:20 +0000",
@@ -68,18 +80,6 @@
           "link": "https://www.orizzontescuola.it/pec-obbligatoria-per-auto-e-moto-la-previsione-nel-nuovo-codice-della-strada-attualmente-il-testo-e-in-consultazione/",
           "pubDate": "Sun, 23 Aug 2026 09:17:32 +0000",
           "description": "Il testo base del nuovo Codice della strada prevede l'obbligo di un domicilio digitale registrato nell'Inad, l'Indice nazionale dei domicili digitali, per lo sv…"
-        },
-        {
-          "title": "Congedo legge 104, madre con disabilità e padre centenario: CNDDU chiede una valutazione caso per caso",
-          "link": "https://www.orizzontescuola.it/congedo-legge-104-madre-con-disabilita-e-padre-centenario-cnddu-chiede-una-valutazione-caso-per-caso/",
-          "pubDate": "Sun, 23 Aug 2026 08:27:04 +0000",
-          "description": "Il Coordinamento Nazionale Docenti della disciplina dei Diritti Umani richiama l’attenzione su un caso che mette in evidenza, a suo giudizio, un limite dell’att…"
-        },
-        {
-          "title": "Anno scolastico 2026/2027, ecco cosa cambia: dai licei con l’IA al ritorno di storia e geografia separate. Le novità",
-          "link": "https://www.orizzontescuola.it/anno-scolastico-2026-2027-ecco-cosa-cambia-dai-licei-con-lia-al-ritorno-di-storia-e-geografia-separate-le-novita/",
-          "pubDate": "Sun, 23 Aug 2026 07:40:28 +0000",
-          "description": "Mentre studenti e famiglie si godono gli ultimi giorni di vacanza sotto l'ombrellone, il mondo dell'istruzione si prepara al rientro in classe con un pacchetto…"
         }
       ]
     },
