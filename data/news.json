@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-23T16:30:33+00:00",
+  "updatedAt": "2026-08-23T18:34:44+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Il diario scolastico pieno di errori (dalle fasi lunari alla tavola periodica), era stato realizzato con Intelligenza Artificiale",
+          "link": "https://www.orizzontescuola.it/il-diario-scolastico-pieno-di-errori-dalle-fasi-lunari-alla-tavola-periodica-era-stato-realizzato-con-intelligenza-artificiale/",
+          "pubDate": "Sun, 23 Aug 2026 18:13:27 +0000",
+          "description": "Il Kentucky trasformato in \"Venecky\", la Louisiana in \"Lookoong\" e l’Alabama in \"Alotome\". Non è un esercizio per insegnare agli studenti a riconoscere gli erro…"
+        },
+        {
+          "title": "Ritorno a scuola, libri e corredo possono costare fino a 1.300 euro a studente. Penne che oltrepassano i 500 euro per i “marchi di lusso”",
+          "link": "https://www.orizzontescuola.it/ritorno-a-scuola-libri-e-corredo-possono-costare-fino-a-1-300-euro-a-studente-penne-che-oltrepassano-i-500-euro-per-i-marchi-di-lusso/",
+          "pubDate": "Sun, 23 Aug 2026 18:06:32 +0000",
+          "description": "Le stime del Codacons per l’anno scolastico 2026/2027: rincari fino al 4% per il materiale, libri in aumento dell’1,8% L'articolo Ritorno a scuola, libri e corr…"
+        },
+        {
           "title": "Selezioni per insegnare all’estero, la destinazione non riguarda solo le scuole statali o paritarie. Pillole di Question Time",
           "link": "https://www.orizzontescuola.it/selezioni-per-insegnare-allestero-la-destinazione-non-riguarda-solo-le-scuole-statali-o-paritarie-pillole-di-question-time/",
           "pubDate": "Sun, 23 Aug 2026 16:08:04 +0000",
@@ -68,18 +80,6 @@
           "link": "https://www.orizzontescuola.it/sistema-integrato-0-6-invalsi-cerca-esperienze-innovative-nelle-scuole-dellinfanzia-candidature-entro-il-15-settembre/",
           "pubDate": "Sun, 23 Aug 2026 13:19:13 +0000",
           "description": "INVALSI apre una Call for Poster rivolta alle scuole dell’infanzia statali e paritarie per raccogliere e valorizzare esperienze innovative realizzate nell’ambit…"
-        },
-        {
-          "title": "Sicurezza sul lavoro, Bozzer (Anmil): “Deve iniziare tra i banchi di scuola e diventare priorità per tutto il Paese”",
-          "link": "https://www.orizzontescuola.it/sicurezza-sul-lavoro-bozzer-anmil-deve-iniziare-tra-i-banchi-di-scuola-e-diventare-priorita-per-tutto-il-paese/",
-          "pubDate": "Sun, 23 Aug 2026 12:52:25 +0000",
-          "description": "Il tema della sicurezza sul lavoro deve entrare al centro della scuola prima ancora dell'ingresso nel mondo lavorativo. L'articolo Sicurezza sul lavoro, Bozzer…"
-        },
-        {
-          "title": "Formazione internazionale e interculturale, il corso deve essere stato svolto presso un ente accreditato. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/formazione-internazionale-e-interculturale-il-corso-deve-essere-stato-svolto-presso-un-ente-accreditato-pillole-di-question-time/",
-          "pubDate": "Sun, 23 Aug 2026 12:22:20 +0000",
-          "description": "Nel Question Time dell’11 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Salvatore Fina (ANIEF), è stato affrontato il t…"
         }
       ]
     },
