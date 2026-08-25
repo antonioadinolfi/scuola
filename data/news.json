@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-25T18:44:31+00:00",
+  "updatedAt": "2026-08-25T20:33:07+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Borghi (IV): “Serve un patto bipartisan per la scuola, non si può cambiare tutto a ogni Governo”",
+          "link": "https://www.orizzontescuola.it/borghi-iv-serve-un-patto-bipartisan-per-la-scuola-non-si-puo-cambiare-tutto-a-ogni-governo/",
+          "pubDate": "Tue, 25 Aug 2026 19:35:07 +0000",
+          "description": "Garantire continuità alle politiche scolastiche e superare la logica delle riforme che cambiano con l’alternarsi delle maggioranze. L'articolo Borghi (IV): “Ser…"
+        },
+        {
           "title": "Contro il progressivo impoverimento del potenziale cognitivo nei bambini e adolescenti: ridimensioniamo la didattica digitale. La riflessione dI Alberto Pellai",
           "link": "https://www.orizzontescuola.it/contro-il-progressivo-impoverimento-del-potenziale-cognitivo-nei-bambini-e-adolescenti-ridimensioniamo-la-didattica-digitale-la-riflessione-del-dott-alberto-pellai/",
           "pubDate": "Tue, 25 Aug 2026 17:58:57 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/malpezzi-pd-gli-stipendi-dei-docenti-vanno-avvicinati-alle-medie-europee/",
           "pubDate": "Tue, 25 Aug 2026 17:04:09 +0000",
           "description": "Valorizzare la professione docente anche attraverso un adeguamento delle retribuzioni. È uno dei temi affrontati da Simona Malpezzi, esponente del Partito Democ…"
-        },
-        {
-          "title": "Immissioni in ruolo 2026/27, USR Lombardia accantona 257 posti per A028 da concorso PNRR3 prima di passare agli elenchi regionali",
-          "link": "https://www.orizzontescuola.it/immissioni-in-ruolo-2026-27-usr-lombardia-accantona-257-posti-per-a028-da-concorso-pnrr3-prima-di-passare-agli-elenchi-regionali/",
-          "pubDate": "Tue, 25 Aug 2026 16:37:20 +0000",
-          "description": "Immissioni in ruolo a.s. 2026/27 per la classe A028 in Lombardia: lo avevamo chiamato il \"caso che non c'è nella normativa\", per il quale si rendeva necessario…"
         }
       ]
     },
