@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-25T16:41:15+00:00",
+  "updatedAt": "2026-08-25T18:44:31+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,40 +46,40 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Contro il progressivo impoverimento del potenziale cognitivo nei bambini e adolescenti: ridimensioniamo la didattica digitale. La riflessione dI Alberto Pellai",
+          "link": "https://www.orizzontescuola.it/contro-il-progressivo-impoverimento-del-potenziale-cognitivo-nei-bambini-e-adolescenti-ridimensioniamo-la-didattica-digitale-la-riflessione-del-dott-alberto-pellai/",
+          "pubDate": "Tue, 25 Aug 2026 17:58:57 +0000",
+          "description": "Il progressivo impoverimento del potenziale cognitivo nei bambini e negli adolescenti rappresenta un fenomeno sempre più evidente. In una serie di considerazion…"
+        },
+        {
+          "title": "Spezzoni ai docenti di ruolo, ecco i prospetti delle ore residue 2026/27",
+          "link": "https://www.orizzontescuola.it/spezzoni-ai-docenti-di-ruolo-ecco-i-prospetti-delle-ore-residue/",
+          "pubDate": "Tue, 25 Aug 2026 17:47:47 +0000",
+          "description": "Spezzoni pari o inferiori a 6 ore: alcuni Uffici Scolastici pubblicano i prospetti con l'indicazione delle classi di concorso e delle ore residue dopo le assegn…"
+        },
+        {
+          "title": "Supplenze a.s. 2026/27: meglio ritirare la domanda se non si è più interessati alla nomina. Sanzione dura due anni",
+          "link": "https://www.orizzontescuola.it/supplenze-a-s-2026-27-meglio-ritirare-la-domanda-se-non-si-e-piu-interessati-alla-nomina-sanzione-dura-due-anni/",
+          "pubDate": "Tue, 25 Aug 2026 17:29:37 +0000",
+          "description": "Supplenze al 31 agosto o 30 giugno 2027: tra pochi giorni gli Uffici Scolastici avvieranno l'algoritmo per l'attribuzione degli incarichi ai docenti che hanno p…"
+        },
+        {
+          "title": "Italiano obbligatorio ai genitori stranieri, FLC CGIL a Valditara: “Una difficoltà diventa una colpa e la valutazione del figlio una sanzione”",
+          "link": "https://www.orizzontescuola.it/italiano-obbligatorio-ai-genitori-stranieri-flc-cgil-a-valditara-una-difficolta-diventa-una-colpa-e-la-valutazione-del-figlio-una-sanzione/",
+          "pubDate": "Tue, 25 Aug 2026 17:25:20 +0000",
+          "description": "La proposta del ministro dell’Istruzione e del Merito Giuseppe Valditara di rendere obbligatorio lo studio dell’italiano per i genitori stranieri i cui figli ha…"
+        },
+        {
+          "title": "Malpezzi (PD): “Gli stipendi dei docenti vanno avvicinati alle medie europee”",
+          "link": "https://www.orizzontescuola.it/malpezzi-pd-gli-stipendi-dei-docenti-vanno-avvicinati-alle-medie-europee/",
+          "pubDate": "Tue, 25 Aug 2026 17:04:09 +0000",
+          "description": "Valorizzare la professione docente anche attraverso un adeguamento delle retribuzioni. È uno dei temi affrontati da Simona Malpezzi, esponente del Partito Democ…"
+        },
+        {
           "title": "Immissioni in ruolo 2026/27, USR Lombardia accantona 257 posti per A028 da concorso PNRR3 prima di passare agli elenchi regionali",
           "link": "https://www.orizzontescuola.it/immissioni-in-ruolo-2026-27-usr-lombardia-accantona-257-posti-per-a028-da-concorso-pnrr3-prima-di-passare-agli-elenchi-regionali/",
           "pubDate": "Tue, 25 Aug 2026 16:37:20 +0000",
           "description": "Immissioni in ruolo a.s. 2026/27 per la classe A028 in Lombardia: lo avevamo chiamato il \"caso che non c'è nella normativa\", per il quale si rendeva necessario…"
-        },
-        {
-          "title": "Supplenze ATA 2026/27 al via, sono iniziate le convocazioni da graduatorie di prima e seconda fascia. Gli avvisi",
-          "link": "https://www.orizzontescuola.it/supplenze-ata-2026-27-proseguono-le-convocazioni-da-prima-e-seconda-fascia/",
-          "pubDate": "Tue, 25 Aug 2026 16:33:18 +0000",
-          "description": "Proseguono le convocazioni per le supplenze ATA 2026/27. Diversi Uffici scolastici territoriali stanno rendendo noti nuovi calendari per il conferimento degli i…"
-        },
-        {
-          "title": "“La burocrazia è figlia del conflitto”, Palumbo (MIM) apre al superamento di PEI e PDP: “Troppi documenti diventano scudo e arma. Semplifichiamo, ma attenti a non far crollare il sistema”",
-          "link": "https://www.orizzontescuola.it/la-burocrazia-e-figlia-del-conflitto-palumbo-mim-apre-al-superamento-di-pei-e-pdp-troppi-documenti-diventano-scudo-e-arma-semplifichiamo-a-legislazione-vigente-ma-attenti-a-non-far-croll/",
-          "pubDate": "Tue, 25 Aug 2026 16:31:59 +0000",
-          "description": "Il Meeting di Rimini ha ospitato anche il punto di vista istituzionale sul delicato equilibrio tra autonomia docente e adempimenti burocratici. L'articolo &#822…"
-        },
-        {
-          "title": "Erasmus+ per le scuole: webinar gratuito su accreditamento e candidatura ai progetti",
-          "link": "https://www.orizzontescuola.it/erasmus-per-le-scuole-webinar-gratuito-su-accreditamento-e-candidatura-ai-progetti/",
-          "pubDate": "Tue, 25 Aug 2026 16:18:54 +0000",
-          "description": "Erasmus+ rappresenta per le scuole un’opportunità importante per aprirsi all’internazionalizzazione, promuovere la mobilità di studenti e personale scolastico e…"
-        },
-        {
-          "title": "“Aule roventi e benzina alle stelle: le riunioni online sono una scelta di buon senso e di rispetto per i docenti”",
-          "link": "https://www.orizzontescuola.it/aule-roventi-e-benzina-alle-stelle-le-riunioni-online-sono-una-scelta-di-buon-senso-e-di-rispetto-per-i-docenti/",
-          "pubDate": "Tue, 25 Aug 2026 16:15:47 +0000",
-          "description": "In vista del rientro in servizio del 1° settembre, si torna a parlare del benessere microclimatico all'interno degli edifici scolastici e dell'organizzazione de…"
-        },
-        {
-          "title": "Barbacci (Cisl Scuola): “Basta egalitarismo piatto. Chi si assume più impegni sia pagato di più. E la formazione non sia più volontariato”",
-          "link": "https://www.orizzontescuola.it/barbacci-cisl-scuola-basta-egalitarismo-piatto-chi-si-assume-piu-impegni-sia-pagato-di-piu-e-la-formazione-non-sia-piu-volontariato/",
-          "pubDate": "Tue, 25 Aug 2026 16:11:00 +0000",
-          "description": "Il Meeting di Rimini è stato il palcoscenico scelto da Ivana Barbacci, segretaria generale della Cisl Scuola, per lanciare un messaggio chiaro e articolato sul…"
         }
       ]
     },
