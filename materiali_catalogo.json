@@ -25,7 +25,7 @@
   {"classe": "Quarta","titolo": "Verifica Maggio 2026 - SQL","descrizione": "database","tipo": "esercizio","file_path": "materiali/verifiche/Verifica _Classe_4_Maggio_2026.bat","target_page": "","ordine": 1,"attivo": true},
   {"classe": "Quinta","titolo": "Crittografia e sicurezza","descrizione": "Concetti base di sicurezza informatica.","tipo": "slide","file_path": "materiali/slide/crittografia_sicurezza.pdf","target_page": "","ordine": 1,"attivo": true},
   {"classe": "STEM","titolo": "Robotica educativa","descrizione": "Sensori, attuatori e laboratorio.","tipo": "slide","file_path": "materiali/slide/robotica_educativa.pdf","target_page": "","ordine": 1,"attivo": true},
-   {"classe": "Ripasso","titolo": "Ripasso per inizio anno scolastico","descrizione": "Variabili, strutture selettive\iertive, liste, funzioni.","tipo": "slide","file_path": "Ripasso/Python_Manuale_Preparazione_Ripasso.pdf","target_page": "","ordine": 1,"attivo": true} 
+  {"classe": "Ripasso","titolo": "Ripasso per inizio anno scolastico","descrizione": "Variabili, strutture selettive-itertive, liste, funzioni.","tipo": "slide","file_path": "materiali/Ripasso/Python_Manuale_Preparazione_Ripasso.pdf","target_page": "","ordine": 1,"attivo": true} 
 ]
 
 
