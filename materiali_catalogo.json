@@ -26,7 +26,10 @@
   {"classe": "Quinta","titolo": "Crittografia e sicurezza","descrizione": "Concetti base di sicurezza informatica.","tipo": "slide","file_path": "materiali/slide/crittografia_sicurezza.pdf","target_page": "","ordine": 1,"attivo": true},
   {"classe": "STEM","titolo": "Robotica educativa","descrizione": "Sensori, attuatori e laboratorio.","tipo": "slide","file_path": "materiali/slide/robotica_educativa.pdf","target_page": "","ordine": 1,"attivo": true},
   {"classe": "Ripasso","titolo": "Ripasso classe II-III","descrizione": "Variabili, strutture selettive-itertive, liste, funzioni.","tipo": "slide","file_path": "materiali/Ripasso/Python_Manuale_Preparazione_Ripasso.pdf","target_page": "","ordine": 1,"attivo": true},
-  {"classe": "Ripasso","titolo": "Ripasso classe IV","descrizione": "Database, SQL","tipo": "slide","file_path": "materiali/Ripasso/SQL_Manuale_Preparazione_Ripasso.pdf","target_page": "","ordine": 1,"attivo": true}
+  {"classe": "Ripasso","titolo": "Ripasso classe IV","descrizione": "Database, SQL","tipo": "slide","file_path": "materiali/Ripasso/SQL_Manuale_Preparazione_Ripasso.pdf","target_page": "","ordine": 1,"attivo": true},
+  {"classe": "Ripasso","titolo": "Esercizi classe II-III","descrizione": "Python","tipo": "slide","file_path": "materiali/Ripasso/Python_Ripasso_Inizio_Anno.pdf","target_page": "","ordine": 1,"attivo": true},
+  {"classe": "Ripasso","titolo": "Esercizi classe IV","descrizione": "Database, SQL","tipo": "slide","file_path": "materiali/Ripasso/SQL_Ripasso_Inizio_Anno.pdf","target_page": "","ordine": 1,"attivo": true}
+
   
 ]
 
