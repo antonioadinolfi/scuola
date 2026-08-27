@@ -1,9 +1,15 @@
 {
-  "updatedAt": "2026-08-27T08:24:46+00:00",
+  "updatedAt": "2026-08-27T20:13:07+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
       "items": [
+        {
+          "title": "Presa di servizio personale Docente ed ATA – Convocazione Collegio dei docenti",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/08/27/presa-di-servizio-personale-docente-ed-ata-convocazione-collegio-dei-docenti/",
+          "pubDate": "Thu, 27 Aug 2026 14:49:19 +0000",
+          "description": "Presa di servizio personale Docente ed ATA &#8211; Convocazione Collegio dei docenti"
+        },
         {
           "title": "Orario di apertura degli Uffici di Segreteria",
           "link": "https://www.liceoscientificocortese.edu.it/2026/07/22/nuovo-orari-di-apertura-degli-uffici-di-segreteria/",
@@ -33,12 +39,6 @@
           "link": "https://www.liceoscientificocortese.edu.it/2026/06/20/il-liceo-cortese-allic-gesue-una-lezione-speciale-alla-scoperta-del-latino/",
           "pubDate": "Sat, 20 Jun 2026 14:35:48 +0000",
           "description": "Il Dirigente scolastico del Liceo Scientifico &#8220;N. Cortese&#8221; di Maddaloni, dott. prof. Marcellino Falcone, ha accolto con entusiasmo l&#8217;invito de…"
-        },
-        {
-          "title": "Riorganizzazione dell’orario scolastico: introduzione della settimana corta – A.S. 2026/2027",
-          "link": "https://www.liceoscientificocortese.edu.it/2026/06/19/riorganizzazione-dellorario-scolastico-introduzione-della-settimana-corta-a-s-2026-2027/",
-          "pubDate": "Fri, 19 Jun 2026 11:48:45 +0000",
-          "description": "A partire dall’anno scolastico 2026/2027, il Liceo Scientifico Statale &#8220;Nino Cortese&#8221;, diretto dal Dott. Prof. Marcellino Falcone, adotterà un’organ…"
         }
       ]
     },
@@ -46,40 +46,40 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
-          "title": "15enne italiano in carcere a Malta, disposta perizia psicologica entro il 30 settembre per valutare i danni dell’isolamento",
-          "link": "https://www.orizzontescuola.it/15enne-italiano-in-carcere-a-malta-disposta-perizia-psicologica-entro-il-30-settembre-per-valutare-i-danni-dellisolamento/",
-          "pubDate": "Thu, 27 Aug 2026 08:23:13 +0000",
-          "description": "La decisione del tribunale prolunga la detenzione del quindicenne italiano recluso dal 25 maggio scorso a Malta con l'accusa di procurato allarme bomba nella sc…"
+          "title": "Scuola italiana dell’Alto Adige, presentato il piano per il 2026/27: Oltre 22mila studenti, organico potenziato e progetti tra teatro, lettura e Costituzione",
+          "link": "https://www.orizzontescuola.it/scuola-italiana-dellalto-adige-presentato-il-piano-per-il-2026-27-oltre-22mila-studenti-organico-potenziato-e-progetti-tra-teatro-lettura-e-costituzione/",
+          "pubDate": "Thu, 27 Aug 2026 18:52:51 +0000",
+          "description": "Sono 22.080 gli studenti iscritti alle scuole in lingua italiana dell'Alto Adige per l'anno scolastico 2026/27. Il dato è stato reso noto ieri dalla Direzione I…"
         },
         {
-          "title": "Docente svolge libera professione senza autorizzazione, “i Dirigenti mi hanno tratta in inganno”. Il giudice riduce il risarcimento",
-          "link": "https://www.orizzontescuola.it/docente-svolge-libera-professione-senza-autorizzazione-i-dirigenti-mi-hanno-tratta-in-inganno-il-giudice-riduce-il-risarcimento/",
-          "pubDate": "Thu, 27 Aug 2026 08:08:10 +0000",
-          "description": "Una docente dalle verifiche eseguite dalla Guardia di Finanza, è emerso che fosse titolare di un’omonima ditta individuale svolgente l’attività di psicologa e p…"
+          "title": "Da casa all’istituto in quattro ruote, la risposta compatta al caos del rientro scolastico: 5 cose da sapere",
+          "link": "https://www.orizzontescuola.it/da-casa-allistituto-in-quattro-ruote-la-risposta-compatta-al-caos-del-rientro-scolastico-5-cose-da-sapere/",
+          "pubDate": "Thu, 27 Aug 2026 18:11:54 +0000",
+          "description": "Con la fine dell’estate e il ritorno alla routine, le metropoli italiane assistono a una mutazione profonda del proprio paesaggio sonoro e visivo. Il classico c…"
         },
         {
-          "title": "Social, Crepet: “Creano dipendenza come le sigarette. La strada giusta è l’ironia, non i divieti”",
-          "link": "https://www.orizzontescuola.it/social-crepet-creano-dipendenza-come-le-sigarette-la-strada-giusta-e-lironia-non-i-divieti/",
-          "pubDate": "Thu, 27 Aug 2026 07:55:20 +0000",
-          "description": "Quasi 18 miliardi di dollari. È la cifra enorme che Meta (l'azienda di Facebook e Instagram) ha promesso di pagare negli Stati Uniti per chiudere le cause sui d…"
+          "title": "Aule bollenti, cattedre scoperte e docenti sottopagati: la scuola riparte tra mille emergenze. I sindacati: “Assediati da scartoffie da compilare, griglie di valutazione, programmi che nessuno leggerà mai”",
+          "link": "https://www.orizzontescuola.it/aule-bollenti-cattedre-scoperte-e-docenti-sottopagati-la-scuola-riparte-tra-mille-emergenze-i-sindacati-assediati-da-scartoffie-da-compilare-griglie-di-valutazione-programmi-che-nessuno-legger/",
+          "pubDate": "Thu, 27 Aug 2026 17:55:04 +0000",
+          "description": "Mentre il conto alla rovescia per l'inizio delle lezioni segna gli ultimi giorni, nelle segreterie scolastiche si consuma l'ennesima corsa contro il tempo tra n…"
         },
         {
-          "title": "Alunna sospesa per 2 giorni, famiglia fa ricorso al TAR e lo vince: scuola dovrà pagare 2mila euro. Ecco cosa hanno detto i giudici",
-          "link": "https://www.orizzontescuola.it/alunna-sospesa-per-2-giorni-famiglia-fa-ricorso-al-tar-e-lo-vince-scuola-dovra-pagare-2mila-euro-ecco-cosa-hanno-detto-i-giudici/",
-          "pubDate": "Thu, 27 Aug 2026 07:47:03 +0000",
-          "description": "Un provvedimento di sospensione di due giorni, una contestazione generica e mai chiarita, un organo di garanzia presieduto dalla stessa dirigente che aveva già…"
+          "title": "Docenti neo-assunti e vincolo triennale: calcolo del triennio, deroghe e mobilità annuale",
+          "link": "https://www.orizzontescuola.it/docenti-neo-assunti-e-vincolo-triennale-calcolo-del-triennio-deroghe-e-mobilita-annuale/",
+          "pubDate": "Thu, 27 Aug 2026 16:56:08 +0000",
+          "description": "All'immissione in ruolo seguono precise regole riguardanti la permanenza minima sulla sede assegnata e la conseguente possibilità o meno di partecipare alla mob…"
         },
         {
-          "title": "Immissione in ruolo e presa di servizio il 1° settembre 2026: chiarimenti per i docenti da GPS sostegno, Straordinario bis e PNRR",
-          "link": "https://www.orizzontescuola.it/immissione-in-ruolo-e-presa-di-servizio-il-1-settembre-2026-chiarimenti-per-i-docenti-da-gps-sostegno-straordinario-bis-e-pnrr/",
-          "pubDate": "Thu, 27 Aug 2026 07:44:34 +0000",
-          "description": "La data del 1° settembre segna un appuntamento importante per migliaia di insegnanti assunti nell'a.s. 2025/2026 con contratto a tempo determinato finalizzato a…"
+          "title": "Supplenze ATA 2026/27: cambio profilo fino all’inizio delle lezioni, spezzoni, sanzioni. Tutte le regole",
+          "link": "https://www.orizzontescuola.it/supplenze-ata-2026-27-cambio-profilo-fino-allinizio-delle-lezioni-spezzoni-sanzioni-tutte-le-regole/",
+          "pubDate": "Thu, 27 Aug 2026 16:42:03 +0000",
+          "description": "Sta per iniziare il nuovo anno scolastico 2026/27 e, in vista delle prossime nomine, è utile riepilogare le regole per l’attribuzione delle supplenze al persona…"
         },
         {
-          "title": "Docenti all’estero, ultimi giorni per la presentazione della domanda: requisiti e info utili",
-          "link": "https://www.orizzontescuola.it/docenti-allestero-ultimi-giorni-per-la-presentazione-della-domanda-requisiti-e-info-utili/",
-          "pubDate": "Thu, 27 Aug 2026 07:23:43 +0000",
-          "description": "Un'occasione unica per i docenti di ruolo che desiderano arricchire il proprio percorso professionale con un'esperienza internazionale. Il bando, rivolto alle a…"
+          "title": "Nepal, 18 scuole cancellate dall’acqua e 20 gravemente danneggiate: l’allarme UNICEF per 17.000 bambini colpiti",
+          "link": "https://www.orizzontescuola.it/nepal-18-scuole-cancellate-dallacqua-e-20-gravemente-danneggiate-lallarme-unicef-per-17-000-bambini-colpiti/",
+          "pubDate": "Thu, 27 Aug 2026 16:36:09 +0000",
+          "description": "Almeno 17.000 bambini sono stati colpiti dalle devastanti alluvioni che il 26 agosto hanno travolto i distretti nepalesi di Rasuwa, Nuwakot e Dhading. L'articol…"
         }
       ]
     },
