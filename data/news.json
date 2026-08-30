@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-29T23:58:03+00:00",
+  "updatedAt": "2026-08-30T05:12:06+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Riforma della disabilità: tutte le novità sul decreto 62/2024. 3 webinar per docenti",
+          "link": "https://www.orizzontescuola.it/riforma-della-disabilita-tutte-le-novita-sul-decreto-62-2024-3-webinar-per-docenti/",
+          "pubDate": "Sun, 30 Aug 2026 05:10:17 +0000",
+          "description": "La riforma della disabilità introduce un cambio di prospettiva che riguarda direttamente il lavoro delle scuole. Non si tratta solo di conoscere le nuove dispos…"
+        },
+        {
+          "title": "Caro carburanti, 200 euro per i docenti pendolari e fuori sede. Il CNDDU chiede un’indennità",
+          "link": "https://www.orizzontescuola.it/caro-carburanti-il-cnddu-chiede-unindennita-fino-a-200-euro-per-i-docenti-pendolari-e-fuori-sede/",
+          "pubDate": "Sun, 30 Aug 2026 05:00:21 +0000",
+          "description": "Il Coordinamento Nazionale Docenti della disciplina dei Diritti Umani è intervenuto nel dibattito sulle misure per contrastare il caro carburanti, chiedendo un…"
+        },
+        {
           "title": "Supplenze docenti, ecco i BOLLETTINI nomine al 31 agosto o 30 giugno 2027 [AGGIORNATO]",
           "link": "https://www.orizzontescuola.it/supplenze-docenti-ecco-i-bollettini-nomine-al-31-agosto-o-30-giugno-2027-in-aggiornamento/",
           "pubDate": "Sat, 29 Aug 2026 18:07:36 +0000",
@@ -68,18 +80,6 @@
           "link": "https://www.orizzontescuola.it/continuita-sostegno-quale-supplenza-bisognera-svolgere-per-partecipare-alla-procedura-del-2027-28-pillole-di-question-time/",
           "pubDate": "Sat, 29 Aug 2026 16:28:53 +0000",
           "description": "Nel Question Time del 27 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Sonia Cannas, docente ed esperta in normativa sc…"
-        },
-        {
-          "title": "“Con l’anima in riserva e il cuore che non parte”: l’agonia estiva dei docenti precari",
-          "link": "https://www.orizzontescuola.it/con-lanima-in-riserva-e-il-cuore-che-non-parte-lagonia-estiva-dei-docenti-precari/",
-          "pubDate": "Sat, 29 Aug 2026 16:05:12 +0000",
-          "description": "Mentre per tanti gli ultimi giorni di agosto segnano il lento ritorno alla routine o la conclusione delle vacanze, per centinaia di migliaia di docenti precari…"
-        },
-        {
-          "title": "Bonus libri 2026/2027, la mappa delle regioni con i bandi ancora aperti",
-          "link": "https://www.orizzontescuola.it/bonus-libri-2026-2027-la-mappa-delle-regioni-con-i-bandi-ancora-aperti/",
-          "pubDate": "Sat, 29 Aug 2026 16:02:10 +0000",
-          "description": "Con l'inizio del nuovo anno scolastico ormai alle porte, migliaia di famiglie italiane tornano a fare i conti con una delle spese più pesanti del rientro sui ba…"
         }
       ]
     },
