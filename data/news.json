@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-30T16:21:46+00:00",
+  "updatedAt": "2026-08-30T20:47:34+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,30 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Supplenze docenti GPS e GAE 2026, bollettini in pubblicazione: tutte le info utili. QUESTION TIME con Cannas. LIVE Lunedì 31 agosto alle 14:30",
+          "link": "https://www.orizzontescuola.it/supplenze-docenti-gps-e-gae-2026-bollettini-in-pubblicazione-tutte-le-info-utili-question-time-con-cannas-live-lunedi-31-agosto-alle-1430/",
+          "pubDate": "Sun, 30 Aug 2026 19:30:26 +0000",
+          "description": "Supplenze GPS e GAE, gli uffici scolastici regionali stanno iniziando a pubblicare i bollettini in riferimento agli incarichi di supplenza a tempo determinato.…"
+        },
+        {
+          "title": "Supplenza sostegno: si può tornare nella stessa scuola anche senza continuità, ma solo tramite algoritmo. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/supplenza-sostegno-si-puo-tornare-nella-stessa-scuola-anche-senza-continuita-ma-solo-tramite-algoritmo-pillole-di-question-time/",
+          "pubDate": "Sun, 30 Aug 2026 18:54:54 +0000",
+          "description": "Nel Question Time del 27 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Sonia Cannas, docente ed esperta in normativa sc…"
+        },
+        {
+          "title": "La storia di Peppino Impastato in I cento passi: Il coraggio di uno contro il silenzio di molti. Insegnare con i film",
+          "link": "https://www.orizzontescuola.it/i-cento-passi-e-la-storia-di-peppino-impastato-il-coraggio-di-uno-contro-il-silenzio-di-molti-insegnare-con-i-film/",
+          "pubDate": "Sun, 30 Aug 2026 17:24:20 +0000",
+          "description": "Tullio Giordana, regista milanese della fortunata serie TV La meglio gioventù (2003), ha diretto nel 2000 I cento passi, un film ormai iconico che racconta la v…"
+        },
+        {
+          "title": "Aprea (FI): “Più autonomia alle scuole, allo Stato indirizzo e controllo”",
+          "link": "https://www.orizzontescuola.it/aprea-fi-piu-autonomia-alle-scuole-allo-stato-indirizzo-e-controllo/",
+          "pubDate": "Sun, 30 Aug 2026 17:08:54 +0000",
+          "description": "Rafforzare l’autonomia delle istituzioni scolastiche e ridefinire il rapporto con l’amministrazione centrale. È il tema posto da Valentina Aprea, esponente di F…"
+        },
+        {
           "title": "Supplenze docenti 2026/27: alla nomina da bollettino alla primaria vanno aggiunte le ore di programmazione",
           "link": "https://www.orizzontescuola.it/supplenze-docenti-2026-27-alla-nomina-da-bollettino-alla-primaria-vanno-aggiunte-le-ore-di-programmazione/",
           "pubDate": "Sun, 30 Aug 2026 14:47:12 +0000",
@@ -56,30 +80,6 @@
           "link": "https://www.orizzontescuola.it/bonus-cicogna-2026-domande-dal-1-settembre-chi-puo-richiederlo-e-scadenza/",
           "pubDate": "Sun, 30 Aug 2026 14:02:58 +0000",
           "description": "L’INPS ha pubblicato il bando di concorso “Bonus Cicogna” 2026, destinato ai bambini nati o adottati nel corso del 2025. L'articolo Bonus Cicogna 2026, domande…"
-        },
-        {
-          "title": "Docenti neo-immessi in ruolo e adesione al Fondo ESPERO: come funziona il meccanismo del silenzio-assenso",
-          "link": "https://www.orizzontescuola.it/docenti-neo-immessi-in-ruolo-e-adesione-al-fondo-espero-come-funziona-il-meccanismo-del-silenzio-assenso/",
-          "pubDate": "Sun, 30 Aug 2026 12:52:09 +0000",
-          "description": "In seguito alla riorganizzazione del sistema previdenziale avviata nel 1995, i lavoratori dipendenti hanno la possibilità di affiancare al trattamento pensionis…"
-        },
-        {
-          "title": "Precariato, Galiano: “Quello degli insegnanti rende precaria anche la scuola dei ragazzi”",
-          "link": "https://www.orizzontescuola.it/precariato-galiano-quello-degli-insegnanti-rende-precaria-anche-la-scuola-dei-ragazzi/",
-          "pubDate": "Sun, 30 Aug 2026 11:27:10 +0000",
-          "description": "C'è una scena che si ripete in migliaia di scuole italiane, quasi sempre senza che nessuno la racconti. Un insegnante arriva a settembre, conquista la classe, c…"
-        },
-        {
-          "title": "Di Maggio (FdI): “Rendere strutturale il buono scuola nazionale”",
-          "link": "https://www.orizzontescuola.it/di-maggio-fdi-rendere-strutturale-il-buono-scuola-nazionale/",
-          "pubDate": "Sun, 30 Aug 2026 11:11:10 +0000",
-          "description": "Rendere stabile il sostegno alla libertà di scelta educativa delle famiglie e riconoscere pienamente il ruolo delle scuole paritarie. L'articolo Di Maggio (FdI)…"
-        },
-        {
-          "title": "Pensioni, il governo studia il fondo che parte dalla culla: 10 euro al mese per 18 anni diventano 21mila euro",
-          "link": "https://www.orizzontescuola.it/pensioni-il-governo-studia-il-fondo-che-parte-dalla-culla-10-euro-al-mese-per-18-anni-diventano-21mila-euro/",
-          "pubDate": "Sun, 30 Aug 2026 10:48:46 +0000",
-          "description": "Previdenza complementare per i bambini, contributo pubblico iniziale e poi versamenti volontari di genitori e familiari. Il progetto è ancora in fase di studio…"
         }
       ]
     },
