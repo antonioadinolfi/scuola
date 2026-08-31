@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-31T17:27:59+00:00",
+  "updatedAt": "2026-08-31T22:39:32+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,30 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Supplenze docenti 2026/27, i BOLLETTINI nomine [AGGIORNATO]",
+          "link": "https://www.orizzontescuola.it/supplenze-docenti-ecco-i-bollettini-nomine-al-31-agosto-o-30-giugno-2027-in-aggiornamento/",
+          "pubDate": "Mon, 31 Aug 2026 21:07:36 +0000",
+          "description": "Supplenze docenti a.s. 2026/27: dopo il bollettino della continuità didattica, il passaggio successivo è la pubblicazione del primo bollettino. La numerazione d…"
+        },
+        {
+          "title": "Anno scolastico 2026/27 inizia con migliaia di docenti riconfermati su posto sostegno a partire dalla richiesta della famiglia [COMPLETO]",
+          "link": "https://www.orizzontescuola.it/supplenze-2026-27-ecco-il-bollettino-dei-docenti-riconfermati-su-posto-sostegno-in-aggiornamento/",
+          "pubDate": "Mon, 31 Aug 2026 20:15:08 +0000",
+          "description": "Ecco i bollettini pubblicati dagli Uffici Scolastici per la riconferma su posto sostegno. È la prima procedura delle supplenze, seguiranno i bollettini regolari…"
+        },
+        {
+          "title": "Medicina 2026/2027, domani al via il semestre filtro: la guida con tutte le date e le regole",
+          "link": "https://www.orizzontescuola.it/medicina-2026-2027-domani-al-via-il-semestre-filtro-la-guida-con-tutte-le-date-e-le-regole/",
+          "pubDate": "Mon, 31 Aug 2026 19:55:12 +0000",
+          "description": "Domani, 1° settembre 2026, riparte ufficialmente in tutta Italia il meccanismo del Semestre Filtro per l'accesso ai corsi di laurea in Medicina, Odontoiatria e…"
+        },
+        {
+          "title": "Preferenze al buio, “È corretto il sistema che abbiamo costruito?”. Lettera",
+          "link": "https://www.orizzontescuola.it/preferenze-al-buio-e-corretto-il-sistema-che-abbiamo-costruito-lettera/",
+          "pubDate": "Mon, 31 Aug 2026 19:30:04 +0000",
+          "description": "Inviata dal prof. Francesco Pungitore - C’è qualcosa di profondamente sbagliato in un sistema che, anno dopo anno, diventa sempre più complicato. L'articolo Pre…"
+        },
+        {
           "title": "Compiti a casa, 10 attività che l’ia ha reso ‘preistoriche’. Galiano: “Separare allenamento da valutazione”",
           "link": "https://www.orizzontescuola.it/compiti-a-casa-10-attivita-che-lia-ha-reso-preistoriche-galiano-separare-allenamento-da-valutazione/",
           "pubDate": "Mon, 31 Aug 2026 16:10:43 +0000",
@@ -56,30 +80,6 @@
           "link": "https://www.orizzontescuola.it/quasi-1000-iscritti-e-oltre-600-persone-collegate-contemporaneamente-per-il-7-convegno-cpp/",
           "pubDate": "Mon, 31 Aug 2026 16:09:19 +0000",
           "description": "\"La valutazione può diventare una grande risorsa educativa, se smette di essere vissuta come un verdetto e torna a essere uno strumento per accompagnare il perc…"
-        },
-        {
-          "title": "Assegnazioni provvisorie 2026/27, cattedre intere e spezzoni sul sostegno: perché il part-time rischia di essere penalizzato",
-          "link": "https://www.orizzontescuola.it/assegnazioni-provvisorie-2026-27-cattedre-intere-e-spezzoni-sul-sostegno-perche-il-part-time-rischia-di-essere-penalizzato/",
-          "pubDate": "Mon, 31 Aug 2026 15:52:00 +0000",
-          "description": "Una discrepanza procedurale nella gestione delle cattedre di sostegno rischia di penalizzare i docenti di ruolo in regime di part-time che presentano domanda di…"
-        },
-        {
-          "title": "Acquisti in rete PA, a settembre webinar gratuiti anche per le scuole: RDO, offerte e appalti ICT",
-          "link": "https://www.orizzontescuola.it/acquisti-in-rete-pa-a-settembre-webinar-gratuiti-anche-per-le-scuole-rdo-offerte-e-appalti-ict/",
-          "pubDate": "Mon, 31 Aug 2026 15:40:02 +0000",
-          "description": "Nuovi appuntamenti formativi a settembre per approfondire l’utilizzo degli strumenti disponibili sul portale Acquisti in rete PA. L'articolo Acquisti in rete PA…"
-        },
-        {
-          "title": "Settembre, il tempo di ricominciare. Lettera",
-          "link": "https://www.orizzontescuola.it/settembre-il-tempo-di-ricominciare-lettera/",
-          "pubDate": "Mon, 31 Aug 2026 15:27:56 +0000",
-          "description": "Inviata da Mario Ascione - Settembre, puntuale come ogni anno, bussa alla porta. Il caldo è ancora asfissiante, la salsedine è ancora sulla pelle, la voce conse…"
-        },
-        {
-          "title": "Isole minori al centro dell’istruzione: 70mila euro per abbattere l’isolamento geografico degli studenti di Lampedusa",
-          "link": "https://www.orizzontescuola.it/isole-minori-al-centro-dellistruzione-70mila-euro-per-abbattere-lisolamento-geografico-degli-studenti-di-lampedusa/",
-          "pubDate": "Mon, 31 Aug 2026 15:20:56 +0000",
-          "description": "Un passo concreto verso la parità di accesso alla cultura e alla formazione per gli studenti delle isole minori. È quanto arriva dalla Regione Siciliana, che ha…"
         }
       ]
     },
