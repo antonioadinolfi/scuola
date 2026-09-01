@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-31T22:39:32+00:00",
+  "updatedAt": "2026-09-01T04:22:11+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Scadenze di settembre: inizio delle lezioni, esami di Maturità, test universitari",
+          "link": "https://www.orizzontescuola.it/scadenze-di-settembre-inizio-delle-lezioni-esami-di-maturita-test-universitari/",
+          "pubDate": "Tue, 01 Sep 2026 03:00:08 +0000",
+          "description": "Le scadenze di settembre riguardano l'inizio dell'anno scolastico, gli esami di Maturità II grado e i test di accesso universitari. L'articolo Scadenze di sette…"
+        },
+        {
           "title": "Supplenze docenti 2026/27, i BOLLETTINI nomine [AGGIORNATO]",
           "link": "https://www.orizzontescuola.it/supplenze-docenti-ecco-i-bollettini-nomine-al-31-agosto-o-30-giugno-2027-in-aggiornamento/",
           "pubDate": "Mon, 31 Aug 2026 21:07:36 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/compiti-a-casa-10-attivita-che-lia-ha-reso-preistoriche-galiano-separare-allenamento-da-valutazione/",
           "pubDate": "Mon, 31 Aug 2026 16:10:43 +0000",
           "description": "Inutile girarci intorno: la campanella sta per suonare, ma quest'anno nello zaino (e in tasca) i ragazzi avranno un compagno di banco imbattibile. Si chiama Cha…"
-        },
-        {
-          "title": "Quasi 1000 iscritti e oltre 600 persone collegate contemporaneamente per il 7° Convegno CPP",
-          "link": "https://www.orizzontescuola.it/quasi-1000-iscritti-e-oltre-600-persone-collegate-contemporaneamente-per-il-7-convegno-cpp/",
-          "pubDate": "Mon, 31 Aug 2026 16:09:19 +0000",
-          "description": "\"La valutazione può diventare una grande risorsa educativa, se smette di essere vissuta come un verdetto e torna a essere uno strumento per accompagnare il perc…"
         }
       ]
     },
