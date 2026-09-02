@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-02T19:17:33+00:00",
+  "updatedAt": "2026-09-02T22:27:52+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Caro-affitti in Toscana, oltre 300 docenti rinunciano al ruolo: lo stipendio non basta più",
+          "link": "https://www.orizzontescuola.it/caro-affitti-in-toscana-oltre-300-docenti-rinunciano-al-ruolo-lo-stipendio-non-basta-piu/",
+          "pubDate": "Wed, 02 Sep 2026 19:45:17 +0000",
+          "description": "Il sogno del \"posto fisso\" nella scuola, per decenni il traguardo più ambito, oggi si scontra con un'equazione che non torna più. L'articolo Caro-affitti in Tos…"
+        },
+        {
           "title": "Stop all’intelligenza artificiale in classe: a New York scatta il divieto per le scuole elementari e medie",
           "link": "https://www.orizzontescuola.it/stop-allintelligenza-artificiale-in-classe-a-new-york-scatta-il-divieto-per-le-scuole-elementari-e-medie/",
           "pubDate": "Wed, 02 Sep 2026 18:05:47 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/caldo-a-scuola-cgil-bacchetta-valditara-57-euro-a-classe-per-un-ventilatore-anief-propone-modifica-calendario-mentre-in-puglia-si-chiede-il-rinvio-delle-lezioni/",
           "pubDate": "Wed, 02 Sep 2026 16:15:15 +0000",
           "description": "L’emergenza climatica si abbatte sugli edifici scolastici mentre il termometro, in molte regioni del Sud, supera ormai stabilmente i 38 gradi. L'articolo Caldo…"
-        },
-        {
-          "title": "Bonus musica nel 730: come funziona la detrazione per l’educazione musicale dei figli",
-          "link": "https://www.orizzontescuola.it/bonus-musica-nel-730-come-funziona-la-detrazione-per-leducazione-musicale-dei-figli/",
-          "pubDate": "Wed, 02 Sep 2026 16:02:55 +0000",
-          "description": "Bonus musica 730 e Redditi PF: fino a 190€ di detrazione per figlio. Requisiti di reddito, strutture ammesse, tracciabilità e compilazione righi E8-E10. L'artic…"
         }
       ]
     },
