@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-03T19:11:50+00:00",
+  "updatedAt": "2026-09-03T22:25:06+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,24 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Riforma Istituti Tecnici: impegno UIL per tutelare il personale e rafforzare discipline di indirizzo",
+          "link": "https://www.orizzontescuola.it/riforma-istituti-tecnici-impegno-uil-per-tutelare-il-personale-e-rafforzare-discipline-di-indirizzo/",
+          "pubDate": "Thu, 03 Sep 2026 20:42:45 +0000",
+          "description": "La pubblicazione del documento Primi Orientamenti per la progettazione curricolare finalizzata al passaggio al nuovo ordinamento degli istituti tecnici si inser…"
+        },
+        {
+          "title": "Riforma 2026 Istruzione Tecnica: Ministero invia alle scuole i primi Orientamenti per la progettazione. Centrali Unità di Apprendimento e compiti di realtà",
+          "link": "https://www.orizzontescuola.it/riforma-2026-istruzione-tecnica-ministero-invia-alle-scuole-i-primi-orientamenti-per-la-progettazione-centrali-unita-di-apprendimento-e-compiti-di-realta/",
+          "pubDate": "Thu, 03 Sep 2026 20:34:56 +0000",
+          "description": "Riforma 2026 Istruzione Tecnica: con nota n. 2306 del 3 settembre 2026 il Ministero trasmette ai Dirigenti degli Uffici Scolastici regionale e per loro tramite…"
+        },
+        {
+          "title": "“La fame si vede prima in classe che nei numeri”, gli insegnanti lo dicono chiaro: “A lezione a stomaco vuoto, il pasto a scuola non è solo cibo”. Uno studio internaziomale",
+          "link": "https://www.orizzontescuola.it/la-fame-si-vede-prima-in-classe-che-nei-numeri-gli-insegnanti-lo-dicono-chiaro-a-lezione-a-stomaco-vuoto-il-pasto-a-scuola-non-e-solo-cibo-uno-studio-internaziomale/",
+          "pubDate": "Thu, 03 Sep 2026 19:18:24 +0000",
+          "description": "Ogni mattina, in migliaia di classi, succede qualcosa che nessuna circolare del Ministero racconta. L'articolo &#8220;La fame si vede prima in classe che nei nu…"
+        },
+        {
           "title": "Scuola e caldo: 20 milioni per i climatizzatori. Ma basteranno? E chi deciderà? Tra annunci e cantieri, restano aperti nodi tecnici, economici e organizzativi",
           "link": "https://www.orizzontescuola.it/scuola-e-caldo-20-milioni-per-i-climatizzatori-ma-basteranno-e-chi-decidera-tra-annunci-e-cantieri-restano-aperti-nodi-tecnici-economici-e-organizzativi/",
           "pubDate": "Thu, 03 Sep 2026 18:58:42 +0000",
@@ -62,24 +80,6 @@
           "link": "https://www.orizzontescuola.it/sfilza-di-4-e-5-in-pagella-alunna-bocciata-fa-ricorso-al-tar-i-giudici-dicono-no-la-valutazione-finale-resta-un-atto-di-discrezionalita-dei-docenti/",
           "pubDate": "Thu, 03 Sep 2026 18:17:26 +0000",
           "description": "La fine dell'anno scolastico rappresenta per molti studenti un momento di ansia e attesa. Per una ragazza di Padova, quella tensione si è trasformata in una bat…"
-        },
-        {
-          "title": "Buone prassi per la strutturazione dell’orario di servizio del docente di sostegno: come definirlo?",
-          "link": "https://www.orizzontescuola.it/buone-prassi-per-la-strutturazione-dellorario-di-servizio-del-docente-di-sostegno-come-definirlo/",
-          "pubDate": "Thu, 03 Sep 2026 17:29:42 +0000",
-          "description": "La pianificazione dell'orario di servizio dell'insegnante di sostegno rappresenta uno dei momenti più delicati all'avvio dell'anno scolastico: troppo spesso, in…"
-        },
-        {
-          "title": "De André, Guccini, Battisti e non solo: la musica d’autore entra in classe. Valditara: “I brani dei cantautori possono essere oggetto di studio”",
-          "link": "https://www.orizzontescuola.it/de-andre-guccini-battisti-e-non-solo-la-musica-dautore-entra-in-classe-valditara-i-brani-dei-cantautori-possono-essere-oggetto-di-studio/",
-          "pubDate": "Thu, 03 Sep 2026 17:25:38 +0000",
-          "description": "L'aggiornamento delle linee guida per le scuole secondarie di secondo grado prevede l'inserimento della canzone d'autore e dell'opera lirica nei percorsi di stu…"
-        },
-        {
-          "title": "Crepet ai giovani: “Auguro alle ragazze e ai ragazzi di non perdersi il vizio della libertà”",
-          "link": "https://www.orizzontescuola.it/crepet-ai-giovani-auguro-alle-ragazze-e-ai-ragazzi-di-non-perdersi-il-vizio-della-liberta/",
-          "pubDate": "Thu, 03 Sep 2026 16:58:33 +0000",
-          "description": "Piazza della Rinascita a Pescara era piena. Oltre duemila persone si sono strette per ascoltare Paolo Crepet, ospite del Festival Dannunziano. L'articolo Crepet…"
         }
       ]
     },
