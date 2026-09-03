@@ -1,9 +1,15 @@
 {
-  "updatedAt": "2026-09-03T08:45:04+00:00",
+  "updatedAt": "2026-09-03T14:15:36+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
       "items": [
+        {
+          "title": "Inizio delle attivita’ didattiche a.s. 2026/27",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/09/03/inizio-delle-attivita-didattiche-a-s-2026-27/",
+          "pubDate": "Thu, 03 Sep 2026 13:29:14 +0000",
+          "description": "CLASSI PRIME In occasione del primo giorno di scuola, il Dirigente Scolastico accoglierà e saluterà gli studenti delle classi prime e le loro famiglie, nel cort…"
+        },
         {
           "title": "Presa di servizio personale Docente ed ATA – Convocazione Collegio dei docenti",
           "link": "https://www.liceoscientificocortese.edu.it/2026/08/27/presa-di-servizio-personale-docente-ed-ata-convocazione-collegio-dei-docenti/",
@@ -33,12 +39,6 @@
           "link": "https://www.liceoscientificocortese.edu.it/2026/06/29/il-liceo-cortese-promuove-una-rete-scolastica-per-la-parita-di-genere/",
           "pubDate": "Mon, 29 Jun 2026 12:45:07 +0000",
           "description": "Il Liceo Scientifico &#8220;Nino Cortese&#8221; di Maddaloni, diretto dal Dirigente Scolastico, dott. prof. Marcellino Falcone, ha promosso la costituzione di u…"
-        },
-        {
-          "title": "Il Liceo Cortese all’IC Gesuè: una lezione speciale alla scoperta del latino",
-          "link": "https://www.liceoscientificocortese.edu.it/2026/06/20/il-liceo-cortese-allic-gesue-una-lezione-speciale-alla-scoperta-del-latino/",
-          "pubDate": "Sat, 20 Jun 2026 14:35:48 +0000",
-          "description": "Il Dirigente scolastico del Liceo Scientifico &#8220;N. Cortese&#8221; di Maddaloni, dott. prof. Marcellino Falcone, ha accolto con entusiasmo l&#8217;invito de…"
         }
       ]
     },
@@ -46,40 +46,40 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
-          "title": "Docenti e ATA neoassunti: quando l’insegnamento è compatibile con altro lavoro o libera professione [GUIDA]",
-          "link": "https://www.orizzontescuola.it/docenti-e-ata-quando-linsegnamento-compatibile-con-altro-lavoro-o-libera-professione-guida/",
-          "pubDate": "Thu, 03 Sep 2026 08:41:40 +0000",
-          "description": "La normativa sull’incompatibilità assoluta per il personale scolastico, sia a tempo pieno sia a tempo parziale con un impegno lavorativo superiore al 50%, è sta…"
+          "title": "PNRR Scuola 4.0, campus didattici e formativi: nuova scadenza al 31 ottobre per collaudi e rendicontazione",
+          "link": "https://www.orizzontescuola.it/pnrr-scuola-4-0-campus-didattici-e-formativi-nuova-scadenza-al-31-ottobre-per-collaudi-e-rendicontazione/",
+          "pubDate": "Thu, 03 Sep 2026 13:47:33 +0000",
+          "description": "Il Ministero dell’Istruzione e del Merito, con una nota del 31 agosto 2026, ha aggiornato i termini relativi ad alcuni progetti finanziati nell’ambito del PNRR,…"
         },
         {
-          "title": "Assassinio Dalla Chiesa, Valditara: “Il miglior modo per celebrarli è rinnovare quotidianamente la lotta contro ogni mafia”",
-          "link": "https://www.orizzontescuola.it/assassinio-dalla-chiesa-valditara-il-miglior-modo-per-celebrarli-e-rinnovare-quotidianamente-la-lotta-contro-ogni-mafia/",
-          "pubDate": "Thu, 03 Sep 2026 08:22:28 +0000",
-          "description": "Sono passati 44 anni dall'uccisione del generale Carlo Alberto Dalla Chiesa, di sua moglie Emanuela Setti Carraro e dell'agente di scorta Domenico Russo. L'arti…"
+          "title": "Milano, 30 milioni per la scuola: 22,7 per la disabilità, 2 milioni per i libri, e 1 milione per i trasporti. Le novità",
+          "link": "https://www.orizzontescuola.it/milano-30-milioni-per-la-scuola-227-per-la-disabilita-2-milioni-per-i-libri-e-1-milione-per-i-trasporti-le-novita/",
+          "pubDate": "Thu, 03 Sep 2026 13:35:19 +0000",
+          "description": "La Giunta comunale di Milano ha dato il via libera al nuovo Piano di Diritto allo Studio per l'anno scolastico 2026/2027. L'articolo Milano, 30 milioni per la s…"
         },
         {
-          "title": "Docente confermato sul sostegno: la continuità è sulla scuola, non sulla classe o sull’alunno. Il punto di Craparo (Gilda)",
-          "link": "https://www.orizzontescuola.it/docente-confermato-sul-sostegno-la-continuita-e-sulla-scuola-non-sulla-classe-o-sullalunno-il-punto-di-craparo-gilda/",
-          "pubDate": "Thu, 03 Sep 2026 08:22:17 +0000",
-          "description": "Un docente confermato sul sostegno per due alunni si vede aggiungere un terzo studente dalla dirigente scolastica. Può farlo? Il rappresentante della Gilda, Sim…"
+          "title": "Attività funzionali all’insegnamento: come si calcolano e ripartiscono le 40+40 ore",
+          "link": "https://www.orizzontescuola.it/attivita-funzionali-allinsegnamento-come-si-calcolano-e-ripartiscono-le-4040-ore/",
+          "pubDate": "Thu, 03 Sep 2026 13:21:29 +0000",
+          "description": "L'orario di lavoro del personale docente non si esaurisce nelle sole ore trascorse in aula a fare lezione, ma comprende una serie articolata di impegni indispen…"
         },
         {
-          "title": "Rientro a scuola degli alunni con DSA, la guida AID: “PDP non sia un adempimento, ma un patto per l’autonomia”",
-          "link": "https://www.orizzontescuola.it/rientro-a-scuola-degli-alunni-con-dsa-la-guida-aid-pdp-non-sia-un-adempimento-ma-un-patto-per-lautonomia/",
-          "pubDate": "Thu, 03 Sep 2026 08:10:07 +0000",
-          "description": "Il rientro a scuola può rappresentare un momento particolarmente delicato per gli studenti con Disturbi Specifici dell’Apprendimento e per le loro famiglie. L'a…"
+          "title": "Prof muore a 29 anni, i suoi studenti le restano accanto fino all’ultimo",
+          "link": "https://www.orizzontescuola.it/prof-muore-a-29-anni-i-suoi-studenti-le-restano-accanto-fino-allultimo/",
+          "pubDate": "Thu, 03 Sep 2026 13:14:16 +0000",
+          "description": "Aveva 29 anni e aveva già costruito con i suoi studenti un rapporto molto forte. Desirèe Martina, docente del liceo Cavour di Firenze, è scomparsa pochi giorni…"
         },
         {
-          "title": "Servizio Civile Universale, fino a che punto può spingersi una riserva prima di diventare una disparità? Lettera",
-          "link": "https://www.orizzontescuola.it/servizio-civile-universale-fino-a-che-punto-puo-spingersi-una-riserva-prima-di-diventare-una-disparita-lettera/",
-          "pubDate": "Thu, 03 Sep 2026 08:07:09 +0000",
-          "description": "Inviata da Gabriele De Giorgi - Gentile Redazione, Vorrei sottoporre alla vostra attenzione una questione che, a mio avviso, meriterebbe un dibattito molto più…"
+          "title": "Gli errori che un docente non deve fare in classe, Galiano: “Le etichette possono diventare gabbie. La paura è un pessimo motivatore”",
+          "link": "https://www.orizzontescuola.it/gli-errori-che-un-docente-non-deve-fare-in-classe-galiano-le-etichette-possono-diventare-gabbie-la-paura-e-un-pessimo-motivatore/",
+          "pubDate": "Thu, 03 Sep 2026 13:13:20 +0000",
+          "description": "Un video che riprende una lezione scolastica ha ottenuto quasi un milione di visualizzazioni sul web, raccogliendo numerosi messaggi di apprezzamento per l'oper…"
         },
         {
-          "title": "Primo collegio docenti con insolita location sull’Etna: quando la voglia di fare gruppo supera i confini dell’aula. Lettera",
-          "link": "https://www.orizzontescuola.it/primo-collegio-docenti-con-insolita-location-sulletna-quando-la-voglia-di-fare-gruppo-supera-i-confini-dellaula-lettera/",
-          "pubDate": "Thu, 03 Sep 2026 08:06:10 +0000",
-          "description": "Inviata da M.G. Distefano - L’ombrellone chiuso è forse l’immagine che più di tutte simboleggia la fine dell’estate. Una categoria di lavoratori vede quell’ombr…"
+          "title": "Alimenti a scuola, sicurezza e autorizzazioni: regolamento, circolare e modulo operativo da scaricare",
+          "link": "https://www.orizzontescuola.it/alimenti-a-scuola-sicurezza-e-autorizzazioni-regolamento-circolare-e-modulo-operativo-da-scaricare/",
+          "pubDate": "Thu, 03 Sep 2026 12:50:07 +0000",
+          "description": "Regolare l’introduzione, il consumo e la distribuzione di alimenti negli spazi scolastici significa intervenire su più aspetti: tutela della salute, prevenzione…"
         }
       ]
     },
