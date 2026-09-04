@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-04T18:54:04+00:00",
+  "updatedAt": "2026-09-04T22:14:19+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Graduatorie di istituto docenti 2026/27: liberatoria per pubblicazione e supplenze",
+          "link": "https://www.orizzontescuola.it/graduatorie-di-istituto-docenti-2026-27-liberatoria-per-pubblicazione-e-supplenze/",
+          "pubDate": "Fri, 04 Sep 2026 19:48:16 +0000",
+          "description": "Supplenze a.s. 2026/27 da graduatorie di istituto: la liberatoria per la pubblicazione all'albo online delle singole scuole e il loro utilizzo. L'articolo Gradu…"
+        },
+        {
+          "title": "Lorena uccisa dall’ex, il CNDDU: “A scuola educare a distinguere l’affetto dal possesso e ad accettare il rifiuto”",
+          "link": "https://www.orizzontescuola.it/lorena-uccisa-dallex-il-cnddu-a-scuola-educare-a-distinguere-laffetto-dal-possesso-e-ad-accettare-il-rifiuto/",
+          "pubDate": "Fri, 04 Sep 2026 19:09:10 +0000",
+          "description": "Il Coordinamento Nazionale Docenti della disciplina dei Diritti Umani (CNDDU) esprime cordoglio per la morte di Lorena Isceri e richiama l’attenzione sulla nece…"
+        },
+        {
           "title": "Case del Maestro, soggiorni invernali 2026/27: domande dal 7 al 23 settembre",
           "link": "https://www.orizzontescuola.it/case-del-maestro-soggiorni-invernali-2026-27-domande-dal-7-al-23-settembre/",
           "pubDate": "Fri, 04 Sep 2026 17:04:04 +0000",
@@ -68,18 +80,6 @@
           "link": "https://www.orizzontescuola.it/licei-musicali-881mila-euro-per-corsi-jazz-e-nuovi-linguaggi-musicali-progetti-da-4mila-a-10mila-euro-decreto/",
           "pubDate": "Fri, 04 Sep 2026 15:16:52 +0000",
           "description": "Il Ministero dell’Istruzione e del Merito destina 881.620 euro all’ampliamento dell’offerta formativa dei licei musicali attraverso corsi extracurricolari a ind…"
-        },
-        {
-          "title": "Licenziamento disciplinare di una dipendente ATA comunicato a scuole e uffici: Garante sanziona il Ministero per 10mila euro",
-          "link": "https://www.orizzontescuola.it/licenziamento-disciplinare-di-una-dipendente-ata-comunicato-a-scuole-e-uffici-garante-sanziona-il-ministero-per-10mila-euro/",
-          "pubDate": "Fri, 04 Sep 2026 14:57:42 +0000",
-          "description": "Il Garante per la protezione dei dati personali ha sanzionato per 10mila euro il Ministero dell’Istruzione e del Merito – Ufficio scolastico regionale per la Lo…"
-        },
-        {
-          "title": "Istituti Tecnici, la FLC CGIL annuncia mobilitazione: “Il testo va in direzione opposta a quanto concordato”",
-          "link": "https://www.orizzontescuola.it/istituti-tecnici-la-flc-cgil-annuncia-mobilitazione-il-testo-va-in-direzione-opposta-a-quanto-concordato/",
-          "pubDate": "Fri, 04 Sep 2026 14:51:58 +0000",
-          "description": "La FLC CGIL avvierà dal 15 settembre al 15 ottobre una campagna nazionale di assemblee negli Istituti Tecnici e proclamerà lo sciopero delle attività aggiuntive…"
         }
       ]
     },
