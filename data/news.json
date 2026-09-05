@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-05T16:39:45+00:00",
+  "updatedAt": "2026-09-05T20:07:24+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Docenti neoassunti anno di prova: requisiti, dichiarazione dei servizi e non solo. La guida. QUESTION TIME con Cannas. LIVE Lunedì 7 settembre alle 14:30",
+          "link": "https://www.orizzontescuola.it/docenti-neoassunti-anno-di-prova-requisiti-dichiarazione-dei-servizi-e-non-solo-la-guida-question-time-con-cannas-live-lunedi-7-settembre-alle-1430/",
+          "pubDate": "Sat, 05 Sep 2026 16:52:26 +0000",
+          "description": "Per tanti insegnanti l'anno scolastico 2026-2027 significa stabilizzazione e, dunque, assunzione in ruolo. Requisiti, dichiarazione dei servizi e non solo. Qual…"
+        },
+        {
           "title": "Spezzone di 16 ore nella secondaria, le 2 ore residue non arrivano dalle GPS. Pillole di Question Time",
           "link": "https://www.orizzontescuola.it/spezzone-di-16-ore-nella-secondaria-le-2-ore-residue-non-arrivano-dalle-gps-pillole-di-question-time/",
           "pubDate": "Sat, 05 Sep 2026 16:29:27 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/scuola-superiore-in-trentino-debiti-formativi-solo-in-seconda-e-quarta-mentre-negli-altri-anni-carenze-con-il-6-con-asterisco-cosi-responsabilizziamo-gli-studenti/",
           "pubDate": "Sat, 05 Sep 2026 15:16:01 +0000",
           "description": "Un asterisco che potrebbe cambiare il volto della scuola superiore in Trentino. La proposta, avanzata dall'assessora all'istruzione Francesca Gerosa, come segna…"
-        },
-        {
-          "title": "Inizio scuola, Mastella chiede rinvio al 1° ottobre: “Con 30 gradi si studia male”",
-          "link": "https://www.orizzontescuola.it/inizio-scuola-mastella-chiede-rinvio-al-1-ottobre-con-30-gradi-si-studia-male/",
-          "pubDate": "Sat, 05 Sep 2026 14:56:22 +0000",
-          "description": "Il sindaco di Benevento, Clemente Mastella, ha chiesto ufficialmente al presidente della Regione Campania, Roberto Fico, di posticipare l’inizio dell’anno scola…"
         }
       ]
     },
