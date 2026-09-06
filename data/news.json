@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-06T03:47:18+00:00",
+  "updatedAt": "2026-09-06T08:30:25+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,24 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Padre Ennio Pintacuda, 21 anni dopo: educare alla legalità significa formare coscienze. Una lezione ancora attuale per la scuola italiana",
+          "link": "https://www.orizzontescuola.it/padre-ennio-pintacuda-21-anni-dopo-educare-alla-legalita-significa-formare-coscienze-una-lezione-ancora-attuale-per-la-scuola-italiana/",
+          "pubDate": "Sun, 06 Sep 2026 05:25:11 +0000",
+          "description": "Il 4 settembre 2005 moriva a Palermo padre Ennio Pintacuda. Ventuno anni dopo, ricordarlo soltanto come uno dei protagonisti della stagione politica e civile de…"
+        },
+        {
+          "title": "Riforma della disabilità: tutte le novità sul decreto 62/2024. 3 webinar per docenti",
+          "link": "https://www.orizzontescuola.it/riforma-della-disabilita-tutte-le-novita-sul-decreto-62-2024-3-webinar-per-docenti/",
+          "pubDate": "Sun, 06 Sep 2026 05:10:17 +0000",
+          "description": "La riforma della disabilità introduce un cambio di prospettiva che riguarda direttamente il lavoro delle scuole. Non si tratta solo di conoscere le nuove dispos…"
+        },
+        {
+          "title": "Inizio anno scolastico 26/27: la guida operativa per DS, DSGA, segreterie, staff. Con + di 150 circolari e documenti e 7 tutorial su IA e operazioni di segreterie",
+          "link": "https://www.orizzontescuola.it/inizio-anno-scolastico-26-27-la-guida-operativa-per-ds-dsga-segreterie-staff-con-di-150-circolari-e-documenti-e-7-tutorial-su-ia-e-operazioni-di-segreterie/",
+          "pubDate": "Sun, 06 Sep 2026 05:10:04 +0000",
+          "description": "Il numero 3/2026 della rivista trimestrale digitale, rivolta a dirigenti scolastici, DSGA, figure intermedie e a tutto il personale delle istituzioni scolastich…"
+        },
+        {
           "title": "Docenti neoassunti anno di prova: requisiti, dichiarazione dei servizi e non solo. La guida. QUESTION TIME con Cannas. LIVE Lunedì 7 settembre alle 14:30",
           "link": "https://www.orizzontescuola.it/docenti-neoassunti-anno-di-prova-requisiti-dichiarazione-dei-servizi-e-non-solo-la-guida-question-time-con-cannas-live-lunedi-7-settembre-alle-1430/",
           "pubDate": "Sat, 05 Sep 2026 16:52:26 +0000",
@@ -62,24 +80,6 @@
           "link": "https://www.orizzontescuola.it/femminicidio-lorena-isceri-laccorato-appello-del-padre-politica-sia-unita-si-prendano-provvedimenti-si-lavori-nelle-scuole-per-trovare-una-soluzione/",
           "pubDate": "Sat, 05 Sep 2026 15:46:52 +0000",
           "description": "È un grido che arriva dritto dal cuore di un padre distrutto. Franco Isceri, papà di Lorena, la 45enne originaria di Squinzano brutalmente uccisa dall'ex compag…"
-        },
-        {
-          "title": "Decreto PA, far valere il servizio nelle paritarie, assegnazione provvisoria per chi ha minori, mobilità intercompartimentale, riscatto laurea gratuito. Le richieste di ANIEF per modificare il provvedimento",
-          "link": "https://www.orizzontescuola.it/decreto-pa-far-valere-il-servizio-nelle-paritarie-assegnazione-provvisoria-per-chi-ha-minori-mobilita-intercompartimentale-riscatto-laurea-gratuito-le-richieste-di-anief-per-modificare-il-provved/",
-          "pubDate": "Sat, 05 Sep 2026 15:45:42 +0000",
-          "description": "Il sindacato Anief ha depositato una serie di emendamenti al decreto legge sulla pubblica amministrazione (DL n. 144/2026) in vista delle audizioni parlamentari…"
-        },
-        {
-          "title": "Friuli Venezia-Giulia, via libera al protocollo scuola 2026-27: 4,5 milioni per organici, sostegno, motoria e sperimentazione bilingue in Carnia",
-          "link": "https://www.orizzontescuola.it/friuli-venezia-giulia-via-libera-al-protocollo-scuola-2026-27-45-milioni-per-organici-sostegno-motoria-e-sperimentazione-bilingue-in-carnia/",
-          "pubDate": "Sat, 05 Sep 2026 15:30:39 +0000",
-          "description": "Un investimento di 4,5 milioni di euro per il sistema scolastico del Friuli Venezia Giulia nel prossimo anno accademico. La Giunta regionale ha approvato lo sch…"
-        },
-        {
-          "title": "Scuola superiore in Trentino, debiti formativi solo in seconda e quarta, mentre negli altri anni carenze con il 6 con asterisco: così responsabilizziamo gli studenti",
-          "link": "https://www.orizzontescuola.it/scuola-superiore-in-trentino-debiti-formativi-solo-in-seconda-e-quarta-mentre-negli-altri-anni-carenze-con-il-6-con-asterisco-cosi-responsabilizziamo-gli-studenti/",
-          "pubDate": "Sat, 05 Sep 2026 15:16:01 +0000",
-          "description": "Un asterisco che potrebbe cambiare il volto della scuola superiore in Trentino. La proposta, avanzata dall'assessora all'istruzione Francesca Gerosa, come segna…"
         }
       ]
     },
