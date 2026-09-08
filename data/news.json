@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-08T19:20:31+00:00",
+  "updatedAt": "2026-09-08T22:28:25+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Borse di studio per specializzazioni non mediche, 1.520 posti per il 2025/2026: decreto in Gazzetta",
+          "link": "https://www.orizzontescuola.it/borse-di-studio-per-specializzazioni-non-mediche-1-520-posti-per-il-2025-2026-decreto-in-gazzetta/",
+          "pubDate": "Tue, 08 Sep 2026 19:31:04 +0000",
+          "description": "Il Ministero della Salute, di concerto con il Ministero dell'Università e della Ricerca e con il Ministero dell'Economia e delle Finanze, ha pubblicato il decre…"
+        },
+        {
           "title": "Femminicidio Lorena Isceri, l’appello di Anci ai partiti: “Costruiamo insieme una legge nazionale sull’educazione sessuo-affettiva”",
           "link": "https://www.orizzontescuola.it/femminicidio-lorena-isceri-lappello-di-anci-ai-partiti-costruiamo-insieme-una-legge-nazionale-sulleducazione-sessuo-affettiva/",
           "pubDate": "Tue, 08 Sep 2026 19:13:10 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/ventanni-di-supplenze-non-valgono-uno-scatto-la-cassazione-da-torto-alla-maestra-il-comune-non-puo-applicare-il-contratto-della-scuola-statale/",
           "pubDate": "Tue, 08 Sep 2026 17:46:31 +0000",
           "description": "La maestra aveva vent’anni di supplenze alle spalle quando, nel 1997, era finalmente entrata nei ruoli del Comune. L'articolo Vent’anni di supplenze non valgono…"
-        },
-        {
-          "title": "Valditara in Argentina: promosso il modello scolastico del “4+2” e degli ITS Academy per dare nuove opportunità ai giovani",
-          "link": "https://www.orizzontescuola.it/valditara-in-argentina-promosso-il-modello-scolastico-del-42-e-degli-its-academy-per-dare-nuove-opportunita-ai-giovani/",
-          "pubDate": "Tue, 08 Sep 2026 16:57:48 +0000",
-          "description": "Il Ministro dell’Istruzione e del Merito, Giuseppe Valditara, è volato a Buenos Aires con l'obiettivo di esportare in Argentina la riforma della filiera tecnolo…"
         }
       ]
     },
