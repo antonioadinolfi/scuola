@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-09T19:09:28+00:00",
+  "updatedAt": "2026-09-09T22:22:21+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,24 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Contratto dirigenti scolastici 2022-24 in Gazzetta: stipendio tabellare a 50mila euro, +90 euro sulla posizione fissa",
+          "link": "https://www.orizzontescuola.it/contratto-dirigenti-scolastici-2022-24-in-gazzetta-stipendio-tabellare-a-50mila-euro-90-euro-sulla-posizione-fissa/",
+          "pubDate": "Wed, 09 Sep 2026 19:45:10 +0000",
+          "description": "Pubblicato nella Gazzetta Ufficiale n. 209 del 9 settembre 2026 il Contratto collettivo nazionale di lavoro dell’Area Istruzione e Ricerca relativo al triennio…"
+        },
+        {
+          "title": "Fondo politiche per la famiglia 2026, 89 milioni di euro: 35 milioni a Regioni ed enti locali per i Centri per la famiglia",
+          "link": "https://www.orizzontescuola.it/fondo-politiche-per-la-famiglia-2026-89-milioni-di-euro-35-milioni-a-regioni-ed-enti-locali-per-i-centri-per-la-famiglia/",
+          "pubDate": "Wed, 09 Sep 2026 19:30:47 +0000",
+          "description": "Ammontano a 89.150.802 euro le risorse del Fondo per le politiche della famiglia per il 2026. L'articolo Fondo politiche per la famiglia 2026, 89 milioni di eur…"
+        },
+        {
+          "title": "Immissioni in ruolo 2026/27, decreto in Gazzetta Ufficiale: 46.642 docenti, 12.284 ATA, 365 dirigenti e 2.628 insegnanti di religione",
+          "link": "https://www.orizzontescuola.it/immissioni-in-ruolo-2026-27-decreto-in-gazzetta-ufficiale-46-642-docenti-12-284-ata-365-dirigenti-e-2-628-insegnanti-di-religione/",
+          "pubDate": "Wed, 09 Sep 2026 19:22:00 +0000",
+          "description": "È stato pubblicato nella Gazzetta Ufficiale n. 209 del 9 settembre 2026 il decreto del Presidente della Repubblica del 7 agosto 2026 che autorizza il Ministero…"
+        },
+        {
           "title": "Immissioni in ruolo docenti 2026/27, “bruciati” più di 9.000 posti. Mancanza di aspiranti nelle graduatorie, tempi troppo stretti, serve nuovo concorso?",
           "link": "https://www.orizzontescuola.it/immissioni-in-ruolo-docenti-2026-27-bruciati-piu-di-9-000-posti-mancanza-di-aspiranti-nelle-graduatorie-o-tempi-troppo-stretti/",
           "pubDate": "Wed, 09 Sep 2026 18:30:54 +0000",
@@ -62,24 +80,6 @@
           "link": "https://www.orizzontescuola.it/supplenze-docenti-2026-non-immediate-le-nomine-al-31-agosto-e-30-giugno-da-graduatorie-di-istituto-cosa-cambia-con-il-nuovo-algoritmo/",
           "pubDate": "Wed, 09 Sep 2026 17:00:58 +0000",
           "description": "Supplenze docenti a.s. 2026/27: 155.072 le nomine al 31 agosto e 30 agosto 2027 già conferite, + 19.468 supplenze su spezzoni di posto. Questi i dati comunicati…"
-        },
-        {
-          "title": "Nomine ATA, il secondo bollettino può avere meno posti ma entrano nuove disponibilità. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/nomine-ata-il-secondo-bollettino-puo-avere-meno-posti-ma-entrano-nuove-disponibilita-pillole-di-question-time/",
-          "pubDate": "Wed, 09 Sep 2026 16:30:15 +0000",
-          "description": "Nel Question Time del 7 settembre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Cristina Dal Pino, rappresentante della segret…"
-        },
-        {
-          "title": "Si può interrompere la disoccupazione Naspi per accettare una supplenza breve?",
-          "link": "https://www.orizzontescuola.it/si-puo-interrompere-la-disoccupazione-naspi-per-accettare-una-supplenza-breve/",
-          "pubDate": "Wed, 09 Sep 2026 16:23:00 +0000",
-          "description": "Cosa succede alla Naspi in corso di fruizione se si accetta una supplenza breve? Vediamo come opera la sospensione e in quali casi, invece, la disoccupazione de…"
-        },
-        {
-          "title": "Bonus librerie under 35, scadenza prorogata al 13 ottobre: contributi fino a 25mila euro",
-          "link": "https://www.orizzontescuola.it/bonus-librerie-under-35-scadenza-prorogata-al-13-ottobre-contributi-fino-a-25mila-euro/",
-          "pubDate": "Wed, 09 Sep 2026 16:14:59 +0000",
-          "description": "C'è tempo fino al 13 ottobre 2026 per presentare la domanda per il contributo destinato ai giovani under 35 che vogliono aprire o hanno già aperto una libreria…"
         }
       ]
     },
