@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-10T19:01:05+00:00",
+  "updatedAt": "2026-09-10T22:21:17+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Anno 1, n. 31 – Mondo ATA. Le ferie con supplenza docente art. 70 + Parere normativo in PDF. Iscriviti gratuitamente",
+          "link": "https://www.orizzontescuola.it/anno-1-n-31-mondo-ata-le-ferie-con-supplenza-docente-art-70-iscriviti-gratuitamente/",
+          "pubDate": "Thu, 10 Sep 2026 20:58:31 +0000",
+          "description": "Mondo ATA è la newsletter pensata per chi lavora nella scuola, per chi è in graduatoria e per chi aspira a entrarci. Niente confusione, solo ciò che serve davve…"
+        },
+        {
           "title": "I colori del vento: la canzone vincitrice del premio Oscar che educa al rispetto dell’altro e alla tutela della Terra. Insegnare con le canzoni",
           "link": "https://www.orizzontescuola.it/i-colori-del-vento-la-canzone-vincitrice-del-premio-oscar-che-educa-al-rispetto-dellaltro-e-alla-tutela-della-terra-insegnare-con-le-canzoni/",
           "pubDate": "Thu, 10 Sep 2026 18:41:19 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/papaleo-viva-gli-insegnanti-tornino-ad-essere-considerati-figure-di-prestigio/",
           "pubDate": "Thu, 10 Sep 2026 17:16:10 +0000",
           "description": "“ La figura dell’insegnante deve essere centrale nella nostra società, deve essere di nuovo considerata fondamentale e prestigiosa ”. Rocco Papaleo affida a un…"
-        },
-        {
-          "title": "ATA, oltre 21.500 posti vacanti non coperti dalle immissioni in ruolo: supplenze ancora in corso. Il Punto di Dal Pino (ANIEF)",
-          "link": "https://www.orizzontescuola.it/ata-oltre-21-500-posti-vacanti-non-coperti-dalle-immissioni-in-ruolo-supplenze-ancora-in-corso-il-punto-di-dal-pino-anief/",
-          "pubDate": "Thu, 10 Sep 2026 16:47:16 +0000",
-          "description": "Immissioni in ruolo concluse e operazioni per le supplenze ancora in corso per il personale ATA . A fare il punto è Cristina Dal Pino di ANIEF , intervenuta il…"
         }
       ]
     },
