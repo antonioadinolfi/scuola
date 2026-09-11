@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11T19:03:07+00:00",
+  "updatedAt": "2026-09-11T22:21:10+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Supplenze 2026/27: ecco i BOLLETTINI del secondo turno. Lezioni iniziano con docenti in classe [AGGIORNATO]",
+          "link": "https://www.orizzontescuola.it/supplenze-docenti-ecco-i-bollettini-nomine-al-31-agosto-o-30-giugno-2027-in-aggiornamento/",
+          "pubDate": "Fri, 11 Sep 2026 20:53:36 +0000",
+          "description": "Supplenze docenti a.s. 2026/27: pubblicato il primo bollettino, sono in corso le integrazioni e le rettifiche. Si attende il secondo bollettino. L'articolo Supp…"
+        },
+        {
           "title": "Uniformi scolastiche, in Irlanda del Nord le ragazze potranno indossare i pantaloni. La svolta dal 2027/28",
           "link": "https://www.orizzontescuola.it/uniformi-scolastiche-in-irlanda-del-nord-le-ragazze-potranno-indossare-i-pantaloni-la-svolta-dal-2027-28/",
           "pubDate": "Fri, 11 Sep 2026 18:19:53 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/mepa-light-anche-le-scuole-possono-candidarsi-al-via-la-sperimentazione-per-gli-acquisti-sotto-i-5mila-euro/",
           "pubDate": "Fri, 11 Sep 2026 15:27:50 +0000",
           "description": "Dal 10 al 14 settembre 2026 sono aperte le candidature per partecipare alla Business Simulation di MePA Light, il nuovo servizio digitale integrato nell’ecosist…"
-        },
-        {
-          "title": "Anno di prova 2026/27, riguarda i neoassunti a tempo indeterminato e le nomine finalizzate al ruolo da GPS sostegno. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/anno-di-prova-2026-27-riguarda-i-neoassunti-a-tempo-indeterminato-e-le-nomine-finalizzate-al-ruolo-da-gps-sostegno-pillole-di-question-time/",
-          "pubDate": "Fri, 11 Sep 2026 14:58:03 +0000",
-          "description": "Nel Question Time del 7 settembre 2026 su OrizzonteScuola TV, è stato fatto il punto sugli adempimenti dei docenti neoassunti in ruolo per l’anno scolastico 202…"
         }
       ]
     },
