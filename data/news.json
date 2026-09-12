@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-12T16:51:41+00:00",
+  "updatedAt": "2026-09-12T20:21:29+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Assicurazione sanitaria scuola, niente occhiali, fisioterapia e cure psicologiche. Rosano (ANIEF): ecco cosa non è coperto",
+          "link": "https://www.orizzontescuola.it/assicurazione-sanitaria-scuola-niente-occhiali-fisioterapia-e-cure-psicologiche-rosano-anief-ecco-cosa-non-e-coperto/",
+          "pubDate": "Sat, 12 Sep 2026 17:30:57 +0000",
+          "description": "Occhiali da vista, fisioterapia, prestazioni psicologiche e psichiatriche e cure veterinarie non rientrano nella nuova assicurazione sanitaria integrativa desti…"
+        },
+        {
+          "title": "Inizio anno scolastico nelle Marche, l’augurio di D’Amico agli studenti: “Non si tratta di riempire un vaso, ma di accendere un fuoco”",
+          "link": "https://www.orizzontescuola.it/inizio-anno-scolastico-nelle-marche-laugurio-di-damico-agli-studenti-non-si-tratta-di-riempire-un-vaso-ma-di-accendere-un-fuoco/",
+          "pubDate": "Sat, 12 Sep 2026 16:58:03 +0000",
+          "description": "In occasione della riapertura dei cancelli negli istituti delle Marche, fissata per il 14 settembre, la direttrice generale dell'Ufficio scolastico regionale, D…"
+        },
+        {
           "title": "Personale ATA, nuovi posti possono liberarsi con gli incarichi da docente. Pillole di Question Time",
           "link": "https://www.orizzontescuola.it/personale-ata-nuovi-posti-possono-liberarsi-con-gli-incarichi-da-docente-pillole-di-question-time/",
           "pubDate": "Sat, 12 Sep 2026 16:47:51 +0000",
@@ -68,18 +80,6 @@
           "link": "https://www.orizzontescuola.it/valditara-il-tetto-del-30-di-alunni-stranieri-diventera-legge/",
           "pubDate": "Sat, 12 Sep 2026 15:00:24 +0000",
           "description": "Il governo intende trasformare in una norma di legge il limite del 30% di alunni stranieri nelle classi, finora indicato da una circolare che, secondo il minist…"
-        },
-        {
-          "title": "Cisgiordania, oltre 830.000 bambini tornano a scuola tra violenze e ostacoli: l’allarme dell’Unicef",
-          "link": "https://www.orizzontescuola.it/cisgiordania-oltre-830-000-bambini-tornano-a-scuola-tra-violenze-e-ostacoli-lallarme-dellunicef/",
-          "pubDate": "Sat, 12 Sep 2026 14:20:40 +0000",
-          "description": "Questa settimana oltre 830.000 bambini tornano sui banchi di scuola in Cisgiordania e a Gerusalemme Est per l'inizio del nuovo anno scolastico. L'articolo Cisgi…"
-        },
-        {
-          "title": "Balivo sul calendario scolastico: “Che senso ha tenere a casa i ragazzi per tre mesi?” e sullo smartphone rivela “mia figlia non lo avrà almeno fino ai 13 anni”",
-          "link": "https://www.orizzontescuola.it/balivo-sul-calendario-scolastico-che-senso-ha-tenere-a-casa-i-ragazzi-per-tre-mesi-e-sullo-smartphone-rivela-mia-figlia-non-lo-avra-almeno-fino-ai-13-anni/",
-          "pubDate": "Sat, 12 Sep 2026 14:01:16 +0000",
-          "description": "La struttura del sistema scolastico attuale merita un profondo ripensamento, a partire dal calendario. L'articolo Balivo sul calendario scolastico: “Che senso h…"
         }
       ]
     },
