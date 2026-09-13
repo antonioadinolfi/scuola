@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-13T15:53:33+00:00",
+  "updatedAt": "2026-09-13T18:38:48+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,40 +46,40 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "“Mi hanno assegnato due scuole molto distanti tra loro, esiste un limite di chilometri? Posso rinunciare alla sede più lontana?” Il Punto di De Martino",
+          "link": "https://www.orizzontescuola.it/mi-hanno-assegnato-due-scuole-molto-distanti-tra-loro-esiste-un-limite-di-chilometri-posso-rinunciare-alla-sede-piu-lontana-il-punto-di-de-martino/",
+          "pubDate": "Sun, 13 Sep 2026 17:00:25 +0000",
+          "description": "Una cattedra orario esterna (COE) può comprendere sedi di servizio molto distanti tra loro, anche quando gli spostamenti interessano territori montani e collega…"
+        },
+        {
+          "title": "Personale ATA, la riserva per il servizio civile vale anche in prima fascia. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/personale-ata-la-riserva-per-il-servizio-civile-vale-anche-in-prima-fascia-pillole-di-question-time/",
+          "pubDate": "Sun, 13 Sep 2026 16:48:22 +0000",
+          "description": "Nel Question Time del 7 settembre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Cristina Dal Pino, rappresentante della segret…"
+        },
+        {
+          "title": "Supplenza da Interpello e successiva nomina GPS, il passaggio dipende dalla durata del primo contratto. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/supplenza-da-interpello-e-successiva-nomina-gps-il-passaggio-dipende-dalla-durata-del-primo-contratto-pillole-di-question-time/",
+          "pubDate": "Sun, 13 Sep 2026 16:26:41 +0000",
+          "description": "Nel Question Time del 31 agosto 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Sonia Cannas, docente ed esperta in normativa sc…"
+        },
+        {
+          "title": "Valditara: “Dal 2023 assunti 206mila precari”. Ma al Nord pesa il costo della vita: Piano casa per il personale e più IA a scuola",
+          "link": "https://www.orizzontescuola.it/valditara-dal-2023-assunti-206mila-precari-ma-al-nord-pesa-il-costo-della-vita-piano-casa-per-il-personale-e-piu-ia-a-scuola/",
+          "pubDate": "Sun, 13 Sep 2026 15:57:35 +0000",
+          "description": "Il problema del precariato nella scuola si intreccia sempre di più con quello del costo della vita, soprattutto nelle regioni del Nord. L'articolo Valditara: “D…"
+        },
+        {
+          "title": "IA e algoritmi anche a scuola, il Garante Privacy: rischi, trasparenza e diritti nel nuovo podcast",
+          "link": "https://www.orizzontescuola.it/ia-e-algoritmi-anche-a-scuola-il-garante-privacy-rischi-trasparenza-e-diritti-nel-nuovo-podcast/",
+          "pubDate": "Sun, 13 Sep 2026 15:53:12 +0000",
+          "description": "Chatbot capaci di dialogare con gli utenti, algoritmi utilizzati per selezionare candidati a un lavoro o per decidere quali contenuti mostrare sui social. L'art…"
+        },
+        {
           "title": "Caro carburante, Anief: “Detassare le spese in Irpef e ridurre il prelievo su aumenti e tredicesima”",
           "link": "https://www.orizzontescuola.it/caro-carburante-anief-detassare-le-spese-in-irpef-e-ridurre-il-prelievo-su-aumenti-e-tredicesima/",
           "pubDate": "Sun, 13 Sep 2026 15:36:05 +0000",
           "description": "Il rincaro dei carburanti pesa anche sui lavoratori della scuola, in particolare su chi è costretto ogni giorno a percorrere molti chilometri per raggiungere la…"
-        },
-        {
-          "title": "“Siano le scuole con i Comitati di valutazione ad assumere i docenti. I concorsi non riescono a coprire 30-40mila assunzioni l’anno”, il Punto di Giannelli (ANP)",
-          "link": "https://www.orizzontescuola.it/siano-le-scuole-con-i-comitati-di-valutazione-ad-assumere-i-docenti-i-concorsi-non-riescono-a-coprire-30-40mila-assunzioni-lanno-il-punto-di-giannelli-anp/",
-          "pubDate": "Sun, 13 Sep 2026 15:00:24 +0000",
-          "description": "Trenta-quarantamila pensionamenti ogni anno e un sistema di concorsi che non riesce a produrre con la stessa velocità un numero equivalente di nuove assunzioni…"
-        },
-        {
-          "title": "Assicurazione sanitaria, una settimana ancora per decidere se aderire: cosa non è coperto, è previsto qualcosa per i familiari? Anief pubblica le FAQ",
-          "link": "https://www.orizzontescuola.it/assicurazione-sanitaria-una-settimana-ancora-per-decidere-se-aderire-cosa-non-e-coperto-e-previsto-qualcosa-per-i-familiari-anief-pubblica-le-faq/",
-          "pubDate": "Sun, 13 Sep 2026 14:59:44 +0000",
-          "description": "Il Ministero dell’Istruzione ha pubblicato una Guida online contenente le modalità di adesione e fruizione dell’assicurazione sanitaria integrativa per il perso…"
-        },
-        {
-          "title": "Assicurazione sanitaria docenti e ATA, Valditara interviene sui fondi: “Nessun euro sottratto al funzionamento delle scuole”",
-          "link": "https://www.orizzontescuola.it/assicurazione-sanitaria-docenti-e-ata-valditara-interviene-sui-fondi-nessun-euro-sottratto-al-funzionamento-delle-scuole/",
-          "pubDate": "Sun, 13 Sep 2026 14:53:36 +0000",
-          "description": "Il ministro dell’Istruzione e del Merito, Giuseppe Valditara, interviene sui social per fare chiarezza sulle risorse utilizzate per finanziare la nuova assicura…"
-        },
-        {
-          "title": "La formazione come infrastruttura pedagogica dello zerosei. A Capo d’Orlando il Sistema Integrato si costruisce tra gli adulti: Un sistema che deve diventare cultura",
-          "link": "https://www.orizzontescuola.it/la-formazione-come-infrastruttura-pedagogica-dello-zerosei-a-capo-dorlando-il-sistema-integrato-si-costruisce-tra-gli-adulti-un-sistema-che-deve-diventare-cultura/",
-          "pubDate": "Sun, 13 Sep 2026 14:46:10 +0000",
-          "description": "Il Sistema Integrato di educazione e di istruzione dalla nascita sino ai sei anni non nasce soltanto dall’accostamento tra i servizi educativi per l’infanzia e…"
-        },
-        {
-          "title": "Bonus nido, arriva la banca dati nazionale delle strutture: sarà disponibile anche una mappa geolocalizzata",
-          "link": "https://www.orizzontescuola.it/bonus-nido-arriva-la-banca-dati-nazionale-delle-strutture-sara-disponibile-anche-una-mappa-geolocalizzata/",
-          "pubDate": "Sun, 13 Sep 2026 14:44:30 +0000",
-          "description": "Novità per il Bonus nido. L’INPS avvia una banca dati nazionale delle strutture educative per l’infanzia, alimentata dalle amministrazioni locali in collaborazi…"
         }
       ]
     },
