@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-14T23:00:57+00:00",
+  "updatedAt": "2026-09-15T04:09:52+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Oggi 15 settembre, Webinar gratuito: dal personale ATA, ai docenti e organi collegiali: come organizzare al meglio l’avvio dell’anno scolastico",
+          "link": "https://www.orizzontescuola.it/webinar-gratuito-dal-personale-ata-ai-docenti-e-organi-collegiali-come-organizzare-al-meglio-lavvio-dellanno-scolastico/",
+          "pubDate": "Tue, 15 Sep 2026 02:39:56 +0000",
+          "description": "L’avvio dell’anno scolastico richiede a Dirigenti scolastici, DSGA e personale di segreteria di affrontare in tempi molto stretti numerose decisioni organizzati…"
+        },
+        {
           "title": "Polizza sanitaria scuola, possibile utilizzare anche uno studio dentistico non convenzionato. Pillole di Question Time",
           "link": "https://www.orizzontescuola.it/polizza-sanitaria-scuola-possibile-utilizzare-anche-uno-studio-dentistico-non-convenzionato-pillole-di-question-time/",
           "pubDate": "Mon, 14 Sep 2026 20:01:40 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/culpa-in-vigilando-sui-minori-il-tribunale-di-padova-condanna-il-gruppo-scout-per-il-lancio-di-una-palla-di-neve-160mila-euro-di-risarcimento/",
           "pubDate": "Mon, 14 Sep 2026 18:19:26 +0000",
           "description": "Un pomeriggio sulla neve, un lancio di una palla di neve mista a ghiaccio e un occhio colpito in pieno. Da un episodio apparentemente banale, accaduto durante u…"
-        },
-        {
-          "title": "Scuola, abbonamenti a giornali e riviste: rimborso fino al 90% con un bando da 2 milioni. Domande dal 10 dicembre 2026 al 15 marzo 2027",
-          "link": "https://www.orizzontescuola.it/scuola-abbonamenti-a-giornali-e-riviste-rimborso-fino-al-90-con-un-bando-da-2-milioni-domande-dal-10-dicembre-2026-al-15-marzo-2027/",
-          "pubDate": "Mon, 14 Sep 2026 17:49:57 +0000",
-          "description": "Il Dipartimento per l'informazione e l'editoria della Presidenza del Consiglio dei Ministri ha emanato il nuovo bando destinato a coprire le spese sostenute dal…"
         }
       ]
     },
