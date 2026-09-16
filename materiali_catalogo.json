@@ -33,8 +33,8 @@
   {"classe": "Quinta","titolo": "Introduzione all'Analisi Numerica - OCTAVE","descrizione": "OCTAVE","tipo": "slide","file_path": "materiali/slide/Tibone_powerpoint_81647_c06.pdf","target_page": "","ordine": 1,"attivo": true},
   {"classe": "Quinta","titolo": "Calcolo numerico","descrizione": "Algoritmi di calcolo numerico","tipo": "slide","file_path": "materiali/slide/Tibone_powerpoint_81647_c07.pdf","target_page": "","ordine": 1,"attivo": true},
   {"classe": "Quinta","titolo": "Introduzione all'IA","descrizione": "IA","tipo": "slide","file_path": "materiali/slide/Tibone_powerpoint_81647_c08.pdf","target_page": "","ordine": 1,"attivo": true},
-  {"classe": "Quinta","titolo": "Introduzione a Matlab","descrizione": "Infografica","tipo": "slide","file_path": "materiali/infografica/Infografica_MATLAB_Calcolo_Numerico.pdf","target_page": "","ordine": 1,"attivo": true}
-  
+  {"classe": "Quinta","titolo": "Introduzione a Matlab","descrizione": "Infografica","tipo": "slide","file_path": "materiali/infografica/Infografica_MATLAB_Calcolo_Numerico.pdf","target_page": "","ordine": 1,"attivo": true},
+  {"classe": "Ripasso","titolo": "OOP_interattiva","descrizione": "OOP","tipo": "slide","file_path": "materiali/lezione_oop_python_interattiva_chiara.exe","target_page": "","ordine": 1,"attivo": true}
   
 
 
