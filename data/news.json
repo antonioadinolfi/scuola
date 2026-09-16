@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-16T18:01:08+00:00",
+  "updatedAt": "2026-09-16T22:45:49+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,40 +46,40 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
-          "title": "Riscatto della laurea, dal 2027 il conto sale: fino a 900 euro in più per chi riscatta cinque anni",
-          "link": "https://www.orizzontescuola.it/riscatto-della-laurea-dal-2027-il-conto-sale-fino-a-900-euro-in-piu-per-chi-riscatta-cinque-anni/",
-          "pubDate": "Wed, 16 Sep 2026 17:44:06 +0000",
-          "description": "Chi ha intenzione di trasformare gli anni di università in contributi pensionistici ha un motivo concreto per muoversi prima della fine del 2026. L'articolo Ris…"
-        },
-        {
-          "title": "Intossicazione nelle scuole, 89 casi e 14 bimbi ricoverati: nei pazienti spunta la salmonella",
-          "link": "https://www.orizzontescuola.it/intossicazione-nelle-scuole-89-casi-e-14-bimbi-ricoverati-nei-pazienti-spunta-la-salmonella/",
-          "pubDate": "Wed, 16 Sep 2026 17:30:24 +0000",
-          "description": "Sono 89 i casi sintomatici legati al focolaio di tossinfezione alimentare che ha interessato nidi e scuole dell'infanzia e primarie. Tra le persone colpite ci s…"
-        },
-        {
-          "title": "Polizza sanitaria scuola, la copertura termina con il pensionamento ma restano le prestazioni già avviate. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/polizza-sanitaria-scuola-la-copertura-termina-con-il-pensionamento-ma-restano-le-prestazioni-gia-avviate-pillole-di-question-time/",
-          "pubDate": "Wed, 16 Sep 2026 17:18:21 +0000",
-          "description": "Nel Question Time del 14 settembre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Simone Craparo, rappresentante sindacale dell…"
-        },
-        {
-          "title": "Borse di studio, il Governo stanzia 288 milioni in più: l’importo per i fuori sede sale a 7.171 euro. Bernini: “Investire sui giovani significa investire sul futuro dell’Italia”",
-          "link": "https://www.orizzontescuola.it/borse-di-studio-il-governo-stanzia-288-milioni-in-piu-limporto-per-i-fuori-sede-sale-a-7-171-euro-bernini-investire-sui-giovani-significa-investire-sul-futuro-dellitalia/",
-          "pubDate": "Wed, 16 Sep 2026 16:29:21 +0000",
-          "description": "Arrivano 288 milioni di euro in più per le borse di studio universitarie destinate agli studenti. La decisione è arrivata dal Consiglio dei Ministri, su propost…"
-        },
-        {
-          "title": "Sasso (FnV): “Subito un tetto agli stranieri in classe, stop all’islamizzazione delle scuole”",
-          "link": "https://www.orizzontescuola.it/sasso-fnv-subito-un-tetto-agli-stranieri-in-classe-stop-allislamizzazione-delle-scuole/",
-          "pubDate": "Wed, 16 Sep 2026 16:13:10 +0000",
-          "description": "Un limite al numero di studenti stranieri per classe e una stretta sull'insegnamento dell'italiano alle famiglie. La richiesta arriva da Rossano Sasso, deputato…"
-        },
-        {
-          "title": "Polizza sanitaria scuola, l’adesione personale serve per autorizzare il trattamento dei dati. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/polizza-sanitaria-scuola-ladesione-personale-serve-per-autorizzare-il-trattamento-dei-dati-pillole-di-question-time/",
-          "pubDate": "Wed, 16 Sep 2026 16:04:27 +0000",
+          "title": "Polizza sanitaria scuola, nessun costo se non si utilizzano prestazioni con franchigia. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/polizza-sanitaria-scuola-nessun-costo-se-non-si-utilizzano-prestazioni-con-franchigia-pillole-di-question-time/",
+          "pubDate": "Wed, 16 Sep 2026 20:04:49 +0000",
           "description": "Nel Question Time dell’11 settembre 2026 su OrizzonteScuola TV, con la partecipazione di Daniela Rosano, rappresentante ANIEF, è stato fatto il punto sulla poli…"
+        },
+        {
+          "title": "Supplenze ATA, incarichi aggiuntivi e non solo: facciamo il punto. QUESTION TIME con Cozzolino. LIVE Giovedì 17 settembre alle 15:00",
+          "link": "https://www.orizzontescuola.it/supplenze-ata-incarichi-aggiuntivi-e-non-solo-facciamo-il-punto-question-time-con-cozzolino-live-giovedi-17-settembre-alle-1500/",
+          "pubDate": "Wed, 16 Sep 2026 18:52:05 +0000",
+          "description": "Le operazioni per le immissioni in ruolo e le supplenze non riguardano soltanto i docenti. Anche il personale ATA, dai collaboratori scolastici agli assistenti…"
+        },
+        {
+          "title": "Cittadinanza, il M5S sfida la Lega: “Riproponiamo lo Ius Scholae, la scuola è il vero motore dell’integrazione”",
+          "link": "https://www.orizzontescuola.it/cittadinanza-il-m5s-sfida-la-lega-riproponiamo-lo-ius-scholae-la-scuola-e-il-vero-motore-dellintegrazione/",
+          "pubDate": "Wed, 16 Sep 2026 18:33:33 +0000",
+          "description": "Ius Scholae, la parola che torna a far discutere il Parlamento. Il Movimento 5 Stelle ha depositato un emendamento alla proposta di legge della Lega sulla citta…"
+        },
+        {
+          "title": "28 studenti, 2 tavoli da ping pong e 50 metri quadrati di palestra, i giudici non hanno dubbi: “in quella stanza l’infortunio era prevedibile, non sfortuna”. Scuola condannata",
+          "link": "https://www.orizzontescuola.it/28-studenti-2-tavoli-da-ping-pong-e-50-metri-quadrati-di-palestra-i-giudici-non-hanno-dubbi-in-quella-stanza-linfortunio-era-prevedibile-non-sfortuna-scuola-condannata/",
+          "pubDate": "Wed, 16 Sep 2026 18:32:30 +0000",
+          "description": "Immaginate di essere in palestra, durante l'ora di scienze motorie. La stanza è piccola, ci sono due tavoli da ping-pong e voi siete lì, in attesa del vostro tu…"
+        },
+        {
+          "title": "2 milioni di bambini miopi in Italia, gli esperti: “È un’emergenza di sanità pubblica”. Il rischio che esplode dopo i 40 anni: retina, glaucoma, maculopatia",
+          "link": "https://www.orizzontescuola.it/2-milioni-di-bambini-miopi-in-italia-gli-esperti-e-unemergenza-di-sanita-pubblica-il-rischio-che-esplode-dopo-i-40-anni-retina-glaucoma-maculopatia/",
+          "pubDate": "Wed, 16 Sep 2026 18:11:41 +0000",
+          "description": "In Italia circa 2 milioni tra bambini e adolescenti sono miopi. Non si tratta di un semplice problema da risolvere con gli occhiali, ma di una condizione che au…"
+        },
+        {
+          "title": "Pausa pranzo dei docenti, 10, 30 o 60 minuti? Lezioni e riunioni nella stessa giornata, il benessere non deve essere optional",
+          "link": "https://www.orizzontescuola.it/pausa-pranzo-dei-docenti-10-30-o-60-minuti-lezioni-e-riunioni-nella-stessa-giornata-il-benessere-non-deve-essere-optional/",
+          "pubDate": "Wed, 16 Sep 2026 18:10:47 +0000",
+          "description": "L'organizzazione della giornata lavorativa dei docenti presenta spesso situazioni nelle quali le ore di lezione si intrecciano con riunioni, collegi, consigli d…"
         }
       ]
     },
