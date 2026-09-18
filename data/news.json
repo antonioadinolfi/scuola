@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-18T10:52:02+00:00",
+  "updatedAt": "2026-09-18T16:06:38+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,40 +46,40 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
-          "title": "Roma, 13 enne accoltella la prof a scuola e filma l’aggressione: docente non in pericolo di vita. Fermato da un compagno, ora ascoltato in caserma. Condanne di Gilda, Anp e PD",
+          "title": "Maternità per le neoassunte: congedo solo dalla data di assunzione. Parere della Funzione Pubblica",
+          "link": "https://www.orizzontescuola.it/maternita-per-le-neoassunte-congedo-solo-dalla-data-di-assunzione-parere-della-funzione-pubblica/",
+          "pubDate": "Fri, 18 Sep 2026 15:57:50 +0000",
+          "description": "Il congedo obbligatorio di maternità non può essere riconosciuto, nell’ambito di un nuovo rapporto di lavoro, per periodi precedenti alla data di assunzione. L'…"
+        },
+        {
+          "title": "Polizza sanitaria gratuita per il personale della scuola, come aderire entro il 20 settembre. SLIDE Ministero",
+          "link": "https://www.orizzontescuola.it/polizza-sanitaria-gratuita-per-il-personale-della-scuola-come-aderire-entro-il-20-settembre-slide-ministero/",
+          "pubDate": "Fri, 18 Sep 2026 15:41:42 +0000",
+          "description": "&#160; Scade domenica 20 settembre 2026 il termine per aderire alla copertura sanitaria integrativa gratuita destinata al personale della scuola e del Ministero…"
+        },
+        {
+          "title": "Studente accoltella prof a Roma, provvidenziali i compagni: debito possibile causa. La docente: “Vorrei incontrarlo e abbracciarlo, l’ho perdonato”",
           "link": "https://www.orizzontescuola.it/roma-accoltella-la-prof-a-scuola-ragazzino-di-13-anni-aveva-spruzzato-anche-spray-urticante/",
-          "pubDate": "Fri, 18 Sep 2026 10:40:59 +0000",
-          "description": "Attimi di terrore questa mattina in una scuola media della periferia est della Capitale. Un alunno di 13 anni ha aggredito la sua insegnante: prima le ha spruzz…"
+          "pubDate": "Fri, 18 Sep 2026 15:33:59 +0000",
+          "description": "Attimi di terrore in una scuola media della periferia est della Capitale. Un alunno di 13 anni ha aggredito la sua insegnante: prima le ha spruzzato dello spray…"
         },
         {
-          "title": "Studente bocciato con 5 in condotta, il TAR conferma la decisione della scuola: “Interrompe le lezioni, irride i docenti e utilizza linguaggio scurrile”",
-          "link": "https://www.orizzontescuola.it/studente-bocciato-alle-medie-con-il-5-in-comportamento-il-tar-conferma-la-decisione-della-scuola-interrompe-le-lezioni-irride-i-docenti-e-utilizza-linguaggio-scurrile-decisione-confermata/",
-          "pubDate": "Fri, 18 Sep 2026 10:36:40 +0000",
-          "description": "La storia arriva da un istituto comprensivo della provincia di Salerno e riguarda un ragazzo che ha frequentato la seconda classe della scuola secondaria di pri…"
+          "title": "Polizza sanitaria scuola, adesione possibile anche con patologie preesistenti. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/polizza-sanitaria-scuola-adesione-possibile-anche-con-patologie-preesistenti-pillole-di-question-time/",
+          "pubDate": "Fri, 18 Sep 2026 15:07:36 +0000",
+          "description": "Nel Question Time dell’11 settembre 2026 su OrizzonteScuola TV, con la partecipazione di Daniela Rosano, rappresentante ANIEF, è stato fatto il punto sulla poli…"
         },
         {
-          "title": "Alunna con 65 alla maturità fa ricorso al TAR. I giudici le danno ragione:”Le misure compensative non sono un vantaggio, servono a garantire pari opportunità”",
-          "link": "https://www.orizzontescuola.it/alunna-con-65-alla-maturita-fa-ricorso-al-tar-i-giudici-le-danno-ragionele-misure-compensative-non-sono-un-vantaggio-servono-a-garantire-pari-opportunita/",
-          "pubDate": "Fri, 18 Sep 2026 10:32:09 +0000",
-          "description": "Una studentessa ha affrontato l'esame di maturità nello scorso anno scolastico con un disturbo specifico dell'apprendimento certificato. L'articolo Alunna con 6…"
+          "title": "Accoltella la prof a 13 anni: il piano premeditato, l’annuncio social e la videocamere sul casco. La preside: “Scossa, ma pensiamo ai ragazzi”",
+          "link": "https://www.orizzontescuola.it/accoltella-la-prof-a-13-anni-il-piano-premeditato-lannuncio-social-e-la-videocamere-sul-casco-la-preside-scossa-ma-pensiamo-ai-ragazzi/",
+          "pubDate": "Fri, 18 Sep 2026 14:50:36 +0000",
+          "description": "Un caschetto con il cellulare fissato sopra, come una action cam. Occhiali da softair comprati online. Due coltelli da sub, uno alla cintura e l'altro in mano.…"
         },
         {
-          "title": "Docenti fuori sede, mezzo stipendio se ne va in affitto: “Insegnare non conviene più”. Pacifico (ANIEF): “Serve un’indennità o le cattedre resteranno vuote”",
-          "link": "https://www.orizzontescuola.it/docenti-fuori-sede-mezzo-stipendio-se-ne-va-in-affitto-insegnare-non-conviene-piu-pacifico-anief-serve-unindennita-o-le-cattedre-resteranno-vuote/",
-          "pubDate": "Fri, 18 Sep 2026 10:17:13 +0000",
-          "description": "Stipendi da 1.350 euro contro canoni che nelle grandi città superano i 700. Per un docente neoassunto lontano da casa la matematica non torna. Marcello Pacifico…"
-        },
-        {
-          "title": "Assistente amministrativo licenziato in tronco per una condanna nascosta: il giudice gli dice no al ricorso per la riammissione al lavoro",
-          "link": "https://www.orizzontescuola.it/assistente-amministrativo-licenziato-in-tronco-per-una-condanna-nascosta-il-giudice-gli-dice-no-al-ricorso-per-la-riammissione-al-lavoro/",
-          "pubDate": "Fri, 18 Sep 2026 10:09:33 +0000",
-          "description": "Una condanna per peculato mai dichiarata. Un posto da assistente amministrativo in una scuola ottenuto, secondo il Ministero dell'Istruzione, violando le regole…"
-        },
-        {
-          "title": "Perugia, schiaffi alla figlia dinanzi al docente dopo i video su TikTok: padre ammesso ai lavori socialmente utili",
-          "link": "https://www.orizzontescuola.it/perugia-schiaffi-alla-figlia-dinanzi-al-docente-dopo-i-video-su-tiktok-padre-ammesso-ai-lavori-socialmente-utili/",
-          "pubDate": "Fri, 18 Sep 2026 10:01:48 +0000",
-          "description": "Lavori socialmente utili all'ufficio ipovedenti e 2.500 euro da versare alla madre della ragazzina. È quanto dovrà fare un 53enne, accusato di avere maltrattato…"
+          "title": "Ramo cade davanti a un liceo a Roma: tre studenti feriti, uno in ospedale",
+          "link": "https://www.orizzontescuola.it/ramo-cade-davanti-a-un-liceo-a-roma-tre-studenti-feriti-uno-in-ospedale/",
+          "pubDate": "Fri, 18 Sep 2026 14:30:14 +0000",
+          "description": "Un ramo si è staccato da un albero ed è caduto all'esterno del Liceo Scientifico \"Avogadro\", ferendo lievemente tre studenti minorenni che avevano appena lascia…"
         }
       ]
     },
