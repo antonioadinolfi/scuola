@@ -1,90 +1,236 @@
 {
-  "updatedAt": "2026-08-11T00:00:00+02:00",
-  "source": "manual",
+  "updatedAt": "2026-09-20T00:00:00+02:00",
+  "source": "orario scolastico allegato",
+  "schoolYear": "2026/2027",
+  "lessonUnitMinutes": 55,
+  "lessonTimes": {
+    "1": {
+      "start": "08:00",
+      "end": "08:55"
+    },
+    "2": {
+      "start": "08:55",
+      "end": "09:50"
+    },
+    "3": {
+      "start": "09:50",
+      "end": "10:45"
+    },
+    "4": {
+      "start": "10:45",
+      "end": "11:40"
+    },
+    "5": {
+      "start": "11:40",
+      "end": "12:35"
+    },
+    "6": {
+      "start": "12:35",
+      "end": "13:30"
+    },
+    "7": {
+      "start": "13:30",
+      "end": "14:25"
+    }
+  },
   "events": [
     {
-      "id": "lezione-2026-09-15-4fsa",
-      "title": "Lezione di Informatica — Basi di dati",
-      "date": "2026-09-15",
-      "start": "09:00",
-      "end": "11:00",
+      "id": "orario-lun-3-3asa",
+      "title": "Informatica — 3ASA",
+      "dayOfWeek": "monday",
+      "period": 3,
+      "start": "09:50",
+      "end": "10:45",
+      "category": "lezione",
+      "class": "3ASA",
+      "location": "B113"
+    },
+    {
+      "id": "orario-lun-4-4asa",
+      "title": "Informatica — 4ASA",
+      "dayOfWeek": "monday",
+      "period": 4,
+      "start": "10:45",
+      "end": "11:40",
+      "category": "lezione",
+      "class": "4ASA",
+      "location": "B113"
+    },
+    {
+      "id": "orario-lun-5-1asa",
+      "title": "Informatica — 1ASA",
+      "dayOfWeek": "monday",
+      "period": 5,
+      "start": "11:40",
+      "end": "12:35",
+      "category": "lezione",
+      "class": "1ASA",
+      "location": "B111"
+    },
+    {
+      "id": "orario-lun-6-4fsa",
+      "title": "Informatica — 4FSA",
+      "dayOfWeek": "monday",
+      "period": 6,
+      "start": "12:35",
+      "end": "13:30",
       "category": "lezione",
       "class": "4FSA",
-      "location": "Laboratorio informatico",
-      "description": "Introduzione al modello relazionale e alle query SQL di base.",
-      "url": ""
+      "location": "B111"
     },
     {
-      "id": "seminario-2026-09-18-ai",
-      "title": "Seminario: Intelligenza Artificiale e scuola",
-      "date": "2026-09-18",
-      "start": "15:00",
-      "end": "17:00",
-      "category": "seminario",
+      "id": "orario-mar-3-1asa",
+      "title": "Informatica — 1ASA",
+      "dayOfWeek": "tuesday",
+      "period": 3,
+      "start": "09:50",
+      "end": "10:45",
+      "category": "lezione",
+      "class": "1ASA",
+      "location": "B113"
+    },
+    {
+      "id": "orario-mar-4-4asa",
+      "title": "Informatica — 4ASA",
+      "dayOfWeek": "tuesday",
+      "period": 4,
+      "start": "10:45",
+      "end": "11:40",
+      "category": "lezione",
+      "class": "4ASA",
+      "location": "B111"
+    },
+    {
+      "id": "orario-mar-5-2fsa",
+      "title": "Informatica — 2FSA",
+      "dayOfWeek": "tuesday",
+      "period": 5,
+      "start": "11:40",
+      "end": "12:35",
+      "category": "lezione",
+      "class": "2FSA",
+      "location": "B113"
+    },
+    {
+      "id": "orario-mar-6-5asa",
+      "title": "Informatica — 5ASA",
+      "dayOfWeek": "tuesday",
+      "period": 6,
+      "start": "12:35",
+      "end": "13:30",
+      "category": "lezione",
+      "class": "5ASA",
+      "location": "B113"
+    },
+    {
+      "id": "orario-mer-1-pot",
+      "title": "POT",
+      "dayOfWeek": "wednesday",
+      "period": 1,
+      "start": "08:00",
+      "end": "08:55",
+      "category": "pot",
       "class": "",
-      "location": "Aula Magna",
-      "description": "Incontro aperto su AI, machine learning e didattica digitale.",
-      "url": ""
+      "location": ""
     },
     {
-      "id": "verifica-2026-09-22-3bsa",
-      "title": "Verifica di Informatica — Python",
-      "date": "2026-09-22",
-      "start": "10:00",
-      "end": "11:00",
-      "category": "verifica",
-      "class": "3BSA",
-      "location": "Laboratorio informatico",
-      "description": "Strutture dati e funzioni in Python.",
-      "url": ""
-    },
-    {
-      "id": "pcto-2026-09-25-robotica",
-      "title": "PCTO — Laboratorio di Robotica",
-      "date": "2026-09-25",
-      "start": "14:00",
-      "end": "17:00",
-      "category": "pcto-stem",
+      "id": "orario-mer-2-4fsa",
+      "title": "Informatica — 4FSA",
+      "dayOfWeek": "wednesday",
+      "period": 2,
+      "start": "08:55",
+      "end": "09:50",
+      "category": "lezione",
       "class": "4FSA",
-      "location": "Laboratorio STEM",
-      "description": "Attività pratica in preparazione a RomeCup 2026.",
-      "url": ""
+      "location": "B111"
     },
     {
-      "id": "scadenza-2026-09-30-pubblicazioni",
-      "title": "Scadenza consegna materiali Didamatica 2026",
-      "date": "2026-09-30",
-      "start": "",
-      "end": "",
-      "category": "scadenza",
+      "id": "orario-mer-4-pot",
+      "title": "POT",
+      "dayOfWeek": "wednesday",
+      "period": 4,
+      "start": "10:45",
+      "end": "11:40",
+      "category": "pot",
       "class": "",
-      "location": "",
-      "description": "Termine ultimo per l'invio del contributo definitivo.",
-      "url": ""
+      "location": ""
     },
     {
-      "id": "appuntamento-2026-10-01-ricevimento",
-      "title": "Ricevimento genitori",
-      "date": "2026-10-01",
-      "start": "10:00",
-      "end": "11:00",
-      "category": "appuntamento",
-      "class": "",
-      "location": "Aula docenti",
-      "description": "",
-      "url": ""
+      "id": "orario-gio-1-5csa",
+      "title": "Informatica — 5CSA",
+      "dayOfWeek": "thursday",
+      "period": 1,
+      "start": "08:00",
+      "end": "08:55",
+      "category": "lezione",
+      "class": "5CSA",
+      "location": "B113"
     },
     {
-      "id": "evento-2026-10-07-didamatica",
-      "title": "Didamatica 2026",
-      "date": "2026-10-07",
-      "start": "09:00",
-      "end": "18:00",
-      "category": "evento",
-      "class": "",
-      "location": "Padova",
-      "description": "Presentazione del framework CLAE / F.L.O.W. Adaptive Learning 5.0.",
-      "url": "https://www.didamatica.it"
+      "id": "orario-gio-2-2asa",
+      "title": "Informatica — 2ASA",
+      "dayOfWeek": "thursday",
+      "period": 2,
+      "start": "08:55",
+      "end": "09:50",
+      "category": "lezione",
+      "class": "2ASA",
+      "location": "B111"
+    },
+    {
+      "id": "orario-gio-3-5asa",
+      "title": "Informatica — 5ASA",
+      "dayOfWeek": "thursday",
+      "period": 3,
+      "start": "09:50",
+      "end": "10:45",
+      "category": "lezione",
+      "class": "5ASA",
+      "location": "B113"
+    },
+    {
+      "id": "orario-ven-1-3asa",
+      "title": "Informatica — 3ASA",
+      "dayOfWeek": "friday",
+      "period": 1,
+      "start": "08:00",
+      "end": "08:55",
+      "category": "lezione",
+      "class": "3ASA",
+      "location": "B113"
+    },
+    {
+      "id": "orario-ven-2-5csa",
+      "title": "Informatica — 5CSA",
+      "dayOfWeek": "friday",
+      "period": 2,
+      "start": "08:55",
+      "end": "09:50",
+      "category": "lezione",
+      "class": "5CSA",
+      "location": "B113"
+    },
+    {
+      "id": "orario-ven-3-2fsa",
+      "title": "Informatica — 2FSA",
+      "dayOfWeek": "friday",
+      "period": 3,
+      "start": "09:50",
+      "end": "10:45",
+      "category": "lezione",
+      "class": "2FSA",
+      "location": "B113"
+    },
+    {
+      "id": "orario-ven-5-2asa",
+      "title": "Informatica — 2ASA",
+      "dayOfWeek": "friday",
+      "period": 5,
+      "start": "11:40",
+      "end": "12:35",
+      "category": "lezione",
+      "class": "2ASA",
+      "location": "B111"
     }
   ]
 }
