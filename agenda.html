@@ -241,6 +241,7 @@ footer { background: var(--color-primary); border-top: 1px solid var(--color-bor
     <div class="agenda-legend-item cat-appuntamento"><span class="agenda-legend-dot"></span>Appuntamento</div>
     <div class="agenda-legend-item cat-verifica"><span class="agenda-legend-dot"></span>Verifica / Esame</div>
     <div class="agenda-legend-item cat-scadenza"><span class="agenda-legend-dot"></span>Scadenza</div>
+    <div class="agenda-legend-item cat-pot"><span class="agenda-legend-dot"></span>POT</div>
   </div>
 
   <div id="agendaStatus" class="agenda-status">Caricamento agenda…</div>
@@ -310,7 +311,8 @@ const CATEGORY_LABELS = {
   'pcto-stem': 'PCTO / STEM',
   'appuntamento': 'Appuntamento',
   'verifica': 'Verifica / Esame',
-  'scadenza': 'Scadenza'
+  'scadenza': 'Scadenza',
+  'pot': 'POT'
 };
 
 const MONTH_LABELS = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
@@ -345,14 +347,87 @@ async function fetchJson(url) {
   return response.json();
 }
 
+const DAY_OF_WEEK_INDEX = {
+  sunday: 0, domenica: 0,
+  monday: 1, lunedi: 1, lunedì: 1,
+  tuesday: 2, martedi: 2, martedì: 2,
+  wednesday: 3, mercoledi: 3, mercoledì: 3,
+  thursday: 4, giovedi: 4, giovedì: 4,
+  friday: 5, venerdi: 5, venerdì: 5,
+  saturday: 6, sabato: 6
+};
+
+function normalizeDayOfWeek(value) {
+  if (typeof value === 'number') return value;
+  const key = String(value || '').trim().toLowerCase();
+  return DAY_OF_WEEK_INDEX[key];
+}
+
+function schoolYearRange(rawData) {
+  if (rawData && rawData.schoolYear) {
+    const m = String(rawData.schoolYear).match(/(\d{4})\s*[/\-]\s*(\d{2,4})/);
+    if (m) {
+      const startYear = Number(m[1]);
+      const endYear = m[2].length === 2
+        ? Number(String(startYear).slice(0, 2) + m[2])
+        : Number(m[2]);
+      return {
+        start: new Date(startYear, 8, 1),
+        end: new Date(endYear, 6, 31)
+      };
+    }
+  }
+  return {
+    start: new Date(2026, 8, 1),
+    end: new Date(2027, 6, 31)
+  };
+}
+
+function expandRecurringEvents(rawEvents, rawData) {
+  const { start: rangeStart, end: rangeEnd } = schoolYearRange(rawData);
+  const expanded = [];
+
+  for (const ev of rawEvents || []) {
+    if (ev && ev.date) {
+      expanded.push(ev);
+      continue;
+    }
+
+    if (!ev || ev.dayOfWeek === undefined || !ev.title) continue;
+
+    const targetDay = normalizeDayOfWeek(ev.dayOfWeek);
+    if (targetDay === undefined) continue;
+
+    const first = new Date(rangeStart);
+    first.setHours(0, 0, 0, 0);
+    const offset = (targetDay - first.getDay() + 7) % 7;
+    first.setDate(first.getDate() + offset);
+
+    for (let d = new Date(first); d <= rangeEnd; d.setDate(d.getDate() + 7)) {
+      const date = dateKey(d);
+      expanded.push({
+        ...ev,
+        id: `${ev.id || ev.title}-${date}`,
+        date,
+        recurrence: true
+      });
+    }
+  }
+
+  return expanded;
+}
+
 function normalizeEvents(rawEvents) {
   const seenIds = new Set();
   const normalized = [];
+
   for (const ev of rawEvents || []) {
     if (!ev || !ev.date || !ev.title) continue;
+
     const id = ev.id || `${ev.category || 'evento'}-${ev.date}-${ev.title}`;
-    if (seenIds.has(id)) continue; // evita duplicati (requisito 9)
+    if (seenIds.has(id)) continue;
     seenIds.add(id);
+
     normalized.push({
       id,
       title: ev.title,
@@ -363,9 +438,12 @@ function normalizeEvents(rawEvents) {
       class: ev.class || '',
       location: ev.location || '',
       description: ev.description || '',
-      url: ev.url || ''
+      url: ev.url || '',
+      period: ev.period || '',
+      recurrence: !!ev.recurrence
     });
   }
+
   return normalized;
 }
 
@@ -374,11 +452,12 @@ async function loadEvents() {
   const layoutEl = document.getElementById('agendaLayout');
 
   let rawEvents = null;
+  let rawData = null;
 
   if (GOOGLE_SHEETS_JSON_URL) {
     try {
-      const data = await fetchJson(GOOGLE_SHEETS_JSON_URL);
-      rawEvents = data.events;
+      rawData = await fetchJson(GOOGLE_SHEETS_JSON_URL);
+      rawEvents = rawData.events;
     } catch (err) {
       console.warn('Google Sheets non raggiungibile, uso data/events.json:', err);
     }
@@ -386,8 +465,8 @@ async function loadEvents() {
 
   if (!rawEvents) {
     try {
-      const data = await fetchJson(LOCAL_EVENTS_URL);
-      rawEvents = data.events;
+      rawData = await fetchJson(LOCAL_EVENTS_URL);
+      rawEvents = rawData.events;
     } catch (err) {
       console.error('Impossibile caricare data/events.json:', err);
       statusEl.textContent = 'Agenda momentaneamente non disponibile. Riprova più tardi.';
@@ -395,7 +474,10 @@ async function loadEvents() {
     }
   }
 
-  allEvents = normalizeEvents(rawEvents);
+  // Trasforma le lezioni ricorrenti del quadro orario in eventi con data concreta.
+  const expandedEvents = expandRecurringEvents(rawEvents, rawData);
+  allEvents = normalizeEvents(expandedEvents);
+  console.info(`Agenda caricata: ${allEvents.length} eventi (${rawEvents.length} record sorgente).`);
   eventsByDate = new Map();
   for (const ev of allEvents) {
     if (!eventsByDate.has(ev.date)) eventsByDate.set(ev.date, []);
