@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-20T18:34:21+00:00",
+  "updatedAt": "2026-09-20T22:17:18+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Sostegno, il giudizio sanitario non determina automaticamente il numero di ore. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/sostegno-il-giudizio-sanitario-non-determina-automaticamente-il-numero-di-ore-pillole-di-question-time/",
+          "pubDate": "Sun, 20 Sep 2026 19:00:10 +0000",
+          "description": "Nel Question Time del 16 settembre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione dell’avvocato Walter Miceli (ANIEF) e della prof…"
+        },
+        {
           "title": "Insegnanti? “Spesso inascoltati, la mia solidarietà”. Lo Scrittore Fulvio Abbate ad OrizzonteScuola",
           "link": "https://www.orizzontescuola.it/insegnanti-spesso-inascoltati-la-mia-solidarieta-lo-scrittore-fulvio-abbate-ad-orizzontescuola/",
           "pubDate": "Sun, 20 Sep 2026 18:00:21 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/pacifico-anief-assunzioni-su-tutti-i-posti-vacanti-doppio-canale-e-parita-retributiva-per-fermare-il-precariato/",
           "pubDate": "Sun, 20 Sep 2026 17:15:37 +0000",
           "description": "Assunzioni su tutti i posti vacanti, doppio canale di reclutamento e parità retributiva tra supplenti e docenti di ruolo. L'articolo Pacifico (Anief): &#8220;As…"
-        },
-        {
-          "title": "Polizza sanitaria scuola, nessuna integrazione individuale prevista ma possibili tariffe agevolate. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/polizza-sanitaria-scuola-nessuna-integrazione-individuale-prevista-ma-possibili-tariffe-agevolate-pillole-di-question-time/",
-          "pubDate": "Sun, 20 Sep 2026 17:00:09 +0000",
-          "description": "Nel Question Time del 14 settembre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Simone Craparo, rappresentante sindacale dell…"
         }
       ]
     },
