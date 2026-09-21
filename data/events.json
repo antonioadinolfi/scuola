@@ -231,6 +231,19 @@
       "category": "lezione",
       "class": "2ASA",
       "location": "B111"
+    },
+    {
+      "id": "scadenza-2026-09-30-pubblicazioni",
+      "title": "Didamatica 2026",
+      "date": "2026-10-08",
+      "start": "",
+      "end": "",
+      "category": "Convegno",
+      "class": "",
+      "location": "",
+      "description": "Partecipazione al convegno nella categoria 'Tutor Digitale'.",
+      "url": "https://www.aicanet.it/associazione/attivita-e-progetti/didamatica/didamatica-2026"
     }
+    
   ]
 }
