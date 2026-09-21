@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-21T19:09:31+00:00",
+  "updatedAt": "2026-09-21T23:04:38+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Ambasciatori di Privacy e Sicurezza Informatica, al via il percorso gratuito per scuole, studenti, docenti e famiglie",
+          "link": "https://www.orizzontescuola.it/ambasciatori-di-privacy-e-sicurezza-informatica-al-via-il-percorso-gratuito-per-scuole-studenti-docenti-e-famiglie/",
+          "pubDate": "Mon, 21 Sep 2026 19:27:48 +0000",
+          "description": "Al via la quinta edizione del percorso gratuito “Ambasciatori di Privacy e Sicurezza Informatica – RPD dello Studente”, rivolto alle scuole di tutta Italia per…"
+        },
+        {
+          "title": "La nascita della Repubblica raccontata a Montecitorio: mostra gratuita sul 1946 e sull’Assemblea Costituente",
+          "link": "https://www.orizzontescuola.it/la-nascita-della-repubblica-raccontata-a-montecitorio-mostra-gratuita-sul-1946-e-sullassemblea-costituente/",
+          "pubDate": "Mon, 21 Sep 2026 19:11:35 +0000",
+          "description": "In occasione dell’80° anniversario della Repubblica, la Camera dei Deputati dedica un itinerario espositivo al 1946, anno decisivo della storia italiana: il 2 g…"
+        },
+        {
           "title": "Edilizia scolastica, 114,5 milioni dall’8 per mille statale: fino a 1 milione per intervento. Priorità a sisma, crolli, amianto e scuole inagibili",
           "link": "https://www.orizzontescuola.it/edilizia-scolastica-1145-milioni-dall8-per-mille-statale-fino-a-1-milione-per-intervento-priorita-a-sisma-crolli-amianto-e-scuole-inagibili/",
           "pubDate": "Mon, 21 Sep 2026 18:55:44 +0000",
@@ -68,18 +80,6 @@
           "link": "https://www.orizzontescuola.it/mattarella-la-scuola-non-deve-formare-ghetti-e-sui-cellulari-pensare-non-rassegnarsi-allalgoritmo-macchine-sempre-piu-intelligenti-hanno-bisogno-di-persone-ricche-di-valori/",
           "pubDate": "Mon, 21 Sep 2026 17:17:33 +0000",
           "description": "Integrazione e intelligenza artificiale al centro dell'intervento del Capo dello Stato all'istituto \"Sergio Marchionne\" di Amatrice, per l'inaugurazione dell'an…"
-        },
-        {
-          "title": "Insegnanti di sostegno, 56mila confermati su richiesta delle famiglie. Valditara: “Stabilità per i nostri ragazzi”",
-          "link": "https://www.orizzontescuola.it/insegnanti-di-sostegno-56mila-confermati-su-richiesta-delle-famiglie-valditara-stabilita-per-i-nostri-ragazzi/",
-          "pubDate": "Mon, 21 Sep 2026 17:15:18 +0000",
-          "description": "Continuità didattica al centro dell'intervento del ministro Giuseppe Valditara alla cerimonia \"Tutti a scuola\" di Amatrice. Per l'anno scolastico appena iniziat…"
-        },
-        {
-          "title": "Mattarella: “Basta violenze contro gli insegnanti, non siano lasciati soli”. E attacca: “Troppi genitori si sottraggono al loro compito”",
-          "link": "https://www.orizzontescuola.it/mattarella-basta-violenze-contro-gli-insegnanti-e-attacca-troppi-genitori-si-sottraggono-al-loro-compito/",
-          "pubDate": "Mon, 21 Sep 2026 17:04:23 +0000",
-          "description": "Il Presidente della Repubblica, Sergio Mattarella, sceglie Amatrice, la città colpita dal terremoto del 2016 per un intervento che attraversa il presente della…"
         }
       ]
     },
