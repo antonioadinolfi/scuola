@@ -233,16 +233,16 @@
       "location": "B111"
     },
     {
-      "id": "scadenza-2026-09-30-pubblicazioni",
+      "id": "evento-2026-10-07-didamatica",
       "title": "Didamatica 2026",
-      "date": "2026-10-08",
-      "start": "",
-      "end": "",
-      "category": "Convegno",
+      "date": "2026-10-07",
+      "start": "09:00",
+      "end": "18:00",
+      "category": "evento",
       "class": "",
-      "location": "",
-      "description": "Partecipazione al convegno nella categoria 'Tutor Digitale'.",
-      "url": "https://www.aicanet.it/associazione/attivita-e-progetti/didamatica/didamatica-2026"
+      "location": "Padova",
+      "description": "Presentazione del framework CLAE / F.L.O.W. Adaptive Learning 5.0.",
+      "url": "https://www.didamatica.it"
     }
     
   ]
