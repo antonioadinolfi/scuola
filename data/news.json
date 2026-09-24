@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-24T19:53:22+00:00",
+  "updatedAt": "2026-09-24T23:06:23+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Polizza sanitaria scuola, non tutti gli interventi chirurgici sono coperti. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/polizza-sanitaria-scuola-non-tutti-gli-interventi-chirurgici-sono-coperti-pillole-di-question-time/",
+          "pubDate": "Thu, 24 Sep 2026 20:21:35 +0000",
+          "description": "Nel Question Time del 14 settembre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Simone Craparo, rappresentante sindacale dell…"
+        },
+        {
           "title": "Supplenze 2026: “Faccio parte della numerosa categoria di docenti insoddisfatti dalle nomine GPS”: ecco perché",
           "link": "https://www.orizzontescuola.it/supplenze-2026-faccio-parte-della-numerosa-categoria-di-docenti-insoddisfatti-dalle-nomine-gps-ecco-perche/",
           "pubDate": "Thu, 24 Sep 2026 19:00:21 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/decreto-scuola-schlein-durissima-una-vergogna-caccia-alle-streghe-sulla-pelle-dei-bimbi-ma-chi-pensano-di-prendere-in-giro/",
           "pubDate": "Thu, 24 Sep 2026 16:48:58 +0000",
           "description": "Il decreto scuola approvato dal Consiglio dei ministri trasforma in vincolo giuridico il limite massimo del 30% di alunni stranieri per classe nella scuola prim…"
-        },
-        {
-          "title": "Fascicolo digitale docente, 14 milioni di euro per il potenziamento. Valditara: “Dall’assunzione alla pensione, non dovranno più essere fornite certificazioni di vario genere”",
-          "link": "https://www.orizzontescuola.it/fascicolo-digitale-docente-14-milioni-di-euro-per-potenziarlo-ulteriormente-valditara-dallassunzione-alla-pensione-non-dovranno-piu-essere-fornite-certificazioni-di-vario-genere/",
-          "pubDate": "Thu, 24 Sep 2026 16:41:46 +0000",
-          "description": "Il pacchetto di semplificazioni approvato dal Governo punta a trasformare radicalmente la gestione amministrativa del personale scolastico. Il potenziamento del…"
         }
       ]
     },
