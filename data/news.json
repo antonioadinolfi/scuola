@@ -1,9 +1,15 @@
 {
-  "updatedAt": "2026-09-24T14:44:33+00:00",
+  "updatedAt": "2026-09-24T19:53:22+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
       "items": [
+        {
+          "title": "Sport, inclusione e riqualificazione: inaugurati i nuovi impianti sportivi all’aperto al Liceo “Nino Cortese” di Maddaloni",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/09/24/sport-inclusione-e-riqualificazione-inaugurati-i-nuovi-impianti-sportivi-allaperto-al-liceo-nino-cortese-di-maddaloni/",
+          "pubDate": "Thu, 24 Sep 2026 17:41:33 +0000",
+          "description": "Mattinata di festa e grande entusiasmo al Liceo Scientifico “Nino Cortese” di Maddaloni, diretta dal Dirigente Falcone Marcellino, dove si è tenuta la cerimonia…"
+        },
         {
           "title": "Orario classi A.S. 26/27 DAL 21/09/2026",
           "link": "https://www.liceoscientificocortese.edu.it/2026/09/19/orario-classi-a-s-26-27/",
@@ -33,12 +39,6 @@
           "link": "https://www.liceoscientificocortese.edu.it/2026/08/27/presa-di-servizio-personale-docente-ed-ata-convocazione-collegio-dei-docenti/",
           "pubDate": "Thu, 27 Aug 2026 14:49:19 +0000",
           "description": "Presa di servizio personale Docente ed ATA &#8211; Convocazione Collegio dei docenti"
-        },
-        {
-          "title": "Orario di apertura degli Uffici di Segreteria",
-          "link": "https://www.liceoscientificocortese.edu.it/2026/07/22/nuovo-orari-di-apertura-degli-uffici-di-segreteria/",
-          "pubDate": "Wed, 22 Jul 2026 11:23:10 +0000",
-          "description": "Lunedì dalle 10:00 alle 12:00 Mercoledì dalle 8:15 alle 10:15 Si ricorda che l&#8217;orario di apertura della scuola è il seguente: dal lunedì al venerdì dalle…"
         }
       ]
     },
@@ -46,40 +46,40 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
-          "title": "Gli istituti tecnici e professionali diventano licei: lo prevede il Decreto Scuola. BOZZA",
-          "link": "https://www.orizzontescuola.it/gli-istituti-tecnici-e-professionali-diventano-licei-lo-prevede-il-decreto-scuola-bozza/",
-          "pubDate": "Thu, 24 Sep 2026 14:42:02 +0000",
-          "description": "Attualmente in corso il Consiglio dei Ministri che prevederà, tra gli altri provvedimenti, l’approvazione del Decreto Scuola. Secondo quanto previsto dalla bozz…"
+          "title": "Supplenze 2026: “Faccio parte della numerosa categoria di docenti insoddisfatti dalle nomine GPS”: ecco perché",
+          "link": "https://www.orizzontescuola.it/supplenze-2026-faccio-parte-della-numerosa-categoria-di-docenti-insoddisfatti-dalle-nomine-gps-ecco-perche/",
+          "pubDate": "Thu, 24 Sep 2026 19:00:21 +0000",
+          "description": "Riceviamo all'indirizzo lallaorizzonte@orizzontescuola.it il contributo di una docente che critica il nuovo algoritmo delle GPS 2026/27. Il ripescaggio è stato…"
         },
         {
-          "title": "Cedolino NoiPA, come si legge: la guida illustrata per capire tutte le voci dello stipendio",
-          "link": "https://www.orizzontescuola.it/cedolino-noipa-come-si-legge-la-guida-illustrata-per-capire-tutte-le-voci-dello-stipendio/",
-          "pubDate": "Thu, 24 Sep 2026 14:41:44 +0000",
-          "description": "NoiPA ricorda sui propri canali social la disponibilità della Guida illustrata alla lettura del cedolino, pensata per aiutare gli utenti a comprendere più facil…"
+          "title": "Futuro Nazionale attacca il governo: “Decreto insufficiente, nessun freno all’islamizzazione e risorse sottratte agli italiani”",
+          "link": "https://www.orizzontescuola.it/futuro-nazionale-attacca-il-governo-decreto-insufficiente-nessun-freno-allislamizzazione-e-risorse-sottratte-agli-italiani/",
+          "pubDate": "Thu, 24 Sep 2026 17:53:33 +0000",
+          "description": "Non si placano le polemiche attorno al nuovo provvedimento sulla scuola licenziato dal Consiglio dei ministri. A sollevare forti perplessità da destra è Futuro…"
         },
         {
-          "title": "Stop al volto coperto a scuola: la bozza del decreto prevede multe fino a 1.000 euro",
-          "link": "https://www.orizzontescuola.it/stop-al-volto-coperto-a-scuola-la-bozza-del-decreto-prevede-multe-fino-a-1-000-euro/",
-          "pubDate": "Thu, 24 Sep 2026 14:41:11 +0000",
-          "description": "Presentarsi in classe per seguire le lezioni, partecipare ai corsi del pomeriggio o entrare a scuola per parlare con i professori con il volto coperto non sarà…"
+          "title": "Nove docenti di sostegno in un anno: il TAR annulla la bocciatura di un’alunna per continuità didattica negata",
+          "link": "https://www.orizzontescuola.it/cambia-9-docenti-di-sostegno-e-viene-bocciata-il-tar-annulla-il-provvedimento-dopo-ricorso-della-famiglia-di-unalunna-continuita-didattica-negata/",
+          "pubDate": "Thu, 24 Sep 2026 17:23:46 +0000",
+          "description": "Cambiare insegnante di sostegno nove volte in nove mesi può segnare in modo irreversibile un intero anno scolastico. L'articolo Nove docenti di sostegno in un a…"
         },
         {
-          "title": "Decreto Scuola, un’ora di latino facoltativo alla scuola media da settembre 2027 per 33 ore annue. BOZZA",
-          "link": "https://www.orizzontescuola.it/decreto-scuola-unora-di-latino-facoltativo-alla-scuola-media-da-settembre-2027-per-33-ore-annue-bozza/",
-          "pubDate": "Thu, 24 Sep 2026 14:38:52 +0000",
-          "description": "Attualmente in corso il Consiglio dei Ministri che prevederà, tra gli altri provvedimenti, l'approvazione del Decreto Scuola. Spazio anche a un intervento per l…"
+          "title": "Doppio canale per le assunzioni dei docenti: concorso e GPS. Già nel 2027? Conterà il servizio? Finalmente anche per posto comune? Il punto",
+          "link": "https://www.orizzontescuola.it/doppio-canale-per-le-assunzioni-dei-docenti-concorso-e-gps-gia-nel-2027-contera-il-servizio-finalmente-anche-per-posto-comune-il-punto/",
+          "pubDate": "Thu, 24 Sep 2026 16:52:46 +0000",
+          "description": "Nel Question Time del 23 settembre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Chiara Cozzetto, della Presidenza nazionale A…"
         },
         {
-          "title": "Voucher da 1.000 a 3.000 euro nelle scuole della Puglia: risorse per la mediazione e l’integrazione degli alunni stranieri",
-          "link": "https://www.orizzontescuola.it/voucher-da-1-000-a-3-000-euro-nelle-scuole-della-puglia-risorse-per-la-mediazione-e-lintegrazione-degli-alunni-stranieri/",
-          "pubDate": "Thu, 24 Sep 2026 14:30:32 +0000",
-          "description": "Un sostegno concreto da 1.000 a 3.000 euro per ciascuna scuola, pensato per facilitare l'integrazione degli alunni stranieri e costruire un ponte di comunicazio…"
+          "title": "Decreto Scuola, Schlein durissima: “Una vergogna, caccia alle streghe sulla pelle dei bimbi. Ma chi pensano di prendere in giro?”",
+          "link": "https://www.orizzontescuola.it/decreto-scuola-schlein-durissima-una-vergogna-caccia-alle-streghe-sulla-pelle-dei-bimbi-ma-chi-pensano-di-prendere-in-giro/",
+          "pubDate": "Thu, 24 Sep 2026 16:48:58 +0000",
+          "description": "Il decreto scuola approvato dal Consiglio dei ministri trasforma in vincolo giuridico il limite massimo del 30% di alunni stranieri per classe nella scuola prim…"
         },
         {
-          "title": "Tetto agli alunni stranieri, l’appello di Save the Children al Governo: “Nessuna scelta sulla pelle dei bambini”",
-          "link": "https://www.orizzontescuola.it/tetto-agli-alunni-stranieri-lappello-di-save-the-children-al-governo-nessuna-scelta-sulla-pelle-dei-bambini/",
-          "pubDate": "Thu, 24 Sep 2026 14:08:37 +0000",
-          "description": "“Qualsiasi decisione il Consiglio dei Ministri adotterà oggi, in relazione all'annunciata introduzione di un tetto alla presenza di alunni stranieri nelle class…"
+          "title": "Fascicolo digitale docente, 14 milioni di euro per il potenziamento. Valditara: “Dall’assunzione alla pensione, non dovranno più essere fornite certificazioni di vario genere”",
+          "link": "https://www.orizzontescuola.it/fascicolo-digitale-docente-14-milioni-di-euro-per-potenziarlo-ulteriormente-valditara-dallassunzione-alla-pensione-non-dovranno-piu-essere-fornite-certificazioni-di-vario-genere/",
+          "pubDate": "Thu, 24 Sep 2026 16:41:46 +0000",
+          "description": "Il pacchetto di semplificazioni approvato dal Governo punta a trasformare radicalmente la gestione amministrativa del personale scolastico. Il potenziamento del…"
         }
       ]
     },
