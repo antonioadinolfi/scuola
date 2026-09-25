@@ -1,9 +1,15 @@
 {
-  "updatedAt": "2026-09-25T11:29:37+00:00",
+  "updatedAt": "2026-09-25T16:53:40+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
       "items": [
+        {
+          "title": "Sport, Mare e le Emozioni dell’America’s Cup: il Liceo “Nino Cortese” di Maddaloni Protagonista a Napoli",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/09/25/sport-mare-e-le-emozioni-dellamericas-cup-il-liceo-nino-cortese-di-maddaloni-protagonista-a-napoli/",
+          "pubDate": "Fri, 25 Sep 2026 16:18:03 +0000",
+          "description": "&#160; Questa mattina gli studenti del Liceo Scientifico &#8220;Nino Cortese&#8221; di Maddaloni, guidati dal Dirigente Scolastico Marcellino Falcone, hanno vis…"
+        },
         {
           "title": "Sport, inclusione e riqualificazione: inaugurati i nuovi impianti sportivi all’aperto al Liceo “Nino Cortese” di Maddaloni",
           "link": "https://www.liceoscientificocortese.edu.it/2026/09/24/sport-inclusione-e-riqualificazione-inaugurati-i-nuovi-impianti-sportivi-allaperto-al-liceo-nino-cortese-di-maddaloni/",
@@ -33,12 +39,6 @@
           "link": "https://www.liceoscientificocortese.edu.it/2026/09/03/inizio-delle-attivita-didattiche-a-s-2026-27/",
           "pubDate": "Thu, 03 Sep 2026 13:29:14 +0000",
           "description": "CLASSI PRIME In occasione del primo giorno di scuola, il Dirigente Scolastico accoglierà e saluterà gli studenti delle classi prime e le loro famiglie, nel cort…"
-        },
-        {
-          "title": "Presa di servizio personale Docente ed ATA – Convocazione Collegio dei docenti",
-          "link": "https://www.liceoscientificocortese.edu.it/2026/08/27/presa-di-servizio-personale-docente-ed-ata-convocazione-collegio-dei-docenti/",
-          "pubDate": "Thu, 27 Aug 2026 14:49:19 +0000",
-          "description": "Presa di servizio personale Docente ed ATA &#8211; Convocazione Collegio dei docenti"
         }
       ]
     },
@@ -46,40 +46,40 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
-          "title": "Polizza sanitaria scuola, possibile adesione anche dopo il 20 settembre. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/polizza-sanitaria-scuola-possibile-adesione-anche-dopo-il-20-settembre-pillole-di-question-time/",
-          "pubDate": "Fri, 25 Sep 2026 11:25:07 +0000",
-          "description": "Nel Question Time del 14 settembre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Simone Craparo, rappresentante sindacale dell…"
+          "title": "Abilitazione neoassunti entro dicembre, al momento nessuna proroga per svolgere l’anno di prova. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/abilitazione-neoassunti-entro-dicembre-al-momento-nessuna-proroga-per-svolgere-lanno-di-prova-pillole-di-question-time/",
+          "pubDate": "Fri, 25 Sep 2026 16:37:04 +0000",
+          "description": "Nel Question Time del 23 settembre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Chiara Cozzetto (ANIEF), è stato fatto il pun…"
         },
         {
-          "title": "Pensioni scuola 2027, come uscire dal lavoro dal 1° settembre: requisiti per vecchiaia, anticipata, Quote e Opzione donna",
-          "link": "https://www.orizzontescuola.it/pensioni-scuola-2027-come-uscire-dal-lavoro-dal-1-settembre-requisiti-per-vecchiaia-anticipata-quote-e-opzione-donna/",
-          "pubDate": "Fri, 25 Sep 2026 11:18:12 +0000",
-          "description": "La tabella allegata alla circolare MIM n. 24818 del 24 settembre 2026 riepiloga le condizioni che consentono al personale scolastico di cessare dal servizio con…"
+          "title": "Brunetta: “Basta con i licei per ricchi. La lingua è strumento di democrazia. Sull’IA la risposta è il lavoro artigiano”",
+          "link": "https://www.orizzontescuola.it/brunetta-basta-con-i-licei-per-ricchi-la-lingua-e-strumento-di-democrazia-sullia-la-risposta-e-il-lavoro-artigiano/",
+          "pubDate": "Fri, 25 Sep 2026 16:13:47 +0000",
+          "description": "\"La conoscenza dell'italiano, a prescindere dal passaporto, è la scelta giusta perché la lingua è il più grande strumento di inclusione e di democrazia, la chia…"
         },
         {
-          "title": "Scuola, la Gen Z si divide: il 59% dice sì al tetto per gli stranieri e al divieto di burqa e niqab",
-          "link": "https://www.orizzontescuola.it/scuola-la-gen-z-si-divide-il-59-dice-si-al-tetto-per-gli-stranieri-e-al-divieto-di-burqa-e-niqab/",
-          "pubDate": "Fri, 25 Sep 2026 11:05:51 +0000",
-          "description": "Le nuove norme sull’istruzione dividono la popolazione giovanile in due schieramenti contrapposti. Secondo un instant poll condotto dal portale Skuola.net su un…"
+          "title": "“Gli istituti tecnici diventano licei tecnologici”, Meloni esulta: “Basta pregiudizi sulle scuole, cari ragazzi nessuna scelta vi renderà meno bravi”",
+          "link": "https://www.orizzontescuola.it/gli-istituti-tecnici-diventano-licei-tecnologici-meloni-esulta-basta-pregiudizi-sulle-scuole-cari-ragazzi-nessuna-scelta-vi-rendera-meno-bravi/",
+          "pubDate": "Fri, 25 Sep 2026 15:53:13 +0000",
+          "description": "La presidente del Consiglio, Giorgia Meloni, ha lanciato un forte appello agli studenti e alle famiglie per sostenere la trasformazione degli istituti tecnici e…"
         },
         {
-          "title": "Tessera elettorale sullo smartphone: arriva la svolta digitale per le votazioni. Zangrillo: “Al lavoro per renderla al più presto operativa”",
-          "link": "https://www.orizzontescuola.it/tessera-elettorale-sullo-smartphone-arriva-la-svolta-digitale-per-le-votazioni-zangrillo-al-lavoro-per-renderla-al-piu-presto-operativa/",
-          "pubDate": "Fri, 25 Sep 2026 11:03:40 +0000",
-          "description": "Il ministro per la Pubblica Amministrazione, Paolo Zangrillo, ha annunciato oggi a Genova l'imminente attivazione della tessera elettorale digitale. L'innovazio…"
+          "title": "Decreto scuola, l’Anp sul tetto agli alunni stranieri: “Condivisibile. Equilibrare la concentrazione dei non italofoni favorisce l’integrazione”",
+          "link": "https://www.orizzontescuola.it/decreto-scuola-lanp-sul-tetto-agli-alunni-stranieri-condivisibile-equilibrare-la-concentrazione-dei-non-italofoni-favorisce-lintegrazione/",
+          "pubDate": "Fri, 25 Sep 2026 15:46:08 +0000",
+          "description": "Misure guidate dal buon senso e lontane dalle polemiche politiche; si sintetizza così la posizione dell&#8217;Associazione nazionale presidi sulle norme per le…"
         },
         {
-          "title": "Interpelli, possibile accettare una supplenza anche in una provincia diversa dalle proprie GPS. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/interpelli-possibile-accettare-una-supplenza-anche-in-una-provincia-diversa-dalle-proprie-gps-pillole-di-question-time/",
-          "pubDate": "Fri, 25 Sep 2026 10:30:00 +0000",
-          "description": "Nel Question Time del 21 settembre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Sonia Cannas, docente ed esperta in normativa…"
+          "title": "Francesca Lollobrigida ai giovani: “Non bisogna avere paura, lo sport ti dà tanti insegnamenti che ti porta nella vita”",
+          "link": "https://www.orizzontescuola.it/francesca-lollobrigida-ai-giovani-non-bisogna-avere-paura-lo-sport-ti-da-tanti-insegnamenti-che-ti-porta-nella-vita/",
+          "pubDate": "Fri, 25 Sep 2026 15:34:43 +0000",
+          "description": "La campionessa olimpica di pattinaggio di velocità e Ambassador di Sport e Salute, Francesca Lollobrigida, ha incontrato oggi a Napoli centinaia di studenti in…"
         },
         {
-          "title": "Pensioni scuola 2027, come presentare la domanda su Polis: tutte le istanze per docenti, ATA e dirigenti scolastici. Guide MIM",
-          "link": "https://www.orizzontescuola.it/pensioni-scuola-2027-come-presentare-la-domanda-su-polis-tutte-le-istanze-per-docenti-ata-e-dirigenti-scolastici-guide-mim/",
-          "pubDate": "Fri, 25 Sep 2026 10:18:43 +0000",
-          "description": "Sono disponibili su POLIS – Istanze Online le procedure per la cessazione dal servizio del personale scolastico con decorrenza dal 1° settembre 2027. L'articolo…"
+          "title": "Graduatorie di merito dei concorsi, non si aggiornano con nuovi titoli o anni di servizio. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/graduatorie-di-merito-dei-concorsi-non-si-aggiornano-con-nuovi-titoli-o-anni-di-servizio-pillole-di-question-time/",
+          "pubDate": "Fri, 25 Sep 2026 14:32:55 +0000",
+          "description": "Nel Question Time del 23 settembre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Chiara Cozzetto (ANIEF), è stato fatto il pun…"
         }
       ]
     },
