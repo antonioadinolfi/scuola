@@ -179,12 +179,213 @@ footer { background: var(--color-primary); border-top: 1px solid var(--color-bor
   .month-cell { min-height: 72px; }
 }
 @media (max-width: 600px) {
+  .agenda-filters { align-items: stretch; }
+  .agenda-filter-select { width: 100%; }
+  .agenda-filter-chip { flex: 1 0 auto; }
   .month-grid-header div:nth-child(n) { font-size: 9px; }
   .month-cell { min-height: 58px; padding: 4px; }
   .month-cell-num { font-size: 10.5px; }
   .month-event-pill { display: none; }
   .month-cell-events::after { content: attr(data-count); font-size: 9px; color: var(--color-accent); }
 }
+
+/* ── DASHBOARD OPERATIVA ── */
+.agenda-dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 1.4rem;
+}
+.agenda-stat {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  box-shadow: var(--shadow);
+}
+.agenda-stat-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-muted);
+  font-weight: 700;
+}
+.agenda-stat-value {
+  font-family: var(--font-serif);
+  color: var(--color-primary);
+  font-size: 1.25rem;
+  margin-top: 2px;
+}
+.agenda-stat-detail {
+  font-size: 10.5px;
+  color: var(--color-muted);
+  margin-top: 1px;
+}
+
+/* ── FILTRI ── */
+.agenda-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1.2rem;
+  padding: 10px 12px;
+  background: var(--color-background-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+.agenda-filter-label {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-muted);
+  font-weight: 700;
+  margin-right: 2px;
+}
+.agenda-filter-select {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-primary);
+  border-radius: 5px;
+  padding: 7px 28px 7px 9px;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.agenda-filter-chip {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-muted);
+  border-radius: 999px;
+  padding: 6px 9px;
+  font-size: 11px;
+  cursor: pointer;
+}
+.agenda-filter-chip.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+.agenda-filter-reset {
+  margin-left: auto;
+  border: none;
+  background: transparent;
+  color: var(--color-accent);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ── SIDEBAR OPERATIVA ── */
+.sidebar-stack { display: flex; flex-direction: column; gap: 12px; }
+.sidebar-block.compact { padding: 1rem 1.1rem; }
+.sidebar-block + .sidebar-block { margin-top: 0; }
+.sidebar-subtitle {
+  font-size: 10px;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin: 0.9rem 0 0.45rem;
+}
+.sidebar-next {
+  border-left: 3px solid var(--color-accent);
+  padding: 6px 0 6px 10px;
+}
+.sidebar-next-time {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+.sidebar-next-title {
+  font-size: 13px;
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-top: 2px;
+}
+.sidebar-next-meta { font-size: 10.5px; color: var(--color-muted); }
+
+/* ── STATO EVENTO ── */
+.event-card.is-current {
+  background: var(--color-accent-pale);
+  border-radius: 5px;
+  padding: 8px 6px;
+}
+.event-card.is-next .event-card-title::after {
+  content: " · PROSSIMA";
+  color: var(--color-accent);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.event-card.clickable { cursor: pointer; }
+.event-card.clickable:hover { background: var(--color-background-2); }
+
+/* ── MODALE DETTAGLIO ── */
+.agenda-modal {
+  position: fixed; inset: 0; z-index: 500;
+  display: none; align-items: center; justify-content: center;
+  background: rgba(13,27,46,.48); padding: 20px;
+}
+.agenda-modal.open { display: flex; }
+.agenda-modal-card {
+  width: min(560px, 100%);
+  max-height: 90vh; overflow: auto;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 70px rgba(0,0,0,.25);
+  border: 1px solid var(--color-border);
+  padding: 1.4rem;
+}
+.agenda-modal-top { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; }
+.agenda-modal-category {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 1.2px;
+  color: var(--color-accent); font-weight: 700;
+}
+.agenda-modal-title {
+  font-family: var(--font-serif); color: var(--color-primary);
+  font-size: 1.35rem; line-height: 1.25; margin-top: 4px;
+}
+.agenda-modal-close {
+  width: 32px; height:32px; border-radius:50%; border:1px solid var(--color-border);
+  background:var(--color-surface); color:var(--color-primary); cursor:pointer; font-size:18px;
+}
+.agenda-modal-meta {
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px; margin:1rem 0;
+}
+.agenda-modal-meta div {
+  background:var(--color-background-2); border-radius:5px; padding:8px 10px;
+}
+.agenda-modal-meta small {
+  display:block; color:var(--color-muted); text-transform:uppercase;
+  letter-spacing:.7px; font-size:9px; font-weight:700;
+}
+.agenda-modal-meta strong { color:var(--color-primary); font-size:12px; }
+.agenda-modal-desc { font-size:12.5px; color:var(--color-text); margin-top:.8rem; }
+.agenda-modal-link {
+  display:inline-block; margin-top:1rem; color:var(--color-accent);
+  font-size:12px; font-weight:700;
+}
+.agenda-empty-filter {
+  padding: 1.2rem;
+  color: var(--color-muted);
+  font-size: 12.5px;
+  text-align: center;
+  background: var(--color-background-2);
+  border-radius: var(--radius);
+}
+
+@media (max-width: 900px) {
+  .agenda-dashboard { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 600px) {
+  .agenda-dashboard { grid-template-columns: 1fr 1fr; }
+  .agenda-filter-reset { margin-left: 0; }
+  .agenda-modal-meta { grid-template-columns: 1fr; }
+}
+
 </style>
 </head>
 <body>
@@ -233,6 +434,43 @@ footer { background: var(--color-primary); border-top: 1px solid var(--color-bor
     </div>
   </div>
 
+  <div class="agenda-dashboard" id="agendaDashboard">
+    <div class="agenda-stat">
+      <div class="agenda-stat-label">Oggi</div>
+      <div class="agenda-stat-value" id="statToday">—</div>
+      <div class="agenda-stat-detail" id="statTodayDetail">Caricamento…</div>
+    </div>
+    <div class="agenda-stat">
+      <div class="agenda-stat-label">Prossima</div>
+      <div class="agenda-stat-value" id="statNext">—</div>
+      <div class="agenda-stat-detail" id="statNextDetail">—</div>
+    </div>
+    <div class="agenda-stat">
+      <div class="agenda-stat-label">Settimana</div>
+      <div class="agenda-stat-value" id="statWeek">—</div>
+      <div class="agenda-stat-detail" id="statWeekDetail">lezioni</div>
+    </div>
+    <div class="agenda-stat">
+      <div class="agenda-stat-label">Scadenze</div>
+      <div class="agenda-stat-value" id="statDeadlines">—</div>
+      <div class="agenda-stat-detail" id="statDeadlineDetail">—</div>
+    </div>
+  </div>
+
+  <div class="agenda-filters">
+    <span class="agenda-filter-label">Filtri</span>
+    <select class="agenda-filter-select" id="classFilter" aria-label="Filtra per classe">
+      <option value="">Tutte le classi</option>
+    </select>
+    <button class="agenda-filter-chip active" data-category="">Tutte</button>
+    <button class="agenda-filter-chip" data-category="lezione">Lezioni</button>
+    <button class="agenda-filter-chip" data-category="verifica">Verifiche</button>
+    <button class="agenda-filter-chip" data-category="pcto-stem">PCTO / STEM</button>
+    <button class="agenda-filter-chip" data-category="evento">Eventi</button>
+    <button class="agenda-filter-chip" data-category="scadenza">Scadenze</button>
+    <button class="agenda-filter-reset" id="resetFilters">Azzera filtri</button>
+  </div>
+
   <div class="agenda-legend" id="agendaLegend">
     <div class="agenda-legend-item cat-lezione"><span class="agenda-legend-dot"></span>Lezione</div>
     <div class="agenda-legend-item cat-seminario"><span class="agenda-legend-dot"></span>Seminario</div>
@@ -263,12 +501,41 @@ footer { background: var(--color-primary); border-top: 1px solid var(--color-bor
       <div id="weekView" class="week-list" style="display:none;"></div>
     </div>
 
-    <aside class="sidebar-block">
-      <div class="sidebar-title">Prossimi eventi</div>
-      <div id="upcomingList"></div>
+    <aside class="sidebar-stack">
+      <div class="sidebar-block">
+        <div class="sidebar-title">Prossima attività</div>
+        <div id="nextActivity"></div>
+        <div class="sidebar-subtitle">Prossime attività</div>
+        <div id="upcomingList"></div>
+      </div>
+      <div class="sidebar-block compact">
+        <div class="sidebar-title">Scadenze</div>
+        <div id="deadlineList"></div>
+      </div>
     </aside>
   </div>
 </main>
+
+
+<div class="agenda-modal" id="eventModal" role="dialog" aria-modal="true" aria-labelledby="eventModalTitle">
+  <div class="agenda-modal-card">
+    <div class="agenda-modal-top">
+      <div>
+        <div class="agenda-modal-category" id="eventModalCategory"></div>
+        <div class="agenda-modal-title" id="eventModalTitle"></div>
+      </div>
+      <button class="agenda-modal-close" id="eventModalClose" aria-label="Chiudi">×</button>
+    </div>
+    <div class="agenda-modal-meta">
+      <div><small>Data</small><strong id="eventModalDate">—</strong></div>
+      <div><small>Orario</small><strong id="eventModalTime">—</strong></div>
+      <div><small>Classe</small><strong id="eventModalClass">—</strong></div>
+      <div><small>Luogo</small><strong id="eventModalLocation">—</strong></div>
+    </div>
+    <div class="agenda-modal-desc" id="eventModalDescription"></div>
+    <a class="agenda-modal-link" id="eventModalLink" href="#" target="_blank" rel="noopener noreferrer" style="display:none;">Apri collegamento →</a>
+  </div>
+</div>
 
 <footer>
   <div class="footer-inner">
@@ -322,6 +589,8 @@ let eventsByDate = new Map(); // 'YYYY-MM-DD' -> array di eventi
 let viewMode = 'month';       // 'month' | 'week'
 let focusDate = new Date();   // giorno "a fuoco" per la navigazione
 let selectedDayKey = null;    // giorno selezionato nella vista mese (per il day-panel)
+let activeClassFilter = '';
+let activeCategoryFilter = '';
 
 function pad2(n) { return String(n).padStart(2, '0'); }
 function dateKey(d) { return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`; }
@@ -486,15 +755,168 @@ async function loadEvents() {
 
   statusEl.style.display = 'none';
   layoutEl.style.display = 'grid';
+  populateClassFilter();
   renderAll();
+}
+
+function getFilteredEvents() {
+  return allEvents.filter(ev => {
+    const classOk = !activeClassFilter || ev.class === activeClassFilter;
+    const categoryOk = !activeCategoryFilter || ev.category === activeCategoryFilter;
+    return classOk && categoryOk;
+  });
+}
+
+function eventDateObject(ev) {
+  const [y, m, d] = ev.date.split('-').map(Number);
+  const dt = new Date(y, m - 1, d);
+  if (ev.start) {
+    const [hh, mm] = ev.start.split(':').map(Number);
+    dt.setHours(hh || 0, mm || 0, 0, 0);
+  } else {
+    dt.setHours(23, 59, 59, 999);
+  }
+  return dt;
+}
+
+function isEventNow(ev, now = new Date()) {
+  if (!ev.start) return false;
+  const start = eventDateObject(ev);
+  const end = new Date(start);
+  if (ev.end) {
+    const [hh, mm] = ev.end.split(':').map(Number);
+    end.setHours(hh || 0, mm || 0, 0, 0);
+  } else {
+    end.setMinutes(end.getMinutes() + 55);
+  }
+  return now >= start && now <= end;
+}
+
+function getNextEvent(events = getFilteredEvents()) {
+  const now = new Date();
+  return [...events]
+    .filter(ev => eventDateObject(ev) >= now)
+    .sort((a,b) => eventDateObject(a) - eventDateObject(b))[0] || null;
+}
+
+function getTodayEvents(events = getFilteredEvents()) {
+  const key = dateKey(new Date());
+  return events.filter(ev => ev.date === key).sort((a,b) => (a.start || '99:99').localeCompare(b.start || '99:99'));
+}
+
+function getWeekEvents(events = getFilteredEvents()) {
+  const start = startOfWeek(new Date());
+  const end = new Date(start);
+  end.setDate(start.getDate() + 6);
+  end.setHours(23,59,59,999);
+  return events.filter(ev => {
+    const d = eventDateObject(ev);
+    return d >= start && d <= end;
+  });
+}
+
+function getVisibleDayEvents(key) {
+  return getFilteredEvents().filter(ev => ev.date === key)
+    .sort((a,b) => (a.start || '99:99').localeCompare(b.start || '99:99'));
+}
+
+function populateClassFilter() {
+  const select = document.getElementById('classFilter');
+  const classes = [...new Set(allEvents.map(ev => ev.class).filter(Boolean))].sort();
+  select.innerHTML = '<option value="">Tutte le classi</option>' +
+    classes.map(c => `<option value="${c}">${c}</option>`).join('');
+  select.value = activeClassFilter;
+}
+
+function renderDashboard() {
+  const todayEvents = getTodayEvents();
+  const weekEvents = getWeekEvents();
+  const next = getNextEvent();
+  const deadlines = getFilteredEvents()
+    .filter(ev => ev.category === 'scadenza' && eventDateObject(ev) >= new Date())
+    .sort((a,b) => eventDateObject(a)-eventDateObject(b));
+
+  const current = todayEvents.find(ev => isEventNow(ev));
+  const nextToday = todayEvents.find(ev => eventDateObject(ev) > new Date());
+
+  const statToday = document.getElementById('statToday');
+  const statTodayDetail = document.getElementById('statTodayDetail');
+  const statNext = document.getElementById('statNext');
+  const statNextDetail = document.getElementById('statNextDetail');
+  const statWeek = document.getElementById('statWeek');
+  const statWeekDetail = document.getElementById('statWeekDetail');
+  const statDeadlines = document.getElementById('statDeadlines');
+  const statDeadlineDetail = document.getElementById('statDeadlineDetail');
+
+  statToday.textContent = `${todayEvents.length} ${todayEvents.length === 1 ? 'attività' : 'attività'}`;
+  statTodayDetail.textContent = current
+    ? `In corso: ${current.class || current.title}`
+    : nextToday
+      ? `Prossima: ${nextToday.start} · ${nextToday.class || nextToday.title}`
+      : 'Nessuna attività in corso';
+
+  statNext.textContent = next ? (next.start || '—') : '—';
+  statNextDetail.textContent = next ? `${next.class || next.title}${next.location ? ' · ' + next.location : ''}` : 'Nessuna attività';
+
+  statWeek.textContent = `${weekEvents.length}`;
+  statWeekDetail.textContent = weekEvents.length === 1 ? 'attività questa settimana' : 'attività questa settimana';
+
+  statDeadlines.textContent = `${deadlines.length}`;
+  statDeadlineDetail.textContent = deadlines[0]
+    ? `${formatShortDate(deadlines[0].date)} · ${deadlines[0].title}`
+    : 'Nessuna scadenza imminente';
+}
+
+function formatShortDate(key) {
+  const [y,m,d] = key.split('-').map(Number);
+  return new Date(y,m-1,d).toLocaleDateString('it-IT',{day:'2-digit',month:'short'});
+}
+
+function openEventModal(ev) {
+  const modal = document.getElementById('eventModal');
+  document.getElementById('eventModalCategory').textContent = CATEGORY_LABELS[ev.category] || ev.category;
+  document.getElementById('eventModalTitle').textContent = ev.title;
+  document.getElementById('eventModalDate').textContent = new Date(
+    ...(() => { const [y,m,d] = ev.date.split('-').map(Number); return [y,m-1,d]; })()
+  ).toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  document.getElementById('eventModalTime').textContent = ev.start
+    ? `${ev.start}${ev.end ? ' – ' + ev.end : ''}` : 'Intera giornata';
+  document.getElementById('eventModalClass').textContent = ev.class || '—';
+  document.getElementById('eventModalLocation').textContent = ev.location || '—';
+  document.getElementById('eventModalDescription').textContent = ev.description || '';
+  const link = document.getElementById('eventModalLink');
+  if (ev.url) {
+    link.href = ev.url;
+    link.style.display = 'inline-block';
+  } else {
+    link.style.display = 'none';
+  }
+  modal.classList.add('open');
+}
+
+function closeEventModal() {
+  document.getElementById('eventModal').classList.remove('open');
+}
+
+function attachEventCardHandlers() {
+  document.querySelectorAll('.event-card[data-event-id]').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
+      const ev = allEvents.find(x => x.id === card.dataset.eventId);
+      if (ev) openEventModal(ev);
+    });
+  });
 }
 
 /* ── Rendering: event card (riusata in più punti) ── */
 function renderEventCard(ev) {
   const timeStr = ev.start ? `${ev.start}${ev.end ? '–' + ev.end : ''}` : '';
   const metaParts = [timeStr, ev.class, ev.location].filter(Boolean);
+  const now = new Date();
+  const current = isEventNow(ev, now);
+  const next = !current && getNextEvent() && getNextEvent().id === ev.id;
   return `
-    <div class="event-card">
+    <div class="event-card clickable ${current ? 'is-current' : ''} ${next ? 'is-next' : ''}" data-event-id="${ev.id}">
       <div class="event-card-bar cat-${ev.category}"></div>
       <div class="event-card-body">
         <div class="event-card-title">${ev.title}</div>
@@ -523,7 +945,7 @@ function renderMonthView() {
     const key = dateKey(cellDate);
     const isOutside = cellDate.getMonth() !== month;
     const isToday = isSameDay(cellDate, today);
-    const dayEvents = eventsByDate.get(key) || [];
+    const dayEvents = getVisibleDayEvents(key);
 
     const cell = document.createElement('div');
     cell.className = 'month-cell' + (isOutside ? ' outside' : '') + (isToday ? ' today' : '') + (key === selectedDayKey ? ' selected' : '');
@@ -542,6 +964,11 @@ function renderMonthView() {
       const pill = document.createElement('div');
       pill.className = `month-event-pill cat-${ev.category}`;
       pill.textContent = ev.title;
+      pill.title = 'Apri dettagli';
+      pill.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openEventModal(ev);
+      });
       eventsWrap.appendChild(pill);
     });
     if (dayEvents.length > visible.length) {
@@ -579,10 +1006,11 @@ function renderDayPanel() {
   const dayDate = new Date(y, m - 1, d);
   title.textContent = dayDate.toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' });
 
-  const dayEvents = (eventsByDate.get(selectedDayKey) || []).sort((a, b) => (a.start || '').localeCompare(b.start || ''));
+  const dayEvents = getVisibleDayEvents(selectedDayKey);
   bodyEl.innerHTML = dayEvents.length
     ? dayEvents.map(renderEventCard).join('')
     : '<div class="day-panel-empty">Nessun evento in questo giorno.</div>';
+  attachEventCardHandlers();
 }
 
 /* ── Vista settimanale ── */
@@ -600,7 +1028,7 @@ function renderWeekView() {
     dayDate.setDate(weekStart.getDate() + i);
     const key = dateKey(dayDate);
     const isToday = isSameDay(dayDate, today);
-    const dayEvents = (eventsByDate.get(key) || []).sort((a, b) => (a.start || '').localeCompare(b.start || ''));
+    const dayEvents = getVisibleDayEvents(key);
 
     const card = document.createElement('div');
     card.className = 'week-day-card' + (isToday ? ' today' : '');
@@ -621,6 +1049,7 @@ function renderWeekView() {
 
     container.appendChild(card);
   }
+  attachEventCardHandlers();
 
   const fmt = (d) => d.toLocaleDateString('it-IT', { day: 'numeric', month: 'short' });
   document.getElementById('periodLabel').textContent = `${fmt(weekStart)} – ${fmt(weekEnd)}`;
@@ -630,24 +1059,48 @@ function renderWeekView() {
 function renderUpcoming() {
   const list = document.getElementById('upcomingList');
   const now = new Date();
-  now.setHours(0,0,0,0);
-
-  const upcoming = allEvents
-    .filter(ev => {
-      const [y, m, d] = ev.date.split('-').map(Number);
-      const evDate = new Date(y, m - 1, d);
-      return evDate >= now;
-    })
-    .sort((a, b) => a.date.localeCompare(b.date) || (a.start || '').localeCompare(b.start || ''))
+  const upcoming = getFilteredEvents()
+    .filter(ev => eventDateObject(ev) >= now)
+    .sort((a,b) => eventDateObject(a) - eventDateObject(b))
     .slice(0, 6);
 
   list.innerHTML = upcoming.length
     ? upcoming.map(renderEventCard).join('')
-    : '<div class="sidebar-empty">Nessun prossimo evento in agenda.</div>';
+    : '<div class="sidebar-empty">Nessuna attività corrispondente ai filtri.</div>';
+
+  attachEventCardHandlers();
+
+  const next = getNextEvent();
+  const nextEl = document.getElementById('nextActivity');
+  nextEl.innerHTML = next
+    ? `<div class="sidebar-next">
+         <div class="sidebar-next-time">${next.start || 'Intera giornata'}${next.end ? ' – ' + next.end : ''}</div>
+         <div class="sidebar-next-title">${next.title}</div>
+         <div class="sidebar-next-meta">${[next.class, next.location].filter(Boolean).join(' · ') || 'Dettagli disponibili'}</div>
+       </div>`
+    : '<div class="sidebar-empty">Nessuna prossima attività.</div>';
+
+  const deadlineList = document.getElementById('deadlineList');
+  const deadlines = getFilteredEvents()
+    .filter(ev => ev.category === 'scadenza' && eventDateObject(ev) >= new Date())
+    .sort((a,b) => eventDateObject(a)-eventDateObject(b))
+    .slice(0,4);
+
+  deadlineList.innerHTML = deadlines.length
+    ? deadlines.map(ev => `<div class="event-card clickable" data-event-id="${ev.id}">
+        <div class="event-card-bar cat-scadenza"></div>
+        <div class="event-card-body">
+          <div class="event-card-title">${ev.title}</div>
+          <div class="event-card-meta"><span>${formatShortDate(ev.date)}</span></div>
+        </div>
+      </div>`).join('')
+    : '<div class="sidebar-empty">Nessuna scadenza imminente.</div>';
+  attachEventCardHandlers();
 }
 
 /* ── Orchestrazione rendering ── */
 function renderAll() {
+  renderDashboard();
   if (viewMode === 'month') {
     document.getElementById('monthView').style.display = 'block';
     document.getElementById('weekView').style.display = 'none';
@@ -702,6 +1155,37 @@ document.getElementById('viewWeekBtn').addEventListener('click', () => {
   document.getElementById('viewWeekBtn').classList.add('active');
   document.getElementById('viewMonthBtn').classList.remove('active');
   renderAll();
+});
+
+document.getElementById('classFilter').addEventListener('change', (e) => {
+  activeClassFilter = e.target.value;
+  renderAll();
+});
+
+document.querySelectorAll('.agenda-filter-chip').forEach(btn => {
+  btn.addEventListener('click', () => {
+    activeCategoryFilter = btn.dataset.category || '';
+    document.querySelectorAll('.agenda-filter-chip').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderAll();
+  });
+});
+
+document.getElementById('resetFilters').addEventListener('click', () => {
+  activeClassFilter = '';
+  activeCategoryFilter = '';
+  document.getElementById('classFilter').value = '';
+  document.querySelectorAll('.agenda-filter-chip').forEach(b => b.classList.remove('active'));
+  document.querySelector('.agenda-filter-chip[data-category=""]').classList.add('active');
+  renderAll();
+});
+
+document.getElementById('eventModalClose').addEventListener('click', closeEventModal);
+document.getElementById('eventModal').addEventListener('click', (e) => {
+  if (e.target.id === 'eventModal') closeEventModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeEventModal();
 });
 
 loadEvents();
