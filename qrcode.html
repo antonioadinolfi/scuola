@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Generatore QR Code del sito del Prof. Antonio Adinolfi: crea QR Code da uno o più link direttamente nel browser.">
+  <title>Generatore QR Code | Prof. Antonio Adinolfi</title>
+  <link rel="stylesheet" href="design-system.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    .qr-page{max-width:1180px;margin:0 auto;padding:3rem 1.5rem 4rem}
+    .qr-hero{background:linear-gradient(135deg,var(--color-primary,#123c78),var(--color-primary-light,#2563eb));color:#fff;border-radius:18px;padding:2rem;margin-bottom:1.25rem}
+    .qr-eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;opacity:.8;font-weight:700}
+    .qr-hero h1{margin:.35rem 0 .5rem;font-family:var(--serif,Georgia,serif);font-size:clamp(2rem,4vw,3rem);font-weight:400}
+    .qr-hero p{margin:0;max-width:760px;opacity:.92;line-height:1.6}
+    .qr-card{background:#fff;border:1px solid var(--border,#dbe4ef);border-radius:15px;padding:1.4rem;margin-bottom:1.2rem;box-shadow:var(--shadow,0 3px 12px rgba(22,50,75,.06))}
+    .qr-card h2{margin-top:0;color:var(--color-primary,#123c78);font-size:1.2rem}
+    .qr-small{font-size:.82rem;color:var(--text-muted,#64748b);line-height:1.5}
+    #links{width:100%;min-height:190px;resize:vertical;border:1px solid #cbd5e1;border-radius:10px;padding:13px;font:14px/1.5 Consolas,monospace;background:#fff;color:#172033}
+    .qr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+    .qr-field label{display:block;font-size:.78rem;font-weight:700;margin-bottom:5px;color:#172033}
+    .qr-field input,.qr-field select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:9px;background:#fff}
+    .qr-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
+    .qr-btn{border:0;border-radius:9px;padding:11px 15px;font-weight:800;cursor:pointer}
+    .qr-primary{background:var(--color-primary-light,#2563eb);color:#fff}.qr-green{background:#16834b;color:#fff}.qr-gray{background:#eef2f7;color:#172033}
+    .qr-status{margin-top:12px;padding:10px;border-radius:9px;background:#f8fafc;border:1px solid #dbe4ef;font-size:.82rem}
+    .qr-results{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:15px}
+    .qr-result{border:1px solid #dbe4ef;border-radius:14px;padding:14px;background:#fff;text-align:center}
+    .qr-box{min-height:220px;display:flex;align-items:center;justify-content:center;margin:8px 0}
+    .qr-box canvas,.qr-box img{max-width:100%;height:auto}
+    .qr-url{font-size:11px;color:#64748b;word-break:break-all;text-align:left;background:#f8fafc;padding:8px;border-radius:8px;max-height:72px;overflow:auto}
+    .qr-result .qr-actions{justify-content:center}
+    .qr-empty{color:#64748b;font-size:.85rem}
+    .qr-back{display:inline-block;margin-bottom:1rem;text-decoration:none}
+    @media(max-width:750px){.qr-grid{grid-template-columns:1fr}.qr-page{padding-top:2rem}}
+  </style>
+</head>
+<body>
+<a href="index.html" class="qr-back">← Torna al sito</a>
+<main class="qr-page">
+  <header class="qr-hero">
+    <div class="qr-eyebrow">Strumento pubblico · Informatica</div>
+    <h1>▣ Generatore QR Code</h1>
+    <p>Trasforma uno o più link in QR Code pronti da condividere. La generazione avviene direttamente nel browser: il testo degli URL non viene inviato a un server.</p>
+  </header>
+
+  <section class="qr-card">
+    <h2>1. Inserisci i link</h2>
+    <p class="qr-small">Inserisci un URL per riga. Vengono creati QR Code separati per ogni link.</p>
+    <textarea id="links" aria-label="Elenco dei link" placeholder="https://www.antonioadinolfiscuola.it/&#10;https://example.com/materiale.pdf&#10;https://forms.google.com/..."></textarea>
+    <div class="qr-grid">
+      <div class="qr-field"><label for="size">Dimensione QR</label><select id="size"><option value="180">180 × 180</option><option value="220" selected>220 × 220</option><option value="300">300 × 300</option><option value="400">400 × 400</option></select></div>
+      <div class="qr-field"><label for="margin">Margine</label><select id="margin"><option value="2">2</option><option value="4" selected>4</option><option value="8">8</option></select></div>
+      <div class="qr-field"><label for="projectName">Nome file</label><input id="projectName" value="QR-Link" autocomplete="off"></div>
+    </div>
+    <div class="qr-actions">
+      <button class="qr-btn qr-primary" id="generate">▣ Genera QR</button>
+      <button class="qr-btn qr-gray" id="clear">Pulisci</button>
+    </div>
+    <div class="qr-status">Link inseriti: <strong id="count">0</strong></div>
+  </section>
+
+  <section class="qr-card">
+    <h2>2. QR Code generati</h2>
+    <div id="results" class="qr-results"></div>
+    <div id="empty" class="qr-empty">Nessun QR generato.</div>
+  </section>
+</main>
+
+<script src="analytics.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+function getLinks(){ return $('links').value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean); }
+function validUrl(value){ try{const u=new URL(value); return u.protocol==='http:' || u.protocol==='https:';}catch(e){return false;} }
+function updateCount(){ $('count').textContent=getLinks().length; }
+function safeFileName(value){ return (value || 'QR-Link').replace(/[\\/:*?"<>|]+/g,'-').trim() || 'QR-Link'; }
+function track(name, params){ if(window.siteAnalytics && typeof window.siteAnalytics.track==='function') window.siteAnalytics.track(name,params); }
+function downloadQR(card,index){
+  const canvas=card.querySelector('canvas'), img=card.querySelector('img');
+  const href=canvas ? canvas.toDataURL('image/png') : (img ? img.src : null);
+  if(!href) return;
+  const a=document.createElement('a'); a.href=href; a.download=`${safeFileName($('projectName').value)}_${index+1}.png`;
+  document.body.appendChild(a); a.click(); a.remove();
+  track('qrcode_download',{qr_size:Number($('size').value),qr_index:index+1});
+}
+function generate(){
+  const links=getLinks();
+  if(!links.length){alert('Inserisci almeno un link.');return;}
+  const invalid=links.filter(x=>!validUrl(x));
+  if(invalid.length){alert('URL non validi:\n\n'+invalid.join('\n'));return;}
+  const size=Number($('size').value), margin=Number($('margin').value);
+  $('results').innerHTML=''; $('empty').style.display='none';
+  links.forEach((url,index)=>{
+    const card=document.createElement('article'); card.className='qr-result';
+    const title=document.createElement('h3'); title.textContent=`QR ${index+1}`;
+    const qr=document.createElement('div'); qr.className='qr-box';
+    const box=document.createElement('div'); box.className='qr-url'; box.textContent=url;
+    const actions=document.createElement('div'); actions.className='qr-actions';
+    const download=document.createElement('button'); download.className='qr-btn qr-green'; download.textContent='⬇ Scarica PNG'; download.onclick=()=>downloadQR(card,index);
+    const open=document.createElement('button'); open.className='qr-btn qr-gray'; open.textContent='↗ Apri link'; open.onclick=()=>{window.open(url,'_blank','noopener'); track('qrcode_open_link');};
+    actions.append(download,open); card.append(title,qr,box,actions); $('results').appendChild(card);
+    new QRCode(qr,{text:url,width:size,height:size,colorDark:'#000000',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+    qr.style.padding=`${margin*2}px`;
+  });
+  track('qrcode_generate',{qr_count:links.length,qr_size:size});
+}
+$('generate').onclick=generate;
+$('clear').onclick=()=>{$('links').value='';$('results').innerHTML='';$('empty').style.display='block';updateCount();};
+$('links').addEventListener('input',updateCount); updateCount(); track('qrcode_open');
+</script>
+</body>
+</html>
