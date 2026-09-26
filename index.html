@@ -320,33 +320,6 @@ nav {
 .news-item { font-size: 11.5px; color: var(--text-muted); padding: 5px 0; border-bottom: 1px solid var(--cream2); line-height: 1.4; cursor: pointer; transition: color .15s; }
 .news-item:last-child { border: none; padding-bottom: 0; }
 .news-item:hover { color: var(--navy); }
-.news-item-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-}
-
-.news-item-link:hover {
-  color: var(--navy);
-}
-
-.news-item-link h4 {
-  color: inherit;
-}
-
-.news-read-more {
-  display: inline-block;
-  margin-top: 4px;
-  color: var(--gold);
-  font-size: 10.5px;
-  font-weight: 600;
-}
-
-.news-item-link:hover .news-read-more {
-  text-decoration: underline;
-}
-
 
 /* ── FOOTER ── */
 footer { background: var(--navy); border-top: 1px solid var(--border-gold); padding: 3rem 3rem 2rem; }
@@ -465,6 +438,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
     <a href="#strumenti">Laboratori</a>
     <a href="#progetti">Progetti</a>
     <a href="#laboratori">Risorse</a>
+    <a href="qrcode.html">QR Code</a>
     <a href="#contatti">Contatti</a>
     <a href="https://www.liceoscientificocortese.edu.it" target="_blank">Sito Liceo</a>
   </div>
@@ -525,6 +499,11 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
         <span class="quick-card-icon">📅</span>
         <span class="quick-card-h">Calendario Lezioni</span>
         <span class="quick-card-p">Orario, verifiche e appuntamenti.</span>
+      </a>
+      <a href="qrcode.html" class="quick-card">
+        <span class="quick-card-icon">▣</span>
+        <span class="quick-card-h">Generatore QR</span>
+        <span class="quick-card-p">Trasforma uno o più link in QR Code scaricabili.</span>
       </a>
     </div>
   </div>
@@ -649,6 +628,12 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
         <p class="tool-p">Schede operative, dispense e risorse didattiche organizzate per classe e argomento con accesso Google OAuth.</p>
         <div class="tool-foot"><span class="tool-lock">🔒 Riservato</span><span class="tool-link">Apri →</span></div>
       </a>
+      <a href="qrcode.html" class="tool-card">
+        <div class="tool-card-top"><span class="tool-num">02</span><span class="tool-icon">▣</span></div>
+        <div class="tool-h">Generatore QR Code</div>
+        <p class="tool-p">Genera QR Code da uno o più URL direttamente nel browser, senza inviare i contenuti a un server.</p>
+        <div class="tool-foot"><span class="tool-lock">🌐 Accesso libero</span><span class="tool-link">Apri →</span></div>
+      </a>
     </div>
 
     <div class="resource-sub">
@@ -759,6 +744,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
       <a href="#didattica">Didattica</a>
       <a href="#progetti">Progetti</a>
       <a href="#laboratori">Risorse</a>
+    <a href="qrcode.html">QR Code</a>
       <a href="#notizie">Notizie</a>
       <a href="login.html">Area riservata</a>
     </div>
@@ -821,15 +807,11 @@ function renderNewsItems(elementId, items) {
       const link = item.link || '#';
       const description = item.description || '';
       return `
-        <a class="news-item news-item-link"
-           href="${link}"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="Apri la notizia: ${title}">
+        <div class="news-item">
           <h4>${title}</h4>
           ${description ? `<p>${description}</p>` : ''}
-          <span class="news-read-more">Leggi tutto →</span>
-        </a>
+          <a href="${link}" target="_blank" rel="noopener noreferrer">Leggi tutto</a>
+        </div>
       `;
     })
     .join('');
@@ -951,5 +933,6 @@ async function loadCalendarPreview() {
 loadCalendarPreview();
 loadNews();
 </script>
+<script src="analytics.js"></script>
 </body>
 </html>
