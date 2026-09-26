@@ -1,6 +1,6 @@
 name: Aggiorna cache news (RSS)
 
-# Scarica periodicamente i feed RSS (Liceo Cortese, Orizzonte Scuola, Wired),
+# Scarica periodicamente i feed RSS (Liceo Cortese, Orizzonte Scuola, Il Sole 24 Ore),
 # li normalizza in data/news.json e committa il risultato solo se è cambiato.
 # La homepage (index.html) legge esclusivamente questo file statico: nessuna
 # fetch RSS/proxy viene più effettuata dal browser dell'utente.
