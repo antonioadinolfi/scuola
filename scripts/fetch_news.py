@@ -3,7 +3,7 @@
 fetch_news.py
 --------------
 Scarica i feed RSS del Dipartimento di Informatica (Liceo Cortese, Orizzonte
-Scuola, Wired), li normalizza e scrive data/news.json.
+Scuola, Il Sole 24 Ore), li normalizza e scrive data/news.json.
 
 Progettato per essere eseguito da .github/workflows/update-news.yml su
 GitHub Actions (Python 3, solo standard library, nessuna dipendenza esterna).
@@ -42,8 +42,8 @@ FEEDS = [
         "url": "https://www.orizzontescuola.it/feed/",
     },
     {
-        "source": "Wired",
-        "url": "https://www.wired.it/feed/rss",
+        "source": "Il Sole 24 Ore",
+        "url": "https://www.ilsole24ore.com/rss/primapagina.xml",
     },
 ]
 
