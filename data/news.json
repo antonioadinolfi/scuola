@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-27T18:09:24+00:00",
+  "updatedAt": "2026-09-27T22:53:13+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,30 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Graduatorie ATA di terza fascia, aggiornamento atteso nel 2027. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/graduatorie-ata-di-terza-fascia-aggiornamento-atteso-nel-2027-pillole-di-question-time/",
+          "pubDate": "Sun, 27 Sep 2026 19:26:35 +0000",
+          "description": "Nel Question Time del 17 settembre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Bartolo Cozzolino, assistente amministrativo…"
+        },
+        {
+          "title": "Supplenze docenti, il completamento dell’orario richiede compatibilità tra gli ordini di scuola. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/supplenze-docenti-il-completamento-dellorario-richiede-compatibilita-tra-gli-ordini-di-scuola-pillole-di-question-time/",
+          "pubDate": "Sun, 27 Sep 2026 18:41:21 +0000",
+          "description": "Nel Question Time del 21 settembre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Sonia Cannas, docente ed esperta in normativa…"
+        },
+        {
+          "title": "Percorsi abilitanti, concorsi e non solo: quali novità sono in arrivo? QUESTION TIME con Cannas. LIVE Lunedì 28 settembre alle 14:30",
+          "link": "https://www.orizzontescuola.it/percorsi-abilitanti-concorsi-e-non-solo-quali-novita-sono-in-arrivo-question-time-con-cannas-live-lunedi-28-settembre-alle-1430/",
+          "pubDate": "Sun, 27 Sep 2026 18:20:12 +0000",
+          "description": "Nuovo appuntamento con Question Time, il format di consulenza online a cura della relazione di Orizzonte Scuola. Nella puntata in onda lunedì 28 settembre alle…"
+        },
+        {
+          "title": "Genitori puniti per i reati dei figli, il piano di Fratelli d’Italia per bloccare i contributi alle famiglie: revoca automatica dei sussidi",
+          "link": "https://www.orizzontescuola.it/genitori-puniti-per-i-reati-dei-figli-il-piano-di-fratelli-ditalia-per-bloccare-i-contributi-alle-famiglie-revoca-automatica-dei-sussidi/",
+          "pubDate": "Sun, 27 Sep 2026 18:13:07 +0000",
+          "description": "Stangata sui sussidi alle famiglie dei minorenni che commettono reati gravi. Palazzo Madama riceve il disegno di legge a firma del senatore di Fratelli d’Italia…"
+        },
+        {
           "title": "Locatelli e il “Pensami adulto”: dal PEI al progetto di vita, perché la scuola è il primo alleato della persona con disabilità",
           "link": "https://www.orizzontescuola.it/locatelli-e-il-pensami-adulto-dal-pei-al-progetto-di-vita-perche-la-scuola-e-il-primo-alleato-della-persona-con-disabilita/",
           "pubDate": "Sun, 27 Sep 2026 18:00:57 +0000",
@@ -56,30 +80,6 @@
           "link": "https://www.orizzontescuola.it/valditara-bambini-strumentalizzati-costretti-a-scrivere-striscioni-antigovernativi-polemiche-dellopposizione-dimostrano-grave-immaturita-politica/",
           "pubDate": "Sun, 27 Sep 2026 17:58:03 +0000",
           "description": "Lo scontro politico sulla gestione del sistema scolastico nazionale sale di livello dopo l'approvazione, da parte del governo, del Decreto Scuola. Le critiche s…"
-        },
-        {
-          "title": "Tajani: “Tetto 30% stranieri è proposta ragionevole, risposta concreta alle famiglie”",
-          "link": "https://www.orizzontescuola.it/tajani-tetto-30-stranieri-e-proposta-ragionevole-risposta-concreta-alle-famiglie/",
-          "pubDate": "Sun, 27 Sep 2026 17:54:43 +0000",
-          "description": "\"Le norme che noi abbiamo approvato puntano proprio a far sì che nelle scuole italiane i bambini possano studiare bene l'italiano e imparare bene l'italiano, i…"
-        },
-        {
-          "title": "Tetto alunni stranieri in classe, Valditara: “Serve a favorire integrazione. Burqa e niqab esprimono forme di patriarcato violento e arcaico”",
-          "link": "https://www.orizzontescuola.it/tetto-alunni-stranieri-in-classe-valditara-serve-a-favorire-integrazione-burqa-e-niqab-esprimono-forme-di-patriarcato-violento-e-arcaico/",
-          "pubDate": "Sun, 27 Sep 2026 17:37:48 +0000",
-          "description": "Nessun automatismo garantisce l'assegnazione dell'istituto scolastico sotto casa al momento dell'iscrizione. Ogni famiglia inserisce quattro opzioni nella doman…"
-        },
-        {
-          "title": "Decreto Scuola, Bufanini: “Volete tagliare la burocrazia scolastica? Allora cominciate dalle scartoffie, non dal PEI”",
-          "link": "https://www.orizzontescuola.it/decreto-scuola-bufanini-volete-tagliare-la-burocrazia-scolastica-allora-cominciate-dalle-scartoffie-non-dal-pei/",
-          "pubDate": "Sun, 27 Sep 2026 17:00:49 +0000",
-          "description": "Tra le misure del \"Decreto Scuola\" che stanno facendo più discutere il mondo dell'istruzione e dell'inclusione c'è la proposta di revisione delle modalità di ag…"
-        },
-        {
-          "title": "Il laboratorio diffuso: quando tutta la scuola primaria diventa ambiente STEM, oltre l’aula dedicata",
-          "link": "https://www.orizzontescuola.it/il-laboratorio-diffuso-quando-tutta-la-scuola-primaria-diventa-ambiente-stem-oltre-laula-dedicata/",
-          "pubDate": "Sun, 27 Sep 2026 16:40:37 +0000",
-          "description": "Nell’immaginario scolastico il laboratorio scientifico coincide ancora spesso con una stanza separata, dotata di strumenti, armadi e tavoli specifici, alla qual…"
         }
       ]
     },
@@ -93,13 +93,13 @@
           "description": "Socar segue l’esempio di Eni ed è pronta a mettere un limite ai prezzi di benzina e gasolio nella rete di distribuzione Ip. È quanto si legge in una nota..."
         },
         {
-          "title": "Guerra, ultime notizie. Iran: Trump, mi aspetto nuovi colloqui con Teheran già in settimana",
+          "title": "Guerra, ultime notizie. Iran, Trump: mi aspetto nuovi colloqui con Teheran già in settimana",
           "link": "https://www.ilsole24ore.com/art/guerra-ultime-notizie-bessent-il-blocco-commerciale-all-iran-sta-funzionando-AJ193eQB",
           "pubDate": "Sun, 27 Sep 2026 06:51:00 GMT",
           "description": ""
         },
         {
-          "title": "Suppletive in Calabria: affluenza in picchiata, alle urne alle 12 di domenica solo il 3,43%",
+          "title": "Suppletive in Calabria, l’affluenza resta molto bassa: alle urne alle 19 solo il 10,26%",
           "link": "https://www.ilsole24ore.com/art/suppletive-calabria-seggi-aperti-vannacci-sfida-forza-italia-bufera-foto-siracusano-AJsxqfQB",
           "pubDate": "Sun, 27 Sep 2026 07:52:00 GMT",
           "description": "Urne aperte nel collegio Reggio Calabria-Locri, dove sono chiamati al voto quasi 346mila elettori. Futuro nazionale schiera Domenico Giannetta contro l’azzurro…"
