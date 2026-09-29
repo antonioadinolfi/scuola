@@ -191,6 +191,16 @@
   },
   {
     "classe": "Quarta",
+    "titolo": "Programmazione a oggetti (OOP)",
+    "descrizione": "Classi, oggetti, istanze, UML, incapsulamento, ereditarietà e polimorfismo.",
+    "tipo": "slide",
+    "file_path": "materiali/slide/Programmazione a oggetti.pdf",
+    "target_page": "",
+    "ordine": 2,
+    "attivo": true
+  },
+  {
+    "classe": "Quarta",
     "titolo": "Introduzione ai database",
     "descrizione": "Normalizzazione e progettazione concettuale.",
     "tipo": "slide",
@@ -358,15 +368,6 @@
     "target_page": "",
     "ordine": 1,
     "attivo": true
-  },
-  {
-    "classe": "Quarta",
-    "titolo": "Programmazione a oggetti (OOP)",
-    "descrizione": "Classi, oggetti, istanze, UML, incapsulamento, ereditarietà e polimorfismo.",
-    "tipo": "slide",
-    "file_path": "materiali/slide/Programmazione a oggetti.pdf",
-    "target_page": "",
-    "ordine": 2,
-    "attivo": true
   }
+  
 ]
