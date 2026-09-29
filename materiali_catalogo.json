@@ -196,7 +196,7 @@
     "tipo": "slide",
     "file_path": "materiali/slide/Programmazione a oggetti.pdf",
     "target_page": "",
-    "ordine": 2,
+    "ordine": 1,
     "attivo": true
   },
   {
@@ -206,7 +206,7 @@
     "tipo": "slide",
     "file_path": "materiali/slide/Introduzione_ai_Database_Relazionali.pdf",
     "target_page": "",
-    "ordine": 1,
+    "ordine": 2,
     "attivo": true
   },
   {
@@ -216,7 +216,7 @@
     "tipo": "slide",
     "file_path": "https://script.google.com/a/macros/lscortese.com/s/AKfycbykAiMBwrsFhAVtJTpF7kTSpiQlF08WNVjydA1GesRUhI4X5oNi0T43_xGzwZwgBXVvEw/exec",
     "target_page": "",
-    "ordine": 1,
+    "ordine": 3,
     "attivo": true
   },
   {
@@ -226,7 +226,7 @@
     "tipo": "slide",
     "file_path": "https://script.google.com/macros/s/AKfycbzG7iU1Udt3WRviniKdAiulmviP7KM_pzU2Oof_A03ZRnw1YfaON5gsmMSQgKbYBF2j/exec",
     "target_page": "",
-    "ordine": 1,
+    "ordine": 4,
     "attivo": true
   },
   {
@@ -236,7 +236,7 @@
     "tipo": "esercizio",
     "file_path": "https://script.google.com/a/macros/lscortese.com/s/AKfycbxr2hGSWjLdMqBPgF1N4Tij2O9hj9X1LCN6XfjYzx_y2EOcNcagxTGvBvUMyYQz1hfx/exec",
     "target_page": "",
-    "ordine": 1,
+    "ordine": 5,
     "attivo": true
   },
   {
@@ -246,7 +246,7 @@
     "tipo": "esercizio",
     "file_path": "materiali/verifiche/Verifica _Classe_4_Maggio_2026.bat",
     "target_page": "",
-    "ordine": 1,
+    "ordine": 6,
     "attivo": true
   },
   {
