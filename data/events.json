@@ -315,19 +315,7 @@
       "location": "Padova",
       "description": "Presentazione del framework CLAE / F.L.O.W. Adaptive Learning 5.0.",
       "url": "https://www.didamatica.it"
-    },
-    {
-      "id": "evento-2026-10-07-didamatica",
-      "title": "Didamatica 2026",
-      "date": "2026-09-30",
-      "start": "09:00",
-      "end": "18:00",
-      "category": "evento",
-      "class": "",
-      "location": "Padova",
-      "description": "Presentazione del framework CLAE / F.L.O.W. Adaptive Learning 5.0.",
-      "url": "materiali/slide/Lezioni_programmare-in-python.pdf"
     }
-   
+      
   ]
 }
