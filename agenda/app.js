@@ -11,6 +11,11 @@ function saveLocal(){localStorage.setItem(KEY,JSON.stringify(events))}
 function normalizeCloudEvent(e){
   const x={...e};
   if(typeof x.date==="string" && x.date.includes("T")) x.date=x.date.slice(0,10);
+  return x;
+}
+function normalizeCloudEvent(e){
+  const x={...e};
+  if(typeof x.date==="string" && x.date.includes("T")) x.date=x.date.slice(0,10);
   if(x.date instanceof Date) x.date=iso(x.date);
   return x;
 }
