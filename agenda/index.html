@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f172a">
+<meta name="description" content="Agenda elettronica personale del Prof. Antonio Adinolfi">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Agenda — Prof. Antonio Adinolfi</title>
+<style>
+:root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172033;background:#f5f7fb}
+*{box-sizing:border-box}body{margin:0}.wrap{max-width:1180px;margin:auto;padding:22px}
+header{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-bottom:18px}.brand h1{margin:0;font-size:26px}.brand p{margin:4px 0;color:#64748b}
+.actions{display:flex;gap:8px;flex-wrap:wrap}button{border:1px solid #d8dee8;background:#fff;border-radius:9px;padding:10px 14px;cursor:pointer;font-weight:600}button.primary{background:#2563eb;color:#fff;border-color:#2563eb}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}.stat,.panel{background:#fff;border:1px solid #dfe5ed;border-radius:14px}.stat{padding:14px}.stat small{color:#64748b}.stat strong{display:block;font-size:25px;margin-top:3px}
+.layout{display:grid;grid-template-columns:300px 1fr;gap:16px}.panel{padding:16px}.panel h2{font-size:17px;margin:0 0 12px}
+label{display:block;font-size:13px;font-weight:700;margin:10px 0 5px}input,select,textarea{width:100%;padding:10px;border:1px solid #d8dee8;border-radius:8px;background:#fff;font:inherit}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.tabs button.active{background:#eff6ff;border-color:#2563eb;color:#2563eb}
+.event{display:grid;grid-template-columns:7px 1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid #e7ebf0}.event:last-child{border-bottom:0}.bar{border-radius:8px;background:#94a3b8}.high .bar{background:#dc2626}.medium .bar{background:#d97706}.low .bar{background:#16a34a}.event h3{margin:0;font-size:16px}.meta{font-size:13px;color:#64748b;margin-top:4px}.badge{display:inline-block;padding:3px 7px;border-radius:999px;background:#eef2f7;margin:5px 4px 0 0;font-size:11px}
+.empty{padding:36px;text-align:center;color:#64748b}.sync{font-size:12px;color:#64748b;margin-top:10px}.ok{color:#15803d}.warn{color:#b45309}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}header{align-items:flex-start;flex-direction:column}.wrap{padding:14px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div class="brand"><h1>Agenda elettronica</h1><p>Prof. Antonio Adinolfi</p></div><div class="actions"><button id="install" hidden>Installa app</button><button class="primary" id="newBtn">+ Nuovo impegno</button></div></header>
+<div class="stats"><div class="stat"><small>Oggi</small><strong id="sToday">0</strong></div><div class="stat"><small>Settimana</small><strong id="sWeek">0</strong></div><div class="stat"><small>Da fare</small><strong id="sTodo">0</strong></div><div class="stat"><small>Alta priorità</small><strong id="sHigh">0</strong></div></div>
+<div class="layout">
+<aside class="panel" id="formPanel">
+<h2>Nuovo / modifica</h2>
+<form id="form">
+<input type="hidden" id="id">
+<label>Data</label><input id="date" type="date" required>
+<label>Ora</label><input id="time" type="time">
+<label>Categoria</label><select id="category"><option>SCUOLA</option><option>INVALSI</option><option>RSPP / SICUREZZA</option><option>PROFESSIONE</option><option>FORMAZIONE</option><option>PROGETTI</option><option>PERSONALE</option></select>
+<label>Impegno</label><input id="title" required>
+<label>Descrizione</label><textarea id="desc" rows="3"></textarea>
+<label>Priorità</label><select id="priority"><option>Alta</option><option selected>Media</option><option>Bassa</option></select>
+<label>Promemoria</label><select id="reminder"><option>Nessuno</option><option>1 giorno prima</option><option>2 ore prima</option><option>30 minuti prima</option></select>
+<div class="actions" style="margin-top:12px"><button class="primary" type="submit">Salva</button><button type="button" id="cancel">Annulla</button></div>
+</form>
+<div class="sync" id="sync">Archivio locale attivo. Il collegamento cloud verrà configurato dal backend.</div>
+</aside>
+<main class="panel">
+<div class="tabs"><button class="active" data-filter="all">Tutti</button><button data-filter="today">Oggi</button><button data-filter="week">Settimana</button><button data-filter="todo">Da fare</button><button data-filter="high">Alta priorità</button></div>
+<div style="display:grid;grid-template-columns:1fr 220px;gap:8px;margin-bottom:12px"><input id="search" type="search" placeholder="Cerca..."><select id="cat"><option value="all">Tutte le categorie</option><option>SCUOLA</option><option>INVALSI</option><option>RSPP / SICUREZZA</option><option>PROFESSIONE</option><option>FORMAZIONE</option><option>PROGETTI</option><option>PERSONALE</option></select></div>
+<div id="list" aria-live="polite"></div>
+</main>
+</div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
