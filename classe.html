@@ -348,6 +348,8 @@
         <input id="studentName" class="student-input" type="text" placeholder="Nome e Cognome Studente" />
         <!-- Theme toggle -->
         <button class="theme-toggle" id="themeToggle" title="Cambia tema">☀️ Chiaro</button>
+        <div class="tb-sep"></div>
+        <button class="tb-btn warn" id="classeLogoutBtn" type="button" title="Disconnetti dall'area riservata">↪ Esci</button>
       </div>
 
       <!-- Hidden JS compat elements -->
@@ -1144,6 +1146,12 @@
   <script src="auth-enterprise.js"></script>
   <script>
     LSCAuth.requireAuth({ loginUrl: "login.html" });
+    document.addEventListener("DOMContentLoaded", function () {
+      const logoutBtn = document.getElementById("classeLogoutBtn");
+      if (logoutBtn) logoutBtn.addEventListener("click", function () {
+        LSCAuth.logout();
+      });
+    });
   </script>
 </body>
 </html>
