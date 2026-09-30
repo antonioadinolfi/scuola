@@ -8,6 +8,12 @@ let filter="all"; let deferredInstall=null;
 const $=id=>document.getElementById(id);
 function esc(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))}
 function saveLocal(){localStorage.setItem(KEY,JSON.stringify(events))}
+function normalizeCloudEvent(e){
+  const x={...e};
+  if(typeof x.date==="string" && x.date.includes("T")) x.date=x.date.slice(0,10);
+  if(x.date instanceof Date) x.date=iso(x.date);
+  return x;
+}
 async function saveCloud(item){
   if(!API_URL)return;
   try{
@@ -28,7 +34,7 @@ function loadCloud(){
     window[cb]=(data)=>{
       cleanup();
       if(data&&data.ok&&Array.isArray(data.events)){
-        events=data.events; saveLocal(); render();
+        events=data.events.map(normalizeCloudEvent); saveLocal(); render();
         $("sync").textContent="Sincronizzato con Google Sheets.";
         $("sync").className="sync ok"; resolve(data.events);
       }else reject(new Error("Risposta cloud non valida"));
