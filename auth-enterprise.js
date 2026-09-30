@@ -105,29 +105,64 @@
     box.textContent = message;
   }
 
+  function ensureAuthInfo() {
+    let badge = document.getElementById("auth-info");
+    if (badge) return badge;
+
+    badge = document.createElement("div");
+    badge.id = "auth-info";
+    badge.setAttribute("aria-label", "Sessione utente");
+    badge.style.cssText =
+      "position:fixed;top:10px;right:14px;z-index:9999;" +
+      "display:none;align-items:center;gap:8px;" +
+      "padding:6px 8px 6px 10px;border:1px solid rgba(255,255,255,.18);" +
+      "border-radius:999px;background:rgba(13,27,46,.94);" +
+      "box-shadow:0 4px 16px rgba(0,0,0,.18);" +
+      "font:600 12px/1.2 Arial,sans-serif;color:#fff;" +
+      "backdrop-filter:blur(6px);";
+
+    document.body.appendChild(badge);
+    return badge;
+  }
+
   function updateAuthBadge() {
     const session = getSession();
-    const badge = document.getElementById("auth-info");
-    if (!badge) return;
+    const badge = ensureAuthInfo();
 
     if (!session) {
       badge.innerHTML = "";
+      badge.style.display = "none";
       return;
     }
 
+    const picture = session.picture
+      ? '<img src="' + session.picture + '" alt="" style="width:24px;height:24px;border-radius:50%;object-fit:cover;">'
+      : '<span style="width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background:#c8963e;color:#fff;font-weight:800;">A</span>';
+
     badge.innerHTML =
-      '<span class="auth-user-pill" style="display:inline-flex;align-items:center;gap:8px;">' +
-      (session.picture ? '<img src="' + session.picture + '" alt="" style="width:24px;height:24px;border-radius:50%;">' : "") +
-      '<span>' + session.email + '</span>' +
-      '<button type="button" id="auth-logout-btn" style="margin-left:8px;border:0;border-radius:999px;padding:6px 10px;background:#0b3b75;color:#fff;cursor:pointer;font-weight:800;">Esci</button>' +
-      '</span>';
+      picture +
+      '<span style="max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">' +
+      session.email +
+      '</span>' +
+      '<button type="button" id="auth-logout-btn" aria-label="Disconnetti dall\'area riservata" ' +
+      'style="margin-left:2px;border:0;border-radius:999px;padding:6px 11px;' +
+      'background:#c8963e;color:#fff;cursor:pointer;font-weight:800;font-size:11px;">' +
+      'Esci</button>';
+
+    badge.style.display = "inline-flex";
 
     const btn = document.getElementById("auth-logout-btn");
     if (btn) {
       btn.addEventListener("click", function () {
+        if (window.google && google.accounts && google.accounts.id) {
+          try { google.accounts.id.disableAutoSelect(); } catch (e) {}
+        }
+
         clearSession();
-        window.location.href = "index.html#didattica";
-        window.location.reload();
+
+        // Evita che il browser mostri una vecchia pagina protetta
+        // tramite la cronologia dopo il logout.
+        window.location.replace("index.html#didattica");
       });
     }
   }
