@@ -560,6 +560,8 @@
       <span class="badge compact" id="viewerFileBadge" style="display:none">Nessun file selezionato</span>
       <input id="searchBox" class="tb-search" type="search" placeholder="Cerca titolo, classe, tipo…" />
       <button class="theme-toggle" id="themeToggle" title="Cambia tema chiaro/scuro">☀️ Chiaro</button>
+      <div class="tb-sep"></div>
+      <button class="tb-btn warn" id="materialiLogoutBtn" type="button" title="Disconnetti dall'area riservata" style="margin-left:4px;"><span class="icon">↪</span> Esci</button>
     </div>
 
     <!-- Address bar -->
@@ -1412,6 +1414,12 @@ searchBox.addEventListener('input', () => {
   <script src="auth-enterprise.js"></script>
   <script>
     LSCAuth.requireAuth({ loginUrl: "login.html" });
+    document.addEventListener("DOMContentLoaded", function () {
+      const logoutBtn = document.getElementById("materialiLogoutBtn");
+      if (logoutBtn) logoutBtn.addEventListener("click", function () {
+        LSCAuth.logout();
+      });
+    });
   </script>
 </body>
 </html>
