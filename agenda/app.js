@@ -32,10 +32,12 @@ async function saveCloud(item){
 }
 function loadCloud(){
   return new Promise((resolve,reject)=>{
+    $("sync").textContent="Sincronizzazione con Google Sheets...";
+    $("sync").className="sync";
     if(!API_URL){resolve();return}
     const cb="agendaCallback_"+Date.now();
     const script=document.createElement("script");
-    const cleanup=()=>{delete window[cb];script.remove()};
+    const cleanup=()=>{clearTimeout(timeout);delete window[cb];script.remove()};
     window[cb]=(data)=>{
       cleanup();
       if(data&&data.ok&&Array.isArray(data.events)){
@@ -44,7 +46,9 @@ function loadCloud(){
         $("sync").className="sync ok"; resolve(data.events);
       }else reject(new Error("Risposta cloud non valida"));
     };
-    script.onerror=()=>{cleanup();$("sync").textContent="Agenda locale: impossibile sincronizzare ora.";$("sync").className="sync warn";reject(new Error("Cloud non raggiungibile"))};
+    script.onerror=()=>{cleanup();$("sync").textContent="Agenda locale: impossibile sincronizzare ora."; $("sync").className="sync warn"; reject(new Error("Cloud non raggiungibile"))};
+    const timeout=setTimeout(()=>{cleanup();$("sync").textContent="Agenda locale: timeout sincronizzazione."; $("sync").className="sync warn"; reject(new Error("Timeout cloud"))},10000);
+    script.async=true;
     script.src=API_URL+"?action=list&callback="+encodeURIComponent(cb)+"&t="+Date.now();
     document.head.appendChild(script);
   });
