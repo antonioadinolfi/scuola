@@ -1,4 +1,4 @@
-const CACHE="adinolfi-agenda-v4";
+const CACHE="adinolfi-agenda-v5";
 const ASSETS=["./","./index.html","./manifest.webmanifest"];
 
 self.addEventListener("install",e=>
