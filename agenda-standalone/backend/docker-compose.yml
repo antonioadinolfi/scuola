@@ -1,0 +1,31 @@
+services:
+  postgres:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: agenda
+      POSTGRES_USER: agenda
+      POSTGRES_PASSWORD: agenda
+    ports:
+      - "5432:5432"
+    volumes:
+      - agenda_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U agenda -d agenda"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  api:
+    build: .
+    environment:
+      PORT: 8787
+      DATABASE_URL: postgres://agenda:agenda@postgres:5432/agenda
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:4173}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8787:8787"
+volumes:
+  agenda_pgdata:
