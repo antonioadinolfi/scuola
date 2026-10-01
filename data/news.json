@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-01T19:20:43+00:00",
+  "updatedAt": "2026-10-01T23:47:13+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Terrore in Messico, due 18enni fanno irruzione in una scuola: un morto e tre feriti",
+          "link": "https://www.orizzontescuola.it/terrore-in-messico-due-18enni-fanno-irruzione-in-una-scuola-un-morto-e-tre-feriti/",
+          "pubDate": "Thu, 01 Oct 2026 20:32:40 +0000",
+          "description": "Due diciottenni armati di machete hanno attaccato oggi la loro ex scuola nel nord del Messico, uccidendo la vicepreside dell'istituto e ferendo tre persone prim…"
+        },
+        {
+          "title": "L’appello dei giovani: “Servono educazione affettiva e sessuale a scuola”. La prima volta è sempre più precoce, ma mancano le tutele",
+          "link": "https://www.orizzontescuola.it/lappello-dei-giovani-servono-educazione-affettiva-e-sessuale-a-scuola-la-prima-volta-e-sempre-piu-precoce-ma-mancano-le-tutele/",
+          "pubDate": "Thu, 01 Oct 2026 19:23:19 +0000",
+          "description": "Con l’avvio del nuovo anno scolastico si riaccende in Italia il dibattito sull'educazione affettiva e sessuale tra le banchi. Un tema al centro delle cronache,…"
+        },
+        {
           "title": "Assicurazione sanitaria, la GUIDA alle prestazioni previste per il personale scolastico",
           "link": "https://www.orizzontescuola.it/assicurazione-sanitaria-la-guida-alle-prestazioni-previste-per-il-personale-scolastico/",
           "pubDate": "Thu, 01 Oct 2026 19:00:27 +0000",
@@ -68,18 +80,6 @@
           "link": "https://www.orizzontescuola.it/elenchi-regionali-nel-2027-si-ripartira-con-una-nuova-graduatoria-e-non-dalla-posizione-raggiunta-nel-2026-pillole-di-question-time/",
           "pubDate": "Thu, 01 Oct 2026 17:30:32 +0000",
           "description": "Nel Question Time del 28 settembre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Sonia Cannas, docente ed esperta in normativa…"
-        },
-        {
-          "title": "Sport, Abodi in Senato: “Infrastrutture pubbliche, investiti 1,7 miliardi in quattro anni. Priorità alle periferie, focus sul Mezzogiorno e grandi eventi usati come acceleratori di rigenerazione urbana”",
-          "link": "https://www.orizzontescuola.it/sport-abodi-in-senato-infrastrutture-pubbliche-investiti-17-miliardi-in-quattro-anni-priorita-alle-periferie-focus-sul-mezzogiorno-e-grandi-eventi-usati-come-acceleratori-di-rigenerazione-urba/",
-          "pubDate": "Thu, 01 Oct 2026 17:21:52 +0000",
-          "description": "Un piano d’interventi da cifre record per colmare i divari territoriali e restituire dignità ai luoghi dello sport diffuso. Durante il Question Time al Senato,…"
-        },
-        {
-          "title": "L’Italia perde studenti ma non insegnanti: il numero dei docenti cresce del 4% mentre gli alunni calano dell’11%. I dati OCSE",
-          "link": "https://www.orizzontescuola.it/litalia-perde-studenti-ma-non-insegnanti-il-numero-dei-docenti-cresce-del-4-mentre-gli-alunni-calano-dell11-i-dati-ocse/",
-          "pubDate": "Thu, 01 Oct 2026 17:10:53 +0000",
-          "description": "Meno studenti, più insegnanti. È questa la fotografia scattata dal rapporto Education at a Glance, appena pubblicato dall'Ocse, che mette in luce una dinamica a…"
         }
       ]
     },
@@ -87,40 +87,40 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Borse, nuovo scivolone per l'Europa con la tempesta sui bond. Milano (-2%) maglia nera con le banche",
+          "title": "Carburanti, price cap e sconti progressivi: come funzionano le misure di Eni, Ip, Q8 e Tamoil",
+          "link": "https://www.ilsole24ore.com/art/carburanti-price-cap-e-sconti-progressivi-come-funzionano-misure-eni-ip-q8-e-tamoil-AJjgtaVB",
+          "pubDate": "Thu, 1 Oct 2026 21:44:00 GMT",
+          "description": "L’ultima ad adeguarsi, in ordine temporale, è stata Tamoil. Il marchio appartenente al gruppo petrolifero Oilinvest - con sede nei Paesi Bassi e siti estrattivi…"
+        },
+        {
+          "title": "Meloni: «Con regole Ue margine limitato per contenere l’inflazione»",
+          "link": "https://www.ilsole24ore.com/art/doppia-flessibilita-conti-ecco-richiesta-ue-la-manovra-anti-inflazione-AJgBK3UB",
+          "pubDate": "Thu, 1 Oct 2026 07:41:00 GMT",
+          "description": "Dalla premier Meloni nuova lettera a Bruxelles per rivedere i vincoli fiscali oltre alla clausola nazionale per energia e difesa"
+        },
+        {
+          "title": "Dai Treasury ai Gilt sale la tensione: investitori in fuga, picchi nei rendimenti",
+          "link": "https://www.ilsole24ore.com/art/dai-treasury-gilt-sale-tensione-investitori-fuga-picchi-rendimenti-AJvCQzVB",
+          "pubDate": "Thu, 1 Oct 2026 19:51:08 GMT",
+          "description": "Si è conclusa con i classici segnali della fuga dal rischio la prima seduta del mese di ottobre. Un andamento convulso, quello seguito dai mercati finanziari ie…"
+        },
+        {
+          "title": "Borse europee negative con la tempesta sui bond, Milano maglia nera. Wall Street in lieve rialzo",
           "link": "https://www.ilsole24ore.com/art/le-obbligazioni-asiatiche-seguono-ribasso-titoli-stato-dollaro-si-rafforza-AJZDuwUB",
           "pubDate": "Thu, 1 Oct 2026 05:26:00 GMT",
           "description": "Spread BTp-Bund balza a 118 punti in chiusura, rendimento decennale ai massimi da ottobre 2023. A Piazza Affari si salvano i titoli tech dopo i conti record di…"
         },
         {
-          "title": "Trump non esclude stato d’emergenza per il voto di midterm",
-          "link": "https://www.ilsole24ore.com/art/trump-non-esclude-dichiarare-stato-d-emergenza-concomitanza-voto-midterm-AJDXuaVB",
-          "pubDate": "Thu, 1 Oct 2026 15:21:00 GMT",
-          "description": "Donald Trump evoca lo spettro di uno stato di emergenza e del ricorso all’Atto anti-insurrezione negli Stati Uniti per le elezioni parlamentari ai primi di nove…"
+          "title": "Tim: Poste compra azioni sul mercato e sale all’86,9%",
+          "link": "https://www.ilsole24ore.com/art/tim-poste-compra-azioni-mercato-e-sale-all-869percento-AJC89tVB",
+          "pubDate": "Thu, 1 Oct 2026 18:32:00 GMT",
+          "description": "La società dei recapiti approfitta del calo in Borsa del titolo tlc per arrotondare la quota già detenuta al termine dell’opas"
         },
         {
           "title": "Casa, Leo apre all’ecobonus al 65% per cappotti termici e pannelli solari",
           "link": "https://www.ilsole24ore.com/art/casa-leo-apre-all-ecobonus-65percento-cappotti-termici-e-pannelli-solari-AJ7awCVB",
           "pubDate": "Thu, 1 Oct 2026 10:11:00 GMT",
           "description": "Il viceministro dell’Economia: spazi dalla flessibilità Ue sull’energia. Ipotesi di un intervento differenziato per l’efficientamento energetico del patrimonio…"
-        },
-        {
-          "title": "Case green, avanza la procedura di infrazione: Italia a rischio sanzioni",
-          "link": "https://www.ilsole24ore.com/art/case-green-avanza-procedura-infrazione-italia-rischio-sanzioni-AJoFrGVB",
-          "pubDate": "Thu, 1 Oct 2026 11:30:57 GMT",
-          "description": "Bruxelles chiede al nostro paese di inviare il piano nazionale di ristrutturazione: due mesi per adeguarsi, poi si andrà alla Corte di Giustizia Ue"
-        },
-        {
-          "title": "Anthropic accelera, sbarco a Wall Street a metà novembre",
-          "link": "https://www.ilsole24ore.com/art/anthropic-accelera-sbarco-wall-street-meta-novembre-AJEl3uVB",
-          "pubDate": "Thu, 1 Oct 2026 18:46:00 GMT",
-          "description": "Lo rivela Bloomberg, secondo cui il roadshow potrebbe essere avvito nella prima settimana del mese"
-        },
-        {
-          "title": "Draghi: l’Ue investa 100 miliardi nell’Intelligenza artificiale",
-          "link": "https://www.ilsole24ore.com/art/draghi-l-ue-investa-100-miliardi-nell-intelligenza-artificiale-AJ9hanVB",
-          "pubDate": "Thu, 1 Oct 2026 18:12:00 GMT",
-          "description": "L’ inflazione sale in tutta Europa (e non solo), le banche centrali già hanno iniziato ad agire. Ebbene, nel contesto attuale «cosa può fare una politica moneta…"
         }
       ]
     }
