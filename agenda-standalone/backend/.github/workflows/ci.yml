@@ -1,0 +1,25 @@
+name: Backend CI
+
+on:
+  push:
+    paths:
+      - "agenda-standalone/backend/**"
+  pull_request:
+    paths:
+      - "agenda-standalone/backend/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: agenda-standalone/backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: agenda-standalone/backend/package.json
+      - run: npm install
+      - run: npm run build
