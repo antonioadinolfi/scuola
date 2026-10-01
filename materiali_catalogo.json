@@ -368,6 +368,19 @@
     "target_page": "",
     "ordine": 1,
     "attivo": true
+  },
+  {
+    "classe": "Quinta",
+    "titolo": "Introduzione a Matlab Calcolo Numerico",
+    "descrizione": "Infografica",
+    "tipo": "slide",
+    "file_path": "materiali/infografica/Infografica_MATLAB_Calcolo_Numerico.pdf",
+    "target_page": "",
+    "ordine": 1,
+    "attivo": true
   }
+
+
+  
   
 ]
