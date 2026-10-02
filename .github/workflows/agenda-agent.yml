@@ -21,9 +21,15 @@ jobs:
           python-version: "3.12"
 
       - name: Installa dipendenze
-        run: pip install requests beautifulsoup4 pypdf
+        run: pip install requests beautifulsoup4 pypdf icalendar recurring-ical-events
 
       - name: Esegui agente agenda
+        env:
+          # Secret GitHub: uno o più indirizzi segreti Google Calendar in formato iCal,
+          # separati da newline o punto e virgola.
+          GOOGLE_CALENDAR_ICAL_URLS: ${{ secrets.GOOGLE_CALENDAR_ICAL_URLS }}
+          GOOGLE_CALENDAR_DAYS_BACK: "30"
+          GOOGLE_CALENDAR_DAYS_FORWARD: "365"
         run: python agenda-semplice/agent.py
 
       - name: Salva aggiornamenti
@@ -34,6 +40,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "Nessun aggiornamento."
           else
-            git commit -m "Agenda agent: aggiornamento automatico"
+            git commit -m "Agenda agent: sincronizzazione automatica"
             git push
           fi
