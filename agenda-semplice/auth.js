@@ -24,7 +24,7 @@ function get(){
 function showApp(){
   const gate=document.getElementById("authGate"), app=document.getElementById("agendaApp");
   if(gate)gate.hidden=true;
-  if(app){app.hidden=false;app.removeAttribute("aria-hidden")}
+  if(app){app.hidden=false;app.removeAttribute("aria-hidden")}\n  window.dispatchEvent(new CustomEvent("agenda-auth-ready"));
   const badge=document.getElementById("privateUser");
   if(badge)badge.textContent=CONFIG.allowedEmail;
 }
