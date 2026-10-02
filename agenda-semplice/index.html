@@ -129,7 +129,7 @@ let pdfText="";
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 function save(){localStorage.setItem(KEY,JSON.stringify(events))}
-function resetForm(){ $("editId").value=""; $("date").value=selected; $("time").value=""; $("title").value=""; $("notes").value=""; $("formTitle").textContent="Nuovo impegno"; }
+function resetForm(){ $("editId").value=""; $("date").value=selected; $("time").value=""; $("title").value=""; $("notes").value=""; $("attachments").value=""; $("formTitle").textContent="Nuovo impegno"; pendingAttachments=[]; renderAttachments(""); }
 function dateLabel(v){return new Date(v+"T12:00:00").toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
 function renderCalendar(){
  const y=cursor.getFullYear(),m=cursor.getMonth(), cal=$("calendar");
@@ -175,22 +175,24 @@ $("form").onsubmit=e=>{
  e.preventDefault();
  const id=$("editId").value||crypto.randomUUID();
  const item={id,date:$("date").value,time:$("time").value,title:$("title").value.trim(),notes:$("notes").value.trim(),done:false};
- const old=events.find(x=>x.id===id); if(old)item.done=old.done;
+ const old=events.find(x=>x.id===id); if(old){item.done=old.done;if(old.automatic){item.automatic=true;item.manualOverride=true;agentOverrides[id]={edited:true};saveOverrides()}}
  const i=events.findIndex(x=>x.id===id); if(i>=0)events[i]=item;else events.push(item);
- selected=item.date; cursor=new Date(item.date+"T12:00:00"); cursor.setDate(1); save(); resetForm(); render();
+ for(const file of pendingAttachments) await saveAttachment(item.id,file); pendingAttachments=[]; $("attachments").value=""; selected=item.date; cursor=new Date(item.date+"T12:00:00"); cursor.setDate(1); save(); resetForm(); render(); renderAttachments(item.id);
 };
 $("dayEvents").addEventListener("click",e=>{
  const done=e.target.closest("[data-done]"), edit=e.target.closest("[data-edit]"), del=e.target.closest("[data-delete]");
  const id=(done||edit||del)?.dataset?.[done?"done":edit?"edit":"delete"]; if(!id)return;
  const item=events.find(x=>x.id===id); if(!item)return;
  if(done){item.done=!item.done}
- if(del && confirm("Eliminare questo impegno?")) events=events.filter(x=>x.id!==id);
- if(edit){$("editId").value=item.id;$("date").value=item.date;$("time").value=item.time||"";$("title").value=item.title;$("notes").value=item.notes||"";$("formTitle").textContent="Modifica impegno"}
+ if(del && confirm("Eliminare questo impegno?")) {if(item.automatic){agentOverrides[id]={deleted:true};saveOverrides()} events=events.filter(x=>x.id!==id);}
+ if(edit){$("editId").value=item.id;$("date").value=item.date;$("time").value=item.time||"";$("title").value=item.title;$("notes").value=item.notes||"";$("attachments").value="";$("formTitle").textContent=item.automatic?"Modifica aggiornamento automatico":"Modifica impegno";pendingAttachments=[];renderAttachments(item.id)}
  save();render();
 });
 $("printBtn").onclick=()=>window.print();
 $("backupBtn").onclick=()=>{const b=new Blob([JSON.stringify(events,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="backup-calendario.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)};
 $("restoreBtn").onclick=()=>$("restoreFile").click();
+$("attachments").addEventListener("change",e=>{pendingAttachments=[...e.target.files];$("attachmentList").textContent=pendingAttachments.length?pendingAttachments.length+" nuovo/i documento/i da salvare.":"Nessun documento allegato."});
+$("attachmentList").addEventListener("click",async e=>{const open=e.target.closest("[data-open-file]"),del=e.target.closest("[data-delete-file]");if(open){e.preventDefault();await openAttachment(open.dataset.openFile)}if(del){await deleteAttachment(del.dataset.deleteFile);renderAttachments($("editId").value||"")}});
 $("restoreFile").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const x=JSON.parse(await f.text());if(!Array.isArray(x))throw 0;events=x;save();render();alert("Backup ripristinato.")}catch{alert("File non valido.")}e.target.value=""};
 
 let recognition=null;
@@ -257,9 +259,11 @@ async function loadAgentData(){
    events.filter(e=>e.automatic).forEach(e=>automaticKeys.set((e.date||"")+"|"+(e.class||"")+"|"+(e.title||""),e.id));
    let changed=false;
    incoming.forEach(e=>{
+     if(agentOverrides[e.id]?.deleted) return;
+     if(agentOverrides[e.id]?.edited && byId.has(e.id)) return;
      const key=(e.date||"")+"|"+(e.class||"")+"|"+(e.title||"");
      const oldId=automaticKeys.get(key);
-     if(oldId && oldId!==e.id){byId.delete(oldId);changed=true}
+     if(oldId && oldId!==e.id && !agentOverrides[oldId]?.deleted && !agentOverrides[oldId]?.edited){byId.delete(oldId);changed=true}
      if(!byId.has(e.id)){byId.set(e.id,e);changed=true}
      else {
        const old=byId.get(e.id);
