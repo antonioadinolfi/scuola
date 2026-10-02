@@ -39,10 +39,10 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
 </div>
 <div id="agendaApp" class="app" hidden>
 <header>
-  <div class="brand"><h1>Agenda personale</h1><p>Agente automatico per i suoi impegni scolastici</p><div id="agentStatus" style="font-size:12px;color:#667085;margin-top:5px">🤖 Agente: aggiornamento in corso…</div></div>
+  <div class="brand"><h1>Agenda personale</h1><p>Agente automatico per i suoi impegni scolastici</p><div id="agentStatus" style="font-size:12px;color:#667085;margin-top:5px">🤖 Agente: aggiornamento in corso…</div><div id="cloudStatus" style="font-size:12px;color:#667085;margin-top:3px">☁️ Cloud: collegamento in corso…</div></div>
   <div class="actions">
     <span id="privateUser" style="align-self:center;font-size:12px;color:#667085"></span>
-    <button id="logoutBtn" type="button">Esci</button>
+    <button id="logoutBtn" type="button">Esci</button><button id="cloudBtn" type="button" title="Collega questa agenda privata a Google Drive">☁️ Sincronizza</button>
     <button id="todayBtn">Oggi</button><button id="printBtn">Stampa</button><button id="backupBtn">Backup</button><button id="restoreBtn">Ripristina</button><input id="restoreFile" type="file" accept=".json" class="hidden"><input id="eventAttachmentInput" type="file" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.jpg,.jpeg,.png" class="hidden">
   </div>
 </header>
@@ -128,7 +128,7 @@ let pdfText="";
 
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
-function save(){localStorage.setItem(KEY,JSON.stringify(events))}
+function save(){localStorage.setItem(KEY,JSON.stringify(events));if(window.agendaCloudSync)window.agendaCloudSync.scheduleSave()}
 function resetForm(){ $("editId").value=""; $("date").value=selected; $("time").value=""; $("title").value=""; $("notes").value=""; $("formTitle").textContent="Nuovo impegno"; }
 function dateLabel(v){return new Date(v+"T12:00:00").toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
 function renderCalendar(){
@@ -283,10 +283,35 @@ async function loadAgentData(){
    $("agentStatus").textContent="🤖 Agente in attesa del prossimo aggiornamento";
  }
 }
+window.agendaCloudBridge={
+  getState:function(){
+    return {
+      version:1,
+      updatedAt:new Date().toISOString(),
+      events:events.filter(e=>!e.automatic || e.manualOverride),
+      agentOverrides:agentOverrides
+    };
+  },
+  applyCloudState:function(state){
+    if(!state || !Array.isArray(state.events))return;
+    const automaticOnly=events.filter(e=>e.automatic && !e.manualOverride);
+    agentOverrides=state.agentOverrides&&typeof state.agentOverrides==="object"?state.agentOverrides:{};
+    events=[...automaticOnly,...state.events];
+    save();
+    render();
+  }
+};
+window.addEventListener("agenda-auth-ready",function(){
+  if(window.agendaCloudSync)window.agendaCloudSync.init();
+});
+document.getElementById("cloudBtn").addEventListener("click",function(){
+  if(window.agendaCloudSync)window.agendaCloudSync.authorize();
+});
 if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(()=>{});}
 resetForm();render();loadAgentData();
 </script>
 <script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="cloud-sync.js"></script>
 <script src="auth.js"></script>
 <script>
 document.getElementById("logoutBtn").addEventListener("click",()=>window.agendaPrivateAuth.logout());
