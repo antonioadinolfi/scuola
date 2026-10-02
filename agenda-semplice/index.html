@@ -93,6 +93,17 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 const KEY="agenda_semplice_v1";
+const OVERRIDE_KEY="agenda_semplice_agent_overrides_v1";
+const DB_NAME="agenda_semplice_files_v1";
+let agentOverrides=JSON.parse(localStorage.getItem(OVERRIDE_KEY)||"{}");
+let pendingAttachments=[];
+function saveOverrides(){localStorage.setItem(OVERRIDE_KEY,JSON.stringify(agentOverrides))}
+function openFilesDB(){return new Promise((resolve,reject)=>{const r=indexedDB.open(DB_NAME,1);r.onupgradeneeded=()=>r.result.createObjectStore("files",{keyPath:"id"});r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
+async function saveAttachment(eventId,file){const db=await openFilesDB();return new Promise((resolve,reject)=>{const tx=db.transaction("files","readwrite");tx.objectStore("files").put({id:crypto.randomUUID(),eventId,name:file.name,type:file.type,size:file.size,blob:file});tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
+async function getAttachments(eventId){const db=await openFilesDB();return new Promise((resolve,reject)=>{const tx=db.transaction("files","readonly"),out=[];const req=tx.objectStore("files").openCursor();req.onsuccess=()=>{const cur=req.result;if(!cur)return resolve(out);if(cur.value.eventId===eventId)out.push(cur.value);cur.continue()};req.onerror=()=>reject(req.error)})}
+async function deleteAttachment(id){const db=await openFilesDB();return new Promise((resolve,reject)=>{const tx=db.transaction("files","readwrite");tx.objectStore("files").delete(id);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
+async function renderAttachments(eventId){const box=$("attachmentList");if(!eventId){box.textContent="I documenti verranno associati dopo il salvataggio.";return}const files=await getAttachments(eventId);box.innerHTML=files.length?files.map(f=>'<div class="attachment"><a href="#" data-open-file="'+f.id+'">📎 '+esc(f.name)+'</a><button type="button" data-delete-file="'+f.id+'">Rimuovi</button></div>').join(""):"Nessun documento allegato."}
+async function openAttachment(id){const db=await openFilesDB();const f=await new Promise((resolve,reject)=>{const q=db.transaction("files","readonly").objectStore("files").get(id);q.onsuccess=()=>resolve(q.result);q.onerror=()=>reject(q.error)});if(!f)return;const url=URL.createObjectURL(f.blob);window.open(url,"_blank");setTimeout(()=>URL.revokeObjectURL(url),60000)}
 if(window.pdfjsLib){window.pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";}
 const pad=n=>String(n).padStart(2,"0");
 const iso=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
