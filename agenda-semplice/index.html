@@ -96,6 +96,21 @@ const pad=n=>String(n).padStart(2,"0");
 const iso=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
 const today=iso(new Date());
 let events=JSON.parse(localStorage.getItem(KEY)||"[]");
+const INITIAL_OCTOBER_EVENTS=[
+ {date:"2026-10-12",time:"15:30",title:"Consiglio di classe — 4Fsa",notes:"Consiglio di classe del mese di ottobre 2026."},
+ {date:"2026-10-12",time:"16:30",title:"Consiglio di classe — 2Fsa",notes:"Consiglio di classe del mese di ottobre 2026."},
+ {date:"2026-10-14",time:"15:00",title:"Consiglio di classe — 5Asa",notes:"Consiglio di classe del mese di ottobre 2026."},
+ {date:"2026-10-14",time:"15:30",title:"Consiglio di classe — 4Asa",notes:"Consiglio di classe del mese di ottobre 2026."},
+ {date:"2026-10-14",time:"16:00",title:"Consiglio di classe — 3Asa",notes:"Consiglio di classe del mese di ottobre 2026."},
+ {date:"2026-10-14",time:"16:30",title:"Consiglio di classe — 2Asa",notes:"Consiglio di classe del mese di ottobre 2026."},
+ {date:"2026-10-14",time:"17:00",title:"Consiglio di classe — 1Asa",notes:"Consiglio di classe del mese di ottobre 2026."},
+ {date:"2026-10-16",time:"17:00",title:"Consiglio di classe — 5Csa",notes:"Consiglio di classe del mese di ottobre 2026."}
+].map(x=>({...x,id:"pdf-oct-"+x.date+"-"+x.time+"-"+x.title.replace(/[^A-Za-z0-9]/g,""),done:false}));
+let events=JSON.parse(localStorage.getItem(KEY)||"[]");
+const seededIds=new Set(INITIAL_OCTOBER_EVENTS.map(e=>e.id));
+const existingIds=new Set(events.map(e=>e.id));
+const missing=INITIAL_OCTOBER_EVENTS.filter(e=>!existingIds.has(e.id));
+if(missing.length){events.push(...missing);localStorage.setItem(KEY,JSON.stringify(events));}
 let cursor=new Date(); cursor.setDate(1);
 let selected=today;
 let pdfText="";
