@@ -1,0 +1,39 @@
+name: Aggiornamento automatico agenda
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-agenda:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installa dipendenze
+        run: pip install requests beautifulsoup4 pypdf
+
+      - name: Esegui agente agenda
+        run: python agenda-semplice/agent.py
+
+      - name: Salva aggiornamenti
+        run: |
+          git config user.name "agenda-agent[bot]"
+          git config user.email "agenda-agent[bot]@users.noreply.github.com"
+          git add agenda-semplice/agenda-agent.json
+          if git diff --cached --quiet; then
+            echo "Nessun aggiornamento."
+          else
+            git commit -m "Agenda agent: aggiornamento automatico"
+            git push
+          fi
