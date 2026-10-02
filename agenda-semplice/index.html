@@ -96,7 +96,6 @@ const KEY="agenda_semplice_v1";
 const OVERRIDE_KEY="agenda_semplice_agent_overrides_v1";
 const DB_NAME="agenda_semplice_files_v1";
 let agentOverrides=JSON.parse(localStorage.getItem(OVERRIDE_KEY)||"{}");
-let pendingAttachments=[];
 function saveOverrides(){localStorage.setItem(OVERRIDE_KEY,JSON.stringify(agentOverrides))}
 function openFilesDB(){return new Promise((resolve,reject)=>{const r=indexedDB.open(DB_NAME,1);r.onupgradeneeded=()=>r.result.createObjectStore("files",{keyPath:"id"});r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
 async function saveAttachment(eventId,file){const db=await openFilesDB();return new Promise((resolve,reject)=>{const tx=db.transaction("files","readwrite");tx.objectStore("files").put({id:crypto.randomUUID(),eventId,name:file.name,type:file.type,size:file.size,blob:file});tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
@@ -178,7 +177,7 @@ $("form").onsubmit=async e=>{
  const item={id,date:$("date").value,time:$("time").value,title:$("title").value.trim(),notes:$("notes").value.trim(),done:false};
  const old=events.find(x=>x.id===id); if(old){item.done=old.done;if(old.automatic){item.automatic=true;item.manualOverride=true;agentOverrides[id]={edited:true};saveOverrides()}}
  const i=events.findIndex(x=>x.id===id); if(i>=0)events[i]=item;else events.push(item);
- selected=item.date; cursor=new Date(item.date+"T12:00:00"); cursor.setDate(1); save(); resetForm(); render(); renderAttachments(item.id);
+ selected=item.date; cursor=new Date(item.date+"T12:00:00"); cursor.setDate(1); save(); resetForm(); render();
 };
 $("dayEvents").addEventListener("click",async e=>{
  const openDoc=e.target.closest("[data-open-doc]"), renameDoc=e.target.closest("[data-rename-doc]"), deleteDoc=e.target.closest("[data-delete-doc]"), uploadDoc=e.target.closest("[data-upload-doc]");
