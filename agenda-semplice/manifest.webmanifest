@@ -1,0 +1,9 @@
+{
+  "name":"Agenda personale — Prof. Antonio Adinolfi",
+  "short_name":"Agenda",
+  "start_url":"/agenda-semplice/",
+  "display":"standalone",
+  "background_color":"#f4f6f8",
+  "theme_color":"#17324d",
+  "lang":"it"
+}
