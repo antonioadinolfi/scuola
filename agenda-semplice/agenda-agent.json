@@ -1,15 +1,102 @@
 {
-  "generatedAt": null,
+  "generatedAt": "2026-10-02T22:13:50.357600+00:00",
   "source": "https://www.liceoscientificocortese.edu.it",
-  "classes": ["1Asa","2Asa","3Asa","4Asa","5Asa","1Csa","2Fsa","4Fsa","5Csa"],
+  "calendarSync": {
+    "configured": false,
+    "calendarsUpdated": 0,
+    "eventsImported": 0
+  },
+  "classes": [
+    "1Asa",
+    "2Asa",
+    "3Asa",
+    "4Asa",
+    "5Asa",
+    "1Csa",
+    "2Fsa",
+    "4Fsa",
+    "5Csa"
+  ],
   "events": [
-    {"id":"pdf-oct-2026-10-12-15:30-Consigliodiclasse4Fsa","date":"2026-10-12","time":"15:30","title":"Consiglio di classe — 4Fsa","notes":"Consiglio di classe del mese di ottobre 2026.","source":"consigli di classe ottobre 2026.pdf","class":"4Fsa","automatic":true},
-    {"id":"pdf-oct-2026-10-12-16:30-Consigliodiclasse2Fsa","date":"2026-10-12","time":"16:30","title":"Consiglio di classe — 2Fsa","notes":"Consiglio di classe del mese di ottobre 2026.","source":"consigli di classe ottobre 2026.pdf","class":"2Fsa","automatic":true},
-    {"id":"pdf-oct-2026-10-14-15:00-Consigliodiclasse5Asa","date":"2026-10-14","time":"15:00","title":"Consiglio di classe — 5Asa","notes":"Consiglio di classe del mese di ottobre 2026.","source":"consigli di classe ottobre 2026.pdf","class":"5Asa","automatic":true},
-    {"id":"pdf-oct-2026-10-14-15:30-Consigliodiclasse4Asa","date":"2026-10-14","time":"15:30","title":"Consiglio di classe — 4Asa","notes":"Consiglio di classe del mese di ottobre 2026.","source":"consigli di classe ottobre 2026.pdf","class":"4Asa","automatic":true},
-    {"id":"pdf-oct-2026-10-14-16:00-Consigliodiclasse3Asa","date":"2026-10-14","time":"16:00","title":"Consiglio di classe — 3Asa","notes":"Consiglio di classe del mese di ottobre 2026.","source":"consigli di classe ottobre 2026.pdf","class":"3Asa","automatic":true},
-    {"id":"pdf-oct-2026-10-14-16:30-Consigliodiclasse2Asa","date":"2026-10-14","time":"16:30","title":"Consiglio di classe — 2Asa","notes":"Consiglio di classe del mese di ottobre 2026.","source":"consigli di classe ottobre 2026.pdf","class":"2Asa","automatic":true},
-    {"id":"pdf-oct-2026-10-14-17:00-Consigliodiclasse1Asa","date":"2026-10-14","time":"17:00","title":"Consiglio di classe — 1Asa","notes":"Consiglio di classe del mese di ottobre 2026.","source":"consigli di classe ottobre 2026.pdf","class":"1Asa","automatic":true},
-    {"id":"pdf-oct-2026-10-16-17:00-Consigliodiclasse5Csa","date":"2026-10-16","time":"17:00","title":"Consiglio di classe — 5Csa","notes":"Consiglio di classe del mese di ottobre 2026.","source":"consigli di classe ottobre 2026.pdf","class":"5Csa","automatic":true}
+    {
+      "id": "pdf-oct-2026-10-12-15:30-Consigliodiclasse4Fsa",
+      "date": "2026-10-12",
+      "time": "15:30",
+      "title": "Consiglio di classe — 4Fsa",
+      "notes": "Consiglio di classe del mese di ottobre 2026.",
+      "source": "consigli di classe ottobre 2026.pdf",
+      "class": "4Fsa",
+      "automatic": true
+    },
+    {
+      "id": "pdf-oct-2026-10-12-16:30-Consigliodiclasse2Fsa",
+      "date": "2026-10-12",
+      "time": "16:30",
+      "title": "Consiglio di classe — 2Fsa",
+      "notes": "Consiglio di classe del mese di ottobre 2026.",
+      "source": "consigli di classe ottobre 2026.pdf",
+      "class": "2Fsa",
+      "automatic": true
+    },
+    {
+      "id": "pdf-oct-2026-10-14-15:00-Consigliodiclasse5Asa",
+      "date": "2026-10-14",
+      "time": "15:00",
+      "title": "Consiglio di classe — 5Asa",
+      "notes": "Consiglio di classe del mese di ottobre 2026.",
+      "source": "consigli di classe ottobre 2026.pdf",
+      "class": "5Asa",
+      "automatic": true
+    },
+    {
+      "id": "pdf-oct-2026-10-14-15:30-Consigliodiclasse4Asa",
+      "date": "2026-10-14",
+      "time": "15:30",
+      "title": "Consiglio di classe — 4Asa",
+      "notes": "Consiglio di classe del mese di ottobre 2026.",
+      "source": "consigli di classe ottobre 2026.pdf",
+      "class": "4Asa",
+      "automatic": true
+    },
+    {
+      "id": "pdf-oct-2026-10-14-16:00-Consigliodiclasse3Asa",
+      "date": "2026-10-14",
+      "time": "16:00",
+      "title": "Consiglio di classe — 3Asa",
+      "notes": "Consiglio di classe del mese di ottobre 2026.",
+      "source": "consigli di classe ottobre 2026.pdf",
+      "class": "3Asa",
+      "automatic": true
+    },
+    {
+      "id": "pdf-oct-2026-10-14-16:30-Consigliodiclasse2Asa",
+      "date": "2026-10-14",
+      "time": "16:30",
+      "title": "Consiglio di classe — 2Asa",
+      "notes": "Consiglio di classe del mese di ottobre 2026.",
+      "source": "consigli di classe ottobre 2026.pdf",
+      "class": "2Asa",
+      "automatic": true
+    },
+    {
+      "id": "pdf-oct-2026-10-14-17:00-Consigliodiclasse1Asa",
+      "date": "2026-10-14",
+      "time": "17:00",
+      "title": "Consiglio di classe — 1Asa",
+      "notes": "Consiglio di classe del mese di ottobre 2026.",
+      "source": "consigli di classe ottobre 2026.pdf",
+      "class": "1Asa",
+      "automatic": true
+    },
+    {
+      "id": "pdf-oct-2026-10-16-17:00-Consigliodiclasse5Csa",
+      "date": "2026-10-16",
+      "time": "17:00",
+      "title": "Consiglio di classe — 5Csa",
+      "notes": "Consiglio di classe del mese di ottobre 2026.",
+      "source": "consigli di classe ottobre 2026.pdf",
+      "class": "5Csa",
+      "automatic": true
+    }
   ]
 }
