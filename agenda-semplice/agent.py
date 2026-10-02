@@ -144,7 +144,11 @@ def local_datetime(value_dt):
     return None
 
 
-def parse_calendar(data, source_url, calendar_name, start_window, end_window):
+def calendar_source_id(url):
+    return hashlib.sha256(url.encode("utf-8")).hexdigest()[:16]
+
+
+def parse_calendar(data, source_url, calendar_name, source_id, start_window, end_window):
     cal = icalendar.Calendar.from_ical(data)
     query = recurring_ical_events.of(cal, skip_bad_series=True)
     items = query.between(start_window, end_window)
@@ -185,6 +189,7 @@ def parse_calendar(data, source_url, calendar_name, start_window, end_window):
             "source": "Google Calendar",
             "sourceType": "google_calendar",
             "calendarName": calendar_name,
+            "calendarSourceId": source_id,
             "calendarUid": uid,
             "automatic": True,
         }
@@ -217,7 +222,7 @@ def import_google_calendars():
             data = response.content
             cal = icalendar.Calendar.from_ical(data)
             calendar_name = value(cal, "X-WR-CALNAME", "")
-            found.extend(parse_calendar(data, url, calendar_name, start_window, end_window))
+            found.extend(parse_calendar(data, url, calendar_name, calendar_source_id(url), start_window, end_window))
             successful_sources.add(url)
             print(f"Google Calendar: {calendar_name or 'calendario'} -> OK")
         except Exception as exc:
@@ -293,8 +298,9 @@ def main():
         # Calendar events belonging to a successfully fetched calendar are replaced
         # by the current feed, so deletions/moves in Google Calendar propagate.
         if source_type == "google_calendar":
-            source = event.get("_calendarSource") or event.get("calendarSource") or ""
-            if calendar_configured and source in successful_calendar_sources:
+            source_id = event.get("calendarSourceId", "")
+            successful_ids = {calendar_source_id(u) for u in successful_calendar_sources}
+            if calendar_configured and source_id in successful_ids:
                 continue
 
         # Remove obsolete school-site automatic events only when the current
@@ -308,15 +314,6 @@ def main():
         merged[event["id"]] = event
 
     for event in calendar_found:
-        # Keep the secret iCal URL out of the public JSON.
-        event["_calendarSource"] = next(
-            (u for u in successful_calendar_sources
-             if hashlib.sha1(f"google|{u}|{event.get('calendarUid')}|{event.get('date')}T{event.get('time')}".encode()).hexdigest()[:20]
-             == event["id"].replace("gcal-", "")),
-            ""
-        )
-        # The source URL is deliberately not exposed to the browser.
-        event.pop("_calendarSource", None)
         merged[event["id"]] = event
 
     events = sorted(
