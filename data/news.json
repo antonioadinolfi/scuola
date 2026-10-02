@@ -1,9 +1,21 @@
 {
-  "updatedAt": "2026-10-02T04:52:32+00:00",
+  "updatedAt": "2026-10-02T12:10:09+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
       "items": [
+        {
+          "title": "Gli studenti del Liceo partecipano a “Conservare il passato. Tecniche e casi studio di restauro architettonico”",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/10/02/gli-studenti-del-liceo-partecipano-a-conservare-il-passato-tecniche-e-casi-studio-di-restauro-architettonico/",
+          "pubDate": "Fri, 02 Oct 2026 11:40:16 +0000",
+          "description": "Gli studenti del Liceo Scientifico “Nino Cortese” di Maddaloni hanno partecipato al convegno “Conservare il passato. Tecniche e casi studio di restauro architet…"
+        },
+        {
+          "title": "📚 UN CLICK PER LA SCUOLA: SOSTIENI IL LICEO CORTESE!",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/10/02/%f0%9f%93%9a-un-click-per-la-scuola-sostieni-il-liceo-cortese/",
+          "pubDate": "Fri, 02 Oct 2026 11:30:33 +0000",
+          "description": "Anche il Liceo Cortese di Maddaloni aderisce all’iniziativa “Un Click per la Scuola”, promossa da Amazon per sostenere le scuole italiane. Partecipare è semplic…"
+        },
         {
           "title": "Sport, Mare e le Emozioni dell’America’s Cup: il Liceo “Nino Cortese” di Maddaloni Protagonista a Napoli",
           "link": "https://www.liceoscientificocortese.edu.it/2026/09/25/sport-mare-e-le-emozioni-dellamericas-cup-il-liceo-nino-cortese-di-maddaloni-protagonista-a-napoli/",
@@ -27,18 +39,6 @@
           "link": "https://www.liceoscientificocortese.edu.it/2026/09/17/rilevazioni-invalsi-2025-2026-risultati-di-rilievo-per-il-liceo-nino-cortese/",
           "pubDate": "Thu, 17 Sep 2026 07:17:01 +0000",
           "description": "Sono stati resi noti i risultati delle rilevazioni nazionali INVALSI relative all&#8217;anno scolastico 2025-2026, che hanno coinvolto le classi seconde e quint…"
-        },
-        {
-          "title": "🚗🅿️Parcheggio Viale Europa 🚗🅿️ – Procedura per abbonamento mensile",
-          "link": "https://www.liceoscientificocortese.edu.it/2026/09/08/%f0%9f%9a%97%f0%9f%85%bf%ef%b8%8fparcheggio-viale-europa-%f0%9f%9a%97%f0%9f%85%bf%ef%b8%8f-procedura-per-abbonamento-mensile/",
-          "pubDate": "Tue, 08 Sep 2026 07:58:22 +0000",
-          "description": "Si comunica a tutto il personale docente e ATA interessato che, sul sito www.piparking.it, è possibile scaricare il modulo per richiedere l’accesso al nuovo par…"
-        },
-        {
-          "title": "Inizio delle attivita’ didattiche a.s. 2026/27",
-          "link": "https://www.liceoscientificocortese.edu.it/2026/09/03/inizio-delle-attivita-didattiche-a-s-2026-27/",
-          "pubDate": "Thu, 03 Sep 2026 13:29:14 +0000",
-          "description": "CLASSI PRIME In occasione del primo giorno di scuola, il Dirigente Scolastico accoglierà e saluterà gli studenti delle classi prime e le loro famiglie, nel cort…"
         }
       ]
     },
@@ -46,40 +46,40 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
-          "title": "Terrore in Messico, due 18enni fanno irruzione in una scuola: un morto e tre feriti",
-          "link": "https://www.orizzontescuola.it/terrore-in-messico-due-18enni-fanno-irruzione-in-una-scuola-un-morto-e-tre-feriti/",
-          "pubDate": "Thu, 01 Oct 2026 20:32:40 +0000",
-          "description": "Due diciottenni armati di machete hanno attaccato oggi la loro ex scuola nel nord del Messico, uccidendo la vicepreside dell'istituto e ferendo tre persone prim…"
+          "title": "Interrogazioni a tappeto: quando la paura e lo stress annientano lo studio. Lettera",
+          "link": "https://www.orizzontescuola.it/interrogazioni-a-tappeto-quando-la-paura-e-lo-stress-annientano-lo-studio-lettera/",
+          "pubDate": "Fri, 02 Oct 2026 11:53:56 +0000",
+          "description": "Inviata da Paolo Sanacore - “Da domani iniziano le interrogazioni a tappeto.” È una frase che risuona con dolorosa familiarità tra i banchi di scuola. L'articol…"
         },
         {
-          "title": "L’appello dei giovani: “Servono educazione affettiva e sessuale a scuola”. La prima volta è sempre più precoce, ma mancano le tutele",
-          "link": "https://www.orizzontescuola.it/lappello-dei-giovani-servono-educazione-affettiva-e-sessuale-a-scuola-la-prima-volta-e-sempre-piu-precoce-ma-mancano-le-tutele/",
-          "pubDate": "Thu, 01 Oct 2026 19:23:19 +0000",
-          "description": "Con l’avvio del nuovo anno scolastico si riaccende in Italia il dibattito sull'educazione affettiva e sessuale tra le banchi. Un tema al centro delle cronache,…"
+          "title": "Lancini: “L’IA offre ai giovani la presenza e l’ascolto che gli adulti non sanno più dare”",
+          "link": "https://www.orizzontescuola.it/lancini-lia-offre-ai-giovani-la-presenza-e-lascolto-che-gli-adulti-non-sanno-piu-dare/",
+          "pubDate": "Fri, 02 Oct 2026 11:31:35 +0000",
+          "description": "In una società sempre più iperconnessa ma emotivamente frammentata, la scelta di molti adolescenti di confidare ad algoritmi e chatbot le proprie paure più inti…"
         },
         {
-          "title": "Assicurazione sanitaria, la GUIDA alle prestazioni previste per il personale scolastico",
-          "link": "https://www.orizzontescuola.it/assicurazione-sanitaria-la-guida-alle-prestazioni-previste-per-il-personale-scolastico/",
-          "pubDate": "Thu, 01 Oct 2026 19:00:27 +0000",
-          "description": "Guida al Piano sanitario per il Personale della Scuola e del Ministero: il testo è stato messo a disposizione dal Ministero dell'Istruzione e del Merito nella p…"
+          "title": "Furti di PC a scuola, interrogazioni a sorpresa e DSA scambiato per svogliatezza: il TAR cancella la bocciatura di un’alunna, ecco perché",
+          "link": "https://www.orizzontescuola.it/furti-di-pc-a-scuola-interrogazioni-a-sorpresa-e-dsa-scambiato-per-svogliatezza-il-tar-cancella-la-bocciatura-di-unalunna-ecco-perche/",
+          "pubDate": "Fri, 02 Oct 2026 10:59:36 +0000",
+          "description": "Il diritto allo studio richiede attenzione costante, garanzie trasparenti e strumenti adeguati per ciascuno studente, specialmente quando sono presenti disturbi…"
         },
         {
-          "title": "L’AI crea valore, ma a chi va il “dividendo”? La scommessa del CNEL per distribuire i vantaggi dell’innovazione",
-          "link": "https://www.orizzontescuola.it/lai-crea-valore-ma-a-chi-va-il-dividendo-la-scommessa-del-cnel-per-distribuire-i-vantaggi-dellinnovazione/",
-          "pubDate": "Thu, 01 Oct 2026 18:39:15 +0000",
-          "description": "Presieduto da Renato Brunetta e coordinato da Rosario Cerra, il nuovo organismo pubblicherà nel 2027 il primo rapporto pubblico sugli impatti reali dell'intelli…"
-        },
-        {
-          "title": "Bocciato dopo i corsi di recupero, il TAR dà ragione allo studente e fa azzerare gli esami: saranno rifatti con altri docenti, ecco perché",
-          "link": "https://www.orizzontescuola.it/bocciato-dopo-i-corsi-di-recupero-il-tar-da-ragione-allo-studente-e-fa-azzerare-gli-esami-saranno-rifatti-con-altri-docenti-ecco-perche/",
-          "pubDate": "Thu, 01 Oct 2026 18:22:10 +0000",
-          "description": "Una bocciatura non può considerarsi valida se la scuola non dimostra di aver fatto tutto il necessario per sostenere l'alunno durante l'anno e di aver operato c…"
-        },
-        {
-          "title": "Elenchi regionali, nel 2027 si ripartirà con una nuova graduatoria e non dalla posizione raggiunta nel 2026",
-          "link": "https://www.orizzontescuola.it/elenchi-regionali-nel-2027-si-ripartira-con-una-nuova-graduatoria-e-non-dalla-posizione-raggiunta-nel-2026-pillole-di-question-time/",
-          "pubDate": "Thu, 01 Oct 2026 17:30:32 +0000",
+          "title": "GPS sostegno prima fascia, chi potrà inserirsi nel 2027 nell’elenco aggiuntivo. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/gps-sostegno-prima-fascia-chi-potra-inserirsi-nel-2027-nellelenco-aggiuntivo-pillole-di-question-time/",
+          "pubDate": "Fri, 02 Oct 2026 10:44:19 +0000",
           "description": "Nel Question Time del 28 settembre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Sonia Cannas, docente ed esperta in normativa…"
+        },
+        {
+          "title": "Nonni sempre più digitali: internet, social e AI al servizio dell’invecchiamento attivo, ma serve consapevolezza",
+          "link": "https://www.orizzontescuola.it/nonni-sempre-piu-digitali-internet-social-e-ai-al-servizio-dellinvecchiamento-attivo-ma-serve-consapevolezza/",
+          "pubDate": "Fri, 02 Oct 2026 10:36:02 +0000",
+          "description": "In un mondo sempre più connesso, i nonni e le persone della terza età non restano a guardare. Tra app per consultare il medico di base, pratiche burocratiche ge…"
+        },
+        {
+          "title": "Boom di certificazioni a scuola (+4,8% negli ultimi 10 anni) e oltre 370mila alunni con disabilità. I numeri dietro la svolta del Governo su PEI e GLO",
+          "link": "https://www.orizzontescuola.it/boom-di-certificazioni-a-scuola-48-negli-ultimi-10-anni-e-oltre-370mila-alunni-con-disabilita-i-numeri-dietro-la-svolta-del-governo-su-pei-e-glo/",
+          "pubDate": "Fri, 02 Oct 2026 10:32:32 +0000",
+          "description": "Il Piano educativo individualizzato cambia pelle. Con il decreto legge 170/2026, pubblicato in Gazzetta Ufficiale il 30 settembre, il governo mette mano alle pr…"
         }
       ]
     },
@@ -87,40 +87,40 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Tim, Poste compra azioni sul mercato e sale all’86,9%",
-          "link": "https://www.ilsole24ore.com/art/tim-poste-compra-azioni-mercato-e-sale-all-869percento-AJC89tVB",
-          "pubDate": "Thu, 1 Oct 2026 18:32:00 GMT",
-          "description": "La società dei recapiti approfitta del calo in Borsa del titolo tlc per arrotondare la quota già detenuta al termine dell’opas"
+          "title": "Fuga record dei medici dalla sanità pubblica: più dimissioni che pensionamenti e il Sud si svuota",
+          "link": "https://www.ilsole24ore.com/art/la-grande-fuga-medici-sanita-pubblica-piu-dimissioni-che-pensionamento-e-sud-si-svuota-AJF6OXWB",
+          "pubDate": "Fri, 2 Oct 2026 09:29:00 GMT",
+          "description": "In ben 12 regioni su 20, nel corso del 2025, i medici che hanno scelto di lasciare il Servizio sanitario nazionale prima della pensione sono più̀di quelli che..…"
         },
         {
-          "title": "Dai Treasury ai Gilt sale la tensione: investitori in fuga, picchi nei rendimenti",
-          "link": "https://www.ilsole24ore.com/art/dai-treasury-gilt-sale-tensione-investitori-fuga-picchi-rendimenti-AJvCQzVB",
-          "pubDate": "Thu, 1 Oct 2026 19:51:00 GMT",
-          "description": "Si è conclusa con i classici segnali della fuga dal rischio la prima seduta del mese di ottobre. Un andamento convulso, quello seguito dai mercati finanziari ie…"
+          "title": "Inflazione Ue ai massimi da tre anni frena le Borse, spread sale a quota 130",
+          "link": "https://www.ilsole24ore.com/art/borse-asiatiche-contrastate-l-intensificarsi-vendite-globali-obbligazioni-AJXCSJWB",
+          "pubDate": "Fri, 2 Oct 2026 05:26:00 GMT",
+          "description": "ala il petrolio con il Brent che scende sotto i 100 dollari. Sul fronte macro l'inflazione della Zona Euro a settembre registra un balzo del 3,8%"
         },
         {
-          "title": "Casa, Leo apre all’ecobonus al 65% per cappotti termici e pannelli solari",
-          "link": "https://www.ilsole24ore.com/art/casa-leo-apre-all-ecobonus-65percento-cappotti-termici-e-pannelli-solari-AJ7awCVB",
-          "pubDate": "Thu, 1 Oct 2026 10:11:00 GMT",
-          "description": "Il viceministro dell’Economia: spazi dalla flessibilità Ue sull’energia. Ipotesi di un intervento differenziato per l’efficientamento energetico del patrimonio…"
+          "title": "Infissi, cappotti, tende da sole e ibridi: la guida completa al nuovo ecobonus",
+          "link": "https://www.ilsole24ore.com/art/infissi-cappotti-tende-sole-e-ibridi-guida-completa-nuovo-ecobonus-AJ12JjVB",
+          "pubDate": "Fri, 2 Oct 2026 03:02:00 GMT",
+          "description": "Enea pubblica l’aggiornamento del dossier che illustra gli interventi agevolati: sono quelli che potrebbero rientrare nel nuovo sconto al 65%"
         },
         {
-          "title": "Case green, avanza la procedura di infrazione: Italia a rischio sanzioni",
-          "link": "https://www.ilsole24ore.com/art/case-green-avanza-procedura-infrazione-italia-rischio-sanzioni-AJoFrGVB",
-          "pubDate": "Thu, 1 Oct 2026 11:30:57 GMT",
-          "description": "Bruxelles chiede al nostro paese di inviare il piano nazionale di ristrutturazione: due mesi per adeguarsi, poi si andrà alla Corte di Giustizia Ue"
+          "title": "Prezzi carburanti in Italia: Lazio e Liguria guidano il calo, Bolzano fanalino di coda",
+          "link": "https://www.ilsole24ore.com/art/sconti-carburanti-prezzi-discesa-ecco-dove-sono-calati-piu-AJP3QTWB",
+          "pubDate": "Fri, 2 Oct 2026 08:56:00 GMT",
+          "description": "Nel Lazio il gasolio self si ferma a 2,241 euro al litro, 12,8 centesimi sotto la media nazionale di lunedì mattina, mentre la benzina a 2,045 euro (-10,7 cente…"
         },
         {
-          "title": "L’Andana, dai Moretti alla famiglia De Santis",
-          "link": "https://www.ilsole24ore.com/art/l-andana-moretti-famiglia-de-santis-AJmW4yUB",
-          "pubDate": "Thu, 1 Oct 2026 06:57:42 GMT",
-          "description": "L’hotel toscano potrebbe entrare nel portafoglio dei proprietari del Gran Hotel Tremezzo e di Passalacqua"
+          "title": "Corruzione, chiesto l’arresto  dell’ex vicepresidente Regione Sicilia",
+          "link": "https://www.ilsole24ore.com/art/corruzione-chiesto-l-arresto-dell-ex-vicepresidente-regione-sicilia-AJJT3ZWB",
+          "pubDate": "Fri, 2 Oct 2026 09:36:00 GMT",
+          "description": "I magistrati, coordinati dal procuratore Maurizio de Lucia, hanno chiesto misure cautelari per altre 8 persone"
         },
         {
-          "title": "Meloni: «Con regole Ue margine limitato per contenere l’inflazione»",
-          "link": "https://www.ilsole24ore.com/art/doppia-flessibilita-conti-ecco-richiesta-ue-la-manovra-anti-inflazione-AJgBK3UB",
-          "pubDate": "Thu, 1 Oct 2026 07:41:00 GMT",
-          "description": "Dalla premier Meloni nuova lettera a Bruxelles per rivedere i vincoli fiscali oltre alla clausola nazionale per energia e difesa"
+          "title": "Neet dimezzati in dieci anni, ma sono ancora 1,2 milioni: il costo sociale è di 24 miliardi",
+          "link": "https://www.ilsole24ore.com/art/neet-dimezzati-dieci-anni-ma-sono-ancora-12-milioni-AJBvBbWB",
+          "pubDate": "Fri, 2 Oct 2026 10:53:00 GMT",
+          "description": "Secondo i dati di una ricerca presentata da Intesa Sanpaolo, Fondazione Cariplo e Scuola di giornalismo Walter Tobagi sono in calo i giovani tra i 15 e i 29 ann…"
         }
       ]
     }
