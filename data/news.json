@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-02T19:03:49+00:00",
+  "updatedAt": "2026-10-02T23:37:50+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Sostegno da graduatoria incrociata, il servizio vale come specifico anche sulla classe di concorso dello stesso grado. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/sostegno-da-graduatoria-incrociata-il-servizio-vale-come-specifico-anche-sulla-classe-di-concorso-dello-stesso-grado-pillole-di-question-time/",
+          "pubDate": "Fri, 02 Oct 2026 19:08:33 +0000",
+          "description": "Nel Question Time del 14 settembre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Sonia Cannas, docente ed esperta in normativa…"
+        },
+        {
           "title": "Docenti nelle piccole isole, fino a 9 punti in più in GPS e GAE: si parte dal servizio 2027/2028. Decreto in GU",
           "link": "https://www.orizzontescuola.it/docenti-nelle-piccole-isole-fino-a-9-punti-in-piu-in-gps-e-gae-si-parte-dal-servizio-2027-2028-decreto-in-gu/",
           "pubDate": "Fri, 02 Oct 2026 18:40:11 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/boom-di-minicar-tra-i-giovanissimi-le-microcar-conquistano-le-citta-e-il-mercato-dellusato/",
           "pubDate": "Fri, 02 Oct 2026 17:22:29 +0000",
           "description": "Compatte, silenziose, facilissime da parcheggiare e soprattutto guidabili già a partire dai 14 anni. Le minicar – o quadricicli leggeri – si stanno trasformando…"
-        },
-        {
-          "title": "Olimpiadi europee di Scienze sperimentali, aperte le iscrizioni per studenti fino a 17 anni: domande entro il 15 ottobre",
-          "link": "https://www.orizzontescuola.it/olimpiadi-europee-di-scienze-sperimentali-aperte-le-iscrizioni-per-studenti-fino-a-17-anni-domande-entro-il-15-ottobre/",
-          "pubDate": "Fri, 02 Oct 2026 17:16:02 +0000",
-          "description": "Sono aperte fino al 15 ottobre 2026 le iscrizioni alla European Olympiad of Experimental Science Italia (EOESit), la competizione rivolta a studentesse e studen…"
         }
       ]
     },
@@ -87,10 +87,10 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Cdm, ok al Dpfp e all’extradeficit da 28 miliardi per energia e difesa. Giorgetti: sulla manovra approccio più prudente",
+          "title": "Cdm, ok al Dpfp e all’extradeficit da 29 miliardi per energia e difesa. Giorgetti: sulla manovra approccio più prudente",
           "link": "https://www.ilsole24ore.com/art/cdm-via-libera-dpfp-e-scostamento-28-miliardi-energia-e-difesa-giorgetti-manovra-approccio-prudente-AJsqL7WB",
           "pubDate": "Fri, 2 Oct 2026 16:55:00 GMT",
-          "description": "Via libera del Consiglio dei ministri al Documento programmatico di finanza pubblica ( Dpfp ) e alla relazione sullo scostamento di bilancio. L’intesa tra i lea…"
+          "description": "Approvato il Documento programmatico di finanza pubblica. Pil 2026 aggiornato all’1%. Debito su anche nel 2027 (138,5%). Deficit depurato da scostamento sotto i…"
         },
         {
           "title": "Infissi, cappotti, tende da sole e ibridi: la guida completa al nuovo ecobonus",
@@ -99,28 +99,28 @@
           "description": "Enea pubblica l’aggiornamento del dossier che illustra gli interventi agevolati: sono quelli che potrebbero rientrare nel nuovo sconto al 65%"
         },
         {
-          "title": "Borse, settimana in rosso per l'Europa tra tempesta bond e inflazione: a Milano (-2,7%) pesano le banche. Petrolio in calo",
-          "link": "https://www.ilsole24ore.com/art/borse-asiatiche-contrastate-l-intensificarsi-vendite-globali-obbligazioni-AJXCSJWB",
-          "pubDate": "Fri, 2 Oct 2026 05:26:00 GMT",
-          "description": "Cala il petrolio con il Brent sotto i 100 dollari. In Europa l'inflazione dell'area euro balza al 3,8 per cento. L'euro è sui minimi dal 2025"
-        },
-        {
           "title": "Gasolio, Macron: «Ok G7 a liberare riserve strategiche fino a 100 mln barili»",
           "link": "https://www.ilsole24ore.com/art/wsj-terza-portaerei-usa-il-medio-oriente-altri-10000-militari-AJt2pJWB",
           "pubDate": "Fri, 2 Oct 2026 05:45:00 GMT",
           "description": ""
         },
         {
-          "title": "Non autosufficienza, con la Festa dei nonni il Piano per over 70 che integra sanità e sociale",
-          "link": "https://www.ilsole24ore.com/art/non-autosufficienza-la-festa-nonni-piano-over-70-che-integra-sanita-e-sociale-AJGZPlWB",
-          "pubDate": "Fri, 2 Oct 2026 13:02:00 GMT",
-          "description": "Con il via libera del Cipa, il Comitato interministeriale per le politiche in favore della popolazione anziana istituito dalla Riforma della non autosufficienza…"
+          "title": "L’avanzata Houthi si è fermata. Fronte più largo in Yemen e 130mila rifugiati",
+          "link": "https://www.ilsole24ore.com/art/l-avanzata-houthi-si-e-fermata-fronte-piu-largo-yemen-e-130mila-rifugiati-AJRJIJWB",
+          "pubDate": "Fri, 2 Oct 2026 17:03:00 GMT",
+          "description": "Quando gli Houth i hanno preso il controllo di Mokha e di ampie zone della costa occidentale dello Yemen, gran parte dell’attenzione internazionale si è immedia…"
         },
         {
-          "title": "Fuga record dei medici dalla sanità pubblica: più dimissioni che pensionamenti e il Sud si svuota",
-          "link": "https://www.ilsole24ore.com/art/la-grande-fuga-medici-sanita-pubblica-piu-dimissioni-che-pensionamento-e-sud-si-svuota-AJF6OXWB",
-          "pubDate": "Fri, 2 Oct 2026 09:29:00 GMT",
-          "description": "In ben 12 regioni su 20, nel corso del 2025, i medici che hanno scelto di lasciare il Servizio sanitario nazionale prima della pensione sono più̀di quelli che..…"
+          "title": "Ecco come trarre profitto dalla crescita delle azioni",
+          "link": "https://www.ilsole24ore.com/art/ken-fisher-ecco-come-trarre-profitto-crescita-azioni-AJHmrEXB",
+          "pubDate": "Fri, 2 Oct 2026 17:47:00 GMT",
+          "description": "Per investire con successo in Borsa servono i poteri paranormali di Gustavo Rol? Conoscenze specialistiche? Oppure relazioni influenti? Niente affatto. Accumula…"
+        },
+        {
+          "title": "Il Burkina Faso si riprende l’oro: inaugurata la prima raffineria statale",
+          "link": "https://www.ilsole24ore.com/art/il-burkina-faso-si-riprende-suo-oro-inaugurata-prima-raffineria-statale-AJasIPVB",
+          "pubDate": "Thu, 1 Oct 2026 14:26:00 GMT",
+          "description": "Sono passati oltre sessant’anni da quando nel 1960 il Burkina Faso ha ottenuto l’indipendenza dalla Francia. Da allora diverse lotte intestine hanno insanguinat…"
         }
       ]
     }
