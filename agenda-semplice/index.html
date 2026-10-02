@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#17324d">
+<title>Calendario impegni</title>
+<style>
+:root{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#172033;background:#f4f6f8}
+*{box-sizing:border-box}body{margin:0}.app{max-width:1180px;margin:auto;padding:20px}
+header{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:18px}
+h1,h2,h3,p{margin-top:0}.brand h1{margin-bottom:3px;font-size:26px}.brand p{margin:0;color:#667085}
+.actions,.row{display:flex;gap:8px;flex-wrap:wrap}button{border:1px solid #d0d5dd;background:white;border-radius:9px;padding:9px 12px;cursor:pointer;font-weight:600}button.primary{background:#17324d;color:#fff;border-color:#17324d}button.danger{color:#b42318}
+.layout{display:grid;grid-template-columns:330px 1fr;gap:16px}.panel{background:#fff;border:1px solid #dfe3e8;border-radius:14px;padding:16px;box-shadow:0 2px 8px #00000008}
+label{display:block;font-size:13px;font-weight:700;margin:10px 0 5px}input,textarea{width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:8px;font:inherit}textarea{resize:vertical}
+.calendar-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.calendar-head h2{text-transform:capitalize;margin:0;font-size:20px}
+.calendar{display:grid;grid-template-columns:repeat(7,1fr);border:1px solid #e4e7ec;border-radius:10px;overflow:hidden}.dow{padding:8px;text-align:center;background:#f8fafc;color:#667085;font-size:12px;font-weight:700}.day{min-height:105px;padding:7px;border-top:1px solid #e4e7ec;border-right:1px solid #e4e7ec;cursor:pointer;background:#fff}.day.muted{background:#fafafa;color:#98a2b3}.day.selected{outline:2px solid #17324d;outline-offset:-2px}.day.today .num{background:#17324d;color:white}.num{display:inline-flex;width:26px;height:26px;align-items:center;justify-content:center;border-radius:50%;font-weight:700;font-size:12px}.event-dot{margin-top:5px;padding:4px 5px;border-radius:5px;background:#eef4f8;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.event-dot.done{text-decoration:line-through;opacity:.55}
+.day-detail{margin-top:15px}.day-title{font-size:18px;font-weight:750}.event{display:grid;grid-template-columns:5px 1fr auto;gap:10px;padding:12px 0;border-bottom:1px solid #eaecf0}.bar{border-radius:4px;background:#17324d}.event.done .bar{background:#98a2b3}.event.done .title{text-decoration:line-through;color:#667085}.time{font-weight:700}.meta{font-size:12px;color:#667085;margin-top:3px}.empty{padding:25px;text-align:center;color:#667085}
+.voice{display:flex;gap:8px}.voice button{white-space:nowrap}.status{font-size:12px;color:#667085;margin-top:8px;min-height:18px}
+.import-box{margin-top:18px;border-top:1px solid #eaecf0;padding-top:14px}.import-preview{max-height:180px;overflow:auto;background:#f8fafc;border:1px solid #eaecf0;padding:10px;border-radius:8px;font-size:12px;white-space:pre-wrap}
+.search{margin-bottom:12px}.hidden{display:none}
+@media(max-width:800px){.layout{grid-template-columns:1fr}.day{min-height:80px}.event-dot{font-size:10px}.app{padding:12px}header{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+  <div class="brand"><h1>Calendario impegni</h1><p>Pagina semplice per annotare e consultare gli impegni</p></div>
+  <div class="actions">
+    <button id="todayBtn">Oggi</button><button id="printBtn">Stampa</button><button id="backupBtn">Backup</button><button id="restoreBtn">Ripristina</button><input id="restoreFile" type="file" accept=".json" class="hidden">
+  </div>
+</header>
+
+<div class="layout">
+<aside class="panel">
+  <h2 id="formTitle">Nuovo impegno</h2>
+  <form id="form">
+    <input id="editId" type="hidden">
+    <label for="date">Data</label><input id="date" type="date" required>
+    <label for="time">Ora</label><input id="time" type="time">
+    <label for="title">Impegno</label><input id="title" required placeholder="Es. Riunione, visita, lezione...">
+    <label for="notes">Note</label><textarea id="notes" rows="4" placeholder="Dettagli dell'impegno"></textarea>
+    <div class="row" style="margin-top:12px"><button class="primary" type="submit">Salva impegno</button><button type="button" id="cancelBtn">Annulla</button></div>
+  </form>
+
+  <div class="import-box">
+    <h3>Inserimento vocale</h3>
+    <div class="voice"><button id="voiceBtn">🎙️ Parla</button><input id="voiceText" placeholder="La trascrizione apparirà qui"></div>
+    <div id="voiceStatus" class="status">Usa Chrome/Edge con microfono autorizzato.</div>
+    <button id="useVoiceBtn" class="primary" style="margin-top:6px">Usa trascrizione</button>
+  </div>
+
+  <div class="import-box">
+    <h3>Importa da PDF</h3>
+    <input id="pdfFile" type="file" accept=".pdf,application/pdf">
+    <div id="pdfStatus" class="status"></div>
+    <div id="pdfPreview" class="import-preview hidden"></div>
+    <button id="parsePdfBtn" style="margin-top:8px" class="hidden">Riconosci impegni dal testo</button>
+    <div id="pdfResults" style="margin-top:8px"></div>
+  </div>
+</aside>
+
+<main class="panel">
+  <div class="calendar-head">
+    <button id="prevBtn">‹</button><h2 id="monthTitle"></h2><button id="nextBtn">›</button>
+  </div>
+  <div class="calendar" id="calendar"></div>
+  <div class="search"><label for="search">Cerca negli impegni</label><input id="search" placeholder="Cerca per titolo o note..."></div>
+  <div class="day-detail">
+    <div class="day-title" id="selectedTitle"></div>
+    <div id="dayEvents"></div>
+  </div>
+</main>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs" type="module"></script>
+<script>
+const KEY="agenda_semplice_v1";
+const pad=n=>String(n).padStart(2,"0");
+const iso=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+const today=iso(new Date());
+let events=JSON.parse(localStorage.getItem(KEY)||"[]");
+let cursor=new Date(); cursor.setDate(1);
+let selected=today;
+let pdfText="";
+
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+function save(){localStorage.setItem(KEY,JSON.stringify(events))}
+function resetForm(){ $("editId").value=""; $("date").value=selected; $("time").value=""; $("title").value=""; $("notes").value=""; $("formTitle").textContent="Nuovo impegno"; }
+function dateLabel(v){return new Date(v+"T12:00:00").toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
+function renderCalendar(){
+ const y=cursor.getFullYear(),m=cursor.getMonth(), cal=$("calendar");
+ $("monthTitle").textContent=cursor.toLocaleDateString("it-IT",{month:"long",year:"numeric"});
+ const names=["Lun","Mar","Mer","Gio","Ven","Sab","Dom"];
+ cal.innerHTML=names.map(n=>'<div class="dow">'+n+'</div>').join("");
+ const first=new Date(y,m,1), start=(first.getDay()+6)%7, days=new Date(y,m+1,0).getDate(), prev=new Date(y,m,0).getDate();
+ const total=Math.ceil((start+days)/7)*7;
+ for(let i=0;i<total;i++){
+   let d=i-start+1, yy=y, mm=m, muted=false;
+   if(d<1){d=prev+d;mm--;if(mm<0){mm=11;yy--}muted=true}
+   if(d>days){d-=days;mm++;if(mm>11){mm=0;yy++}muted=true}
+   const key=yy+"-"+pad(mm+1)+"-"+pad(d), cell=document.createElement("div");
+   cell.className="day"+(muted?" muted":"")+(key===selected?" selected":"")+(key===today?" today":"");
+   cell.dataset.date=key;
+   cell.innerHTML='<span class="num">'+d+'</span>';
+   events.filter(e=>e.date===key).sort((a,b)=>(a.time||"99").localeCompare(b.time||"99")).slice(0,3).forEach(e=>{
+     const x=document.createElement("div"); x.className="event-dot"+(e.done?" done":""); x.textContent=(e.time?e.time+" ":"")+e.title; cell.appendChild(x);
+   });
+   cal.appendChild(cell);
+ }
+}
+function renderDay(){
+ const q=$("search").value.trim().toLowerCase();
+ $("selectedTitle").textContent=dateLabel(selected);
+ const arr=events.filter(e=>e.date===selected && (!q || (e.title+" "+e.notes).toLowerCase().includes(q))).sort((a,b)=>(a.time||"99").localeCompare(b.time||"99"));
+ const box=$("dayEvents"); box.innerHTML="";
+ if(!arr.length){box.innerHTML='<div class="empty">Nessun impegno per questa giornata.</div>';return}
+ arr.forEach(e=>{
+   const row=document.createElement("div"); row.className="event"+(e.done?" done":"");
+   row.innerHTML='<div class="bar"></div><div><div class="title"><span class="time">'+(e.time?esc(e.time)+" · ":"")+'</span>'+esc(e.title)+'</div><div class="meta">'+esc(e.notes)+'</div></div><div class="actions"><button data-done="'+e.id+'">'+(e.done?"Riapri":"Fatto")+'</button><button data-edit="'+e.id+'">Modifica</button><button class="danger" data-delete="'+e.id+'">Elimina</button></div>';
+   box.appendChild(row);
+ });
+}
+function render(){renderCalendar();renderDay()}
+$("calendar").addEventListener("click",e=>{const d=e.target.closest(".day");if(d){selected=d.dataset.date;render()}});
+$("prevBtn").onclick=()=>{cursor.setMonth(cursor.getMonth()-1);renderCalendar()};
+$("nextBtn").onclick=()=>{cursor.setMonth(cursor.getMonth()+1);renderCalendar()};
+$("todayBtn").onclick=()=>{const d=new Date();cursor=new Date(d.getFullYear(),d.getMonth(),1);selected=iso(d);resetForm();render()};
+$("search").oninput=renderDay;
+$("cancelBtn").onclick=resetForm;
+$("form").onsubmit=e=>{
+ e.preventDefault();
+ const id=$("editId").value||crypto.randomUUID();
+ const item={id,date:$("date").value,time:$("time").value,title:$("title").value.trim(),notes:$("notes").value.trim(),done:false};
+ const old=events.find(x=>x.id===id); if(old)item.done=old.done;
+ const i=events.findIndex(x=>x.id===id); if(i>=0)events[i]=item;else events.push(item);
+ selected=item.date; cursor=new Date(item.date+"T12:00:00"); cursor.setDate(1); save(); resetForm(); render();
+};
+$("dayEvents").addEventListener("click",e=>{
+ const done=e.target.closest("[data-done]"), edit=e.target.closest("[data-edit]"), del=e.target.closest("[data-delete]");
+ const id=(done||edit||del)?.dataset?.[done?"done":edit?"edit":"delete"]; if(!id)return;
+ const item=events.find(x=>x.id===id); if(!item)return;
+ if(done){item.done=!item.done}
+ if(del && confirm("Eliminare questo impegno?")) events=events.filter(x=>x.id!==id);
+ if(edit){$("editId").value=item.id;$("date").value=item.date;$("time").value=item.time||"";$("title").value=item.title;$("notes").value=item.notes||"";$("formTitle").textContent="Modifica impegno"}
+ save();render();
+});
+$("printBtn").onclick=()=>window.print();
+$("backupBtn").onclick=()=>{const b=new Blob([JSON.stringify(events,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="backup-calendario.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)};
+$("restoreBtn").onclick=()=>$("restoreFile").click();
+$("restoreFile").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const x=JSON.parse(await f.text());if(!Array.isArray(x))throw 0;events=x;save();render();alert("Backup ripristinato.")}catch{alert("File non valido.")}e.target.value=""};
+
+let recognition=null;
+const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+if(SpeechRecognition){
+ recognition=new SpeechRecognition(); recognition.lang="it-IT"; recognition.interimResults=true; recognition.continuous=false;
+ recognition.onstart=()=>{$("voiceStatus").textContent="Ascolto... parla ora."; $("voiceBtn").textContent="⏹️ Stop"};
+ recognition.onresult=e=>{let t="";for(let i=e.resultIndex;i<e.results.length;i++)t+=e.results[i][0].transcript; $("voiceText").value=t};
+ recognition.onerror=e=>$("voiceStatus").textContent="Microfono: "+e.error;
+ recognition.onend=()=>{$("voiceStatus").textContent="Trascrizione pronta."; $("voiceBtn").textContent="🎙️ Parla"};
+ $("voiceBtn").onclick=()=>{try{recognition.start()}catch{}};
+}else{$("voiceBtn").disabled=true;$("voiceStatus").textContent="Riconoscimento vocale non supportato da questo browser."}
+$("useVoiceBtn").onclick=()=>{
+ const t=$("voiceText").value.trim(); if(!t)return;
+ $("title").value=t; $("notes").value="Inserito tramite dettatura vocale.";
+ $("title").focus();
+};
+
+$("pdfFile").onchange=async e=>{
+ const f=e.target.files[0];if(!f)return;
+ $("pdfStatus").textContent="Lettura del PDF...";
+ try{
+   const pdfjs=await import("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs");
+   const data=await f.arrayBuffer(),pdf=await pdfjs.getDocument({data}).promise; let out=[];
+   for(let p=1;p<=pdf.numPages;p++){const page=await pdf.getPage(p),content=await page.getTextContent();out.push(content.items.map(x=>x.str).join(" "))}
+   pdfText=out.join("\n"); $("pdfPreview").textContent=pdfText||"Nessun testo estraibile: il PDF potrebbe essere una scansione."; $("pdfPreview").classList.remove("hidden");
+   $("parsePdfBtn").classList.toggle("hidden",!pdfText.trim()); $("pdfStatus").textContent=pdfText.trim()?"PDF letto.":"PDF senza testo estraibile.";
+ }catch(err){$("pdfStatus").textContent="Impossibile leggere il PDF in questo browser."}
+};
+function parseLines(text){
+ const lines=text.split(/\n+/).map(x=>x.trim()).filter(Boolean), found=[];
+ const dateRe=/(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{2,4})/;
+ const timeRe=/(\d{1,2}):(\d{2})/;
+ let currentDate="";
+ for(const line of lines){
+   const dm=line.match(dateRe);
+   if(dm){let y=dm[3];if(y.length===2)y="20"+y;currentDate=y+"-"+pad(dm[2])+"-"+pad(dm[1])}
+   const tm=line.match(timeRe);
+   if(currentDate && tm){
+     let title=line.replace(dateRe,"").replace(timeRe,"").replace(/[-–—|•]/g," ").trim();
+     if(title.length<2)title="Impegno importato dal PDF";
+     found.push({date:currentDate,time:pad(tm[1])+":"+tm[2],title});
+   }
+ }
+ return found;
+}
+$("parsePdfBtn").onclick=()=>{
+ const found=parseLines(pdfText),box=$("pdfResults");box.innerHTML="";
+ if(!found.length){box.textContent="Non ho trovato automaticamente righe con data e ora. Puoi copiare il testo nel campo Note e salvarlo manualmente.";return}
+ found.forEach(x=>{
+   const b=document.createElement("button");b.style.display="block";b.style.width="100%";b.style.textAlign="left";b.style.marginTop="5px";b.textContent=x.date+" "+x.time+" — "+x.title;
+   b.onclick=()=>{selected=x.date;cursor=new Date(x.date+"T12:00:00");cursor.setDate(1);$("date").value=x.date;$("time").value=x.time;$("title").value=x.title;$("notes").value="Importato da PDF.";render();$("title").focus()};
+   box.appendChild(b);
+ });
+};
+resetForm();render();
+</script>
+</body>
+</html>
