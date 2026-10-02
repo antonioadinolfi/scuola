@@ -163,7 +163,8 @@ async function init(){
   try{
     setStatus("☁️ Collegamento al cloud…");
     await getAccessToken("");
-    ready=true;\n    const remoteFile=await findDataFile();
+    ready=true;
+    const remoteFile=await findDataFile();
     if(remoteFile){
       fileId=remoteFile.id;
       const remote=await readData(fileId);
