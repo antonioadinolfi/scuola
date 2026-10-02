@@ -14,7 +14,7 @@
 .app{max-width:1220px;margin:auto;padding:24px}
 header{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:20px;padding:20px 22px;border-radius:20px;color:white;background:linear-gradient(135deg,#17324d 0%,#245b83 55%,#3a4e9a 100%);box-shadow:0 12px 30px #17324d25}
 h1,h2,h3,p{margin-top:0}.brand h1{margin-bottom:4px;font-size:28px;letter-spacing:-.4px}.brand p{margin:0;color:#dbeafe}
-.actions,.row{display:flex;gap:8px;flex-wrap:wrap}button{border:1px solid #d4deea;background:#fff;color:#24364b;border-radius:10px;padding:9px 12px;cursor:pointer;font-weight:650;transition:.18s ease;box-shadow:0 1px 2px #00000008}button:hover{transform:translateY(-1px);box-shadow:0 5px 12px #17324d18}button.primary{background:linear-gradient(135deg,#2563a8,#6656c7);color:#fff;border-color:transparent}button.danger{color:#b42318}.actions button{background:#ffffff18;color:#fff;border-color:#ffffff35}.actions button:hover{background:#fff;color:#17324d}
+.actions,.row{display:flex;gap:8px;flex-wrap:wrap}button{border:1px solid #d4deea;background:#fff;color:#24364b;border-radius:10px;padding:9px 12px;cursor:pointer;font-weight:650;transition:.18s ease;box-shadow:0 1px 2px #00000008}button:hover{transform:translateY(-1px);box-shadow:0 5px 12px #17324d18}button.primary{background:linear-gradient(135deg,#2563a8,#6656c7);color:#fff;border-color:transparent}button.danger{color:#b42318}header .actions button{background:#ffffff18;color:#fff;border-color:#ffffff35}header .actions button:hover{background:#fff;color:#17324d} .event-actions{display:flex;gap:6px;flex-wrap:wrap;align-items:center}.event-actions button{padding:7px 9px;font-size:11px}
 .layout{display:grid;grid-template-columns:330px 1fr;gap:18px}.panel{background:#ffffffd9;border:1px solid #d9e3ee;border-radius:18px;padding:18px;box-shadow:0 8px 24px #17324d10;backdrop-filter:blur(8px)}
 label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#31445a}input,textarea{width:100%;padding:10px 11px;border:1px solid #cbd8e6;border-radius:10px;font:inherit;background:#fbfdff;outline:none}input:focus,textarea:focus{border-color:#4b83bd;box-shadow:0 0 0 3px #4b83bd18}textarea{resize:vertical}
 .calendar-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.calendar-head h2{text-transform:capitalize;margin:0;font-size:21px;color:#203d5a}.calendar-head button{width:40px;height:38px;padding:0;font-size:22px}
@@ -22,8 +22,8 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
 .day-detail{margin-top:16px}.day-title{font-size:18px;font-weight:800;color:#203d5a}.event{display:grid;grid-template-columns:5px 1fr auto;gap:10px;padding:13px 0;border-bottom:1px solid #e5ebf1}.bar{border-radius:4px;background:linear-gradient(180deg,#16a3b8,#6656c7)}.event.done .bar{background:#98a2b3}.event.done .title{text-decoration:line-through;color:#667085}.time{font-weight:800;color:#2563a8}.meta{font-size:12px;color:#667085;margin-top:3px}.empty{padding:28px;text-align:center;color:#667085;background:#f8fafc;border-radius:12px}
 .voice{display:flex;gap:8px}.voice button{white-space:nowrap}.status{font-size:12px;color:#667085;margin-top:8px;min-height:18px}
 .import-box{margin-top:18px;border-top:1px solid #e3eaf2;padding-top:14px}.import-preview{max-height:180px;overflow:auto;background:#f5f8fb;border:1px solid #e1e8f0;padding:10px;border-radius:9px;font-size:12px;white-space:pre-wrap}
-.search{margin-bottom:12px}.search input{background:#f8fbfe}.hidden{display:none}.attachment{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px;padding:7px 9px;background:#f3f7fb;border:1px solid #dbe5ef;border-radius:8px;font-size:12px}.attachment a{color:#2563a8;font-weight:700;text-decoration:none}.attachment button{padding:4px 7px;font-size:11px}
-@media(max-width:800px){.layout{grid-template-columns:1fr}.day{min-height:82px}.event-dot{font-size:10px}.app{padding:12px}header{align-items:flex-start;flex-direction:column;padding:18px}.actions{width:100%}.actions button{background:#ffffff20}.brand h1{font-size:25px}}
+.search{margin-bottom:12px}.search input{background:#f8fbfe}.hidden{display:none}.attachment{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px;padding:7px 9px;background:#f3f7fb;border:1px solid #dbe5ef;border-radius:8px;font-size:12px}.attachment a{color:#2563a8;font-weight:700;text-decoration:none}.attachment button{padding:4px 7px;font-size:11px}.event-docs{grid-column:2/4;margin-top:7px;padding:8px 10px;background:#f5f9fd;border:1px solid #dbe7f1;border-radius:10px}.event-doc-head{display:flex;align-items:center;justify-content:space-between;gap:8px}.event-doc-list{margin-top:6px;display:flex;flex-direction:column;gap:5px}.event-doc-item{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px}.event-doc-item span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.event-doc-actions{display:flex;gap:4px;flex-shrink:0}.event-doc-actions button{padding:3px 6px;font-size:10px}.doc-badge{font-size:11px;color:#2563a8;font-weight:700}
+@media(max-width:800px){.layout{grid-template-columns:1fr}.day{min-height:82px}.event-dot{font-size:10px}.app{padding:12px}header{align-items:flex-start;flex-direction:column;padding:18px}.actions{width:100%}header .actions button{background:#ffffff20}.brand h1{font-size:25px}}
 </style>
 </head>
 <body>
@@ -43,7 +43,7 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
   <div class="actions">
     <span id="privateUser" style="align-self:center;font-size:12px;color:#667085"></span>
     <button id="logoutBtn" type="button">Esci</button>
-    <button id="todayBtn">Oggi</button><button id="printBtn">Stampa</button><button id="backupBtn">Backup</button><button id="restoreBtn">Ripristina</button><input id="restoreFile" type="file" accept=".json" class="hidden">
+    <button id="todayBtn">Oggi</button><button id="printBtn">Stampa</button><button id="backupBtn">Backup</button><button id="restoreBtn">Ripristina</button><input id="restoreFile" type="file" accept=".json" class="hidden"><input id="eventAttachmentInput" type="file" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.jpg,.jpeg,.png" class="hidden">
   </div>
 </header>
 
@@ -55,7 +55,7 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
     <label for="date">Data</label><input id="date" type="date" required>
     <label for="time">Ora</label><input id="time" type="time">
     <label for="title">Impegno</label><input id="title" required placeholder="Es. Riunione, visita, lezione...">
-    <label for="notes">Note</label><textarea id="notes" rows="4" placeholder="Dettagli dell'impegno"></textarea><label for="attachments">Documenti dell'appuntamento</label><input id="attachments" type="file" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.jpg,.jpeg,.png"><div id="attachmentList" class="status">Nessun documento allegato.</div>
+    <label for="notes">Note</label><textarea id="notes" rows="4" placeholder="Dettagli dell'impegno"></textarea>
     <div class="row" style="margin-top:12px"><button class="primary" type="submit">Salva impegno</button><button type="button" id="cancelBtn">Annulla</button></div>
   </form>
 
@@ -102,8 +102,9 @@ function openFilesDB(){return new Promise((resolve,reject)=>{const r=indexedDB.o
 async function saveAttachment(eventId,file){const db=await openFilesDB();return new Promise((resolve,reject)=>{const tx=db.transaction("files","readwrite");tx.objectStore("files").put({id:crypto.randomUUID(),eventId,name:file.name,type:file.type,size:file.size,blob:file});tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
 async function getAttachments(eventId){const db=await openFilesDB();return new Promise((resolve,reject)=>{const tx=db.transaction("files","readonly"),out=[];const req=tx.objectStore("files").openCursor();req.onsuccess=()=>{const cur=req.result;if(!cur)return resolve(out);if(cur.value.eventId===eventId)out.push(cur.value);cur.continue()};req.onerror=()=>reject(req.error)})}
 async function deleteAttachment(id){const db=await openFilesDB();return new Promise((resolve,reject)=>{const tx=db.transaction("files","readwrite");tx.objectStore("files").delete(id);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
-async function renderAttachments(eventId){const box=$("attachmentList");if(!eventId){box.textContent="I documenti verranno associati dopo il salvataggio.";return}const files=await getAttachments(eventId);box.innerHTML=files.length?files.map(f=>'<div class="attachment"><a href="#" data-open-file="'+f.id+'">📎 '+esc(f.name)+'</a><button type="button" data-delete-file="'+f.id+'">Rimuovi</button></div>').join(""):"Nessun documento allegato."}
+async function renameAttachment(id,name){const db=await openFilesDB();return new Promise((resolve,reject)=>{const tx=db.transaction("files","readwrite"),st=tx.objectStore("files"),q=st.get(id);q.onsuccess=()=>{const f=q.result;if(!f){reject(new Error("Documento non trovato"));return}f.name=name;st.put(f)};tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
 async function openAttachment(id){const db=await openFilesDB();const f=await new Promise((resolve,reject)=>{const q=db.transaction("files","readonly").objectStore("files").get(id);q.onsuccess=()=>resolve(q.result);q.onerror=()=>reject(q.error)});if(!f)return;const url=URL.createObjectURL(f.blob);window.open(url,"_blank");setTimeout(()=>URL.revokeObjectURL(url),60000)}
+async function renderEventAttachments(eventId,row){const files=await getAttachments(eventId);const docs=document.createElement("div");docs.className="event-docs";docs.innerHTML='<div class="event-doc-head"><span class="doc-badge">📎 '+(files.length?files.length+" documento/i":"Nessun documento")+'</span><button type="button" data-upload-doc="'+eventId+'">+ Carica documenti</button></div>';if(files.length){const list=document.createElement("div");list.className="event-doc-list";files.forEach(f=>{const item=document.createElement("div");item.className="event-doc-item";item.innerHTML='<span title="'+esc(f.name)+'">📄 '+esc(f.name)+'</span><div class="event-doc-actions"><button type="button" data-open-doc="'+f.id+'">Apri</button><button type="button" data-rename-doc="'+f.id+'">Rinomina</button><button type="button" class="danger" data-delete-doc="'+f.id+'">Elimina</button></div>';list.appendChild(item)});docs.appendChild(list)}row.appendChild(docs)}
 if(window.pdfjsLib){window.pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";}
 const pad=n=>String(n).padStart(2,"0");
 const iso=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
@@ -129,7 +130,7 @@ let pdfText="";
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 function save(){localStorage.setItem(KEY,JSON.stringify(events))}
-function resetForm(){ $("editId").value=""; $("date").value=selected; $("time").value=""; $("title").value=""; $("notes").value=""; $("attachments").value=""; $("formTitle").textContent="Nuovo impegno"; pendingAttachments=[]; renderAttachments(""); }
+function resetForm(){ $("editId").value=""; $("date").value=selected; $("time").value=""; $("title").value=""; $("notes").value=""; $("formTitle").textContent="Nuovo impegno"; }
 function dateLabel(v){return new Date(v+"T12:00:00").toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
 function renderCalendar(){
  const y=cursor.getFullYear(),m=cursor.getMonth(), cal=$("calendar");
@@ -160,8 +161,8 @@ function renderDay(){
  if(!arr.length){box.innerHTML='<div class="empty">Nessun impegno per questa giornata.</div>';return}
  arr.forEach(e=>{
    const row=document.createElement("div"); row.className="event"+(e.done?" done":"");
-   row.innerHTML='<div class="bar"></div><div><div class="title"><span class="time">'+(e.time?esc(e.time)+" · ":"")+'</span>'+esc(e.title)+'</div><div class="meta">'+esc(e.notes)+'</div></div><div class="actions"><button data-done="'+e.id+'">'+(e.done?"Riapri":"Fatto")+'</button><button data-edit="'+e.id+'">Modifica</button><button class="danger" data-delete="'+e.id+'">Elimina</button></div>';
-   box.appendChild(row);
+   row.innerHTML='<div class="bar"></div><div><div class="title"><span class="time">'+(e.time?esc(e.time)+" · ":"")+'</span>'+esc(e.title)+'</div><div class="meta">'+esc(e.notes)+'</div></div><div class="event-actions"><button data-done="'+e.id+'">'+(e.done?"Riapri":"Fatto")+'</button><button data-edit="'+e.id+'">Modifica</button><button class="danger" data-delete="'+e.id+'">Elimina</button></div>';
+   box.appendChild(row); renderEventAttachments(e.id,row);
  });
 }
 function render(){renderCalendar();renderDay()}
@@ -177,22 +178,26 @@ $("form").onsubmit=async e=>{
  const item={id,date:$("date").value,time:$("time").value,title:$("title").value.trim(),notes:$("notes").value.trim(),done:false};
  const old=events.find(x=>x.id===id); if(old){item.done=old.done;if(old.automatic){item.automatic=true;item.manualOverride=true;agentOverrides[id]={edited:true};saveOverrides()}}
  const i=events.findIndex(x=>x.id===id); if(i>=0)events[i]=item;else events.push(item);
- for(const file of pendingAttachments) await saveAttachment(item.id,file); pendingAttachments=[]; $("attachments").value=""; selected=item.date; cursor=new Date(item.date+"T12:00:00"); cursor.setDate(1); save(); resetForm(); render(); renderAttachments(item.id);
+ selected=item.date; cursor=new Date(item.date+"T12:00:00"); cursor.setDate(1); save(); resetForm(); render(); renderAttachments(item.id);
 };
-$("dayEvents").addEventListener("click",e=>{
+$("dayEvents").addEventListener("click",async e=>{
+ const openDoc=e.target.closest("[data-open-doc]"), renameDoc=e.target.closest("[data-rename-doc]"), deleteDoc=e.target.closest("[data-delete-doc]"), uploadDoc=e.target.closest("[data-upload-doc]");
+ if(openDoc){await openAttachment(openDoc.dataset.openDoc);return}
+ if(renameDoc){const current=await getAttachments(renameDoc.dataset.renameDoc);const f=current.find(x=>x.id===renameDoc.dataset.renameDoc);if(f){const name=prompt("Nuovo nome del documento:",f.name);if(name&&name.trim()&&name.trim()!==f.name){await renameAttachment(f.id,name.trim());renderDay()}}return}
+ if(deleteDoc){if(confirm("Eliminare definitivamente questo documento?")){await deleteAttachment(deleteDoc.dataset.deleteDoc);renderDay()}return}
+ if(uploadDoc){$("eventAttachmentInput").dataset.eventId=uploadDoc.dataset.uploadDoc;$("eventAttachmentInput").value="";$("eventAttachmentInput").click();return}
  const done=e.target.closest("[data-done]"), edit=e.target.closest("[data-edit]"), del=e.target.closest("[data-delete]");
  const id=(done||edit||del)?.dataset?.[done?"done":edit?"edit":"delete"]; if(!id)return;
  const item=events.find(x=>x.id===id); if(!item)return;
  if(done){item.done=!item.done}
  if(del && confirm("Eliminare questo impegno?")) {if(item.automatic){agentOverrides[id]={deleted:true};saveOverrides()} events=events.filter(x=>x.id!==id);}
- if(edit){$("editId").value=item.id;$("date").value=item.date;$("time").value=item.time||"";$("title").value=item.title;$("notes").value=item.notes||"";$("attachments").value="";$("formTitle").textContent=item.automatic?"Modifica aggiornamento automatico":"Modifica impegno";pendingAttachments=[];renderAttachments(item.id)}
+ if(edit){$("editId").value=item.id;$("date").value=item.date;$("time").value=item.time||"";$("title").value=item.title;$("notes").value=item.notes||"";$("formTitle").textContent=item.automatic?"Modifica aggiornamento automatico":"Modifica impegno";}
  save();render();
 });
 $("printBtn").onclick=()=>window.print();
 $("backupBtn").onclick=()=>{const b=new Blob([JSON.stringify(events,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="backup-calendario.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)};
 $("restoreBtn").onclick=()=>$("restoreFile").click();
-$("attachments").addEventListener("change",e=>{pendingAttachments=[...e.target.files];$("attachmentList").textContent=pendingAttachments.length?pendingAttachments.length+" nuovo/i documento/i da salvare.":"Nessun documento allegato."});
-$("attachmentList").addEventListener("click",async e=>{const open=e.target.closest("[data-open-file]"),del=e.target.closest("[data-delete-file]");if(open){e.preventDefault();await openAttachment(open.dataset.openFile)}if(del){await deleteAttachment(del.dataset.deleteFile);renderAttachments($("editId").value||"")}});
+$("eventAttachmentInput").addEventListener("change",async e=>{const eventId=e.target.dataset.eventId;const files=[...e.target.files];if(!eventId||!files.length)return;for(const file of files)await saveAttachment(eventId,file);e.target.value="";delete e.target.dataset.eventId;renderDay()});
 $("restoreFile").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const x=JSON.parse(await f.text());if(!Array.isArray(x))throw 0;events=x;save();render();alert("Backup ripristinato.")}catch{alert("File non valido.")}e.target.value=""};
 
 let recognition=null;
