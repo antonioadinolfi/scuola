@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-01T23:47:13+00:00",
+  "updatedAt": "2026-10-02T04:52:32+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -87,40 +87,40 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Carburanti, price cap e sconti progressivi: come funzionano le misure di Eni, Ip, Q8 e Tamoil",
-          "link": "https://www.ilsole24ore.com/art/carburanti-price-cap-e-sconti-progressivi-come-funzionano-misure-eni-ip-q8-e-tamoil-AJjgtaVB",
-          "pubDate": "Thu, 1 Oct 2026 21:44:00 GMT",
-          "description": "L’ultima ad adeguarsi, in ordine temporale, è stata Tamoil. Il marchio appartenente al gruppo petrolifero Oilinvest - con sede nei Paesi Bassi e siti estrattivi…"
-        },
-        {
-          "title": "Meloni: «Con regole Ue margine limitato per contenere l’inflazione»",
-          "link": "https://www.ilsole24ore.com/art/doppia-flessibilita-conti-ecco-richiesta-ue-la-manovra-anti-inflazione-AJgBK3UB",
-          "pubDate": "Thu, 1 Oct 2026 07:41:00 GMT",
-          "description": "Dalla premier Meloni nuova lettera a Bruxelles per rivedere i vincoli fiscali oltre alla clausola nazionale per energia e difesa"
+          "title": "Tim, Poste compra azioni sul mercato e sale all’86,9%",
+          "link": "https://www.ilsole24ore.com/art/tim-poste-compra-azioni-mercato-e-sale-all-869percento-AJC89tVB",
+          "pubDate": "Thu, 1 Oct 2026 18:32:00 GMT",
+          "description": "La società dei recapiti approfitta del calo in Borsa del titolo tlc per arrotondare la quota già detenuta al termine dell’opas"
         },
         {
           "title": "Dai Treasury ai Gilt sale la tensione: investitori in fuga, picchi nei rendimenti",
           "link": "https://www.ilsole24ore.com/art/dai-treasury-gilt-sale-tensione-investitori-fuga-picchi-rendimenti-AJvCQzVB",
-          "pubDate": "Thu, 1 Oct 2026 19:51:08 GMT",
+          "pubDate": "Thu, 1 Oct 2026 19:51:00 GMT",
           "description": "Si è conclusa con i classici segnali della fuga dal rischio la prima seduta del mese di ottobre. Un andamento convulso, quello seguito dai mercati finanziari ie…"
-        },
-        {
-          "title": "Borse europee negative con la tempesta sui bond, Milano maglia nera. Wall Street in lieve rialzo",
-          "link": "https://www.ilsole24ore.com/art/le-obbligazioni-asiatiche-seguono-ribasso-titoli-stato-dollaro-si-rafforza-AJZDuwUB",
-          "pubDate": "Thu, 1 Oct 2026 05:26:00 GMT",
-          "description": "Spread BTp-Bund balza a 118 punti in chiusura, rendimento decennale ai massimi da ottobre 2023. A Piazza Affari si salvano i titoli tech dopo i conti record di…"
-        },
-        {
-          "title": "Tim: Poste compra azioni sul mercato e sale all’86,9%",
-          "link": "https://www.ilsole24ore.com/art/tim-poste-compra-azioni-mercato-e-sale-all-869percento-AJC89tVB",
-          "pubDate": "Thu, 1 Oct 2026 18:32:00 GMT",
-          "description": "La società dei recapiti approfitta del calo in Borsa del titolo tlc per arrotondare la quota già detenuta al termine dell’opas"
         },
         {
           "title": "Casa, Leo apre all’ecobonus al 65% per cappotti termici e pannelli solari",
           "link": "https://www.ilsole24ore.com/art/casa-leo-apre-all-ecobonus-65percento-cappotti-termici-e-pannelli-solari-AJ7awCVB",
           "pubDate": "Thu, 1 Oct 2026 10:11:00 GMT",
           "description": "Il viceministro dell’Economia: spazi dalla flessibilità Ue sull’energia. Ipotesi di un intervento differenziato per l’efficientamento energetico del patrimonio…"
+        },
+        {
+          "title": "Case green, avanza la procedura di infrazione: Italia a rischio sanzioni",
+          "link": "https://www.ilsole24ore.com/art/case-green-avanza-procedura-infrazione-italia-rischio-sanzioni-AJoFrGVB",
+          "pubDate": "Thu, 1 Oct 2026 11:30:57 GMT",
+          "description": "Bruxelles chiede al nostro paese di inviare il piano nazionale di ristrutturazione: due mesi per adeguarsi, poi si andrà alla Corte di Giustizia Ue"
+        },
+        {
+          "title": "L’Andana, dai Moretti alla famiglia De Santis",
+          "link": "https://www.ilsole24ore.com/art/l-andana-moretti-famiglia-de-santis-AJmW4yUB",
+          "pubDate": "Thu, 1 Oct 2026 06:57:42 GMT",
+          "description": "L’hotel toscano potrebbe entrare nel portafoglio dei proprietari del Gran Hotel Tremezzo e di Passalacqua"
+        },
+        {
+          "title": "Meloni: «Con regole Ue margine limitato per contenere l’inflazione»",
+          "link": "https://www.ilsole24ore.com/art/doppia-flessibilita-conti-ecco-richiesta-ue-la-manovra-anti-inflazione-AJgBK3UB",
+          "pubDate": "Thu, 1 Oct 2026 07:41:00 GMT",
+          "description": "Dalla premier Meloni nuova lettera a Bruxelles per rivedere i vincoli fiscali oltre alla clausola nazionale per energia e difesa"
         }
       ]
     }
