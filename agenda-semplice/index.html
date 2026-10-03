@@ -18,7 +18,7 @@ h1,h2,h3,p{margin-top:0}.brand h1{margin-bottom:4px;font-size:28px;letter-spacin
 .layout{display:grid;grid-template-columns:330px 1fr;gap:18px}.panel{background:#ffffffd9;border:1px solid #d9e3ee;border-radius:18px;padding:18px;box-shadow:0 8px 24px #17324d10;backdrop-filter:blur(8px)}
 label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#31445a}input,textarea{width:100%;padding:10px 11px;border:1px solid #cbd8e6;border-radius:10px;font:inherit;background:#fbfdff;outline:none}input:focus,textarea:focus{border-color:#4b83bd;box-shadow:0 0 0 3px #4b83bd18}textarea{resize:vertical}
 .calendar-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.calendar-head h2{text-transform:capitalize;margin:0;font-size:21px;color:#203d5a}.calendar-head button{width:40px;height:38px;padding:0;font-size:22px}
-.calendar{display:grid;grid-template-columns:repeat(7,1fr);border:1px solid #dbe4ee;border-radius:13px;overflow:hidden;background:#fff}.dow{padding:9px;text-align:center;background:linear-gradient(180deg,#f2f7fb,#e9f0f7);color:#50657b;font-size:12px;font-weight:800}.day{min-height:108px;padding:8px;border-top:1px solid #e4ebf2;border-right:1px solid #e4ebf2;cursor:pointer;background:#fff;transition:background .15s}.day:hover{background:#f6faff}.day.muted{background:#f4f6f9;color:#9aa8b7}.day.selected{outline:2px solid #4b83bd;outline-offset:-2px;background:#f4f9ff}.day.today .num{background:linear-gradient(135deg,#2563a8,#6656c7);color:white;box-shadow:0 3px 8px #2563a840}.num{display:inline-flex;width:27px;height:27px;align-items:center;justify-content:center;border-radius:50%;font-weight:750;font-size:12px}.event-dot{margin-top:5px;padding:5px 6px;border-radius:6px;background:linear-gradient(90deg,#e4f4f8,#edf0ff);color:#28506e;border-left:3px solid #16a3b8;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.event-dot.done{text-decoration:line-through;opacity:.55}
+.calendar{display:grid;grid-template-columns:repeat(7,1fr);border:1px solid #dbe4ee;border-radius:13px;overflow:hidden;background:#fff}.dow{padding:9px;text-align:center;background:linear-gradient(180deg,#f2f7fb,#e9f0f7);color:#50657b;font-size:12px;font-weight:800}.day{min-height:108px;padding:8px;border-top:1px solid #e4ebf2;border-right:1px solid #e4ebf2;cursor:pointer;background:#fff;transition:background .15s}.day:hover{background:#f6faff}.day.muted{background:#f4f6f9;color:#9aa8b7}.day.selected{outline:2px solid #4b83bd;outline-offset:-2px;background:#f4f9ff}.day.today .num{background:linear-gradient(135deg,#2563a8,#6656c7);color:white;box-shadow:0 3px 8px #2563a840}.num{display:inline-flex;width:27px;height:27px;align-items:center;justify-content:center;border-radius:50%;font-weight:750;font-size:12px}.event-dot{margin-top:5px;padding:5px 6px;border-radius:6px;background:linear-gradient(90deg,#e4f4f8,#edf0ff);color:#28506e;border-left:3px solid #16a3b8;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.event-dot.done{text-decoration:line-through;opacity:.55}.day.highlight-yellow{background:#fff3a6}.day.highlight-green{background:#d9f7df}.day.highlight-blue{background:#dcecff}.day.highlight-pink{background:#ffddea}.day.highlight-orange{background:#ffe0bd}.day.highlight-yellow .event-dot,.day.highlight-green .event-dot,.day.highlight-blue .event-dot,.day.highlight-pink .event-dot,.day.highlight-orange .event-dot{background:#ffffff99}.highlighter-tools{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.highlighter-tools button{padding:6px 9px;font-size:11px}.highlighter-tools button.active{outline:2px solid #17324d;outline-offset:1px}.highlight-swatch{width:20px;height:20px;border-radius:50%;display:inline-block;border:1px solid #b8c3cf}.sw-yellow{background:#fff3a6}.sw-green{background:#d9f7df}.sw-blue{background:#dcecff}.sw-pink{background:#ffddea}.sw-orange{background:#ffe0bd}.highlight-mode .day{cursor:crosshair}
 .day-detail{margin-top:16px}.day-title{font-size:18px;font-weight:800;color:#203d5a}.event{display:grid;grid-template-columns:5px 1fr auto;gap:10px;padding:13px 0;border-bottom:1px solid #e5ebf1}.bar{border-radius:4px;background:linear-gradient(180deg,#16a3b8,#6656c7)}.event.done .bar{background:#98a2b3}.event.done .title{text-decoration:line-through;color:#667085}.time{font-weight:800;color:#2563a8}.meta{font-size:12px;color:#667085;margin-top:3px}.empty{padding:28px;text-align:center;color:#667085;background:#f8fafc;border-radius:12px}
 .voice{display:flex;gap:8px}.voice button{white-space:nowrap}.status{font-size:12px;color:#667085;margin-top:8px;min-height:18px}
 .import-box{margin-top:18px;border-top:1px solid #e3eaf2;padding-top:14px}.import-preview{max-height:180px;overflow:auto;background:#f5f8fb;border:1px solid #e1e8f0;padding:10px;border-radius:9px;font-size:12px;white-space:pre-wrap}
@@ -42,7 +42,7 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
   <div class="brand"><h1>Agenda personale</h1><p>Agente automatico per i suoi impegni scolastici</p><div id="agentStatus" style="font-size:12px;color:#667085;margin-top:5px">🤖 Agente: aggiornamento in corso…</div><div id="cloudStatus" style="font-size:12px;color:#667085;margin-top:3px">☁️ Cloud: collegamento in corso…</div></div>
   <div class="actions">
     <span id="privateUser" style="align-self:center;font-size:12px;color:#667085"></span>
-    <button id="logoutBtn" type="button">Esci</button><button id="cloudBtn" type="button" title="Collega questa agenda privata a Google Drive">☁️ Sincronizza</button>
+    <button id="logoutBtn" type="button">Esci</button><button id="cloudBtn" type="button" title="Collega questa agenda privata a Google Drive">☁️ Sincronizza</button><button id="highlightBtn" type="button" title="Evidenzia giorni del calendario">🖍️ Evidenzia</button>
     <button id="todayBtn">Oggi</button><button id="printBtn">Stampa</button><button id="backupBtn">Backup</button><button id="restoreBtn">Ripristina</button><input id="restoreFile" type="file" accept=".json" class="hidden"><input id="eventAttachmentInput" type="file" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.jpg,.jpeg,.png" class="hidden">
   </div>
 </header>
@@ -80,6 +80,17 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
   <div class="calendar-head">
     <button id="prevBtn">‹</button><h2 id="monthTitle"></h2><button id="nextBtn">›</button>
   </div>
+  <div class="calendar-tools" style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 10px">
+    <div id="highlighterTools" class="highlighter-tools hidden">
+      <span style="font-size:12px;font-weight:750;color:#50657b">Colore:</span>
+      <button type="button" data-highlight-color="yellow" class="active" title="Giallo"><span class="highlight-swatch sw-yellow"></span></button>
+      <button type="button" data-highlight-color="green" title="Verde"><span class="highlight-swatch sw-green"></span></button>
+      <button type="button" data-highlight-color="blue" title="Azzurro"><span class="highlight-swatch sw-blue"></span></button>
+      <button type="button" data-highlight-color="pink" title="Rosa"><span class="highlight-swatch sw-pink"></span></button>
+      <button type="button" data-highlight-color="orange" title="Arancione"><span class="highlight-swatch sw-orange"></span></button>
+      <button type="button" id="clearHighlightBtn" title="Rimuovi evidenziazione">⌫ Cancella</button>
+    </div>
+  </div>
   <div class="calendar" id="calendar"></div>
   <div class="search"><label for="search">Cerca negli impegni</label><input id="search" placeholder="Cerca per titolo o note..."></div>
   <div class="day-detail">
@@ -94,9 +105,14 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
 <script>
 const KEY="agenda_semplice_v1";
 const OVERRIDE_KEY="agenda_semplice_agent_overrides_v1";
+const HIGHLIGHT_KEY="agenda_semplice_highlights_v1";
 const DB_NAME="agenda_semplice_files_v1";
 let agentOverrides=JSON.parse(localStorage.getItem(OVERRIDE_KEY)||"{}");
-function saveOverrides(){localStorage.setItem(OVERRIDE_KEY,JSON.stringify(agentOverrides))}
+let dayHighlights=JSON.parse(localStorage.getItem(HIGHLIGHT_KEY)||"{}");
+let highlightMode=false;
+let highlightColor="yellow";
+function saveOverrides(){localStorage.setItem(OVERRIDE_KEY,JSON.stringify(agentOverrides));if(window.agendaCloudSync)window.agendaCloudSync.scheduleSave()}
+function saveHighlights(){localStorage.setItem(HIGHLIGHT_KEY,JSON.stringify(dayHighlights));if(window.agendaCloudSync)window.agendaCloudSync.scheduleSave()}
 function openFilesDB(){return new Promise((resolve,reject)=>{const r=indexedDB.open(DB_NAME,1);r.onupgradeneeded=()=>r.result.createObjectStore("files",{keyPath:"id"});r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
 async function saveAttachment(eventId,file){const db=await openFilesDB();return new Promise((resolve,reject)=>{const tx=db.transaction("files","readwrite");tx.objectStore("files").put({id:crypto.randomUUID(),eventId,name:file.name,type:file.type,size:file.size,blob:file});tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
 async function getAttachments(eventId){const db=await openFilesDB();return new Promise((resolve,reject)=>{const tx=db.transaction("files","readonly"),out=[];const req=tx.objectStore("files").openCursor();req.onsuccess=()=>{const cur=req.result;if(!cur)return resolve(out);if(cur.value.eventId===eventId)out.push(cur.value);cur.continue()};req.onerror=()=>reject(req.error)})}
@@ -143,7 +159,7 @@ function renderCalendar(){
    if(d<1){d=prev+d;mm--;if(mm<0){mm=11;yy--}muted=true}
    if(d>days){d-=days;mm++;if(mm>11){mm=0;yy++}muted=true}
    const key=yy+"-"+pad(mm+1)+"-"+pad(d), cell=document.createElement("div");
-   cell.className="day"+(muted?" muted":"")+(key===selected?" selected":"")+(key===today?" today":"");
+   cell.className="day"+(muted?" muted":"")+(key===selected?" selected":"")+(key===today?" today":"")+(dayHighlights[key]?" highlight-"+dayHighlights[key]:"");
    cell.dataset.date=key;
    cell.innerHTML='<span class="num">'+d+'</span>';
    events.filter(e=>e.date===key).sort((a,b)=>(a.time||"99").localeCompare(b.time||"99")).slice(0,3).forEach(e=>{
@@ -165,7 +181,20 @@ function renderDay(){
  });
 }
 function render(){renderCalendar();renderDay()}
-$("calendar").addEventListener("click",e=>{const d=e.target.closest(".day");if(d){selected=d.dataset.date;render()}});
+$("calendar").addEventListener("click",e=>{
+ const d=e.target.closest(".day");
+ if(!d)return;
+ const key=d.dataset.date;
+ if(highlightMode){
+   if(dayHighlights[key]===highlightColor) delete dayHighlights[key];
+   else dayHighlights[key]=highlightColor;
+   saveHighlights();
+   renderCalendar();
+   return;
+ }
+ selected=key;
+ render();
+});
 $("prevBtn").onclick=()=>{cursor.setMonth(cursor.getMonth()-1);renderCalendar()};
 $("nextBtn").onclick=()=>{cursor.setMonth(cursor.getMonth()+1);renderCalendar()};
 $("todayBtn").onclick=()=>{const d=new Date();cursor=new Date(d.getFullYear(),d.getMonth(),1);selected=iso(d);resetForm();render()};
@@ -193,6 +222,30 @@ $("dayEvents").addEventListener("click",async e=>{
  if(edit){$("editId").value=item.id;$("date").value=item.date;$("time").value=item.time||"";$("title").value=item.title;$("notes").value=item.notes||"";$("formTitle").textContent=item.automatic?"Modifica aggiornamento automatico":"Modifica impegno";}
  save();render();
 });
+function setHighlightMode(on){
+  highlightMode=on;
+  document.body.classList.toggle("highlight-mode",on);
+  $("highlighterTools").classList.toggle("hidden",!on);
+  $("highlightBtn").classList.toggle("active",on);
+  $("highlightBtn").textContent=on?"🖍️ Fine evidenziatore":"🖍️ Evidenzia";
+}
+$("highlightBtn").onclick=()=>setHighlightMode(!highlightMode);
+document.querySelectorAll("[data-highlight-color]").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    highlightColor=btn.dataset.highlightColor;
+    document.querySelectorAll("[data-highlight-color]").forEach(x=>x.classList.remove("active"));
+    btn.classList.add("active");
+  });
+});
+$("clearHighlightBtn").onclick=()=>{
+  highlightMode=true;
+  const selectedDay=selected;
+  if(dayHighlights[selectedDay]){
+    delete dayHighlights[selectedDay];
+    saveHighlights();
+    renderCalendar();
+  }
+};
 $("printBtn").onclick=()=>window.print();
 $("backupBtn").onclick=()=>{const b=new Blob([JSON.stringify(events,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="backup-calendario.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)};
 $("restoreBtn").onclick=()=>$("restoreFile").click();
@@ -289,13 +342,17 @@ window.agendaCloudBridge={
       version:1,
       updatedAt:new Date().toISOString(),
       events:events.filter(e=>!e.automatic || e.manualOverride),
-      agentOverrides:agentOverrides
+      agentOverrides:agentOverrides,
+      dayHighlights:dayHighlights
     };
   },
   applyCloudState:function(state){
     if(!state || !Array.isArray(state.events))return;
     const automaticOnly=events.filter(e=>e.automatic && !e.manualOverride);
     agentOverrides=state.agentOverrides&&typeof state.agentOverrides==="object"?state.agentOverrides:{};
+    dayHighlights=state.dayHighlights&&typeof state.dayHighlights==="object"?state.dayHighlights:{};
+    localStorage.setItem(OVERRIDE_KEY,JSON.stringify(agentOverrides));
+    localStorage.setItem(HIGHLIGHT_KEY,JSON.stringify(dayHighlights));
     events=[...automaticOnly,...state.events];
     save();
     render();
