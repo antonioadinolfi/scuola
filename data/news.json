@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T18:03:03+00:00",
+  "updatedAt": "2026-10-04T22:54:04+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Percorso abilitante per il ruolo, CFU uguali sia per vincitori che idonei. Contano i requisiti, non la posizione in graduatoria",
+          "link": "https://www.orizzontescuola.it/percorso-abilitante-per-il-ruolo-cfu-uguali-sia-per-vincitori-che-idonei-contano-i-requisiti-non-la-posizione-in-graduatoria/",
+          "pubDate": "Sun, 04 Oct 2026 19:09:19 +0000",
+          "description": "Nel Question Time del 28 settembre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Sonia Cannas, docente ed esperta in normativa…"
+        },
+        {
+          "title": "Sempre connessi, mai produttivi: il paradosso digitale che sta consumando i giovani lavoratori. I dati del Rapporto Deloitte",
+          "link": "https://www.orizzontescuola.it/sempre-connessi-mai-produttivi-il-paradosso-digitale-che-sta-consumando-i-giovani-lavoratori-i-dati-del-rapporto-deloitte/",
+          "pubDate": "Sun, 04 Oct 2026 18:09:24 +0000",
+          "description": "C'è una nuova epidemia silenziosa che si sta diffondendo negli uffici fisici e virtuali del mondo. Non è il classico burnout da sovraccarico di lavoro, ma una s…"
+        },
+        {
           "title": "Graduatorie ATA, nel 2027 sarà possibile inserire i nuovi titoli conseguiti nel triennio. Pillole di Question Time",
           "link": "https://www.orizzontescuola.it/graduatorie-ata-nel-2027-sara-possibile-inserire-i-nuovi-titoli-conseguiti-nel-triennio-pillole-di-question-time/",
           "pubDate": "Sun, 04 Oct 2026 16:32:16 +0000",
@@ -68,18 +80,6 @@
           "link": "https://www.orizzontescuola.it/giornata-europea-delle-lingue-evento-al-mim-l8-ottobre-dalle-9-30-possibile-seguirlo-in-streaming/",
           "pubDate": "Sun, 04 Oct 2026 14:52:49 +0000",
           "description": "Si terrà giovedì 8 ottobre 2026, dalle 9.30 alle 13.30, l’evento organizzato dal Ministero dell’Istruzione e del Merito in occasione della Giornata europea dell…"
-        },
-        {
-          "title": "Graduatorie di istituto, non rispondere alla convocazione massiva equivale a rinuncia. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/graduatorie-di-istituto-non-rispondere-alla-convocazione-massiva-equivale-a-rinuncia-pillole-di-question-time/",
-          "pubDate": "Sun, 04 Oct 2026 14:15:04 +0000",
-          "description": "Nel Question Time del 14 settembre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Sonia Cannas, docente ed esperta in normativa…"
-        },
-        {
-          "title": "Neet in forte calo in Italia, ma restano 1,2 milioni di giovani inattivi",
-          "link": "https://www.orizzontescuola.it/neet-in-forte-calo-in-italia-ma-restano-12-milioni-di-giovani-inattivi/",
-          "pubDate": "Sun, 04 Oct 2026 13:47:16 +0000",
-          "description": "Il fenomeno dei Neet — i giovani tra i 15 e i 29 anni che non studiano, non lavorano e non sono inseriti in percorsi formativi — registra una decisa contrazione…"
         }
       ]
     },
@@ -87,10 +87,10 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Mps, Delfin verso l’appoggio a Intesa Sanpaolo",
+          "title": "Mps, Delfin schierata con Intesa Sanpaolo",
           "link": "https://www.ilsole24ore.com/art/delfin-l-appoggio-intesa-sanpaolo-AJnnqzYB",
           "pubDate": "Sun, 4 Oct 2026 17:52:00 GMT",
-          "description": "Il cda della holding Delfin riunitosi ieri avrebbe esaminato il dossier Mps. Secondo quanto risulta al Sole 24 Ore, il consiglio della società lussemburghese av…"
+          "description": "Svolta potenzialmente decisiva nella partita per il controllo di Mps. Delfin, holding della famiglia Del Vecchio azionista di Rocca Salimbeni con il 17,6% del c…"
         },
         {
           "title": "Lunedì scadono gli sconti sul gasolio, cosa può succedere adesso",
