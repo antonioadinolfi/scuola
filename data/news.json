@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-06T19:21:40+00:00",
+  "updatedAt": "2026-10-06T23:40:02+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Studente di 17 anni colpito da arresto cardiaco a scuola: il professore usa il defibrillatore e lo salva",
+          "link": "https://www.orizzontescuola.it/studente-di-17-anni-colpito-da-arresto-cardiaco-a-scuola-il-professore-usa-il-defibrillatore-e-lo-salva/",
+          "pubDate": "Tue, 06 Oct 2026 19:34:01 +0000",
+          "description": "Un professore ha salvato la vita a uno studente di diciassette anni colto da un improvviso arresto cardiaco durante l'ora di educazione fisica. L'articolo Stude…"
+        },
+        {
           "title": "Polizza sanitaria scuola, si possono usare strutture UniSalute fuori dalla provincia di residenza? Craparo: “Sì, si può andare anche in un’altra provincia”",
           "link": "https://www.orizzontescuola.it/polizza-sanitaria-scuola-si-possono-usare-strutture-unisalute-fuori-dalla-provincia-di-residenza-craparo-si-si-puo-andare-anche-in-unaltra-provincia/",
           "pubDate": "Tue, 06 Oct 2026 19:08:35 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/trasformare-la-spazzatura-in-idee-il-kit-europeo-gratuito-che-insegna-ai-bambini-della-primaria-larte-del-riciclo/",
           "pubDate": "Tue, 06 Oct 2026 18:00:20 +0000",
           "description": "C'è una magia tutta speciale nel far capire a un bambino che un oggetto destinato alla spazzatura può nascondere la scintilla di una nuova invenzione. L'articol…"
-        },
-        {
-          "title": "Novara contro la didattica a distanza: “Riproporre la DAD non è altro che sadismo. L’agire è fondamentale”",
-          "link": "https://www.orizzontescuola.it/novara-contro-la-didattica-a-distanza-riproporre-la-dad-non-e-altro-che-sadismo-lagire-e-fondamentale/",
-          "pubDate": "Tue, 06 Oct 2026 17:14:07 +0000",
-          "description": "A scuola i ragazzi devono fare esperienza diretta e lavorare insieme, non ripetere a memoria i libri o barrare le caselle sui fogli delle verifiche. L'articolo…"
         }
       ]
     },
