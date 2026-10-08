@@ -14,7 +14,7 @@
 .app{width:min(100%,1680px);margin:0 auto;padding:20px clamp(14px,2vw,28px)}
 header{display:grid;grid-template-columns:minmax(300px,1fr) auto;justify-content:space-between;align-items:center;gap:18px;margin-bottom:20px;padding:20px 22px;border-radius:20px;color:white;background:linear-gradient(135deg,#17324d 0%,#245b83 55%,#3a4e9a 100%);box-shadow:0 12px 30px #17324d25}
 h1,h2,h3,p{margin-top:0}.brand h1{margin-bottom:4px;font-size:28px;letter-spacing:-.4px}.brand p{margin:0;color:#dbeafe}
-.actions,.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}button{border:1px solid #d4deea;background:#fff;color:#24364b;border-radius:10px;padding:9px 12px;cursor:pointer;font-weight:650;transition:.18s ease;box-shadow:0 1px 2px #00000008}button:hover{transform:translateY(-1px);box-shadow:0 5px 12px #17324d18}button.primary{background:linear-gradient(135deg,#2563a8,#6656c7);color:#fff;border-color:transparent}button.danger{color:#b42318}header .actions{justify-content:flex-end}header .actions button{background:#ffffff18;color:#fff;border-color:#ffffff35}header .actions button:hover{background:#fff;color:#17324d} .event-actions{display:flex;gap:6px;flex-wrap:wrap;align-items:center}.event-actions button,.event-check{min-height:38px}.event-actions button{padding:7px 9px;font-size:11px}
+.actions,.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.notify-ok{background:#e8f7ed!important;color:#146c2e!important;border-color:#9ad7aa!important}button{border:1px solid #d4deea;background:#fff;color:#24364b;border-radius:10px;padding:9px 12px;cursor:pointer;font-weight:650;transition:.18s ease;box-shadow:0 1px 2px #00000008}button:hover{transform:translateY(-1px);box-shadow:0 5px 12px #17324d18}button.primary{background:linear-gradient(135deg,#2563a8,#6656c7);color:#fff;border-color:transparent}button.danger{color:#b42318}header .actions{justify-content:flex-end}header .actions button{background:#ffffff18;color:#fff;border-color:#ffffff35}header .actions button:hover{background:#fff;color:#17324d} .event-actions{display:flex;gap:6px;flex-wrap:wrap;align-items:center}.event-actions button,.event-check{min-height:38px}.event-actions button{padding:7px 9px;font-size:11px}
 .layout{display:grid;grid-template-columns:minmax(340px,370px) minmax(0,1fr);gap:18px;align-items:start}.panel{background:#ffffffd9;min-width:0;border:1px solid #d9e3ee;border-radius:18px;padding:18px;box-shadow:0 8px 24px #17324d10;backdrop-filter:blur(8px)}
 label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#31445a}input,textarea{width:100%;padding:10px 11px;border:1px solid #cbd8e6;border-radius:10px;font:inherit;background:#fbfdff;outline:none}input:focus,textarea:focus{border-color:#4b83bd;box-shadow:0 0 0 3px #4b83bd18}textarea{resize:vertical}
 .calendar-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.calendar-head h2{text-transform:capitalize;margin:0;font-size:21px;color:#203d5a}.calendar-head button{width:40px;height:38px;padding:0;font-size:22px}
@@ -42,7 +42,7 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
   <div class="brand"><h1>Agenda personale</h1><p>Agente automatico per i suoi impegni scolastici</p><div id="agentStatus" style="font-size:12px;color:#667085;margin-top:5px">🤖 Agente: aggiornamento in corso…</div><div id="cloudStatus" style="font-size:12px;color:#667085;margin-top:3px">☁️ Cloud: collegamento in corso…</div></div>
   <div class="actions">
     <span id="privateUser" style="align-self:center;font-size:12px;color:#667085"></span>
-    <button id="logoutBtn" type="button">Esci</button><button id="cloudBtn" type="button" title="Collega questa agenda privata a Google Drive">☁️ Sincronizza</button><button id="highlightBtn" type="button" title="Evidenzia giorni del calendario">🖍️ Evidenzia</button>
+    <button id="logoutBtn" type="button">Esci</button><button id="cloudBtn" type="button" title="Collega questa agenda privata a Google Drive">☁️ Sincronizza</button><button id="highlightBtn" type="button" title="Evidenzia giorni del calendario">🖍️ Evidenzia</button><button id="notifyBtn" type="button" title="Attiva gli avvisi un\'ora prima">🔔 Avvisi</button>
     <button id="todayBtn">Oggi</button><button id="printBtn">Stampa</button><button id="backupBtn">Backup</button><button id="restoreBtn">Ripristina</button><input id="restoreFile" type="file" accept=".json" class="hidden">
   </div>
 </header>
@@ -336,6 +336,75 @@ window.addEventListener("agenda-auth-ready",function(){
 document.getElementById("cloudBtn").addEventListener("click",function(){
   if(window.agendaCloudSync)window.agendaCloudSync.authorize();
 });
+
+const NOTIFY_KEY="agenda_semplice_notifications_v1";
+function notifiedKeys(){
+  try{return JSON.parse(localStorage.getItem(NOTIFY_KEY)||"{}")}catch(_){return {}}
+}
+function saveNotifiedKeys(x){localStorage.setItem(NOTIFY_KEY,JSON.stringify(x))}
+function notificationSupported(){
+  return "Notification" in window;
+}
+async function enableNotifications(){
+  if(!notificationSupported()){
+    $("cloudStatus").textContent="🔔 Avvisi non supportati da questo browser";
+    return false;
+  }
+  try{
+    const permission=await Notification.requestPermission();
+    if(permission==="granted"){
+      $("notifyBtn").textContent="🔔 Avvisi attivi";
+      $("notifyBtn").classList.add("notify-ok");
+      checkUpcomingNotifications();
+      return true;
+    }
+    $("notifyBtn").textContent="🔕 Avvisi bloccati";
+    return false;
+  }catch(err){
+    console.warn("Notifications:",err);
+    return false;
+  }
+}
+function checkUpcomingNotifications(){
+  if(!notificationSupported() || Notification.permission!=="granted") return;
+  const now=Date.now();
+  const sent=notifiedKeys();
+  let changed=false;
+  events.forEach(ev=>{
+    if(!ev.date || !ev.time || ev.done) return;
+    const when=Date.parse(ev.date+"T"+ev.time+":00");
+    if(!Number.isFinite(when)) return;
+    const diff=when-now;
+    // Notification window: from 65 to 55 minutes before the event.
+    if(diff>=55*60*1000 && diff<=65*60*1000){
+      const key=ev.id+"|"+ev.date+"|"+ev.time;
+      if(sent[key]) return;
+      const title="⏰ Impegno tra circa un'ora";
+      const body=(ev.time+" — "+ev.title)+(ev.notes?"\n"+ev.notes:"");
+      try{
+        const n=new Notification(title,{
+          body,
+          tag:"agenda-"+ev.id,
+          renotify:false,
+          icon:"./icons/icon-192.png",
+          badge:"./icons/icon-192.png"
+        });
+        n.onclick=()=>{window.focus();selected=ev.date;cursor=new Date(ev.date+"T12:00:00");cursor.setDate(1);render();};
+        sent[key]=Date.now();
+        changed=true;
+      }catch(err){console.warn("Notification:",err)}
+    }
+  });
+  if(changed)saveNotifiedKeys(sent);
+}
+$("notifyBtn").addEventListener("click",enableNotifications);
+if(notificationSupported() && Notification.permission==="granted"){
+  $("notifyBtn").textContent="🔔 Avvisi attivi";
+  $("notifyBtn").classList.add("notify-ok");
+}
+setInterval(checkUpcomingNotifications,30000);
+checkUpcomingNotifications();
+
 if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).then(r=>r.update()).catch(()=>{});}
 resetForm();render();loadAgentData();
 </script>
