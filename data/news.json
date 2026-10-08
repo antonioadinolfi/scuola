@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-07T19:49:04+00:00",
+  "updatedAt": "2026-10-08T00:04:55+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Premio Giovanni Grillo, la presidente: “Armi a scuola e docenti aggrediti, educare alla pace non può essere un principio astratto”",
+          "link": "https://www.orizzontescuola.it/premio-giovanni-grillo-la-presidente-armi-a-scuola-e-docenti-aggrediti-educare-alla-pace-non-puo-essere-un-principio-astratto/",
+          "pubDate": "Wed, 07 Oct 2026 20:03:46 +0000",
+          "description": "“Di fronte ad episodi in cui i giovani portano armi a scuola o aggrediscono gli insegnanti, educare alla pace non può ridursi ad un principio astratto”. L'artic…"
+        },
+        {
           "title": "PC, smartphone ed elettrodomestici, nuove regole sulle riparazioni: decreto legislativo in Gazzetta",
           "link": "https://www.orizzontescuola.it/pc-smartphone-ed-elettrodomestici-nuove-regole-sulle-riparazioni-decreto-legislativo-in-gazzetta/",
           "pubDate": "Wed, 07 Oct 2026 19:26:07 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/concorso-scuola-cambia-la-tabella-titoli-piu-peso-a-nuove-abilitazioni-e-dottorati-chiarimenti-su-itp-e-classi-accorpate-ce-lok-del-cspi/",
           "pubDate": "Wed, 07 Oct 2026 17:06:55 +0000",
           "description": "Un passo decisivo verso l'aggiornamento e la chiarezza delle regole per il reclutamento del personale docente in Italia. Il Consiglio Superiore della Pubblica I…"
-        },
-        {
-          "title": "12 anni di precariato, 5 concorsi e una classe da lasciare: l’amaro prezzo del ruolo. Il paradosso della maestra Silvia e la lettera della bimba: “Caro Ministero, riportala indietro”",
-          "link": "https://www.orizzontescuola.it/12-anni-di-precariato-5-concorsi-e-una-classe-da-lasciare-lamaro-prezzo-del-ruolo-il-paradosso-della-maestra-silvia-e-la-lettera-della-bimba-caro-ministero-riportala-indietro/",
-          "pubDate": "Wed, 07 Oct 2026 16:52:56 +0000",
-          "description": "Ci sono cose che i bambini capiscono con una lucidità disarmante, saltando a piè pari i complessi ingranaggi burocratici degli adulti. Lo dimostra un piccolo bi…"
         }
       ]
     },
@@ -87,7 +87,7 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Borse, la crisi del debito torna a far paura. Milano (-2,5%) scivola sotto i 50mila punti",
+          "title": "Borse, la crisi del debito torna a far paura. Milano (-2,5%) scivola sotto i 50mila punti, Wall Street in calo",
           "link": "https://www.ilsole24ore.com/art/borse-asia-calo-nonostante-rally-wall-street-petrolio-rialzo-AJ3hdhbB",
           "pubDate": "Wed, 7 Oct 2026 05:34:00 GMT",
           "description": "Corrono i rendimenti dei titoli di Stato, Treasury Usa a 10 e 30 anni sui massimi dal 2002. Wall Street in calo dai record. Attesi in serata i verbali Fed"
