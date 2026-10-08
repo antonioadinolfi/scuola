@@ -19,11 +19,11 @@ h1,h2,h3,p{margin-top:0}.brand h1{margin-bottom:4px;font-size:28px;letter-spacin
 label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#31445a}input,textarea{width:100%;padding:10px 11px;border:1px solid #cbd8e6;border-radius:10px;font:inherit;background:#fbfdff;outline:none}input:focus,textarea:focus{border-color:#4b83bd;box-shadow:0 0 0 3px #4b83bd18}textarea{resize:vertical}
 .calendar-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.calendar-head h2{text-transform:capitalize;margin:0;font-size:21px;color:#203d5a}.calendar-head button{width:40px;height:38px;padding:0;font-size:22px}
 .calendar{display:grid;grid-template-columns:repeat(7,1fr);border:1px solid #dbe4ee;border-radius:13px;overflow:hidden;background:#fff}.dow{padding:9px;text-align:center;background:linear-gradient(180deg,#f2f7fb,#e9f0f7);color:#50657b;font-size:12px;font-weight:800}.day{min-height:108px;padding:8px;border-top:1px solid #e4ebf2;border-right:1px solid #e4ebf2;cursor:pointer;background:#fff;transition:background .15s}.day:hover{background:#f6faff}.day.muted{background:#f4f6f9;color:#9aa8b7}.day.selected{outline:2px solid #4b83bd;outline-offset:-2px;background:#f4f9ff}.day.today .num{background:linear-gradient(135deg,#2563a8,#6656c7);color:white;box-shadow:0 3px 8px #2563a840}.num{display:inline-flex;width:27px;height:27px;align-items:center;justify-content:center;border-radius:50%;font-weight:750;font-size:12px}.event-dot{margin-top:5px;padding:5px 6px;border-radius:6px;background:linear-gradient(90deg,#e4f4f8,#edf0ff);color:#28506e;border-left:3px solid #16a3b8;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.event-dot.done{text-decoration:line-through;opacity:.55}.day.highlight-yellow{background:#fff3a6}.day.highlight-green{background:#d9f7df}.day.highlight-blue{background:#dcecff}.day.highlight-pink{background:#ffddea}.day.highlight-orange{background:#ffe0bd}.day.highlight-yellow .event-dot,.day.highlight-green .event-dot,.day.highlight-blue .event-dot,.day.highlight-pink .event-dot,.day.highlight-orange .event-dot{background:#ffffff99}.highlighter-tools{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.highlighter-tools button{padding:6px 9px;font-size:11px}.highlighter-tools button.active{outline:2px solid #17324d;outline-offset:1px}.highlight-swatch{width:20px;height:20px;border-radius:50%;display:inline-block;border:1px solid #b8c3cf}.sw-yellow{background:#fff3a6}.sw-green{background:#d9f7df}.sw-blue{background:#dcecff}.sw-pink{background:#ffddea}.sw-orange{background:#ffe0bd}.highlight-mode .day{cursor:crosshair}
-.day-detail{margin-top:16px}.day-title{font-size:18px;font-weight:800;color:#203d5a}.event{display:grid;grid-template-columns:5px 1fr auto;gap:10px;padding:13px 0;border-bottom:1px solid #e5ebf1}.bar{border-radius:4px;background:linear-gradient(180deg,#16a3b8,#6656c7)}.event.done .bar{background:#98a2b3}.event.done .title{text-decoration:line-through;color:#667085}.time{font-weight:800;color:#2563a8}.meta{font-size:12px;color:#667085;margin-top:3px}.empty{padding:28px;text-align:center;color:#667085;background:#f8fafc;border-radius:12px}
+.day-detail{margin-top:16px}.quick-form{display:grid;grid-template-columns:120px 110px minmax(180px,1fr) minmax(220px,1.4fr) auto;gap:8px;align-items:end}.quick-form label{margin:0}.quick-form .field{min-width:0}.quick-form .field label{margin:0 0 5px}.quick-form textarea{min-height:40px;height:40px;resize:none}.quick-form input{height:40px}.quick-form button{height:40px}.event-check{display:flex;align-items:center;gap:7px;white-space:nowrap;font-size:12px;font-weight:750;color:#31445a}.event-check input{width:18px;height:18px;accent-color:#2563a8}.event-link{margin-top:7px;padding:7px 9px;background:#f4f8fc;border:1px solid #dbe5ef;border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px}.event-link a{color:#2563a8;font-weight:750;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.link-actions{display:flex;gap:4px;flex-shrink:0}.link-actions button{padding:3px 7px;font-size:10px}.mobile-only{display:none}.day-title{font-size:18px;font-weight:800;color:#203d5a}.event{display:grid;grid-template-columns:5px 1fr auto;gap:10px;padding:13px 0;border-bottom:1px solid #e5ebf1}.bar{border-radius:4px;background:linear-gradient(180deg,#16a3b8,#6656c7)}.event.done .bar{background:#98a2b3}.event.done .title{text-decoration:line-through;color:#667085}.time{font-weight:800;color:#2563a8}.meta{font-size:12px;color:#667085;margin-top:3px}.empty{padding:28px;text-align:center;color:#667085;background:#f8fafc;border-radius:12px}
 .voice{display:flex;gap:8px}.voice button{white-space:nowrap}.status{font-size:12px;color:#667085;margin-top:8px;min-height:18px}
 .import-box{margin-top:18px;border-top:1px solid #e3eaf2;padding-top:14px}.import-preview{max-height:180px;overflow:auto;background:#f5f8fb;border:1px solid #e1e8f0;padding:10px;border-radius:9px;font-size:12px;white-space:pre-wrap}
 .search{margin-bottom:12px}.search input{background:#f8fbfe}.hidden{display:none}.attachment{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px;padding:7px 9px;background:#f3f7fb;border:1px solid #dbe5ef;border-radius:8px;font-size:12px}.attachment a{color:#2563a8;font-weight:700;text-decoration:none}.attachment button{padding:4px 7px;font-size:11px}.event-docs{grid-column:2/4;margin-top:7px;padding:8px 10px;background:#f5f9fd;border:1px solid #dbe7f1;border-radius:10px}.event-doc-head{display:flex;align-items:center;justify-content:space-between;gap:8px}.event-doc-list{margin-top:6px;display:flex;flex-direction:column;gap:5px}.event-doc-item{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px}.event-doc-item span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.event-doc-actions{display:flex;gap:4px;flex-shrink:0}.event-doc-actions button{padding:3px 6px;font-size:10px}.doc-badge{font-size:11px;color:#2563a8;font-weight:700}
-@media(max-width:800px){.layout{grid-template-columns:1fr}.day{min-height:82px}.event-dot{font-size:10px}.app{padding:12px}header{align-items:flex-start;flex-direction:column;padding:18px}.actions{width:100%}header .actions button{background:#ffffff20}.brand h1{font-size:25px}}
+@media(max-width:1050px){.layout{grid-template-columns:1fr}.quick-form{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:800px){.layout{grid-template-columns:1fr}.day{min-height:82px}.event-dot{font-size:10px}.app{padding:12px}header{align-items:flex-start;flex-direction:column;padding:18px}.actions{width:100%}header .actions button{background:#ffffff20}.brand h1{font-size:25px}}
 </style>
 </head>
 <body>
@@ -43,36 +43,27 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
   <div class="actions">
     <span id="privateUser" style="align-self:center;font-size:12px;color:#667085"></span>
     <button id="logoutBtn" type="button">Esci</button><button id="cloudBtn" type="button" title="Collega questa agenda privata a Google Drive">☁️ Sincronizza</button><button id="highlightBtn" type="button" title="Evidenzia giorni del calendario">🖍️ Evidenzia</button>
-    <button id="todayBtn">Oggi</button><button id="printBtn">Stampa</button><button id="backupBtn">Backup</button><button id="restoreBtn">Ripristina</button><input id="restoreFile" type="file" accept=".json" class="hidden"><input id="eventAttachmentInput" type="file" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.jpg,.jpeg,.png" class="hidden">
+    <button id="todayBtn">Oggi</button><button id="printBtn">Stampa</button><button id="backupBtn">Backup</button><button id="restoreBtn">Ripristina</button><input id="restoreFile" type="file" accept=".json" class="hidden">
   </div>
 </header>
 
 <div class="layout">
-<aside class="panel">
+<aside class="panel quick-panel">
   <h2 id="formTitle">Nuovo impegno</h2>
-  <form id="form">
+  <form id="form" class="quick-form">
     <input id="editId" type="hidden">
-    <label for="date">Data</label><input id="date" type="date" required>
-    <label for="time">Ora</label><input id="time" type="time">
-    <label for="title">Impegno</label><input id="title" required placeholder="Es. Riunione, visita, lezione...">
-    <label for="notes">Note</label><textarea id="notes" rows="4" placeholder="Dettagli dell'impegno"></textarea>
-    <div class="row" style="margin-top:12px"><button class="primary" type="submit">Salva impegno</button><button type="button" id="cancelBtn">Annulla</button></div>
+    <div class="field"><label for="date">Data</label><input id="date" type="date" required></div>
+    <div class="field"><label for="time">Ora</label><input id="time" type="time"></div>
+    <div class="field"><label for="title">Impegno</label><input id="title" required placeholder="Es. Consiglio di classe"></div>
+    <div class="field"><label for="notes">Note</label><input id="notes" placeholder="Note"></div>
+    <div class="field"><label for="link">Link</label><input id="link" type="url" placeholder="https://..."></div>
+    <div class="row" style="grid-column:1/-1;margin-top:0"><button class="primary" type="submit">Salva</button><button type="button" id="cancelBtn">Annulla</button></div>
   </form>
-
   <div class="import-box">
     <h3>Inserimento vocale</h3>
     <div class="voice"><button id="voiceBtn">🎙️ Parla</button><input id="voiceText" placeholder="La trascrizione apparirà qui"></div>
     <div id="voiceStatus" class="status">Usa Chrome/Edge con microfono autorizzato.</div>
     <button id="useVoiceBtn" class="primary" style="margin-top:6px">Usa trascrizione</button>
-  </div>
-
-  <div class="import-box">
-    <h3>Importa da PDF</h3>
-    <input id="pdfFile" type="file" accept=".pdf,application/pdf">
-    <div id="pdfStatus" class="status"></div>
-    <div id="pdfPreview" class="import-preview hidden"></div>
-    <button id="parsePdfBtn" style="margin-top:8px" class="hidden">Riconosci impegni dal testo</button>
-    <div id="pdfResults" style="margin-top:8px"></div>
   </div>
 </aside>
 
@@ -101,12 +92,10 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
 </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 const KEY="agenda_semplice_v1";
 const OVERRIDE_KEY="agenda_semplice_agent_overrides_v1";
 const HIGHLIGHT_KEY="agenda_semplice_highlights_v1";
-const DB_NAME="agenda_semplice_files_v1";
 let agentOverrides=JSON.parse(localStorage.getItem(OVERRIDE_KEY)||"{}");
 let dayHighlights=JSON.parse(localStorage.getItem(HIGHLIGHT_KEY)||"{}");
 let highlightMode=false;
@@ -120,7 +109,6 @@ async function deleteAttachment(id){const db=await openFilesDB();return new Prom
 async function renameAttachment(id,name){const db=await openFilesDB();return new Promise((resolve,reject)=>{const tx=db.transaction("files","readwrite"),st=tx.objectStore("files"),q=st.get(id);q.onsuccess=()=>{const f=q.result;if(!f){reject(new Error("Documento non trovato"));return}f.name=name;st.put(f)};tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
 async function openAttachment(id){const db=await openFilesDB();const f=await new Promise((resolve,reject)=>{const q=db.transaction("files","readonly").objectStore("files").get(id);q.onsuccess=()=>resolve(q.result);q.onerror=()=>reject(q.error)});if(!f)return;const url=URL.createObjectURL(f.blob);window.open(url,"_blank");setTimeout(()=>URL.revokeObjectURL(url),60000)}
 async function renderEventAttachments(eventId,row){const files=await getAttachments(eventId);const docs=document.createElement("div");docs.className="event-docs";docs.innerHTML='<div class="event-doc-head"><span class="doc-badge">📎 '+(files.length?files.length+" documento/i":"Nessun documento")+'</span><button type="button" data-upload-doc="'+eventId+'">+ Carica documenti</button></div>';if(files.length){const list=document.createElement("div");list.className="event-doc-list";files.forEach(f=>{const item=document.createElement("div");item.className="event-doc-item";item.innerHTML='<span title="'+esc(f.name)+'">📄 '+esc(f.name)+'</span><div class="event-doc-actions"><button type="button" data-open-doc="'+f.id+'">Apri</button><button type="button" data-rename-doc="'+f.id+'">Rinomina</button><button type="button" class="danger" data-delete-doc="'+f.id+'">Elimina</button></div>';list.appendChild(item)});docs.appendChild(list)}row.appendChild(docs)}
-if(window.pdfjsLib){window.pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";}
 const pad=n=>String(n).padStart(2,"0");
 const iso=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
 const today=iso(new Date());
@@ -140,12 +128,11 @@ const missing=INITIAL_OCTOBER_EVENTS.filter(e=>!existingIds.has(e.id));
 if(missing.length){events.push(...missing);localStorage.setItem(KEY,JSON.stringify(events));}
 let cursor=new Date(); cursor.setDate(1);
 let selected=today;
-let pdfText="";
 
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 function save(){localStorage.setItem(KEY,JSON.stringify(events));if(window.agendaCloudSync)window.agendaCloudSync.scheduleSave()}
-function resetForm(){ $("editId").value=""; $("date").value=selected; $("time").value=""; $("title").value=""; $("notes").value=""; $("formTitle").textContent="Nuovo impegno"; }
+function resetForm(){ $("editId").value=""; $("date").value=selected; $("time").value=""; $("title").value=""; $("notes").value=""; $("link").value=""; $("formTitle").textContent="Nuovo impegno"; }
 function dateLabel(v){return new Date(v+"T12:00:00").toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
 function renderCalendar(){
  const y=cursor.getFullYear(),m=cursor.getMonth(), cal=$("calendar");
@@ -176,8 +163,8 @@ function renderDay(){
  if(!arr.length){box.innerHTML='<div class="empty">Nessun impegno per questa giornata.</div>';return}
  arr.forEach(e=>{
    const row=document.createElement("div"); row.className="event"+(e.done?" done":"");
-   row.innerHTML='<div class="bar"></div><div><div class="title"><span class="time">'+(e.time?esc(e.time)+" · ":"")+'</span>'+esc(e.title)+'</div><div class="meta">'+esc(e.notes)+'</div></div><div class="event-actions"><button data-done="'+e.id+'">'+(e.done?"Riapri":"Fatto")+'</button><button data-edit="'+e.id+'">Modifica</button><button class="danger" data-delete="'+e.id+'">Elimina</button></div>';
-   box.appendChild(row); renderEventAttachments(e.id,row);
+   row.innerHTML='<div class="bar"></div><div><div class="title"><span class="time">'+(e.time?esc(e.time)+" · ":"")+'</span>'+esc(e.title)+'</div><div class="meta">'+esc(e.notes)+'</div>'+(e.link?'<div class="event-link"><a href="'+esc(e.link)+'" target="_blank" rel="noopener noreferrer">🔗 '+esc(e.link)+'</a><div class="link-actions"><button type="button" data-open-link="'+e.id+'">Apri</button></div></div>':'')+'</div><div class="event-actions"><label class="event-check"><input type="checkbox" data-done="'+e.id+'" '+(e.done?"checked":"")+'> Svolto</label><button data-edit="'+e.id+'">Modifica</button><button class="danger" data-delete="'+e.id+'">Elimina</button></div>';
+   box.appendChild(row);
  });
 }
 function render(){renderCalendar();renderDay()}
@@ -203,23 +190,24 @@ $("cancelBtn").onclick=resetForm;
 $("form").onsubmit=async e=>{
  e.preventDefault();
  const id=$("editId").value||crypto.randomUUID();
- const item={id,date:$("date").value,time:$("time").value,title:$("title").value.trim(),notes:$("notes").value.trim(),done:false};
+ const item={id,date:$("date").value,time:$("time").value,title:$("title").value.trim(),notes:$("notes").value.trim(),link:$("link").value.trim(),done:false};
  const old=events.find(x=>x.id===id); if(old){item.done=old.done;if(old.automatic){item.automatic=true;item.manualOverride=true;agentOverrides[id]={edited:true};saveOverrides()}}
  const i=events.findIndex(x=>x.id===id); if(i>=0)events[i]=item;else events.push(item);
  selected=item.date; cursor=new Date(item.date+"T12:00:00"); cursor.setDate(1); save(); resetForm(); render();
 };
 $("dayEvents").addEventListener("click",async e=>{
- const openDoc=e.target.closest("[data-open-doc]"), renameDoc=e.target.closest("[data-rename-doc]"), deleteDoc=e.target.closest("[data-delete-doc]"), uploadDoc=e.target.closest("[data-upload-doc]");
- if(openDoc){await openAttachment(openDoc.dataset.openDoc);return}
- if(renameDoc){const current=await getAttachments(renameDoc.dataset.renameDoc);const f=current.find(x=>x.id===renameDoc.dataset.renameDoc);if(f){const name=prompt("Nuovo nome del documento:",f.name);if(name&&name.trim()&&name.trim()!==f.name){await renameAttachment(f.id,name.trim());renderDay()}}return}
- if(deleteDoc){if(confirm("Eliminare definitivamente questo documento?")){await deleteAttachment(deleteDoc.dataset.deleteDoc);renderDay()}return}
- if(uploadDoc){$("eventAttachmentInput").dataset.eventId=uploadDoc.dataset.uploadDoc;$("eventAttachmentInput").value="";$("eventAttachmentInput").click();return}
+ const openLink=e.target.closest("[data-open-link]");
+ if(openLink){
+   const item=events.find(x=>x.id===openLink.dataset.openLink);
+   if(item?.link) window.open(item.link,"_blank","noopener,noreferrer");
+   return;
+ }
  const done=e.target.closest("[data-done]"), edit=e.target.closest("[data-edit]"), del=e.target.closest("[data-delete]");
  const id=(done||edit||del)?.dataset?.[done?"done":edit?"edit":"delete"]; if(!id)return;
  const item=events.find(x=>x.id===id); if(!item)return;
- if(done){item.done=!item.done}
+ if(done){item.done=done.checked}
  if(del && confirm("Eliminare questo impegno?")) {if(item.automatic){agentOverrides[id]={deleted:true};saveOverrides()} events=events.filter(x=>x.id!==id);}
- if(edit){$("editId").value=item.id;$("date").value=item.date;$("time").value=item.time||"";$("title").value=item.title;$("notes").value=item.notes||"";$("formTitle").textContent=item.automatic?"Modifica aggiornamento automatico":"Modifica impegno";}
+ if(edit){$("editId").value=item.id;$("date").value=item.date;$("time").value=item.time||"";$("title").value=item.title;$("notes").value=item.notes||"";$("link").value=item.link||"";$("formTitle").textContent=item.automatic?"Modifica aggiornamento automatico":"Modifica impegno";}
  save();render();
 });
 function setHighlightMode(on){
@@ -249,7 +237,6 @@ $("clearHighlightBtn").onclick=()=>{
 $("printBtn").onclick=()=>window.print();
 $("backupBtn").onclick=()=>{const b=new Blob([JSON.stringify(events,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="backup-calendario.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)};
 $("restoreBtn").onclick=()=>$("restoreFile").click();
-$("eventAttachmentInput").addEventListener("change",async e=>{const eventId=e.target.dataset.eventId;const files=[...e.target.files];if(!eventId||!files.length)return;for(const file of files)await saveAttachment(eventId,file);e.target.value="";delete e.target.dataset.eventId;renderDay()});
 $("restoreFile").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const x=JSON.parse(await f.text());if(!Array.isArray(x))throw 0;events=x;save();render();alert("Backup ripristinato.")}catch{alert("File non valido.")}e.target.value=""};
 
 let recognition=null;
@@ -268,43 +255,6 @@ $("useVoiceBtn").onclick=()=>{
  $("title").focus();
 };
 
-$("pdfFile").onchange=async e=>{
- const f=e.target.files[0];if(!f)return;
- $("pdfStatus").textContent="Lettura del PDF...";
- try{
-   if(!window.pdfjsLib) throw new Error("Libreria PDF non disponibile");
-   const data=await f.arrayBuffer(),pdf=await window.pdfjsLib.getDocument({data}).promise; let out=[];
-   for(let p=1;p<=pdf.numPages;p++){const page=await pdf.getPage(p),content=await page.getTextContent();out.push(content.items.map(x=>x.str).join(" "))}
-   pdfText=out.join("\n"); $("pdfPreview").textContent=pdfText||"Nessun testo estraibile: il PDF potrebbe essere una scansione."; $("pdfPreview").classList.remove("hidden");
-   $("parsePdfBtn").classList.toggle("hidden",!pdfText.trim()); $("pdfStatus").textContent=pdfText.trim()?"PDF letto.":"PDF senza testo estraibile.";
- }catch(err){console.error("PDF import error:",err);$("pdfStatus").textContent="Impossibile leggere il PDF. Controlli la connessione Internet e riprovi."}
-};
-function parseLines(text){
- const lines=text.split(/\n+/).map(x=>x.trim()).filter(Boolean), found=[];
- const dateRe=/(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{2,4})/;
- const timeRe=/(\d{1,2}):(\d{2})/;
- let currentDate="";
- for(const line of lines){
-   const dm=line.match(dateRe);
-   if(dm){let y=dm[3];if(y.length===2)y="20"+y;currentDate=y+"-"+pad(dm[2])+"-"+pad(dm[1])}
-   const tm=line.match(timeRe);
-   if(currentDate && tm){
-     let title=line.replace(dateRe,"").replace(timeRe,"").replace(/[-–—|•]/g," ").trim();
-     if(title.length<2)title="Impegno importato dal PDF";
-     found.push({date:currentDate,time:pad(tm[1])+":"+tm[2],title});
-   }
- }
- return found;
-}
-$("parsePdfBtn").onclick=()=>{
- const found=parseLines(pdfText),box=$("pdfResults");box.innerHTML="";
- if(!found.length){box.textContent="Non ho trovato automaticamente righe con data e ora. Puoi copiare il testo nel campo Note e salvarlo manualmente.";return}
- found.forEach(x=>{
-   const b=document.createElement("button");b.style.display="block";b.style.width="100%";b.style.textAlign="left";b.style.marginTop="5px";b.textContent=x.date+" "+x.time+" — "+x.title;
-   b.onclick=()=>{selected=x.date;cursor=new Date(x.date+"T12:00:00");cursor.setDate(1);$("date").value=x.date;$("time").value=x.time;$("title").value=x.title;$("notes").value="Importato da PDF.";render();$("title").focus()};
-   box.appendChild(b);
- });
-};
 async function loadAgentData(){
  try{
    const r=await fetch("agenda-agent.json?ts="+Date.now(),{cache:"no-store"});
