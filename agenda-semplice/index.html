@@ -113,6 +113,43 @@ const pad=n=>String(n).padStart(2,"0");
 const iso=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
 const today=iso(new Date());
 let events=JSON.parse(localStorage.getItem(KEY)||"[]");
+
+/* Deduplicazione logica: stessa data + ora + titolo = stesso impegno.
+   In caso di conflitto preserviamo lo stato più informativo (svolto, note, link)
+   e preferiamo la versione manuale/modificata rispetto a quella automatica. */
+function eventLogicalKey(e){
+  const norm=v=>String(v??"").trim().replace(/\s+/g," ").toLowerCase();
+  return [e?.date||"",e?.time||"",norm(e?.title)].join("|");
+}
+function dedupeEvents(list){
+  const map=new Map();
+  for(const raw of (Array.isArray(list)?list:[])){
+    if(!raw || typeof raw!=="object") continue;
+    const e={...raw};
+    const key=eventLogicalKey(e);
+    if(!key.replace(/\|/g,"")) continue;
+    const prev=map.get(key);
+    if(!prev){map.set(key,e);continue;}
+
+    const prevManual=!!prev.manualOverride || !prev.automatic;
+    const currManual=!!e.manualOverride || !e.automatic;
+    const base=currManual && !prevManual ? e : prev;
+
+    map.set(key,{
+      ...prev,
+      ...e,
+      ...base,
+      id:base.id || prev.id || e.id,
+      done:!!(prev.done || e.done),
+      notes:(base.notes||prev.notes||e.notes||"").trim(),
+      link:base.link || prev.link || e.link || "",
+      automatic:!!(prev.automatic && e.automatic),
+      manualOverride:!!(prev.manualOverride || e.manualOverride)
+    });
+  }
+  return [...map.values()];
+}
+
 const INITIAL_OCTOBER_EVENTS=[
  {date:"2026-10-12",time:"15:30",title:"Consiglio di classe — 4Fsa",notes:"Consiglio di classe del mese di ottobre 2026."},
  {date:"2026-10-12",time:"16:30",title:"Consiglio di classe — 2Fsa",notes:"Consiglio di classe del mese di ottobre 2026."},
@@ -136,13 +173,24 @@ const missingRecovered=RECOVERED_OCTOBER_EVENTS.filter(e=>!recoveredIds.has(e.id
 if(missingRecovered.length){events.push(...missingRecovered);localStorage.setItem(KEY,JSON.stringify(events));}
 const existingIds=new Set(events.map(e=>e.id));
 const missing=INITIAL_OCTOBER_EVENTS.filter(e=>!existingIds.has(e.id));
-if(missing.length){events.push(...missing);localStorage.setItem(KEY,JSON.stringify(events));}
+if(missing.length)events.push(...missing);
+const dedupedAtStartup=dedupeEvents(events);
+if(JSON.stringify(dedupedAtStartup)!==JSON.stringify(events)){
+  events=dedupedAtStartup;
+  localStorage.setItem(KEY,JSON.stringify(events));
+}else if(missing.length){
+  localStorage.setItem(KEY,JSON.stringify(events));
+}
 let cursor=new Date(); cursor.setDate(1);
 let selected=today;
 
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
-function save(){localStorage.setItem(KEY,JSON.stringify(events));if(window.agendaCloudSync)window.agendaCloudSync.scheduleSave()}
+function save(){
+  events=dedupeEvents(events);
+  localStorage.setItem(KEY,JSON.stringify(events));
+  if(window.agendaCloudSync)window.agendaCloudSync.scheduleSave()
+}
 function resetForm(){ $("editId").value=""; $("date").value=selected; $("time").value=""; $("title").value=""; $("notes").value=""; $("link").value=""; $("formTitle").textContent="Nuovo impegno"; }
 function dateLabel(v){return new Date(v+"T12:00:00").toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
 function renderCalendar(){
@@ -289,7 +337,12 @@ async function loadAgentData(){
        if(JSON.stringify(old)!==JSON.stringify(merged)){byId.set(e.id,merged);changed=true}
      }
    });
-   if(changed){events=[...byId.values()];save();render();}
+   const mergedAgentEvents=dedupeEvents([...byId.values()]);
+   if(JSON.stringify(mergedAgentEvents)!==JSON.stringify(events)){
+     events=mergedAgentEvents;
+     changed=true;
+   }
+   if(changed){save();render();}
    const when=payload.generatedAt?new Date(payload.generatedAt).toLocaleString("it-IT"):"non disponibile";
    $("agentStatus").textContent="🤖 Agente attivo · ultimo controllo: "+when;
  }catch(err){
@@ -326,7 +379,7 @@ window.agendaCloudBridge={
     for(const auto of automaticOnly){
       if(!localById.has(auto.id)) localById.set(auto.id,auto);
     }
-    events=[...localById.values()];
+    events=dedupeEvents([...localById.values()]);
     save();
     render();
   }
