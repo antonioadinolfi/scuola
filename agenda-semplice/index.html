@@ -318,7 +318,7 @@ window.addEventListener("agenda-auth-ready",function(){
 document.getElementById("cloudBtn").addEventListener("click",function(){
   if(window.agendaCloudSync)window.agendaCloudSync.authorize();
 });
-if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(()=>{});}
+if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).then(r=>r.update()).catch(()=>{});}
 resetForm();render();loadAgentData();
 </script>
 <script src="https://accounts.google.com/gsi/client" async defer></script>
