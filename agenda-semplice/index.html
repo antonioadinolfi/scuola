@@ -291,7 +291,7 @@ window.agendaCloudBridge={
     return {
       version:1,
       updatedAt:new Date().toISOString(),
-      events:events.filter(e=>!e.automatic || e.manualOverride),
+      events:events,
       agentOverrides:agentOverrides,
       dayHighlights:dayHighlights
     };
@@ -303,7 +303,11 @@ window.agendaCloudBridge={
     dayHighlights=state.dayHighlights&&typeof state.dayHighlights==="object"?state.dayHighlights:{};
     localStorage.setItem(OVERRIDE_KEY,JSON.stringify(agentOverrides));
     localStorage.setItem(HIGHLIGHT_KEY,JSON.stringify(dayHighlights));
-    events=[...automaticOnly,...state.events];
+    const byId=new Map(state.events.map(e=>[e.id,e]));
+    const auto=automaticOnly.map(x=>byId.has(x.id)?{...x,...byId.get(x.id)}:x);
+    const autoIds=new Set(automaticOnly.map(x=>x.id));
+    const other=state.events.filter(x=>!autoIds.has(x.id));
+    events=[...auto,...other];
     save();
     render();
   }
