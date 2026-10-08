@@ -272,6 +272,43 @@ def import_school_site():
     return list(found.values())
 
 
+def event_logical_key(event):
+    """Stable logical identity used to collapse duplicate automatic events."""
+    def norm(value):
+        return re.sub(r"\\s+", " ", str(value or "").strip()).lower()
+    return "|".join([
+        norm(event.get("date")),
+        norm(event.get("time")),
+        norm(event.get("title")),
+    ])
+
+
+def dedupe_events(events):
+    """Collapse automatic events with the same date, time and title."""
+    by_key = {}
+    for event in events:
+        key = event_logical_key(event)
+        if key not in by_key:
+            by_key[key] = event
+            continue
+
+        current = by_key[key]
+        # Prefer Google Calendar as the richer/authoritative automatic source.
+        current_type = current.get("sourceType", "")
+        new_type = event.get("sourceType", "")
+        if new_type == "google_calendar" and current_type != "google_calendar":
+            base, other = event, current
+        else:
+            base, other = current, event
+
+        merged = {**other, **base}
+        if not merged.get("notes"):
+            merged["notes"] = other.get("notes", "")
+        by_key[key] = merged
+
+    return list(by_key.values())
+
+
 def main():
     old = {}
     if OUT.exists():
@@ -316,8 +353,9 @@ def main():
     for event in calendar_found:
         merged[event["id"]] = event
 
+    events = dedupe_events(list(merged.values()))
     events = sorted(
-        merged.values(),
+        events,
         key=lambda x: (
             x.get("date", "9999"),
             x.get("time", "99:99"),
