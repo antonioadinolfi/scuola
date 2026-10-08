@@ -6,11 +6,11 @@ Funzioni:
 - calendario mensile;
 - inserimento manuale;
 - dettatura vocale del browser;
-- importazione di PDF testuali con estrazione automatica di data/ora;
+- inserimento di link web negli appuntamenti;
 - modifica, completamento ed eliminazione;
 - ricerca e stampa;
 - backup/ripristino JSON;
-- documenti allegati agli appuntamenti, salvati localmente nel browser;
+- collegamenti web associati agli appuntamenti;
 - importazione automatica degli impegni dal sito della scuola;
 - sincronizzazione opzionale con Google Calendar tramite indirizzo segreto iCal;
 - PWA e Service Worker.
