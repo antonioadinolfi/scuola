@@ -123,6 +123,16 @@ const INITIAL_OCTOBER_EVENTS=[
  {date:"2026-10-14",time:"17:00",title:"Consiglio di classe — 1Asa",notes:"Consiglio di classe del mese di ottobre 2026."},
  {date:"2026-10-16",time:"17:00",title:"Consiglio di classe — 5Csa",notes:"Consiglio di classe del mese di ottobre 2026."}
 ].map(x=>({...x,id:"pdf-oct-"+x.date+"-"+x.time+"-"+x.title.replace(/[^A-Za-z0-9]/g,""),done:false}));
+const RECOVERED_OCTOBER_EVENTS=[
+ {id:"manual-oct-2026-10-03-1530-modena",date:"2026-10-03",time:"15:30",title:"Modena",notes:""},
+ {id:"manual-oct-2026-10-05-1500-corso-invalsi",date:"2026-10-05",time:"15:00",title:"Corso INVALSI",notes:""},
+ {id:"manual-oct-2026-10-06-1630-webinar-invalsi",date:"2026-10-06",time:"16:30",title:"Webinar INVALSI",notes:""},
+ {id:"manual-oct-2026-10-07-1600-webinar-ctf",date:"2026-10-07",time:"16:00",title:"Webinar CTF",notes:""},
+ {id:"manual-oct-2026-10-08-1200-riunione-posca",date:"2026-10-08",time:"12:00",title:"Riunione dott. POSCA",notes:""}
+];
+const recoveredIds=new Set(events.map(e=>e.id));
+const missingRecovered=RECOVERED_OCTOBER_EVENTS.filter(e=>!recoveredIds.has(e.id));
+if(missingRecovered.length){events.push(...missingRecovered);localStorage.setItem(KEY,JSON.stringify(events));}
 const existingIds=new Set(events.map(e=>e.id));
 const missing=INITIAL_OCTOBER_EVENTS.filter(e=>!existingIds.has(e.id));
 if(missing.length){events.push(...missing);localStorage.setItem(KEY,JSON.stringify(events));}
@@ -303,11 +313,19 @@ window.agendaCloudBridge={
     dayHighlights=state.dayHighlights&&typeof state.dayHighlights==="object"?state.dayHighlights:{};
     localStorage.setItem(OVERRIDE_KEY,JSON.stringify(agentOverrides));
     localStorage.setItem(HIGHLIGHT_KEY,JSON.stringify(dayHighlights));
-    const byId=new Map(state.events.map(e=>[e.id,e]));
-    const auto=automaticOnly.map(x=>byId.has(x.id)?{...x,...byId.get(x.id)}:x);
-    const autoIds=new Set(automaticOnly.map(x=>x.id));
-    const other=state.events.filter(x=>!autoIds.has(x.id));
-    events=[...auto,...other];
+    const remoteById=new Map(state.events.map(e=>[e.id,e]));
+    const localById=new Map(events.map(e=>[e.id,e]));
+    // Never discard local events merely because another device has not uploaded them yet.
+    // Remote values win only for matching IDs; new remote events are added.
+    for(const remote of state.events){
+      if(localById.has(remote.id)) localById.set(remote.id,{...localById.get(remote.id),...remote});
+      else localById.set(remote.id,remote);
+    }
+    // Automatic events already present locally remain authoritative until the agent refreshes them.
+    for(const auto of automaticOnly){
+      if(!localById.has(auto.id)) localById.set(auto.id,auto);
+    }
+    events=[...localById.values()];
     save();
     render();
   }
