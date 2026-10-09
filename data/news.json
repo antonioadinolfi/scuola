@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-08T23:06:59+00:00",
+  "updatedAt": "2026-10-09T05:23:37+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,24 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "“Il cinema in classe”: il cinema come spazio di incontro, scoperta e condivisione per alunni e insegnanti. Webinar gratuito in collaborazione con UCI Cinemas per le scuole di ogni ordine e grado",
+          "link": "https://www.orizzontescuola.it/il-cinema-in-classe-il-cinema-come-spazio-di-incontro-scoperta-e-condivisione-per-alunni-e-insegnanti-webinar-gratuito-in-collaborazione-con-uci-cinemas-per-le-scuole-di-ogni-ordine-e-grado/",
+          "pubDate": "Fri, 09 Oct 2026 05:10:40 +0000",
+          "description": "Il cinema può diventare un potente strumento didattico per accompagnare gli studenti nel loro percorso di crescita, affrontando attraverso il linguaggio cinemat…"
+        },
+        {
+          "title": "Alla scoperta di eTwinning: webinar gratuito per aprire la tua scuola alla collaborazione europea",
+          "link": "https://www.orizzontescuola.it/alla-scoperta-di-etwinning-webinar-gratuito-per-aprire-la-tua-scuola-alla-collaborazione-europea/",
+          "pubDate": "Fri, 09 Oct 2026 05:08:49 +0000",
+          "description": "Portare l’Europa in classe, costruire progetti con scuole di altri Paesi e sperimentare una didattica più collaborativa e interdisciplinare: sono alcune delle o…"
+        },
+        {
+          "title": "Spunti di educazione civica: webinar gratuito su educazione finanziaria e cybersecurity in collaborazione con Museo del Risparmio",
+          "link": "https://www.orizzontescuola.it/spunti-di-educazione-civica-webinar-gratuito-su-educazione-finanziaria-e-cybersecurity-in-collaborazione-con-museo-del-risparmio/",
+          "pubDate": "Fri, 09 Oct 2026 05:00:47 +0000",
+          "description": "Educazione finanziaria e cybersecurity sono due competenze sempre più importanti per formare studenti capaci di muoversi con consapevolezza nella società digita…"
+        },
+        {
           "title": "Il decreto sull’intelligenza artificiale approda in Gazzetta: 100 milioni per la formazione dei docenti e tutele per i lavoratori",
           "link": "https://www.orizzontescuola.it/il-decreto-sullintelligenza-artificiale-approda-in-gazzetta-100-milioni-per-la-formazione-dei-docenti-e-tutele-per-i-lavoratori/",
           "pubDate": "Thu, 08 Oct 2026 20:04:30 +0000",
@@ -62,24 +80,6 @@
           "link": "https://www.orizzontescuola.it/licei-in-protesta-in-francia-lunicef-chiede-il-voto-a-16-anni-e-tutele-per-i-minori-in-piazza/",
           "pubDate": "Thu, 08 Oct 2026 19:15:24 +0000",
           "description": "Ascoltare la voce degli studenti senza usare la mano pesante della repressione. L'articolo Licei in protesta in Francia, l&#8217;Unicef chiede il voto a 16 anni…"
-        },
-        {
-          "title": "Francia, 3.000 supplenti nelle scuole più critiche: la risposta di Geffray al caos nei licei",
-          "link": "https://www.orizzontescuola.it/francia-3-000-supplenti-nelle-scuole-piu-critiche-la-risposta-di-geffray-al-caos-nei-licei/",
-          "pubDate": "Thu, 08 Oct 2026 19:11:53 +0000",
-          "description": "3000 professori pronti a varcare la soglia delle aule più scoperte della Francia tra questo venerdì e martedì prossimo. L'articolo Francia, 3.000 supplenti nell…"
-        },
-        {
-          "title": "Si finge docente per noia e insulta gli studenti in classe: nei guai una 23enne a Milwaukee",
-          "link": "https://www.orizzontescuola.it/si-finge-docente-per-noia-e-insulta-gli-studenti-in-classe-nei-guai-una-23enne-a-milwaukee/",
-          "pubDate": "Thu, 08 Oct 2026 18:52:38 +0000",
-          "description": "La motivazione consegnata agli investigatori fa quasi più spavento della bravata in sé: “Mi annoiavo e odio i bambini”. L'articolo Si finge docente per noia e i…"
-        },
-        {
-          "title": "PDP e svantaggio socio-familiare: il Consiglio di Classe può attivarlo anche senza diagnosi?",
-          "link": "https://www.orizzontescuola.it/pdp-e-svantaggio-socio-familiare-il-consiglio-di-classe-puo-attivarlo-anche-senza-diagnosi/",
-          "pubDate": "Thu, 08 Oct 2026 18:35:42 +0000",
-          "description": "Di fronte a situazioni di marcato disagio socio-familiare che ostacolano il percorso di un alunno, i docenti si chiedono spesso se sia possibile predisporre un…"
         }
       ]
     },
