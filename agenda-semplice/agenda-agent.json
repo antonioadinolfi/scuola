@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T06:07:42.007810+00:00",
+  "generatedAt": "2026-10-09T11:18:34.395Z",
   "source": "https://www.liceoscientificocortese.edu.it",
   "calendarSync": {
     "configured": false,
@@ -97,6 +97,72 @@
       "source": "consigli di classe ottobre 2026.pdf",
       "class": "5Csa",
       "automatic": true
+    },
+    {
+      "id": "smart-admin-2026-10-19-presenza",
+      "date": "2026-10-19",
+      "time": "13:30",
+      "title": "Corso Smart Admin — in presenza (13:30–15:00)",
+      "notes": "Corso Smart Admin promosso nell'ambito degli Snodi formativi, destinato al personale ATA, al DS e al DSGA. Ruolo: tutor. Durata incontro: 13:30–15:00.",
+      "category": "appuntamento",
+      "source": "Calendario corso Smart Admin comunicato via e-mail",
+      "sourceType": "manual_course",
+      "automatic": false
+    },
+    {
+      "id": "smart-admin-2026-10-27-online",
+      "date": "2026-10-27",
+      "time": "16:00",
+      "title": "Corso Smart Admin — online (16:00–19:00)",
+      "notes": "Corso Smart Admin promosso nell'ambito degli Snodi formativi, destinato al personale ATA, al DS e al DSGA. Ruolo: tutor. Durata incontro: 16:00–19:00.",
+      "category": "appuntamento",
+      "source": "Calendario corso Smart Admin comunicato via e-mail",
+      "sourceType": "manual_course",
+      "automatic": false
+    },
+    {
+      "id": "smart-admin-2026-11-04-online",
+      "date": "2026-11-04",
+      "time": "16:00",
+      "title": "Corso Smart Admin — online (16:00–19:00)",
+      "notes": "Corso Smart Admin promosso nell'ambito degli Snodi formativi, destinato al personale ATA, al DS e al DSGA. Ruolo: tutor. Durata incontro: 16:00–19:00.",
+      "category": "appuntamento",
+      "source": "Calendario corso Smart Admin comunicato via e-mail",
+      "sourceType": "manual_course",
+      "automatic": false
+    },
+    {
+      "id": "smart-admin-2026-11-09-presenza",
+      "date": "2026-11-09",
+      "time": "13:30",
+      "title": "Corso Smart Admin — in presenza (13:30–15:00)",
+      "notes": "Corso Smart Admin promosso nell'ambito degli Snodi formativi, destinato al personale ATA, al DS e al DSGA. Ruolo: tutor. Durata incontro: 13:30–15:00.",
+      "category": "appuntamento",
+      "source": "Calendario corso Smart Admin comunicato via e-mail",
+      "sourceType": "manual_course",
+      "automatic": false
+    },
+    {
+      "id": "smart-admin-2026-11-23-online",
+      "date": "2026-11-23",
+      "time": "16:00",
+      "title": "Corso Smart Admin — online (16:00–19:00)",
+      "notes": "Corso Smart Admin promosso nell'ambito degli Snodi formativi, destinato al personale ATA, al DS e al DSGA. Ruolo: tutor. Durata incontro: 16:00–19:00.",
+      "category": "appuntamento",
+      "source": "Calendario corso Smart Admin comunicato via e-mail",
+      "sourceType": "manual_course",
+      "automatic": false
+    },
+    {
+      "id": "smart-admin-2026-12-10-online",
+      "date": "2026-12-10",
+      "time": "16:00",
+      "title": "Corso Smart Admin — online (16:00–19:00)",
+      "notes": "Corso Smart Admin promosso nell'ambito degli Snodi formativi, destinato al personale ATA, al DS e al DSGA. Ruolo: tutor. Durata incontro: 16:00–19:00.",
+      "category": "appuntamento",
+      "source": "Calendario corso Smart Admin comunicato via e-mail",
+      "sourceType": "manual_course",
+      "automatic": false
     }
   ]
 }
