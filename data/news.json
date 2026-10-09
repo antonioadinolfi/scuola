@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-09T19:21:09+00:00",
+  "updatedAt": "2026-10-09T23:53:33+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Manovre salvavita in classe, al via il percorso gratuito per insegnanti “divulgatori” di primo soccorso",
+          "link": "https://www.orizzontescuola.it/manovre-salvavita-in-classe-al-via-il-percorso-gratuito-per-insegnanti-divulgatori-di-primo-soccorso/",
+          "pubDate": "Fri, 09 Oct 2026 19:43:12 +0000",
+          "description": "Ogni anno in Europa si registrano circa 400.000 arresti cardiaci extraospedalieri, di cui 60.000 solo in Italia, dove la percentuale di sopravvivenza si attesta…"
+        },
+        {
+          "title": "Fumo, è epidemia tra gli adolescenti. L’allarme dei pediatri: “Dipendenza anche con due sigarette a settimana”",
+          "link": "https://www.orizzontescuola.it/fumo-e-epidemia-tra-gli-adolescenti-lallarme-dei-pediatri-dipendenza-anche-con-due-sigarette-a-settimana/",
+          "pubDate": "Fri, 09 Oct 2026 19:32:21 +0000",
+          "description": "Negli adolescenti la dipendenza da nicotina può scattare anche con appena due sigarette a settimana, e la crescente diffusione di e-cig, pod-mod e sacchetti ora…"
+        },
+        {
           "title": "Non è solo “un momento di rabbia”: cosa succede davvero nel cervello di un bambino quando gli urliamo contro. La risposta in uno studio internazionale lungo 15 anni",
           "link": "https://www.orizzontescuola.it/non-e-solo-un-momento-di-rabbia-cosa-succede-davvero-nel-cervello-di-un-bambino-quando-gli-urliamo-contro-la-risposta-in-uno-studio-internazionale-lungo-15-anni/",
           "pubDate": "Fri, 09 Oct 2026 19:06:12 +0000",
@@ -68,18 +80,6 @@
           "link": "https://www.orizzontescuola.it/scontro-durante-una-staffetta-a-scuola-alunno-si-rompe-tre-denti-ma-nessun-risarcimento-alla-famiglia-il-tribunale-da-ragione-allistituto-la-vigilanza-cera-lurto-era-inevitabile/",
           "pubDate": "Fri, 09 Oct 2026 17:55:55 +0000",
           "description": "Nessun risarcimento per i genitori di un bambino che ha riportato la frattura di tre denti definitivi durante una gara di staffetta a scuola. L'articolo Scontro…"
-        },
-        {
-          "title": "Assegno Unico e Assegno per il Nucleo Familiare a confronto: come orientarsi tra requisiti, novità e importi",
-          "link": "https://www.orizzontescuola.it/assegno-unico-e-assegno-per-il-nucleo-familiare-a-confronto-come-orientarsi-tra-requisiti-novita-e-importi/",
-          "pubDate": "Fri, 09 Oct 2026 17:32:07 +0000",
-          "description": "Quando si parla di sostegni economici per la famiglia, orientarsi tra acronimi, circolari dell’INPS e requisiti di reddito può sembrare un’impresa. La domanda c…"
-        },
-        {
-          "title": "Stipendi docenti, il Codacons: “Non basta la passione, serve un aumento adeguato. Tutelare il potere d’acquisto”",
-          "link": "https://www.orizzontescuola.it/stipendi-docenti-il-codacons-non-basta-la-passione-serve-un-aumento-adeguato-tutelare-il-potere-dacquisto/",
-          "pubDate": "Fri, 09 Oct 2026 17:27:43 +0000",
-          "description": "Gli insegnanti italiani della scuola secondaria di primo grado percepiscono retribuzioni mediamente inferiori del 33% rispetto a quelle degli altri lavoratori c…"
         }
       ]
     },
@@ -93,28 +93,28 @@
           "description": "Per Sefcovic l’intesa sulle auto ibride con Pechino “apre la prospettiva di ridurre di oltre la metà le esportazioni cinesi”. Terzo ciclo di incontri a marzo 20…"
         },
         {
-          "title": "Mattarella ha promulgato la legge elettorale",
-          "link": "https://www.ilsole24ore.com/art/mattarella-ha-promulgato-legge-elettorale-AJfVp7eB",
-          "pubDate": "Fri, 9 Oct 2026 17:23:00 GMT",
-          "description": "In serata il via libera dopo l’esame dell’ultima versione della legge"
+          "title": "Guerra, ultime notizie. Trump sente Putin: subito 300mila tonnellate di gasolio russo sul mercato. Zelensky: decisione indegna",
+          "link": "https://www.ilsole24ore.com/art/ucraina-mosca-ha-attaccato-mercantile-porto-mykolaiv-AJPmAOeB",
+          "pubDate": "Fri, 9 Oct 2026 07:38:00 GMT",
+          "description": "«Ho appena concluso un colloquio di grande successo con il presidente russo Vladimir Putin, nel corso del quale è stato concordato che la Russia fornirà immedia…"
+        },
+        {
+          "title": "Borse, settimana turbolenta per l'Europa. Milano (-4,1%) la peggiore con le banche. WS +0,83%",
+          "link": "https://www.ilsole24ore.com/art/borse-asia-rosso-timori-titoli-tech-petrolio-calo-AJWb0HeB",
+          "pubDate": "Fri, 9 Oct 2026 05:31:00 GMT",
+          "description": "La corsa dei rendimenti delle ultime sedute inquieta i mercati. Intanto, le tensioni in Medio Oriente mantengono elevati i prezzi dell'energia: +6,4% il gas nel…"
+        },
+        {
+          "title": "Olio, la ripresa della produzione spagnola affossa l’extravergine italiano: prezzo giù del 47%",
+          "link": "https://www.ilsole24ore.com/art/olio-ripresa-produzione-spagnola-affossa-l-extravergine-italiano-prezzo-giu-47percento-AJKxKveB",
+          "pubDate": "Fri, 9 Oct 2026 17:27:00 GMT",
+          "description": "Dopo due annate di scarsità di offerta (dovuta al buco produttivo spagnolo a sua volta causato dalla siccità) per il mercato mondiale dell’olio d’oliva si profi…"
         },
         {
           "title": "SpaceX sbarca nella telefonia mobile",
           "link": "https://www.ilsole24ore.com/art/spacex-sbarca-telefonia-mobile-AJ7L98eB",
           "pubDate": "Fri, 9 Oct 2026 17:43:00 GMT",
           "description": "Il colosso di Elon Musk ha acquistato da Grain Management un pacchetto di licenze per la banda bassa degli 800 MHz"
-        },
-        {
-          "title": "Opa su Iveco Group, Tata rilancia di 0,3 euro",
-          "link": "https://www.ilsole24ore.com/art/opa-iveco-group-tata-rilancia-03-euro-AJ5J17eB",
-          "pubDate": "Fri, 9 Oct 2026 17:48:33 GMT",
-          "description": "Il prezzo dell’Offerta sale da 14,1 a 14,4 euro per azione. Il Cda di Iveco accoglie con favore"
-        },
-        {
-          "title": "Borse, settimana turbolenta per l'Europa. Milano (-4,1%) la peggiore con le banche",
-          "link": "https://www.ilsole24ore.com/art/borse-asia-rosso-timori-titoli-tech-petrolio-calo-AJWb0HeB",
-          "pubDate": "Fri, 9 Oct 2026 05:31:00 GMT",
-          "description": "La corsa dei rendimenti delle ultime sedute inquieta i mercati. Intanto, le tensioni in Medio Oriente mantengono elevati i prezzi dell'energia: +6,4% il gas nel…"
         }
       ]
     }
