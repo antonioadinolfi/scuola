@@ -1,9 +1,15 @@
 {
-  "updatedAt": "2026-10-09T05:23:37+00:00",
+  "updatedAt": "2026-10-09T12:52:04+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
       "items": [
+        {
+          "title": "Avviso – Temporanea indisponibilità delle linee telefoniche",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/10/09/avviso-temporanea-indisponibilita-delle-linee-telefoniche/",
+          "pubDate": "Fri, 09 Oct 2026 11:41:01 +0000",
+          "description": "Si informa l’utenza che, a causa di un guasto tecnico alle linee telefoniche, il Liceo Scientifico Statale “Nino Cortese” di Maddaloni è temporaneamente impossi…"
+        },
         {
           "title": "LEARN. BUILD. GROW. – Costruisci il tuo futuro finanziario",
           "link": "https://www.liceoscientificocortese.edu.it/2026/10/06/learn-build-grow-costruisci-il-tuo-futuro-finanziario/",
@@ -33,12 +39,6 @@
           "link": "https://www.liceoscientificocortese.edu.it/2026/09/25/sport-mare-e-le-emozioni-dellamericas-cup-il-liceo-nino-cortese-di-maddaloni-protagonista-a-napoli/",
           "pubDate": "Fri, 25 Sep 2026 16:18:03 +0000",
           "description": "&#160; Questa mattina gli studenti del Liceo Scientifico &#8220;Nino Cortese&#8221; di Maddaloni, guidati dal Dirigente Scolastico Marcellino Falcone, hanno vis…"
-        },
-        {
-          "title": "Sport, inclusione e riqualificazione: inaugurati i nuovi impianti sportivi all’aperto al Liceo “Nino Cortese” di Maddaloni",
-          "link": "https://www.liceoscientificocortese.edu.it/2026/09/24/sport-inclusione-e-riqualificazione-inaugurati-i-nuovi-impianti-sportivi-allaperto-al-liceo-nino-cortese-di-maddaloni/",
-          "pubDate": "Thu, 24 Sep 2026 17:41:33 +0000",
-          "description": "Mattinata di festa e grande entusiasmo al Liceo Scientifico “Nino Cortese” di Maddaloni, diretta dal Dirigente Falcone Marcellino, dove si è tenuta la cerimonia…"
         }
       ]
     },
@@ -46,40 +46,40 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
-          "title": "“Il cinema in classe”: il cinema come spazio di incontro, scoperta e condivisione per alunni e insegnanti. Webinar gratuito in collaborazione con UCI Cinemas per le scuole di ogni ordine e grado",
-          "link": "https://www.orizzontescuola.it/il-cinema-in-classe-il-cinema-come-spazio-di-incontro-scoperta-e-condivisione-per-alunni-e-insegnanti-webinar-gratuito-in-collaborazione-con-uci-cinemas-per-le-scuole-di-ogni-ordine-e-grado/",
-          "pubDate": "Fri, 09 Oct 2026 05:10:40 +0000",
-          "description": "Il cinema può diventare un potente strumento didattico per accompagnare gli studenti nel loro percorso di crescita, affrontando attraverso il linguaggio cinemat…"
+          "title": "Supplenze temporanee per docenti, convocazioni sono possibili durante tutto l’anno scolastico per gravidanze, malattie, aspettative. Come si calcola punteggio",
+          "link": "https://www.orizzontescuola.it/supplenze-temporanee-per-docenti-convocazioni-sono-possibili-durante-tutto-lanno-scolastico-per-gravidanze-malattie-aspettative-come-si-calcola-punteggio/",
+          "pubDate": "Fri, 09 Oct 2026 12:48:27 +0000",
+          "description": "Nel Question Time del 5 ottobre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Sonia Cannas, docente ed esperta in normativa sc…"
         },
         {
-          "title": "Alla scoperta di eTwinning: webinar gratuito per aprire la tua scuola alla collaborazione europea",
-          "link": "https://www.orizzontescuola.it/alla-scoperta-di-etwinning-webinar-gratuito-per-aprire-la-tua-scuola-alla-collaborazione-europea/",
-          "pubDate": "Fri, 09 Oct 2026 05:08:49 +0000",
-          "description": "Portare l’Europa in classe, costruire progetti con scuole di altri Paesi e sperimentare una didattica più collaborativa e interdisciplinare: sono alcune delle o…"
+          "title": "Diritto alla disconnessione docenti e ATA: comunicazioni fuori orario, festivi e WhatsApp. Dove finisce la norma e dove inizia il buon senso",
+          "link": "https://www.orizzontescuola.it/diritto-alla-disconnessione-docenti-e-ata-comunicazioni-fuori-orario-festivi-e-whatsapp-dove-finisce-la-norma-e-dove-inizia-il-buon-senso/",
+          "pubDate": "Fri, 09 Oct 2026 12:45:59 +0000",
+          "description": "Uno dei temi maggiormente dibattuti all’interno del mondo scolastico è quello relativo al “diritto alla disconnessione”, spesso visto come terreno di scontro tr…"
         },
         {
-          "title": "Spunti di educazione civica: webinar gratuito su educazione finanziaria e cybersecurity in collaborazione con Museo del Risparmio",
-          "link": "https://www.orizzontescuola.it/spunti-di-educazione-civica-webinar-gratuito-su-educazione-finanziaria-e-cybersecurity-in-collaborazione-con-museo-del-risparmio/",
-          "pubDate": "Fri, 09 Oct 2026 05:00:47 +0000",
-          "description": "Educazione finanziaria e cybersecurity sono due competenze sempre più importanti per formare studenti capaci di muoversi con consapevolezza nella società digita…"
+          "title": "Robotica educativa: arriva TAURO | The Automation Cup, la competizione per le scuole secondarie e gli ITS Academy sulla programmazione dei bracci robotici industriali",
+          "link": "https://www.orizzontescuola.it/robotica-educativa-arriva-tauro-the-automation-cup-la-competizione-per-le-scuole-secondarie-e-gli-its-academy-sulla-programmazione-dei-bracci-robotici-industriali/",
+          "pubDate": "Fri, 09 Oct 2026 12:30:55 +0000",
+          "description": "Martedì 13 ottobre un webinar gratuito con attestato presenta il progetto, organizzato da COMAU, Scuola di Robotica e CampuStore Programmare un braccio robotico…"
         },
         {
-          "title": "Il decreto sull’intelligenza artificiale approda in Gazzetta: 100 milioni per la formazione dei docenti e tutele per i lavoratori",
-          "link": "https://www.orizzontescuola.it/il-decreto-sullintelligenza-artificiale-approda-in-gazzetta-100-milioni-per-la-formazione-dei-docenti-e-tutele-per-i-lavoratori/",
-          "pubDate": "Thu, 08 Oct 2026 20:04:30 +0000",
-          "description": "Con la pubblicazione nella Gazzetta Ufficiale n. 234 dell'8 ottobre 2026 è entrato ufficialmente nell'ordinamento il Decreto Legislativo 7 ottobre 2026, n. 179;…"
+          "title": "Portale della Tesoreria dello Stato, adesioni per le scuole da novembre 2026. Due webinar il 21 ottobre e l’11 novembre. NOTA",
+          "link": "https://www.orizzontescuola.it/portale-della-tesoreria-dello-stato-adesioni-per-le-scuole-da-novembre-2026-due-webinar-il-21-ottobre-e-l11-novembre-nota/",
+          "pubDate": "Fri, 09 Oct 2026 11:43:32 +0000",
+          "description": "Il Ministero dell'Istruzione e del Merito, con una nota dell'8 ottobre 2026, richiama l'attenzione delle istituzioni scolastiche sull'avvio del nuovo Portale de…"
         },
         {
-          "title": "La Newsletter di “Gestire la scuola”: ore 8 e 30 del mattino nella tua e-mail le notizie utili a Dirigenti, collaboratori del DS, DSGA e segreterie",
-          "link": "https://www.orizzontescuola.it/la-newsletter-plus-ore-8-del-mattino-nella-tua-e-mail-lo-strumento-di-lavoro-per-chi-gestisce-la-scuola/",
-          "pubDate": "Thu, 08 Oct 2026 20:00:42 +0000",
-          "description": "Dal lunedì al venerdì (possibili edizioni straordinarie il sabato e la domenica), ricevi nella tua casella di posta elettronica gli aggiornamenti quotidiani. Di…"
+          "title": "“Gestire la scuola” senza essere lasciati soli: strumenti, procedure e consulenza. I nostri servizi",
+          "link": "https://www.orizzontescuola.it/gestire-la-scuola-senza-essere-lasciati-soli-strumenti-procedure-e-consulenza-i-nostri-servizi/",
+          "pubDate": "Fri, 09 Oct 2026 11:41:41 +0000",
+          "description": "Gestire una scuola significa affrontare ogni giorno decisioni, procedure, scadenze e responsabilità. Una richiesta di un dipendente, una procedura amministrativ…"
         },
         {
-          "title": "Licei in protesta in Francia, l’Unicef chiede il voto a 16 anni e tutele per i minori in piazza",
-          "link": "https://www.orizzontescuola.it/licei-in-protesta-in-francia-lunicef-chiede-il-voto-a-16-anni-e-tutele-per-i-minori-in-piazza/",
-          "pubDate": "Thu, 08 Oct 2026 19:15:24 +0000",
-          "description": "Ascoltare la voce degli studenti senza usare la mano pesante della repressione. L'articolo Licei in protesta in Francia, l&#8217;Unicef chiede il voto a 16 anni…"
+          "title": "Assente per oltre 440 ore a scuola (il 44% del totale), il TAR respinge il ricorso dell’alunno bocciato: deroghe solo per salute o famiglia",
+          "link": "https://www.orizzontescuola.it/assente-per-oltre-440-ore-a-scuola-il-44-del-totale-il-tar-respinge-il-ricorso-dellalunno-bocciato-deroghe-solo-per-salute-o-famiglia/",
+          "pubDate": "Fri, 09 Oct 2026 11:41:15 +0000",
+          "description": "Un viaggio d'istruzione a Barcellona finisce al centro di un contenzioso amministrativo. Protagonista è uno studente dell'ultimo anno che, nell'anno scolastico…"
         }
       ]
     },
@@ -87,40 +87,40 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Ok Ue all’extradeficit per l’Italia. Dombrovskis: «Esamineremo le richieste sulla flessibilità»",
-          "link": "https://www.ilsole24ore.com/art/flessibilita-contro-caro-prezzi-l-olanda-boccia-l-italia-ha-troppo-debito-si-spagna-AJbtngdB",
-          "pubDate": "Thu, 8 Oct 2026 18:19:00 GMT",
-          "description": "L’Italia incassa il primo via libera di Bruxelles alla clausola di salvaguardia nazionale per energia e difesa. E sulla flessibilità per contenere il caro prezz…"
+          "title": "Affitti brevi: la Consulta boccia la legge dell’Emilia-Romagna",
+          "link": "https://www.ilsole24ore.com/art/affitti-brevi-stop-legge-dell-emilia-romagna-AJ368ZeB",
+          "pubDate": "Fri, 9 Oct 2026 11:07:00 GMT",
+          "description": "La Corte costituzionale boccia due norme della legge che punta a limitare le locazioni turistiche"
         },
         {
-          "title": "Legge elettorale, il plauso di Meloni e la strategia: preparare il voto in primavera senza dirlo",
-          "link": "https://www.ilsole24ore.com/art/il-plauso-meloni-e-strategia-preparare-voto-primavera-senza-dirlo-AJGkIXdB",
-          "pubDate": "Thu, 8 Oct 2026 15:37:00 GMT",
-          "description": "La premier ad Ascoli esulta per il via libera alla riforma elettorale e liquida a «dibattiti surreali» le previsioni sulle urne anticipate. Ma la campagna elett…"
+          "title": "Borse europee respirano con frenata greggio, a Milano rumor UniCredit accendono Banca Generali",
+          "link": "https://www.ilsole24ore.com/art/borse-asia-rosso-timori-titoli-tech-petrolio-calo-AJWb0HeB",
+          "pubDate": "Fri, 9 Oct 2026 05:31:00 GMT",
+          "description": "Secondo Il Sole 24 Ore, l'istituto guidato da Andrea Orcel ha convocato per oggi un cda straordinario con possibile focus sulla banca guidata da Gian Maria Moss…"
         },
         {
-          "title": "Borse ancora ostaggio di bond e greggio, a Milano (-1,3%) nuova caduta per le banche. Wall Street chiude contrastata",
-          "link": "https://www.ilsole24ore.com/art/borsa-indici-giovedi-8-ottobre-2026-AJhb1wcB",
-          "pubDate": "Thu, 8 Oct 2026 05:14:00 GMT",
-          "description": "I rendimenti dei titoli di Stato continuano a rimanere su livelli elevati, mentre prosegue il rally del petrolio con il Brent sopra i 105 dollari al barile. A P…"
+          "title": "Mercati finanziari, accordo Ue sulla vigilanza centralizzata",
+          "link": "https://www.ilsole24ore.com/art/ue-accordo-vigilanza-centralizzata-mercati-finanziari-AJ3ahXeB",
+          "pubDate": "Fri, 9 Oct 2026 10:32:00 GMT",
+          "description": "I Ventisette trovano l’intesa su un testo che «annacqua» la proposta originale della Commissione europea"
         },
         {
-          "title": "Doppio stop per Mps: Agricole respinge l’offerta e il Gruppo Caltagirone voterà contro le ops in assemblea il 29 ottobre",
-          "link": "https://www.ilsole24ore.com/art/mps-gruppo-caltagirone-votera-contro-ops-assemblea-29-ottobre-AJsvL1cB",
-          "pubDate": "Thu, 8 Oct 2026 06:36:00 GMT",
-          "description": "Suonano come un doppio stop le due notizie dal mondo finanziario che riguardano Mps. Da un lato, il gruppo Caltagirone ufficializza il voto contrario nell’assem…"
+          "title": "Von der Leyen: in Ucraina 78 morti in due giorni, sono crimini di guerra",
+          "link": "https://www.ilsole24ore.com/art/ucraina-mosca-ha-attaccato-mercantile-porto-mykolaiv-AJPmAOeB",
+          "pubDate": "Fri, 9 Oct 2026 07:38:00 GMT",
+          "description": "Il presidente ucraino Volodymyr Zelensky annuncia che l’Ucraina ha colpito la raffineria petrolifera russa di Ukhta . Gli ucraini continuano anche ad attaccare…"
         },
         {
-          "title": "La classifica delle migliori aziende dove lavorare: nella top 100 Chiesi e Bending Spoons",
-          "link": "https://www.ilsole24ore.com/art/ecco-aziende-dove-si-lavora-meglio-europa-top-100-chiesi-e-bending-spoons-AJIs66bB",
-          "pubDate": "Thu, 8 Oct 2026 07:00:00 GMT",
-          "description": "Nella classifica di Great place to work sul gradino più alto del podio Hilton, seguita da AbbVie e DHL. Tra i settori premiati dominano l’It, i servizi finanzia…"
+          "title": "Vino, furto da 5 milioni alle cantine Antinori di Cortona",
+          "link": "https://www.ilsole24ore.com/art/vino-furto-5-milioni-cantine-antinori-cortona-AJTjFJeB",
+          "pubDate": "Fri, 9 Oct 2026 05:52:00 GMT",
+          "description": "Secondo Ft, sabato scorso sette ladri hanno portato via 30mila bottiglie dai magazzini dell’azienda fiorentina"
         },
         {
-          "title": "Farnesina sotto attacco hacker dopo le accuse di Mosca a Tajani",
-          "link": "https://www.ilsole24ore.com/art/farnesina-sotto-attacco-hacker-le-accuse-mosca-tajani-AJqknudB",
-          "pubDate": "Thu, 8 Oct 2026 19:03:38 GMT",
-          "description": "L’Agenzia per la cybersicurezza nazionale ha intercettato il blitz di No Name: secondo la Farnesina, nessun disservizio. La Procura di Roma attende il deposito…"
+          "title": "Gasolio, Eni taglia il prezzo consigliato: scende a 2,19 euro al litro",
+          "link": "https://www.ilsole24ore.com/art/gasolio-eni-taglia-prezzo-consigliato-scende-219-euro-litro-AJ4a3PeB",
+          "pubDate": "Fri, 9 Oct 2026 08:15:00 GMT",
+          "description": "Eni taglia ancora il prezzo del gasolio consigliato ai distributori. Con una riduzione di 2 centesimi, il listino scende da 2,21 a 2,19 euro al litro (lo stesso…"
         }
       ]
     }
