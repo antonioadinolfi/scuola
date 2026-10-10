@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-09T23:53:33+00:00",
+  "updatedAt": "2026-10-10T05:07:31+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Marsala, la scuola travolta dal tornado e la domanda che l’Italia non può più rinviare: siamo davvero pronti a proteggere i nostri alunni?",
+          "link": "https://www.orizzontescuola.it/marsala-la-scuola-travolta-dal-tornado-e-la-domanda-che-litalia-non-puo-piu-rinviare-siamo-davvero-pronti-a-proteggere-i-nostri-alunni/",
+          "pubDate": "Sat, 10 Oct 2026 04:35:15 +0000",
+          "description": "Ci sono immagini che raccontano un disastro e immagini che interrogano un Paese. Quelle arrivate il 9 ottobre 2026 da contrada Terrenove, a Marsala, appartengon…"
+        },
+        {
           "title": "Manovre salvavita in classe, al via il percorso gratuito per insegnanti “divulgatori” di primo soccorso",
           "link": "https://www.orizzontescuola.it/manovre-salvavita-in-classe-al-via-il-percorso-gratuito-per-insegnanti-divulgatori-di-primo-soccorso/",
           "pubDate": "Fri, 09 Oct 2026 19:43:12 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/cybersecurity-tra-i-banchi-di-scuola-a-palermo-arriva-lhackathon-di-digital-forensics-per-giovani-investigatori/",
           "pubDate": "Fri, 09 Oct 2026 18:23:56 +0000",
           "description": "Un accesso sospetto nel cuore della notte, un computer di laboratorio compromesso e un’intricata serie di tracce digitali da decifrare. È con questo scenario ad…"
-        },
-        {
-          "title": "Scontro durante una staffetta a scuola, alunno si rompe tre denti, ma nessun risarcimento alla famiglia. Il Tribunale dà ragione all’istituto: “La vigilanza c’era, l’urto era inevitabile”",
-          "link": "https://www.orizzontescuola.it/scontro-durante-una-staffetta-a-scuola-alunno-si-rompe-tre-denti-ma-nessun-risarcimento-alla-famiglia-il-tribunale-da-ragione-allistituto-la-vigilanza-cera-lurto-era-inevitabile/",
-          "pubDate": "Fri, 09 Oct 2026 17:55:55 +0000",
-          "description": "Nessun risarcimento per i genitori di un bambino che ha riportato la frattura di tre denti definitivi durante una gara di staffetta a scuola. L'articolo Scontro…"
         }
       ]
     },
