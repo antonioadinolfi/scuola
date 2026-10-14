@@ -36,5 +36,8 @@ Controlla la pagina per navigazione da tastiera, struttura dei titoli, etichette
 - [ ] La pagina non dichiara risultati di test non effettuati.
 - [ ] È disponibile una breve istruzione d'uso per gli studenti.
 
+## 7. Prompt per la revisione tra pari
+Agisci come revisore didattico e tecnico del prototipo. Usa la specifica e la checklist di test. Indica prima i problemi bloccanti, poi i miglioramenti consigliati. Per ogni problema descrivi una prova riproducibile e una possibile correzione. Non dichiarare test eseguiti se non sono stati effettivamente eseguiti.
+
 ## Regola di lavoro
 Procedere per iterazioni piccole: una modifica per volta, poi test. Salvare versioni significative e mantenere il docente nel ruolo di responsabile del contenuto e del risultato.
