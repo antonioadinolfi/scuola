@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102a43">
+<meta name="description" content="Corso pratico di Vibe Coding per docenti liceali: 20 ore, cinque lezioni, un'applicazione didattica realizzata con l'intelligenza artificiale.">
+<title>Vibe Coding per docenti | Laboratorio interdisciplinare</title>
+<style>
+:root{--navy:#102a43;--blue:#176b87;--teal:#2a9d8f;--gold:#f4b942;--paper:#f5f7fa;--ink:#172b4d;--muted:#52657a;--line:#dce4ec;--white:#fff;--shadow:0 12px 32px rgba(16,42,67,.09);--radius:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:#0c6b87}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+header{background:linear-gradient(120deg,#102a43 0%,#164e63 65%,#176b87 100%);color:white;padding:22px 0 70px;position:relative;overflow:hidden}header:after{content:"";position:absolute;width:360px;height:360px;border:1px solid #ffffff22;border-radius:50%;right:-90px;top:-150px;box-shadow:0 0 0 40px #ffffff08,0 0 0 85px #ffffff06}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;z-index:1}.brand{font-weight:800;letter-spacing:.04em;font-size:.9rem}.topnav{display:flex;gap:18px;flex-wrap:wrap}.topnav a{color:#e9f5f8;text-decoration:none;font-size:.9rem}.hero{max-width:800px;padding-top:58px;position:relative;z-index:1}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-weight:800;font-size:.78rem;color:#9fe3dc}.hero h1{font-size:clamp(2.3rem,6vw,4.7rem);line-height:1.04;letter-spacing:-.04em;margin:14px 0 20px}.hero p{font-size:clamp(1.05rem,2vw,1.25rem);max-width:700px;color:#e0edf3}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 17px;border-radius:999px;font-weight:750;text-decoration:none;border:1px solid transparent;cursor:pointer;font:inherit;font-size:.95rem}.btn-primary{background:var(--gold);color:#142d40}.btn-ghost{border-color:#ffffff80;color:white;background:#ffffff0c}.btn-dark{background:var(--navy);color:white}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:-34px;position:relative;z-index:2}.stat{background:white;border:1px solid var(--line);border-radius:15px;padding:19px;box-shadow:var(--shadow)}.stat strong{display:block;font-size:1.7rem;line-height:1.2;color:var(--blue)}.stat span{color:var(--muted);font-size:.9rem}.section{padding:62px 0}.section-head{max-width:760px;margin-bottom:28px}.kicker{color:var(--blue);font-size:.78rem;font-weight:850;letter-spacing:.13em;text-transform:uppercase}.section h2{font-size:clamp(1.8rem,4vw,2.7rem);letter-spacing:-.03em;line-height:1.15;margin:8px 0 12px}.lead{font-size:1.08rem;color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 5px 18px #102a4307}.card h3{margin:8px 0 8px;font-size:1.15rem}.card p{color:var(--muted);margin:0}.icon{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:#e7f5f3;font-size:1.3rem}.principle{margin-top:20px;padding:22px 24px;border-left:5px solid var(--gold);background:#fff9e9;border-radius:0 14px 14px 0;font-size:1.08rem}.lesson-list{display:grid;gap:14px}.lesson{background:white;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 5px 18px #102a4307}.lesson summary{display:grid;grid-template-columns:68px 1fr auto;gap:16px;align-items:center;padding:20px 22px;cursor:pointer;list-style:none}.lesson summary::-webkit-details-marker{display:none}.num{width:52px;height:52px;border-radius:15px;background:var(--navy);color:white;display:grid;place-items:center;font-weight:850;font-size:1.15rem}.lesson h3{margin:0;font-size:1.1rem}.lesson .sub{display:block;color:var(--muted);font-size:.91rem;margin-top:3px}.duration{font-size:.83rem;font-weight:800;color:var(--blue);background:#e9f5f8;border-radius:999px;padding:6px 10px;white-space:nowrap}.lesson-body{border-top:1px solid var(--line);padding:20px 26px 24px 106px}.lesson-body h4{margin:14px 0 5px}.lesson-body ul{margin:6px 0 14px;padding-left:20px}.outcome{display:inline-block;background:#e9f7f2;color:#14695d;font-weight:750;padding:7px 11px;border-radius:9px;font-size:.9rem}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px}.panel{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:24px}.panel h3{margin-top:0}.panel ul{padding-left:21px}.table-wrap{overflow-x:auto;background:white;border:1px solid var(--line);border-radius:var(--radius)}table{border-collapse:collapse;width:100%;min-width:580px}th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#eaf1f6;font-size:.88rem}tr:last-child td{border-bottom:0}.project{background:var(--navy);color:white;border-radius:24px;padding:30px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px}.project p{color:#d8e5ec}.project h2{margin-top:0}.checklist{list-style:none;padding:0;margin:0}.checklist li{padding:10px 0;border-bottom:1px solid #ffffff22;display:flex;gap:10px}.checklist input{accent-color:var(--teal);width:18px;height:18px;margin-top:4px;flex:none}.promptbox{background:#f0f7fa;border:1px solid #d3e6ed;border-radius:14px;padding:18px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.91rem;overflow-wrap:anywhere}.prompt-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.note{font-size:.9rem;color:var(--muted)}.tools{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.tool{padding:18px;background:white;border:1px solid var(--line);border-radius:14px}.tool a{font-weight:800}.tool p{margin:5px 0 0;color:var(--muted);font-size:.92rem}footer{background:#0b1f33;color:#d8e5ec;padding:28px 0;margin-top:25px}footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}footer p{margin:0;font-size:.9rem}.print-only{display:none}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:repeat(2,1fr)}.project{grid-template-columns:1fr}.lesson-body{padding-left:24px}.two-col{grid-template-columns:1fr}.topnav{gap:10px}.topnav a{font-size:.82rem}}
+@media(max-width:520px){.wrap{width:min(100% - 24px,1120px)}header{padding-bottom:58px}.hero{padding-top:42px}.topbar{align-items:flex-start}.topnav{max-width:170px;justify-content:flex-end}.stats{gap:8px}.stat{padding:14px}.stat strong{font-size:1.45rem}.grid{grid-template-columns:1fr}.lesson summary{grid-template-columns:48px 1fr;gap:12px;padding:16px}.num{width:44px;height:44px}.duration{grid-column:2;justify-self:start}.lesson-body{padding:16px 18px 20px}.section{padding:45px 0}.project{padding:22px}.tools{grid-template-columns:1fr}}
+@media print{body{background:white;font-size:11pt}.topnav,.hero-actions,.prompt-actions,footer,.btn{display:none!important}header{background:white;color:#111;padding:15px 0 20px}.hero p,.eyebrow{color:#333}.hero h1{font-size:28pt}.stats{margin:0;grid-template-columns:repeat(4,1fr)}.stat,.card,.panel,.lesson,.table-wrap{box-shadow:none;break-inside:avoid}.section{padding:22px 0}.lesson-body{display:block!important;padding:10px 20px}.lesson summary{padding:12px}.lesson{break-inside:avoid}.project{background:white;color:#111;border:1px solid #aaa}.project p{color:#333}.checklist li{border-color:#ccc}.section-head{margin-bottom:15px}.print-only{display:block}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap">
+  <div class="topbar"><div class="brand">LABORATORIO DI INNOVAZIONE DIDATTICA</div><nav class="topnav" aria-label="Navigazione principale"><a href="#percorso">Lezioni</a><a href="#project-work">Project work</a><a href="#strumenti">Strumenti</a></nav></div>
+  <div class="hero">
+   <div class="eyebrow">Formazione docenti · 20 ore · 5 incontri</div>
+   <h1>Vibe Coding<br>per docenti liceali</h1>
+   <p>Dall'idea all'applicazione didattica con l'intelligenza artificiale. Un laboratorio pratico per progettare, costruire e verificare strumenti digitali per ogni disciplina, anche senza esperienza di programmazione.</p>
+   <div class="hero-actions"><a class="btn btn-primary" href="#percorso">Esplora il programma ↓</a><button class="btn btn-ghost" onclick="window.print()">Stampa / salva in PDF</button></div>
+  </div>
+ </div>
+</header>
+<main>
+<div class="wrap stats" aria-label="Dati del corso">
+ <div class="stat"><strong>20 h</strong><span>Durata complessiva</span></div><div class="stat"><strong>5</strong><span>Lezioni da 4 ore</span></div><div class="stat"><strong>70%</strong><span>Laboratorio operativo, come obiettivo metodologico</span></div><div class="stat"><strong>1</strong><span>Prototipo finale per docente</span></div>
+</div>
+<section class="section" id="obiettivi">
+ <div class="section-head"><div class="kicker">01 · Visione del corso</div><h2>La tecnologia è il mezzo. Il problema didattico è il punto di partenza.</h2><p class="lead">Il docente descrive ciò che vuole ottenere, guida l'IA nella generazione del codice e verifica che l'applicazione funzioni e sia didatticamente corretta.</p></div>
+ <div class="grid">
+  <article class="card"><div class="icon">💡</div><h3>Partire da un'esigenza reale</h3><p>Individuare un'attività che quiz, simulazioni, visualizzazioni o percorsi interattivi possono rendere più efficaci.</p></article>
+  <article class="card"><div class="icon">🧩</div><h3>Progettare con metodo</h3><p>Trasformare l'idea in requisiti chiari, prompt strutturati e funzionalità verificabili.</p></article>
+  <article class="card"><div class="icon">🛠️</div><h3>Verificare, non solo generare</h3><p>Provare casi diversi, correggere gli errori e controllare contenuti, accessibilità e privacy.</p></article>
+ </div>
+ <div class="principle"><strong>Principio guida:</strong> l'IA può scrivere il codice, ma il docente resta responsabile della qualità, dell'affidabilità e dell'utilità didattica del prodotto.</div>
+</section>
+<section class="section" id="percorso">
+ <div class="section-head"><div class="kicker">02 · Programma</div><h2>Cinque lezioni, dalla prima idea al progetto</h2><p class="lead">Apri ciascuna scheda per leggere obiettivi, attività e risultato atteso. Le attività sono pensate per docenti di discipline umanistiche, scientifiche, linguistiche, artistiche e tecnico-informatiche.</p></div>
+ <div class="lesson-list">
+  <details class="lesson" open>
+   <summary><span class="num">01</span><span><h3>Dal linguaggio naturale al software</h3><span class="sub">Fondamenti del vibe coding e prima applicazione didattica</span></span><span class="duration">4 ore</span></summary>
+   <div class="lesson-body"><h4>Obiettivi</h4><ul><li>Comprendere il ciclo idea → prompt → generazione → test → miglioramento.</li><li>Conoscere a livello introduttivo interfaccia, applicazione web, HTML, CSS e JavaScript.</li><li>Scrivere richieste precise e iterare sui risultati dell'IA.</li></ul><h4>Laboratorio</h4><p>Realizzare una prima applicazione: quiz letterario, linea del tempo, generatore di esercizi, esercizio linguistico o semplice simulatore scientifico.</p><h4>Scansione indicativa</h4><p>60 min fondamenti · 60 min prompt · 90 min laboratorio · 30 min verifica e confronto.</p><span class="outcome">Output: prima applicazione funzionante</span></div>
+  </details>
+  <details class="lesson">
+   <summary><span class="num">02</span><span><h3>Progettare applicazioni interattive</h3><span class="sub">Dall'esigenza didattica ai requisiti funzionali</span></span><span class="duration">4 ore</span></summary>
+   <div class="lesson-body"><h4>Obiettivi</h4><ul><li>Definire destinatari, obiettivi di apprendimento e funzionalità.</li><li>Progettare schermate e flussi di interazione.</li><li>Strutturare prompt con contesto, utenti, obiettivo, funzionalità, interfaccia e criteri di verifica.</li></ul><h4>Laboratorio</h4><p>Sviluppare un'applicazione con input dell'utente, feedback immediato, punteggio o avanzamento e possibilità di ripetere l'esercizio, quando pertinenti.</p><h4>Scansione indicativa</h4><p>45 min requisiti · 45 min prompt strutturati · 120 min laboratorio · 30 min revisione tra pari.</p><span class="outcome">Output: specifica funzionale e seconda applicazione</span></div>
+  </details>
+  <details class="lesson">
+   <summary><span class="num">03</span><span><h3>Dal quiz al laboratorio virtuale</h3><span class="sub">Logica, simulazioni e visualizzazione dei dati</span></span><span class="duration">4 ore</span></summary>
+   <div class="lesson-body"><h4>Obiettivi</h4><ul><li>Comprendere variabili, condizioni, cicli, funzioni ed eventi attraverso esempi concreti.</li><li>Distinguere interfaccia gradevole e correttezza logica.</li><li>Usare l'IA per spiegare il codice generato e controllarne le ipotesi.</li></ul><h4>Laboratorio</h4><p>Costruire una simulazione con parametri modificabili e risultati dinamici: grafico di funzione, fenomeno fisico, probabilità, popolazione, scenario storico o dialogo linguistico.</p><h4>Scansione indicativa</h4><p>60 min logica · 30 min esempi · 120 min laboratorio · 30 min debriefing.</p><span class="outcome">Output: simulatore o laboratorio virtuale</span></div>
+  </details>
+  <details class="lesson">
+   <summary><span class="num">04</span><span><h3>Debugging, qualità e pubblicazione</h3><span class="sub">Test, privacy, accessibilità e GitHub Pages</span></span><span class="duration">4 ore</span></summary>
+   <div class="lesson-body"><h4>Obiettivi</h4><ul><li>Riconoscere errori sintattici, logici e di progettazione.</li><li>Testare casi normali, valori limite e input non validi.</li><li>Riconoscere i rischi su dati personali, credenziali, accuratezza e accessibilità.</li><li>Comprendere repository, file e pubblicazione di un sito statico.</li></ul><h4>Laboratorio</h4><p>Correggere un'applicazione con difetti intenzionali, collaudarla e pubblicare, quando possibile, una versione statica con GitHub Pages. Le applicazioni con server o database richiedono un'architettura diversa.</p><h4>Scansione indicativa</h4><p>60 min debugging · 45 min qualità e privacy · 105 min pubblicazione · 30 min collaudo tra colleghi.</p><span class="outcome">Output: applicazione verificata e, se compatibile, pubblicata</span></div>
+  </details>
+  <details class="lesson">
+   <summary><span class="num">05</span><span><h3>Project work interdisciplinare</h3><span class="sub">Realizzare, testare e presentare il proprio prodotto</span></span><span class="duration">4 ore</span></summary>
+   <div class="lesson-body"><h4>Obiettivi</h4><ul><li>Integrare progettazione, prompting, sviluppo e test.</li><li>Motivare le scelte didattiche e riconoscere i limiti del prototipo.</li><li>Ricevere e utilizzare feedback dei colleghi.</li></ul><h4>Laboratorio</h4><p>Definire un problema concreto, sviluppare una versione essenziale, testare le funzioni chiave e preparare una breve scheda d'uso per gli studenti.</p><h4>Scansione indicativa</h4><p>30 min progettazione · 120 min sviluppo · 45 min test tra pari · 45 min presentazioni.</p><span class="outcome">Output: prototipo finale e scheda d'uso</span></div>
+  </details>
+ </div>
+ <div class="hero-actions" style="margin-top:18px"><button class="btn btn-dark" id="expandAll">Apri tutte le lezioni</button><button class="btn btn-dark" id="collapseAll">Chiudi tutte le lezioni</button></div>
+</section>
+<section class="section" id="discipline">
+ <div class="section-head"><div class="kicker">03 · Interdisciplinarità</div><h2>Un metodo comune, progetti diversi</h2><p class="lead">Ogni docente sceglie il problema della propria disciplina: non è necessario che tutti costruiscano la stessa applicazione.</p></div>
+ <div class="table-wrap"><table><thead><tr><th>Area disciplinare</th><th>Esempio di progetto</th><th>Possibile interazione</th></tr></thead><tbody>
+ <tr><td>Italiano e letteratura</td><td>Analisi guidata di un testo o quiz sugli autori</td><td>Scelte, feedback, domande progressive</td></tr>
+ <tr><td>Storia e filosofia</td><td>Scenario decisionale o simulatore di dibattito</td><td>Decisioni e conseguenze argomentate</td></tr>
+ <tr><td>Matematica</td><td>Generatore di esercizi o grafico interattivo</td><td>Parametri modificabili e verifica</td></tr>
+ <tr><td>Fisica e scienze</td><td>Laboratorio virtuale con variabili</td><td>Input, simulazione e rappresentazione dei risultati</td></tr>
+ <tr><td>Lingue straniere</td><td>Dialogo simulato o allenamento lessicale</td><td>Scelta della risposta e feedback</td></tr>
+ <tr><td>Arte</td><td>Percorso di riconoscimento di opere e stili</td><td>Indizi, immagini autorizzate e autovalutazione</td></tr>
+ <tr><td>Scienze umane ed economia</td><td>Analisi di casi o simulazione di scelte</td><td>Variabili, scenari e riflessione critica</td></tr>
+ </tbody></table></div>
+</section>
+<section class="section" id="project-work">
+ <div class="project">
+  <div><div class="kicker" style="color:#9fe3dc">04 · Project work</div><h2>La checklist del prototipo finale</h2><p>Usa la checklist per seguire l'avanzamento del progetto. Le spunte sono locali al dispositivo e servono come promemoria durante il laboratorio.</p><p><strong>Consegna attesa:</strong> un'applicazione funzionante, una breve scheda d'uso e una verifica documentata dei principali casi.</p><button class="btn btn-primary" onclick="window.print()">Stampa la checklist</button></div>
+  <ul class="checklist" id="projectChecklist">
+   <li><input type="checkbox" id="c1"><label for="c1">Ho identificato un problema didattico concreto.</label></li>
+   <li><input type="checkbox" id="c2"><label for="c2">Ho definito destinatari e obiettivo di apprendimento.</label></li>
+   <li><input type="checkbox" id="c3"><label for="c3">Ho scritto i requisiti e le funzionalità essenziali.</label></li>
+   <li><input type="checkbox" id="c4"><label for="c4">Ho costruito una prima versione con l'IA.</label></li>
+   <li><input type="checkbox" id="c5"><label for="c5">Ho provato casi normali e input problematici.</label></li>
+   <li><input type="checkbox" id="c6"><label for="c6">Ho controllato correttezza disciplinare e accessibilità.</label></li>
+   <li><input type="checkbox" id="c7"><label for="c7">Ho evitato dati personali non necessari e segreti nel codice.</label></li>
+   <li><input type="checkbox" id="c8"><label for="c8">Ho preparato istruzioni per l'uso da parte degli studenti.</label></li>
+  </ul>
+ </div>
+</section>
+<section class="section" id="prompt">
+ <div class="section-head"><div class="kicker">05 · Prompt di partenza</div><h2>Un modello riutilizzabile in ogni disciplina</h2><p class="lead">Il prompt non sostituisce la progettazione: la rende esplicita. Personalizza le parti tra parentesi prima di inviarlo al tuo assistente IA.</p></div>
+ <div class="promptbox" id="promptText">Agisci come un progettista di applicazioni web didattiche e spiegami le scelte in modo comprensibile a un docente non programmatore.
+
+CONTESTO: insegno [disciplina] in una classe [anno/indirizzo].
+OBIETTIVO DIDATTICO: gli studenti devono imparare a [obiettivo osservabile].
+PROBLEMA: oggi gli studenti incontrano difficoltà nel [problema concreto].
+UTENTI: [studenti/docente/gruppi].
+FUNZIONALITÀ ESSENZIALI:
+1. [funzione 1]
+2. [funzione 2]
+3. [feedback o verifica]
+VINCOLI: crea una prima versione semplice, accessibile da browser e adatta a schermi diversi. Non raccogliere dati personali e non inserire chiavi API o credenziali.
+VERIFICA: prima di concludere, descrivi come testare i casi normali, i valori limite e gli input non validi. Distingui ciò che hai verificato da ciò che resta da controllare.
+METODO: procedi per passi. Prima proponi una breve specifica e chiedimi conferma; poi realizza il prototipo. Non aggiungere funzionalità non richieste.</div>
+ <div class="prompt-actions"><button class="btn btn-dark" id="copyPrompt">Copia il prompt</button><span id="copyStatus" class="note" role="status" aria-live="polite"></span></div>
+</section>
+<section class="section" id="valutazione">
+ <div class="section-head"><div class="kicker">06 · Valutazione</div><h2>Come valutare il risultato</h2><p class="lead">La qualità non coincide con l'effetto visivo: contano prima di tutto l'obiettivo didattico, il funzionamento e la verifica.</p></div>
+ <div class="table-wrap"><table><thead><tr><th>Criterio</th><th>Peso</th><th>Evidenza osservabile</th></tr></thead><tbody>
+ <tr><td>Coerenza con l'obiettivo didattico</td><td>25%</td><td>L'applicazione sostiene un obiettivo esplicito e pertinente.</td></tr>
+ <tr><td>Funzionalità e correttezza</td><td>25%</td><td>Le funzioni principali si comportano come previsto.</td></tr>
+ <tr><td>Uso consapevole dell'IA</td><td>20%</td><td>Il docente sa formulare richieste, iterare e motivare le scelte.</td></tr>
+ <tr><td>Test e affidabilità</td><td>15%</td><td>Sono stati provati casi diversi e documentati i limiti.</td></tr>
+ <tr><td>Usabilità, accessibilità e privacy</td><td>15%</td><td>Interfaccia comprensibile, dati minimizzati e assenza di segreti esposti.</td></tr>
+ </tbody></table></div>
+</section>
+<section class="section" id="strumenti">
+ <div class="section-head"><div class="kicker">07 · Strumenti e prerequisiti</div><h2>Un ambiente essenziale, senza sovraccaricare i partecipanti</h2><p class="lead">Scegliere pochi strumenti riduce gli ostacoli tecnici e lascia più tempo alla progettazione didattica.</p></div>
+ <div class="tools">
+  <div class="tool"><a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPT ↗</a><p>Ideazione, specifica, generazione assistita, spiegazione e debugging.</p></div>
+  <div class="tool"><a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">Visual Studio Code ↗</a><p>Editor facoltativo per consultare e modificare i file del progetto.</p></div>
+  <div class="tool"><a href="https://skills.github.com/" target="_blank" rel="noopener noreferrer">GitHub Skills ↗</a><p>Introduzione pratica a repository, file e collaborazione.</p></div>
+  <div class="tool"><a href="https://docs.github.com/en/pages" target="_blank" rel="noopener noreferrer">GitHub Pages ↗</a><p>Pubblicazione di siti statici e applicazioni che funzionano nel browser.</p></div>
+ </div>
+ <div class="two-col" style="margin-top:20px"><div class="panel"><h3>Prerequisiti</h3><ul><li>Uso di base del browser e gestione di file.</li><li>Un computer per partecipante o per coppia.</li><li>Accesso a uno strumento di IA autorizzato dall'organizzazione.</li><li>Nessuna esperienza di programmazione richiesta.</li></ul></div><div class="panel"><h3>Attenzioni per il formatore</h3><ul><li>Verificare in anticipo account, limiti e strumenti disponibili.</li><li>Usare dati fittizi negli esempi e non caricare dati identificativi degli studenti.</li><li>Prevedere un piano alternativo se una piattaforma non è accessibile.</li><li>Non pubblicare applicazioni non collaudate o contenenti segreti.</li></ul></div></div>
+</section>
+<section class="section" id="metodo">
+ <div class="section-head"><div class="kicker">08 · Metodo</div><h2>Una routine laboratoriale ripetibile</h2><p class="lead">Ogni incontro alterna spiegazione breve, dimostrazione, pratica guidata, sfida autonoma e riflessione.</p></div>
+ <div class="table-wrap"><table><thead><tr><th>Fase</th><th>Attività</th><th>Tempo indicativo</th></tr></thead><tbody>
+ <tr><td>Concept</td><td>Introduzione al concetto</td><td>15 min</td></tr><tr><td>Demo</td><td>Dimostrazione del formatore</td><td>20 min</td></tr><tr><td>Ask</td><td>Analisi del problema e richiesta all'IA</td><td>15 min</td></tr><tr><td>Do</td><td>Sviluppo guidato</td><td>60 min</td></tr><tr><td>Debug</td><td>Individuazione e correzione errori</td><td>30 min</td></tr><tr><td>Challenge</td><td>Modifica autonoma o sfida interdisciplinare</td><td>45 min</td></tr><tr><td>Check</td><td>Verifica e confronto</td><td>20 min</td></tr><tr><td>Reflect</td><td>Riflessione didattica</td><td>15 min</td></tr><tr><th colspan="2">Totale attività</th><th>220 min</th></tr><tr><td colspan="2">Pausa / transizione</td><td>20 min</td></tr><tr><th colspan="2">Totale incontro</th><th>240 min · 4 ore</th></tr>
+ </tbody></table></div>
+</section>
+</main>
+<footer><div class="wrap"><p><strong>Vibe Coding per docenti liceali</strong><br>Progetto formativo · 20 ore · 5 incontri</p><p>Materiale di lavoro da adattare alle esigenze dell'istituto.<br>Verificare strumenti, policy e requisiti prima dell'erogazione.</p></div></footer>
+<script>
+const lessons=[...document.querySelectorAll('.lesson')];
+document.getElementById('expandAll').addEventListener('click',()=>lessons.forEach(x=>x.open=true));
+document.getElementById('collapseAll').addEventListener('click',()=>lessons.forEach(x=>x.open=false));
+document.getElementById('copyPrompt').addEventListener('click',async()=>{const text=document.getElementById('promptText').innerText;const status=document.getElementById('copyStatus');try{await navigator.clipboard.writeText(text);status.textContent='Prompt copiato negli appunti.'}catch(e){const range=document.createRange();range.selectNodeContents(document.getElementById('promptText'));const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);status.textContent='Seleziona il testo e copialo manualmente.'}});
+</script>
+</body>
+</html>
