@@ -1,6 +1,6 @@
 # Vibe Coding per docenti liceali
 
-Sito didattico e progetto formativo per un corso di 20 ore articolato in cinque lezioni da quattro ore, rivolto a docenti di discipline diverse.
+Sito didattico e progetto formativo per un corso di 24 ore articolato in sei lezioni da quattro ore, rivolto a docenti di discipline diverse.
 
 ## Contenuti
 - `index.html`: sito responsive con programma espandibile, esempi interdisciplinari, prompt riutilizzabile, checklist del project work, rubrica di valutazione e stampa in PDF.
