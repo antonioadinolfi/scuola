@@ -1,6 +1,6 @@
 # Programma formativo — Vibe Coding per docenti liceali
 
-**Durata:** 20 ore, cinque incontri da quattro ore.  
+**Durata:** 24 ore, sei incontri da quattro ore.  
 **Destinatari:** docenti liceali di discipline umanistiche, scientifiche, linguistiche, artistiche e tecnico-informatiche.  
 **Prerequisiti:** competenze digitali di base; non è richiesta esperienza di programmazione.  
 **Metodologia:** brevi spiegazioni, dimostrazioni, laboratorio guidato, sfide autonome, test e riflessione didattica.
@@ -48,11 +48,18 @@ Al termine del percorso, il partecipante sarà in grado di:
 - Introduzione a repository e GitHub Pages per progetti statici.
 - Output: applicazione testata e, se compatibile, pubblicata.
 
-### Lezione 5 — Project work interdisciplinare (4 ore)
+### Lezione 5 — Sviluppo del project work interdisciplinare (4 ore)
 - Scelta del problema didattico e definizione delle funzionalità essenziali.
 - Sviluppo assistito, test, revisione tra pari.
-- Presentazione del prototipo e riflessione sui limiti.
-- Output: applicazione, scheda d'uso e checklist di verifica.
+- Consolidamento del prototipo e preparazione alla revisione finale.
+- Output: prima versione completa dell'applicazione e checklist di verifica.
+
+### Lezione 6 — Validazione, condivisione e piano di utilizzo (4 ore)
+- Revisione del prodotto e test incrociati tra colleghi.
+- Miglioramento sulla base del feedback e documentazione del prototipo.
+- Preparazione della scheda d'uso per gli studenti.
+- Definizione di un piano di sperimentazione didattica e riflessione su privacy, manutenzione e limiti.
+- Output: prototipo documentato, scheda d'uso e piano di sperimentazione.
 
 ## Esempi interdisciplinari
 - Italiano: analisi guidata di un testo o quiz letterario.
