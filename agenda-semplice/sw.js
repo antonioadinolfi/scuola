@@ -1,4 +1,4 @@
-const CACHE="agenda-v10";
+const CACHE="agenda-v11";
 const CORE=["./","./index.html","./auth.js","./cloud-sync.js","./manifest.webmanifest"];
 
 self.addEventListener("install",event=>{
