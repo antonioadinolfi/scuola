@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-15T19:46:10+00:00",
+  "updatedAt": "2026-10-15T22:57:20+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -87,28 +87,22 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "L’onda lunga del tech non travolge le Borse europee, ma Milano è maglia nera (-0,7%)",
+          "title": "L’onda lunga del tech non travolge le Borse, ma Milano è maglia nera (-0,7%)",
           "link": "https://www.ilsole24ore.com/art/borse-asia-crolla-trainata-vendite-settore-tech-giu-kospi-8percento-e-nikkei-5percento-AJXEIKkB",
           "pubDate": "Thu, 15 Oct 2026 05:28:00 GMT",
           "description": "Nuova ondata di vendite legata ai timori per gli investimenti nel campo AI. L’inflazione morde e per i mercati i tassi saranno alti più a lungo del previsto. Eu…"
         },
         {
-          "title": "Consiglio Ue, sull’energia resta nodo Ets. Al via discussione su nuovo bilancio",
-          "link": "https://www.ilsole24ore.com/art/consiglio-europeo-cronaca-diretta-ets-lettera-finlandia-danimarca-e-svezia-no-all-indebolimento-AJlqFSkB",
-          "pubDate": "Thu, 15 Oct 2026 08:13:00 GMT",
-          "description": "L’Italia lavora alla creazione di una piattaforma comune con gli Amici della Coesione con la quale affrontare le fasi decisive del negoziato sul bilancio plurie…"
+          "title": "Scontro tra i 27 su energia ed Ets, chieste nuove misure alla Commissione",
+          "link": "https://www.ilsole24ore.com/art/scontro-i-27-energia-ed-ets-chieste-nuove-misure-commissione-AJoT9LlB",
+          "pubDate": "Thu, 15 Oct 2026 20:14:00 GMT",
+          "description": "BRUXELLES – Riuniti per il primo vertice europeo dopo la pausa estiva, i governanti dell’Unione europea hanno discusso animatamente dello shock energetico di qu…"
         },
         {
           "title": "UniCredit, via libera della Bce alla scalata su Commerzbank",
           "link": "https://www.ilsole24ore.com/art/unicredit-via-libera-bce-scalata-commerzbank-AJkf4ClB",
           "pubDate": "Thu, 15 Oct 2026 17:52:00 GMT",
           "description": "C’è il via libera della Bce all’acquisizione di Commerzbank da parte di UniCredit. L’Eurotower ha autorizzato il gruppo guidato da Andrea Orcel a superare la so…"
-        },
-        {
-          "title": "Ucraina ha esaurito le scorte di Patriot. Zelensky annuncia ripresa raid su raffinerie russe",
-          "link": "https://www.ilsole24ore.com/art/gli-usa-propongono-paesi-ue-sblocco-alcuni-asset-russi-AJbiAKkB",
-          "pubDate": "Thu, 15 Oct 2026 05:30:00 GMT",
-          "description": "L’amministrazione Trump respinge l’accusa di aver limitato l’accesso al servizio Starlink, usato dall’Ucraina per le proprie operazioni militari"
         },
         {
           "title": "Il caro gasolio getta l’autotrasporto nel caos. E le imprese minacciano il fermo nazionale",
