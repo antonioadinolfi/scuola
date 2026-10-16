@@ -1,9 +1,15 @@
 {
-  "updatedAt": "2026-10-16T14:40:10+00:00",
+  "updatedAt": "2026-10-16T19:27:08+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
       "items": [
+        {
+          "title": "I luoghi del cuore: gli studenti del Cortese per la tela del Convitto “Giordano Bruno”",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/10/16/i-luoghi-del-cuore-gli-studenti-del-cortese-per-la-tela-del-convitto-giordano-bruno/",
+          "pubDate": "Fri, 16 Oct 2026 16:30:29 +0000",
+          "description": "Il Liceo Scientifico “Nino Cortese” di Maddaloni, guidato dal Dirigente Scolastico dott. prof. Marcellino Falcone, rinnova il suo impegno per il territorio ader…"
+        },
         {
           "title": "“Aspettando AMA”: gli studenti del Liceo Cortese raccontano Maddaloni attraverso la fotografia",
           "link": "https://www.liceoscientificocortese.edu.it/2026/10/16/aspettando-ama-gli-studenti-del-liceo-cortese-raccontano-maddaloni-attraverso-la-fotografia/",
@@ -33,12 +39,6 @@
           "link": "https://www.liceoscientificocortese.edu.it/2026/10/02/anno-scolastico-2026-2027-in-vigore-dal-05-10-2026/",
           "pubDate": "Fri, 02 Oct 2026 17:17:44 +0000",
           "description": "Si pubblica l’orario delle classi per l’anno scolastico 2026/2027 in vigore dal 05/10/2026 consultabile sul sito dell’Istituto. Si invitano studenti, famiglie e…"
-        },
-        {
-          "title": "Gli studenti del Liceo partecipano a “Conservare il passato. Tecniche e casi studio di restauro architettonico”",
-          "link": "https://www.liceoscientificocortese.edu.it/2026/10/02/gli-studenti-del-liceo-partecipano-a-conservare-il-passato-tecniche-e-casi-studio-di-restauro-architettonico/",
-          "pubDate": "Fri, 02 Oct 2026 11:40:16 +0000",
-          "description": "Gli studenti del Liceo Scientifico “Nino Cortese” di Maddaloni hanno partecipato al convegno “Conservare il passato. Tecniche e casi studio di restauro architet…"
         }
       ]
     },
@@ -46,46 +46,52 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
-          "title": "Manifestazioni studentesche, a Torino: “Il 30 ottobre bloccheremo tutto”, Valditara: “Non è difesa della scuola, ma teppismo politico” [Aggiornato]",
-          "link": "https://www.orizzontescuola.it/manifestazioni-studentesche-16-ottobre-a-bologna-e-milano-cominciano-i-cortei-in-aggiornamento/",
-          "pubDate": "Fri, 16 Oct 2026 14:30:13 +0000",
-          "description": "Nella giornata di oggi 16 ottobre molti studenti scendono in piazza per contrastare le misure del governo dedicate all’istruzione. L'articolo Manifestazioni stu…"
+          "title": "Concorso docenti PNRR3, chi ha superato le prove può avvalersi del punteggio aggiuntivo nella prossima procedura. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/concorso-docenti-pnrr3-chi-ha-superato-le-prove-puo-avvalersi-del-punteggio-aggiuntivo-nella-prossima-procedura-pillole-di-question-time/",
+          "pubDate": "Fri, 16 Oct 2026 19:00:20 +0000",
+          "description": "Nel Question Time del 13 ottobre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Sonia Cannas, docente ed esperta in normativa s…"
         },
         {
-          "title": "Spray al peperoncino in classe a Bergamo: intossicati 10 studenti, nessuno è grave",
-          "link": "https://www.orizzontescuola.it/spray-al-peperoncino-in-classe-a-bergamo-intossicati-10-studenti-nessuno-e-grave/",
-          "pubDate": "Fri, 16 Oct 2026 14:02:01 +0000",
-          "description": "Una decina di studenti ha riportato lievi sintomi di intossicazione, con bruciori a gola e occhi, a causa di uno spray al peperoncino azionato in una scuola a B…"
+          "title": "Proteste degli studenti, Meloni: “Bene la mobilitazione, ma mai violenza”",
+          "link": "https://www.orizzontescuola.it/proteste-degli-studenti-meloni-bene-la-mobilitazione-ma-mai-violenza/",
+          "pubDate": "Fri, 16 Oct 2026 18:17:49 +0000",
+          "description": "Un’intensa giornata di mobilitazione studentesca, segnata da tensioni e scontri con le forze dell’ordine in diverse città italiane, accende il dibattito politic…"
         },
         {
-          "title": "Vacanze Studio 2027: è online il nuovo catalogo Destinazione Lingue by Giocamondo Study per gruppi di studenti accompagnati da docenti!",
-          "link": "https://www.orizzontescuola.it/vacanze-studio-2027-e-online-il-nuovo-catalogo-destinazione-lingue-by-giocamondo-study-per-gruppi-di-studenti-accompagnati-da-docenti/",
-          "pubDate": "Fri, 16 Oct 2026 12:30:29 +0000",
-          "description": "Nuove destinazioni, più programmi da 10 giorni e tante opportunità per vivere un&#8217;estate all&#8217;insegna delle lingue e della scoperta! Destinazione Ling…"
+          "title": "“Gli alunni sono sempre più indisciplinati?”: spunti pratici e riflessioni pedagogiche per conciliare il benessere degli studenti e l’autorevolezza del docente",
+          "link": "https://www.orizzontescuola.it/gli-alunni-sono-sempre-piu-indisciplinati-spunti-pratici-e-riflessioni-pedagogiche-per-conciliare-il-benessere-degli-studenti-e-lautorevolezza-del-docente/",
+          "pubDate": "Fri, 16 Oct 2026 17:42:43 +0000",
+          "description": "Spesso si sente dire che \"questi bambini sono sempre più indisciplinati\". Tuttavia, secondo l'analisi proposta dalla pagina Instagram @a.mindfulteacher richiama…"
         },
         {
-          "title": "Il DSGA può delegare le proprie attività? Limiti e responsabilità della delega. Con 3 documenti da scaricare",
-          "link": "https://www.orizzontescuola.it/il-dsga-puo-delegare-le-proprie-attivita-limiti-e-responsabilita-della-delega-con-3-documenti-da-scaricare/",
-          "pubDate": "Fri, 16 Oct 2026 12:26:31 +0000",
-          "description": "Nelle segreterie scolastiche la distribuzione delle attività è una necessità organizzativa. Ma assegnare le varie attività agli assistenti amministrativi non si…"
+          "title": "Riforma pensioni 2027, quali sono le ipotesi per andarci prima?",
+          "link": "https://www.orizzontescuola.it/riforma-pensioni-2027-quali-sono-le-ipotesi-per-andarci-prima/",
+          "pubDate": "Fri, 16 Oct 2026 17:27:20 +0000",
+          "description": "Scopri cosa potrebbe prevedere la Legge di Bilancio 2027 per la riforma pensioni: quali saranno le possibilità di uscita anticipata? L'articolo Riforma pensioni…"
         },
         {
-          "title": "Scuola e insegnanti, per Crepet “la scuola ha tolto qualsiasi capacità di valutazione” Galiano risponde: “Venite a vedere come lavoriamo e poi diteci se è possibile”",
-          "link": "https://www.orizzontescuola.it/scuola-e-insegnanti-per-crepet-la-scuola-ha-tolto-qualsiasi-capacita-di-valutazione-galiano-risponde-venite-a-vedere-come-lavoriamo-e-poi-diteci-se-e-possibile/",
-          "pubDate": "Fri, 16 Oct 2026 12:21:44 +0000",
-          "description": "Paolo Crepet ed Enrico Galiano si sono confrontati a \"Ignoto X\" sul ruolo della scuola e sulle difficoltà dei giovani, partendo dalla vicenda di cronaca dei 2 r…"
+          "title": "Sostegno, perché tanti posti sono supplenze al 30 giugno e non diventano posti di ruolo: il nodo dell’organico di fatto. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/sostegno-perche-tanti-posti-sono-supplenze-al-30-giugno-e-non-diventano-posti-di-ruolo-il-nodo-dellorganico-di-fatto-pillole-di-question-time/",
+          "pubDate": "Fri, 16 Oct 2026 17:25:49 +0000",
+          "description": "Nel Question Time del 13 ottobre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Sonia Cannas, docente ed esperta in normativa s…"
         },
         {
-          "title": "Bocciato senza piano personalizzato e poi riammesso dal TAR: la storia dello studente con DSA e ADHD rientrato in quarta liceo. Ecco cosa hanno detto i giudici",
-          "link": "https://www.orizzontescuola.it/bocciato-senza-piano-personalizzato-e-poi-riammesso-dal-tar-la-storia-dello-studente-con-dsa-e-adhd-rientrato-in-quarta-liceo-ecco-cosa-hanno-detto-i-giudici/",
-          "pubDate": "Fri, 16 Oct 2026 11:51:08 +0000",
-          "description": "Inizio d'anno scolastico decisamente singolare per un ragazzo della Capitale, rimasto in bilico tra le aule del suo istituto e le carte del tribunale. La compli…"
+          "title": "Sostegno scolastico, tre decreti d’urgenza in tre giorni restituiscono le ore indicate dal GLO. Federazione Osservatorio 182: “Le ore le fissa il GLO, ridurle è discriminazione”",
+          "link": "https://www.orizzontescuola.it/sostegno-scolastico-tre-decreti-durgenza-in-tre-giorni-restituiscono-le-ore-indicate-dal-glo-federazione-osservatorio-182-le-ore-le-fissa-il-glo-ridurle-e-discriminazione/",
+          "pubDate": "Fri, 16 Oct 2026 17:21:42 +0000",
+          "description": "Tre decreti d'urgenza emessi tra il 14 e il 16 ottobre dai Tribunali di Busto Arsizio e Napoli Nord hanno ordinato al Ministero dell’Istruzione e del Merito, ag…"
         }
       ]
     },
     {
       "source": "Il Sole 24 Ore",
       "items": [
+        {
+          "title": "Consiglio europeo, cronaca in diretta. Meloni: «Ok Ue a decreto bollette consentirà di abbassare costi». Francia-Germania, accordo su automotive e Made in Europe",
+          "link": "https://www.ilsole24ore.com/art/consiglio-europeo-cronaca-diretta-von-der-leyen-obiettivo-chiudere-adesione-ucraina-all-ue-entro-l-anno-AJDHijlB",
+          "pubDate": "Fri, 16 Oct 2026 08:21:00 GMT",
+          "description": "Parigi e Berlino, in una dichiarazione congiunta del presidente Macron e del cancelliere Merz, annunciano l’intesa sull’automotive e sul Made in Europe. A segui…"
+        },
         {
           "title": "BTp Valore Insieme, supercedola finale del 22,25%",
           "link": "https://www.ilsole24ore.com/art/btp-valore-insieme-supercedola-finale-2225percento-AJnSZklB",
@@ -99,28 +105,22 @@
           "description": "La preparazione della manovra 2027 tiene banco anche a Bangkok . E l’Irpef resta uno dei temi ancora al centro del dibattito anche dopo i numeri del Dpb . A tor…"
         },
         {
-          "title": "Bilancio UK, il governo  si prepara a tassare le banche?",
-          "link": "https://www.ilsole24ore.com/art/bilancio-uk-governo-si-prepara-tassare-banche-AJ58zqlB",
-          "pubDate": "Fri, 16 Oct 2026 14:14:04 GMT",
-          "description": "Il conto alla rovescia verso l’atteso budget del 28 ottobre, il primo del nuovo cancelliere dello Scacchiere John Healey, è iniziato con la prospettiva di nuove…"
-        },
-        {
           "title": "Manovra 2027, i magistrati pescano il jolly: in arrivo fino a 100mila euro a testa",
           "link": "https://www.ilsole24ore.com/art/manovra-2027-magistrati-pescano-jolly-arrivo-fino-100mila-euro-testa-AJT2fFlB",
           "pubDate": "Fri, 16 Oct 2026 05:05:00 GMT",
           "description": "Nel fondo sentenze 1 miliardo per arretrati e aumenti stipendiali delle toghe"
         },
         {
-          "title": "Prove di recupero per le Borse Ue, si raffreddano le attese sul rialzo tassi Fed. Scatta Cucinelli",
+          "title": "Borse, in settimana nera per i tech ne approfittano i bond. Milano +0,2%. A WS Brent sopra i 110 $﻿",
           "link": "https://www.ilsole24ore.com/art/borse-asia-positiva-dichiarazioni-fed-crescita-usa-e-investimenti-ai-dollaro-calo-AJ1MWblB",
           "pubDate": "Fri, 16 Oct 2026 05:36:00 GMT",
-          "description": "Il presidente della Fed, Kevin Warsh, ha evidenziato la crescita derivante dall’intelligenza artificiale. Sul fronte energetico, in rialzo il gas mentre sul val…"
+          "description": "I timori su AI e inflazione scuotono i mercati, ma contribuiscono a interrompere la lunga corsa dei rendimenti. A Piazza Affari crolla Technoprobe a -22%, St e…"
         },
         {
-          "title": "Beretta conquista il 25% dell’americana Ruger: adesioni oltre le attese",
-          "link": "https://www.ilsole24ore.com/art/beretta-conquista-25percento-dell-americana-ruger-adesioni-oltre-attese-AJ6vLjlB",
-          "pubDate": "Fri, 16 Oct 2026 11:59:00 GMT",
-          "description": "Beretta Holding rafforza la propria presenza negli Stati Uniti con l’investimento in Sturm, Ruger &amp; Company, produttore americano di armi quotato al New Yor…"
+          "title": "Ucraina, telefonata Papa-Putin. Zelensky chiede all’Europa 70 miliardi per la difesa",
+          "link": "https://www.ilsole24ore.com/art/trump-contro-zelensky-attacchi-raffinerie-aumenta-prezzi-petrolio-nuovi-raid-russi-infrastrutture-energetiche-AJSG7alB",
+          "pubDate": "Fri, 16 Oct 2026 05:32:00 GMT",
+          "description": "Telefonata sull’Ucraina tra il Papa e Putin. E Zelensky che, a Bruxelles, chiede risorse all’Europa per difendersi dagli attacchi russi. Sono i due elementi for…"
         }
       ]
     }
