@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-16T19:27:08+00:00",
+  "updatedAt": "2026-10-16T22:41:13+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,24 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Stipendio cedolino ottobre visibile, per gli ATA in pagamento le posizioni economiche",
+          "link": "https://www.orizzontescuola.it/stipendio-cedolino-ottobre-visibile-per-gli-ata-in-pagamento-le-posizioni-economiche/",
+          "pubDate": "Fri, 16 Oct 2026 20:38:46 +0000",
+          "description": "Visibile dal tardo pomeriggio di venerdì 16 ottobre il cedolino della mensilità di ottobre per il personale docente e ATA con contratto a tempo indeterminato e…"
+        },
+        {
+          "title": "Supplenze 2026/27: sempre nuovi interpelli alla ricerca di insegnanti",
+          "link": "https://www.orizzontescuola.it/scuole-alla-ricerca-di-docenti-tramite-interpello-ecco-gli-avvisi-in-aggiornamento/",
+          "pubDate": "Fri, 16 Oct 2026 20:13:03 +0000",
+          "description": "Supplenze docenti: gli interpelli dell'anno scolastico 2026/27. Numerose scuola alla ricerca di insegnanti, anche per supplenze al 30 giugno e 31 agosto. L'arti…"
+        },
+        {
+          "title": "Genitori chiedono la bocciatura del figlio, la scuola dice no: la pronuncia del Consiglio di Stato conferma la decisione dei docenti, ecco perché",
+          "link": "https://www.orizzontescuola.it/genitori-chiedono-la-bocciatura-del-figlio-la-scuola-dice-no-la-pronuncia-del-consiglio-di-stato-conferma-la-decisione-dei-docenti-ecco-perche/",
+          "pubDate": "Fri, 16 Oct 2026 19:34:17 +0000",
+          "description": "Il passaggio verso una nuova scuola rappresenta un momento carico di incognite, ma quando in gioco c'è un alunno con disabilità il timore del cambiamento può sp…"
+        },
+        {
           "title": "Concorso docenti PNRR3, chi ha superato le prove può avvalersi del punteggio aggiuntivo nella prossima procedura. Pillole di Question Time",
           "link": "https://www.orizzontescuola.it/concorso-docenti-pnrr3-chi-ha-superato-le-prove-puo-avvalersi-del-punteggio-aggiuntivo-nella-prossima-procedura-pillole-di-question-time/",
           "pubDate": "Fri, 16 Oct 2026 19:00:20 +0000",
@@ -62,24 +80,6 @@
           "link": "https://www.orizzontescuola.it/gli-alunni-sono-sempre-piu-indisciplinati-spunti-pratici-e-riflessioni-pedagogiche-per-conciliare-il-benessere-degli-studenti-e-lautorevolezza-del-docente/",
           "pubDate": "Fri, 16 Oct 2026 17:42:43 +0000",
           "description": "Spesso si sente dire che \"questi bambini sono sempre più indisciplinati\". Tuttavia, secondo l'analisi proposta dalla pagina Instagram @a.mindfulteacher richiama…"
-        },
-        {
-          "title": "Riforma pensioni 2027, quali sono le ipotesi per andarci prima?",
-          "link": "https://www.orizzontescuola.it/riforma-pensioni-2027-quali-sono-le-ipotesi-per-andarci-prima/",
-          "pubDate": "Fri, 16 Oct 2026 17:27:20 +0000",
-          "description": "Scopri cosa potrebbe prevedere la Legge di Bilancio 2027 per la riforma pensioni: quali saranno le possibilità di uscita anticipata? L'articolo Riforma pensioni…"
-        },
-        {
-          "title": "Sostegno, perché tanti posti sono supplenze al 30 giugno e non diventano posti di ruolo: il nodo dell’organico di fatto. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/sostegno-perche-tanti-posti-sono-supplenze-al-30-giugno-e-non-diventano-posti-di-ruolo-il-nodo-dellorganico-di-fatto-pillole-di-question-time/",
-          "pubDate": "Fri, 16 Oct 2026 17:25:49 +0000",
-          "description": "Nel Question Time del 13 ottobre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Sonia Cannas, docente ed esperta in normativa s…"
-        },
-        {
-          "title": "Sostegno scolastico, tre decreti d’urgenza in tre giorni restituiscono le ore indicate dal GLO. Federazione Osservatorio 182: “Le ore le fissa il GLO, ridurle è discriminazione”",
-          "link": "https://www.orizzontescuola.it/sostegno-scolastico-tre-decreti-durgenza-in-tre-giorni-restituiscono-le-ore-indicate-dal-glo-federazione-osservatorio-182-le-ore-le-fissa-il-glo-ridurle-e-discriminazione/",
-          "pubDate": "Fri, 16 Oct 2026 17:21:42 +0000",
-          "description": "Tre decreti d'urgenza emessi tra il 14 e il 16 ottobre dai Tribunali di Busto Arsizio e Napoli Nord hanno ordinato al Ministero dell’Istruzione e del Merito, ag…"
         }
       ]
     },
@@ -87,16 +87,22 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Consiglio europeo, cronaca in diretta. Meloni: «Ok Ue a decreto bollette consentirà di abbassare costi». Francia-Germania, accordo su automotive e Made in Europe",
-          "link": "https://www.ilsole24ore.com/art/consiglio-europeo-cronaca-diretta-von-der-leyen-obiettivo-chiudere-adesione-ucraina-all-ue-entro-l-anno-AJDHijlB",
-          "pubDate": "Fri, 16 Oct 2026 08:21:00 GMT",
-          "description": "Parigi e Berlino, in una dichiarazione congiunta del presidente Macron e del cancelliere Merz, annunciano l’intesa sull’automotive e sul Made in Europe. A segui…"
+          "title": "Borse, in settimana nera per i tech ne approfittano i bond. Milano +0,2%. A WS Brent sopra i 110 $, Nasdaq -2,1%",
+          "link": "https://www.ilsole24ore.com/art/borse-asia-positiva-dichiarazioni-fed-crescita-usa-e-investimenti-ai-dollaro-calo-AJ1MWblB",
+          "pubDate": "Fri, 16 Oct 2026 05:36:00 GMT",
+          "description": "I timori su AI e inflazione scuotono i mercati, ma contribuiscono a interrompere la lunga corsa dei rendimenti. A Piazza Affari crolla Technoprobe a -22%, St e…"
         },
         {
           "title": "BTp Valore Insieme, supercedola finale del 22,25%",
           "link": "https://www.ilsole24ore.com/art/btp-valore-insieme-supercedola-finale-2225percento-AJnSZklB",
           "pubDate": "Fri, 16 Oct 2026 08:33:00 GMT",
           "description": "Il Tesoro comunica i rendimenti minimi dei due titoli per i risparmiatori in offerta da lunedì 19 ottobre. Per il BTp Valore tradizionale cedola del 3,7% nel pr…"
+        },
+        {
+          "title": "Consiglio europeo, cronaca in diretta. Meloni: «Ok Ue a decreto bollette consentirà di abbassare costi». Francia-Germania, accordo su automotive e Made in Europe",
+          "link": "https://www.ilsole24ore.com/art/consiglio-europeo-cronaca-diretta-von-der-leyen-obiettivo-chiudere-adesione-ucraina-all-ue-entro-l-anno-AJDHijlB",
+          "pubDate": "Fri, 16 Oct 2026 08:21:00 GMT",
+          "description": "Parigi e Berlino, in una dichiarazione congiunta del presidente Macron e del cancelliere Merz, annunciano l’intesa sull’automotive e sul Made in Europe. A segui…"
         },
         {
           "title": "Manovra 2027, Giorgetti: confermo richiesta contributo alle banche, ma sostenibile",
@@ -109,12 +115,6 @@
           "link": "https://www.ilsole24ore.com/art/manovra-2027-magistrati-pescano-jolly-arrivo-fino-100mila-euro-testa-AJT2fFlB",
           "pubDate": "Fri, 16 Oct 2026 05:05:00 GMT",
           "description": "Nel fondo sentenze 1 miliardo per arretrati e aumenti stipendiali delle toghe"
-        },
-        {
-          "title": "Borse, in settimana nera per i tech ne approfittano i bond. Milano +0,2%. A WS Brent sopra i 110 $﻿",
-          "link": "https://www.ilsole24ore.com/art/borse-asia-positiva-dichiarazioni-fed-crescita-usa-e-investimenti-ai-dollaro-calo-AJ1MWblB",
-          "pubDate": "Fri, 16 Oct 2026 05:36:00 GMT",
-          "description": "I timori su AI e inflazione scuotono i mercati, ma contribuiscono a interrompere la lunga corsa dei rendimenti. A Piazza Affari crolla Technoprobe a -22%, St e…"
         },
         {
           "title": "Ucraina, telefonata Papa-Putin. Zelensky chiede all’Europa 70 miliardi per la difesa",
