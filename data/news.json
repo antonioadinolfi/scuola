@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-17T16:55:08+00:00",
+  "updatedAt": "2026-10-17T20:20:31+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Congedi, Legge 104, Maternità, Assenze, Permessi: la modulistica aggiornata utile per le segreterie",
+          "link": "https://www.orizzontescuola.it/congedi-legge-104-maternita-assenze-permessi-la-modulistica-aggiornata-utile-per-le-segreterie/",
+          "pubDate": "Sat, 17 Oct 2026 17:24:38 +0000",
+          "description": "La gestione quotidiana del personale scolastico richiede alle segreterie di affrontare una casistica molto ampia: permessi, assenze, ferie, partecipazione a con…"
+        },
+        {
+          "title": "La denuncia della docente/mamma e la trappola burocratica che impedisce di lavorare: se lo Stato ti dà un lavoro a settembre, ma il Comune chiede il contratto ad agosto",
+          "link": "https://www.orizzontescuola.it/la-denuncia-della-docente-mamma-e-la-trappola-burocratica-che-impedisce-di-lavorare-se-lo-stato-ti-da-un-lavoro-a-settembre-ma-il-comune-chiede-il-contratto-ad-agosto/",
+          "pubDate": "Sat, 17 Oct 2026 17:09:45 +0000",
+          "description": "Il paradosso del gatto di Schrödinger applicato alla scuola: finché non hai un contratto non hai diritto al pre-scuola, ma senza pre-scuola non puoi firmare il…"
+        },
+        {
           "title": "Manovra 2027, rebus Irpef: il Governo stringe sui numeri, la scuola spinge per il taglio ai redditi fino a 40mila euro",
           "link": "https://www.orizzontescuola.it/manovra-2027-rebus-irpef-il-governo-stringe-sui-numeri-la-scuola-spinge-per-il-taglio-ai-redditi-fino-a-40mila-euro/",
           "pubDate": "Sat, 17 Oct 2026 16:32:30 +0000",
@@ -68,18 +80,6 @@
           "link": "https://www.orizzontescuola.it/landini-cgil-priorita-a-sicurezza-sul-lavoro-salari-e-stato-sociale-annunciato-lo-sciopero-generale-per-il-20-novembre/",
           "pubDate": "Sat, 17 Oct 2026 15:41:37 +0000",
           "description": "Una risposta corale che parte dal cuore della capitale per parlare a tutto il Paese. Dal palco allestito in una Piazza del Popolo gremita da oltre centomila per…"
-        },
-        {
-          "title": "“Il papà peluche non serve a nulla”, Novara: “Il destino di un padre non è essere gradevole”. Perché i figli di oggi non hanno bisogno di un genitore amicone",
-          "link": "https://www.orizzontescuola.it/il-papa-peluche-non-serve-a-nulla-novara-il-destino-di-un-padre-non-e-essere-gradevole-perche-i-figli-di-oggi-non-hanno-bisogno-di-un-genitore-amicone/",
-          "pubDate": "Sat, 17 Oct 2026 15:26:17 +0000",
-          "description": "C’era una volta il \"padre padrone\", una figura autoritaria che dominava con il pugno di ferro e di cui nessuno oggi sente la mancanza. Poi è arrivata la reazion…"
-        },
-        {
-          "title": "Umberto Galimberti e l’allarme sui troppi stimoli ai bambini: “Se non si annoiano non inventano nulla. Non è un male, è la precondizione della creatività”",
-          "link": "https://www.orizzontescuola.it/umberto-galimberti-e-lallarme-sui-troppi-stimoli-ai-bambini-se-non-si-annoiano-non-inventano-nulla-non-e-un-male-e-la-precondizione-della-creativita/",
-          "pubDate": "Sat, 17 Oct 2026 14:59:24 +0000",
-          "description": "Un frammento di conferenza del filosofo e psicoanalista Umberto Galimberti, incentrato sul valore pedagogico e cognitivo della noia nei bambini, sta registrando…"
         }
       ]
     },
@@ -87,10 +87,10 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Milano, scontri tra manifestanti e polizia in piazza Duomo e Galleria. Disordini a Bologna",
+          "title": "Milano, dopo la devastazione la polizia disperde i manifestanti violenti tra il Duomo e piazza San Babila: decine di fermati",
           "link": "https://www.ilsole24ore.com/art/corteo-milano-lancio-sassi-contro-polizia-AJTvn3mB",
           "pubDate": "Sat, 17 Oct 2026 14:37:00 GMT",
-          "description": "Scontri in piazza del Duomo, a Milano, dove gli irriducibili del corteo sciolto in Cordusio, svariate centinaia, si sono divisi in gruppetti e radunati sul sagr…"
+          "description": "«Due poliziotti feriti e trasportati d’urgenza in ospedale e almeno 40 manifestanti fermati: questo il primo bilancio degli scontri in piazza Duomo a Milano, do…"
         },
         {
           "title": "Guerra in Ucraina, Bucarest: abbattuti due droni nel nostro spazio aereo. Zelensky: «Pronti a negoziati»",
