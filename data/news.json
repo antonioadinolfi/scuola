@@ -1,9 +1,15 @@
 {
-  "updatedAt": "2026-10-19T19:42:58+00:00",
+  "updatedAt": "2026-10-19T23:28:16+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
       "items": [
+        {
+          "title": "XI Edizione del Premio Internazionale di Poesia e Narrativa “Ali e Radici”",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/10/20/xi-edizione-del-premio-internazionale-di-poesia-e-narrativa-ali-e-radici/",
+          "pubDate": "Mon, 19 Oct 2026 22:43:06 +0000",
+          "description": "Il Liceo Scientifico “Nino Cortese”, diretto dal Dirigente Scolastico Dott. Prof. Marcellino Falcone, ha preso parte alla XI Edizione del Premio Internazionale…"
+        },
         {
           "title": "I luoghi del cuore: gli studenti del Cortese per la tela del Convitto “Giordano Bruno”",
           "link": "https://www.liceoscientificocortese.edu.it/2026/10/16/i-luoghi-del-cuore-gli-studenti-del-cortese-per-la-tela-del-convitto-giordano-bruno/",
@@ -33,18 +39,18 @@
           "link": "https://www.liceoscientificocortese.edu.it/2026/10/06/learn-build-grow-costruisci-il-tuo-futuro-finanziario/",
           "pubDate": "Tue, 06 Oct 2026 05:06:27 +0000",
           "description": "Nell’ambito dell’acquisizione delle competenze per l’Educazione Civica, il Dirigente Scolastico del Liceo Scientifico Statale “Nino Cortese di Maddaloni, dott.…"
-        },
-        {
-          "title": "anno scolastico 2026/2027  in vigore dal 05/10/2026",
-          "link": "https://www.liceoscientificocortese.edu.it/2026/10/02/anno-scolastico-2026-2027-in-vigore-dal-05-10-2026/",
-          "pubDate": "Fri, 02 Oct 2026 17:17:44 +0000",
-          "description": "Si pubblica l’orario delle classi per l’anno scolastico 2026/2027 in vigore dal 05/10/2026 consultabile sul sito dell’Istituto. Si invitano studenti, famiglie e…"
         }
       ]
     },
     {
       "source": "Orizzonte Scuola",
       "items": [
+        {
+          "title": "GPS, elenchi regionali e non solo: quali novità possono arrivare nei prossimi mesi? QUESTION TIME con Cozzetto (ANIEF) Martedì 20 ottobre alle 15:00",
+          "link": "https://www.orizzontescuola.it/gps-elenchi-regionali-e-non-solo-quali-novita-possono-arrivare-nei-prossimi-mesi-question-time-con-cozzetto-anief-martedi-20-ottobre-alle-1500/",
+          "pubDate": "Mon, 19 Oct 2026 19:58:52 +0000",
+          "description": "Prosegue il confronto tra il Ministero e le forze sindacali sulle procedure di conferimento degli incarichi a tempo determinato. Dalle GPS agli elenchi regional…"
+        },
         {
           "title": "Psicosi bomba nelle scuole di mezza Europa: allarmi via e-mail e decine di evacuazioni da Nord a Sud Italia fino al Regno Unito",
           "link": "https://www.orizzontescuola.it/psicosi-bomba-nelle-scuole-di-mezza-europa-allarmi-via-e-mail-e-decine-di-evacuazioni-da-nord-a-sud-italia-fino-al-regno-unito/",
@@ -74,30 +80,12 @@
           "link": "https://www.orizzontescuola.it/falsi-allarmi-bomba-a-scuola-stefani-il-veneto-non-accetta-ricatti-mantovan-episodi-gravi-che-non-possono-essere-derubricati-a-semplici-bravate/",
           "pubDate": "Mon, 19 Oct 2026 15:52:46 +0000",
           "description": "Una raffica di allarmi bomba infondati, diffusi tramite e-mail, ha colpito diverse scuole del Veneto e di altre zone d'Italia. L'articolo Falsi allarmi bomba a…"
-        },
-        {
-          "title": "Registro elettronico, si possono correggere voti, assenze e presenze dopo alcuni giorni?  Il Punto di De Martino",
-          "link": "https://www.orizzontescuola.it/registro-elettronico-si-possono-correggere-voti-assenze-e-presenze-dopo-alcuni-giorni-il-punto-di-de-martino/",
-          "pubDate": "Mon, 19 Oct 2026 15:50:47 +0000",
-          "description": "Un voto inserito male, una firma dimenticata, un’assenza non registrata: il docente può correggere successivamente il registro elettronico? L'articolo Registro…"
         }
       ]
     },
     {
       "source": "Il Sole 24 Ore",
       "items": [
-        {
-          "title": "Sicurezza, vertice con Meloni: «La risposta dello Stato sarà ferma». Ipotesi decreto antiviolenti: 500 militari in più a partire da Milano",
-          "link": "https://www.ilsole24ore.com/art/sicurezza-meloni-presiede-vertice-sull-ordine-pubblico-tavolo-nuove-misure-antiviolenti-AJyzNBoB",
-          "pubDate": "Mon, 19 Oct 2026 12:49:00 GMT",
-          "description": "Gli scontri di Milano, i saccheggi e le devastazioni, le mobilitazioni già organizzate nelle principali città italiane per il 24 e il 30 ottobre. Per fare il pu…"
-        },
-        {
-          "title": "Bibite, plastica e mini pacchi: ecco le tasse che la manovra 2027 dovrà evitare",
-          "link": "https://www.ilsole24ore.com/art/bibite-plastica-e-mini-pacchi-ecco-tasse-che-manovra-2027-dovra-evitare-AJM41OnB",
-          "pubDate": "Mon, 19 Oct 2026 18:15:48 GMT",
-          "description": "Nei grandi numeri della manovra 2027 bisognerà fare i conti anche con tre tasse destinate a scattare tra fine anno e l’inizio del nuovo. Sugar tax, plastic tax…"
-        },
         {
           "title": "Btp Valore raccoglie 3,4 miliardi, «Insieme» 1,1 miliardi",
           "link": "https://www.ilsole24ore.com/art/btp-valore-raccoglie-34-miliardi-insieme-11-miliardi-AJRXPOoB",
@@ -111,16 +99,28 @@
           "description": "Sui mercati pesano i rialzi dei rendimenti dei bond, le proteste di piazza in tutta Europa, le pressioni inflazionistiche e gli allarmi in Medio Oriente. A Piaz…"
         },
         {
+          "title": "Sicurezza, vertice con Meloni: «La risposta dello Stato sarà ferma». Ipotesi decreto antiviolenti: 500 militari in più a partire da Milano",
+          "link": "https://www.ilsole24ore.com/art/sicurezza-meloni-presiede-vertice-sull-ordine-pubblico-tavolo-nuove-misure-antiviolenti-AJyzNBoB",
+          "pubDate": "Mon, 19 Oct 2026 12:49:00 GMT",
+          "description": "Gli scontri di Milano, i saccheggi e le devastazioni, le mobilitazioni già organizzate nelle principali città italiane per il 24 e il 30 ottobre. Per fare il pu…"
+        },
+        {
+          "title": "La manovra slitta, slalom del Governo tra risorse ridotte e negoziato con la Ue",
+          "link": "https://www.ilsole24ore.com/art/la-manovra-slitta-slalom-governo-risorse-ridotte-e-negoziato-la-ue-AJTFukoB",
+          "pubDate": "Mon, 19 Oct 2026 20:36:00 GMT",
+          "description": "Oltre due ore, poi l’annuncio: l’approvazione della legge di bilancio in Consiglio dei ministri «slitterà di qualche giorno», probabilmente al 28 ottobre, oltre…"
+        },
+        {
+          "title": "Bibite, plastica e mini pacchi: ecco le tasse che la manovra 2027 dovrà evitare",
+          "link": "https://www.ilsole24ore.com/art/bibite-plastica-e-mini-pacchi-ecco-tasse-che-manovra-2027-dovra-evitare-AJM41OnB",
+          "pubDate": "Mon, 19 Oct 2026 18:15:48 GMT",
+          "description": "Nei grandi numeri della manovra 2027 bisognerà fare i conti anche con tre tasse destinate a scattare tra fine anno e l’inizio del nuovo. Sugar tax, plastic tax…"
+        },
+        {
           "title": "L’idea di Musk: regalerà un’azione di SpaceX a ogni bambino statunitense",
           "link": "https://www.ilsole24ore.com/art/l-idea-musk-regalera-un-azione-spacex-ogni-bambino-statunitense-AJ8A0ZoB",
           "pubDate": "Mon, 19 Oct 2026 17:51:30 GMT",
           "description": "Una trovata in chiaro stile Elon Musk. Il ceo di SpaceX, in risposta alla decisione di Anthropic di donare il 5% delle azioni a un fondo di pubblica utilità, ha…"
-        },
-        {
-          "title": "Fisco, con l’app Trova Tu semplificazione per 4.700 norme",
-          "link": "https://www.ilsole24ore.com/art/fisco-l-app-trova-tu-semplificazione-4700-norme-AJFJBEoB",
-          "pubDate": "Mon, 19 Oct 2026 13:33:00 GMT",
-          "description": "Sanzioni tributarie amministrative e penali. Tributi erariali minori. Giustizia tributaria. Versamenti e riscossione. Imposta di registro e di altri tributi ind…"
         }
       ]
     }
