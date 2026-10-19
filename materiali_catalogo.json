@@ -378,9 +378,15 @@
     "target_page": "",
     "ordine": 1,
     "attivo": true
+  },
+  {
+    "classe": "Quarta",
+    "titolo": "Verifica di Informatica – Classe quarta",
+    "descrizione": "Verifica online tramite Google Moduli.",
+    "tipo": "verifica",
+    "file_path": "https://docs.google.com/forms/d/e/1FAIpQLSfOftqY3x_ViseD0V9NdYZXGfz2xrMac9u6Cj36kwKFMayEuQ/viewform",
+    "target_page": "",
+    "ordine": 7,
+    "attivo": true
   }
-
-
-  
-  
 ]
