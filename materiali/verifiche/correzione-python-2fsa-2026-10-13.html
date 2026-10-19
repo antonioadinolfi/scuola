@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Correzione didattica generale della verifica di Python del 13 ottobre 2026.">
+<title>Verifica di Informatica — Python: correzioni e feedback generale</title>
+<style>
+:root{color-scheme:light;--blue:#174a7e;--pale:#edf4fb;--line:#d5dde6;--ink:#202b36;--muted:#536273}
+*{box-sizing:border-box}body{margin:0;background:#f4f6f8;color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+main{max-width:960px;margin:0 auto;padding:24px 18px 48px}.hero{background:var(--blue);color:white;padding:28px;border-radius:14px}.hero h1{margin:0 0 8px;font-size:clamp(1.6rem,4vw,2.25rem);line-height:1.2}.meta{opacity:.92;margin:0}.notice{background:#fff8e8;border-left:4px solid #d99a19;padding:12px 16px;margin:18px 0;border-radius:6px}
+section{background:white;border:1px solid var(--line);border-radius:12px;padding:20px;margin:18px 0}h2{font-size:1.3rem;color:var(--blue);margin:0 0 12px}h3{font-size:1.05rem;margin:16px 0 6px}p{margin:8px 0}ul,ol{padding-left:24px}code,pre{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}code{background:#eef1f4;padding:2px 5px;border-radius:4px}pre{overflow:auto;background:#17212b;color:#f4f7fa;padding:14px;border-radius:8px;line-height:1.5}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}.tip{background:var(--pale);padding:14px;border-radius:8px}.small{font-size:.92rem;color:var(--muted)}footer{font-size:.9rem;color:var(--muted);padding:8px 2px}@media print{body{background:white}main{max-width:none;padding:0}.hero{background:white;color:var(--ink);border:1px solid #777}section{break-inside:avoid;box-shadow:none}.notice{border:1px solid #aaa}}
+</style>
+</head>
+<body><main>
+<header class="hero">
+<h1>Verifica di Informatica — Python: correzioni e feedback generale</h1>
+<p class="meta">Classe 2FSA · Verifica del 13 ottobre 2026</p>
+</header>
+<div class="notice"><strong>Materiale per tutta la classe.</strong> Questa pagina raccoglie spiegazioni e correzioni generali. Non contiene nomi, voti o valutazioni individuali. Il feedback personale viene comunicato separatamente.</div>
+
+<section>
+<h2>1. Leggere correttamente l’input</h2>
+<p>La funzione <code>input()</code> acquisisce una stringa. Se il dato deve essere usato come numero, occorre convertirlo esplicitamente. Le parentesi devono essere aperte e chiuse correttamente.</p>
+<pre>nome = input("Come ti chiami? ")
+eta = int(input("Quanti anni hai? "))
+print("Ciao", nome)
+print("L'anno prossimo avrai", eta + 1, "anni")</pre>
+<div class="tip"><strong>Controllo rapido:</strong> ogni parentesi aperta deve avere la sua chiusura. Se si usa <code>int(input(...))</code>, la conversione numerica racchiude la chiamata a <code>input()</code>.</div>
+</section>
+
+<section>
+<h2>2. Assegnazione e confronto</h2>
+<p>In Python, <code>=</code> assegna un valore a una variabile, mentre <code>==</code> confronta due valori. Non sono intercambiabili.</p>
+<pre>eta = int(input("Inserisci la tua età: "))
+
+if eta >= 18:
+    print("Sei maggiorenne")
+else:
+    print("Sei minorenne")</pre>
+<p>Per verificare una condizione si usa <code>if</code>. La riga che introduce il blocco deve terminare con i due punti (<code>:</code>) e le istruzioni interne devono essere indentate.</p>
+</section>
+
+<section>
+<h2>3. Struttura corretta di <code>if</code> / <code>else</code></h2>
+<pre>numero = int(input("Inserisci un numero: "))
+
+if numero > 0:
+    print("Positivo")
+else:
+    print("Zero o negativo")</pre>
+<ul>
+<li>Scrivere <code>if condizione:</code> con i due punti finali.</li>
+<li>Allineare <code>else:</code> con <code>if</code>.</li>
+<li>Indentare nello stesso modo le istruzioni appartenenti allo stesso blocco.</li>
+<li>Non inserire una condizione dopo <code>else</code>: per una seconda condizione si usa <code>elif</code>.</li>
+</ul>
+</section>
+
+<section>
+<h2>4. Somma di due numeri</h2>
+<pre>a = float(input("Primo numero: "))
+b = float(input("Secondo numero: "))
+somma = a + b
+print("La somma è:", somma)</pre>
+<p>Usare <code>int()</code> per numeri interi e <code>float()</code> per valori che possono avere una parte decimale. Il nome della variabile deve essere scritto sempre nello stesso modo.</p>
+</section>
+
+<section>
+<h2>5. Stampare su righe diverse</h2>
+<p>Due chiamate a <code>print()</code> producono normalmente due righe distinte.</p>
+<pre>print("Prima riga")
+print("Seconda riga")</pre>
+<p>In alternativa, si può usare <code>\n</code> all’interno di una stringa:</p>
+<pre>print("Prima riga\nSeconda riga")</pre>
+</section>
+
+<section>
+<h2>6. Errori da cercare prima di eseguire il programma</h2>
+<div class="grid">
+<div class="tip"><strong>Sintassi</strong><p>Parentesi mancanti, virgolette non chiuse, due punti assenti dopo <code>if</code> o <code>else</code>.</p></div>
+<div class="tip"><strong>Indentazione</strong><p>Istruzioni del blocco non allineate o <code>else</code> non associato correttamente al relativo <code>if</code>.</p></div>
+<div class="tip"><strong>Tipi di dato</strong><p>Somma numerica eseguita su stringhe oppure conversione mancante da <code>input()</code>.</p></div>
+<div class="tip"><strong>Variabili</strong><p>Nome scritto in modo diverso, variabile usata prima dell’assegnazione o confusione tra assegnazione e confronto.</p></div>
+</div>
+</section>
+
+<section>
+<h2>7. Procedura di autocorrezione</h2>
+<ol>
+<li>Rileggi il testo e individua input, elaborazione e output richiesti.</li>
+<li>Controlla parentesi, virgolette, due punti e indentazione.</li>
+<li>Verifica che gli input numerici siano convertiti con <code>int()</code> o <code>float()</code>.</li>
+<li>Controlla che le condizioni usino gli operatori corretti: <code>==</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>.</li>
+<li>Esegui il programma con almeno due casi diversi, compresi i valori limite quando sono rilevanti.</li>
+<li>Confronta l’output ottenuto con quello richiesto dalla traccia.</li>
+</ol>
+<p class="small">Le soluzioni riportate sono esempi didattici sui costrutti Python richiamati nella verifica; non sostituiscono la revisione individuale del proprio elaborato.</p>
+</section>
+<footer>Materiale didattico generale — Informatica, classe 2FSA. Per dubbi sulla propria prova, chiedere un chiarimento individuale al docente attraverso i canali scolastici previsti.</footer>
+</main></body></html>
