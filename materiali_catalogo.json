@@ -398,5 +398,15 @@
     "target_page": "",
     "ordine": 4,
     "attivo": true
+  },
+  {
+    "classe": "Test d'ingresso",
+    "titolo": "Test d'ingresso",
+    "descrizione": "Accesso ai test d'ingresso online.",
+    "tipo": "verifica",
+    "file_path": "https://script.google.com/macros/s/AKfycbyWYNKLCwl679Th99F0GoDNSUqbKzTjIH5qKxmR38glWJIGd1XwzdN_GDcVmacslTVCeA/exec",
+    "target_page": "",
+    "ordine": 1,
+    "attivo": true
   }
 ]
