@@ -46,7 +46,7 @@ function mathExercise(level){
  if(op==='+'){ans=a+b;q=`Calcola: ${a} + ${b} = ?`}
  if(op==='-'){if(b>a)[a,b]=[b,a];ans=a-b;q=`Calcola: ${a} − ${b} = ?`}
  if(op==='×'){ans=a*b;q=`Calcola: ${a} × ${b} = ?`}
- if(op==='÷'){ans=b;a=b*(1+Math.floor(Math.random()*(level==='hard'?15:10)));q=`Calcola: ${a} ÷ ${b} = ?`}
+ if(op==='÷'){a=b*(1+Math.floor(Math.random()*(level==='hard'?15:10)));ans=a/b;q=`Calcola: ${a} ÷ ${b} = ?`}
  if(level==='hard'&&Math.random()>.5){const c=1+Math.floor(Math.random()*9);q=`Calcola: (${a} + ${b}) × ${c} = ?`;ans=(a+b)*c}
  return {type:'number',tag:'Calcolo',q,answer:String(ans),explain:`Il risultato è ${ans}.`};
 }
