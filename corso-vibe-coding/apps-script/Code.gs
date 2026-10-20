@@ -42,3 +42,25 @@ function downloadMaterial(materialId){
  const file=DriveApp.getFileById(String(row[5])),blob=file.getBlob();
  return {fileName:String(row[3]||file.getName()),mimeType:String(row[4]||blob.getContentType()),base64:Utilities.base64Encode(blob.getBytes())};
 }
+
+
+/**
+ * Test tecnico del flusso Drive + Sheets, eseguibile manualmente dal docente.
+ * Non simula un corsista: la riga è marcata chiaramente come TEST TECNICO.
+ * Eseguire solo dall'editor Apps Script dopo aver verificato l'account attivo.
+ */
+function testConsegnaTecnicaDocente(){
+ const email=String(Session.getActiveUser().getEmail()||'').trim().toLowerCase();
+ const props=PropertiesService.getScriptProperties();
+ if(!email||!csv_(props.getProperty('TEACHER_EMAILS')).includes(email)) {
+   throw new Error('Test consentito soltanto al docente autorizzato. Account rilevato: '+(email||'non disponibile'));
+ }
+ const ss=db_(),root=getOrCreateFolder_(APP.ROOT_FOLDER),folder=getOrCreateChildFolder_(root,'Consegne');
+ const stamp=Utilities.formatDate(new Date(),APP.TZ,'yyyyMMdd-HHmmss');
+ const name='TEST-TECNICO-CONSEGNA-'+stamp+'.txt';
+ const content='TEST TECNICO VIBE CODING\\nCreato dal docente: '+email+'\\nData: '+new Date().toISOString()+'\\nQuesto file non è una consegna di un corsista.';
+ const file=folder.createFile(name,content,MimeType.PLAIN_TEXT);
+ const id=Utilities.getUuid();
+ ss.getSheetByName('CONSEGNE').appendRow([id,new Date(),email,name,MimeType.PLAIN_TEXT,file.getId(),file.getUrl(),1,'TEST TECNICO — non è una consegna corsista','TEST TECNICO']);
+ return {ok:true,message:'Test completato: file creato su Drive e riga TEST TECNICO registrata in CONSEGNE.',fileUrl:file.getUrl(),spreadsheetUrl:ss.getUrl(),fileName:name};
+}
