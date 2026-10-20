@@ -22,3 +22,13 @@ L'URL funzionerà solo se il dominio e GitHub Pages sono configurati per servire
 
 ## Manutenzione
 Modificare i file nella cartella `corso-vibe-coding/`. Il sito è autonomo e può essere aggiornato con normali commit su GitHub.
+
+
+## Area riservata Docente / Corsista
+
+- Portale frontend: `portale/index.html`
+- Configurazione client: `portale/config.js`
+- API protetta e accesso Drive: `backend/`
+- Specifica ruoli e requisiti: [ACCESSO-E-RUOLI.md](./ACCESSO-E-RUOLI.md)
+
+Il portale usa Google Workspace e un elenco esplicito di account autorizzati. Il corsista vede solo la lezione pubblicata; il docente può consultare tutte le lezioni e i materiali. Il backend deve essere distribuito in HTTPS e collegato a Google Drive prima dell'uso reale. GitHub Pages da solo non protegge i file.
