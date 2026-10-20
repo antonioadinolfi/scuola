@@ -20,9 +20,10 @@ Questa è una base separata da Adaptive Learning 5.0. Non incollare questi file 
 7. Prova con account docente, corsista e un account non autorizzato.
 
 ## Limiti da risolvere prima dell'uso reale
-- I file Drive sono privati. Il backend contiene un endpoint di download autenticato, ma il pulsante di download nell'interfaccia deve ancora essere collegato e collaudato prima dell'uso reale.
+- Prima dell'uso reale, collaudare login docente/corsista, pubblicazione, download e consegna con un account corsista autorizzato. Verificare inoltre che la distribuzione Apps Script sia limitata al dominio scolastico.
 - L'upload usa Base64 ed è limitato a 8 MB.
 - Non mettere token o elenchi riservati nel repository pubblico.
 - Nessuna fatturazione Cloud Run viene richiesta.
 
 Questi file non sono ancora distribuiti né collegati automaticamente a GitHub Pages. Vanno configurati e collaudati prima dell'uso reale.
+\n\n## Aggiornamenti del portale\n\nLe modifiche ai file in questa cartella su GitHub non aggiornano automaticamente il progetto Apps Script già distribuito. Per applicarle al portale in uso, copiare `Code.gs` e `Index.html` aggiornati nell'editor Apps Script, salvare e creare una nuova versione della distribuzione Web App. Non rieseguire `setupVibeCoding()` per i normali aggiornamenti dell'interfaccia o del codice.\n
