@@ -1,29 +1,34 @@
-# Vibe Coding — Google Apps Script
+# Vibe Coding — Portale del corso
 
-Questa è una base separata da Adaptive Learning 5.0. Non incollare questi file nel progetto originale.
+Questa applicazione Apps Script è separata dal sito informativo statico e da Adaptive Learning 5.0. È pensata per gestire le attività di un corso di 24 ore per docenti.
 
-## Funzioni
-- Identificazione tramite account Google Workspace attivo e verifica server-side del dominio `@lscortese.com` e degli elenchi autorizzati.
-- Ruoli docente e corsista verificati sul server.
-- Pubblicazione di una lezione corrente.
-- Caricamento materiali e consegne su Drive.
-- Registro utenti, lezioni, materiali e consegne su Google Sheets.
-- Limite upload 8 MB per file.
+## Funzioni disponibili nel codice
+- Identificazione tramite account Google Workspace e controllo server-side del dominio `@lscortese.com` e degli elenchi autorizzati.
+- Ruoli docente e corsista.
+- Programma operativo delle sei lezioni, con obiettivi, laboratorio e output atteso.
+- Pubblicazione della lezione corrente da parte del docente.
+- Caricamento di materiali da parte del docente e download autenticato.
+- Invio di elaborati da parte dei corsisti.
+- Registro utenti, lezioni, materiali e consegne in Google Sheets.
+- Dashboard docente con le ultime 100 consegne e collegamenti ai file in Drive.
+- Limite di 8 MB per file.
 
-## Installazione
-1. Crea un nuovo progetto su https://script.google.com/.
-2. Aggiungi Code.gs e Index.html copiando i file di questa cartella.
-3. Nelle impostazioni progetto, mostra il file appsscript.json e sostituiscilo con quello presente qui.
-4. Nelle Proprietà script imposta TEACHER_EMAILS con l'email del docente e STUDENT_EMAILS con gli account dei corsisti separati da virgole. Il login OAuth client-side non viene più usato. Gli account corsisti non presenti in STUDENT_EMAILS vengono rifiutati: inserire tutti gli indirizzi autorizzati, separati da virgole.
-5. Nel file Code.gs seleziona setupVibeCoding ed esegui una volta; autorizza Sheets e Drive.
-6. Distribuisci come App web, esecuzione come Me, accesso limitato agli utenti del dominio `lscortese.com` se l'opzione è disponibile. Seleziona il dominio della scuola come pubblico autorizzato; non lasciare accesso anonimo per il collaudo reale.
-7. Prova con account docente, corsista e un account non autorizzato.
+## Configurazione
+1. Crea un progetto separato su https://script.google.com/.
+2. Copia `Code.gs` e `Index.html` da questa cartella nel progetto Apps Script.
+3. Configura le proprietà dello script `TEACHER_EMAILS` e `STUDENT_EMAILS`, con gli indirizzi autorizzati separati da virgole.
+4. Esegui `setupVibeCoding()` una sola volta per creare fogli e cartelle iniziali.
+5. Distribuisci come Web App, eseguita come proprietario e limitata agli utenti autorizzati del dominio scolastico, se l'opzione è disponibile. Non abilitare l'accesso anonimo.
+6. Verifica il funzionamento con un account docente e, quando disponibile, un account corsista autorizzato.
 
-## Limiti da risolvere prima dell'uso reale
-- Prima dell'uso reale, collaudare login docente/corsista, pubblicazione, download e consegna con un account corsista autorizzato. Verificare inoltre che la distribuzione Apps Script sia limitata al dominio scolastico.
-- L'upload usa Base64 ed è limitato a 8 MB.
-- Non mettere token o elenchi riservati nel repository pubblico.
-- Nessuna fatturazione Cloud Run viene richiesta.
+## Aggiornare un progetto già distribuito
+Le modifiche ai file su GitHub **non** aggiornano automaticamente il progetto Apps Script. Per applicarle, copia i file aggiornati `Code.gs` e `Index.html` nell'editor Apps Script, salva e crea una nuova versione della distribuzione Web App. Per gli aggiornamenti ordinari non rieseguire `setupVibeCoding()`.
 
-Questi file non sono ancora distribuiti né collegati automaticamente a GitHub Pages. Vanno configurati e collaudati prima dell'uso reale.
-\n\n## Aggiornamenti del portale\n\nLe modifiche ai file in questa cartella su GitHub non aggiornano automaticamente il progetto Apps Script già distribuito. Per applicarle al portale in uso, copiare `Code.gs` e `Index.html` aggiornati nell'editor Apps Script, salvare e creare una nuova versione della distribuzione Web App. Non rieseguire `setupVibeCoding()` per i normali aggiornamenti dell'interfaccia o del codice.\n
+## Collaudo prima dell'uso reale
+- Verificare accesso, ruolo e rifiuto degli account non autorizzati.
+- Pubblicare una lezione e controllare che corsisti vedano solo la lezione pubblicata.
+- Caricare e scaricare un materiale con entrambi i ruoli.
+- Inviare una consegna da un account corsista e verificarne la comparsa nella dashboard docente e in Google Sheets.
+- Verificare che la distribuzione sia limitata al dominio scolastico e che le cartelle Drive non siano condivise pubblicamente.
+
+Il backend non richiede Cloud Run né l'attivazione della fatturazione Cloud. L'upload usa Base64 e resta limitato a 8 MB per file.
