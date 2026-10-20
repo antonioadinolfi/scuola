@@ -3,7 +3,7 @@
 Questa è una base separata da Adaptive Learning 5.0. Non incollare questi file nel progetto originale.
 
 ## Funzioni
-- Accesso Google con verifica server-side del token.
+- Identificazione tramite account Google Workspace attivo e verifica server-side del dominio `@lscortese.com` e degli elenchi autorizzati.
 - Ruoli docente e corsista verificati sul server.
 - Pubblicazione di una lezione corrente.
 - Caricamento materiali e consegne su Drive.
@@ -14,9 +14,9 @@ Questa è una base separata da Adaptive Learning 5.0. Non incollare questi file 
 1. Crea un nuovo progetto su https://script.google.com/.
 2. Aggiungi Code.gs e Index.html copiando i file di questa cartella.
 3. Nelle impostazioni progetto, mostra il file appsscript.json e sostituiscilo con quello presente qui.
-4. Nelle Proprietà script imposta GOOGLE_CLIENT_ID con il Client ID OAuth Web esistente, TEACHER_EMAILS con l'email del docente e STUDENT_EMAILS con gli account dei corsisti separati da virgole. Gli account corsisti non presenti in STUDENT_EMAILS vengono rifiutati: inserire tutti gli indirizzi autorizzati, separati da virgole.
+4. Nelle Proprietà script imposta TEACHER_EMAILS con l'email del docente e STUDENT_EMAILS con gli account dei corsisti separati da virgole. Il login OAuth client-side non viene più usato. Gli account corsisti non presenti in STUDENT_EMAILS vengono rifiutati: inserire tutti gli indirizzi autorizzati, separati da virgole.
 5. Nel file Code.gs seleziona setupVibeCoding ed esegui una volta; autorizza Sheets e Drive.
-6. Distribuisci come App web, esecuzione come Me, accesso Chiunque. L'accesso anonimo consente di caricare la pagina; le funzioni dati verificano il token e i ruoli sul server.
+6. Distribuisci come App web, esecuzione come Me, accesso limitato agli utenti del dominio `lscortese.com` se l'opzione è disponibile. Seleziona il dominio della scuola come pubblico autorizzato; non lasciare accesso anonimo per il collaudo reale.
 7. Prova con account docente, corsista e un account non autorizzato.
 
 ## Limiti da risolvere prima dell'uso reale
