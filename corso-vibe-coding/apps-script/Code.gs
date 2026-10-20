@@ -1,5 +1,6 @@
 const APP = { NAME: 'Portale Vibe Coding', TZ: 'Europe/Rome', SHEET_NAME: 'VIBE CODING — REGISTRO', ROOT_FOLDER: 'Vibe Coding — Materiali e Consegne', MAX_FILE_BYTES: 8 * 1024 * 1024 };
-function doGet(){return HtmlService.createHtmlOutputFromFile('Index').setTitle(APP.NAME).addMetaTag('viewport','width=device-width, initial-scale=1');}
+function doGet(){return HtmlService.createTemplateFromFile('Index').evaluate().setTitle(APP.NAME).addMetaTag('viewport','width=device-width, initial-scale=1');}
+function getClientId_(){return PropertiesService.getScriptProperties().getProperty('GOOGLE_CLIENT_ID')||'';}
 function setupVibeCoding(){
  const props=PropertiesService.getScriptProperties(),ss=getOrCreateSpreadsheet_();props.setProperty('VIBE_SPREADSHEET_ID',ss.getId());
  const defs={UTENTI:['email','ruolo','attivo'],LEZIONI:['numero','titolo','descrizione','pubblicata','aggiornataIl','aggiornataDa'],MATERIALI:['id','lezione','titolo','nomeFile','mimeType','fileId','descrizione','caricatoIl','caricatoDa','attivo'],CONSEGNE:['id','timestamp','emailCorsista','nomeFile','mimeType','fileId','urlDrive','lezione','nota','stato']};
