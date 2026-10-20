@@ -17,7 +17,7 @@ function verifyIdentity(idToken){
  if(!idToken)throw new Error('Accedi con Google per continuare.');const props=PropertiesService.getScriptProperties(),clientId=props.getProperty('GOOGLE_CLIENT_ID');if(!clientId)throw new Error('Manca GOOGLE_CLIENT_ID nelle Proprietà script.');
  const res=UrlFetchApp.fetch('https://oauth2.googleapis.com/tokeninfo?id_token='+encodeURIComponent(idToken),{muteHttpExceptions:true});if(res.getResponseCode()!==200)throw new Error('Accesso Google non valido o scaduto.');
  const c=JSON.parse(res.getContentText());if(c.aud!==clientId||String(c.email_verified)!=='true')throw new Error('Identità Google non verificata.');const email=String(c.email||'').trim().toLowerCase(),teachers=csv_(props.getProperty('TEACHER_EMAILS')),students=csv_(props.getProperty('STUDENT_EMAILS'));let role='';
- if(teachers.includes(email))role='DOCENTE';else if(students.length===0||students.includes(email))role='CORSISTA';if(!role)throw new Error('Account Google non autorizzato al portale.');upsertUser_(email,role);return {email,role};
+ if(teachers.includes(email))role='DOCENTE';else if(students.includes(email))role='CORSISTA';if(!role)throw new Error('Account Google non autorizzato al portale.');upsertUser_(email,role);return {email,role};
 }
 function csv_(s){return String(s||'').split(/[;,\n]/).map(x=>x.trim().toLowerCase()).filter(Boolean);}
 function upsertUser_(email,role){const sh=db_().getSheetByName('UTENTI'),rows=sh.getDataRange().getValues();for(let i=1;i<rows.length;i++)if(String(rows[i][0]).toLowerCase()===email){sh.getRange(i+1,2,1,2).setValues([[role,true]]);return;}sh.appendRow([email,role,true]);}
@@ -27,3 +27,16 @@ function publishLesson(token,num){const u=requireUser_(token);if(u.role!=='DOCEN
 function saveFile_(token,payload,kind){const u=requireUser_(token);if(!payload||!payload.base64||!payload.fileName)throw new Error('File mancante.');const bytes=Utilities.base64Decode(payload.base64);if(bytes.length>APP.MAX_FILE_BYTES)throw new Error('Il file supera il limite di 8 MB.');const lesson=Number(payload.lesson);if(!Number.isInteger(lesson)||lesson<1||lesson>6)throw new Error('Lezione non valida.');if(kind==='MATERIALE'&&u.role!=='DOCENTE')throw new Error('Solo il docente può caricare materiali.');if(kind==='CONSEGNA'&&u.role!=='CORSISTA')throw new Error('Solo i corsisti possono inviare consegne.');const ss=db_(),root=getOrCreateFolder_(APP.ROOT_FOLDER),folder=getOrCreateChildFolder_(root,kind==='MATERIALE'?'Materiali':'Consegne'),name=String(payload.fileName).replace(/[\\/:*?"<>|#%]/g,'_').slice(0,180),mime=String(payload.mimeType||'application/octet-stream').slice(0,120),file=folder.createFile(Utilities.newBlob(bytes,mime,name)),id=Utilities.getUuid();if(kind==='MATERIALE')ss.getSheetByName('MATERIALI').appendRow([id,lesson,String(payload.description||'').slice(0,1000),name,mime,file.getId(),String(payload.description||'').slice(0,1000),new Date(),u.email,true]);else ss.getSheetByName('CONSEGNE').appendRow([id,new Date(),u.email,name,mime,file.getId(),file.getUrl(),lesson,String(payload.note||'').slice(0,2000),'RICEVUTA']);return {ok:true,fileName:name,lesson};}
 function uploadMaterial(token,payload){return saveFile_(token,payload,'MATERIALE');}
 function submitAssignment(token,payload){return saveFile_(token,payload,'CONSEGNA');}
+
+function downloadMaterial(token,materialId){
+ const u=requireUser_(token),ss=db_(),sh=ss.getSheetByName('MATERIALI'),rows=sh.getDataRange().getValues();
+ const row=rows.slice(1).find(r=>String(r[0])===String(materialId)&&r[9]===true);
+ if(!row)throw new Error('Materiale non trovato o non attivo.');
+ if(u.role!=='DOCENTE'){
+   const lessons=ss.getSheetByName('LEZIONI').getDataRange().getValues();
+   const current=lessons.slice(1).filter(r=>r[0]&&r[3]===true).sort((a,b)=>Number(b[0])-Number(a[0]))[0];
+   if(!current||Number(row[1])!==Number(current[0]))throw new Error('Materiale non autorizzato per la lezione corrente.');
+ }
+ const file=DriveApp.getFileById(String(row[5])),blob=file.getBlob();
+ return {fileName:String(row[3]||file.getName()),mimeType:String(row[4]||blob.getContentType()),base64:Utilities.base64Encode(blob.getBytes())};
+}
