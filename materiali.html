@@ -942,9 +942,10 @@
       list.className = 'file-list';
 
       const categoryOrder = ['Lezioni', 'Infografiche', 'Esercizi', 'Verifiche'];
-      const groups = selectedClass === 'Quarta'
-        ? categoryOrder.map(category => ({category, items: items.filter(item => (item.categoria || 'Esercizi') === category)})).filter(group => group.items.length)
-        : [{category: '', items}];
+      const groups = categoryOrder.map(category => ({
+        category,
+        items: items.filter(item => (item.categoria || 'Lezioni') === category)
+      })).filter(group => group.items.length);
 
       groups.forEach(group => {
         if (group.category) {
