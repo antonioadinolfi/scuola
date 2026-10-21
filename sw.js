@@ -6,7 +6,7 @@
  * Aggiorna CACHE_VERSION ogni volta che pubblichi modifiche significative.
  */
 
-const CACHE_VERSION = 'adinolfi-v2';
+const CACHE_VERSION = 'adinolfi-v3';
 
 /* ---------------------------------------------------------------
    Asset da pre-cachare all'installazione (shell dell'app).
@@ -22,7 +22,7 @@ const PRECACHE_ASSETS = [
   '/pubblicazioni.html',
   '/privacy.html',
   '/immagini/logo_liceo_embedded.png',
-  '/immagini/foto_adinolfi_embedded.png',
+  '/immagini/foto_adinolfi.jpg',
   '/immagini/logo_liceo.png',
   '/immagini/hero_stem.jpg',
   // Font Awesome (da CDN — verrà cachato al primo caricamento,
@@ -61,7 +61,7 @@ self.addEventListener('activate', event => {
     caches.keys()
       .then(keys => Promise.all(
         keys
-          .filter(key => key !== CACHE_VERSION)
+          .filter(key => key.startsWith('adinolfi-') && key !== CACHE_VERSION)
           .map(key => caches.delete(key))
       ))
       .then(() => self.clients.claim()) // prende controllo di tutte le tab aperte
@@ -77,6 +77,10 @@ self.addEventListener('fetch', event => {
 
   // Ignora richieste non-GET (POST per Google Sign-In, ecc.)
   if (request.method !== 'GET') return;
+
+  // Le sotto-app gestiscono autonomamente cache, autenticazione e dati.
+  if (url.origin === self.location.origin &&
+      /^\/(agenda|agenda-semplice|agenda-standalone|corso-vibe-coding)(\/|$)/.test(url.pathname)) return;
 
   // Non cachare mai URL in blacklist
   if (NEVER_CACHE.some(pattern => request.url.includes(pattern))) return;
@@ -124,7 +128,8 @@ async function networkFirstHTML(request) {
     const cached = await caches.match(request);
     if (cached) return cached;
     // Fallback offline: mostra index.html
-    return caches.match('/index.html');
+    return (await caches.match('/index.html')) ||
+      new Response('Pagina non disponibile offline', { status: 503 });
   }
 }
 

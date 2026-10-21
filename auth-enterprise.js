@@ -90,7 +90,15 @@
 
   function getReturnUrl(defaultUrl) {
     const params = new URLSearchParams(window.location.search);
-    return params.get("return") || defaultUrl || "index.html#didattica";
+    const fallback = defaultUrl || "index.html#didattica";
+    try {
+      const target = new URL(params.get("return") || fallback, window.location.href);
+      return target.origin === window.location.origin &&
+        (target.protocol === "https:" || target.protocol === "http:")
+        ? target.href : fallback;
+    } catch {
+      return fallback;
+    }
   }
 
   function showDenied(message) {

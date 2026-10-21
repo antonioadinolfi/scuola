@@ -1,4 +1,4 @@
-const CACHE="agenda-v12";
+const CACHE="agenda-v13";
 const CORE=["./","./index.html","./auth.js","./cloud-sync.js","./manifest.webmanifest"];
 
 self.addEventListener("install",event=>{
@@ -19,6 +19,9 @@ self.addEventListener("activate",event=>{
 self.addEventListener("fetch",event=>{
   if(event.request.method!=="GET") return;
   const url=new URL(event.request.url);
+  // Non intercettare API Google, OAuth o risorse esterne alla sotto-app.
+  if(url.origin !== self.location.origin ||
+     !url.pathname.startsWith(new URL(self.registration.scope).pathname)) return;
   const isAppShell =
     url.pathname.endsWith("/agenda-semplice/") ||
     url.pathname.endsWith("/agenda-semplice/index.html") ||
@@ -30,11 +33,15 @@ self.addEventListener("fetch",event=>{
     event.respondWith(
       fetch(event.request,{cache:"no-cache"})
         .then(response=>{
-          const copy=response.clone();
-          caches.open(CACHE).then(cache=>cache.put(event.request,copy));
+          if(response.ok){
+            const copy=response.clone();
+            caches.open(CACHE).then(cache=>cache.put(event.request,copy));
+          }
           return response;
         })
-        .catch(()=>caches.match(event.request).then(r=>r||caches.match("./index.html")))
+        .catch(async()=> (await caches.match(event.request)) ||
+          (event.request.mode === "navigate" ? await caches.match("./index.html") : null) ||
+          new Response("Risorsa non disponibile offline",{status:503}))
     );
     return;
   }
@@ -48,7 +55,9 @@ self.addEventListener("fetch",event=>{
           caches.open(CACHE).then(cache=>cache.put(event.request,copy));
         }
         return response;
-      }).catch(()=>caches.match("./index.html"));
+      }).catch(async()=>
+        (event.request.mode === "navigate" ? await caches.match("./index.html") : null) ||
+        new Response("Risorsa non disponibile offline",{status:503}));
     })
   );
 });
