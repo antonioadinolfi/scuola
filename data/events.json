@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-21T07:00:00+02:00",
-  "source": "orario settimanale WAY Cortese, screenshot fornito il 21/10/2026",
+  "updatedAt": "2026-10-21T08:00:00+02:00",
+  "source": "Quadro orario settimanale trascritto fedelmente dallo screenshot WAY Cortese fornito dall'utente",
   "schoolYear": "2026/2027",
   "lessonUnitMinutes": 55,
   "lessonTimes": {
@@ -34,28 +34,6 @@
     }
   },
   "events": [
-    {
-      "id": "orario-lun-2-4fsa",
-      "title": "Informatica — 4FSA",
-      "dayOfWeek": "monday",
-      "period": 2,
-      "start": "08:55",
-      "end": "09:50",
-      "category": "lezione",
-      "class": "4FSA",
-      "location": "B113"
-    },
-    {
-      "id": "orario-lun-3-1asa",
-      "title": "Informatica — 1ASA",
-      "dayOfWeek": "monday",
-      "period": 3,
-      "start": "09:50",
-      "end": "10:45",
-      "category": "lezione",
-      "class": "1ASA",
-      "location": "B113"
-    },
     {
       "id": "orario-lun-4-4asa",
       "title": "Informatica — 4ASA",
@@ -101,25 +79,25 @@
       "location": "B113"
     },
     {
-      "id": "orario-mar-2-2asa",
-      "title": "Informatica — 2ASA",
+      "id": "orario-mar-2-ric",
+      "title": "RIC",
       "dayOfWeek": "tuesday",
       "period": 2,
       "start": "08:55",
       "end": "09:50",
-      "category": "lezione",
-      "class": "2ASA",
-      "location": "B113"
+      "category": "appuntamento",
+      "class": "",
+      "location": ""
     },
     {
-      "id": "orario-mar-3-2asa",
-      "title": "Informatica — 2ASA",
+      "id": "orario-mar-3-1asa",
+      "title": "Informatica — 1ASA",
       "dayOfWeek": "tuesday",
       "period": 3,
       "start": "09:50",
       "end": "10:45",
       "category": "lezione",
-      "class": "2ASA",
+      "class": "1ASA",
       "location": "B113"
     },
     {
@@ -167,25 +145,36 @@
       "location": "B113"
     },
     {
-      "id": "orario-mer-4-pot",
-      "title": "POT",
+      "id": "orario-mer-3-2asa",
+      "title": "Informatica — 2ASA",
+      "dayOfWeek": "wednesday",
+      "period": 3,
+      "start": "09:50",
+      "end": "10:45",
+      "category": "lezione",
+      "class": "2ASA",
+      "location": "B113"
+    },
+    {
+      "id": "orario-mer-4-5asa",
+      "title": "Informatica — 5ASA",
       "dayOfWeek": "wednesday",
       "period": 4,
       "start": "10:45",
       "end": "11:40",
-      "category": "pot",
-      "class": "",
-      "location": ""
+      "category": "lezione",
+      "class": "5ASA",
+      "location": "B113"
     },
     {
-      "id": "orario-mer-5-5asa",
-      "title": "Informatica — 5ASA",
+      "id": "orario-mer-5-3asa",
+      "title": "Informatica — 3ASA",
       "dayOfWeek": "wednesday",
       "period": 5,
       "start": "11:40",
       "end": "12:35",
       "category": "lezione",
-      "class": "5ASA",
+      "class": "3ASA",
       "location": "B113"
     },
     {
@@ -211,15 +200,15 @@
       "location": "B113"
     },
     {
-      "id": "orario-gio-4-5asa",
-      "title": "Informatica — 5ASA",
+      "id": "orario-gio-4-pot",
+      "title": "POT",
       "dayOfWeek": "thursday",
       "period": 4,
       "start": "10:45",
       "end": "11:40",
-      "category": "lezione",
-      "class": "5ASA",
-      "location": "B113"
+      "category": "pot",
+      "class": "",
+      "location": ""
     },
     {
       "id": "orario-ven-1-3asa",
@@ -252,17 +241,6 @@
       "end": "10:45",
       "category": "lezione",
       "class": "2FSA",
-      "location": "B113"
-    },
-    {
-      "id": "orario-ven-5-2asa",
-      "title": "Informatica — 2ASA",
-      "dayOfWeek": "friday",
-      "period": 5,
-      "start": "11:40",
-      "end": "12:35",
-      "category": "lezione",
-      "class": "2ASA",
       "location": "B113"
     },
     {
