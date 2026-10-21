@@ -926,7 +926,9 @@
 
       const items = getClassItems(selectedClass);
       filesPanelTitle.textContent = `${selectedClass} · Materiali`;
-      filesPanelDesc.textContent = 'Elenco ordinato dei materiali della classe selezionata.';
+      filesPanelDesc.textContent = selectedClass === 'Quarta'
+        ? 'Materiali organizzati per tipologia: lezioni, infografiche, esercizi e verifiche.'
+        : 'Elenco ordinato dei materiali della classe selezionata.';
       filesCountNote.textContent = `${items.length} file disponibili`;
       filesActiveClass.textContent = selectedClass;
       filesScroll.innerHTML = '';
@@ -941,31 +943,45 @@
       const list = document.createElement('div');
       list.className = 'file-list';
 
-      items.forEach(item => {
-        const row = document.createElement('button');
-        row.className = 'file-row';
-        if (selectedItem === item) row.classList.add('active');
+      const categoryOrder = ['Lezioni', 'Infografiche', 'Esercizi', 'Verifiche'];
+      const groups = selectedClass === 'Quarta'
+        ? categoryOrder.map(category => ({category, items: items.filter(item => (item.categoria || 'Esercizi') === category)})).filter(group => group.items.length)
+        : [{category: '', items}];
 
-        const ext = extFromPath(item.file_path);
-        const desc = item.descrizione || item.file_path || '';
-        row.innerHTML = `
-          <div class="fc"><span class="file-icon-sm ext-${ext}">${ext.length<=4?ext.toUpperCase():'FILE'}</span><span class="file-name-text" title="${escapeHtml(item.titolo || '')}">${item.titolo || 'Senza titolo'}</span></div>
-          <div class="fc"><span class="file-ext-tag">${ext.toUpperCase()}</span></div>
-          <div class="fc" style="color:#555;font-size:11px" title="${escapeHtml(desc)}">${desc}</div>`;
+      groups.forEach(group => {
+        if (group.category) {
+          const heading = document.createElement('div');
+          heading.className = 'material-category-heading';
+          heading.textContent = group.category;
+          list.appendChild(heading);
+        }
+        group.items.forEach(item => {
+          const row = document.createElement('button');
+          row.className = 'file-row';
+          if (selectedItem === item) row.classList.add('active');
 
-        row.addEventListener('click', () => {
-          saveNotes(false);
-          selectedItem = item;
-          renderFiles();
-          openItem(item);
+          const ext = extFromPath(item.file_path);
+          const desc = item.descrizione || item.file_path || '';
+          row.innerHTML = `
+            <div class="fc"><span class="file-icon-sm ext-${ext}">${ext.length<=4?ext.toUpperCase():'FILE'}</span><span class="file-name-text" title="${escapeHtml(item.titolo || '')}">${escapeHtml(item.titolo || 'Senza titolo')}</span></div>
+            <div class="fc"><span class="file-ext-tag">${ext.toUpperCase()}</span></div>
+            <div class="fc" style="color:#555;font-size:11px" title="${escapeHtml(desc)}">${escapeHtml(desc)}</div>`;
+
+          row.addEventListener('click', () => {
+            saveNotes(false);
+            selectedItem = item;
+            renderFiles();
+            openItem(item);
+          });
+
+          list.appendChild(row);
         });
-
-        list.appendChild(row);
       });
 
       filesScroll.appendChild(list);
       if (!selectedItem || !items.includes(selectedItem)) selectedItem = items[0];
     }
+
 
     async function loadJson(){
       try{
@@ -978,6 +994,7 @@
             titolo: r.titolo || '',
             descrizione: r.descrizione || '',
             tipo: r.tipo || '',
+            categoria: r.categoria || '',
             file_path: r.file_path || '',
             target_page: r.target_page || '',
             ordine: Number(r.ordine || 999),
