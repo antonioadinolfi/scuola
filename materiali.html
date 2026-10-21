@@ -926,9 +926,7 @@
 
       const items = getClassItems(selectedClass);
       filesPanelTitle.textContent = `${selectedClass} · Materiali`;
-      filesPanelDesc.textContent = selectedClass === 'Quarta'
-        ? 'Materiali organizzati per tipologia: lezioni, infografiche, esercizi e verifiche.'
-        : 'Elenco ordinato dei materiali della classe selezionata.';
+      filesPanelDesc.textContent = 'Materiali organizzati per tipologia: lezioni, infografiche, esercizi e verifiche.';
       filesCountNote.textContent = `${items.length} file disponibili`;
       filesActiveClass.textContent = selectedClass;
       filesScroll.innerHTML = '';
