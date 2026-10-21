@@ -439,8 +439,8 @@ footer { background: var(--color-primary); border-top: 1px solid var(--color-bor
     </div>
     <div class="agenda-toolbar-actions">
       <div class="agenda-view-toggle" role="group" aria-label="Vista agenda">
-        <button id="viewWeekBtn" class="active">Settimana</button>
-        <button id="viewMonthBtn">Mese</button>
+        <button id="viewWeekBtn" class="active" aria-pressed="true">Settimana</button>
+        <button id="viewMonthBtn" aria-pressed="false">Mese</button>
       </div>
       <button class="agenda-today-btn agenda-add-btn" id="addAppointmentBtn">+ Appuntamento</button>
     </div>
@@ -499,7 +499,7 @@ footer { background: var(--color-primary); border-top: 1px solid var(--color-bor
 
   <div class="agenda-layout" id="agendaLayout" style="display:none;">
     <div>
-      <div id="monthView">
+      <div id="monthView" style="display:none;">
         <div class="month-grid">
           <div class="month-grid-header">
             <div>Lun</div><div>Mar</div><div>Mer</div><div>Gio</div><div>Ven</div><div>Sab</div><div>Dom</div>
@@ -511,7 +511,7 @@ footer { background: var(--color-primary); border-top: 1px solid var(--color-bor
           <div id="dayPanelBody"></div>
         </div>
       </div>
-      <div id="weekView" class="week-list" style="display:none;"></div>
+      <div id="weekView" class="week-list" style="display:flex;"></div>
     </div>
 
     <aside class="sidebar-stack">
@@ -1194,14 +1194,18 @@ document.getElementById('todayBtn').addEventListener('click', () => {
 document.getElementById('viewMonthBtn').addEventListener('click', () => {
   viewMode = 'month';
   document.getElementById('viewMonthBtn').classList.add('active');
+  document.getElementById('viewMonthBtn').setAttribute('aria-pressed', 'true');
   document.getElementById('viewWeekBtn').classList.remove('active');
+  document.getElementById('viewWeekBtn').setAttribute('aria-pressed', 'false');
   renderAll();
 });
 
 document.getElementById('viewWeekBtn').addEventListener('click', () => {
   viewMode = 'week';
   document.getElementById('viewWeekBtn').classList.add('active');
+  document.getElementById('viewWeekBtn').setAttribute('aria-pressed', 'true');
   document.getElementById('viewMonthBtn').classList.remove('active');
+  document.getElementById('viewMonthBtn').setAttribute('aria-pressed', 'false');
   renderAll();
 });
 
