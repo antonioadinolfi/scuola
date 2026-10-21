@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-20T00:00:00+02:00",
-  "source": "orario scolastico allegato",
+  "updatedAt": "2026-10-21T07:00:00+02:00",
+  "source": "orario settimanale WAY Cortese, screenshot fornito il 21/10/2026",
   "schoolYear": "2026/2027",
   "lessonUnitMinutes": 55,
   "lessonTimes": {
@@ -35,14 +35,25 @@
   },
   "events": [
     {
-      "id": "orario-lun-3-3asa",
-      "title": "Informatica — 3ASA",
+      "id": "orario-lun-2-4fsa",
+      "title": "Informatica — 4FSA",
+      "dayOfWeek": "monday",
+      "period": 2,
+      "start": "08:55",
+      "end": "09:50",
+      "category": "lezione",
+      "class": "4FSA",
+      "location": "B113"
+    },
+    {
+      "id": "orario-lun-3-1asa",
+      "title": "Informatica — 1ASA",
       "dayOfWeek": "monday",
       "period": 3,
       "start": "09:50",
       "end": "10:45",
       "category": "lezione",
-      "class": "3ASA",
+      "class": "1ASA",
       "location": "B113"
     },
     {
@@ -65,7 +76,7 @@
       "end": "12:35",
       "category": "lezione",
       "class": "1ASA",
-      "location": "B111"
+      "location": "B113"
     },
     {
       "id": "orario-lun-6-4fsa",
@@ -76,17 +87,39 @@
       "end": "13:30",
       "category": "lezione",
       "class": "4FSA",
-      "location": "B111"
+      "location": "B113"
     },
     {
-      "id": "orario-mar-3-1asa",
-      "title": "Informatica — 1ASA",
+      "id": "orario-mar-1-5asa",
+      "title": "Informatica — 5ASA",
+      "dayOfWeek": "tuesday",
+      "period": 1,
+      "start": "08:00",
+      "end": "08:55",
+      "category": "lezione",
+      "class": "5ASA",
+      "location": "B113"
+    },
+    {
+      "id": "orario-mar-2-2asa",
+      "title": "Informatica — 2ASA",
+      "dayOfWeek": "tuesday",
+      "period": 2,
+      "start": "08:55",
+      "end": "09:50",
+      "category": "lezione",
+      "class": "2ASA",
+      "location": "B113"
+    },
+    {
+      "id": "orario-mar-3-2asa",
+      "title": "Informatica — 2ASA",
       "dayOfWeek": "tuesday",
       "period": 3,
       "start": "09:50",
       "end": "10:45",
       "category": "lezione",
-      "class": "1ASA",
+      "class": "2ASA",
       "location": "B113"
     },
     {
@@ -98,7 +131,7 @@
       "end": "11:40",
       "category": "lezione",
       "class": "4ASA",
-      "location": "B111"
+      "location": "B113"
     },
     {
       "id": "orario-mar-5-2fsa",
@@ -109,17 +142,6 @@
       "end": "12:35",
       "category": "lezione",
       "class": "2FSA",
-      "location": "B113"
-    },
-    {
-      "id": "orario-mar-6-5asa",
-      "title": "Informatica — 5ASA",
-      "dayOfWeek": "tuesday",
-      "period": 6,
-      "start": "12:35",
-      "end": "13:30",
-      "category": "lezione",
-      "class": "5ASA",
       "location": "B113"
     },
     {
@@ -142,7 +164,7 @@
       "end": "09:50",
       "category": "lezione",
       "class": "4FSA",
-      "location": "B111"
+      "location": "B113"
     },
     {
       "id": "orario-mer-4-pot",
@@ -154,6 +176,17 @@
       "category": "pot",
       "class": "",
       "location": ""
+    },
+    {
+      "id": "orario-mer-5-5asa",
+      "title": "Informatica — 5ASA",
+      "dayOfWeek": "wednesday",
+      "period": 5,
+      "start": "11:40",
+      "end": "12:35",
+      "category": "lezione",
+      "class": "5ASA",
+      "location": "B113"
     },
     {
       "id": "orario-gio-1-5csa",
@@ -175,15 +208,15 @@
       "end": "09:50",
       "category": "lezione",
       "class": "2ASA",
-      "location": "B111"
+      "location": "B113"
     },
     {
-      "id": "orario-gio-3-5asa",
+      "id": "orario-gio-4-5asa",
       "title": "Informatica — 5ASA",
       "dayOfWeek": "thursday",
-      "period": 3,
-      "start": "09:50",
-      "end": "10:45",
+      "period": 4,
+      "start": "10:45",
+      "end": "11:40",
       "category": "lezione",
       "class": "5ASA",
       "location": "B113"
@@ -230,7 +263,7 @@
       "end": "12:35",
       "category": "lezione",
       "class": "2ASA",
-      "location": "B111"
+      "location": "B113"
     },
     {
       "id": "lezione-2026-09-15-4fsa",
@@ -316,6 +349,5 @@
       "description": "Presentazione del framework CLAE / F.L.O.W. Adaptive Learning 5.0.",
       "url": "https://www.didamatica.it"
     }
-      
   ]
 }
