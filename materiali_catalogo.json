@@ -7,7 +7,8 @@
     "file_path": "materiali/slide/Tibone_powerpoint_parte_1.pdf",
     "target_page": "",
     "ordine": 1,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Lezioni"
   },
   {
     "classe": "Prima",
@@ -17,7 +18,8 @@
     "file_path": "materiali/slide/Windows_Shell_Blueprint.pdf",
     "target_page": "",
     "ordine": 2,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Lezioni"
   },
   {
     "classe": "Prima",
@@ -27,7 +29,8 @@
     "file_path": "classe_CLI.html",
     "target_page": "",
     "ordine": 3,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Esercizi"
   },
   {
     "classe": "Prima",
@@ -37,7 +40,8 @@
     "file_path": "materiali/verifiche/Verifica _Classe_1_Maggio_2026.bat",
     "target_page": "",
     "ordine": 3,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Verifiche"
   },
   {
     "classe": "Seconda",
@@ -47,7 +51,8 @@
     "file_path": "materiali/slide/Tibone_powerpoint_parte_2.pdf",
     "target_page": "",
     "ordine": 1,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Lezioni"
   },
   {
     "classe": "Seconda",
@@ -57,7 +62,8 @@
     "file_path": "materiali/slide/Tibone_powerpoint_parte_2.1.pdf",
     "target_page": "",
     "ordine": 1,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Lezioni"
   },
   {
     "classe": "Seconda",
@@ -67,7 +73,8 @@
     "file_path": "tracce/Seconde/Esercizio_10.pdf",
     "target_page": "",
     "ordine": 2,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Esercizi"
   },
   {
     "classe": "Seconda",
@@ -77,7 +84,8 @@
     "file_path": "tracce/Seconde/Esercizio_20.pdf",
     "target_page": "",
     "ordine": 3,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Esercizi"
   },
   {
     "classe": "Seconda",
@@ -87,7 +95,8 @@
     "file_path": "tracce/Seconde/Esercizio_30.pdf",
     "target_page": "",
     "ordine": 3,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Esercizi"
   },
   {
     "classe": "Seconda",
@@ -97,7 +106,8 @@
     "file_path": "tracce/Seconde/Esercizio_40.pdf",
     "target_page": "",
     "ordine": 3,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Esercizi"
   },
   {
     "classe": "Seconda",
@@ -107,7 +117,8 @@
     "file_path": "tracce/Seconde/Esercizio_II_13052026.pdf",
     "target_page": "",
     "ordine": 3,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Esercizi"
   },
   {
     "classe": "Seconda",
@@ -117,7 +128,8 @@
     "file_path": "materiali/verifiche/Verifica _Classe_2_Maggio_2026.bat",
     "target_page": "",
     "ordine": 3,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Verifiche"
   },
   {
     "classe": "Terza",
@@ -127,7 +139,8 @@
     "file_path": "materiali/slide/Tibone_powerpoint_parte_3.pdf",
     "target_page": "",
     "ordine": 1,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Lezioni"
   },
   {
     "classe": "Terza",
@@ -137,7 +150,8 @@
     "file_path": "materiali/slide/Python_File_Handling.pdf",
     "target_page": "",
     "ordine": 1,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Lezioni"
   },
   {
     "classe": "Terza",
@@ -147,7 +161,8 @@
     "file_path": "tracce/Terze/Esercizio_19.pdf",
     "target_page": "",
     "ordine": 2,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Esercizi"
   },
   {
     "classe": "Terza",
@@ -157,7 +172,8 @@
     "file_path": "tracce/Terze/Esercizio_20.pdf",
     "target_page": "",
     "ordine": 3,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Esercizi"
   },
   {
     "classe": "Terza",
@@ -167,7 +183,8 @@
     "file_path": "tracce/Terze/Esercizio_21.pdf",
     "target_page": "",
     "ordine": 3,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Esercizi"
   },
   {
     "classe": "Terza",
@@ -177,7 +194,8 @@
     "file_path": "materiali/verifiche/Verifica _Classe_3_Maggio_2026.bat",
     "target_page": "",
     "ordine": 3,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Verifiche"
   },
   {
     "classe": "Quarta",
@@ -275,7 +293,8 @@
     "file_path": "materiali/slide/crittografia_sicurezza.pdf",
     "target_page": "",
     "ordine": 1,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Lezioni"
   },
   {
     "classe": "STEM",
@@ -285,7 +304,8 @@
     "file_path": "materiali/slide/robotica_educativa.pdf",
     "target_page": "",
     "ordine": 1,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Lezioni"
   },
   {
     "classe": "Ripasso",
@@ -295,7 +315,8 @@
     "file_path": "materiali/Ripasso/Python_Manuale_Preparazione_Ripasso.pdf",
     "target_page": "",
     "ordine": 1,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Esercizi"
   },
   {
     "classe": "Ripasso",
@@ -305,7 +326,8 @@
     "file_path": "materiali/Ripasso/SQL_Manuale_Preparazione_Ripasso.pdf",
     "target_page": "",
     "ordine": 1,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Esercizi"
   },
   {
     "classe": "Ripasso",
@@ -315,7 +337,8 @@
     "file_path": "materiali/Ripasso/Python_Ripasso_Inizio_Anno.pdf",
     "target_page": "",
     "ordine": 1,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Esercizi"
   },
   {
     "classe": "Ripasso",
@@ -325,7 +348,8 @@
     "file_path": "materiali/Ripasso/SQL_Ripasso_Inizio_Anno.pdf",
     "target_page": "",
     "ordine": 1,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Esercizi"
   },
   {
     "classe": "Quinta",
@@ -335,7 +359,8 @@
     "file_path": "https://script.google.com/macros/s/AKfycbzKMIvLzBZsJKmA0RpgEMp8At08lNdnNfwCNRV1Ypz-pz9k63QdZ8Dnvb--DRXtZ8R7cQ/exec",
     "target_page": "",
     "ordine": 1,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Verifiche"
   },
   {
     "classe": "Quinta",
@@ -345,7 +370,8 @@
     "file_path": "materiali/slide/Tibone_powerpoint_81647_c06.pdf",
     "target_page": "",
     "ordine": 1,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Lezioni"
   },
   {
     "classe": "Quinta",
@@ -355,7 +381,8 @@
     "file_path": "materiali/slide/Tibone_powerpoint_81647_c07.pdf",
     "target_page": "",
     "ordine": 1,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Lezioni"
   },
   {
     "classe": "Quinta",
@@ -365,7 +392,8 @@
     "file_path": "materiali/slide/Tibone_powerpoint_81647_c08.pdf",
     "target_page": "",
     "ordine": 1,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Lezioni"
   },
   {
     "classe": "Quinta",
@@ -375,7 +403,8 @@
     "file_path": "materiali/infografica/Infografica_MATLAB_Calcolo_Numerico.pdf",
     "target_page": "",
     "ordine": 1,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Infografiche"
   },
   {
     "classe": "Quarta",
@@ -396,7 +425,8 @@
     "file_path": "materiali/infografica/Infografica_MATLAB_Calcolo_Numerico.pdf",
     "target_page": "",
     "ordine": 1,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Infografiche"
   },
   {
     "classe": "Quarta",
@@ -417,7 +447,8 @@
     "file_path": "materiali/verifiche/correzione-python-2fsa-2026-10-13.html",
     "target_page": "",
     "ordine": 4,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Verifiche"
   },
   {
     "classe": "Test",
@@ -427,6 +458,7 @@
     "file_path": "https://script.google.com/macros/s/AKfycbyWYNKLCwl679Th99F0GoDNSUqbKzTjIH5qKxmR38glWJIGd1XwzdN_GDcVmacslTVCeA/exec",
     "target_page": "",
     "ordine": 1,
-    "attivo": true
+    "attivo": true,
+    "categoria": "Verifiche"
   }
 ]
