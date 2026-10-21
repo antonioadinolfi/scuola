@@ -165,6 +165,15 @@ footer { background: var(--color-primary); border-top: 1px solid var(--color-bor
 .footer-inner a:hover { text-decoration: underline; }
 .footer-note { font-size: 11.5px; color: rgba(255,255,255,0.35); }
 
+.agenda-toolbar-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.agenda-add-btn{white-space:nowrap}
+.appointment-form{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.appointment-form label{display:flex;flex-direction:column;gap:4px;font-size:11px;font-weight:700;color:var(--color-muted)}
+.appointment-form input,.appointment-form select,.appointment-form textarea{width:100%;border:1px solid var(--color-border);border-radius:6px;padding:9px 10px;background:var(--color-background);color:var(--color-text);font:inherit;font-size:13px}
+.appointment-form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.appointment-local-note{font-size:11px;color:var(--color-muted);background:var(--color-background-2);padding:9px;border-radius:5px}
+.appointment-form-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:4px}
+@media(max-width:600px){.agenda-toolbar-actions{width:100%}.agenda-toolbar-actions .agenda-view-toggle{flex:1}.agenda-toolbar-actions .agenda-view-toggle button{flex:1;padding:8px 10px}.appointment-form-row{grid-template-columns:1fr}}
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .nav-links { display: none; }
@@ -428,9 +437,12 @@ footer { background: var(--color-primary); border-top: 1px solid var(--color-bor
       <button class="agenda-nav-btn" id="nextBtn" aria-label="Periodo successivo">&#8250;</button>
       <button class="agenda-today-btn" id="todayBtn">Oggi</button>
     </div>
-    <div class="agenda-view-toggle" role="group" aria-label="Vista agenda">
-      <button id="viewMonthBtn" class="active">Mese</button>
-      <button id="viewWeekBtn">Settimana</button>
+    <div class="agenda-toolbar-actions">
+      <div class="agenda-view-toggle" role="group" aria-label="Vista agenda">
+        <button id="viewWeekBtn" class="active">Settimana</button>
+        <button id="viewMonthBtn">Mese</button>
+      </div>
+      <button class="agenda-today-btn agenda-add-btn" id="addAppointmentBtn">+ Appuntamento</button>
     </div>
   </div>
 
@@ -537,6 +549,34 @@ footer { background: var(--color-primary); border-top: 1px solid var(--color-bor
   </div>
 </div>
 
+<div class="agenda-modal" id="appointmentModal" role="dialog" aria-modal="true" aria-labelledby="appointmentModalTitle">
+  <div class="agenda-modal-card">
+    <div class="agenda-modal-top">
+      <div>
+        <div class="agenda-modal-category">NUOVO EVENTO PERSONALE</div>
+        <div class="agenda-modal-title" id="appointmentModalTitle">Aggiungi appuntamento</div>
+      </div>
+      <button class="agenda-modal-close" id="appointmentModalClose" aria-label="Chiudi">×</button>
+    </div>
+    <form id="appointmentForm" class="appointment-form">
+      <label>Titolo *<input name="title" required maxlength="120" placeholder="Es. Riunione, ricevimento, scadenza"></label>
+      <div class="appointment-form-row">
+        <label>Data *<input name="date" type="date" required></label>
+        <label>Categoria<select name="category"><option value="appuntamento">Appuntamento</option><option value="evento">Evento</option><option value="seminario">Seminario</option><option value="verifica">Verifica</option><option value="scadenza">Scadenza</option><option value="pcto-stem">PCTO / STEM</option></select></label>
+      </div>
+      <div class="appointment-form-row">
+        <label>Ora inizio<input name="start" type="time"></label>
+        <label>Ora fine<input name="end" type="time"></label>
+      </div>
+      <label>Luogo (facoltativo)<input name="location" maxlength="120" placeholder="Aula, sede, online…"></label>
+      <label>Link (facoltativo)<input name="url" type="url" placeholder="https://…"></label>
+      <label>Note (facoltative)<textarea name="description" rows="3" maxlength="1000" placeholder="Dettagli dell'appuntamento"></textarea></label>
+      <p class="appointment-local-note">Gli appuntamenti creati qui vengono salvati in questo browser e non sono sincronizzati automaticamente con altri dispositivi.</p>
+      <div class="appointment-form-actions"><button type="button" class="agenda-nav-btn" id="appointmentCancelBtn">Annulla</button><button type="submit" class="agenda-today-btn">Salva appuntamento</button></div>
+    </form>
+  </div>
+</div>
+
 <footer>
   <div class="footer-inner">
     <span class="footer-note">© 2026 Prof. Antonio Adinolfi · Liceo Scientifico "Nino Cortese", Maddaloni (CE)</span>
@@ -586,7 +626,7 @@ const MONTH_LABELS = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','L
 
 let allEvents = [];           // eventi normalizzati, deduplicati per id
 let eventsByDate = new Map(); // 'YYYY-MM-DD' -> array di eventi
-let viewMode = 'month';       // 'month' | 'week'
+let viewMode = 'week';        // 'month' | 'week' — apertura sulla vista settimanale
 let focusDate = new Date();   // giorno "a fuoco" per la navigazione
 let selectedDayKey = null;    // giorno selezionato nella vista mese (per il day-panel)
 let activeClassFilter = '';
@@ -746,6 +786,14 @@ async function loadEvents() {
   // Trasforma le lezioni ricorrenti del quadro orario in eventi con data concreta.
   const expandedEvents = expandRecurringEvents(rawEvents, rawData);
   allEvents = normalizeEvents(expandedEvents);
+  // Appuntamenti personali creati dal modulo: persistono nel browser corrente.
+  try {
+    const personalEvents = JSON.parse(localStorage.getItem('antonioAgendaPersonalEvents') || '[]');
+    const knownIds = new Set(allEvents.map(ev => ev.id));
+    for (const ev of normalizeEvents(personalEvents)) {
+      if (!knownIds.has(ev.id)) allEvents.push(ev);
+    }
+  } catch (err) { console.warn('Impossibile leggere gli appuntamenti personali salvati', err); }
   console.info(`Agenda caricata: ${allEvents.length} eventi (${rawEvents.length} record sorgente).`);
   eventsByDate = new Map();
   for (const ev of allEvents) {
@@ -1179,12 +1227,62 @@ document.getElementById('resetFilters').addEventListener('click', () => {
   renderAll();
 });
 
+function openAppointmentForm() {
+  const modal = document.getElementById('appointmentModal');
+  const form = document.getElementById('appointmentForm');
+  form.reset();
+  form.elements.date.value = dateKey(focusDate);
+  modal.classList.add('open');
+}
+function closeAppointmentForm() { document.getElementById('appointmentModal').classList.remove('open'); }
+
+document.getElementById('addAppointmentBtn').addEventListener('click', openAppointmentForm);
+document.getElementById('appointmentModalClose').addEventListener('click', closeAppointmentForm);
+document.getElementById('appointmentCancelBtn').addEventListener('click', closeAppointmentForm);
+document.getElementById('appointmentModal').addEventListener('click', e => {
+  if (e.target.id === 'appointmentModal') closeAppointmentForm();
+});
+document.getElementById('appointmentForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const form = e.currentTarget;
+  const values = Object.fromEntries(new FormData(form).entries());
+  if (values.start && values.end && values.end <= values.start) {
+    alert("L'ora di fine deve essere successiva all'ora di inizio.");
+    return;
+  }
+  const personalEvents = JSON.parse(localStorage.getItem('antonioAgendaPersonalEvents') || '[]');
+  const ev = {
+    id: 'personale-' + Date.now(),
+    title: values.title.trim(),
+    date: values.date,
+    start: values.start || '',
+    end: values.end || '',
+    category: values.category || 'appuntamento',
+    class: '',
+    location: values.location.trim(),
+    description: values.description.trim(),
+    url: values.url.trim()
+  };
+  personalEvents.push(ev);
+  localStorage.setItem('antonioAgendaPersonalEvents', JSON.stringify(personalEvents));
+  allEvents.push({...ev, period:'', recurrence:false});
+  focusDate = new Date(ev.date + 'T12:00:00');
+  selectedDayKey = ev.date;
+  closeAppointmentForm();
+  renderAll();
+  if (viewMode === 'month') renderDayPanel();
+  else {
+    // Porta la vista settimanale alla data appena inserita.
+    renderAll();
+  }
+});
+
 document.getElementById('eventModalClose').addEventListener('click', closeEventModal);
 document.getElementById('eventModal').addEventListener('click', (e) => {
   if (e.target.id === 'eventModal') closeEventModal();
 });
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeEventModal();
+  if (e.key === 'Escape') { closeEventModal(); closeAppointmentForm(); }
 });
 
 loadEvents();
