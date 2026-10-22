@@ -44,10 +44,10 @@ window.agendaPrivateAuth={
     if(gate)gate.hidden=false;
     window.handleAgendaCredential=function(response){
       const p=decodeJwt(response.credential);
-      if(!p||!p.email||p.email.toLowerCase()!==CONFIG.allowedEmail||p.email_verified!==true){
+      if(!p||!p.email||p.email.toLowerCase()!==CONFIG.allowedEmail||p.email_verified!==true||p.aud!==CONFIG.clientId||!["accounts.google.com","https://accounts.google.com"].includes(p.iss)||!p.exp||p.exp*1000<=Date.now()){
         deny();return;
       }
-      const session={email:p.email.toLowerCase(),name:p.name||"",picture:p.picture||"",createdAt:Date.now(),expiresAt:Date.now()+CONFIG.maxAgeMinutes*60*1000};
+      const session={email:p.email.toLowerCase(),name:p.name||"",picture:p.picture||"",createdAt:Date.now(),expiresAt:Math.min(p.exp*1000,Date.now()+CONFIG.maxAgeMinutes*60*1000)};
       sessionStorage.setItem(CONFIG.sessionKey,JSON.stringify(session));
       localStorage.setItem(CONFIG.sessionKey,JSON.stringify(session));
       showApp();
@@ -74,5 +74,8 @@ window.agendaPrivateAuth={
     location.reload();
   }
 };
+function checkSession(){const app=document.getElementById("agendaApp");if(app&&!app.hidden&&!get()){app.hidden=true;location.reload()}}
+setInterval(checkSession,30000);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)checkSession()});
 document.addEventListener("DOMContentLoaded",function(){window.agendaPrivateAuth.init()});
 })();
