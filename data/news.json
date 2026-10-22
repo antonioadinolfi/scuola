@@ -1,9 +1,15 @@
 {
-  "updatedAt": "2026-10-22T03:59:26+00:00",
+  "updatedAt": "2026-10-22T09:20:37+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
       "items": [
+        {
+          "title": "LE ASSOCIAZIONI DI VOLONTARIATO PER IL BENESSERE DELLA PERSONA",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/10/22/le-associazioni-di-volontariato-per-il-benessere-della-persona/",
+          "pubDate": "Thu, 22 Oct 2026 07:18:46 +0000",
+          "description": "Il 20 ottobre il Liceo Scientifico Statale &#8220;Nino Cortese&#8221; di Maddaloni, diretto dal Dirigente Scolastico Dott. Prof. Marcellino Falcone, ha partecip…"
+        },
         {
           "title": "ELEZIONE RAPPRESENTANTI “GENITORI” PER IL CONSIGLIO DI CLASSE A.S. 2026/27 GIORNO 22 OTTOBRE 2026",
           "link": "https://www.liceoscientificocortese.edu.it/2026/10/21/elezione-rappresentanti-genitori-per-il-consiglio-di-classe-a-s-2026-27-giorno-22-ottobre-2026/",
@@ -33,12 +39,6 @@
           "link": "https://www.liceoscientificocortese.edu.it/2026/10/16/aspettando-ama-gli-studenti-del-liceo-cortese-raccontano-maddaloni-attraverso-la-fotografia/",
           "pubDate": "Fri, 16 Oct 2026 07:14:53 +0000",
           "description": "Raccontare la città attraverso le immagini, valorizzandone gli spazi, l’architettura e le storie. È questo l’obiettivo di “Aspettando AMA”, il laboratorio di fo…"
-        },
-        {
-          "title": "Rete scolastica per la parità di genere “Insieme verso il Futuro”",
-          "link": "https://www.liceoscientificocortese.edu.it/2026/10/10/rete-scolastica-per-la-parita-di-genere-insieme-verso-il-futuro/",
-          "pubDate": "Sat, 10 Oct 2026 12:03:21 +0000",
-          "description": "Il Liceo Scientifico “Nino Cortese” di Maddaloni, diretto dal Dirigente Scolastico dott. prof. Marcellino Falcone, in qualità di scuola capofila, ha ospitato il…"
         }
       ]
     },
@@ -46,40 +46,40 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
-          "title": "Stipendi docenti e ATA, i sindacati ai ministri Valditara e Bernini: “Gli aumenti del CCNL 2025/27 non bastano. Servono risorse straordinarie”",
-          "link": "https://www.orizzontescuola.it/stipendi-docenti-e-ata-i-sindacati-ai-ministri-valditara-e-bernini-gli-aumenti-del-ccnl-2025-27-non-bastano-servono-risorse-straordinarie/",
-          "pubDate": "Wed, 21 Oct 2026 20:21:03 +0000",
-          "description": "Le organizzazioni sindacali FLC CGIL, CISL Scuola, UIL Scuola RUA, SNALS Confsal, GILDA Unams e ANIEF hanno inviato una lettera ai ministri dell'Istruzione e de…"
+          "title": "25 miliardi per scuole e alloggi universitari, il governo esulta ma per gli studenti sono “solo briciole”",
+          "link": "https://www.orizzontescuola.it/25-miliardi-per-scuole-e-alloggi-universitari-il-governo-esulta-ma-per-gli-studenti-sono-solo-briciole/",
+          "pubDate": "Thu, 22 Oct 2026 09:20:08 +0000",
+          "description": "Per il governo è “un risultato eccezionale”, per gli studenti sono “solo briciole”. Al centro ci sono i circa 25 miliardi che in questi anni, tra fondi nazional…"
         },
         {
-          "title": "GPS 2027, nessun aggiornamento della seconda fascia: possibili solo gli elenchi aggiuntivi alla prima fascia. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/gps-2027-nessun-aggiornamento-della-seconda-fascia-possibili-solo-gli-elenchi-aggiuntivi-alla-prima-fascia-pillole-di-question-time/",
-          "pubDate": "Wed, 21 Oct 2026 19:24:12 +0000",
-          "description": "Nel Question Time del 20 ottobre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Chiara Cozzetto (ANIEF), è stato affrontato anc…"
+          "title": "Concorso Dirigenti, il Ministero prepara il nuovo bando. Gioca d’anticipo, preparati",
+          "link": "https://www.orizzontescuola.it/concorso-dirigenti-il-ministero-prepara-il-nuovo-bando-gioca-danticipo-preparati/",
+          "pubDate": "Thu, 22 Oct 2026 09:08:01 +0000",
+          "description": "Il Ministro dell&#8217;Istruzione e del Merito ha comunicato ai sindacati che a breve sarà emanato il nuovo bando di concorso per i dirigenti. Un concorso che è…"
         },
         {
-          "title": "Social vietati ai minori di 13 anni e accesso protetto fino ai 16, Carfagna (Noi Moderati) annuncia emendamento per pdl",
-          "link": "https://www.orizzontescuola.it/social-vietati-ai-minori-di-13-anni-e-accesso-protetto-fino-ai-16-carfagna-noi-moderati-annuncia-emendamento-per-pdl/",
-          "pubDate": "Wed, 21 Oct 2026 19:01:14 +0000",
-          "description": "Divieto di accesso ai social network per i minori di 13 anni, regole più stringenti per i ragazzi tra i 13 e i 16 anni e interventi sugli algoritmi delle piatta…"
+          "title": "Scontri di Milano, don Gino Rigoldi: “Sono adolescenti figli di nessuno, vivono da soli, sono troppo soli”. L’accusa al mondo degli adulti",
+          "link": "https://www.orizzontescuola.it/scontri-di-milano-don-gino-rigoldi-sono-adolescenti-figli-di-nessuno-vivono-da-soli-sono-troppo-soli-laccusa-al-mondo-degli-adulti/",
+          "pubDate": "Thu, 22 Oct 2026 09:00:11 +0000",
+          "description": "Gli episodi di devastazione, saccheggio e violenza che hanno scosso il centro di Milano, culminati in oltre duecento fermi — per la gran parte giovanissimi e mi…"
         },
         {
-          "title": "La Regione toscana dice no al tetto del 30% di alunni stranieri nelle classi",
-          "link": "https://www.orizzontescuola.it/la-regione-toscana-dice-no-al-tetto-del-30-di-alunni-stranieri-nelle-classi/",
-          "pubDate": "Wed, 21 Oct 2026 18:32:46 +0000",
-          "description": "No al limite del 30% dal decreto-legge sulle norme sulla composizione delle classi, a chiederlo l'assessora regionale Alessandra Nardini . Pareri divergenti nel…"
+          "title": "Supplenze docenti 2026/27: bollettini del 22 ottobre [AGGIORNATO]",
+          "link": "https://www.orizzontescuola.it/supplenze-docenti-ecco-i-bollettini-nomine-al-31-agosto-o-30-giugno-2027-in-aggiornamento/",
+          "pubDate": "Thu, 22 Oct 2026 08:58:36 +0000",
+          "description": "Supplenze docenti a.s. 2026/27: proseguono i bollettini dalle GPS, anche se i turni sono sempre meno numerosi. L'articolo Supplenze docenti 2026/27: bollettini…"
         },
         {
-          "title": "Docenti fuori regione da oltre 10 anni, “un contributo da 60mila euro per acquistare casa “. La proposta del CNDDU",
-          "link": "https://www.orizzontescuola.it/docenti-fuori-regione-da-oltre-10-anni-un-contributo-da-60mila-euro-per-acquistare-casa-la-proposta-del-cnddu/",
-          "pubDate": "Wed, 21 Oct 2026 18:27:34 +0000",
-          "description": "Un contributo straordinario a fondo perduto di 60.000 euro per i docenti di ruolo che lavorano fuori dalla propria regione di residenza da almeno dieci anni e n…"
+          "title": "Decreto sicurezza dopo i fatti di Milano, lo psicologo Iacob (Aupi): “Lo Stato ha il dovere di contrastare la violenza, ma le sanzioni, da sole, non bastano a prevenirla”",
+          "link": "https://www.orizzontescuola.it/decreto-sicurezza-dopo-i-fatti-di-milano-lo-psicologo-iacob-aupi-lo-stato-ha-il-dovere-di-contrastare-la-violenza-ma-le-sanzioni-da-sole-non-bastano-a-prevenirla/",
+          "pubDate": "Thu, 22 Oct 2026 08:56:27 +0000",
+          "description": "Dopo i fatti di Milano, le regole servono, ma non sono sufficienti. Ivan Iacob, segretario generale dell’Aupi, Associazione Unitaria Psicologi Italiani, lo scri…"
         },
         {
-          "title": "Graduatorie ATA terza fascia 2027: requisiti, punteggi e supplenze. Partecipa al webinar gratuito di Orizzonte Scuola",
-          "link": "https://www.orizzontescuola.it/graduatorie-ata-terza-fascia-2027-requisiti-punteggi-e-supplenze-partecipa-al-webinar-gratuito-di-orizzonte-scuola/",
-          "pubDate": "Wed, 21 Oct 2026 18:23:14 +0000",
-          "description": "Vuoi inserirti nelle graduatorie ATA di terza fascia nel 2027 o aggiornare il tuo punteggio? Conoscere i requisiti di accesso, i titoli valutabili e il funziona…"
+          "title": "Fondi, edilizia scolastica, tetto del 30% e consenso informato, Valditara risponde alle proteste nelle scuole: “Partiamo da dati veri e non inganniamo gli studenti”",
+          "link": "https://www.orizzontescuola.it/fondi-edilizia-scolastica-tetto-del-30-e-consenso-informato-valditara-risponde-alle-proteste-nelle-scuole-partiamo-da-dati-veri-e-non-inganniamo-gli-studenti/",
+          "pubDate": "Thu, 22 Oct 2026 08:38:43 +0000",
+          "description": "Secondo Giuseppe Valditara, gran parte delle proteste di questi giorni in alcune scuole italiane “non ha un fondamento razionale”. L'articolo Fondi, edilizia sc…"
         }
       ]
     },
@@ -87,40 +87,40 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Meta, ricavi oltre le stime. Titolo in rialzo. In rosso i flussi di cassa",
-          "link": "https://www.ilsole24ore.com/art/meta-ricavi-oltre-stime-investimenti-mandano-rosso-flussi-cassa-AJqPWiqB",
-          "pubDate": "Wed, 21 Oct 2026 20:20:00 GMT",
-          "description": "Meta ha pubblicato i dati trimestrali. Il gruppo di Zuckeberg, rispetto al quale proprio poco prima dei numeri di bilancio è stata pubblicata la notizia di una…"
+          "title": "Borse, torna il profondo rosso con vendite sul tech e super greggio",
+          "link": "https://www.ilsole24ore.com/art/borsa-indici-giovedi-22-ottobre-2026-AJHFb2qB",
+          "pubDate": "Thu, 22 Oct 2026 05:14:00 GMT",
+          "description": "Non convincono le prime trimestrali delle big tech, in particolare quella di Tesla. Il petrolio Brent risale sopra i 111 dollari al barile. Spread Oat-Bund sopr…"
         },
         {
-          "title": "Tesla quasi dimezza l’utile del terzo trimestre, ma dati migliori delle attese",
-          "link": "https://www.ilsole24ore.com/art/tesla-ricavi-2805-miliardi-$-oltre-stime-grazie-ripresa-consegne-e-crescita-stoccaggio-energia-AJ5VFjqB",
-          "pubDate": "Wed, 21 Oct 2026 20:10:00 GMT",
-          "description": "Tesla registra risultati per il terzo trimestre superiori alle attese, a dispetto del fatturato del settore automobilistico in calo del 3% su base annua. I tito…"
+          "title": "Mercato europeo dell’auto +10,2% a settembre, nei 9 mesi quota elettriche al 22,7%",
+          "link": "https://www.ilsole24ore.com/art/mercato-europeo-dell-auto-102percento-settembre-9-mesi-quota-elettriche-227percento-AJ2JwsqB",
+          "pubDate": "Thu, 22 Oct 2026 05:56:00 GMT",
+          "description": "Continua la fase di recupero sul mercato europeo dell’auto, con il mese di settembre che registra una crescita del 10,2% di immatricolazioni, performance che po…"
         },
         {
-          "title": "Blocco tir, dai rifiuti agli aliscafi, dagli aerei alle imprese di mozzarella e pasta: le attività ferme e a rischio",
-          "link": "https://www.ilsole24ore.com/art/blocco-tir-rifiuti-aliscafi-aerei-imprese-mozzarella-e-pasta-attivita-ferme-e-rischio-AJZTDcqB",
-          "pubDate": "Wed, 21 Oct 2026 17:20:00 GMT",
-          "description": "Nonostante il governo abbia annunciato l’impegno immediato di 480 milioni di euro e fissato un secondo tavolo di confronto per il 27 ottobre, la mobilitazione d…"
+          "title": "Barclays taglia 5mila dipendenti con la crescita dell’Ai",
+          "link": "https://www.ilsole24ore.com/art/barclays-taglia-5mila-dipendenti-la-crescita-dell-ai-AJcc47qB",
+          "pubDate": "Thu, 22 Oct 2026 07:26:00 GMT",
+          "description": "Le efficienze dell’intelligenza artificiale iniziano a entrare nel conto economico e a minacciare l’organico. Barclays ha annunciato 5mila tagli legati ala cres…"
         },
         {
-          "title": "BTp Valore, da inizio collocamento ordini totali per 12 miliardi",
-          "link": "https://www.ilsole24ore.com/art/tesoro-domanda-complessiva-gia-sopra-1-mld-nuovi-btp-valore-terzo-giorno-AJsDR4pB",
-          "pubDate": "Wed, 21 Oct 2026 09:02:00 GMT",
-          "description": "Il Tesoro registra forte domanda per i BTp Valore, con il tradizionale che domina rispetto alla formula one coupon, confermando l’interesse degli investitori pe…"
+          "title": "Accordo tra Italia e Spagna, stop ai controlli alle frontiere",
+          "link": "https://www.ilsole24ore.com/art/italia-spagna-sospensione-schengen-non-sara-prolungata-AJ5lTArB",
+          "pubDate": "Thu, 22 Oct 2026 08:13:00 GMT",
+          "description": "I ministri dell’Interno di Italia e Spagna hanno concordato che le sospensioni di Schengen in vigore nei due Paesi non verranno prolungate ulteriormente. Previs…"
         },
         {
-          "title": "Tasse alle banche, Patuelli: «Pacta sunt servanda? Domando dove è raffigurato Giustiniano in Italia»",
-          "link": "https://www.ilsole24ore.com/art/patuelli-pacta-sunt-servanda-domando-dove-e-raffigurato-giustiniano-italia-AJ8hzFqB",
-          "pubDate": "Wed, 21 Oct 2026 12:42:00 GMT",
-          "description": "«I motti di diritto latino sono stati codificati da Giustiniano imperatore. Domando a voi dove è raffigurato in Italia Giustiniano imperatore». Così il presiden…"
+          "title": "Blocchi dei tir, in Sicilia sospesa la protesta. Oggi Cdm: subito 110 milioni per il gasolio",
+          "link": "https://www.ilsole24ore.com/art/blocchi-tir-sicilia-sospesa-protesta-oggi-cdm-subito-110-milioni-il-gasolio-AJda16qB",
+          "pubDate": "Thu, 22 Oct 2026 07:10:00 GMT",
+          "description": "Nordio: «È molto probabile che la mafia sfrutti proteste camionisti». Ipotesi criminalità nei presidi agricoli in Calabria, commissione Antimafia si attiva"
         },
         {
-          "title": "Borse, Milano +1,2% con i tech. A Wall Street vola SpaceX tra conti e ipotesi fusione con Tesla",
-          "link": "https://www.ilsole24ore.com/art/borsa-l-andamento-indici-mercoledi-21-ottobre-2026-AJ8wCvpB",
-          "pubDate": "Wed, 21 Oct 2026 05:20:00 GMT",
-          "description": "Il mercato punisce invece i risultati di Netflix. Petrolio Brent volatile sui 108 dollari al barile. Spread tra Oat francesi e Bund tedeschi a 158 punti, al top…"
+          "title": "Militari in piazza, a Milano arrivano i parà. Ecco i numeri dei soldati nelle città e cosa potranno fare",
+          "link": "https://www.ilsole24ore.com/art/militari-piazza-milano-arrivano-para-ecco-numeri-soldati-citta-e-cosa-potranno-fare-AJPOj6pB",
+          "pubDate": "Thu, 22 Oct 2026 06:20:00 GMT",
+          "description": "Il personale militare agisce con le funzioni di agente di pubblica sicurezza: può procedere all’ immediata identificazione e perquisizione di persone e mezzi an…"
         }
       ]
     }
