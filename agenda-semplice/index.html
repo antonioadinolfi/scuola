@@ -25,8 +25,11 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
 .search{margin-bottom:12px}.search input{background:#f8fbfe}.hidden{display:none}.attachment{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px;padding:7px 9px;background:#f3f7fb;border:1px solid #dbe5ef;border-radius:8px;font-size:12px}.attachment a{color:#2563a8;font-weight:700;text-decoration:none}.attachment button{padding:4px 7px;font-size:11px}.event-docs{grid-column:2/4;margin-top:7px;padding:8px 10px;background:#f5f9fd;border:1px solid #dbe7f1;border-radius:10px}.event-doc-head{display:flex;align-items:center;justify-content:space-between;gap:8px}.event-doc-list{margin-top:6px;display:flex;flex-direction:column;gap:5px}.event-doc-item{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px}.event-doc-item span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.event-doc-actions{display:flex;gap:4px;flex-shrink:0}.event-doc-actions button{padding:3px 6px;font-size:10px}.doc-badge{font-size:11px;color:#2563a8;font-weight:700}
 @media(max-width:1100px){.layout{grid-template-columns:320px minmax(0,1fr)}header{grid-template-columns:1fr}.actions{justify-content:flex-start}.quick-form{grid-template-columns:1fr 1fr}}@media(max-width:800px){.calendar{width:100%;overflow:hidden}.dow{padding:8px 2px;font-size:10px}.day{padding:5px 3px;min-height:76px}.num{width:23px;height:23px;font-size:11px}.event-dot{padding:4px 3px;font-size:8px;border-left-width:2px}.quick-form{grid-template-columns:1fr}.quick-form .field:nth-of-type(3),.quick-form .field:nth-of-type(4),.quick-form .field:nth-of-type(5){grid-column:auto}.layout{grid-template-columns:1fr}.day{min-height:82px}.event-dot{font-size:10px}.app{padding:12px}header{display:flex;align-items:flex-start;flex-direction:column;padding:18px}.actions{width:100%;justify-content:flex-start}header .actions button{background:#ffffff20}.brand h1{font-size:25px}}
 .day.today{box-shadow:inset 0 0 0 3px #b45309}.day.today:not([class*="highlight-"]){background:#fff8df}.today-label{display:inline-block;margin:2px 0 2px 4px;color:#92400e;font-size:10px;font-weight:850;text-transform:uppercase}.day.today.selected{outline:2px solid #2563a8;outline-offset:-5px}
-.print-options{display:flex;align-items:center;gap:6px}.print-options label{margin:0;color:inherit;font-size:12px}.print-options select{max-width:180px;padding:8px;border:1px solid #d4deea;border-radius:8px;background:#fff;color:#172033;font:inherit;font-size:12px}
+.print-options{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.print-options label{margin:0;color:inherit;font-size:12px}.print-options select{max-width:180px;padding:8px;border:1px solid #d4deea;border-radius:8px;background:#fff;color:#172033;font:inherit;font-size:12px}
 #printEvents{display:none}
+.print-panel{width:100%;padding:10px;border:1px solid #ffffff45;border-radius:10px}.print-panel summary{cursor:pointer;font-weight:700}.print-panel[open] summary{margin-bottom:10px}.print-help,#printPreview{font-size:12px;color:#e4edff;margin:10px 0 0}#printPreview p{margin:4px 0}.event-more{font-size:11px;font-weight:700;margin-top:4px;color:#28506e}.upcoming{margin:14px 0;padding:12px;background:#f0f6fb;border-radius:10px}.upcoming summary{cursor:pointer;font-weight:700}#upcomingEvents{display:grid;gap:6px;margin-top:10px}#upcomingEvents button{text-align:left}.quick-form select{width:100%;height:40px;border:1px solid #cbd8e6;border-radius:10px;background:#fbfdff;padding:8px}.quick-form .field{grid-column:1/-1}.quick-form .field:nth-of-type(1),.quick-form .field:nth-of-type(2){grid-column:auto}.day:focus-visible{outline:3px solid #2563a8;outline-offset:-3px}
+@media(max-width:800px){.layout main{grid-row:1}.print-options>*{max-width:100%}.print-options input{width:100%!important}.event{grid-template-columns:5px minmax(0,1fr)}.event-actions{grid-column:2}.brand #agentStatus,.brand #privateUser{color:#dbeafe!important}.calendar-head h2{font-size:18px}}
+
 @media print{
  @page{size:A4 portrait;margin:15mm}
  body{background:#fff;color:#000}
@@ -46,7 +49,7 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
  .print-month-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));flex:1;min-height:0;border-top:1px solid #777;border-left:1px solid #777}
  .print-weekday,.print-date{border-bottom:1px solid #777;border-right:1px solid #777;padding:1.2mm;min-width:0}
  .print-weekday{font-size:8pt;font-weight:bold;text-align:center}
- .print-date-number{display:block;font-size:9pt;margin-bottom:1mm}
+ .print-date{min-height:0}.print-date-number{display:block;font-size:9pt;margin-bottom:1mm}
  .print-calendar-event{line-height:1.15;margin-bottom:1mm;overflow-wrap:anywhere;white-space:normal}
  .print-outside{background:#eee;print-color-adjust:exact}
 
@@ -70,7 +73,7 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
   <div class="actions">
     <span id="privateUser" style="align-self:center;font-size:12px;color:#667085"></span>
     <button id="logoutBtn" type="button">Esci</button><button id="cloudBtn" type="button" title="Collega questa agenda privata a Google Drive">☁️ Sincronizza</button><button id="highlightBtn" type="button" title="Evidenzia giorni del calendario">🖍️ Evidenzia</button><button id="notifyBtn" type="button" title="Attiva gli avvisi un\'ora prima">🔔 Avvisi</button>
-    <button id="todayBtn">Oggi</button><span class="print-options"><label for="printScope">Stampa:</label><select id="printScope" aria-label="Eventi da stampare"><option value="day">Giorno selezionato</option><option value="month" selected>Mese visualizzato</option><option value="all">Tutti gli eventi</option></select><select id="printLayout" aria-label="Formato di stampa"><option value="calendar" selected>Calendario A4</option><option value="list">Elenco con date</option></select><input id="printFilter" list="printSuggestions" placeholder="Tutti o es. INVALSI" aria-label="Filtra gli eventi da stampare" style="width:180px"><datalist id="printSuggestions"><option value="Consiglio di classe"><option value="INVALSI"></datalist><button id="printBtn" type="button">🖨️ Stampa eventi</button></span><button id="backupBtn">Backup</button><button id="restoreBtn">Ripristina</button><input id="restoreFile" type="file" accept=".json" class="hidden">
+    <button id="todayBtn">Oggi</button><details class="print-panel"><summary>🖨️ Stampa e filtri</summary><div class="print-options"><label for="printScope">Stampa:</label><select id="printScope" aria-label="Eventi da stampare"><option value="day">Giorno selezionato</option><option value="month" selected>Mese visualizzato</option><option value="all">Tutti gli eventi</option></select><select id="printLayout" aria-label="Formato di stampa"><option value="calendar" selected>Calendario A4</option><option value="list">Elenco con date</option></select><input id="printFilter" list="printSuggestions" placeholder="Tutti o es. INVALSI" aria-label="Filtra gli eventi da stampare" style="width:180px"><datalist id="printSuggestions"><option value="Consiglio di classe"><option value="INVALSI"></datalist><button id="printBtn" type="button">🖨️ Stampa eventi</button></div><p class="print-help">Calendario mensile: A4 orizzontale. Giorno e tutti gli eventi: elenco con date. Lascia il filtro vuoto per includere tutti gli impegni.</p><div id="printPreview" aria-live="polite"></div></details><button id="backupBtn">Backup</button><button id="restoreBtn" title="Importa un backup e conserva gli impegni esistenti">Importa backup</button><button id="undoDeleteBtn" hidden>Annulla eliminazione</button><input id="restoreFile" type="file" accept=".json" class="hidden">
   </div>
 </header>
 
@@ -83,7 +86,7 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
     <div class="field"><label for="time">Ora</label><input id="time" type="time"></div>
     <div class="field"><label for="title">Impegno</label><input id="title" required placeholder="Es. Consiglio di classe"></div>
     <div class="field"><label for="notes">Note</label><input id="notes" placeholder="Note"></div>
-    <div class="field"><label for="link">Link</label><input id="link" type="url" placeholder="https://..."></div>
+    <div class="field"><label for="category">Categoria</label><select id="category"><option value="">Non specificata</option><option>Scuola</option><option>Consigli di classe</option><option>INVALSI</option><option>Formazione</option><option>Consulenze</option><option>Personale</option></select></div><div class="field"><label for="link">Link</label><input id="link" type="url" placeholder="https://..."></div>
     <div class="row" style="grid-column:1/-1;margin-top:0"><button class="primary" type="submit">Salva</button><button type="button" id="cancelBtn">Annulla</button></div>
   </form>
   <div class="import-box">
@@ -96,7 +99,7 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
 
 <main class="panel">
   <div class="calendar-head">
-    <button id="prevBtn">‹</button><h2 id="monthTitle"></h2><button id="nextBtn">›</button>
+    <button id="prevBtn" aria-label="Mese precedente">‹</button><h2 id="monthTitle"></h2><button id="nextBtn" aria-label="Mese successivo">›</button>
   </div>
   <div class="calendar-tools" style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 10px">
     <div id="highlighterTools" class="highlighter-tools hidden">
@@ -110,7 +113,8 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
     </div>
   </div>
   <div class="calendar" id="calendar"></div>
-  <div class="search"><label for="search">Cerca negli impegni</label><input id="search" placeholder="Cerca per titolo o note..."></div>
+  <div class="search"><label for="search">Cerca in tutta l’agenda</label><input id="search" placeholder="Cerca per titolo o note..."></div>
+  <details class="upcoming"><summary>Prossimi sette giorni · da svolgere</summary><div id="upcomingEvents"></div></details>
   <div class="day-detail">
     <div class="day-title" id="selectedTitle"></div>
     <div id="dayEvents"></div>
@@ -122,13 +126,42 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
 <script>
 const KEY="agenda_semplice_v1";
 const OVERRIDE_KEY="agenda_semplice_agent_overrides_v1";
+const DB_NAME="agenda_semplice_files_v1";
 const HIGHLIGHT_KEY="agenda_semplice_highlights_v1";
-let agentOverrides=JSON.parse(localStorage.getItem(OVERRIDE_KEY)||"{}");
-let dayHighlights=JSON.parse(localStorage.getItem(HIGHLIGHT_KEY)||"{}");
+function readStored(key,fallback){try{const value=JSON.parse(localStorage.getItem(key)||"null");return value===null?fallback:value}catch{return fallback}}
+const META_KEY="agenda_semplice_meta_v2";
+let meta=readStored(META_KEY,{deletedEvents:{},highlightUpdated:{}});
+meta.deletedEvents=meta.deletedEvents||{};meta.highlightUpdated=meta.highlightUpdated||{};
+function persistMeta(){localStorage.setItem(META_KEY,JSON.stringify(meta))}
+function timestamp(){return new Date().toISOString()}
+function newer(a,b){return (Date.parse(a)||0)>(Date.parse(b)||0)}
+function safeLink(value){try{const u=new URL(value);return ["https:","http:"].includes(u.protocol)?u.href:""}catch{return ""}}
+function validEvent(e){return e&&typeof e==="object"&&typeof e.id==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(e.date)&&iso(new Date(e.date+"T12:00:00"))===e.date&&[e.notes,e.link,e.category,e.updatedAt].every(v=>v===undefined||typeof v==="string")&&typeof e.title==="string"&&e.title.trim()&&(!e.time||/^([01]\d|2[0-3]):[0-5]\d$/.test(e.time))}
+function mergeAgendaStates(local,remote){
+ const deletedEvents={...(remote?.deletedEvents||{})};
+ for(const [id,t] of Object.entries(local.deletedEvents||{}))if(!deletedEvents[id]||newer(t,deletedEvents[id]))deletedEvents[id]=t;
+ const map=new Map();
+ for(const source of [remote,local])for(const e of (source?.events||[])){
+  if(!validEvent(e))continue;
+  const old=map.get(e.id);
+  if(!old||newer(e.updatedAt,old.updatedAt))map.set(e.id,{...e,link:safeLink(e.link)});
+ }
+ const mergedEvents=[...map.values()].filter(e=>!deletedEvents[e.id]||newer(e.updatedAt,deletedEvents[e.id]));
+ const dayHighlights={},highlightUpdated={};
+ for(const source of [remote,local])for(const key of new Set([...Object.keys(source?.dayHighlights||{}),...Object.keys(source?.highlightUpdated||{})])){
+  const t=source?.highlightUpdated?.[key]||"";
+  if(!(key in highlightUpdated)||newer(t,highlightUpdated[key])){highlightUpdated[key]=t;dayHighlights[key]=source?.dayHighlights?.[key]||null}
+ }
+ const agentOverrides={...(remote?.agentOverrides||{})};
+ for(const [id,v] of Object.entries(local.agentOverrides||{})){const old=agentOverrides[id];if(!old||newer(v.updatedAt,old.updatedAt))agentOverrides[id]=v}
+ return {version:2,updatedAt:timestamp(),events:mergedEvents,deletedEvents,dayHighlights,highlightUpdated,agentOverrides};
+}
+let agentOverrides=readStored(OVERRIDE_KEY,{});
+let dayHighlights=readStored(HIGHLIGHT_KEY,{});
 let highlightMode=false;
 let highlightColor="yellow";
 function saveOverrides(){localStorage.setItem(OVERRIDE_KEY,JSON.stringify(agentOverrides));if(window.agendaCloudSync)window.agendaCloudSync.scheduleSave()}
-function saveHighlights(){localStorage.setItem(HIGHLIGHT_KEY,JSON.stringify(dayHighlights));if(window.agendaCloudSync)window.agendaCloudSync.scheduleSave()}
+function saveHighlights(){persistMeta();localStorage.setItem(HIGHLIGHT_KEY,JSON.stringify(dayHighlights));if(window.agendaCloudSync)window.agendaCloudSync.scheduleSave()}
 function openFilesDB(){return new Promise((resolve,reject)=>{const r=indexedDB.open(DB_NAME,1);r.onupgradeneeded=()=>r.result.createObjectStore("files",{keyPath:"id"});r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
 async function saveAttachment(eventId,file){const db=await openFilesDB();return new Promise((resolve,reject)=>{const tx=db.transaction("files","readwrite");tx.objectStore("files").put({id:crypto.randomUUID(),eventId,name:file.name,type:file.type,size:file.size,blob:file});tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
 async function getAttachments(eventId){const db=await openFilesDB();return new Promise((resolve,reject)=>{const tx=db.transaction("files","readonly"),out=[];const req=tx.objectStore("files").openCursor();req.onsuccess=()=>{const cur=req.result;if(!cur)return resolve(out);if(cur.value.eventId===eventId)out.push(cur.value);cur.continue()};req.onerror=()=>reject(req.error)})}
@@ -139,7 +172,7 @@ async function renderEventAttachments(eventId,row){const files=await getAttachme
 const pad=n=>String(n).padStart(2,"0");
 const iso=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
 let today=iso(new Date());
-let events=JSON.parse(localStorage.getItem(KEY)||"[]");
+let events=readStored(KEY,[]);if(!Array.isArray(events))events=[];
 
 /* Deduplicazione logica: stessa data + ora + titolo = stesso impegno.
    In caso di conflitto preserviamo lo stato più informativo (svolto, note, link)
@@ -177,48 +210,20 @@ function dedupeEvents(list){
   return [...map.values()];
 }
 
-const INITIAL_OCTOBER_EVENTS=[
- {date:"2026-10-12",time:"15:30",title:"Consiglio di classe — 4Fsa",notes:"Consiglio di classe del mese di ottobre 2026."},
- {date:"2026-10-12",time:"16:30",title:"Consiglio di classe — 2Fsa",notes:"Consiglio di classe del mese di ottobre 2026."},
- {date:"2026-10-14",time:"15:00",title:"Consiglio di classe — 5Asa",notes:"Consiglio di classe del mese di ottobre 2026."},
- {date:"2026-10-14",time:"15:30",title:"Consiglio di classe — 4Asa",notes:"Consiglio di classe del mese di ottobre 2026."},
- {date:"2026-10-14",time:"16:00",title:"Consiglio di classe — 3Asa",notes:"Consiglio di classe del mese di ottobre 2026."},
- {date:"2026-10-14",time:"16:30",title:"Consiglio di classe — 2Asa",notes:"Consiglio di classe del mese di ottobre 2026."},
- {date:"2026-10-14",time:"17:00",title:"Consiglio di classe — 1Asa",notes:"Consiglio di classe del mese di ottobre 2026."},
- {date:"2026-10-16",time:"17:00",title:"Consiglio di classe — 5Csa",notes:"Consiglio di classe del mese di ottobre 2026."}
-].map(x=>({...x,id:"pdf-oct-"+x.date+"-"+x.time+"-"+x.title.replace(/[^A-Za-z0-9]/g,""),done:false}));
-const RECOVERED_OCTOBER_EVENTS=[
- {id:"manual-oct-2026-10-03-1530-modena",date:"2026-10-03",time:"15:30",title:"Modena",notes:""},
- {id:"manual-oct-2026-10-05-1500-corso-invalsi",date:"2026-10-05",time:"15:00",title:"Corso INVALSI",notes:""},
- {id:"manual-oct-2026-10-06-1630-webinar-invalsi",date:"2026-10-06",time:"16:30",title:"Webinar INVALSI",notes:""},
- {id:"manual-oct-2026-10-07-1600-webinar-ctf",date:"2026-10-07",time:"16:00",title:"Webinar CTF",notes:""},
- {id:"manual-oct-2026-10-08-1200-riunione-posca",date:"2026-10-08",time:"12:00",title:"Riunione dott. POSCA",notes:""},
- {id:"manual-oct-2026-10-12-1700-corso-invalsi",date:"2026-10-12",time:"17:00",title:"Corso INVALSI",notes:""}
-];
-const recoveredIds=new Set(events.map(e=>e.id));
-const missingRecovered=RECOVERED_OCTOBER_EVENTS.filter(e=>!recoveredIds.has(e.id));
-if(missingRecovered.length){events.push(...missingRecovered);localStorage.setItem(KEY,JSON.stringify(events));}
-const existingIds=new Set(events.map(e=>e.id));
-const missing=INITIAL_OCTOBER_EVENTS.filter(e=>!existingIds.has(e.id));
-if(missing.length)events.push(...missing);
-const dedupedAtStartup=dedupeEvents(events);
-if(JSON.stringify(dedupedAtStartup)!==JSON.stringify(events)){
-  events=dedupedAtStartup;
-  localStorage.setItem(KEY,JSON.stringify(events));
-}else if(missing.length){
-  localStorage.setItem(KEY,JSON.stringify(events));
-}
+// Existing events stay in local storage and Drive; no personal appointments embedded in the page.
+events=dedupeEvents(events.filter(validEvent));
 let cursor=new Date(); cursor.setDate(1);
 let selected=today;
 
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 function save(){
+  persistMeta();
   events=dedupeEvents(events);
   localStorage.setItem(KEY,JSON.stringify(events));
   if(window.agendaCloudSync)window.agendaCloudSync.scheduleSave()
 }
-function resetForm(){ $("editId").value=""; $("date").value=selected; $("time").value=""; $("title").value=""; $("notes").value=""; $("link").value=""; $("formTitle").textContent="Nuovo impegno"; }
+function resetForm(){ $("editId").value=""; $("date").value=selected; $("time").value=""; $("title").value=""; $("notes").value=""; $("link").value=""; $("category").value=""; $("formTitle").textContent="Nuovo impegno"; }
 function dateLabel(v){return new Date(v+"T12:00:00").toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
 function renderCalendar(){
  today=iso(new Date());
@@ -229,45 +234,56 @@ function renderCalendar(){
  const first=new Date(y,m,1), start=(first.getDay()+6)%7, days=new Date(y,m+1,0).getDate(), prev=new Date(y,m,0).getDate();
  const total=Math.ceil((start+days)/7)*7;
  for(let i=0;i<total;i++){
-   let d=i-start+1, yy=y, mm=m, muted=false;
-   if(d<1){d=prev+d;mm--;if(mm<0){mm=11;yy--}muted=true}
-   if(d>days){d-=days;mm++;if(mm>11){mm=0;yy++}muted=true}
+   const actual=new Date(y,m,i-start+1);
+   const d=actual.getDate(),yy=actual.getFullYear(),mm=actual.getMonth(),muted=mm!==m;
    const key=yy+"-"+pad(mm+1)+"-"+pad(d), cell=document.createElement("div");
    cell.className="day"+(muted?" muted":"")+(key===selected?" selected":"")+(key===today?" today":"")+(dayHighlights[key]?" highlight-"+dayHighlights[key]:"");
    cell.dataset.date=key;
    if(key===today)cell.setAttribute("aria-current","date");
    cell.innerHTML='<span class="num">'+d+'</span>'+(key===today?'<span class="today-label">Oggi</span>':'');
-   events.filter(e=>e.date===key).sort((a,b)=>(a.time||"99").localeCompare(b.time||"99")).slice(0,3).forEach(e=>{
+   const daily=events.filter(e=>e.date===key);
+   daily.sort((a,b)=>(a.time||"99").localeCompare(b.time||"99")).slice(0,3).forEach(e=>{
      const x=document.createElement("div"); x.className="event-dot"+(e.done?" done":""); x.textContent=(e.time?e.time+" ":"")+e.title; cell.appendChild(x);
    });
+   if(daily.length>3){const more=document.createElement("div");more.className="event-more";more.textContent="+ "+(daily.length-3)+" altri";cell.appendChild(more)}
+   cell.tabIndex=0;cell.setAttribute("role","button");cell.setAttribute("aria-label",dateLabel(key)+", "+daily.length+" impegni");
    cal.appendChild(cell);
  }
 }
 function renderDay(){
  const q=$("search").value.trim().toLowerCase();
- $("selectedTitle").textContent=dateLabel(selected);
- const arr=events.filter(e=>e.date===selected && (!q || (e.title+" "+e.notes).toLowerCase().includes(q))).sort((a,b)=>(a.time||"99").localeCompare(b.time||"99"));
+ $("selectedTitle").textContent=q?"Risultati in tutta l’agenda":dateLabel(selected);
+ const arr=events.filter(e=>(q?(e.title+" "+(e.notes||"")+" "+(e.category||"")).toLowerCase().includes(q):e.date===selected)).sort((a,b)=>a.date.localeCompare(b.date)||(a.time||"99").localeCompare(b.time||"99"));
  const box=$("dayEvents"); box.innerHTML="";
- if(!arr.length){box.innerHTML='<div class="empty">Nessun impegno per questa giornata.</div>';return}
+ if(!arr.length){box.textContent=q?"Nessun impegno corrisponde alla ricerca.":"Nessun impegno per questa giornata.";return}
  arr.forEach(e=>{
    const row=document.createElement("div"); row.className="event"+(e.done?" done":"");
-   row.innerHTML='<div class="bar"></div><div><div class="title"><span class="time">'+(e.time?esc(e.time)+" · ":"")+'</span>'+esc(e.title)+'</div><div class="meta">'+esc(e.notes)+'</div>'+(e.link?'<div class="event-link"><a href="'+esc(e.link)+'" target="_blank" rel="noopener noreferrer">🔗 '+esc(e.link)+'</a><div class="link-actions"><button type="button" data-open-link="'+e.id+'">Apri</button></div></div>':'')+'</div><div class="event-actions"><label class="event-check"><input type="checkbox" data-done="'+e.id+'" '+(e.done?"checked":"")+'> Svolto</label><button data-edit="'+e.id+'">Modifica</button><button class="danger" data-delete="'+e.id+'">Elimina</button></div>';
+   row.innerHTML='<div class="bar"></div><div><div class="title"><span class="time">'+(e.time?esc(e.time)+" · ":"")+'</span>'+esc(e.title)+'</div><div class="meta">'+(q?esc(dateLabel(e.date))+' · ':'')+esc(e.notes)+(e.category?' · '+esc(e.category):'')+'</div>'+(safeLink(e.link)?'<div class="event-link"><a href="'+esc(e.link)+'" target="_blank" rel="noopener noreferrer">🔗 '+esc(e.link)+'</a><div class="link-actions"><button type="button" data-open-link="'+esc(e.id)+'">Apri</button></div></div>':'')+'</div><div class="event-actions"><label class="event-check"><input type="checkbox" data-done="'+esc(e.id)+'" '+(e.done?"checked":"")+'> Svolto</label><button data-edit="'+esc(e.id)+'">Modifica</button><button class="danger" data-delete="'+esc(e.id)+'">Elimina</button></div>';
    box.appendChild(row);
  });
 }
-function render(){renderCalendar();renderDay()}
+function renderUpcoming(){
+ const start=iso(new Date()),end=new Date();end.setDate(end.getDate()+6);
+ const list=events.filter(e=>!e.done&&e.date>=start&&e.date<=iso(end)).sort((a,b)=>a.date.localeCompare(b.date)||(a.time||"99").localeCompare(b.time||"99"));
+ const box=$("upcomingEvents");box.replaceChildren();
+ if(!list.length){box.textContent="Nessun impegno da svolgere nei prossimi sette giorni.";return}
+ for(const e of list){const btn=document.createElement("button");btn.type="button";btn.textContent=dateLabel(e.date)+(e.time?" · "+e.time:"")+" — "+e.title;btn.onclick=()=>{selected=e.date;cursor=new Date(e.date+"T12:00:00");cursor.setDate(1);$("search").value="";resetForm();render()};box.appendChild(btn)}
+}
+function render(){renderCalendar();renderDay();renderUpcoming();updatePrintPreview()}
+$("calendar").addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.closest(".day")){e.preventDefault();e.target.closest(".day").click()}});
 $("calendar").addEventListener("click",e=>{
  const d=e.target.closest(".day");
  if(!d)return;
  const key=d.dataset.date;
  if(highlightMode){
-   if(dayHighlights[key]===highlightColor) delete dayHighlights[key];
+   if(dayHighlights[key]===highlightColor) dayHighlights[key]=null;
    else dayHighlights[key]=highlightColor;
-   saveHighlights();
+   meta.highlightUpdated[key]=timestamp();saveHighlights();
    renderCalendar();
    return;
  }
  selected=key;
+ if(!$("editId").value)$("date").value=selected;
  render();
 });
 $("prevBtn").onclick=()=>{cursor.setMonth(cursor.getMonth()-1);renderCalendar()};
@@ -278,8 +294,9 @@ $("cancelBtn").onclick=resetForm;
 $("form").onsubmit=async e=>{
  e.preventDefault();
  const id=$("editId").value||crypto.randomUUID();
- const item={id,date:$("date").value,time:$("time").value,title:$("title").value.trim(),notes:$("notes").value.trim(),link:$("link").value.trim(),done:false};
- const old=events.find(x=>x.id===id); if(old){item.done=old.done;if(old.automatic){item.automatic=true;item.manualOverride=true;agentOverrides[id]={edited:true};saveOverrides()}}
+ const item={id,date:$("date").value,time:$("time").value,title:$("title").value.trim(),notes:$("notes").value.trim(),link:safeLink($("link").value.trim()),category:$("category").value,updatedAt:timestamp(),done:false};
+ if(!item.title){alert("Inserire un titolo per l’impegno.");return}
+ const old=events.find(x=>x.id===id); if(old){item.done=old.done;if(old.automatic){item.automatic=true;item.manualOverride=true;agentOverrides[id]={edited:true,updatedAt:timestamp()};saveOverrides()}}
  const i=events.findIndex(x=>x.id===id); if(i>=0)events[i]=item;else events.push(item);
  selected=item.date; cursor=new Date(item.date+"T12:00:00"); cursor.setDate(1); save(); resetForm(); render();
 };
@@ -287,17 +304,19 @@ $("dayEvents").addEventListener("click",async e=>{
  const openLink=e.target.closest("[data-open-link]");
  if(openLink){
    const item=events.find(x=>x.id===openLink.dataset.openLink);
-   if(item?.link) window.open(item.link,"_blank","noopener,noreferrer");
+   if(safeLink(item?.link)) window.open(safeLink(item.link),"_blank","noopener,noreferrer");
    return;
  }
  const done=e.target.closest("[data-done]"), edit=e.target.closest("[data-edit]"), del=e.target.closest("[data-delete]");
  const id=(done||edit||del)?.dataset?.[done?"done":edit?"edit":"delete"]; if(!id)return;
  const item=events.find(x=>x.id===id); if(!item)return;
- if(done){item.done=done.checked}
- if(del && confirm("Eliminare questo impegno?")) {if(item.automatic){agentOverrides[id]={deleted:true};saveOverrides()} events=events.filter(x=>x.id!==id);}
- if(edit){$("editId").value=item.id;$("date").value=item.date;$("time").value=item.time||"";$("title").value=item.title;$("notes").value=item.notes||"";$("link").value=item.link||"";$("formTitle").textContent=item.automatic?"Modifica aggiornamento automatico":"Modifica impegno";}
+ if(done){item.done=done.checked;item.updatedAt=timestamp();if(item.automatic){agentOverrides[id]={edited:true,updatedAt:item.updatedAt};saveOverrides()}}
+ if(del && confirm("Eliminare questo impegno?")) {lastDeleted={...item};meta.deletedEvents[id]=timestamp();if(item.automatic){agentOverrides[id]={deleted:true,updatedAt:timestamp()};saveOverrides()} events=events.filter(x=>x.id!==id);$("undoDeleteBtn").hidden=false;}
+ if(edit){$("editId").value=item.id;$("date").value=item.date;$("time").value=item.time||"";$("title").value=item.title;$("notes").value=item.notes||"";$("link").value=item.link||"";$("category").value=item.category||"";$("formTitle").textContent=item.automatic?"Modifica aggiornamento automatico":"Modifica impegno";}
  save();render();
 });
+let lastDeleted=null;
+$("undoDeleteBtn").onclick=()=>{if(!lastDeleted)return;const item={...lastDeleted,updatedAt:new Date(Math.max(Date.now(),(Date.parse(meta.deletedEvents[lastDeleted.id])||0)+1)).toISOString()};delete meta.deletedEvents[item.id];if(item.automatic){agentOverrides[item.id]={edited:true,updatedAt:item.updatedAt};saveOverrides()}events.push(item);lastDeleted=null;$("undoDeleteBtn").hidden=true;save();render()};
 function setHighlightMode(on){
   highlightMode=on;
   document.body.classList.toggle("highlight-mode",on);
@@ -317,7 +336,7 @@ $("clearHighlightBtn").onclick=()=>{
   highlightMode=true;
   const selectedDay=selected;
   if(dayHighlights[selectedDay]){
-    delete dayHighlights[selectedDay];
+    dayHighlights[selectedDay]=null;meta.highlightUpdated[selectedDay]=timestamp();
     saveHighlights();
     renderCalendar();
   }
@@ -327,7 +346,7 @@ function getPrintEvents(){
  const month=cursor.getFullYear()+"-"+pad(cursor.getMonth()+1);
  const query=$("printFilter").value.trim().toLocaleLowerCase("it");
  return events.filter(e=>(scope==="all" || (scope==="day"?e.date===selected:e.date?.startsWith(month+"-"))) &&
-   (!query || (String(e.title||"")+" "+String(e.notes||"")).toLocaleLowerCase("it").includes(query)))
+   (!query || (String(e.title||"")+" "+String(e.notes||"")+" "+String(e.category||"")).toLocaleLowerCase("it").includes(query)))
    .slice().sort((a,b)=>a.date.localeCompare(b.date)||(a.time||"99").localeCompare(b.time||"99")||String(a.title).localeCompare(String(b.title),"it"));
 }
 function printMonthGrid(box,list){
@@ -358,6 +377,15 @@ function printMonthGrid(box,list){
  grid.style.fontSize=(maxCount>5||maxChars>380?"6":maxCount>3||maxChars>220?"7":"8")+"pt";
  box.appendChild(grid);
 }
+function updatePrintPreview(){
+ const scope=$("printScope").value;$("printLayout").disabled=scope!=="month";
+ const list=getPrintEvents(),box=$("printPreview");box.replaceChildren();
+ const summary=document.createElement("p");summary.textContent=list.length+" impegni da stampare";box.appendChild(summary);
+ for(const e of list.slice(0,5)){const p=document.createElement("p");p.textContent=dateLabel(e.date)+(e.time?" · "+e.time:"")+" — "+e.title;box.appendChild(p)}
+ if(list.length>5){const p=document.createElement("p");p.textContent="… e altri "+(list.length-5)+" impegni";box.appendChild(p)}
+}
+for(const id of ["printScope","printLayout","printFilter"])$(id).addEventListener("input",updatePrintPreview);
+document.querySelector(".print-panel").addEventListener("toggle",updatePrintPreview);
 function preparePrint(){
  const box=$("printEvents");
  box.replaceChildren();
@@ -386,7 +414,16 @@ function preparePrint(){
  }
  if(!list.length){const p=document.createElement("p");p.textContent="Nessun impegno nel periodo selezionato.";box.appendChild(p)}
 }
-window.addEventListener("beforeprint",preparePrint);
+function fitPrintedMonth(){
+ const box=$("printEvents");const grid=box.querySelector(".print-month-grid");if(!grid||!grid.clientHeight)return;
+ let size=parseFloat(grid.style.fontSize)||8;
+ while(size>5&&[...grid.querySelectorAll(".print-date")].some(c=>c.scrollHeight>c.clientHeight+1)){size-=0.25;grid.style.fontSize=size+"pt"}
+ if([...grid.querySelectorAll(".print-date")].some(c=>c.scrollHeight>c.clientHeight+1)){
+  const previous=$("printLayout").value;$("printLayout").value="list";preparePrint();$("printLayout").value=previous;
+  const note=document.createElement("p");note.textContent="Elenco completo: gli impegni sono troppo numerosi per un calendario A4 leggibile.";box.insertBefore(note,box.children[2]||null);
+ }
+}
+window.addEventListener("beforeprint",()=>{preparePrint();fitPrintedMonth()});
 window.addEventListener("afterprint",()=>$("printEvents").replaceChildren());
 $("printBtn").onclick=()=>{preparePrint();window.print()};
 // Refresh today's marker after midnight and when returning to an open tab.
@@ -394,9 +431,16 @@ function refreshToday(){if(today!==iso(new Date()))renderCalendar()}
 setInterval(refreshToday,30000);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)refreshToday()});
 window.addEventListener("focus",refreshToday);
-$("backupBtn").onclick=()=>{const b=new Blob([JSON.stringify(events,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="backup-calendario.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)};
+$("backupBtn").onclick=()=>{const b=new Blob([JSON.stringify(window.agendaCloudBridge.getState(),null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="backup-agenda-"+iso(new Date())+".json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)};
 $("restoreBtn").onclick=()=>$("restoreFile").click();
-$("restoreFile").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const x=JSON.parse(await f.text());if(!Array.isArray(x))throw 0;events=x;save();render();alert("Backup ripristinato.")}catch{alert("File non valido.")}e.target.value=""};
+$("restoreFile").onchange=async e=>{
+ const f=e.target.files[0];if(!f)return;
+ try{const raw=JSON.parse(await f.text()),state=Array.isArray(raw)?{events:raw}:raw;
+ if(!state||!Array.isArray(state.events)||!state.events.every(validEvent))throw Error("Dati degli eventi non validi");
+ if(!confirm("Importare "+state.events.length+" impegni dal backup? Gli impegni attuali vengono conservati; le versioni più recenti prevalgono. Il backup include anche colori e impostazioni, se presenti."))return;
+ window.agendaCloudBridge.applyCloudState(state);if(window.agendaCloudSync)window.agendaCloudSync.scheduleSave();alert("Backup importato e unito agli impegni esistenti.");
+ }catch(err){alert("Backup non importato: "+err.message)}finally{e.target.value=""}
+};
 
 let recognition=null;
 const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
@@ -425,7 +469,7 @@ async function loadAgentData(){
    events.filter(e=>e.automatic).forEach(e=>automaticKeys.set((e.date||"")+"|"+(e.class||"")+"|"+(e.title||""),e.id));
    let changed=false;
    incoming.forEach(e=>{
-     if(agentOverrides[e.id]?.deleted) return;
+     if(meta.deletedEvents[e.id]||!validEvent(e)||agentOverrides[e.id]?.deleted) return;
      if(agentOverrides[e.id]?.edited && byId.has(e.id)) return;
      const key=(e.date||"")+"|"+(e.class||"")+"|"+(e.title||"");
      const oldId=automaticKeys.get(key);
@@ -433,7 +477,7 @@ async function loadAgentData(){
      if(!byId.has(e.id)){byId.set(e.id,e);changed=true}
      else {
        const old=byId.get(e.id);
-       const merged={...old,...e};
+       const merged={...old,...e,done:old.done,category:old.category||e.category||"",updatedAt:old.updatedAt};
        if(JSON.stringify(old)!==JSON.stringify(merged)){byId.set(e.id,merged);changed=true}
      }
    });
@@ -451,36 +495,26 @@ async function loadAgentData(){
  }
 }
 window.agendaCloudBridge={
+  mergeStates:mergeAgendaStates,
   getState:function(){
     return {
-      version:1,
+      version:2,
       updatedAt:new Date().toISOString(),
       events:events,
       agentOverrides:agentOverrides,
+      deletedEvents:meta.deletedEvents,
+      highlightUpdated:meta.highlightUpdated,
       dayHighlights:dayHighlights
     };
   },
   applyCloudState:function(state){
     if(!state || !Array.isArray(state.events))return;
-    const automaticOnly=events.filter(e=>e.automatic && !e.manualOverride);
-    agentOverrides=state.agentOverrides&&typeof state.agentOverrides==="object"?state.agentOverrides:{};
-    dayHighlights=state.dayHighlights&&typeof state.dayHighlights==="object"?state.dayHighlights:{};
+    const merged=mergeAgendaStates(this.getState(),state);
+    events=merged.events;agentOverrides=merged.agentOverrides;dayHighlights=merged.dayHighlights;
+    meta.deletedEvents=merged.deletedEvents;meta.highlightUpdated=merged.highlightUpdated;
     localStorage.setItem(OVERRIDE_KEY,JSON.stringify(agentOverrides));
     localStorage.setItem(HIGHLIGHT_KEY,JSON.stringify(dayHighlights));
-    const remoteById=new Map(state.events.map(e=>[e.id,e]));
-    const localById=new Map(events.map(e=>[e.id,e]));
-    // Never discard local events merely because another device has not uploaded them yet.
-    // Remote values win only for matching IDs; new remote events are added.
-    for(const remote of state.events){
-      if(localById.has(remote.id)) localById.set(remote.id,{...localById.get(remote.id),...remote});
-      else localById.set(remote.id,remote);
-    }
-    // Automatic events already present locally remain authoritative until the agent refreshes them.
-    for(const auto of automaticOnly){
-      if(!localById.has(auto.id)) localById.set(auto.id,auto);
-    }
-    events=dedupeEvents([...localById.values()]);
-    save();
+    persistMeta();localStorage.setItem(KEY,JSON.stringify(events));
     render();
   }
 };
