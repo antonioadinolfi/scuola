@@ -24,6 +24,23 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
 .import-box{margin-top:18px;border-top:1px solid #e3eaf2;padding-top:14px}.import-preview{max-height:180px;overflow:auto;background:#f5f8fb;border:1px solid #e1e8f0;padding:10px;border-radius:9px;font-size:12px;white-space:pre-wrap}
 .search{margin-bottom:12px}.search input{background:#f8fbfe}.hidden{display:none}.attachment{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px;padding:7px 9px;background:#f3f7fb;border:1px solid #dbe5ef;border-radius:8px;font-size:12px}.attachment a{color:#2563a8;font-weight:700;text-decoration:none}.attachment button{padding:4px 7px;font-size:11px}.event-docs{grid-column:2/4;margin-top:7px;padding:8px 10px;background:#f5f9fd;border:1px solid #dbe7f1;border-radius:10px}.event-doc-head{display:flex;align-items:center;justify-content:space-between;gap:8px}.event-doc-list{margin-top:6px;display:flex;flex-direction:column;gap:5px}.event-doc-item{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px}.event-doc-item span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.event-doc-actions{display:flex;gap:4px;flex-shrink:0}.event-doc-actions button{padding:3px 6px;font-size:10px}.doc-badge{font-size:11px;color:#2563a8;font-weight:700}
 @media(max-width:1100px){.layout{grid-template-columns:320px minmax(0,1fr)}header{grid-template-columns:1fr}.actions{justify-content:flex-start}.quick-form{grid-template-columns:1fr 1fr}}@media(max-width:800px){.calendar{width:100%;overflow:hidden}.dow{padding:8px 2px;font-size:10px}.day{padding:5px 3px;min-height:76px}.num{width:23px;height:23px;font-size:11px}.event-dot{padding:4px 3px;font-size:8px;border-left-width:2px}.quick-form{grid-template-columns:1fr}.quick-form .field:nth-of-type(3),.quick-form .field:nth-of-type(4),.quick-form .field:nth-of-type(5){grid-column:auto}.layout{grid-template-columns:1fr}.day{min-height:82px}.event-dot{font-size:10px}.app{padding:12px}header{display:flex;align-items:flex-start;flex-direction:column;padding:18px}.actions{width:100%;justify-content:flex-start}header .actions button{background:#ffffff20}.brand h1{font-size:25px}}
+.day.today{box-shadow:inset 0 0 0 3px #b45309}.day.today:not([class*="highlight-"]){background:#fff8df}.today-label{display:inline-block;margin:2px 0 2px 4px;color:#92400e;font-size:10px;font-weight:850;text-transform:uppercase}.day.today.selected{outline:2px solid #2563a8;outline-offset:-5px}
+.print-options{display:flex;align-items:center;gap:6px}.print-options label{margin:0;color:inherit;font-size:12px}.print-options select{max-width:180px;padding:8px;border:1px solid #d4deea;border-radius:8px;background:#fff;color:#172033;font:inherit;font-size:12px}
+#printEvents{display:none}
+@media print{
+ @page{size:A4 portrait;margin:15mm}
+ body{background:#fff;color:#000}
+ #agendaApp{width:100%;padding:0;margin:0}
+ #agendaApp>header,#agendaApp>.layout{display:none!important}
+ #agendaApp:not([hidden])>#printEvents{display:block!important}
+ #printEvents h1{font-size:22pt;margin:0 0 6pt}
+ #printEvents .print-summary{font-size:11pt;margin:0 0 18pt}
+ #printEvents h2{font-size:13pt;margin:16pt 0 6pt;break-after:avoid}
+ #printEvents article{break-inside:avoid;border-bottom:1px solid #aaa;padding:8pt 0}
+ #printEvents h3{font-size:12pt;margin:0 0 4pt}
+ #printEvents p{font-size:10pt;line-height:1.4;margin:4pt 0;white-space:pre-wrap;overflow-wrap:anywhere}
+ #printEvents .print-status{font-size:9pt;color:#444}
+}
 </style>
 </head>
 <body>
@@ -43,7 +60,7 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
   <div class="actions">
     <span id="privateUser" style="align-self:center;font-size:12px;color:#667085"></span>
     <button id="logoutBtn" type="button">Esci</button><button id="cloudBtn" type="button" title="Collega questa agenda privata a Google Drive">☁️ Sincronizza</button><button id="highlightBtn" type="button" title="Evidenzia giorni del calendario">🖍️ Evidenzia</button><button id="notifyBtn" type="button" title="Attiva gli avvisi un\'ora prima">🔔 Avvisi</button>
-    <button id="todayBtn">Oggi</button><button id="printBtn">Stampa</button><button id="backupBtn">Backup</button><button id="restoreBtn">Ripristina</button><input id="restoreFile" type="file" accept=".json" class="hidden">
+    <button id="todayBtn">Oggi</button><span class="print-options"><label for="printScope">Stampa:</label><select id="printScope" aria-label="Eventi da stampare"><option value="day">Giorno selezionato</option><option value="month" selected>Mese visualizzato</option><option value="all">Tutti gli eventi</option></select><button id="printBtn" type="button">🖨️ Stampa eventi</button></span><button id="backupBtn">Backup</button><button id="restoreBtn">Ripristina</button><input id="restoreFile" type="file" accept=".json" class="hidden">
   </div>
 </header>
 
@@ -90,8 +107,8 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
   </div>
 </main>
 </div>
+<section id="printEvents" aria-label="Elenco eventi per la stampa"></section>
 </div>
-
 <script>
 const KEY="agenda_semplice_v1";
 const OVERRIDE_KEY="agenda_semplice_agent_overrides_v1";
@@ -111,7 +128,7 @@ async function openAttachment(id){const db=await openFilesDB();const f=await new
 async function renderEventAttachments(eventId,row){const files=await getAttachments(eventId);const docs=document.createElement("div");docs.className="event-docs";docs.innerHTML='<div class="event-doc-head"><span class="doc-badge">📎 '+(files.length?files.length+" documento/i":"Nessun documento")+'</span><button type="button" data-upload-doc="'+eventId+'">+ Carica documenti</button></div>';if(files.length){const list=document.createElement("div");list.className="event-doc-list";files.forEach(f=>{const item=document.createElement("div");item.className="event-doc-item";item.innerHTML='<span title="'+esc(f.name)+'">📄 '+esc(f.name)+'</span><div class="event-doc-actions"><button type="button" data-open-doc="'+f.id+'">Apri</button><button type="button" data-rename-doc="'+f.id+'">Rinomina</button><button type="button" class="danger" data-delete-doc="'+f.id+'">Elimina</button></div>';list.appendChild(item)});docs.appendChild(list)}row.appendChild(docs)}
 const pad=n=>String(n).padStart(2,"0");
 const iso=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
-const today=iso(new Date());
+let today=iso(new Date());
 let events=JSON.parse(localStorage.getItem(KEY)||"[]");
 
 /* Deduplicazione logica: stessa data + ora + titolo = stesso impegno.
@@ -194,6 +211,7 @@ function save(){
 function resetForm(){ $("editId").value=""; $("date").value=selected; $("time").value=""; $("title").value=""; $("notes").value=""; $("link").value=""; $("formTitle").textContent="Nuovo impegno"; }
 function dateLabel(v){return new Date(v+"T12:00:00").toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
 function renderCalendar(){
+ today=iso(new Date());
  const y=cursor.getFullYear(),m=cursor.getMonth(), cal=$("calendar");
  $("monthTitle").textContent=cursor.toLocaleDateString("it-IT",{month:"long",year:"numeric"});
  const names=["Lun","Mar","Mer","Gio","Ven","Sab","Dom"];
@@ -207,7 +225,8 @@ function renderCalendar(){
    const key=yy+"-"+pad(mm+1)+"-"+pad(d), cell=document.createElement("div");
    cell.className="day"+(muted?" muted":"")+(key===selected?" selected":"")+(key===today?" today":"")+(dayHighlights[key]?" highlight-"+dayHighlights[key]:"");
    cell.dataset.date=key;
-   cell.innerHTML='<span class="num">'+d+'</span>';
+   if(key===today)cell.setAttribute("aria-current","date");
+   cell.innerHTML='<span class="num">'+d+'</span>'+(key===today?'<span class="today-label">Oggi</span>':'');
    events.filter(e=>e.date===key).sort((a,b)=>(a.time||"99").localeCompare(b.time||"99")).slice(0,3).forEach(e=>{
      const x=document.createElement("div"); x.className="event-dot"+(e.done?" done":""); x.textContent=(e.time?e.time+" ":"")+e.title; cell.appendChild(x);
    });
@@ -293,7 +312,37 @@ $("clearHighlightBtn").onclick=()=>{
     renderCalendar();
   }
 };
-$("printBtn").onclick=()=>window.print();
+function preparePrint(){
+ const box=$("printEvents");
+ box.replaceChildren();
+ if($("agendaApp").hidden)return;
+ const scope=$("printScope").value;
+ const month=cursor.getFullYear()+"-"+pad(cursor.getMonth()+1);
+ const list=events.filter(e=>scope==="all" || (scope==="day"?e.date===selected:e.date?.startsWith(month+"-")))
+   .slice().sort((a,b)=>a.date.localeCompare(b.date)||(a.time||"99").localeCompare(b.time||"99")||String(a.title).localeCompare(String(b.title),"it"));
+ const heading=document.createElement("h1");heading.textContent="Agenda personale";box.appendChild(heading);
+ const summary=document.createElement("p");summary.className="print-summary";
+ summary.textContent=(scope==="day"?dateLabel(selected):scope==="month"?cursor.toLocaleDateString("it-IT",{month:"long",year:"numeric"}):"Tutti gli eventi")+" · "+list.length+" impegni";
+ box.appendChild(summary);
+ let lastDate="";
+ for(const e of list){
+   if(e.date!==lastDate){const h=document.createElement("h2");h.textContent=dateLabel(e.date);box.appendChild(h);lastDate=e.date}
+   const article=document.createElement("article");
+   const title=document.createElement("h3");title.textContent=(e.time?e.time+" — ":"")+e.title;article.appendChild(title);
+   const status=document.createElement("p");status.className="print-status";status.textContent=e.done?"Svolto":"Da svolgere";article.appendChild(status);
+   for(const value of [e.notes,e.link])if(value){const p=document.createElement("p");p.textContent=value;article.appendChild(p)}
+   box.appendChild(article);
+ }
+ if(!list.length){const p=document.createElement("p");p.textContent="Nessun impegno nel periodo selezionato.";box.appendChild(p)}
+}
+window.addEventListener("beforeprint",preparePrint);
+window.addEventListener("afterprint",()=>$("printEvents").replaceChildren());
+$("printBtn").onclick=()=>{preparePrint();window.print()};
+// Refresh today's marker after midnight and when returning to an open tab.
+function refreshToday(){if(today!==iso(new Date()))renderCalendar()}
+setInterval(refreshToday,30000);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)refreshToday()});
+window.addEventListener("focus",refreshToday);
 $("backupBtn").onclick=()=>{const b=new Blob([JSON.stringify(events,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="backup-calendario.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)};
 $("restoreBtn").onclick=()=>$("restoreFile").click();
 $("restoreFile").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const x=JSON.parse(await f.text());if(!Array.isArray(x))throw 0;events=x;save();render();alert("Backup ripristinato.")}catch{alert("File non valido.")}e.target.value=""};
