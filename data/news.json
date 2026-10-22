@@ -1,9 +1,15 @@
 {
-  "updatedAt": "2026-10-22T19:50:53+00:00",
+  "updatedAt": "2026-10-22T23:05:15+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
       "items": [
+        {
+          "title": "Il Liceo “Nino Cortese” alla XXIII Edizione della Flik Flok: al via una quattro giorni di sport, valore e territorio",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/10/22/il-liceo-nino-cortese-alla-xxiii-edizione-della-flik-flok-al-via-una-quattro-giorni-di-sport-valore-e-territorio/",
+          "pubDate": "Thu, 22 Oct 2026 20:31:39 +0000",
+          "description": "La comunità scolastica del Liceo Scientifico “Nino Cortese” di Maddaloni ha inaugurato la propria partecipazione alla XXIII Edizione della &#8220;Flik Flok&#822…"
+        },
         {
           "title": "LE ASSOCIAZIONI DI VOLONTARIATO PER IL BENESSERE DELLA PERSONA",
           "link": "https://www.liceoscientificocortese.edu.it/2026/10/22/le-associazioni-di-volontariato-per-il-benessere-della-persona/",
@@ -33,12 +39,6 @@
           "link": "https://www.liceoscientificocortese.edu.it/2026/10/16/i-luoghi-del-cuore-gli-studenti-del-cortese-per-la-tela-del-convitto-giordano-bruno/",
           "pubDate": "Fri, 16 Oct 2026 16:30:29 +0000",
           "description": "Il Liceo Scientifico “Nino Cortese” di Maddaloni, guidato dal Dirigente Scolastico dott. prof. Marcellino Falcone, rinnova il suo impegno per il territorio ader…"
-        },
-        {
-          "title": "“Aspettando AMA”: gli studenti del Liceo Cortese raccontano Maddaloni attraverso la fotografia",
-          "link": "https://www.liceoscientificocortese.edu.it/2026/10/16/aspettando-ama-gli-studenti-del-liceo-cortese-raccontano-maddaloni-attraverso-la-fotografia/",
-          "pubDate": "Fri, 16 Oct 2026 07:14:53 +0000",
-          "description": "Raccontare la città attraverso le immagini, valorizzandone gli spazi, l’architettura e le storie. È questo l’obiettivo di “Aspettando AMA”, il laboratorio di fo…"
         }
       ]
     },
