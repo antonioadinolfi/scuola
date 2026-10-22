@@ -40,6 +40,16 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
  #printEvents h3{font-size:12pt;margin:0 0 4pt}
  #printEvents p{font-size:10pt;line-height:1.4;margin:4pt 0;white-space:pre-wrap;overflow-wrap:anywhere}
  #printEvents .print-status{font-size:9pt;color:#444}
+ #printEvents.print-calendar-page{width:277mm;height:189mm;display:flex!important;flex-direction:column;break-inside:avoid}
+ #printEvents.print-calendar-page h1{font-size:17pt;margin:0 0 2mm}
+ #printEvents.print-calendar-page .print-summary{font-size:10pt;margin:0 0 3mm}
+ .print-month-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));flex:1;min-height:0;border-top:1px solid #777;border-left:1px solid #777}
+ .print-weekday,.print-date{border-bottom:1px solid #777;border-right:1px solid #777;padding:1.2mm;min-width:0}
+ .print-weekday{font-size:8pt;font-weight:bold;text-align:center}
+ .print-date-number{display:block;font-size:9pt;margin-bottom:1mm}
+ .print-calendar-event{line-height:1.15;margin-bottom:1mm;overflow-wrap:anywhere;white-space:normal}
+ .print-outside{background:#eee;print-color-adjust:exact}
+
 }
 </style>
 </head>
@@ -60,7 +70,7 @@ label{display:block;font-size:13px;font-weight:750;margin:11px 0 6px;color:#3144
   <div class="actions">
     <span id="privateUser" style="align-self:center;font-size:12px;color:#667085"></span>
     <button id="logoutBtn" type="button">Esci</button><button id="cloudBtn" type="button" title="Collega questa agenda privata a Google Drive">☁️ Sincronizza</button><button id="highlightBtn" type="button" title="Evidenzia giorni del calendario">🖍️ Evidenzia</button><button id="notifyBtn" type="button" title="Attiva gli avvisi un\'ora prima">🔔 Avvisi</button>
-    <button id="todayBtn">Oggi</button><span class="print-options"><label for="printScope">Stampa:</label><select id="printScope" aria-label="Eventi da stampare"><option value="day">Giorno selezionato</option><option value="month" selected>Mese visualizzato</option><option value="all">Tutti gli eventi</option></select><button id="printBtn" type="button">🖨️ Stampa eventi</button></span><button id="backupBtn">Backup</button><button id="restoreBtn">Ripristina</button><input id="restoreFile" type="file" accept=".json" class="hidden">
+    <button id="todayBtn">Oggi</button><span class="print-options"><label for="printScope">Stampa:</label><select id="printScope" aria-label="Eventi da stampare"><option value="day">Giorno selezionato</option><option value="month" selected>Mese visualizzato</option><option value="all">Tutti gli eventi</option></select><select id="printLayout" aria-label="Formato di stampa"><option value="calendar" selected>Calendario A4</option><option value="list">Elenco con date</option></select><input id="printFilter" list="printSuggestions" placeholder="Tutti o es. INVALSI" aria-label="Filtra gli eventi da stampare" style="width:180px"><datalist id="printSuggestions"><option value="Consiglio di classe"><option value="INVALSI"></datalist><button id="printBtn" type="button">🖨️ Stampa eventi</button></span><button id="backupBtn">Backup</button><button id="restoreBtn">Ripristina</button><input id="restoreFile" type="file" accept=".json" class="hidden">
   </div>
 </header>
 
@@ -312,18 +322,59 @@ $("clearHighlightBtn").onclick=()=>{
     renderCalendar();
   }
 };
+function getPrintEvents(){
+ const scope=$("printScope").value;
+ const month=cursor.getFullYear()+"-"+pad(cursor.getMonth()+1);
+ const query=$("printFilter").value.trim().toLocaleLowerCase("it");
+ return events.filter(e=>(scope==="all" || (scope==="day"?e.date===selected:e.date?.startsWith(month+"-"))) &&
+   (!query || (String(e.title||"")+" "+String(e.notes||"")).toLocaleLowerCase("it").includes(query)))
+   .slice().sort((a,b)=>a.date.localeCompare(b.date)||(a.time||"99").localeCompare(b.time||"99")||String(a.title).localeCompare(String(b.title),"it"));
+}
+function printMonthGrid(box,list){
+ const year=cursor.getFullYear(),month=cursor.getMonth();
+ const offset=(new Date(year,month,1).getDay()+6)%7;
+ const days=new Date(year,month+1,0).getDate();
+ const weeks=Math.ceil((offset+days)/7);
+ const grid=document.createElement("div");grid.className="print-month-grid";
+ grid.style.gridTemplateRows="7mm repeat("+weeks+", minmax(0,1fr))";
+ for(const name of ["Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato","Domenica"]){
+   const h=document.createElement("div");h.className="print-weekday";h.textContent=name;grid.appendChild(h);
+ }
+ let maxCount=0,maxChars=0;
+ for(let i=0;i<weeks*7;i++){
+   const day=i-offset+1,cell=document.createElement("div");cell.className="print-date";
+   if(day>0 && day<=days){
+     const key=year+"-"+pad(month+1)+"-"+pad(day);
+     const label=document.createElement("strong");label.className="print-date-number";label.textContent=day+(key===iso(new Date())?" · Oggi":"");cell.appendChild(label);
+     const daily=list.filter(e=>e.date===key);maxCount=Math.max(maxCount,daily.length);
+     let chars=0;
+     for(const e of daily){const item=document.createElement("div");item.className="print-calendar-event";
+       item.textContent=(e.time?e.time+" ":"")+e.title+(e.done?" (svolto)":"");
+       chars+=item.textContent.length;cell.appendChild(item)}
+     maxChars=Math.max(maxChars,chars);
+   }else cell.classList.add("print-outside");
+   grid.appendChild(cell);
+ }
+ grid.style.fontSize=(maxCount>5||maxChars>380?"6":maxCount>3||maxChars>220?"7":"8")+"pt";
+ box.appendChild(grid);
+}
 function preparePrint(){
  const box=$("printEvents");
  box.replaceChildren();
  if($("agendaApp").hidden)return;
  const scope=$("printScope").value;
  const month=cursor.getFullYear()+"-"+pad(cursor.getMonth()+1);
- const list=events.filter(e=>scope==="all" || (scope==="day"?e.date===selected:e.date?.startsWith(month+"-")))
-   .slice().sort((a,b)=>a.date.localeCompare(b.date)||(a.time||"99").localeCompare(b.time||"99")||String(a.title).localeCompare(String(b.title),"it"));
+ const list=getPrintEvents();
+ const calendar=scope==="month" && $("printLayout").value==="calendar";
+ box.classList.toggle("print-calendar-page",calendar);
+ let pageStyle=document.getElementById("printPageStyle");
+ if(!pageStyle){pageStyle=document.createElement("style");pageStyle.id="printPageStyle";document.head.appendChild(pageStyle)}
+ pageStyle.textContent=calendar?"@media print{@page{size:A4 landscape;margin:10mm}}":"@media print{@page{size:A4 portrait;margin:15mm}}";
  const heading=document.createElement("h1");heading.textContent="Agenda personale";box.appendChild(heading);
  const summary=document.createElement("p");summary.className="print-summary";
- summary.textContent=(scope==="day"?dateLabel(selected):scope==="month"?cursor.toLocaleDateString("it-IT",{month:"long",year:"numeric"}):"Tutti gli eventi")+" · "+list.length+" impegni";
+ summary.textContent=(scope==="day"?dateLabel(selected):scope==="month"?cursor.toLocaleDateString("it-IT",{month:"long",year:"numeric"}):"Tutti gli eventi")+" · "+list.length+" impegni"+($("printFilter").value.trim()?" · Filtro: "+$("printFilter").value.trim():"");
  box.appendChild(summary);
+ if(calendar){printMonthGrid(box,list);return}
  let lastDate="";
  for(const e of list){
    if(e.date!==lastDate){const h=document.createElement("h2");h.textContent=dateLabel(e.date);box.appendChild(h);lastDate=e.date}
