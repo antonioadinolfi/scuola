@@ -288,7 +288,37 @@
     }
       .execution-actions{margin-left:auto;display:flex;align-items:center;justify-content:center;gap:5px;flex:0 0 auto;padding:0 12px;border-left:1px solid var(--border);border-right:1px solid var(--border)}
     .execution-actions .tb-btn{min-width:65px;justify-content:center}
+  
+    /* Integrated Python IDE modal */
+    .ide-overlay{position:fixed;inset:0;background:rgba(7,20,40,.72);z-index:10000;display:none;align-items:center;justify-content:center;padding:18px}
+    .ide-overlay.visible{display:flex}
+    .ide-dialog{width:min(1100px,98vw);height:min(760px,94vh);background:#f7f9fc;color:#15263a;border:1px solid #aabbd0;border-radius:10px;box-shadow:0 16px 55px #0008;display:flex;flex-direction:column;overflow:hidden}
+    .ide-head{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#e5effa;border-bottom:1px solid #b7c9de}
+    .ide-head strong{font-size:14px}.ide-head small{font-size:11px;color:#46566a}
+    .ide-head button{cursor:pointer;border:1px solid #a3b6c9;background:white;border-radius:4px;padding:6px 10px}
+    .ide-head .ide-close{margin-left:auto}
+    .ide-body{display:grid;grid-template-columns:1fr 1fr;min-height:0;flex:1}
+    .ide-pane{display:flex;flex-direction:column;min-height:0;padding:10px;gap:7px}
+    .ide-pane+.ide-pane{border-left:1px solid #c5d0dd}
+    .ide-pane label{font-weight:600;font-size:12px}
+    #ideSource{flex:1;min-height:0;width:100%;resize:none;background:#102033;color:#eef6ff;font:13px/1.5 Consolas,monospace;padding:12px;tab-size:4;border:1px solid #53708e;border-radius:5px}
+    #ideOutput{flex:1;min-height:0;overflow:auto;margin:0;background:#131b27;color:#e8f3ef;font:12px/1.5 Consolas,monospace;padding:12px;white-space:pre-wrap;border-radius:5px}
+    #ideStatus{font-size:11px;color:#526477}
+    @media(max-width:760px){.ide-body{grid-template-columns:1fr;grid-template-rows:1fr 1fr}.ide-pane+.ide-pane{border-left:0;border-top:1px solid #c5d0dd}.ide-head{flex-wrap:wrap}}
   </style>
+
+    <!-- Integrated IDE: uses the existing Python runner and delivery workflow -->
+    <div class="ide-overlay" id="integratedIde" role="dialog" aria-modal="true" aria-label="IDE Python integrato" aria-hidden="true">
+      <div class="ide-dialog">
+        <div class="ide-head"><strong>⌨ IDE Python integrato</strong><small>Stesso interprete e stessa consegna del laboratorio</small>
+          <button type="button" id="ideRun">▶ Esegui</button><button type="button" id="ideApply">↩ Applica all'editor</button><button type="button" id="ideClose" class="ide-close">✕ Chiudi</button>
+        </div>
+        <div class="ide-body">
+          <div class="ide-pane"><label for="ideSource">Codice Python — Tab per indentare, Ctrl+Invio per eseguire</label><textarea id="ideSource" spellcheck="false" aria-label="Codice Python"></textarea></div>
+          <div class="ide-pane"><label for="ideOutput">Risultato dell'esecuzione</label><pre id="ideOutput" aria-live="polite"></pre><span id="ideStatus" role="status">Pronto</span></div>
+        </div>
+      </div>
+    </div>
   <script>document.documentElement.classList.add("auth-checking");</script>
   <link href="enterprise-auth.css" rel="stylesheet">
   <link rel="stylesheet" href="design-system.css">
@@ -322,7 +352,7 @@
       <!-- Run / Reset / Deliver relocated beside the timer -->
       <!-- Focus / IDLE -->
       <button class="tb-btn" id="focusBtn" type="button">⛶ Focus</button>
-      <a class="tb-btn" href="https://www.programiz.com/python-programming/online-compiler/" target="_blank" rel="noopener noreferrer">🌐 IDLE</a>
+      <button class="tb-btn" id="integratedIdeBtn" type="button" title="Apri ambiente Python integrato">⌨ IDE Python</button>
       <div class="tb-sep"></div>
       <!-- Load exercise file -->
       <label class="tb-btn" for="exerciseFile" style="cursor:pointer">📂 Carica file</label>
@@ -1118,6 +1148,30 @@
       const blob=new Blob([report],{type:'text/html'}),url=URL.createObjectURL(blob),a=document.createElement('a');
       a.href=url;a.download=`${student.replace(/\s+/g,'_')}_consegna.html`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
     });
+
+
+    /* IDE integrato: nessun sito esterno, riutilizza il runner e il report esistenti. */
+    (function(){
+      const dialog=document.getElementById('integratedIde');
+      const src=document.getElementById('ideSource');
+      const result=document.getElementById('ideOutput');
+      const status=document.getElementById('ideStatus');
+      const launch=document.getElementById('integratedIdeBtn');
+      const apply=()=>{setEditorValue(src.value);};
+      function close(){dialog.classList.remove('visible');dialog.setAttribute('aria-hidden','true');launch.focus();}
+      launch.addEventListener('click',()=>{src.value=getEditorValue();result.textContent=output.textContent||'';status.textContent='Pronto · Il codice può essere eseguito o applicato all’editor principale';dialog.classList.add('visible');dialog.setAttribute('aria-hidden','false');src.focus();});
+      document.getElementById('ideClose').addEventListener('click',close);
+      dialog.addEventListener('click',e=>{if(e.target===dialog)close();});
+      document.addEventListener('keydown',e=>{if(e.key==='Escape'&&dialog.classList.contains('visible'))close();});
+      src.addEventListener('keydown',e=>{if(e.key==='Tab'){e.preventDefault();const a=src.selectionStart,b=src.selectionEnd;src.setRangeText('    ',a,b,'end');}if(e.key==='Enter'&&e.ctrlKey){e.preventDefault();document.getElementById('ideRun').click();}});
+      document.getElementById('ideApply').addEventListener('click',()=>{apply();status.textContent='Codice trasferito nell’editor principale';});
+      document.getElementById('ideRun').addEventListener('click',async()=>{
+        if(isRunning){status.textContent='Esecuzione già in corso';return;}
+        apply();status.textContent='Esecuzione in corso…';result.textContent='';
+        try{await runCode();result.textContent=output.textContent;status.textContent=runStatus.textContent;}
+        catch(err){result.textContent=String(err);status.textContent='Errore durante l’esecuzione';}
+      });
+    })();
 
     /* ── Other listeners ── */
     runBtn.addEventListener('click', runCode);
