@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-25T00:06:38+00:00",
+  "updatedAt": "2026-10-25T07:25:48+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "GLO, PEI e verbali: il diritto della famiglia ad averne copia",
+          "link": "https://www.orizzontescuola.it/glo-pei-e-verbali-il-diritto-della-famiglia-ad-averne-copia/",
+          "pubDate": "Sun, 25 Oct 2026 07:11:54 +0000",
+          "description": "Le famiglie degli studenti con disabilità hanno la piena facoltà di richiedere e ottenere dalla scuola la documentazione relativa al percorso d'inclusione del p…"
+        },
+        {
           "title": "Proteste e cortei 24 ottobre in tutta Italia: scontri tra polizia e manifestanti a Torino, Roma, Bologna e Firenze. AGGIORNATO",
           "link": "https://www.orizzontescuola.it/manifestazioni-studentesche-24-ottobre-cortei-a-roma-e-torino-e-marcia-per-la-pace-in-puglia-in-aggiornamento/",
           "pubDate": "Sat, 24 Oct 2026 17:22:04 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/pei-2026-27-scadenze-assegnazione-ore-nuove-disposizioni-glo-e-approvazione-con-18-documenti-da-scaricare/",
           "pubDate": "Sat, 24 Oct 2026 16:13:55 +0000",
           "description": "Il decreto-legge n. 170/2026 ridisegna il calendario del Piano educativo individualizzato, distinguendo alunni già iscritti e nuove iscrizioni o certificazioni.…"
-        },
-        {
-          "title": "Elezioni studentesche, è possibile candidarsi contemporaneamente al Consiglio di Istituto e alla Consulta provinciale? Norme, prassi e cautele",
-          "link": "https://www.orizzontescuola.it/elezioni-studentesche-e-possibile-candidarsi-contemporaneamente-al-consiglio-di-istituto-e-alla-consulta-provinciale-norme-prassi-e-cautele/",
-          "pubDate": "Sat, 24 Oct 2026 15:58:03 +0000",
-          "description": "Il mese di ottobre è tipicamente quello riservato alle liste, ai motti e alle assemblee studentesche. Uno dei quesiti più frequenti in materia di elezioni stude…"
         }
       ]
     },
