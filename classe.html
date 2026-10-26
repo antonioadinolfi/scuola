@@ -1208,14 +1208,44 @@
     if(!btn)return;
     const plain=(v)=>String(v==null?'':v).normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^\x20-\x7E\n\t]/g,'?');
     const cleanFile=(v)=>String(v||'studente').replace(/[^a-zA-Z0-9_-]+/g,'_').slice(0,55);
-    const getCode=()=>window.editor&&typeof window.editor.getValue==='function'?window.editor.getValue():(document.querySelector('.CodeMirror')?.CodeMirror?.getValue()||document.getElementById('codeEditor')?.value||'');
+    const getCode=()=>typeof getEditorValue==='function'?getEditorValue():(document.querySelector('.CodeMirror')?.CodeMirror?.getValue()||document.getElementById('codeEditor')?.value||'');
     async function sha256(value){
       if(!window.crypto?.subtle)return 'Non disponibile';
       const bytes=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value));
       return Array.from(new Uint8Array(bytes),b=>b.toString(16).padStart(2,'0')).join('');
     }
+    function printReport(){
+      const sess=window.LSCAuth?.getSession?.()||null;
+      const params=new URLSearchParams(location.search);
+      const name=document.getElementById('studentName')?.value?.trim()||'Non indicato';
+      const esc=v=>String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+      const code=getCode(),out=document.getElementById('output')?.textContent||'Nessun output';
+      const meta=[
+        ['Studente dichiarato',name],
+        ['Account associato alla sessione (non verificato sul server)',sess?.email||'Non disponibile'],
+        ['Nome della sessione',sess?.name||'Non disponibile'],
+        ['Classe dichiarata nella pagina',params.get('classe')||'Non indicata'],
+        ['Esercizio',document.getElementById('addrFile')?.textContent?.trim()||params.get('title')||'Non indicato'],
+        ['Ora locale del dispositivo',new Date().toLocaleString('it-IT',{timeZone:'Europe/Rome'})],
+        ['Ora UTC del dispositivo',new Date().toISOString()],
+        ['Tempo residuo visualizzato',document.getElementById('timerValue')?.textContent||'Non disponibile']
+      ];
+      const html='<!doctype html><html lang="it"><head><meta charset="utf-8"><title>Rapporto esercizio Python</title><style>'+
+        '@page{size:A4;margin:17mm}body{font:11pt Arial,sans-serif;color:#182334}h1{font-size:17pt;color:#123b68;border-bottom:2px solid #123b68;padding-bottom:8px}h2{font-size:12pt;margin-top:20px}table{border-collapse:collapse;width:100%;font-size:9pt}td{border-bottom:1px solid #ddd;padding:5px;vertical-align:top}td:first-child{font-weight:bold;width:43%}pre{font:9pt/1.4 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:#f3f5f9;padding:10px;border:1px solid #dce2eb}p.note{font-size:9pt;color:#555}'+
+        '</style></head><body><h1>Laboratorio Python - Rapporto esercizio</h1><p>Prof. Antonio Adinolfi</p><table>'+
+        meta.map(([k,v])=>'<tr><td>'+esc(k)+'</td><td>'+esc(v)+'</td></tr>').join('')+
+        '</table><h2>Codice Python</h2><pre>'+esc(code||'# Nessun codice')+'</pre><h2>Output visualizzato</h2><pre>'+esc(out)+'</pre>'+
+        '<p class="note">Documento generato localmente. Identita, orari, output e codice non verificati dal server. Non costituisce consegna registrata ne prova di esecuzione personale.</p></body></html>';
+      const frame=document.createElement('iframe');
+      frame.style.cssText='position:fixed;right:0;bottom:0;width:0;height:0;border:0';
+      frame.setAttribute('title','Stampa rapporto PDF');
+      document.body.appendChild(frame);
+      const doc=frame.contentDocument;
+      doc.open();doc.write(html);doc.close();
+      setTimeout(()=>{try{frame.contentWindow.focus();frame.contentWindow.print();}catch(err){alert('Stampa PDF non disponibile: '+err.message);}setTimeout(()=>frame.remove(),60000);},400);
+    }
     btn.addEventListener('click',async()=>{
-      if(!window.jspdf?.jsPDF){alert('Libreria PDF non disponibile. Controllare la connessione e riprovare.');return;}
+      if(!window.jspdf?.jsPDF){printReport();return;}
       btn.disabled=true;
       try{
         const sess=window.LSCAuth?.getSession?.()||null;
