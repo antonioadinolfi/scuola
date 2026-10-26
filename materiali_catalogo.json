@@ -34,6 +34,17 @@
   },
   {
     "classe": "Prima",
+    "titolo": "Esercizio – Gestione caratteri e paragrafi",
+    "descrizione": "Esercitazione in Google Documenti: formattazione dei caratteri, allineamento dei paragrafi e interruzioni di riga.",
+    "tipo": "esercizio",
+    "file_path": "tracce/Prime/Esercizio_I_26102026.pdf",
+    "target_page": "",
+    "ordine": 4,
+    "attivo": true,
+    "categoria": "Esercizi"
+  },
+  {
+    "classe": "Prima",
     "titolo": "Verifica MAggio 2026 - Generale",
     "descrizione": "Hardware e Software",
     "tipo": "esercizio",
