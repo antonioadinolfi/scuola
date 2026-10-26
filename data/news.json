@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-25T23:57:32+00:00",
+  "updatedAt": "2026-10-26T04:30:01+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Concorso docenti 2027, preparati in anticipo con i corsi di Orizzonte Scuola: videolezioni, simulatori, mappe mentali e giochi interattivi. Prezzi in promozione",
+          "link": "https://www.orizzontescuola.it/concorso-docenti-2027-preparati-in-anticipo-con-i-corsi-di-orizzonte-scuola-videolezioni-simulatori-mappe-mentali-e-giochi-interattivi-prezzi-in-promozione/",
+          "pubDate": "Mon, 26 Oct 2026 04:26:48 +0000",
+          "description": "Il Ministero ha già avviato la conta dei posti disponibili nelle scuole per il prossimo concorso a cattedra. Preparati in anticipo, senza attendere la pubblicaz…"
+        },
+        {
           "title": "Il metodo Marangon, la scuola dell’infanzia e l’Intelligenza Artificiale: a Bassano del Grappa l’innovazione ritrova la pedagogia",
           "link": "https://www.orizzontescuola.it/il-metodo-marangon-la-scuola-dellinfanzia-e-lintelligenza-artificiale-a-bassano-del-grappa-linnovazione-ritrova-la-pedagogia/",
           "pubDate": "Sun, 25 Oct 2026 20:00:41 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/scuola-di-pace-e-costituzione-al-via-la-terza-edizione-del-progetto-ispirato-a-don-milani-le-scuole-possono-partecipare-entro-il-30-aprile/",
           "pubDate": "Sun, 25 Oct 2026 17:02:13 +0000",
           "description": "Al via la terza edizione del Progetto Nazionale “Scuola di Pace e Costituzione, Scuola di Barbiana, Scuola Che Vorrei”, iniziativa che intende valorizzare il ru…"
-        },
-        {
-          "title": "Mamme sempre più tardi, l’età al primo figlio arriva per la prima volta a 32 anni. Basilicata in testa, Sicilia con le madri più giovani: i dati Istat",
-          "link": "https://www.orizzontescuola.it/mamme-sempre-piu-tardi-leta-al-primo-figlio-arriva-per-la-prima-volta-a-32-anni-basilicata-in-testa-sicilia-con-le-madri-piu-giovani-i-dati-istat/",
-          "pubDate": "Sun, 25 Oct 2026 16:35:55 +0000",
-          "description": "Per la prima volta in Italia l’età media al primo figlio raggiunge i 32 anni. Nel 1995 era 28,1: in trent’anni le donne hanno cominciato a diventare madri circa…"
         }
       ]
     },
