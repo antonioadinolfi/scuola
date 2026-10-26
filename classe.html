@@ -366,6 +366,7 @@
         <button class="tb-btn ok" id="runBtn" type="button">▶ Esegui</button>
         <button class="tb-btn warn" id="resetBtn" type="button">↺ Reset</button>
         <button class="tb-btn primary" id="deliverBtn" type="button">📤 Consegna</button>
+        <button class="tb-btn primary" id="exportPdfBtn" type="button" title="Scarica il rapporto PDF della prova; non equivale a consegna registrata">📄 Salva PDF</button>
         <button class="tb-btn" id="stopBtn" type="button" style="display:none;background:linear-gradient(180deg,#ffe0e0,#f8c0c0);border-color:#d08080;color:#800000">⏹ Stop</button>
       </div>
 
@@ -1198,6 +1199,77 @@
     startTimer(); initLessonWorkspace(); updateStatusBar(''); setRunState('idle');
   </script>
 
+
+  <!-- Report PDF: salvataggio locale. I dati di sessione non sono verificati da un backend. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+  <script>
+  (function(){
+    const btn=document.getElementById('exportPdfBtn');
+    if(!btn)return;
+    const plain=(v)=>String(v==null?'':v).normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^\x20-\x7E\n\t]/g,'?');
+    const cleanFile=(v)=>String(v||'studente').replace(/[^a-zA-Z0-9_-]+/g,'_').slice(0,55);
+    const getCode=()=>window.editor&&typeof window.editor.getValue==='function'?window.editor.getValue():(document.querySelector('.CodeMirror')?.CodeMirror?.getValue()||document.getElementById('codeEditor')?.value||'');
+    async function sha256(value){
+      if(!window.crypto?.subtle)return 'Non disponibile';
+      const bytes=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value));
+      return Array.from(new Uint8Array(bytes),b=>b.toString(16).padStart(2,'0')).join('');
+    }
+    btn.addEventListener('click',async()=>{
+      if(!window.jspdf?.jsPDF){alert('Libreria PDF non disponibile. Controllare la connessione e riprovare.');return;}
+      btn.disabled=true;
+      try{
+        const sess=window.LSCAuth?.getSession?.()||null;
+        const dichiarato=document.getElementById('studentName')?.value?.trim()||'Non indicato';
+        const email=sess?.email||'Non disponibile';
+        const codice=getCode();
+        const risultato=document.getElementById('output')?.textContent||'Nessun output';
+        const param=new URLSearchParams(location.search);
+        const classe=param.get('classe')||'Non indicata';
+        const exercise=document.getElementById('addrFile')?.textContent?.trim()||param.get('title')||param.get('file')||'Non indicato';
+        const now=new Date();
+        const stamp=now.toLocaleString('it-IT',{hour12:false,timeZone:'Europe/Rome'});
+        const timer=document.getElementById('timerValue')?.textContent||'Non disponibile';
+        const digest=await sha256(codice);
+        const doc=new window.jspdf.jsPDF({unit:'mm',format:'a4'});
+        const W=210,margin=17,line=5.0,bottom=277;
+        let y=19;
+        const page=()=>{doc.addPage();y=19;};
+        const text=(value,mono=false)=>{
+          doc.setFont(mono?'courier':'helvetica','normal');doc.setFontSize(mono?8.6:10);
+          for(const sourceLine of plain(value).replace(/\t/g,'    ').split('\n')){
+            const wrapped=doc.splitTextToSize(sourceLine||' ',W-margin*2);
+            for(const part of wrapped){if(y>bottom)page();doc.text(part,margin,y);y+=line;}
+          }
+        };
+        const heading=(value)=>{if(y>bottom-12)page();y+=4;doc.setFont('helvetica','bold');doc.setFontSize(12);doc.text(plain(value),margin,y);y+=8;};
+        doc.setFont('helvetica','bold');doc.setFontSize(17);doc.text('LABORATORIO PYTHON - RAPPORTO ESERCIZIO',margin,y);y+=10;
+        doc.setFontSize(10);doc.setFont('helvetica','normal');
+        text('Docente: Prof. Antonio Adinolfi');
+        text('Studente (dichiarato): '+dichiarato);
+        text('Account Google visualizzato nella sessione: '+email);
+        text('Nome associato alla sessione: '+(sess?.name||'Non disponibile'));
+        text('Classe (parametro pagina): '+classe);
+        text('Esercizio visualizzato: '+exercise);
+        text('Data e ora locale del dispositivo (Europe/Rome): '+stamp);
+        text('Ora UTC del dispositivo: '+now.toISOString());
+        text('Tempo residuo visualizzato: '+timer);
+        heading('Impronta SHA-256 del codice');
+        text(digest,true);
+        heading('Codice Python');
+        text(codice||'# Nessun codice presente',true);
+        heading('Output visualizzato');
+        text(risultato,true);
+        if(y>bottom-26)page();
+        heading('Attendibilita e conservazione');
+        text('Rapporto creato localmente nel browser. Dati di identita, orari, output e codice non verificati da un server. Questo PDF non dimostra l\'esecuzione personale e non costituisce registrazione o consegna al docente.');
+        const total=doc.getNumberOfPages();
+        for(let i=1;i<=total;i++){doc.setPage(i);doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(110);doc.text('Documento generato dal browser - Pagina '+i+' di '+total,margin,289);}
+        doc.save(cleanFile(dichiarato)+'_'+cleanFile(classe)+'_Python_'+now.toISOString().slice(0,10)+'.pdf');
+      }catch(err){console.error('Esportazione PDF:',err);alert('Impossibile generare il PDF: '+(err?.message||err));}
+      finally{btn.disabled=false;}
+    });
+  })();
+  </script>
   <script src="pwa-register.js"></script>
 
   <script src="https://accounts.google.com/gsi/client" async defer></script>
