@@ -307,6 +307,18 @@
     "attivo": true,
     "categoria": "Lezioni"
   },
+  
+  {
+    "classe": "Quinta",
+    "titolo": "Sistemi lineari con Foglio di calcolo",
+    "descrizione": "Uso del foglio di calcolo per la soluzione di sistemi lineari",
+    "tipo": "esercizio",
+    "file_path": "tracce/Quinte/Esercitazione_Sistema_4x4_Excel_studenti.xlsx",
+    "target_page": "",
+    "ordine": 1,
+    "attivo": true,
+    "categoria": "Esercizi"
+  },
   {
     "classe": "STEM",
     "titolo": "Robotica educativa",
