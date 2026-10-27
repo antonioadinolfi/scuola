@@ -1,1 +1,248 @@
-<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=./lezione-1.html"><title>Vibe Coding · Prima lezione</title><link rel="canonical" href="https://antonioadinolfiscuola.it/corso-vibe-coding/lezione-1.html"><script>location.replace('./lezione-1.html'+location.search+location.hash)</script></head><body><p><a href="./lezione-1.html">Apri la prima lezione →</a></p></body></html>
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Corso di 24 ore per docenti di ogni disciplina: che cos’è il vibe coding, come funziona, quali strumenti usare e come portarlo in classe in modo verificato e conforme.">
+<title>Vibe Coding per docenti · Guida al corso</title>
+<link rel="canonical" href="https://antonioadinolfiscuola.it/corso-vibe-coding/">
+<link rel="stylesheet" href="./corso.css?v=5">
+<script src="./corso-data.js?v=5"></script>
+<script src="./corso-progress.js?v=2"></script>
+</head>
+<body class="home">
+<a class="skip" href="#contenuti">Vai ai contenuti</a>
+<header>
+ <div class="wrap">
+  <div class="topbar"><a href="./">Vibe Coding · Guida al corso</a><a href="./app/">Aula Vibe ↗</a></div>
+  <div class="hero">
+   <div class="kicker">Corso per docenti di ogni disciplina · 24 ore · 6 incontri</div>
+   <h1>Vibe coding: capire come funziona, per usarlo bene in classe</h1>
+   <p>Descrivi in italiano lo strumento che ti serve, un modello di IA scrive il codice, tu lo provi e lo correggi. In questo corso impari il metodo, i suoi limiti e tre modi concreti per portarlo nelle tue classi, senza bisogno di saper programmare.</p>
+   <div class="actions">
+    <a class="button primary" href="./lezione-1.html">Inizia dalla Lezione 1 →</a>
+    <a class="button ghost" href="#come-funziona">Come funziona ↓</a>
+    <a class="button ghost" href="#in-classe">Come portarlo in classe ↓</a>
+   </div>
+  </div>
+ </div>
+</header>
+
+<main class="wrap" id="contenuti">
+ <nav class="home-toc" aria-label="Indice della guida">
+  <a href="#cos-e">Che cos’è</a><a href="#come-funziona">Come funziona</a><a href="#strumenti">Strumenti</a><a href="#in-classe">In classe</a><a href="#regole">Regole</a><a href="#percorso">Le 6 lezioni</a><a href="#glossario">Glossario</a><a href="#fonti">Fonti</a>
+ </nav>
+
+ <!-- 1. CHE COS'E -->
+ <section class="section" id="cos-e">
+  <div class="kicker">1 · Il concetto</div>
+  <h2>Che cos’è il vibe coding</h2>
+  <div class="two-col">
+   <div>
+    <p class="lead">Il termine è stato coniato da Andrej Karpathy nel febbraio 2025 per descrivere un modo di programmare in cui si dialoga con un modello linguistico, si accettano le modifiche che propone e ci si concentra sul risultato, quasi dimenticando che il codice esista. Nel novembre 2025 il Collins Dictionary lo ha scelto come parola dell’anno [1][2].</p>
+    <p>Per un docente il punto non è la moda, ma il cambiamento di soglia: oggi chi conosce bene la propria disciplina può <strong>trasformare un’idea didattica in un prototipo funzionante</strong> in un’ora, descrivendo con precisione che cosa deve accadere. La competenza che conta si sposta dalla sintassi alla <strong>specifica</strong> (dire esattamente che cosa si vuole) e alla <strong>verifica</strong> (controllare che sia vero).</p>
+   </div>
+   <aside class="panel callout">
+    <h3>In una frase</h3>
+    <p>Programmare descrivendo il comportamento desiderato in linguaggio naturale, lasciando che l’IA scriva il codice e valutando il risultato provandolo.</p>
+    <p class="muted">Lo stesso Karpathy lo presentava come adatto a progetti «del fine settimana»: è proprio questo limite che il corso affronta.</p>
+   </aside>
+  </div>
+
+  <h3 id="spettro">Uno spettro, non un’etichetta</h3>
+  <p>Simon Willison propone una distinzione utile: se il codice generato viene rivisto, provato e compreso, non è più vibe coding «puro» ma sviluppo assistito dall’IA [3]. Seleziona una posizione per vedere che cosa cambia.</p>
+  <div class="spectrum panel" role="group" aria-label="Spettro del vibe coding">
+   <div class="spectrum-buttons">
+    <button class="spec-btn" data-spec="0" aria-pressed="false">Vibe coding puro</button>
+    <button class="spec-btn" data-spec="1" aria-pressed="true">Prototipazione verificata <span class="tag">questo corso</span></button>
+    <button class="spec-btn" data-spec="2" aria-pressed="false">Sviluppo assistito</button>
+   </div>
+   <div class="spectrum-bar" aria-hidden="true"><span id="specMarker"></span></div>
+   <div class="spectrum-detail" aria-live="polite">
+    <h4 id="specTitle"></h4>
+    <dl>
+     <dt>Che cosa fai</dt><dd id="specDo"></dd>
+     <dt>Che cosa controlli</dt><dd id="specCheck"></dd>
+     <dt>A scuola va bene per</dt><dd id="specSchool"></dd>
+    </dl>
+   </div>
+  </div>
+ </section>
+
+ <!-- 2. COME FUNZIONA -->
+ <section class="section" id="come-funziona">
+  <div class="kicker">2 · Sotto il cofano</div>
+  <h2>Come funziona davvero</h2>
+  <p>Per usare il vibe coding in classe serve un modello mentale corretto di <strong>chi fa che cosa</strong> e <strong>quando</strong>. Ci sono due momenti distinti: la costruzione, in cui lavora l’IA, e l’uso, in cui lavora il browser.</p>
+
+  <figure class="panel diagram">
+   <svg viewBox="0 0 960 330" role="img" aria-labelledby="dgTitle dgDesc">
+    <title id="dgTitle">Ciclo del vibe coding in due momenti</title>
+    <desc id="dgDesc">Nella fase di costruzione il docente scrive un prompt, il modello linguistico restituisce codice HTML, CSS e JavaScript, il browser lo esegue e il docente prova e descrive le differenze, ripetendo il ciclo. Nella fase d’uso gli studenti aprono il file verificato nel browser, senza che l’IA intervenga.</desc>
+    <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#176b87"/></marker></defs>
+    <rect x="8" y="8" width="640" height="314" rx="18" fill="#eef6f9" stroke="#b9d4df"/>
+    <text x="28" y="38" class="dg-k">MOMENTO 1 · COSTRUZIONE (l’IA lavora)</text>
+    <rect x="672" y="8" width="280" height="314" rx="18" fill="#fff9e9" stroke="#f0d48a"/>
+    <text x="692" y="38" class="dg-k">MOMENTO 2 · USO IN CLASSE</text>
+    <g class="dg-box"><rect x="28" y="70" width="170" height="92" rx="12"/><text x="113" y="104" text-anchor="middle" class="dg-t">Tu, docente</text><text x="113" y="126" text-anchor="middle" class="dg-s">obiettivo, contenuti,</text><text x="113" y="144" text-anchor="middle" class="dg-s">criteri di verifica</text></g>
+    <g class="dg-box"><rect x="250" y="70" width="170" height="92" rx="12"/><text x="335" y="104" text-anchor="middle" class="dg-t">Modello linguistico</text><text x="335" y="126" text-anchor="middle" class="dg-s">prevede il testo più</text><text x="335" y="144" text-anchor="middle" class="dg-s">probabile: il codice</text></g>
+    <g class="dg-box"><rect x="472" y="70" width="156" height="92" rx="12"/><text x="550" y="104" text-anchor="middle" class="dg-t">Codice</text><text x="550" y="126" text-anchor="middle" class="dg-s">HTML · CSS</text><text x="550" y="144" text-anchor="middle" class="dg-s">JavaScript</text></g>
+    <g class="dg-box"><rect x="472" y="210" width="156" height="92" rx="12"/><text x="550" y="244" text-anchor="middle" class="dg-t">Browser</text><text x="550" y="266" text-anchor="middle" class="dg-s">esegue il codice:</text><text x="550" y="284" text-anchor="middle" class="dg-s">l’app prende vita</text></g>
+    <g class="dg-box"><rect x="28" y="210" width="392" height="92" rx="12"/><text x="224" y="244" text-anchor="middle" class="dg-t">Tu provi e confronti</text><text x="224" y="266" text-anchor="middle" class="dg-s">atteso ≠ osservato? Descrivi la differenza</text><text x="224" y="284" text-anchor="middle" class="dg-s">e chiedi una modifica circoscritta</text></g>
+    <path d="M198 105H246" class="dg-a"/><text x="222" y="96" text-anchor="middle" class="dg-l">prompt</text>
+    <path d="M420 105H468" class="dg-a"/>
+    <path d="M550 162V206" class="dg-a"/>
+    <path d="M472 256H424" class="dg-a"/>
+    <path d="M113 210V166" class="dg-a"/><text x="122" y="192" class="dg-l">nuovo prompt</text>
+    <path d="M628 256H706" class="dg-a dg-dash"/><text x="667" y="246" text-anchor="middle" class="dg-l">file verificato</text>
+    <g class="dg-box gold"><rect x="706" y="70" width="226" height="92" rx="12"/><text x="819" y="104" text-anchor="middle" class="dg-t">Studenti</text><text x="819" y="126" text-anchor="middle" class="dg-s">usano l’app nel browser</text><text x="819" y="144" text-anchor="middle" class="dg-s">(o la collaudano)</text></g>
+    <g class="dg-box gold"><rect x="706" y="210" width="226" height="92" rx="12"/><text x="819" y="244" text-anchor="middle" class="dg-t">Nessuna IA in gioco</text><text x="819" y="266" text-anchor="middle" class="dg-s">se l’app è autonoma e</text><text x="819" y="284" text-anchor="middle" class="dg-s">non invia dati altrove</text></g>
+    <path d="M819 206V166" class="dg-a"/>
+   </svg>
+   <figcaption class="muted">Il ciclo a sinistra si ripete più volte: è qui che si impara. A destra arriva solo una versione che hai provato.</figcaption>
+  </figure>
+
+  <div class="concept-grid four">
+   <article class="concept-card"><h3>Prevede, non «sa»</h3><p>Il modello genera il testo statisticamente più plausibile dopo il tuo prompt. Codice e spiegazioni possono suonare convincenti ed essere sbagliati: la sicurezza del tono non è una prova.</p></article>
+   <article class="concept-card"><h3>Ogni volta è diverso</h3><p>Lo stesso prompt produce versioni differenti. Per questo fissi prima i criteri di verifica: rendono confrontabili versioni diverse e permettono di scegliere.</p></article>
+   <article class="concept-card"><h3>Ricorda solo la chat</h3><p>Il modello lavora sul contesto della conversazione corrente. In una nuova chat non conosce la tua app: devi incollare specifica e codice attuali.</p></article>
+   <article class="concept-card"><h3>Non prova al posto tuo</h3><p>Molti assistenti mostrano un’anteprima, ma i test di contenuto e di comportamento restano tuoi. Diffida delle frasi del tipo «ho verificato che funziona».</p></article>
+  </div>
+
+  <div class="panel selfcheck" id="autoverifica">
+   <h3>Verifica il tuo modello mentale <span class="muted">· 4 affermazioni, nessun punteggio salvato</span></h3>
+   <ol id="tfList"></ol>
+  </div>
+ </section>
+
+ <!-- 3. STRUMENTI -->
+ <section class="section" id="strumenti">
+  <div class="kicker">3 · Con che cosa</div>
+  <h2>Gli strumenti, in tre famiglie</h2>
+  <p>Il metodo del corso non dipende da un prodotto. Cambia però molto <em>chi</em> può usare lo strumento a scuola e con quali tutele.</p>
+  <div class="table-wrap panel">
+   <table>
+    <thead><tr><th scope="col">Famiglia</th><th scope="col">Esempi</th><th scope="col">Che cosa produce</th><th scope="col">A scuola</th></tr></thead>
+    <tbody>
+     <tr><th scope="row">Assistenti conversazionali con anteprima</th><td>Gemini con Canvas, ChatGPT con Canvas, Claude con Artifacts</td><td>Pagine web autonome in un file: quiz, simulazioni, piccoli siti</td><td><strong>Lo strumento del corso.</strong> Preferisci quello fornito dall’istituto con account istituzionale. Con Google Workspace for Education le creazioni di Gemini Canvas si possono condividere direttamente in Classroom, se l’amministratore lo consente [4].</td></tr>
+     <tr><th scope="row">Generatori di applicazioni</th><td>Lovable, Bolt, Replit, Google AI Studio</td><td>App complete con pubblicazione e talvolta database</td><td>Utili per mostrare il potenziale; richiedono account personali e termini d’uso da verificare. Non adatti ai dati degli studenti senza valutazione privacy.</td></tr>
+     <tr><th scope="row">Editor e agenti per programmatori</th><td>GitHub Copilot, Cursor, Claude Code</td><td>Modifiche a progetti software esistenti</td><td>Per Informatica e indirizzi tecnici, dove si legge e si discute il codice.</td></tr>
+    </tbody>
+   </table>
+  </div>
+ </section>
+
+ <!-- 4. IN CLASSE -->
+ <section class="section" id="in-classe">
+  <div class="kicker">4 · Il trasferimento</div>
+  <h2>Tre modi di portare il vibe coding in classe</h2>
+  <p>Non tutte le classi devono usare l’IA per beneficiare del metodo. Le lezioni del corso propongono attività da 30 minuti costruite su queste tre modalità, in ordine crescente di coinvolgimento degli studenti.</p>
+  <div class="mode-grid">
+   <article class="mode-card">
+    <div class="mode-letter">A</div>
+    <h3>Il docente costruisce, la classe usa</h3>
+    <p>Generi e verifichi tu un quiz, un simulatore o un percorso; gli studenti lo usano nel browser.</p>
+    <p><strong>Account studenti:</strong> nessuno. <strong>Dati:</strong> nessun dato degli studenti nel prompt.</p>
+    <p><strong>Esempio:</strong> Latino, riconoscimento dei complementi con spiegazione dopo ogni scelta.</p>
+    <p class="muted">Lezioni 1 e 2</p>
+   </article>
+   <article class="mode-card">
+    <div class="mode-letter">B</div>
+    <h3>La classe valuta e collauda</h3>
+    <p>Gli studenti prevedono, provano, scoprono errori e limiti del modello, riscrivono feedback.</p>
+    <p><strong>Account studenti:</strong> nessuno. <strong>Competenza:</strong> pensiero critico verso i prodotti dell’IA.</p>
+    <p><strong>Esempio:</strong> Fisica, trovare il caso in cui il simulatore smette di essere realistico.</p>
+    <p class="muted">Lezioni 2, 3 e 6</p>
+   </article>
+   <article class="mode-card">
+    <div class="mode-letter">C</div>
+    <h3>Gli studenti specificano o costruiscono</h3>
+    <p>Prima scrivono la specifica (un compito di scrittura argomentativa), poi, se autorizzati, dialogano con l’IA in coppie progettista e verificatore.</p>
+    <p><strong>Account studenti:</strong> istituzionali, con le regole d’età e le informative previste.</p>
+    <p><strong>Esempio:</strong> Inglese, una «choose your own adventure» con lessico B1.</p>
+    <p class="muted">Lezioni 4 e 5</p>
+   </article>
+  </div>
+  <div class="check"><strong>In tutte le modalità valuti l’apprendimento disciplinare, non l’app.</strong> Correttezza tecnica, gradimento e prova di apprendimento sono tre evidenze diverse: raccoglile separatamente.</div>
+ </section>
+
+ <!-- 5. REGOLE -->
+ <section class="section" id="regole">
+  <div class="kicker">5 · Prima di entrare in aula</div>
+  <h2>Il quadro di riferimento</h2>
+  <div class="rule-grid">
+   <article class="panel"><h3>AI Act, art. 4</h3><p>Dal 2 febbraio 2025 chi utilizza sistemi di IA deve garantire un livello adeguato di alfabetizzazione in materia di IA del personale che li usa [5][6]. Questo corso è anche una risposta a quell’obbligo.</p></article>
+   <article class="panel"><h3>Linee guida MIM</h3><p>Il D.M. n. 166 del 9 agosto 2025 ha adottato le Linee guida per l’introduzione dell’IA nelle scuole: centralità della persona, inclusione, trasparenza e responsabilità; le scelte operative spettano alla singola istituzione scolastica [7].</p></article>
+   <article class="panel"><h3>Legge 132/2025</h3><p>L’art. 4, comma 4 stabilisce che sotto i 14 anni l’uso di sistemi di IA che trattano dati personali richiede il consenso di chi esercita la responsabilità genitoriale; dai 14 anni il minore può prestarlo da sé, con informazioni chiare [8].</p></article>
+   <article class="panel"><h3>Privacy e sicurezza</h3><p>Nei prompt solo dati fittizi; nessuna chiave o password nel codice; nessuna app che raccoglie dati personali senza valutazione con il DPO. Verifica le policy d’istituto prima di far usare account agli studenti.</p></article>
+  </div>
+  <div class="panel">
+   <h3>Checklist rapida prima della prova in classe</h3>
+   <ul class="checklist">
+    <li><label><input type="checkbox"> Ho provato l’app con casi normali, limite e input non validi.</label></li>
+    <li><label><input type="checkbox"> Ho verificato personalmente ogni contenuto disciplinare.</label></li>
+    <li><label><input type="checkbox"> L’app non contiene dati reali e non invia dati a servizi esterni.</label></li>
+    <li><label><input type="checkbox"> Se gli studenti usano l’IA: account istituzionali, età e informative verificate.</label></li>
+    <li><label><input type="checkbox"> Ho un’alternativa senza dispositivi con gli stessi casi.</label></li>
+   </ul>
+   <p class="muted" id="checkStatus" aria-live="polite">0 di 5 controlli spuntati.</p>
+  </div>
+ </section>
+
+ <!-- 6. PERCORSO -->
+ <section class="section" id="percorso">
+  <div class="kicker">6 · Il percorso</div>
+  <h2>Le sei lezioni</h2>
+  <p>Ogni lezione segue lo stesso schema: concetti, prompt guidati in cinque passi, adattamento alla tua disciplina, attività per la classe e test finale. Per aprire la lezione successiva servono almeno 7 risposte esatte su 10.</p>
+  <ol class="path-list" id="pathList"></ol>
+  <div class="panel" id="avanzamento">
+   <h3>Cambi computer tra un incontro e l’altro?</h3>
+   <p>I risultati dei test restano solo nel browser in cui li hai svolti: nessun dato viene inviato al docente. Se lavori su un PC del laboratorio, scarica il file di avanzamento e caricalo sul computer successivo.</p>
+   <div class="actions">
+    <button class="button" id="exportProgress">Scarica il mio avanzamento</button>
+    <label class="button file-button">Carica un avanzamento<input type="file" id="importProgress" accept="application/json,.json"></label>
+   </div>
+   <p id="progressStatus" role="status" aria-live="polite"></p>
+  </div>
+ </section>
+
+ <!-- 7. GLOSSARIO -->
+ <section class="section" id="glossario">
+  <div class="kicker">7 · Le parole del corso</div>
+  <h2>Glossario essenziale</h2>
+  <dl class="glossary">
+   <div><dt>Prompt</dt><dd>La richiesta scritta all’IA. Nel corso è trattata come una specifica: ogni promessa deve corrispondere a un comportamento osservabile.</dd></div>
+   <div><dt>Modello linguistico (LLM)</dt><dd>Il sistema che genera testo, e quindi codice, prevedendo la continuazione più probabile.</dd></div>
+   <div><dt>Contesto</dt><dd>Ciò che il modello «vede» in quel momento: la conversazione e i file allegati.</dd></div>
+   <div><dt>HTML, CSS, JavaScript</dt><dd>Struttura dei contenuti, aspetto grafico e comportamento interattivo di una pagina web.</dd></div>
+   <div><dt>Prototipo</dt><dd>Una prima versione funzionante, minima, da provare prima di estenderla.</dd></div>
+   <div><dt>Iterazione</dt><dd>Un giro del ciclo: una modifica circoscritta, poi di nuovo i test.</dd></div>
+   <div><dt>Test di regressione</dt><dd>Ripetere i controlli già superati dopo una modifica, per scoprire se qualcosa si è rotto.</dd></div>
+   <div><dt>Allucinazione</dt><dd>Un contenuto inventato ma presentato come vero: una data, una fonte, una formula.</dd></div>
+   <div><dt>Chiave API</dt><dd>Una credenziale per usare un servizio a pagamento. Non va mai inserita nel codice di una pagina pubblica.</dd></div>
+   <div><dt>Sito statico</dt><dd>Pagine che funzionano interamente nel browser, senza server che salvi dati; si pubblicano ad esempio con GitHub Pages.</dd></div>
+  </dl>
+ </section>
+
+ <!-- FONTI -->
+ <section class="section" id="fonti">
+  <h2>Fonti e approfondimenti</h2>
+  <ol>
+   <li><a href="https://simonwillison.net/2025/Mar/19/vibe-coding/" target="_blank" rel="noopener noreferrer">S. Willison, «Not all AI-assisted programming is vibe coding» (2025)</a>, con la citazione del post originale di Karpathy.</li>
+   <li><a href="https://gulfnews.com/world/europe/vibe-coding-named-word-of-the-year-by-collins-dictionary-2-1.500337462" target="_blank" rel="noopener noreferrer">AFP / Gulf News, «Vibe coding» parola dell’anno 2025 del Collins Dictionary</a>.</li>
+   <li><a href="https://simonwillison.net/2025/Mar/19/vibe-coding/" target="_blank" rel="noopener noreferrer">S. Willison, ibidem</a>: la regola «rivisto, provato e compreso».</li>
+   <li><a href="https://workspaceupdates.googleblog.com/2026/06/educators-and-students-can-now-share-Gemini-Canvas-creations-directly-to-Google-Classroom.html" target="_blank" rel="noopener noreferrer">Google Workspace Updates, condivisione delle creazioni di Gemini Canvas in Classroom (29 giugno 2026)</a>.</li>
+   <li><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener noreferrer">Regolamento (UE) 2024/1689 (AI Act), testo ufficiale</a>.</li>
+   <li><a href="https://www.assolombarda.it/servizi/industria-innovazione-e-qualita/informazioni/ai-act-e-alfabetizzazione-in-materia-di-intelligenza-artificiale" target="_blank" rel="noopener noreferrer">Assolombarda, AI Act e alfabetizzazione in materia di IA</a>.</li>
+   <li><a href="https://www.tecnicadellascuola.it/intelligenza-artificiale-nelle-scuole-ecco-le-linee-guida-pubblicate-dal-mim" target="_blank" rel="noopener noreferrer">Tecnica della Scuola, le Linee guida MIM sull’IA (D.M. 166/2025)</a>.</li>
+   <li><a href="https://www.geopop.it/dal-10-ottobre-gli-under-14-dovranno-avere-il-consenso-dei-genitori-per-usare-lai/" target="_blank" rel="noopener noreferrer">Geopop, Legge 132/2025 e consenso dei minori di 14 anni</a>.</li>
+   <li><a href="https://www.unesco.org/en/articles/ai-competency-framework-teachers" target="_blank" rel="noopener noreferrer">UNESCO, AI competency framework for teachers (2024)</a>.</li>
+   <li><a href="https://joint-research-centre.ec.europa.eu/digcompedu_en" target="_blank" rel="noopener noreferrer">DigCompEdu, quadro europeo delle competenze digitali dei docenti</a>.</li>
+  </ol>
+  <p class="muted">I riferimenti normativi sono una sintesi orientativa: per le decisioni d’istituto fanno fede i testi ufficiali e le indicazioni del Dirigente e del DPO. Esempi, attività e prompt sono proposte didattiche originali del corso.</p>
+ </section>
+</main>
+<footer><div class="wrap">Vibe Coding per docenti · <a href="./lezione-1.html">Lezione 1</a></div></footer>
+<script src="./corso-home.js?v=1"></script>
+</body>
+</html>

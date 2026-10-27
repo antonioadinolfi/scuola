@@ -61,6 +61,16 @@ Al termine del percorso, il partecipante sarà in grado di:
 - Definizione di un piano di sperimentazione didattica e riflessione su privacy, manutenzione e limiti.
 - Output: prototipo documentato, scheda d'uso e piano di sperimentazione.
 
+## Modalità d'uso in classe
+- **A · Il docente costruisce, la classe usa** (Lezioni 1–2): nessun account studente, app verificata dal docente.
+- **B · La classe valuta e collauda** (Lezioni 2, 3, 6): previsione, collaudo, ricerca dei limiti del modello.
+- **C · Gli studenti specificano o costruiscono** (Lezioni 4–5): prima la specifica come compito di scrittura, poi, con account istituzionali e nel rispetto della L. 132/2025 (consenso genitoriale sotto i 14 anni), coppie progettista/verificatore.
+
+## Quadro di riferimento
+- Reg. (UE) 2024/1689 (AI Act), art. 4: obbligo di alfabetizzazione in materia di IA, applicabile dal 2 febbraio 2025.
+- D.M. 166 del 9 agosto 2025: Linee guida per l'introduzione dell'IA nelle scuole.
+- L. 132/2025, art. 4, c. 4: consenso dei minori all'uso di sistemi di IA che trattano dati personali.
+
 ## Esempi interdisciplinari
 - Italiano: analisi guidata di un testo o quiz letterario.
 - Storia e filosofia: scenario decisionale o simulatore di dibattito.
@@ -84,4 +94,5 @@ Verificare preventivamente disponibilità degli account e policy d'istituto. Uti
 - [DigCompEdu — quadro europeo delle competenze digitali dei docenti](https://joint-research-centre.ec.europa.eu/digcompedu_en)
 - [GitHub Skills](https://skills.github.com/)
 - [Documentazione GitHub Pages](https://docs.github.com/en/pages)
-- [ChatGPT](https://chatgpt.com/)
+- [Simon Willison, Not all AI-assisted programming is vibe coding](https://simonwillison.net/2025/Mar/19/vibe-coding/)
+- Assistenti utilizzabili: Gemini (account istituzionale Google Workspace for Education), ChatGPT, Claude.
