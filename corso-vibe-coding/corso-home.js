@@ -43,14 +43,14 @@
  window.addEventListener('storage',renderPath);window.addEventListener('pageshow',renderPath);
 
  // Esporta / importa avanzamento
- const PREFIX='vibeCourseQuizV2-',status=$('progressStatus');
+ const PREFIX='vibeCourseQuizV3-',status=$('progressStatus');
  function readRaw(n){for(const s of ['localStorage','sessionStorage']){try{const v=window[s].getItem(PREFIX+n);if(v)return JSON.parse(v)}catch{}}return null}
  $('exportProgress')?.addEventListener('click',()=>{const data={course:'vibe-coding-docenti',format:1,exported:new Date().toISOString(),results:{}};lessons.forEach((_,i)=>{const r=readRaw(i+1);if(r)data.results[i+1]=r});
   if(!Object.keys(data.results).length){status.textContent='Non ci sono ancora test svolti in questo browser.';return}
   const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,1)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='avanzamento-vibe-coding.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
   status.textContent='File scaricato: contiene solo le risposte ai test, nessun dato personale.'});
  $('importProgress')?.addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text());if(data.course!=='vibe-coding-docenti'||!data.results)throw Error('Il file non è un avanzamento di questo corso.');let ok=0;
-   for(const [k,r] of Object.entries(data.results)){const n=Number(k);if(!(n>=1&&n<=lessons.length)||!r||r.version!==2||!r.last||!Array.isArray(r.last.answers))continue;
+   for(const [k,r] of Object.entries(data.results)){const n=Number(k);if(!(n>=1&&n<=lessons.length)||!r||r.version!==3||!r.last||!Array.isArray(r.last.answers))continue;
     const cur=readRaw(n),better=!cur||!course||course.score(n,(r.best||r.last).answers)>=course.score(n,(cur.best||cur.last).answers);
     if(better){localStorage.setItem(PREFIX+n,JSON.stringify(r));ok++}}
    status.textContent=ok?'Avanzamento caricato per '+ok+' lezion'+(ok===1?'e':'i')+'. I risultati migliori già presenti sono stati conservati.':'Nessun risultato migliore da caricare.';renderPath()}
