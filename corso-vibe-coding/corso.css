@@ -53,3 +53,11 @@
 .glossary dt{font-weight:800;color:#102a43}.glossary dd{margin:4px 0 0}
 @media(max-width:800px){.two-col,.mode-grid,.rule-grid,.glossary{grid-template-columns:1fr}.spectrum-buttons{grid-template-columns:1fr}.spectrum-bar{margin:18px 8% 6px}.spectrum-detail dl{grid-template-columns:1fr}}
 @media print{.home-toc,.spectrum-buttons,#avanzamento,.selfcheck .actions{display:none!important}.mode-card,.rule-grid .panel{break-inside:avoid}}
+/* v6 · immagine e riflessione nella Lezione 1 */
+.reflection h3{margin-top:0}
+.lesson-figure{margin:0 0 18px}
+.lesson-figure img{display:block;width:100%;max-width:760px;height:auto;border-radius:12px;border:1px solid var(--line)}
+.lesson-figure figcaption{margin-top:8px}
+@media print{.reflection,.lesson-figure{break-inside:avoid}}
+.assistant-picker{grid-template-columns:minmax(0,1fr)}
+.assistant-picker select{width:100%;min-width:0}
