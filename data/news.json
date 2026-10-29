@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T19:27:39+00:00",
+  "updatedAt": "2026-10-29T23:51:08+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,24 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Malattie infettive, aggiornato l’elenco nazionale: dall’Hantavirus, morbillo e varicella a influenza e scarlattina. Il decreto in Gazzetta Ufficiale",
+          "link": "https://www.orizzontescuola.it/malattie-infettive-aggiornato-lelenco-nazionale-dallhantavirus-morbillo-e-varicella-a-influenza-e-scarlattina-il-decreto-in-gazzetta-ufficiale/",
+          "pubDate": "Thu, 29 Oct 2026 20:41:54 +0000",
+          "description": "Il Ministero della Salute ha aggiornato l'elenco nazionale delle malattie infettive sottoposte a sorveglianza, inserendo l'infezione da Hantavirus tra le malatt…"
+        },
+        {
+          "title": "Precari scuola, Serafini (SNALS): “Basta contratti a termine, servono assunzioni da GPS e doppio canale di reclutamento”",
+          "link": "https://www.orizzontescuola.it/precari-scuola-serafini-snals-basta-contratti-a-termine-servono-assunzioni-da-gps-e-doppio-canale-di-reclutamento/",
+          "pubDate": "Thu, 29 Oct 2026 20:09:27 +0000",
+          "description": "“ Non possiamo continuare a chiedere a migliaia di lavoratori competenza, responsabilità e anni di servizio per poi lasciarli nell’incertezza. La precarietà non…"
+        },
+        {
+          "title": "Green Book di Peter Farrelly: il road-movie, tratto da una storia vera, sulla condizione degli afroamericani ai tempi della segregazione razziale. Insegnare con i film",
+          "link": "https://www.orizzontescuola.it/green-book-di-peter-farrelly-il-road-movie-tratto-da-una-storia-vera-sulla-condizione-degli-afroamericani-ai-tempi-della-segregazione-razziale-insegnare-con-i-film/",
+          "pubDate": "Thu, 29 Oct 2026 19:33:29 +0000",
+          "description": "Green Book è il road movie, vincitore di tre premi Oscar nel 2019, che racconta il viaggio avvincente e insidioso del pianista afroamericano Don Shirley e di To…"
+        },
+        {
           "title": "Riflessi sullo schermo: perché dare il telefono a 12 anni rischia di cambiare il rapporto dei ragazzi con il cibo? I risultati di uno studio internazionale",
           "link": "https://www.orizzontescuola.it/riflessi-sullo-schermo-perche-dare-il-telefono-a-12-anni-rischia-di-cambiare-il-rapporto-dei-ragazzi-con-il-cibo-i-risultati-di-uno-studio-internazionale/",
           "pubDate": "Thu, 29 Oct 2026 18:58:34 +0000",
@@ -62,24 +80,6 @@
           "link": "https://www.orizzontescuola.it/permessi-150-ore-il-tragitto-non-e-normalmente-coperto-come-giustificare-le-assenze-pillole-di-question-time/",
           "pubDate": "Thu, 29 Oct 2026 16:37:20 +0000",
           "description": "Nel Question Time del 26 ottobre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Sonia Cannas, docente ed esperta in normativa s…"
-        },
-        {
-          "title": "Atenei e licei occupati da Milano a Napoli: gli studenti si preparano ai cortei del 30 ottobre contro il carovita e per il diritto allo studio",
-          "link": "https://www.orizzontescuola.it/atenei-e-licei-occupati-da-milano-a-napoli-gli-studenti-si-preparano-ai-cortei-del-30-ottobre-contro-il-carovita-e-per-il-diritto-allo-studio/",
-          "pubDate": "Thu, 29 Oct 2026 15:44:54 +0000",
-          "description": "Stamattina 29 ottobre gli studenti hanno occupato un’aula dell’Università Bicocca di Milano, e la mappa della protesta studentesca si allarga ancora. L'articolo…"
-        },
-        {
-          "title": "Supplenze ATA, conviene accettare anche incarichi di pochi giorni? Esperienza e punteggio possono fare la differenza. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/supplenze-ata-conviene-accettare-anche-incarichi-di-pochi-giorni-esperienza-e-punteggio-possono-fare-la-differenza-pillole-di-question-time/",
-          "pubDate": "Thu, 29 Oct 2026 15:32:37 +0000",
-          "description": "Nel Question Time del 28 ottobre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Michele Mileto, rappresentante sindacale della…"
-        },
-        {
-          "title": "Intelligenza artificiale nella PA, Zangrillo: “Opportunità strategica, già usata da oltre il 75% dei dipendenti”",
-          "link": "https://www.orizzontescuola.it/intelligenza-artificiale-nella-pa-zangrillo-opportunita-strategica-gia-usata-da-oltre-il-75-dei-dipendenti/",
-          "pubDate": "Thu, 29 Oct 2026 15:25:16 +0000",
-          "description": "L'intelligenza artificiale entra stabilmente nell'operatività della Pubblica amministrazione, con oltre tre quarti dei dipendenti statali che ne fanno già uso r…"
         }
       ]
     },
@@ -87,40 +87,40 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Borse, slalom tra trimestrali, Pil Usa e Bce. Milano (+0,4%) riprende quota 50mila - I conti di Alphabet e Microsoft",
+          "title": "Borse, Milano (+0,4%) riprende quota 50mila. Wall Street chiude in calo - I conti di Alphabet e Microsoft",
           "link": "https://www.ilsole24ore.com/art/borsa-indici-giovedi-29-ottobre-2026-AJ32OdxB",
           "pubDate": "Thu, 29 Oct 2026 06:20:00 GMT",
           "description": "A Wall Street crolla Alphabet (Google), che ha mancato le aspettative sugli utili per azione e sui ricavi del terzo trimestre. Tassi fermi per Fed e Bce, mentre…"
         },
         {
-          "title": "Meloni battezza l’alleanza con Sud chiama Nord. E Cateno De Luca svela la data del voto: 9-10 maggio",
-          "link": "https://www.ilsole24ore.com/art/meloni-battezza-l-alleanza-sud-chiama-nord-sindaci-eroi-politica-AJ79DrxB",
-          "pubDate": "Thu, 29 Oct 2026 11:10:00 GMT",
-          "description": "Il tributo ai sindaci «eroi della politica, un avamposto di umanità», il richiamo al Sud come asset strategico del Paese, il valore dell’economia del mare, la «…"
+          "title": "Amazon delude sotto le attese, a Wall Street perde il 7%",
+          "link": "https://www.ilsole24ore.com/art/amazon-delude-sotto-attese-wall-street-perde-7percento-AJCFhYyB",
+          "pubDate": "Thu, 29 Oct 2026 20:26:00 GMT",
+          "description": "Amazon chiude il terzo trimestre sotto le attese degli analisti. I ricavi del colosso delle vendite al dettaglio si sono attestati a 201,94 miliardi di dollari,…"
         },
         {
-          "title": "Irpef, giovani, partite Iva, anziani e banche: tutte le novità della manovra",
-          "link": "https://www.ilsole24ore.com/art/irpef-giovani-partite-iva-anziani-e-banche-tutte-novita-manovra-AJDVCRxB",
-          "pubDate": "Thu, 29 Oct 2026 05:51:00 GMT",
-          "description": "Via libera al Ddl di bilancio, che sale a 26 miliardi per dare spazio agli sconti fiscali sui redditi fino a 55mila euro: per ora previsti solo per il 2027, com…"
-        },
-        {
-          "title": "Artigianato, Orsini: «Le associazioni di categoria non difendano i propri interessi a spese dei lavoratori e delle imprese»",
-          "link": "https://www.ilsole24ore.com/art/artigianato-orsini-le-associazioni-categoria-non-difendano-propri-interessi-spese-lavoratori-e-imprese-AJS2BSyB",
-          "pubDate": "Thu, 29 Oct 2026 18:28:00 GMT",
-          "description": "“La revisione della legge quadro sull’artigianato pone una questione fondamentale che non possiamo ignorare: la tutela dei lavoratori, la concorrenza leale tra…"
-        },
-        {
-          "title": "Schianto di un elicottero militare italiano in Bosnia, «4 vittime e numerosi feriti»",
-          "link": "https://www.ilsole24ore.com/art/schianto-un-elicottero-militare-italiano-bosnia-ci-sono-vittime-AJcwRQyB",
-          "pubDate": "Thu, 29 Oct 2026 18:10:00 GMT",
-          "description": "L’Eufor, la Forza militare dell’Unione Europea in Bosnia-Erzegovina, ha confermato che un elicottero italiano CH-47 Chinook si è schiantato oggi a Brcko, nel no…"
+          "title": "Generali Stadium, per il nuovo stadio di Milan e Inter uno sponsor da 650 milioni",
+          "link": "https://www.ilsole24ore.com/art/generali-stadium-il-nuovo-stadio-inter-e-milan-sponsor-650-milioni-AJrjiCyB",
+          "pubDate": "Thu, 29 Oct 2026 20:32:00 GMT",
+          "description": "Il nuovo stadio di Milano avrà il marchio di Generali. La compagnia assicurativa triestina ha raggiunto un accordo con la joint venture costituita da Milan e In…"
         },
         {
           "title": "Lmdv si ferma davanti al muro del Fatto: salta l’Opa su Seif",
           "link": "https://www.ilsole24ore.com/art/lmdv-si-ferma-al-muro-fatto-salta-l-opa-seif-AJMLiEyB",
           "pubDate": "Thu, 29 Oct 2026 16:10:28 GMT",
           "description": "I soci storici del Fatto Quotidiano chiudono la porta, Leonardo Maria Del Vecchio ferma l’offerta. Si arresta prima del lancio il ventilato progetto di conquist…"
+        },
+        {
+          "title": "Elicottero precipitato in Bosnia: 2 militari e 2 operatori Cri morti, 11 feriti non in pericolo di vita",
+          "link": "https://www.ilsole24ore.com/art/schianto-un-elicottero-militare-italiano-bosnia-ci-sono-vittime-AJcwRQyB",
+          "pubDate": "Thu, 29 Oct 2026 18:10:00 GMT",
+          "description": "Ci sarebbero due operatori della Croce Rossa tra le vittima coinvolte nell’incidente in Bosnia-Erzegovina, dove elicottero italiano, un CH 47, impegnato nell’am…"
+        },
+        {
+          "title": "Meloni battezza l’alleanza con Sud chiama Nord. E Cateno De Luca svela la data del voto: 9-10 maggio",
+          "link": "https://www.ilsole24ore.com/art/meloni-battezza-l-alleanza-sud-chiama-nord-sindaci-eroi-politica-AJ79DrxB",
+          "pubDate": "Thu, 29 Oct 2026 11:10:00 GMT",
+          "description": "Il tributo ai sindaci «eroi della politica, un avamposto di umanità», il richiamo al Sud come asset strategico del Paese, il valore dell’economia del mare, la «…"
         }
       ]
     }
