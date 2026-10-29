@@ -79,6 +79,7 @@ Al termine del percorso, il partecipante sarà in grado di:
 - Lingue: dialogo simulato o allenamento lessicale.
 - Arte: percorso di riconoscimento di opere e stili.
 - Scienze umane ed economia: analisi di casi o simulazione di scelte.
+- Diritto ed economia: gerarchia delle fonti, requisiti del contratto, simulazione di domanda e offerta, verifica dei riferimenti normativi.
 
 ## Valutazione del project work
 - Coerenza con l'obiettivo didattico: 25%.
