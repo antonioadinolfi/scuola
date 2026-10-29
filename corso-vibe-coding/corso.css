@@ -100,3 +100,16 @@ body.hl-mode-riflettore main{cursor:pointer}
 @media(max-width:520px){.hl-dock{left:8px;bottom:8px;max-width:calc(100% - 16px)}.hl-dock button{padding:7px 9px;font-size:.82rem}}
 @media print{.hl-dock,.keypoints{display:none!important}.hl-dim{opacity:1!important}.hl-spot{outline:none}mark.key,mark.warn{background:none;box-shadow:none;text-decoration:underline 2px;text-underline-offset:3px}mark.warn{text-decoration-style:wavy}}
 footer{padding-bottom:80px}
+/* v8 · esempi di evidenza per disciplina */
+.case-example{margin:18px 0 6px;border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:#fbfcfe}
+.case-example h4{margin:0 0 10px;font-size:1.05rem;color:#102a43}
+.case-probe span{white-space:pre-wrap}
+.case-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+.case-grid>div{border-radius:12px;padding:14px 16px}
+.case-grid p{margin:6px 0 0}
+.case-full{background:#e9f7f2;border-left:4px solid #2a9d8f}
+.case-partial{background:#fdf1e6;border-left:4px solid #d9822b}
+.case-why{font-size:.93rem;color:#52657a}
+@media(max-width:700px){.case-grid{grid-template-columns:1fr}}
+@media print{.case-example{break-inside:avoid}}
+.case-probe span.code{display:block;margin-top:8px;font-family:ui-monospace,Consolas,monospace;font-size:.92rem;background:#eef6f9;border:1px solid #d2e4ec;border-radius:10px;padding:10px 12px}
