@@ -78,6 +78,7 @@ Al termine del percorso, il partecipante sarà in grado di:
 - Fisica e scienze: laboratorio virtuale con variabili modificabili.
 - Lingue: dialogo simulato o allenamento lessicale.
 - Arte: percorso di riconoscimento di opere e stili.
+- Disegno e storia dell’arte: ordini architettonici, proiezioni ortogonali, prospettiva, scale di rappresentazione, lettura di un’architettura del territorio.
 - Scienze umane ed economia: analisi di casi o simulazione di scelte.
 - Diritto ed economia: gerarchia delle fonti, requisiti del contratto, simulazione di domanda e offerta, verifica dei riferimenti normativi.
 
