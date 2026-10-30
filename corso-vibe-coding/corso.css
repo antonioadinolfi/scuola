@@ -166,3 +166,7 @@ footer{padding-bottom:80px}
 .gate-transfer{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
 .gate-transfer .file-button{background:#102a43;color:#fff}
 #progressHint{margin:10px 0 0}
+.trainer-badge{position:fixed;right:16px;bottom:16px;z-index:61;display:flex;gap:10px;align-items:center;background:#fff4d6;color:#102a43;border:1px solid #d9a227;border-radius:12px;padding:8px 10px 8px 14px;font-size:.85rem;box-shadow:0 4px 16px rgba(16,42,67,.2);max-width:calc(100% - 32px)}
+.trainer-badge button{border:1px solid #102a43;background:#fff;color:#102a43;border-radius:8px;padding:5px 10px;font-weight:700;font-size:.8rem}
+@media(max-width:700px){.trainer-badge{right:8px;bottom:64px;font-size:.78rem}}
+@media print{.trainer-badge{display:none!important}}
