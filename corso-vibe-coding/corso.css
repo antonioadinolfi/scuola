@@ -163,3 +163,6 @@ footer{padding-bottom:80px}
 .ai-list{padding-left:22px}.ai-list li{margin:10px 0}
 @media(max-width:700px){.ai-toggle-row{flex-direction:column}.mock-opts{grid-template-columns:1fr}}
 @media print{.walk .actions,.ai-toggle .switch{display:none!important}}
+.gate-transfer{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.gate-transfer .file-button{background:#102a43;color:#fff}
+#progressHint{margin:10px 0 0}
