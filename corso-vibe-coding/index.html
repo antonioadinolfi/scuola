@@ -6,7 +6,7 @@
 <meta name="description" content="Corso di 24 ore per docenti di ogni disciplina: che cos’è il vibe coding, come funziona, quali strumenti usare e come portarlo in classe in modo verificato e conforme.">
 <title>Vibe Coding per docenti · Guida al corso</title>
 <link rel="canonical" href="https://antonioadinolfiscuola.it/corso-vibe-coding/">
-<link rel="stylesheet" href="./corso.css?v=9">
+<link rel="stylesheet" href="./corso.css?v=10">
 <script src="./corso-data.js?v=9"></script>
 <script src="./corso-progress.js?v=3"></script>
 </head>
@@ -75,32 +75,68 @@
   <h2>Come funziona davvero</h2>
   <p>Per usare il vibe coding in classe serve un modello mentale corretto di <strong>chi fa che cosa</strong> e <strong>quando</strong>. Ci sono due momenti distinti: la costruzione, in cui lavora l’IA, e l’uso, in cui lavora il browser.</p>
 
-  <figure class="panel diagram">
+  <figure class="panel diagram" id="cicloFig">
    <svg viewBox="0 0 960 330" role="img" aria-labelledby="dgTitle dgDesc">
     <title id="dgTitle">Ciclo del vibe coding in due momenti</title>
     <desc id="dgDesc">Nella fase di costruzione il docente scrive un prompt, il modello linguistico restituisce codice HTML, CSS e JavaScript, il browser lo esegue e il docente prova e descrive le differenze, ripetendo il ciclo. Nella fase d’uso gli studenti aprono il file verificato nel browser, senza che l’IA intervenga.</desc>
-    <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#176b87"/></marker></defs>
+    <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#176b87"/></marker><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#c4661b"/></marker></defs>
     <rect x="8" y="8" width="640" height="314" rx="18" fill="#eef6f9" stroke="#b9d4df"/>
     <text x="28" y="38" class="dg-k">MOMENTO 1 · COSTRUZIONE (l’IA lavora)</text>
-    <rect x="672" y="8" width="280" height="314" rx="18" fill="#fff9e9" stroke="#f0d48a"/>
+    <rect class="dg-m2" x="672" y="8" width="280" height="314" rx="18"/>
     <text x="692" y="38" class="dg-k">MOMENTO 2 · USO IN CLASSE</text>
-    <g class="dg-box"><rect x="28" y="70" width="170" height="92" rx="12"/><text x="113" y="104" text-anchor="middle" class="dg-t">Tu, docente</text><text x="113" y="126" text-anchor="middle" class="dg-s">obiettivo, contenuti,</text><text x="113" y="144" text-anchor="middle" class="dg-s">criteri di verifica</text></g>
-    <g class="dg-box"><rect x="250" y="70" width="170" height="92" rx="12"/><text x="335" y="104" text-anchor="middle" class="dg-t">Modello linguistico</text><text x="335" y="126" text-anchor="middle" class="dg-s">prevede il testo più</text><text x="335" y="144" text-anchor="middle" class="dg-s">probabile: il codice</text></g>
-    <g class="dg-box"><rect x="472" y="70" width="156" height="92" rx="12"/><text x="550" y="104" text-anchor="middle" class="dg-t">Codice</text><text x="550" y="126" text-anchor="middle" class="dg-s">HTML · CSS</text><text x="550" y="144" text-anchor="middle" class="dg-s">JavaScript</text></g>
-    <g class="dg-box"><rect x="472" y="210" width="156" height="92" rx="12"/><text x="550" y="244" text-anchor="middle" class="dg-t">Browser</text><text x="550" y="266" text-anchor="middle" class="dg-s">esegue il codice:</text><text x="550" y="284" text-anchor="middle" class="dg-s">l’app prende vita</text></g>
-    <g class="dg-box"><rect x="28" y="210" width="392" height="92" rx="12"/><text x="224" y="244" text-anchor="middle" class="dg-t">Tu provi e confronti</text><text x="224" y="266" text-anchor="middle" class="dg-s">atteso ≠ osservato? Descrivi la differenza</text><text x="224" y="284" text-anchor="middle" class="dg-s">e chiedi una modifica circoscritta</text></g>
-    <path d="M198 105H246" class="dg-a"/><text x="222" y="96" text-anchor="middle" class="dg-l">prompt</text>
-    <path d="M420 105H468" class="dg-a"/>
-    <path d="M550 162V206" class="dg-a"/>
-    <path d="M472 256H424" class="dg-a"/>
-    <path d="M113 210V166" class="dg-a"/><text x="122" y="192" class="dg-l">nuovo prompt</text>
-    <path d="M628 256H706" class="dg-a dg-dash"/><text x="667" y="246" text-anchor="middle" class="dg-l">file verificato</text>
-    <g class="dg-box gold"><rect x="706" y="70" width="226" height="92" rx="12"/><text x="819" y="104" text-anchor="middle" class="dg-t">Studenti</text><text x="819" y="126" text-anchor="middle" class="dg-s">usano l’app nel browser</text><text x="819" y="144" text-anchor="middle" class="dg-s">(o la collaudano)</text></g>
-    <g class="dg-box gold"><rect x="706" y="210" width="226" height="92" rx="12"/><text x="819" y="244" text-anchor="middle" class="dg-t">Nessuna IA in gioco</text><text x="819" y="266" text-anchor="middle" class="dg-s">se l’app è autonoma e</text><text x="819" y="284" text-anchor="middle" class="dg-s">non invia dati altrove</text></g>
-    <path d="M819 206V166" class="dg-a"/>
+    <g class="dg-box" data-node="docente"><rect x="28" y="70" width="170" height="92" rx="12"/><text x="113" y="104" text-anchor="middle" class="dg-t">Tu, docente</text><text x="113" y="126" text-anchor="middle" class="dg-s">obiettivo, contenuti,</text><text x="113" y="144" text-anchor="middle" class="dg-s">criteri di verifica</text></g>
+    <g class="dg-box" data-node="modello"><rect x="250" y="70" width="170" height="92" rx="12"/><text x="335" y="104" text-anchor="middle" class="dg-t">Modello linguistico</text><text x="335" y="126" text-anchor="middle" class="dg-s">prevede il testo più</text><text x="335" y="144" text-anchor="middle" class="dg-s">probabile: il codice</text></g>
+    <g class="dg-box" data-node="codice"><rect x="472" y="70" width="156" height="92" rx="12"/><text x="550" y="104" text-anchor="middle" class="dg-t">Codice</text><text x="550" y="126" text-anchor="middle" class="dg-s">HTML · CSS</text><text x="550" y="144" text-anchor="middle" class="dg-s">JavaScript</text></g>
+    <g class="dg-box" data-node="browser"><rect x="472" y="210" width="156" height="92" rx="12"/><text x="550" y="244" text-anchor="middle" class="dg-t">Browser</text><text x="550" y="266" text-anchor="middle" class="dg-s">esegue il codice:</text><text x="550" y="284" text-anchor="middle" class="dg-s">l’app prende vita</text></g>
+    <g class="dg-box" data-node="prova"><rect x="28" y="210" width="392" height="92" rx="12"/><text x="224" y="244" text-anchor="middle" class="dg-t">Tu provi e confronti</text><text x="224" y="266" text-anchor="middle" class="dg-s">atteso ≠ osservato? Descrivi la differenza</text><text x="224" y="284" text-anchor="middle" class="dg-s">e chiedi una modifica circoscritta</text></g>
+    <g class="dg-edge" data-node="e-prompt"><path d="M198 105H246" class="dg-a"/><text x="222" y="96" text-anchor="middle" class="dg-l">prompt</text></g>
+    <g class="dg-edge" data-node="e-mc"><path d="M420 105H468" class="dg-a"/></g>
+    <g class="dg-edge" data-node="e-cb"><path d="M550 162V206" class="dg-a"/></g>
+    <g class="dg-edge" data-node="e-bp"><path d="M472 256H424" class="dg-a"/></g>
+    <g class="dg-edge" data-node="e-new"><path d="M113 210V166" class="dg-a"/><text x="122" y="192" class="dg-l">nuovo prompt</text></g>
+    <g class="dg-edge" data-node="e-file"><path d="M628 256H706" class="dg-a dg-dash"/><text x="667" y="246" text-anchor="middle" class="dg-l"><tspan class="dg-def">file verificato</tspan><tspan class="dg-ai">app con IA</tspan></text></g>
+    <g class="dg-box gold" data-node="studenti"><rect x="706" y="70" width="226" height="92" rx="12"/><text x="819" y="104" text-anchor="middle" class="dg-t">Studenti</text><g class="dg-def"><text x="819" y="126" text-anchor="middle" class="dg-s">usano l’app nel browser</text><text x="819" y="144" text-anchor="middle" class="dg-s">(o la collaudano)</text></g><g class="dg-ai"><text x="819" y="126" text-anchor="middle" class="dg-s">scrivono all’IA attraverso</text><text x="819" y="144" text-anchor="middle" class="dg-s">l’app, a ogni uso</text></g></g>
+    <g class="dg-box gold" data-node="nessunaia"><rect x="706" y="210" width="226" height="92" rx="12"/><g class="dg-def"><text x="819" y="244" text-anchor="middle" class="dg-t">Nessuna IA in gioco</text><text x="819" y="266" text-anchor="middle" class="dg-s">se l’app è autonoma e</text><text x="819" y="284" text-anchor="middle" class="dg-s">non invia dati altrove</text></g><g class="dg-ai"><text x="819" y="244" text-anchor="middle" class="dg-t">L’IA risponde in classe</text><text x="819" y="266" text-anchor="middle" class="dg-s">i testi degli studenti</text><text x="819" y="284" text-anchor="middle" class="dg-s">escono dal browser</text></g></g>
+    <g class="dg-edge" data-node="e-up"><path d="M819 206V166" class="dg-a"/></g>
+    <g class="dg-ai dg-live"><path d="M760 70V54H335V66" fill="none" stroke="#c4661b" stroke-width="2.5" marker-start="url(#ar2)" marker-end="url(#ar2)"/><text x="548" y="47" text-anchor="middle" class="dg-l dg-l-ai">testi degli studenti ↔ IA, in tempo reale</text></g>
    </svg>
-   <figcaption class="muted">Il ciclo a sinistra si ripete più volte: è qui che si impara. A destra arriva solo una versione che hai provato.</figcaption>
+   <figcaption class="muted" id="cicloCaption">Il ciclo a sinistra si ripete più volte: è qui che si impara. A destra arriva solo una versione che hai provato.</figcaption>
   </figure>
+
+  <div class="panel walk" id="cicloWalk">
+   <div class="walk-head">
+    <h3>Segui un giro del ciclo</h3>
+    <p class="muted">Il caso della Lezione 1, il quiz sulle fonti storiche, attraversa il diagramma un passaggio alla volta: prima un difetto, poi la sua correzione.</p>
+   </div>
+   <div class="actions">
+    <button type="button" class="button" id="walkPrev" disabled>← Indietro</button>
+    <button type="button" class="button primary" id="walkNext">Inizia il racconto →</button>
+    <button type="button" class="button ghost-dark" id="walkReset" hidden>Ricomincia</button>
+   </div>
+   <div class="walk-panel" id="walkPanel" aria-live="polite" hidden></div>
+  </div>
+
+  <div class="panel ai-toggle" id="aiToggle">
+   <div class="ai-toggle-row">
+    <div>
+     <h3>E se l’IA fosse in gioco anche in classe?</h3>
+     <p class="muted">Molte app «intelligenti» interrogano un modello mentre gli studenti le usano: un chatbot, una correzione automatica dei testi. Attiva l’interruttore e guarda come cambia il diagramma.</p>
+    </div>
+    <button type="button" class="switch" id="aiSwitch" role="switch" aria-checked="false" aria-describedby="aiInfo"><span class="switch-track"><span class="switch-dot"></span></span><span class="switch-label">IA collegata in classe</span></button>
+   </div>
+   <div id="aiInfo" aria-live="polite">
+    <p class="ai-off">Con un’app autonoma, quella che costruiamo nel corso, l’IA ha finito il suo lavoro prima dell’ingresso in aula: ciò che gli studenti scrivono resta nel browser e il comportamento dell’app è quello che hai collaudato.</p>
+    <div class="ai-on" hidden>
+     <p><strong>Che cosa cambia, concretamente:</strong></p>
+     <ol class="ai-list">
+      <li><strong>I testi degli studenti escono dal browser.</strong> Ogni risposta, domanda o elaborato viene inviato al fornitore del modello: è un trattamento di dati personali, che richiede informative, una valutazione del DPO e un servizio scelto dalla scuola.</li>
+      <li><strong>Servono account e consensi.</strong> Gli studenti devono accedere con account istituzionali; sotto i 14 anni l’uso di sistemi di IA che trattano dati personali richiede il consenso di chi esercita la responsabilità genitoriale (L. 132/2025, art. 4, c. 4).</li>
+      <li><strong>Il collaudo non basta più.</strong> Le risposte dell’IA cambiano a ogni uso: puoi provare l’app cento volte e la centunesima risposta, in classe, sarà nuova. Servono criteri d’uso, supervisione durante l’attività e un modo per segnalare le risposte sbagliate.</li>
+     </ol>
+     <p class="check">Per questo il corso costruisce app <strong>autonome</strong>: la verifica fatta dal docente resta valida anche quando la classe usa l’app.</p>
+    </div>
+   </div>
+  </div>
 
   <div class="concept-grid four">
    <article class="concept-card"><h3>Prevede, non «sa»</h3><p>Il modello genera il testo statisticamente più plausibile dopo il tuo prompt. Codice e spiegazioni possono suonare convincenti ed essere sbagliati: la sicurezza del tono non è una prova.</p></article>
@@ -244,6 +280,7 @@
 </main>
 <footer><div class="wrap">Vibe Coding per docenti · <a href="./lezione-1.html">Lezione 1</a></div></footer>
 <script src="./corso-home.js?v=2"></script>
+<script src="./corso-ciclo.js?v=1"></script>
 <script src="./corso-tools.js?v=1"></script>
 </body>
 </html>
