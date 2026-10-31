@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="it" data-lesson="1" class="course-pending">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Lezione 1: dal mondo reale alle classi. Classi, oggetti, __init__, self e diagramma UML delle classi in Python.">
+<title>Lezione 1 · Dal mondo reale alle classi | Python a oggetti</title>
+<link rel="stylesheet" href="./oop.css?v=1">
+<script src="./oop-config.js?v=1"></script>
+<script src="./oop-data.js?v=1"></script>
+<script src="./oop-progress.js?v=1"></script>
+</head>
+<body>
+<noscript><style>html.course-pending body{visibility:visible}</style><p>Attiva JavaScript per eseguire il codice e svolgere il test.</p></noscript>
+<a class="skip" href="#contenuti">Vai ai contenuti</a>
+
+<header><div class="wrap">
+  <div class="topbar"><a href="./">← Python a oggetti · Guida al corso</a><span>Classi quarte</span></div>
+  <div class="hero">
+    <div class="kicker">Lezione 1 di 6 · 1 ora</div>
+    <h1>Dal mondo reale alle classi</h1>
+    <p>Scoprirai perché i programmi più grandi si organizzano in oggetti, come si scrive una classe in Python e come la si rappresenta con un diagramma UML.</p>
+    <div class="actions">
+      <a class="button primary" href="#problema">Inizia ↓</a>
+      <a class="button ghost" href="#esercizi">Esercizi ↓</a>
+      <a class="button ghost" href="#test-finale">Test finale ↓</a>
+      <button class="button ghost" id="projection" aria-pressed="false">Testo ingrandito</button>
+      <button class="button ghost" onclick="window.print()">Stampa / PDF</button>
+    </div>
+  </div>
+</div></header>
+
+<main class="wrap" id="contenuti">
+<nav class="lesson-nav" aria-label="Percorso delle lezioni">
+  <a class="button" data-lesson-link="1" href="./lezione-1.html" aria-current="page">Lezione 1<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="2" href="./lezione-2.html">Lezione 2<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="3" href="./lezione-3.html">Lezione 3<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="4" href="./lezione-4.html">Lezione 4<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="5" href="./lezione-5.html">Lezione 5<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="6" href="./lezione-6.html">Lezione 6<span class="nav-state"></span></a>
+</nav>
+
+<section class="section" id="obiettivi">
+  <div class="kicker">Obiettivi della lezione</div>
+  <h2>Al termine saprai…</h2>
+  <div class="panel">
+    <ul>
+      <li>distinguere una <strong>classe</strong> da un <strong>oggetto</strong> (istanza);</li>
+      <li>riconoscere in un problema gli <strong>attributi</strong> (che cosa un oggetto ha) e i <strong>metodi</strong> (che cosa sa fare);</li>
+      <li>scrivere una classe con il costruttore <code>__init__</code> e usare correttamente <code>self</code>;</li>
+      <li>leggere e disegnare il <strong>diagramma UML</strong> di una classe e tradurlo in codice.</li>
+    </ul>
+    <div class="timeline" aria-label="Organizzazione dell’ora">
+      <div><b>5′</b>Il problema</div>
+      <div><b>15′</b>Classi, oggetti e UML</div>
+      <div><b>10′</b>La sintassi in Python</div>
+      <div><b>20′</b>Esercizi</div>
+      <div><b>10′</b>Test finale</div>
+    </div>
+    <p class="muted">Gli esempi si eseguono direttamente nella pagina: nessuna installazione, funziona anche da smartphone. Il codice che modifichi resta salvato in questo browser. Se in classe non c’è tempo, il test si completa a casa.</p>
+  </div>
+</section>
+
+<section class="section" id="problema">
+  <div class="kicker">1 · Il problema</div>
+  <h2>Quando i dati sono sparsi</h2>
+  <p>Immagina di dover gestire i telefoni di un negozio. Con gli strumenti che conosci useresti un dizionario per ogni telefono e una funzione per ricaricarlo. Esegui il codice e osserva l’ultima riga.</p>
+
+  <details class="ricorda"><summary>i dizionari</summary>
+    <p>Un dizionario associa <strong>chiavi</strong> a <strong>valori</strong>. Si legge e si modifica con le parentesi quadre: <code>d["chiave"]</code>. Assegnare una chiave che non esiste la <em>crea</em>, senza alcun errore.</p>
+    <pre><code>studente = {"nome": "Sara", "media": 7.5}
+print(studente["nome"])     # Sara
+studente["media"] = 8       # modifica
+studente["classe"] = "4B"   # aggiunge una nuova chiave</code></pre>
+  </details>
+
+  <div class="py-box" data-py="l1-x1" data-title="Esempio 1 · Telefoni come dizionari"><textarea class="py-src">
+# Due telefoni rappresentati con dizionari
+tel1 = {"marca": "Fairphone", "modello": "5", "batteria": 40}
+tel2 = {"marca": "Samsung", "modello": "A55", "batteria": 85}
+
+def ricarica(telefono, percentuale):
+    telefono["batteria"] = min(100, telefono["batteria"] + percentuale)
+
+ricarica(tel1, 30)
+print(tel1["marca"], tel1["batteria"], "%")
+
+# Un errore di battitura passa inosservato...
+tel2["Batteria"] = 10
+print(tel2)
+</textarea></div>
+
+  <div class="panel">
+    <h3>Che cosa non funziona?</h3>
+    <ul>
+      <li>Nulla garantisce che ogni telefono abbia le stesse chiavi: <code>"Batteria"</code> con la B maiuscola ha creato una chiave nuova, senza errori.</li>
+      <li>La funzione <code>ricarica</code> e i dati del telefono sono separati: chi legge il programma non sa quali funzioni servono a quali dati.</li>
+      <li>Con dieci tipi di oggetti (telefoni, clienti, ordini…) e cento funzioni il programma diventa difficile da controllare.</li>
+    </ul>
+    <div class="task"><strong>L’idea della programmazione a oggetti.</strong> Mettere insieme in un’unica struttura i <strong>dati</strong> di una cosa e le <strong>operazioni</strong> che la riguardano, e descriverla una volta sola con un modello: la <strong>classe</strong>.</div>
+  </div>
+
+  <h3>In realtà usi già gli oggetti</h3>
+  <p>In Python ogni valore è un oggetto: un numero, una stringa, una lista. Il loro “tipo” è la loro classe, e i metodi che conosci (<code>upper()</code>, <code>append()</code>) sono le operazioni che quella classe mette a disposizione.</p>
+  <div class="py-box" data-py="l1-x2" data-title="Esempio 2 · Tutto è un oggetto"><textarea class="py-src">
+frase = "ciao classe"
+voti = [7, 8, 6]
+
+print(type(frase))      # la classe di frase
+print(frase.upper())    # un metodo della classe str
+
+voti.append(9)          # un metodo della classe list
+print(type(voti), voti)
+</textarea></div>
+</section>
+
+<section class="section" id="concetti">
+  <div class="kicker">2 · Classi e oggetti</div>
+  <h2>Quattro parole da sapere</h2>
+  <div class="concept-grid four">
+    <article class="concept-card"><h3>Classe</h3><p>Il <strong>modello</strong> che descrive un tipo di oggetti: quali dati hanno e che cosa sanno fare. Come il progetto di uno smartphone: non è un telefono, ma dice come sono fatti tutti.</p></article>
+    <article class="concept-card"><h3>Oggetto (istanza)</h3><p>Un esemplare concreto creato dalla classe. Il tuo telefono e quello del compagno di banco sono due oggetti della stessa classe, con valori diversi.</p></article>
+    <article class="concept-card"><h3>Attributi</h3><p>I dati che ogni oggetto <strong>ha</strong>: marca, modello, livello di batteria. Nel loro insieme formano lo <strong>stato</strong> dell’oggetto.</p></article>
+    <article class="concept-card"><h3>Metodi</h3><p>Le operazioni che l’oggetto <strong>sa fare</strong>: ricaricarsi, descriversi. Sono funzioni definite dentro la classe che lavorano sugli attributi.</p></article>
+  </div>
+  <div class="task"><strong>Un trucco per l’analisi.</strong> Nel testo di un problema, i <strong>sostantivi</strong> che descrivono che cosa una cosa possiede diventano <strong>attributi</strong>; i <strong>verbi</strong> che descrivono che cosa può fare diventano <strong>metodi</strong>.</div>
+</section>
+
+<section class="section" id="uml">
+  <div class="kicker">2 · Il diagramma UML delle classi</div>
+  <h2>Disegnare una classe prima di scriverla</h2>
+  <p><strong>UML</strong> (Unified Modeling Language) è il linguaggio grafico standard con cui i programmatori progettano il software. Nel <strong>diagramma delle classi</strong> ogni classe è un rettangolo diviso in tre riquadri.</p>
+  <div class="split">
+    <figure class="uml">
+      <pre class="mermaid">
+classDiagram
+    class Smartphone {
+        marca
+        modello
+        batteria
+        ricarica(percentuale)
+        info()
+    }
+      </pre>
+      <figcaption>Il diagramma della classe Smartphone.</figcaption>
+    </figure>
+    <div class="panel">
+      <div class="uml-legend">
+        <b>In alto</b><span>il <strong>nome</strong> della classe, al singolare e con l’iniziale maiuscola;</span>
+        <b>Al centro</b><span>gli <strong>attributi</strong>: lo stato di ogni oggetto;</span>
+        <b>In basso</b><span>i <strong>metodi</strong>, con le parentesi e gli eventuali parametri.</span>
+      </div>
+      <p class="muted">Il costruttore <code>__init__</code> di solito non si riporta: gli attributi che crea compaiono già nel riquadro centrale. Nelle prossime lezioni aggiungeremo tipi, visibilità e relazioni tra classi.</p>
+    </div>
+  </div>
+  <h3>Una classe, tanti oggetti</h3>
+  <p>In UML un oggetto si disegna con il nome sottolineato nella forma <code>nome : Classe</code> e con i valori dei suoi attributi. Stessa classe, stato diverso:</p>
+  <div class="objects" aria-label="Due oggetti della classe Smartphone">
+    <div class="obj-card"><div class="obj-name">s1 : Smartphone</div><div class="obj-vals">marca = "Fairphone"<br>modello = "5"<br>batteria = 80</div></div>
+    <div class="obj-card"><div class="obj-name">s2 : Smartphone</div><div class="obj-vals">marca = "Samsung"<br>modello = "A55"<br>batteria = 50</div></div>
+  </div>
+</section>
+
+<section class="section" id="sintassi">
+  <div class="kicker">3 · La sintassi in Python</div>
+  <h2>Dal diagramma al codice</h2>
+  <div class="split">
+    <pre><code>class Smartphone:                          <b>①</b>
+    def __init__(self, marca, modello):    <b>②</b>
+        self.marca = marca                 <b>③</b>
+        self.modello = modello
+        self.batteria = 50
+
+    def ricarica(self, percentuale):       <b>④</b>
+        self.batteria = min(100, self.batteria + percentuale)
+
+s1 = Smartphone("Fairphone", "5")          <b>⑤</b>
+s1.ricarica(30)                            <b>⑥</b></code></pre>
+    <ol class="annot">
+      <li><b class="n">1</b><code>class</code> + nome con l’iniziale maiuscola + due punti. Tutto ciò che è rientrato appartiene alla classe.</li>
+      <li><b class="n">2</b><code>__init__</code> è il <strong>costruttore</strong>: Python lo esegue in automatico ogni volta che crei un oggetto. Il primo parametro è sempre <code>self</code>.</li>
+      <li><b class="n">3</b><code>self.marca = marca</code> crea l’attributo <em>dentro l’oggetto</em>, copiandovi il valore del parametro. Un attributo può anche avere un valore iniziale fisso (<code>batteria = 50</code>).</li>
+      <li><b class="n">4</b>Un <strong>metodo</strong> è una funzione dentro la classe. Anche qui il primo parametro è <code>self</code>, per poter usare gli attributi.</li>
+      <li><b class="n">5</b>Per creare un oggetto si “chiama” la classe passando i valori del costruttore. <code>self</code> non si passa: ci pensa Python.</li>
+      <li><b class="n">6</b>Si usa la <strong>notazione punto</strong>: <code>oggetto.attributo</code> oppure <code>oggetto.metodo(…)</code>.</li>
+    </ol>
+  </div>
+
+  <details class="ricorda"><summary>le funzioni, i parametri e return</summary>
+    <p>Una funzione riceve valori nei <strong>parametri</strong> e può restituire un risultato con <code>return</code>. <code>print</code> mostra un valore a schermo; <code>return</code> lo consegna a chi ha chiamato la funzione, che può salvarlo in una variabile.</p>
+    <pre><code>def area_rettangolo(base, altezza):
+    return base * altezza
+
+a = area_rettangolo(3, 4)   # a vale 12
+print(a)</code></pre>
+  </details>
+
+  <p>Ecco la classe completa con un secondo metodo. Esegui, poi prova a: creare un terzo telefono, ricaricare <code>s2</code> due volte, superare il 100%.</p>
+  <div class="py-box" data-py="l1-x3" data-title="Esempio 3 · La classe Smartphone"><textarea class="py-src">
+class Smartphone:
+    def __init__(self, marca, modello):
+        self.marca = marca
+        self.modello = modello
+        self.batteria = 50
+
+    def ricarica(self, percentuale):
+        self.batteria = min(100, self.batteria + percentuale)
+
+    def info(self):
+        return self.marca + " " + self.modello + " · batteria " + str(self.batteria) + "%"
+
+
+s1 = Smartphone("Fairphone", "5")
+s2 = Smartphone("Samsung", "A55")
+
+s1.ricarica(30)
+print(s1.info())
+print(s2.info())
+</textarea></div>
+
+  <h3>Che cos’è davvero self?</h3>
+  <p><code>self</code> è l’oggetto su cui stai lavorando. Quando scrivi <code>s1.ricarica(20)</code>, Python esegue <code>Smartphone.ricarica(s1, 20)</code>: l’oggetto davanti al punto diventa il primo argomento. Verificalo con <code>id()</code>, che restituisce il numero identificativo di un oggetto.</p>
+  <div class="py-box" data-py="l1-x4" data-title="Esempio 4 · self è l’oggetto"><textarea class="py-src">
+class Smartphone:
+    def __init__(self, marca):
+        self.marca = marca
+        print("Sto creando l'oggetto con id", id(self))
+
+    def ricarica(self, percentuale):
+        print("Ricarico l'oggetto", id(self), "-", self.marca)
+
+
+s1 = Smartphone("Fairphone")
+print("s1 ha id", id(s1))
+
+s1.ricarica(20)                  # forma abituale
+Smartphone.ricarica(s1, 20)      # ciò che fa Python dietro le quinte
+</textarea></div>
+</section>
+
+<section class="section" id="errori">
+  <div class="kicker">3 · Errori tipici</div>
+  <h2>I tre errori che farai (e come riconoscerli)</h2>
+  <div class="panel table-wrap">
+    <table class="err-table">
+      <thead><tr><th>Errore</th><th>Messaggio di Python</th><th>Come si corregge</th></tr></thead>
+      <tbody>
+        <tr><th>Manca <code>self</code> tra i parametri</th><td><code>TypeError: __init__() takes 2 positional arguments but 3 were given</code></td><td>Aggiungi <code>self</code> come primo parametro di ogni metodo.</td></tr>
+        <tr><th>Manca <code>self.</code> nell’assegnazione</th><td><code>AttributeError: 'Smartphone' object has no attribute 'marca'</code></td><td>Scrivi <code>self.marca = marca</code>: senza <code>self.</code> crei solo una variabile locale che sparisce.</td></tr>
+        <tr><th>Mancano argomenti alla creazione</th><td><code>TypeError: __init__() missing 1 required positional argument: 'modello'</code></td><td>Passa un valore per ogni parametro di <code>__init__</code> tranne <code>self</code>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Questo codice contiene il primo errore. Eseguilo, leggi il messaggio e la spiegazione, poi correggilo. Prova anche a provocare gli altri due.</p>
+  <div class="py-box" data-py="l1-x5" data-title="Esempio 5 · Leggi l’errore"><textarea class="py-src">
+class Smartphone:
+    def __init__(marca, modello):
+        self.marca = marca
+        self.modello = modello
+
+
+s = Smartphone("Fairphone", "5")
+print(s.marca)
+</textarea></div>
+</section>
+
+<section class="section" id="esercizi">
+  <div class="kicker">4 · Esercizi · circa 20 minuti</div>
+  <h2>Ora tocca a te</h2>
+  <div class="panel">
+    <p><strong>Come funzionano.</strong> Scrivi il codice e premi <strong>▶ Esegui</strong> per provarlo (Ctrl+Invio). Quando pensi di aver finito premi <strong>✓ Verifica</strong> (Ctrl+Maiusc+Invio): il sistema esegue delle prove automatiche e ti dice quali hai superato. Se ti blocchi usa <strong>💡 Suggerimento</strong>. La <strong>soluzione</strong> si sblocca dopo tre verifiche: guardala solo dopo averci provato davvero.</p>
+    <p id="exProgress" class="ex-badge" role="status"></p>
+  </div>
+
+  <article class="panel exercise" id="es-1">
+    <div class="ex-head"><h3>Esercizio 1 · La classe Libro</h3><span><span class="ex-level">★ Guidato</span> <span class="ex-badge"></span></span></div>
+    <p>Completa il costruttore della classe <code>Libro</code> in modo che salvi negli attributi <code>titolo</code>, <code>autore</code> e <code>pagine</code> i valori ricevuti. Poi crea l’oggetto <code>l1</code> per il libro <em>Il barone rampante</em> di Italo Calvino, 283 pagine, e togli il <code>#</code> davanti alla <code>print</code> per provarlo.</p>
+    <div class="py-box" data-py="l1-e1" data-ex="l1-e1"><textarea class="py-src">
+class Libro:
+    def __init__(self, titolo, autore, pagine):
+        # salva i tre parametri come attributi dell'oggetto
+        pass
+
+
+# crea qui l'oggetto l1
+
+
+# print(l1.titolo, "di", l1.autore, "-", l1.pagine, "pagine")
+</textarea></div>
+  </article>
+
+  <article class="panel exercise" id="es-2">
+    <div class="ex-head"><h3>Esercizio 2 · Dal diagramma al codice</h3><span><span class="ex-level">★★ Dal diagramma al codice</span> <span class="ex-badge"></span></span></div>
+    <div class="split">
+      <figure class="uml">
+        <pre class="mermaid">
+classDiagram
+    class Cane {
+        nome
+        razza
+        eta
+        abbaia()
+        compleanno()
+    }
+        </pre>
+      </figure>
+      <div>
+        <p>Scrivi la classe <code>Cane</code> rappresentata dal diagramma, sapendo che:</p>
+        <ul>
+          <li>quando si crea un cane si indicano <strong>nome</strong> e <strong>razza</strong>; l’<strong>età</strong> parte sempre da 0;</li>
+          <li><code>abbaia()</code> <strong>restituisce</strong> il testo <code>"&lt;nome&gt; dice: Bau!"</code>, ad esempio <code>"Fido dice: Bau!"</code>;</li>
+          <li><code>compleanno()</code> aumenta l’età di 1.</li>
+        </ul>
+        <p>Il programma di prova in fondo deve funzionare senza modifiche.</p>
+      </div>
+    </div>
+    <div class="py-box" data-py="l1-e2" data-ex="l1-e2"><textarea class="py-src">
+# Traduci in Python il diagramma UML della classe Cane
+
+class Cane:
+    pass
+
+
+# Programma di prova: non modificarlo
+fido = Cane("Fido", "beagle")
+fido.compleanno()
+fido.compleanno()
+print(fido.abbaia())
+print("Età:", fido.eta)
+</textarea></div>
+  </article>
+
+  <article class="panel exercise" id="es-3">
+    <div class="ex-head"><h3>Esercizio 3 · Caccia all’errore</h3><span><span class="ex-level">★★ Debug</span> <span class="ex-badge"></span></span></div>
+    <p>La classe <code>Termometro</code> contiene <strong>tre errori</strong>, tutti legati a <code>self</code>. Eseguila, leggi i messaggi e correggili uno alla volta. La temperatura iniziale deve essere 20 gradi; il programma di prova deve stampare <code>Aula 4B: 22 °C</code>.</p>
+    <div class="py-box" data-py="l1-e3" data-ex="l1-e3"><textarea class="py-src">
+class Termometro:
+    def __init__(luogo):
+        self.luogo = luogo
+        gradi = 20
+
+    def imposta(self, valore):
+        self.gradi = valore
+
+    def descrivi():
+        return self.luogo + ": " + str(self.gradi) + " °C"
+
+
+# Programma di prova: non modificarlo
+t = Termometro("Aula 4B")
+t.imposta(22)
+print(t.descrivi())
+</textarea></div>
+  </article>
+
+  <article class="panel exercise" id="es-4">
+    <div class="ex-head"><h3>Esercizio 4 · Dal testo al codice</h3><span><span class="ex-level">★★★ Sfida</span> <span class="ex-badge"></span></span></div>
+    <p class="lead">«Una <strong>lampadina</strong> ha un colore, scelto quando la si crea, e può essere accesa o spenta: appena creata è spenta. Si può accendere, spegnere e chiedere il suo stato, che vale <code>"accesa"</code> o <code>"spenta"</code>.»</p>
+    <ol>
+      <li>Sul quaderno, sottolinea sostantivi e verbi e disegna il diagramma UML della classe <code>Lampadina</code>.</li>
+      <li>Scrivi la classe usando questi nomi: attributi <code>colore</code> e <code>accesa</code> (un booleano, <code>True</code>/<code>False</code>); metodi <code>accendi()</code>, <code>spegni()</code> e <code>stato()</code>, che <strong>restituisce</strong> la stringa.</li>
+      <li>Crea una lampadina gialla, accendila e stampa il suo stato.</li>
+    </ol>
+    <div class="py-box" data-py="l1-e4" data-ex="l1-e4"><textarea class="py-src">
+# 2. Scrivi qui la classe Lampadina
+
+
+
+# 3. Crea una lampadina gialla, accendila e stampa il suo stato
+
+</textarea></div>
+  </article>
+</section>
+
+<section class="section" id="sintesi">
+  <div class="kicker">In sintesi</div>
+  <h2>Che cosa porti a casa</h2>
+  <div class="panel">
+    <ul>
+      <li>Una <strong>classe</strong> è un modello; gli <strong>oggetti</strong> sono le sue istanze, ognuna con il proprio stato.</li>
+      <li>Gli <strong>attributi</strong> descrivono che cosa un oggetto ha, i <strong>metodi</strong> che cosa sa fare.</li>
+      <li><code>__init__</code> costruisce l’oggetto; <code>self.attributo = valore</code> salva i dati <em>nell’oggetto</em>.</li>
+      <li>Ogni metodo riceve <code>self</code> come primo parametro: <code>s.metodo(x)</code> equivale a <code>Classe.metodo(s, x)</code>.</li>
+      <li>Il diagramma UML delle classi ha tre riquadri: nome, attributi, metodi.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="test-finale">
+  <div class="kicker">Test di fine lezione · 10 domande</div>
+  <h2>Verifica che cosa hai imparato</h2>
+  <p>Rispondi a tutte le domande e invia. Per sbloccare la Lezione 2 servono almeno <strong>7 risposte esatte su 10 (70%)</strong>. Dopo l’invio vedrai quali risposte sono esatte e un suggerimento per le altre, senza la soluzione: ripassa e riprova, i tentativi sono illimitati. Alla fine invia l’esito al docente.</p>
+  <form id="finalQuiz">
+    <div id="quizQuestions"></div>
+    <p id="quizCount" role="status" aria-live="polite"></p>
+    <button class="button primary" id="submitQuiz" disabled>Invia e verifica il risultato</button>
+  </form>
+  <p id="quizMessage" role="status" aria-live="polite"></p>
+  <div class="panel" id="quizResult" tabindex="-1" hidden>
+    <h3 id="quizScore"></h3>
+    <p id="attemptCount" class="muted"></p>
+    <div class="actions">
+      <button class="button" id="retryQuiz">Ripassa e riprova</button>
+      <button class="button" id="downloadQuiz">Scarica l’esito</button>
+      <a class="button primary" id="continueLink" data-lesson-link="2" href="./lezione-2.html" hidden>Prosegui alla Lezione 2 →</a>
+    </div>
+  </div>
+  <div class="panel builder consegna" id="consegnaBox" hidden>
+    <h3>Consegna al docente</h3>
+    <p>Invia l’esito di questo tentativo: il docente riceverà un PDF con risposte, punteggio ed esercizi completati. Puoi consegnare di nuovo dopo un nuovo tentativo.</p>
+    <form id="consegnaForm">
+      <div class="row">
+        <div><label for="stNome">Nome e cognome</label><input id="stNome" maxlength="80" autocomplete="name" required></div>
+        <div><label for="stClasse">Classe</label><input id="stClasse" maxlength="6" placeholder="es. 4B" required></div>
+      </div>
+      <div class="actions" style="margin-top:14px"><button class="button primary" id="consegnaBtn">Consegna l’esito</button></div>
+    </form>
+    <p id="consegnaStatus" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="section" id="fonti">
+  <h2>Per approfondire</h2>
+  <ol>
+    <li><a href="https://docs.python.org/it/3/tutorial/classes.html" target="_blank" rel="noopener noreferrer">Tutorial ufficiale di Python, cap. 9 «Classi»</a> — la documentazione in italiano.</li>
+    <li><a href="https://www.omg.org/spec/UML/" target="_blank" rel="noopener noreferrer">OMG, specifica UML</a> — lo standard del linguaggio di modellazione.</li>
+  </ol>
+</section>
+</main>
+
+<footer><div class="wrap">Python a oggetti · Lezione 1 di 6 · <a href="./">Guida al corso</a> · Liceo Scientifico «N. Cortese»</div></footer>
+
+<script src="./oop-runner.js?v=1"></script>
+<script src="./oop-lesson.js?v=1"></script>
+<script type="module" src="./oop-uml.js?v=1"></script>
+</body>
+</html>

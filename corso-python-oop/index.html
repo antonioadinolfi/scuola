@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="it" class="course-pending">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Corso di programmazione a oggetti in Python per le classi quarte: sei lezioni guidate con codice eseguibile nel browser, esercizi a correzione automatica, diagrammi UML e test.">
+<title>Python a oggetti · Corso per le classi quarte</title>
+<link rel="stylesheet" href="./oop.css?v=1">
+<script src="./oop-config.js?v=1"></script>
+<script src="./oop-data.js?v=1"></script>
+<script src="./oop-progress.js?v=1"></script>
+</head>
+<body>
+<a class="skip" href="#contenuti">Vai ai contenuti</a>
+<header><div class="wrap">
+  <div class="topbar"><span>Liceo Scientifico «N. Cortese» · Informatica</span><span>Classi quarte</span></div>
+  <div class="hero">
+    <div class="kicker">Corso guidato · 6 lezioni da 1 ora</div>
+    <h1>Python a oggetti</h1>
+    <p>Impara a progettare programmi come insiemi di oggetti che collaborano: classi, incapsulamento, ereditarietà, polimorfismo e diagrammi UML. Scrivi ed esegui il codice direttamente nel browser.</p>
+    <div class="actions">
+      <a class="button primary" id="startLink" href="./lezione-1.html">Inizia dalla Lezione 1 →</a>
+      <a class="button ghost" href="#come-funziona">Come funziona ↓</a>
+      <a class="button ghost" href="#percorso">Le sei lezioni ↓</a>
+    </div>
+  </div>
+</div></header>
+
+<main class="wrap" id="contenuti">
+<section class="section" id="come-funziona">
+  <div class="kicker">Il metodo del corso</div>
+  <h2>Come funziona</h2>
+  <div class="concept-grid four">
+    <article class="concept-card"><h3>Lezioni guidate</h3><p>Ogni lezione dura un’ora: un problema da cui partire, i concetti, il diagramma UML, la sintassi Python e gli errori tipici. I riquadri <strong>«Ricorda che…»</strong> ripassano le basi quando servono.</p></article>
+    <article class="concept-card"><h3>Codice nel browser</h3><p>Gli esempi si eseguono e si modificano nella pagina, anche da smartphone o Chromebook, senza installare nulla. Il tuo codice resta salvato in questo browser.</p></article>
+    <article class="concept-card"><h3>Esercizi verificati</h3><p>Ogni esercizio ha delle prove automatiche: premi <strong>Verifica</strong> e scopri subito che cosa funziona e che cosa no, con un suggerimento per correggere.</p></article>
+    <article class="concept-card"><h3>Test e consegna</h3><p>Ogni lezione si chiude con un test: con almeno il <strong>70%</strong> si sblocca la successiva. L’esito si consegna al docente con un clic.</p></article>
+  </div>
+</section>
+
+<section class="section" id="prova">
+  <div class="kicker">Prima di iniziare</div>
+  <h2>Prova l’editor</h2>
+  <p>Premi <strong>▶ Esegui</strong> (o Ctrl+Invio). La prima volta Python impiega qualche secondo a caricarsi: viene scaricato nel browser, poi è immediato. Cambia il nome e riesegui.</p>
+  <div class="py-box" data-py="home-x1" data-title="Il tuo primo programma"><textarea class="py-src">
+nome = "4B"
+print("Ciao", nome + "!")
+
+for i in range(3):
+    print("Python a oggetti, lezione", i + 1)
+</textarea></div>
+  <p class="muted">Tasti utili: <kbd>Tab</kbd> rientra di 4 spazi (con <kbd>Maiusc</kbd> toglie il rientro), <kbd>Invio</kbd> dopo i due punti rientra in automatico. Se un programma non termina entro pochi secondi viene fermato.</p>
+</section>
+
+<section class="section" id="percorso">
+  <div class="kicker">Il percorso</div>
+  <h2>Le sei lezioni</h2>
+  <ol class="path-list" id="pathList"></ol>
+  <p class="muted">Una lezione si sblocca superando il test della precedente. Il progetto conclusivo e il test finale del corso sono nella Lezione 6.</p>
+</section>
+
+<section class="section" id="avanzamento">
+  <div class="kicker">Il tuo avanzamento</div>
+  <h2>Cambi dispositivo?</h2>
+  <div class="panel">
+    <p>Risultati dei test, esercizi completati e codice sono salvati solo in questo browser. Per continuare su un altro computer o telefono scarica il file di avanzamento e caricalo sull’altro dispositivo.</p>
+    <div class="actions">
+      <button class="button" id="exportBtn">Scarica il mio avanzamento</button>
+      <label class="button file-button">Carica un avanzamento<input type="file" id="importFile" accept="application/json,.json"></label>
+    </div>
+    <p id="transferStatus" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="section" id="glossario">
+  <div class="kicker">Glossario</div>
+  <h2>Le parole del corso</h2>
+  <dl class="glossary">
+    <div><dt>Classe</dt><dd>Il modello che descrive attributi e metodi di un tipo di oggetti.</dd></div>
+    <div><dt>Oggetto / istanza</dt><dd>Un esemplare concreto creato a partire da una classe.</dd></div>
+    <div><dt>Attributo</dt><dd>Un dato posseduto da ogni oggetto; l’insieme degli attributi è lo stato.</dd></div>
+    <div><dt>Metodo</dt><dd>Una funzione definita nella classe che opera sull’oggetto.</dd></div>
+    <div><dt>Costruttore</dt><dd>Il metodo <code>__init__</code>, eseguito alla creazione dell’oggetto.</dd></div>
+    <div><dt>self</dt><dd>Il riferimento all’oggetto su cui un metodo sta lavorando.</dd></div>
+    <div><dt>Incapsulamento</dt><dd>Proteggere lo stato di un oggetto, permettendo di modificarlo solo in modo controllato.</dd></div>
+    <div><dt>Ereditarietà</dt><dd>Definire una classe come specializzazione di un’altra, riusandone attributi e metodi.</dd></div>
+    <div><dt>Polimorfismo</dt><dd>Oggetti di classi diverse che rispondono allo stesso metodo in modi diversi.</dd></div>
+    <div><dt>UML</dt><dd>Il linguaggio grafico standard per progettare il software; qui usiamo il diagramma delle classi.</dd></div>
+  </dl>
+</section>
+</main>
+
+<footer><div class="wrap">Python a oggetti · Corso per le classi quarte · Liceo Scientifico «N. Cortese», Maddaloni</div></footer>
+
+<script src="./oop-runner.js?v=1"></script>
+<script>
+"use strict";
+(() => {
+  const course = window.OopCourse, list = document.getElementById('pathList');
+  function render() {
+    list.innerHTML = '';
+    let next = null;
+    window.OOP_LESSONS.forEach(l => {
+      const done = course.passed(l.n), blocked = course.missing(l.n), avail = l.available;
+      if (!next && avail && !done && !blocked) next = l.n;
+      const li = document.createElement('li'); li.className = 'path-item' + (done ? ' done' : '') + (!avail || blocked ? ' locked' : '');
+      const a = document.createElement('a'); a.href = './lezione-' + l.n + '.html'; a.dataset.lessonLink = l.n;
+      const ex = window.PyRunner.exercisesDone('l' + l.n + '-');
+      const state = !avail ? 'In preparazione' : done ? 'Completata ✓' : blocked ? 'Si sblocca con il test della Lezione ' + blocked : 'Disponibile';
+      a.innerHTML = '<span class="path-n">' + (done ? '✓' : l.n) + '</span><span class="path-body"><strong class="path-title"></strong><span></span><span class="path-meta"></span></span>';
+      a.querySelector('.path-title').textContent = 'Lezione ' + l.n + ' · ' + l.title;
+      a.querySelector('.path-body > span').textContent = l.short;
+      a.querySelector('.path-meta').textContent = l.minutes + ' minuti · ' + state + (avail && ex.total ? ' · esercizi ' + ex.done + '/' + ex.total : '');
+      if (!avail) a.addEventListener('click', e => e.preventDefault());
+      else if (blocked) a.addEventListener('click', e => { e.preventDefault(); location.href = './lezione-' + blocked + '.html#test-finale'; });
+      li.append(a); list.append(li);
+    });
+    const start = document.getElementById('startLink');
+    if (next && next > 1) { start.href = './lezione-' + next + '.html'; start.textContent = 'Continua dalla Lezione ' + next + ' →'; }
+  }
+  render();
+  window.addEventListener('pageshow', render);
+  const st = document.getElementById('transferStatus');
+  document.getElementById('exportBtn').onclick = () => { st.textContent = course.transfer.download().msg; };
+  document.getElementById('importFile').addEventListener('change', async e => {
+    const f = e.target.files[0]; if (!f) return;
+    try { st.textContent = (await course.transfer.load(f)).msg; render(); } catch (err) { st.textContent = 'Caricamento non riuscito: ' + err.message; } finally { e.target.value = ''; }
+  });
+})();
+</script>
+</body>
+</html>
