@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="it" data-lesson="1" class="course-pending">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Lezione 1: l'ambiente di lavoro. Calcolo numerico, MATLAB e GNU Octave, software proprietario e libero, Command Window, workspace, script .m e funzioni.">
+<title>Lezione 1 · L’ambiente di lavoro: MATLAB e GNU Octave | Calcolo numerico con Octave</title>
+<link rel="stylesheet" href="./oct.css?v=1">
+<script src="./oct-config.js?v=1"></script>
+<script src="./oct-data.js?v=1"></script>
+<script src="./oct-progress.js?v=1"></script>
+</head>
+<body>
+<noscript><style>html.course-pending body{visibility:visible}</style><p>Attiva JavaScript per eseguire il codice e svolgere il test.</p></noscript>
+<a class="skip" href="#contenuti">Vai ai contenuti</a>
+
+<header><div class="wrap">
+  <div class="topbar"><a href="./">← Calcolo numerico con Octave · Guida al corso</a><span>Classi quinte · Scienze applicate</span></div>
+  <div class="hero">
+    <div class="kicker">Lezione 1 di 9 · 1 ora</div>
+    <h1>L’ambiente di lavoro: MATLAB e GNU Octave</h1>
+    <p>Scoprirai che cos’è il calcolo numerico, perché esistono due programmi quasi gemelli, uno proprietario e uno libero, e come si lavora con la Command Window, il workspace, gli script e le funzioni.</p>
+    <div class="actions">
+      <a class="button primary" href="#problema">Inizia ↓</a>
+      <a class="button ghost" href="#esercizi">Esercizi ↓</a>
+      <a class="button ghost" href="#test-finale">Test finale ↓</a>
+      <button class="button ghost" id="projection" aria-pressed="false">Testo ingrandito</button>
+      <button class="button ghost" onclick="window.print()">Stampa / PDF</button>
+    </div>
+  </div>
+</div></header>
+
+<main class="wrap" id="contenuti">
+<nav class="lesson-nav" aria-label="Percorso delle lezioni">
+  <a class="button" data-lesson-link="1" href="./lezione-1.html" aria-current="page">Lezione 1<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="2" href="./lezione-2.html">Lezione 2<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="3" href="./lezione-3.html">Lezione 3<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="4" href="./lezione-4.html">Lezione 4<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="5" href="./lezione-5.html">Lezione 5<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="6" href="./lezione-6.html">Lezione 6<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="7" href="./lezione-7.html">Lezione 7<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="8" href="./lezione-8.html">Lezione 8<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="9" href="./lezione-9.html">Lezione 9<span class="nav-state"></span></a>
+</nav>
+
+<section class="section" id="obiettivi">
+  <div class="kicker">Obiettivi della lezione</div>
+  <h2>Al termine saprai…</h2>
+  <div class="panel">
+    <ul>
+      <li>spiegare che cos’è il <strong>calcolo numerico</strong> e perché il computer fornisce risultati <strong>approssimati</strong>;</li>
+      <li>confrontare <strong>MATLAB</strong> e <strong>GNU Octave</strong>, distinguendo software <strong>proprietario</strong> e <strong>libero</strong>;</li>
+      <li>usare la <strong>Command Window</strong>, leggere il <strong>workspace</strong> e gestirlo con <code>who</code>, <code>whos</code>, <code>clear</code>, <code>clc</code>;</li>
+      <li>scrivere ed eseguire uno <strong>script</strong> <code>.m</code> e una semplice <strong>funzione</strong>.</li>
+    </ul>
+    <div class="timeline" aria-label="Organizzazione dell’ora">
+      <div><b>5′</b>Il calcolo numerico</div>
+      <div><b>10′</b>MATLAB e Octave</div>
+      <div><b>15′</b>Interfaccia, script, funzioni</div>
+      <div><b>20′</b>Esercizi</div>
+      <div><b>10′</b>Test finale</div>
+    </div>
+    <p class="muted">Il codice si esegue direttamente nella pagina con un simulatore di Octave: nessuna installazione, funziona anche da smartphone. Il codice che modifichi resta salvato in questo browser. Tutto ciò che scrivi qui funziona anche in GNU Octave e in MATLAB.</p>
+  </div>
+</section>
+
+<section class="section" id="problema">
+  <div class="kicker">1 · Il problema</div>
+  <h2>Quanto vale davvero √2?</h2>
+  <p>In matematica √2 è un numero esatto, irrazionale, con infinite cifre decimali. Un computer, invece, memorizza ogni numero reale in <strong>64 bit</strong> (lo standard IEEE 754 in <em>doppia precisione</em>): circa <strong>16 cifre significative</strong>, non una di più. Esegui l’esempio e guarda le ultime righe.</p>
+
+  <div class="oc-box" data-oc="l1-x1" data-file="radice.m" data-title="Esempio 1 · Il computer approssima"><textarea class="oc-src">
+% Il computer lavora con circa 16 cifre significative
+r = sqrt(2)
+format long          % mostra più cifre
+r
+r^2 - 2              % in matematica sarebbe esattamente 0
+0.1 + 0.2 == 0.3     % 1 = vero, 0 = falso
+format short         % torna al formato normale
+</textarea></div>
+
+  <div class="panel">
+    <h3>Che cosa è successo?</h3>
+    <ul>
+      <li><code>r^2 - 2</code> non dà 0 ma circa 4,4·10⁻¹⁶: è l’<strong>errore di arrotondamento</strong> dovuto alle cifre finite.</li>
+      <li><code>0.1 + 0.2 == 0.3</code> è <strong>falso</strong> (0): in binario 0,1 è un numero periodico, come 1/3 in base dieci, e viene troncato.</li>
+      <li><code>format long</code> e <code>format short</code> cambiano solo <em>quante cifre vedi</em>, non quelle con cui Octave calcola.</li>
+    </ul>
+    <div class="task"><strong>Calcolo numerico.</strong> È la disciplina che studia gli <strong>algoritmi</strong> per risolvere problemi matematici con il computer, ottenendo soluzioni <strong>approssimate</strong> con un errore piccolo e controllato. Si contrappone al <strong>calcolo simbolico</strong>, che manipola le formule e dà risultati esatti (come fanno il CAS di GeoGebra o Wolfram Alpha).</div>
+  </div>
+
+  <h3>Un algoritmo numerico in cinque righe</h3>
+  <p>Come si calcola una radice quadrata senza il tasto √? Il <strong>metodo di Erone</strong> (I secolo d.C.) parte da un valore qualsiasi e lo migliora ripetendo la media tra <var>x</var> e 2/<var>x</var>. Esegui e osserva quanto velocemente si avvicina a √2.</p>
+
+  <details class="ricorda"><summary>il ciclo for, da Python a Octave</summary>
+    <div class="py-vs">
+      <div><h4>Python</h4><pre><code>for k in range(1, 6):
+    print(k)</code></pre></div>
+      <div><h4>Octave / MATLAB</h4><pre><code>for k = 1:5
+  disp(k)
+end</code></pre></div>
+    </div>
+    <p>In Octave <code>1:5</code> indica i valori da 1 a 5 <em>compreso</em>, il corpo del ciclo non richiede i due punti e si chiude con <code>end</code>. Il rientro non è obbligatorio, ma rende il codice leggibile.</p>
+  </details>
+
+  <div class="oc-box" data-oc="l1-x2" data-file="erone.m" data-title="Esempio 2 · Il metodo di Erone"><textarea class="oc-src">
+% Metodo di Erone: approssimare la radice di 2 senza usare sqrt
+x = 1;                          % valore iniziale
+for k = 1:5
+  x = (x + 2/x) / 2;            % media tra x e 2/x
+  fprintf('passo %d: x = %.15f\n', k, x);
+end
+errore = abs(x - sqrt(2))       % distanza dal valore di Octave
+</textarea></div>
+  <p class="muted">Dopo cinque passi le prime 15 cifre sono già esatte: ogni passo circa raddoppia le cifre corrette. Gli algoritmi di questo tipo sono il cuore del calcolo numerico, dalle previsioni meteo alla progettazione di un ponte, fino all’addestramento delle reti neurali.</p>
+</section>
+
+<section class="section" id="matlab-octave">
+  <div class="kicker">2 · Due programmi, un linguaggio</div>
+  <h2>MATLAB e GNU Octave</h2>
+  <p><strong>MATLAB</strong> (da <em>MATrix LABoratory</em>) nasce alla fine degli anni ’70 come calcolatrice per le matrici scritta dal matematico Cleve Moler per i suoi studenti; dal 1984 è il prodotto commerciale della società statunitense MathWorks. <strong>GNU Octave</strong> nasce intorno al 1988 come software di supporto a un corso universitario di progettazione di reattori chimici; lo sviluppo vero e proprio inizia nel 1992 con John W. Eaton e la versione 1.0 esce il 17 febbraio 1994. Oggi Octave è un progetto GNU, sviluppato da una comunità internazionale: la versione stabile più recente è la 11.3.0 (giugno 2026).</p>
+
+  <div class="panel table-wrap">
+    <table class="compare">
+      <thead><tr><th></th><th>MATLAB</th><th>GNU Octave</th></tr></thead>
+      <tbody>
+        <tr><th>Chi lo sviluppa</th><td>MathWorks, un’azienda privata</td><td>Il progetto GNU: John W. Eaton e una comunità di volontari</td></tr>
+        <tr><th>Licenza</th><td><strong>Proprietaria</strong>: si acquista il diritto d’uso, il codice sorgente è chiuso</td><td><strong>Software libero</strong> con licenza GNU GPL (versione 3 dal 2007): il codice sorgente è pubblico</td></tr>
+        <tr><th>Costo</th><td>A pagamento (licenze per studenti e per gli istituti, versione online)</td><td>Gratuito per Windows, macOS e Linux; usabile anche online</td></tr>
+        <tr><th>Linguaggio</th><td colspan="2">Lo stesso, nella parte che usiamo: matrici, operatori, <code>if</code>/<code>for</code>/<code>while</code>, script, funzioni, grafici. La gran parte degli script MATLAB funziona in Octave.</td></tr>
+        <tr><th>Estensioni</th><td>Toolbox a pagamento e Simulink (simulazione di sistemi)</td><td>Pacchetti liberi installabili con il comando <code>pkg</code></td></tr>
+        <tr><th>Dove si usa</th><td>Industria, ingegneria, università, ricerca</td><td>Scuola, università, ricerca; dove serve un software libero e gratuito</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="concept-grid">
+    <article class="concept-card"><h3>Software proprietario</h3><p>Il produttore concede una <strong>licenza d’uso</strong> e mantiene il controllo del codice sorgente: non puoi leggerlo, modificarlo o ridistribuire il programma.</p></article>
+    <article class="concept-card"><h3>Software libero</h3><p>La licenza garantisce quattro libertà: <strong>usare</strong> il programma per qualunque scopo, <strong>studiarne</strong> il codice, <strong>modificarlo</strong> e <strong>ridistribuirlo</strong>, anche modificato. «Libero» riguarda la libertà, non il prezzo.</p></article>
+    <article class="concept-card"><h3>Open source</h3><p>Termine nato nel 1998 che mette l’accento sui vantaggi pratici del codice aperto: chiunque può controllarlo e correggerlo. In pratica Octave è sia software libero sia open source.</p></article>
+  </div>
+
+  <h3>Le piccole differenze</h3>
+  <p>Octave accetta alcune forme in più che MATLAB rifiuta. In questo corso usiamo sempre la colonna di sinistra, così il codice funziona in entrambi.</p>
+  <div class="panel table-wrap">
+    <table class="compare">
+      <thead><tr><th>Che cosa</th><th>Funziona in MATLAB e Octave</th><th>Solo in Octave</th></tr></thead>
+      <tbody>
+        <tr><th>Commento</th><td><code>% testo</code></td><td><code># testo</code></td></tr>
+        <tr><th>Diverso da</th><td><code>a ~= b</code></td><td><code>a != b</code></td></tr>
+        <tr><th>Fine di un blocco</th><td><code>end</code></td><td><code>endif</code>, <code>endfor</code>, <code>endwhile</code></td></tr>
+        <tr><th>Stampa formattata</th><td><code>fprintf(…)</code></td><td><code>printf(…)</code></td></tr>
+        <tr><th>Testo</th><td><code>'apici singoli'</code></td><td><code>"apici doppi"</code>, con <code>\n</code> che va a capo (in MATLAB i doppi apici creano un altro tipo di dato, <code>string</code>)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="interfaccia">
+  <div class="kicker">3 · L’interfaccia</div>
+  <h2>Le finestre di Octave</h2>
+  <p>Quando apri Octave (o MATLAB) trovi una finestra divisa in pannelli. Le posizioni si possono cambiare, ma i pannelli sono sempre questi.</p>
+  <figure class="panel diagram">
+    <svg class="gui-mock" viewBox="0 0 900 480" role="img" aria-labelledby="guiT guiD">
+      <title id="guiT">Schema dell’interfaccia grafica di GNU Octave</title>
+      <desc id="guiD">A sinistra dall’alto: File Browser, Workspace, Command History. A destra la Command Window con il prompt; in basso le schede Command Window, Editor e Documentazione.</desc>
+      <rect x="1" y="1" width="898" height="478" rx="10" fill="#f4f6f8" stroke="#8aa0b4"/>
+      <rect x="1" y="1" width="898" height="30" rx="10" fill="#102a43"/><text x="20" y="21" fill="#fff" font-size="14" font-weight="700" font-family="system-ui">GNU Octave</text>
+      <g fill="#b9cbdb" font-size="12" font-family="system-ui"><text x="140" y="21">File</text><text x="180" y="21">Edit</text><text x="220" y="21">Debug</text><text x="270" y="21">Window</text><text x="330" y="21">Help</text><text x="370" y="21">News</text></g>
+      <rect x="10" y="38" width="880" height="26" rx="5" fill="#fff" stroke="#c3d0dc"/><text x="20" y="55" font-size="12" fill="#52657a" font-family="system-ui">Current Directory:</text><text x="132" y="55" font-size="12" fill="#102a43" font-family="ui-monospace,monospace">C:\Users\studente\octave</text>
+      <g font-family="system-ui"><rect x="10" y="72" width="270" height="118" rx="6" fill="#fff" stroke="#c3d0dc"/><rect x="10" y="72" width="270" height="22" rx="6" fill="#e5edf3"/><text x="20" y="88" font-size="12" font-weight="700" fill="#102a43">File Browser</text>
+      <text x="24" y="114" font-size="12" fill="#102a43">📄 cerchio.m</text><text x="24" y="136" font-size="12" fill="#102a43">📄 ipotenusa.m</text><text x="24" y="158" font-size="12" fill="#102a43">📄 erone.m</text>
+      <rect x="10" y="198" width="270" height="140" rx="6" fill="#fff" stroke="#c3d0dc"/><rect x="10" y="198" width="270" height="22" rx="6" fill="#e5edf3"/><text x="20" y="214" font-size="12" font-weight="700" fill="#102a43">Workspace</text>
+      <text x="20" y="240" font-size="11" fill="#52657a" font-weight="700" font-family="system-ui">Name</text><text x="72" y="240" font-size="11" fill="#52657a" font-weight="700" font-family="system-ui">Class</text><text x="134" y="240" font-size="11" fill="#52657a" font-weight="700" font-family="system-ui">Dimension</text><text x="206" y="240" font-size="11" fill="#52657a" font-weight="700" font-family="system-ui">Value</text><text x="20" y="261" font-size="11" fill="#102a43" font-family="ui-monospace,monospace">r</text><text x="72" y="261" font-size="11" fill="#102a43" font-family="ui-monospace,monospace">double</text><text x="134" y="261" font-size="11" fill="#102a43" font-family="ui-monospace,monospace">1x1</text><text x="206" y="261" font-size="11" fill="#102a43" font-family="ui-monospace,monospace">3</text><text x="20" y="282" font-size="11" fill="#102a43" font-family="ui-monospace,monospace">area</text><text x="72" y="282" font-size="11" fill="#102a43" font-family="ui-monospace,monospace">double</text><text x="134" y="282" font-size="11" fill="#102a43" font-family="ui-monospace,monospace">1x1</text><text x="206" y="282" font-size="11" fill="#102a43" font-family="ui-monospace,monospace">28.274</text><text x="20" y="303" font-size="11" fill="#102a43" font-family="ui-monospace,monospace">v</text><text x="72" y="303" font-size="11" fill="#102a43" font-family="ui-monospace,monospace">double</text><text x="134" y="303" font-size="11" fill="#102a43" font-family="ui-monospace,monospace">1x3</text><text x="206" y="303" font-size="11" fill="#102a43" font-family="ui-monospace,monospace">[1 2 3]</text>
+      <rect x="10" y="346" width="270" height="124" rx="6" fill="#fff" stroke="#c3d0dc"/><rect x="10" y="346" width="270" height="22" rx="6" fill="#e5edf3"/><text x="20" y="362" font-size="12" font-weight="700" fill="#102a43">Command History</text>
+      <text x="20" y="388" font-size="11" fill="#102a43" font-family="ui-monospace,monospace">r = 3</text><text x="20" y="406" font-size="11" fill="#102a43" font-family="ui-monospace,monospace">area = pi * r^2</text><text x="20" y="424" font-size="11" fill="#102a43" font-family="ui-monospace,monospace">v = [1 2 3]</text></g>
+      <rect x="290" y="72" width="600" height="368" rx="6" fill="#0f1f2e"/>
+      <g font-family="ui-monospace,monospace" font-size="13"><text x="306" y="98" fill="#9fd9cf">GNU Octave, version 11.3.0</text>
+      <text x="306" y="130" fill="#ffd98a">&gt;&gt; r = 3</text><text x="306" y="152" fill="#e6f1f7">r = 3</text>
+      <text x="306" y="184" fill="#ffd98a">&gt;&gt; area = pi * r^2</text><text x="306" y="206" fill="#e6f1f7">area = 28.274</text>
+      <text x="306" y="238" fill="#ffd98a">&gt;&gt; v = [1 2 3];</text>
+      <text x="306" y="270" fill="#ffd98a">&gt;&gt; ▍</text></g>
+      <g font-family="system-ui" font-size="12"><rect x="290" y="446" width="140" height="24" rx="5" fill="#fff" stroke="#176b87"/><text x="304" y="463" fill="#102a43" font-weight="700">Command Window</text>
+      <rect x="436" y="446" width="96" height="24" rx="5" fill="#e5edf3"/><text x="474" y="463" fill="#102a43">Editor</text>
+      <rect x="538" y="446" width="130" height="24" rx="5" fill="#e5edf3"/><text x="552" y="463" fill="#102a43">Documentation</text></g>
+      <g font-family="system-ui" font-size="14" font-weight="800" text-anchor="middle">
+        <circle cx="262" cy="83" r="12" fill="#f4b942"/><text x="262" y="88" fill="#102a43">1</text>
+        <circle cx="262" cy="209" r="12" fill="#f4b942"/><text x="262" y="214" fill="#102a43">2</text>
+        <circle cx="262" cy="357" r="12" fill="#f4b942"/><text x="262" y="362" fill="#102a43">3</text>
+        <circle cx="872" cy="90" r="12" fill="#f4b942"/><text x="872" y="95" fill="#102a43">4</text>
+        <circle cx="455" cy="458" r="10" fill="#f4b942"/><text x="455" y="463" fill="#102a43" font-size="12">5</text>
+      </g>
+    </svg>
+    <figcaption class="muted">Schema semplificato dell’interfaccia grafica di GNU Octave. MATLAB ha gli stessi pannelli, con nomi simili.</figcaption>
+  </figure>
+  <ol class="annot">
+    <li><b class="n">1</b><strong>File Browser</strong>: i file della <em>cartella corrente</em> (Current Directory). Octave trova i tuoi script e le tue funzioni solo se sono in questa cartella.</li>
+    <li><b class="n">2</b><strong>Workspace</strong>: l’elenco delle variabili in memoria, con tipo (Class), dimensioni e valore.</li>
+    <li><b class="n">3</b><strong>Command History</strong>: i comandi già eseguiti; con un doppio clic (o con il tasto <kbd>↑</kbd> nella Command Window) li richiami.</li>
+    <li><b class="n">4</b><strong>Command Window</strong>: la riga di comando. Dopo il <strong>prompt</strong> <code>&gt;&gt;</code> scrivi un’istruzione, premi <kbd>Invio</kbd> e Octave risponde subito.</li>
+    <li><b class="n">5</b><strong>Editor</strong>: dove scrivi, salvi ed esegui gli script e le funzioni (file <code>.m</code>).</li>
+  </ol>
+
+  <h3>Prova la Command Window</h3>
+  <p>Questa è una Command Window con il suo workspace. Clicca i comandi proposti uno alla volta, nell’ordine, e premi <kbd>Invio</kbd>; osserva come cambia il workspace. Puoi anche scrivere comandi tuoi.</p>
+  <div class="oc-cmd" data-cmd="l1-cw" data-try="2 + 3|ans * 10|x = 7|y = x^2;|y|z = x + y|who|whos|clear x|x|help sqrt|clc"></div>
+
+  <div class="concept-grid four">
+    <article class="concept-card"><h3><code>ans</code></h3><p>Se non assegni il risultato a una variabile, Octave lo mette in <code>ans</code> (<em>answer</em>), che puoi riusare nel comando successivo.</p></article>
+    <article class="concept-card"><h3>Il punto e virgola</h3><p><code>y = x^2;</code> esegue il calcolo ma <strong>non mostra</strong> il risultato. Senza <code>;</code> Octave stampa <code>y = 49</code>. Negli script si usa quasi sempre.</p></article>
+    <article class="concept-card"><h3>Gestire il workspace</h3><p><code>who</code> elenca le variabili, <code>whos</code> aggiunge dimensioni, memoria e tipo, <code>clear x</code> cancella <code>x</code> (<code>clear</code> da solo tutte), <code>clc</code> pulisce solo lo schermo.</p></article>
+    <article class="concept-card"><h3>Chiedere aiuto</h3><p><code>help nome</code> mostra la guida di una funzione, ad esempio <code>help sqrt</code>. In Octave e MATLAB c’è anche <code>doc nome</code>, con la documentazione completa.</p></article>
+  </div>
+
+  <div class="task"><strong>I nomi delle variabili.</strong> Iniziano con una <strong>lettera</strong>, contengono solo lettere, cifre e <code>_</code>, senza spazi né accenti. Octave distingue <strong>maiuscole e minuscole</strong>: <code>Area</code> e <code>area</code> sono due variabili diverse. Evita i nomi di funzioni e costanti già esistenti, come <code>pi</code>, <code>i</code>, <code>sum</code>, <code>sin</code>: li nasconderesti.</div>
+
+  <details class="ricorda"><summary>da Python a Octave: le prime differenze</summary>
+    <div class="panel table-wrap" style="margin:8px 0">
+      <table class="compare">
+        <thead><tr><th></th><th>Python</th><th>Octave / MATLAB</th></tr></thead>
+        <tbody>
+          <tr><th>Mostrare un valore</th><td><code>print(x)</code></td><td><code>x</code> (senza <code>;</code>) oppure <code>disp(x)</code></td></tr>
+          <tr><th>Potenza</th><td><code>2 ** 3</code></td><td><code>2 ^ 3</code></td></tr>
+          <tr><th>Commento</th><td><code># testo</code></td><td><code>% testo</code></td></tr>
+          <tr><th>Primo elemento</th><td><code>v[0]</code></td><td><code>v(1)</code>: gli indici partono da 1</td></tr>
+          <tr><th>Fine di un blocco</th><td>il rientro</td><td>la parola <code>end</code></td></tr>
+          <tr><th>Diverso da</th><td><code>!=</code></td><td><code>~=</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</section>
+
+<section class="section" id="script">
+  <div class="kicker">4 · Script e funzioni</div>
+  <h2>Salvare il lavoro: i file <code>.m</code></h2>
+  <p>La Command Window è comoda per le prove, ma i comandi si perdono. Per un calcolo da ripetere o da correggere si scrive uno <strong>script</strong>: un file di testo con estensione <code>.m</code> che contiene una sequenza di istruzioni, eseguite dall’alto in basso. Si esegue scrivendo il suo nome nella Command Window (<code>cerchio</code>, senza <code>.m</code>) oppure con il pulsante <em>Run</em> dell’editor (<kbd>F5</kbd>).</p>
+
+  <div class="oc-box" data-oc="l1-x3" data-file="cerchio.m" data-title="Esempio 3 · Uno script"><textarea class="oc-src">
+% cerchio.m - area e circonferenza di un cerchio
+r = 3;                         % raggio in cm
+area = pi * r^2;               % pi è una costante predefinita
+circonferenza = 2 * pi * r;
+
+fprintf('Raggio %g cm\n', r);
+fprintf('Area: %.2f cm^2\n', area);
+fprintf('Circonferenza: %.2f cm\n', circonferenza);
+</textarea></div>
+  <p>Esegui, poi premi <strong>Workspace</strong>: le variabili create dallo script restano in memoria e si possono usare nei comandi successivi. Cambia il raggio e riesegui. <code>fprintf</code> stampa testo formattato: <code>%g</code> inserisce un numero in forma compatta, <code>%.2f</code> con due decimali, <code>\n</code> va a capo.</p>
+
+  <h3>Le funzioni</h3>
+  <p>Una <strong>funzione</strong> riceve dei valori (i <strong>parametri</strong>), esegue un calcolo e restituisce uno o più <strong>risultati</strong>. A differenza di uno script, lavora con variabili <strong>locali</strong>: ciò che crea al suo interno non finisce nel workspace.</p>
+  <div class="split">
+    <pre><code>function c = ipotenusa(a, b)     <b>①</b>
+  % IPOTENUSA lunghezza dell'ipotenusa
+  % dati i cateti a e b              <b>②</b>
+  c = sqrt(a^2 + b^2);             <b>③</b>
+end                                <b>④</b></code></pre>
+    <ol class="annot">
+      <li><b class="n">1</b>La parola <code>function</code>, l’<strong>uscita</strong> <code>c</code>, il <strong>nome</strong> e i <strong>parametri</strong> tra parentesi.</li>
+      <li><b class="n">2</b>I commenti subito dopo sono la guida mostrata da <code>help ipotenusa</code>.</li>
+      <li><b class="n">3</b>Il corpo deve assegnare un valore all’uscita <code>c</code>: è ciò che la funzione restituisce.</li>
+      <li><b class="n">4</b><code>end</code> chiude la funzione. Il file si salva con il <strong>nome della funzione</strong>: <code>ipotenusa.m</code>.</li>
+    </ol>
+  </div>
+  <p>Nel simulatore la funzione si scrive <strong>in fondo allo script</strong>, come le <em>funzioni locali</em> di MATLAB. In Octave conviene salvarla nel suo file <code>ipotenusa.m</code> nella cartella corrente: così puoi usarla da qualsiasi script.</p>
+
+  <div class="oc-box" data-oc="l1-x4" data-file="prova_ipotenusa.m" data-title="Esempio 4 · Usare una funzione"><textarea class="oc-src">
+lato1 = 3;
+lato2 = 4;
+h = ipotenusa(lato1, lato2)
+h2 = ipotenusa(5, 12)
+exist('c')          % 0: la variabile c della funzione non è nel workspace
+
+function c = ipotenusa(a, b)
+  % IPOTENUSA lunghezza dell'ipotenusa dati i cateti a e b
+  c = sqrt(a^2 + b^2);
+end
+</textarea></div>
+
+  <div class="panel table-wrap">
+    <table class="compare">
+      <thead><tr><th></th><th>Script</th><th>Funzione</th></tr></thead>
+      <tbody>
+        <tr><th>Che cos’è</th><td>Una sequenza di comandi salvata in un file</td><td>Un sottoprogramma che riceve parametri e restituisce risultati</td></tr>
+        <tr><th>Prima riga</th><td>Un commento o un comando qualsiasi</td><td><code>function uscita = nome(parametri)</code></td></tr>
+        <tr><th>Variabili</th><td>Nel workspace: restano dopo l’esecuzione</td><td>Locali: spariscono quando la funzione termina</td></tr>
+        <tr><th>Nome del file</th><td>Libero, ad esempio <code>cerchio.m</code></td><td>Uguale al nome della funzione: <code>ipotenusa.m</code></td></tr>
+        <tr><th>Come si usa</th><td><code>cerchio</code></td><td><code>h = ipotenusa(3, 4)</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="muted">Anche i nomi dei file seguono le regole delle variabili: niente spazi, niente trattini, non iniziare con una cifra e non usare nomi di funzioni esistenti (un file <code>sum.m</code> nasconderebbe la funzione <code>sum</code>).</p>
+</section>
+
+<section class="section" id="errori">
+  <div class="kicker">5 · Errori tipici</div>
+  <h2>I messaggi che vedrai più spesso</h2>
+  <div class="panel table-wrap">
+    <table class="err-table">
+      <thead><tr><th>Errore</th><th>Messaggio di Octave</th><th>Come si corregge</th></tr></thead>
+      <tbody>
+        <tr><th>Nome scritto in modo diverso, o variabile non ancora creata</th><td><code>error: 'area' undefined</code></td><td>Controlla maiuscole e minuscole e che la variabile sia assegnata <em>prima</em> della riga che la usa.</td></tr>
+        <tr><th>Moltiplicazione sottintesa</th><td><code>parse error</code> su <code>2r</code> o <code>a b</code></td><td>Scrivi sempre l’operatore: <code>2*r</code>, <code>a*b</code>.</td></tr>
+        <tr><th>Parentesi o apici non chiusi</th><td><code>parse error</code></td><td>Conta le parentesi aperte e chiuse; chiudi i testi con <code>'</code>.</td></tr>
+        <tr><th>Una variabile nasconde una funzione</th><td><code>sin(3.1416): subscripts must be either integers 1 to (2^63)-1 or logicals</code></td><td>Dopo <code>sin = 3</code>, <code>sin(pi)</code> è letto come «elemento numero π di sin». Cancella la variabile con <code>clear sin</code>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Lo script contiene il primo errore della tabella. Eseguilo, leggi il messaggio e la spiegazione, correggilo. Poi prova a provocare gli altri.</p>
+  <div class="oc-box" data-oc="l1-x5" data-file="errore.m" data-title="Esempio 5 · Leggi l’errore"><textarea class="oc-src">
+raggio = 2;
+Area = pi * raggio^2;
+disp(area)
+</textarea></div>
+</section>
+
+<section class="section" id="esercizi">
+  <div class="kicker">6 · Esercizi · circa 20 minuti</div>
+  <h2>Ora tocca a te</h2>
+  <div class="panel">
+    <p><strong>Come funzionano.</strong> Scrivi il codice e premi <strong>▶ Esegui</strong> per provarlo (Ctrl+Invio). Quando pensi di aver finito premi <strong>✓ Verifica</strong> (Ctrl+Maiusc+Invio): il sistema esegue delle prove automatiche e ti dice quali hai superato. Se ti blocchi usa <strong>💡 Suggerimento</strong>. La <strong>soluzione</strong> si sblocca dopo tre verifiche: guardala solo dopo averci provato davvero.</p>
+    <p id="exProgress" class="ex-badge" role="status"></p>
+  </div>
+
+  <article class="panel exercise" id="es-1">
+    <div class="ex-head"><h3>Esercizio 1 · Il punto e virgola</h3><span><span class="ex-level">★ Guidato</span> <span class="ex-badge"></span></span></div>
+    <p>Un sasso cade da fermo. Dopo <var>t</var> secondi ha percorso <var>h</var> = ½ <var>g</var> <var>t</var>² metri e ha velocità <var>v</var> = <var>g</var> <var>t</var>. Completa lo script in modo che calcoli <code>h</code> e <code>v</code> per <var>t</var> = 3 s e che nella Command Window compaiano <strong>solo</strong> <code>h</code> e <code>v</code>.</p>
+    <div class="oc-box" data-oc="l1-e1" data-ex="l1-e1" data-file="caduta.m"><textarea class="oc-src">
+% Caduta libera: un sasso cade da fermo per t secondi.
+% Mostra nella Command Window SOLO l'altezza h e la velocità v.
+g = 9.81      % accelerazione di gravità (m/s^2)
+t = 3         % tempo (s)
+
+% h = 1/2 * g * t^2
+
+% v = g * t
+</textarea></div>
+  </article>
+
+  <article class="panel exercise" id="es-2">
+    <div class="ex-head"><h3>Esercizio 2 · Caccia all’errore</h3><span><span class="ex-level">★★ Debug</span> <span class="ex-badge"></span></span></div>
+    <p>Lo script calcola ipotenusa, area e perimetro di un triangolo rettangolo con cateti di 6 cm e 8 cm, ma contiene <strong>tre errori</strong>. Eseguilo, leggi il messaggio, correggi e riesegui finché funziona. I risultati attesi: ipotenusa 10, area 24, perimetro 24.</p>
+    <div class="oc-box" data-oc="l1-e2" data-ex="l1-e2" data-file="triangolo.m"><textarea class="oc-src">
+% Triangolo rettangolo: cateti di 6 cm e 8 cm.
+% Lo script contiene TRE errori: correggili uno alla volta.
+cateto1 = 6;
+cateto2 = 8;
+ipotenusa = sqrt(cateto1^2 + cateto2^2;
+area = cateto1 cateto2 / 2
+perimetro = cateto1 + cateto2 + Ipotenusa
+</textarea></div>
+  </article>
+
+  <article class="panel exercise" id="es-3">
+    <div class="ex-head"><h3>Esercizio 3 · La tua prima funzione</h3><span><span class="ex-level">★★ Funzioni</span> <span class="ex-badge"></span></span></div>
+    <p>Completa la funzione <code>volume_cilindro(r, h)</code>, che restituisce il volume di un cilindro di raggio <var>r</var> e altezza <var>h</var> (area di base per altezza). La prima riga dello script la usa per una lattina di raggio 3,3 cm e altezza 11,5 cm. Attenzione: la funzione deve funzionare con <em>qualsiasi</em> raggio e altezza.</p>
+    <div class="oc-box" data-oc="l1-e3" data-ex="l1-e3" data-file="lattina.m"><textarea class="oc-src">
+% Completa la funzione in fondo allo script, poi usala.
+% Una lattina ha raggio 3.3 cm e altezza 11.5 cm.
+lattina = volume_cilindro(3.3, 11.5)
+
+function v = volume_cilindro(r, h)
+  % calcola qui il volume del cilindro: area di base per altezza
+
+end
+</textarea></div>
+  </article>
+
+  <article class="panel exercise" id="es-4">
+    <div class="ex-head"><h3>Esercizio 4 · Un algoritmo che si ferma da solo</h3><span><span class="ex-level">★★★ Sfida</span> <span class="ex-badge"></span></span></div>
+    <p>Nell’Esempio 2 il metodo di Erone eseguiva un numero fisso di passi. Un algoritmo numerico vero si ferma quando l’approssimazione è <strong>abbastanza buona</strong>. Calcola √10 <strong>senza usare <code>sqrt</code></strong>: ripeti <var>x</var> ← (<var>x</var> + 10/<var>x</var>)/2 finché |<var>x</var>² − 10| ≥ 10⁻¹² e conta i passi nella variabile <code>passi</code>.</p>
+    <details class="ricorda"><summary>il ciclo while</summary>
+      <p>Il ciclo <code>while</code> ripete il suo corpo <strong>finché</strong> la condizione è vera; si chiude con <code>end</code>. Il valore assoluto è <code>abs(…)</code> e 10⁻¹² si scrive <code>1e-12</code>.</p>
+      <pre><code>n = 1;
+while n &lt; 100       % finché n è minore di 100
+  n = n * 2;
+end
+disp(n)             % 128</code></pre>
+    </details>
+    <div class="oc-box" data-oc="l1-e4" data-ex="l1-e4" data-file="erone10.m"><textarea class="oc-src">
+% Radice quadrata di 10 con il metodo di Erone, senza usare sqrt.
+% Ripeti x = (x + 10/x) / 2 finché |x^2 - 10| >= 1e-12
+% e conta i passi nella variabile passi.
+x = 1;
+passi = 0;
+while   % completa la condizione
+  % aggiorna x e passi
+
+end
+fprintf('radice di 10 = %.12f dopo %d passi\n', x, passi);
+</textarea></div>
+  </article>
+</section>
+
+<section class="section" id="sintesi">
+  <div class="kicker">In sintesi</div>
+  <h2>Che cosa porti a casa</h2>
+  <div class="panel">
+    <ul>
+      <li>Il <strong>calcolo numerico</strong> risolve i problemi con algoritmi che danno risultati <strong>approssimati</strong>: il computer usa circa 16 cifre significative, perciò <code>0.1 + 0.2 == 0.3</code> è falso.</li>
+      <li><strong>MATLAB</strong> è proprietario e a pagamento, <strong>GNU Octave</strong> è software libero (GPL) e gratuito: il linguaggio è in gran parte lo stesso.</li>
+      <li>Nella <strong>Command Window</strong> si scrive dopo <code>&gt;&gt;</code>; il <strong>workspace</strong> contiene le variabili; <code>ans</code> raccoglie i risultati non assegnati; il <code>;</code> nasconde l’output.</li>
+      <li><code>who</code>, <code>whos</code>, <code>clear</code>, <code>clc</code>, <code>help</code> gestiscono la sessione. Maiuscole e minuscole contano.</li>
+      <li>Uno <strong>script</strong> <code>.m</code> è una sequenza di comandi; una <strong>funzione</strong> <code>function y = nome(x)</code> ha parametri, risultati e variabili locali e si salva in <code>nome.m</code>.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="test-finale">
+  <div class="kicker">Test di fine lezione · 10 domande</div>
+  <h2>Verifica che cosa hai imparato</h2>
+  <p>Rispondi a tutte le domande e invia. Per sbloccare la Lezione 2 servono almeno <strong>7 risposte esatte su 10 (70%)</strong>. Dopo l’invio vedrai quali risposte sono esatte e un suggerimento per le altre, senza la soluzione: ripassa e riprova, i tentativi sono illimitati. Alla fine invia l’esito al docente.</p>
+  <form id="finalQuiz">
+    <div id="quizQuestions"></div>
+    <p id="quizCount" role="status" aria-live="polite"></p>
+    <button class="button primary" id="submitQuiz" disabled>Invia e verifica il risultato</button>
+  </form>
+  <p id="quizMessage" role="status" aria-live="polite"></p>
+  <div class="panel" id="quizResult" tabindex="-1" hidden>
+    <h3 id="quizScore"></h3>
+    <p id="attemptCount" class="muted"></p>
+    <div class="actions">
+      <button class="button" id="retryQuiz">Ripassa e riprova</button>
+      <button class="button" id="downloadQuiz">Scarica l’esito</button>
+      <a class="button primary" id="continueLink" data-lesson-link="2" href="./lezione-2.html" hidden>Prosegui alla Lezione 2 →</a>
+    </div>
+  </div>
+  <div class="panel builder consegna" id="consegnaBox" hidden>
+    <h3>Consegna al docente</h3>
+    <p>Invia l’esito di questo tentativo: il docente riceverà un PDF con risposte, punteggio ed esercizi completati. Puoi consegnare di nuovo dopo un nuovo tentativo.</p>
+    <form id="consegnaForm">
+      <div class="row">
+        <div><label for="stNome">Nome e cognome</label><input id="stNome" maxlength="80" autocomplete="name" required></div>
+        <div><label for="stClasse">Classe</label><input id="stClasse" maxlength="6" placeholder="es. 5A" required></div>
+      </div>
+      <div class="actions" style="margin-top:14px"><button class="button primary" id="consegnaBtn">Consegna l’esito</button></div>
+    </form>
+    <p id="consegnaStatus" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="section" id="fonti">
+  <h2>Per approfondire</h2>
+  <ol>
+    <li><a href="https://octave.org/about" target="_blank" rel="noopener noreferrer">GNU Octave, «About»</a> — storia del progetto e licenza GPL.</li>
+    <li><a href="https://docs.octave.org/latest/" target="_blank" rel="noopener noreferrer">Manuale di GNU Octave</a> — la documentazione ufficiale (in inglese).</li>
+    <li><a href="https://www.octave.org/news.html" target="_blank" rel="noopener noreferrer">GNU Octave, notizie e rilasci</a> — la versione 11.3.0 del 1° giugno 2026.</li>
+    <li><a href="https://www.mathworks.com/company/technical-articles/the-origins-of-matlab.html" target="_blank" rel="noopener noreferrer">C. Moler, «The Origins of MATLAB»</a> — la nascita di MATLAB raccontata dal suo autore.</li>
+    <li><a href="https://www.gnu.org/philosophy/free-sw.it.html" target="_blank" rel="noopener noreferrer">Free Software Foundation, «Che cos’è il software libero?»</a> — le quattro libertà.</li>
+    <li><a href="https://octave-online.net/" target="_blank" rel="noopener noreferrer">Octave Online</a> — Octave completo nel browser, gratuito, per lavorare anche a casa.</li>
+  </ol>
+</section>
+</main>
+
+<footer><div class="wrap">Calcolo numerico con Octave · Lezione 1 di 9 · <a href="./">Guida al corso</a> · Liceo Scientifico «N. Cortese»</div></footer>
+
+<script src="./oct-runner.js?v=1"></script>
+<script src="./oct-lesson.js?v=1"></script>
+</body>
+</html>

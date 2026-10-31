@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="it" class="course-pending">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Corso di calcolo numerico con GNU Octave e MATLAB per le classi quinte del liceo scientifico delle scienze applicate: nove lezioni guidate con codice eseguibile nel browser, esercizi a correzione automatica e test.">
+<title>Calcolo numerico con Octave · Corso per le classi quinte</title>
+<link rel="stylesheet" href="./oct.css?v=1">
+<script src="./oct-config.js?v=1"></script>
+<script src="./oct-data.js?v=1"></script>
+<script src="./oct-progress.js?v=1"></script>
+</head>
+<body>
+<a class="skip" href="#contenuti">Vai ai contenuti</a>
+<header><div class="wrap">
+  <div class="topbar"><span>Liceo Scientifico «N. Cortese» · Informatica</span><span>Classi quinte · Scienze applicate</span></div>
+  <div class="hero">
+    <div class="kicker">Corso guidato · 9 lezioni da 1 ora</div>
+    <h1>Calcolo numerico con GNU Octave</h1>
+    <p>Usa il computer come un laboratorio di matematica: vettori e matrici, operazioni matriciali, sistemi lineari risolti con l’operatore backslash e con i metodi di Gauss e Gauss-Jordan, grafici di funzioni. Scrivi ed esegui il codice direttamente nel browser, con lo stesso linguaggio di MATLAB.</p>
+    <div class="actions">
+      <a class="button primary" id="startLink" href="./lezione-1.html">Inizia dalla Lezione 1 →</a>
+      <a class="button ghost" href="#come-funziona">Come funziona ↓</a>
+      <a class="button ghost" href="#percorso">Le nove lezioni ↓</a>
+    </div>
+  </div>
+</div></header>
+
+<main class="wrap" id="contenuti">
+<section class="section" id="come-funziona">
+  <div class="kicker">Il metodo del corso</div>
+  <h2>Come funziona</h2>
+  <div class="concept-grid four">
+    <article class="concept-card"><h3>Lezioni guidate</h3><p>Ogni lezione dura un’ora: un problema da cui partire, i concetti matematici, la sintassi di Octave e gli errori tipici. I riquadri <strong>«Ricorda che…»</strong> collegano Octave a ciò che sai già di Python e di matematica.</p></article>
+    <article class="concept-card"><h3>Octave nel browser</h3><p>Un simulatore di Octave esegue gli script nella pagina, con Command Window, workspace e grafici, anche da smartphone o Chromebook. Il codice è compatibile con GNU Octave e MATLAB.</p></article>
+    <article class="concept-card"><h3>Esercizi verificati</h3><p>Ogni esercizio ha delle prove automatiche: premi <strong>Verifica</strong> e scopri subito che cosa funziona e che cosa no, con un suggerimento per correggere.</p></article>
+    <article class="concept-card"><h3>Test e consegna</h3><p>Ogni lezione si chiude con un test: con almeno il <strong>70%</strong> si sblocca la successiva. L’esito si consegna al docente con un clic.</p></article>
+  </div>
+</section>
+
+<section class="section" id="prova">
+  <div class="kicker">Prima di iniziare</div>
+  <h2>Prova l’editor</h2>
+  <p>Premi <strong>▶ Esegui</strong> (o Ctrl+Invio). Lo script disegna un grafico e lavora con una matrice. Cambia <code>sin</code> in <code>cos</code>, oppure i numeri della matrice, e riesegui. Il pulsante <strong>Workspace</strong> mostra le variabili create.</p>
+  <div class="oc-box" data-oc="home-x1" data-file="primo_script.m" data-title="Il tuo primo script"><textarea class="oc-src">
+% Il tuo primo script Octave
+x = linspace(0, 2*pi, 200);    % 200 valori tra 0 e 2π
+y = sin(x);
+plot(x, y, 'LineWidth', 2)
+grid on
+title('Il grafico di sin(x)')
+xlabel('x'); ylabel('y')
+
+A = [2 1; 1 3]                 % una matrice 2×2
+determinante = det(A)
+</textarea></div>
+  <p class="muted">Tasti utili: <kbd>Tab</kbd> rientra di 2 spazi (con <kbd>Maiusc</kbd> toglie il rientro), <kbd>Invio</kbd> dopo <code>if</code>, <code>for</code>, <code>while</code>, <code>function</code> rientra in automatico. Se uno script non termina entro pochi secondi viene fermato. Per lavorare con Octave completo a casa: <a href="https://octave.org/download" target="_blank" rel="noopener noreferrer">scarica GNU Octave</a> (gratuito) oppure usa <a href="https://octave-online.net/" target="_blank" rel="noopener noreferrer">Octave Online</a>.</p>
+</section>
+
+<section class="section" id="percorso">
+  <div class="kicker">Il percorso</div>
+  <h2>Le nove lezioni</h2>
+  <ol class="path-list" id="pathList"></ol>
+  <p class="muted">Una lezione si sblocca superando il test della precedente. Il progetto conclusivo e il test finale del corso sono nella Lezione 9.</p>
+</section>
+
+<section class="section" id="avanzamento">
+  <div class="kicker">Il tuo avanzamento</div>
+  <h2>Cambi dispositivo?</h2>
+  <div class="panel">
+    <p>Risultati dei test, esercizi completati e codice sono salvati solo in questo browser. Per continuare su un altro computer o telefono scarica il file di avanzamento e caricalo sull’altro dispositivo.</p>
+    <div class="actions">
+      <button class="button" id="exportBtn">Scarica il mio avanzamento</button>
+      <label class="button file-button">Carica un avanzamento<input type="file" id="importFile" accept="application/json,.json"></label>
+    </div>
+    <p id="transferStatus" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="section" id="glossario">
+  <div class="kicker">Glossario</div>
+  <h2>Le parole del corso</h2>
+  <dl class="glossary">
+    <div><dt>Calcolo numerico</dt><dd>Lo studio degli algoritmi che risolvono problemi matematici al computer con risultati approssimati e un errore controllato.</dd></div>
+    <div><dt>MATLAB · GNU Octave</dt><dd>Due ambienti per il calcolo numerico con lo stesso linguaggio: il primo proprietario, il secondo software libero.</dd></div>
+    <div><dt>Command Window</dt><dd>La riga di comando: dopo il prompt <code>&gt;&gt;</code> si scrive un’istruzione e Octave risponde subito.</dd></div>
+    <div><dt>Workspace</dt><dd>L’insieme delle variabili in memoria, con il loro tipo, le dimensioni e il valore.</dd></div>
+    <div><dt>Script</dt><dd>Un file <code>.m</code> con una sequenza di istruzioni eseguite dall’alto in basso.</dd></div>
+    <div><dt>Funzione</dt><dd>Un sottoprogramma con parametri, risultati e variabili locali, salvato in un file con il suo nome.</dd></div>
+    <div><dt>Vettore · Matrice</dt><dd>Tabelle di numeri a una o due dimensioni: in Octave sono il tipo di dato di base, anche uno scalare è una matrice 1×1.</dd></div>
+    <div><dt>Operazione puntuale</dt><dd>Un’operazione eseguita elemento per elemento, indicata con il punto: <code>.*</code>, <code>./</code>, <code>.^</code>.</dd></div>
+    <div><dt>Sistema lineare</dt><dd>Un insieme di equazioni di primo grado, scritto in forma matriciale come <var>A</var><var>x</var> = <var>b</var>.</dd></div>
+    <div><dt>Pivot</dt><dd>Nel metodo di Gauss, l’elemento usato per annullare quelli sottostanti nella stessa colonna.</dd></div>
+  </dl>
+</section>
+</main>
+
+<footer><div class="wrap">Calcolo numerico con Octave · Corso per le classi quinte · Liceo Scientifico «N. Cortese», Maddaloni</div></footer>
+
+<script src="./oct-runner.js?v=1"></script>
+<script>
+"use strict";
+(() => {
+  const course = window.OctCourse, list = document.getElementById('pathList');
+  function render() {
+    list.innerHTML = '';
+    let next = null;
+    window.OCT_LESSONS.forEach(l => {
+      const done = course.passed(l.n), blocked = course.missing(l.n), avail = l.available;
+      if (!next && avail && !done && !blocked) next = l.n;
+      const li = document.createElement('li'); li.className = 'path-item' + (done ? ' done' : '') + (!avail || blocked ? ' locked' : '');
+      const a = document.createElement('a'); a.href = './lezione-' + l.n + '.html'; a.dataset.lessonLink = l.n;
+      const ex = window.OctRunner.exercisesDone('l' + l.n + '-');
+      const state = !avail ? 'In preparazione' : done ? 'Completata ✓' : blocked ? 'Si sblocca con il test della Lezione ' + blocked : 'Disponibile';
+      a.innerHTML = '<span class="path-n">' + (done ? '✓' : l.n) + '</span><span class="path-body"><strong class="path-title"></strong><span></span><span class="path-meta"></span></span>';
+      a.querySelector('.path-title').textContent = 'Lezione ' + l.n + ' · ' + l.title;
+      a.querySelector('.path-body > span').textContent = l.short;
+      a.querySelector('.path-meta').textContent = l.minutes + ' minuti · ' + state + (avail && ex.total ? ' · esercizi ' + ex.done + '/' + ex.total : '');
+      if (!avail) a.addEventListener('click', e => e.preventDefault());
+      else if (blocked) a.addEventListener('click', e => { e.preventDefault(); location.href = './lezione-' + blocked + '.html#test-finale'; });
+      li.append(a); list.append(li);
+    });
+    const start = document.getElementById('startLink');
+    if (next && next > 1) { start.href = './lezione-' + next + '.html'; start.textContent = 'Continua dalla Lezione ' + next + ' →'; }
+  }
+  render();
+  window.addEventListener('pageshow', render);
+  const st = document.getElementById('transferStatus');
+  document.getElementById('exportBtn').onclick = () => { st.textContent = course.transfer.download().msg; };
+  document.getElementById('importFile').addEventListener('change', async e => {
+    const f = e.target.files[0]; if (!f) return;
+    try { st.textContent = (await course.transfer.load(f)).msg; render(); } catch (err) { st.textContent = 'Caricamento non riuscito: ' + err.message; } finally { e.target.value = ''; }
+  });
+})();
+</script>
+</body>
+</html>
