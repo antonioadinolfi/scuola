@@ -34,3 +34,6 @@ Modificare i file nella cartella `corso-vibe-coding/`. Il sito è autonomo e pu�
 - Specifica ruoli e requisiti: [ACCESSO-E-RUOLI.md](./ACCESSO-E-RUOLI.md)
 
 Il portale usa Google Workspace e un elenco esplicito di account autorizzati. Il corsista vede solo la lezione pubblicata; il docente può consultare tutte le lezioni e i materiali. Il backend deve essere distribuito in HTTPS e collegato a Google Drive prima dell'uso reale. GitHub Pages da solo non protegge i file.
+
+## Licenza
+© 2026 Prof. Antonio Adinolfi. Contenuti distribuiti con licenza Creative Commons BY-NC-SA 4.0: vedi `LICENSE.md`.

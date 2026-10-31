@@ -170,3 +170,12 @@ footer{padding-bottom:80px}
 .trainer-badge button{border:1px solid #102a43;background:#fff;color:#102a43;border-radius:8px;padding:5px 10px;font-weight:700;font-size:.8rem}
 @media(max-width:700px){.trainer-badge{right:8px;bottom:64px;font-size:.78rem}}
 @media print{.trainer-badge{display:none!important}}
+/* v13 · licenza */
+footer .license{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:14px 0 0;font-size:.82rem;color:#b9cfdc;line-height:1.5}
+footer .license img{display:block;flex:none;border:0}
+footer .license a{color:#fff}
+@media print{footer{display:block!important;background:none;color:#222;padding:12px 0;margin-top:16px;border-top:1px solid #999}footer>.wrap>a,footer .license img{display:none}footer .license{color:#222}footer .license a{color:#222}}
+footer .license>a:first-child{text-decoration:none}
+.cc-badge{display:inline-flex;align-items:center;gap:6px;border:1.5px solid #fff;border-radius:6px;padding:3px 8px;font-size:.78rem;font-weight:700;letter-spacing:.03em;color:#fff;white-space:nowrap}
+.cc-badge b{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#fff;color:#102a43;font-size:.72rem}
+@media print{footer .wrap{font-size:0}footer .license{font-size:9pt;margin:0}footer .license>a:first-child{display:none}}
