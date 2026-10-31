@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T17:04:02+00:00",
+  "updatedAt": "2026-10-31T21:13:35+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,24 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "L’IA a scuola oltre il nozionismo, perché la vera sfida è riaccendere la curiosità: con le info a portata di click, il modello scolastico tradizionale è arrivato al capolinea",
+          "link": "https://www.orizzontescuola.it/lia-a-scuola-oltre-il-nozionismo-perche-la-vera-sfida-e-riaccendere-la-curiosita-con-le-info-a-portata-di-click-il-modello-scolastico-tradizionale-e-arrivato-al-capolinea/",
+          "pubDate": "Sat, 31 Oct 2026 19:15:42 +0000",
+          "description": "L’ingresso dell’intelligenza artificiale nella vita quotidiana di bambini e adolescenti ha riacceso il dibattito sui rischi della dipendenza tecnologica. Chatbo…"
+        },
+        {
+          "title": "“Questo è Halloween”: alla scoperta di una festa tra magia e tradizione. Insegnare con le canzoni",
+          "link": "https://www.orizzontescuola.it/questo-e-halloween-alla-scoperta-di-una-festa-tra-magia-e-tradizione-insegnare-con-le-canzoni/",
+          "pubDate": "Sat, 31 Oct 2026 17:52:07 +0000",
+          "description": "In occasione, e in attesa, del giorno di Halloween, la festa dove terribili fantasmi mostri e streghe tornano ad animare l'immaginario collettivo di grandi e ba…"
+        },
+        {
+          "title": "Manovra 2027, tagli per docenti e ATA, Cgil: “Così non va, confermiamo lo sciopero generale il 20 novembre”",
+          "link": "https://www.orizzontescuola.it/manovra-2027-tagli-per-docenti-e-ata-cgil-cosi-non-va-confermiamo-lo-sciopero-generale-il-20-novembre/",
+          "pubDate": "Sat, 31 Oct 2026 17:09:52 +0000",
+          "description": "La Flc Cgil e la Cgil nazionale hanno espresso una dura condanna verso la Legge di Bilancio 2027 presentata dal Governo alla Camera per l'avvio dell'iter parlam…"
+        },
+        {
           "title": "Contesta i voti della Maturità per la mancanza di mappe e formulari, il TAR gli dà torto: gli aiuti per i BES non sono obbligatori se il candidato non li richiede",
           "link": "https://www.orizzontescuola.it/contesta-i-voti-della-maturita-per-la-mancanza-di-mappe-e-formulari-il-tar-gli-da-torto-gli-aiuti-per-i-bes-non-sono-obbligatori-se-il-candidato-non-li-richiede/",
           "pubDate": "Sat, 31 Oct 2026 16:59:52 +0000",
@@ -62,24 +80,6 @@
           "link": "https://www.orizzontescuola.it/novara-mamme-in-corteo-con-i-figli-ecco-la-melassa-che-soffoca-i-giovani-liperprotezione-dei-genitori-mina-lautonomia-delle-nuove-generazioni/",
           "pubDate": "Sat, 31 Oct 2026 16:33:48 +0000",
           "description": "Negli ultimi anni il confine tra il supporto genitoriale e la sostituzione fisica ed emotiva si è fatto sempre più sottile. L’episodio delle \"madri in rosso\" sc…"
-        },
-        {
-          "title": "Attività negoziali nella scuola, il pacchetto di supporto: guide, modulistica già pronta + consulenza personalizzata",
-          "link": "https://www.orizzontescuola.it/attivita-negoziali-nella-scuola-il-pacchetto-di-supporto-guide-modulistica-gia-pronta-consulenza-personalizzata/",
-          "pubDate": "Sat, 31 Oct 2026 16:00:13 +0000",
-          "description": "Dalla normativa alla gestione concreta delle procedure: gli strumenti di Orizzonte Scuola per supportare dirigenti scolastici, DSGA e segreterie. L'articolo Att…"
-        },
-        {
-          "title": "Congedo parentale, dal 2027 un mese in più pagato all’80%. È nella Legge di Bilancio",
-          "link": "https://www.orizzontescuola.it/congedo-parentale-dal-2027-un-mese-in-piu-pagato-all80-e-nella-legge-di-bilancio/",
-          "pubDate": "Sat, 31 Oct 2026 15:37:16 +0000",
-          "description": "Il Ministero dell’Economia e delle Finanze ha inviato alla Presidenza del Consiglio, previa bollinatura della Ragioneria generale dello Stato del 30 ottobre, il…"
-        },
-        {
-          "title": "RAV, PdM e PTOF 2026/2027: la nota ministeriale del 22 ottobre cambia le procedure di aggiornamento. Scheda con manuale operativo e 32 modelli da scaricare",
-          "link": "https://www.orizzontescuola.it/rav-pdm-e-ptof-2026-2027-la-nota-ministeriale-del-22-ottobre-cambia-le-procedure-di-aggiornamento-scheda-con-manuale-operativo-e-32-modelli-da-scaricare/",
-          "pubDate": "Sat, 31 Oct 2026 15:14:11 +0000",
-          "description": "La nota della Direzione generale per gli ordinamenti scolastici, la formazione del personale scolastico e la valutazione del sistema nazionale di istruzione, pr…"
         }
       ]
     },
@@ -87,10 +87,16 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Pensioni: maxi taglio alle rivalutazioni. Nuova Quota 100 da 2,5 miliardi",
-          "link": "https://www.ilsole24ore.com/art/pensioni-maxi-tagli-rivalutazioni-nuova-quota-100-vanno-25-miliardi-tre-anni-AJgnXD0B",
-          "pubDate": "Sat, 31 Oct 2026 08:13:00 GMT",
-          "description": "Scatta il taglio dal 15% fino al 68% della rivalutazione sulle pensioni più alte. Nel testo finale arriva anche il freno del 25% al turn over della Pa"
+          "title": "Tassa sui ricchi che lasciano l’Italia. Ecco chi paga e quanto",
+          "link": "https://www.ilsole24ore.com/art/manovra-entra-anche-tassa-super-ricchi-che-lasciano-l-italia-ecco-chi-paga-e-quanto-AJAOrP0B",
+          "pubDate": "Sat, 31 Oct 2026 14:23:00 GMT",
+          "description": "Nella nuova Manovra spicca l’introduzione di una vera e propria “exit tax” (l’imposta in uscita), pensata per tassare i guadagni finanziari accumulati in Italia…"
+        },
+        {
+          "title": "Lotteria degli scontrini, arriva il paga e vinci subito: sbloccati i premi istantanei",
+          "link": "https://www.ilsole24ore.com/art/lotteria-scontrini-arriva-paga-e-vinci-subito-sbloccati-premi-istantanei-AJpUdY0B",
+          "pubDate": "Sat, 31 Oct 2026 17:21:36 GMT",
+          "description": "Il Ddl di Bilancio rende operative le vincite immediate. Semplificati anche gli incassi dei mini importi senza obbligo di identificazione"
         },
         {
           "title": "Bollo auto, arriva il rimborso anche per le auto oltre 80 kW: ecco in quali casi",
@@ -99,28 +105,22 @@
           "description": "Il ddl di bilancio rende permanente l’esenzione per un veicolo fino a 80 kW e introduce un contributo fino a 385,71 euro per le famiglie con più di tre figli ch…"
         },
         {
-          "title": "OpenAI taglia di un terzo il target di finanziamento",
-          "link": "https://www.ilsole24ore.com/art/openai-taglia-un-terzo-target-finanziamento-AJc7IX0B",
-          "pubDate": "Sat, 31 Oct 2026 16:46:21 GMT",
-          "description": "Da 10 a 20 miliardi di dollari e fino a venerdì 30 avrebbe raccolto appena 11 miliardi. Intanto S&P mette sotto sorveglianza Meta: outlook negativo sul rating"
+          "title": "Pensioni: maxi taglio alle rivalutazioni. Nuova Quota 100 da 2,5 miliardi",
+          "link": "https://www.ilsole24ore.com/art/pensioni-maxi-tagli-rivalutazioni-nuova-quota-100-vanno-25-miliardi-tre-anni-AJgnXD0B",
+          "pubDate": "Sat, 31 Oct 2026 08:13:00 GMT",
+          "description": "Nel testo finale arriva anche il freno del 25% al turn over della Pa"
         },
         {
-          "title": "Tassa sui ricchi che lasciano l’Italia. Ecco chi paga e quanto",
-          "link": "https://www.ilsole24ore.com/art/manovra-entra-anche-tassa-super-ricchi-che-lasciano-l-italia-ecco-chi-paga-e-quanto-AJAOrP0B",
-          "pubDate": "Sat, 31 Oct 2026 14:23:00 GMT",
-          "description": "Nella nuova Manovra spicca l’introduzione di una vera e propria “exit tax” (l’imposta in uscita), pensata per tassare i guadagni finanziari accumulati in Italia…"
+          "title": "Polizia di Stato, 60 perquisizioni in 23 città",
+          "link": "https://www.ilsole24ore.com/art/sessanta-perquisizioni-23-citta-parte-digos-e-polizia-postale-AJzsyW0B",
+          "pubDate": "Sat, 31 Oct 2026 16:33:00 GMT",
+          "description": "La Polizia di Stato, su delega dell’Autorità Giudiziaria e di iniziativa, ha eseguito perquisizioni a carico di circa 60 soggetti, che nelle chat e nelle piatta…"
         },
         {
-          "title": "Montecarlo abbandona la lista grigia riciclaggio",
-          "link": "https://www.ilsole24ore.com/art/montecarlo-abbandona-lista-grigia-riciclaggio-AJ6axpzB",
-          "pubDate": "Sat, 31 Oct 2026 04:06:28 GMT",
-          "description": "La contestazione nel 2024. Emergono anche Bulgaria, Costa d’Avorio e Repubblica democratica Congo"
-        },
-        {
-          "title": "Emirates porta a Roma il nuovo modello di Travel Store",
-          "link": "https://www.ilsole24ore.com/art/emirates-porta-roma-nuovo-modello-travel-store-AJ0HmvxB",
-          "pubDate": "Sat, 31 Oct 2026 16:22:40 GMT",
-          "description": "Conoscere meglio le persone tramite il confronto diretto e seguirle con continuità costruendo proposte su misura, dalla scelta dell’itinerario ai servizi che re…"
+          "title": "L’abbandono dei rifiuti sarà punito con la confisca",
+          "link": "https://www.ilsole24ore.com/art/l-abbandono-rifiuti-sara-punito-la-confisca-AJ5KPazB",
+          "pubDate": "Sat, 31 Oct 2026 04:04:00 GMT",
+          "description": "Alla pena verrà affiancata la perdita degli strumenti di reato e dei guadagni"
         }
       ]
     }
