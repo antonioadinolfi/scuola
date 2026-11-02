@@ -241,3 +241,13 @@ header{background:linear-gradient(120deg,#102a43 0%,#176b87 45%,#2a9d8f 75%,#e0a
 .panel,.concept-card,.path-item a,.glossary div{box-shadow:0 10px 30px rgba(16,42,67,.10)}
 @media print{body{background:white}header{background:#102a43}.panel,.concept-card,.path-item a,.glossary div{box-shadow:none}}
 
+
+/* Licenza e copyright nel piè di pagina (come nel corso Vibe Coding) */
+footer .license{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:14px 0 0;font-size:.82rem;color:#b9cfdc;line-height:1.5}
+footer .license img{display:block;flex:none;border:0}
+footer .license a{color:#fff}
+@media print{footer{display:block!important;background:none;color:#222;padding:12px 0;margin-top:16px;border-top:1px solid #999}footer>.wrap>a,footer .license img{display:none}footer .license{color:#222}footer .license a{color:#222}}
+footer .license>a:first-child{text-decoration:none}
+.cc-badge{display:inline-flex;align-items:center;gap:6px;border:1.5px solid #fff;border-radius:6px;padding:3px 8px;font-size:.78rem;font-weight:700;letter-spacing:.03em;color:#fff;white-space:nowrap}
+.cc-badge b{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#fff;color:#102a43;font-size:.72rem}
+@media print{footer .wrap{font-size:0}footer .license{font-size:9pt;margin:0}footer .license>a:first-child{display:none}}

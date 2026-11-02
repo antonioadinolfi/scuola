@@ -33,3 +33,6 @@ In `oop-data.js`, `OOP_EXERCISES['l2-e1'] = { checks: [{ t, c, h }], hints: [...
 
 ## Modalità docente
 Aprendo una pagina del corso con `#docente=<codice>` tutte le lezioni si sbloccano su quel browser. Con `#docente-off` la modalità si disattiva.
+
+## Licenza
+© 2026 Prof. Antonio Adinolfi. Contenuti distribuiti con licenza Creative Commons BY-NC-SA 4.0: vedi `LICENSE.md`.
