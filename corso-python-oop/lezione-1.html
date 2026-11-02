@@ -98,7 +98,7 @@ print(tel2)
       <li>La funzione <code>ricarica</code> e i dati del telefono sono separati: chi legge il programma non sa quali funzioni servono a quali dati.</li>
       <li>Con dieci tipi di oggetti (telefoni, clienti, ordini…) e cento funzioni il programma diventa difficile da controllare.</li>
     </ul>
-    <div class="task"><strong>L’idea della programmazione a oggetti.</strong> Mettere insieme in un’unica struttura i <strong>dati</strong> di una cosa e le <strong>operazioni</strong> che la riguardano, e descriverla una volta sola con un modello: la <strong>classe</strong>.</div>
+    <div class="task"><strong>L’idea della programmazione a oggetti.</strong> <mark class="key">Mettere insieme in un’unica struttura i dati di una cosa e le operazioni che la riguardano</mark>, e descriverla una volta sola con un modello: la <strong>classe</strong>.</div>
   </div>
 
   <h3>In realtà usi già gli oggetti</h3>
@@ -119,7 +119,7 @@ print(type(voti), voti)
   <div class="kicker">2 · Classi e oggetti</div>
   <h2>Quattro parole da sapere</h2>
   <div class="concept-grid four">
-    <article class="concept-card"><h3>Classe</h3><p>Il <strong>modello</strong> che descrive un tipo di oggetti: quali dati hanno e che cosa sanno fare. Come il progetto di uno smartphone: non è un telefono, ma dice come sono fatti tutti.</p></article>
+    <article class="concept-card"><h3>Classe</h3><p><mark class="key">Il modello che descrive un tipo di oggetti</mark>: quali dati hanno e che cosa sanno fare. Come il progetto di uno smartphone: non è un telefono, ma dice come sono fatti tutti.</p></article>
     <article class="concept-card"><h3>Oggetto (istanza)</h3><p>Un esemplare concreto creato dalla classe. Il tuo telefono e quello del compagno di banco sono due oggetti della stessa classe, con valori diversi.</p></article>
     <article class="concept-card"><h3>Attributi</h3><p>I dati che ogni oggetto <strong>ha</strong>: marca, modello, livello di batteria. Nel loro insieme formano lo <strong>stato</strong> dell’oggetto.</p></article>
     <article class="concept-card"><h3>Metodi</h3><p>Le operazioni che l’oggetto <strong>sa fare</strong>: ricaricarsi, descriversi. Sono funzioni definite dentro la classe che lavorano sugli attributi.</p></article>
@@ -179,10 +179,10 @@ s1 = Smartphone("Fairphone", "5")          <b>⑤</b>
 s1.ricarica(30)                            <b>⑥</b></code></pre>
     <ol class="annot">
       <li><b class="n">1</b><code>class</code> + nome con l’iniziale maiuscola + due punti. Tutto ciò che è rientrato appartiene alla classe.</li>
-      <li><b class="n">2</b><code>__init__</code> è il <strong>costruttore</strong>: Python lo esegue in automatico ogni volta che crei un oggetto. Il primo parametro è sempre <code>self</code>.</li>
-      <li><b class="n">3</b><code>self.marca = marca</code> crea l’attributo <em>dentro l’oggetto</em>, copiandovi il valore del parametro. Un attributo può anche avere un valore iniziale fisso (<code>batteria = 50</code>).</li>
+      <li><b class="n">2</b><code>__init__</code> è il <strong>costruttore</strong>: <mark class="key">Python lo esegue in automatico ogni volta che crei un oggetto</mark>. Il primo parametro è sempre <code>self</code>.</li>
+      <li><b class="n">3</b><code>self.marca = marca</code> <mark class="key">crea l’attributo dentro l’oggetto</mark>, copiandovi il valore del parametro. Un attributo può anche avere un valore iniziale fisso (<code>batteria = 50</code>).</li>
       <li><b class="n">4</b>Un <strong>metodo</strong> è una funzione dentro la classe. Anche qui il primo parametro è <code>self</code>, per poter usare gli attributi.</li>
-      <li><b class="n">5</b>Per creare un oggetto si “chiama” la classe passando i valori del costruttore. <code>self</code> non si passa: ci pensa Python.</li>
+      <li><b class="n">5</b>Per creare un oggetto si “chiama” la classe passando i valori del costruttore. <mark class="warn"><code>self</code> non si passa: ci pensa Python</mark>.</li>
       <li><b class="n">6</b>Si usa la <strong>notazione punto</strong>: <code>oggetto.attributo</code> oppure <code>oggetto.metodo(…)</code>.</li>
     </ol>
   </div>
@@ -220,7 +220,7 @@ print(s2.info())
 </textarea></div>
 
   <h3>Che cos’è davvero self?</h3>
-  <p><code>self</code> è l’oggetto su cui stai lavorando. Quando scrivi <code>s1.ricarica(20)</code>, Python esegue <code>Smartphone.ricarica(s1, 20)</code>: l’oggetto davanti al punto diventa il primo argomento. Verificalo con <code>id()</code>, che restituisce il numero identificativo di un oggetto.</p>
+  <p><code>self</code> è l’oggetto su cui stai lavorando: <mark class="key">quando scrivi <code>s1.ricarica(20)</code>, Python esegue <code>Smartphone.ricarica(s1, 20)</code></mark>: l’oggetto davanti al punto diventa il primo argomento. Verificalo con <code>id()</code>, che restituisce il numero identificativo di un oggetto.</p>
   <div class="py-box" data-py="l1-x4" data-title="Esempio 4 · self è l’oggetto"><textarea class="py-src">
 class Smartphone:
     def __init__(self, marca):
@@ -247,7 +247,7 @@ Smartphone.ricarica(s1, 20)      # ciò che fa Python dietro le quinte
       <thead><tr><th>Errore</th><th>Messaggio di Python</th><th>Come si corregge</th></tr></thead>
       <tbody>
         <tr><th>Manca <code>self</code> tra i parametri</th><td><code>TypeError: __init__() takes 2 positional arguments but 3 were given</code></td><td>Aggiungi <code>self</code> come primo parametro di ogni metodo.</td></tr>
-        <tr><th>Manca <code>self.</code> nell’assegnazione</th><td><code>AttributeError: 'Smartphone' object has no attribute 'marca'</code></td><td>Scrivi <code>self.marca = marca</code>: senza <code>self.</code> crei solo una variabile locale che sparisce.</td></tr>
+        <tr><th>Manca <code>self.</code> nell’assegnazione</th><td><code>AttributeError: 'Smartphone' object has no attribute 'marca'</code></td><td>Scrivi <code>self.marca = marca</code>: <mark class="warn">senza <code>self.</code> crei solo una variabile locale che sparisce</mark>.</td></tr>
         <tr><th>Mancano argomenti alla creazione</th><td><code>TypeError: __init__() missing 1 required positional argument: 'modello'</code></td><td>Passa un valore per ogni parametro di <code>__init__</code> tranne <code>self</code>.</td></tr>
       </tbody>
     </table>
@@ -433,6 +433,7 @@ print(t.descrivi())
 
 <script src="./oop-runner.js?v=1"></script>
 <script src="./oop-lesson.js?v=1"></script>
+<script src="./oop-tools.js?v=1"></script>
 <script type="module" src="./oop-uml.js?v=1"></script>
 </body>
 </html>
