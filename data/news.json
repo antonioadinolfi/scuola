@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T20:06:08+00:00",
+  "updatedAt": "2026-11-03T03:22:05+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Galiano a chi parla di scuola senza frequentarla da anni: “È un po’ come parlare di astrofisica solo perché una volta hai visto Interstellar”",
+          "link": "https://www.orizzontescuola.it/galiano-a-chi-parla-di-scuola-senza-frequentarla-da-anni-e-un-po-come-parlare-di-astrofisica-solo-perche-una-volta-hai-visto-interstellar/",
+          "pubDate": "Mon, 02 Nov 2026 20:40:00 +0000",
+          "description": "Parlare di scuola è un diritto di tutti. Dare lezioni agli insegnanti su cosa dovrebbero fare, però, è un’altra storia. È il messaggio che Enrico Galiano, inseg…"
+        },
+        {
+          "title": "Collaboratori del dirigente scolastico e figure di sistema, ANCoDiS: “Dieci anni di battaglie per il riconoscimento professionale. Basta indifferenza”",
+          "link": "https://www.orizzontescuola.it/collaboratori-del-dirigente-scolastico-e-figure-di-sistema-ancodis-dieci-anni-di-battaglie-per-il-riconoscimento-professionale-basta-indifferenza/",
+          "pubDate": "Mon, 02 Nov 2026 20:23:04 +0000",
+          "description": "Collaboratori dei dirigenti scolastici, fiduciari di plesso, funzioni strumentali, coordinatori di dipartimento, animatori digitali e docenti impegnati nell'ori…"
+        },
+        {
           "title": "Studente di 14 anni scomparso a Taranto, carabinieri al lavoro e appello dei genitori",
           "link": "https://www.orizzontescuola.it/studente-di-14-anni-scomparso-a-taranto-carabinieri-al-lavoro-e-appello-dei-genitori/",
           "pubDate": "Mon, 02 Nov 2026 19:58:53 +0000",
@@ -68,18 +80,6 @@
           "link": "https://www.orizzontescuola.it/pon-poc-piattaforma-non-funzionante-da-giorni-scuole-in-difficolta-per-presenze-e-attivita-la-segnalazione/",
           "pubDate": "Mon, 02 Nov 2026 18:03:54 +0000",
           "description": "La piattaforma INDIRE per la gestione dei progetti PON-POC risulterebbe non funzionante da quasi dieci giorni, creando difficoltà alle scuole impegnate nelle at…"
-        },
-        {
-          "title": "Riforma istituti tecnici, il TAR boccia lo stop e “salva” il decreto ministeriale. ORDINANZA",
-          "link": "https://www.orizzontescuola.it/riforma-istituti-tecnici-il-tar-boccia-lo-stop-e-salva-il-nuovo-decreto-ministeriale-ordinanza/",
-          "pubDate": "Mon, 02 Nov 2026 17:52:13 +0000",
-          "description": "Il TAR per il Lazio interviene sulla riorganizzazione dell’istruzione tecnica e professionale, respingendo la richiesta di sospensione d'urgenza avanzata contro…"
-        },
-        {
-          "title": "Dimensionamento scolastico 2027/28: ecco i piani regionali approvati [IN AGGIORNAMENTO]",
-          "link": "https://www.orizzontescuola.it/dimensionamento-scolastico-2027-28-ecco-i-piani-regionali-approvati-in-aggiornamento/",
-          "pubDate": "Mon, 02 Nov 2026 17:51:16 +0000",
-          "description": "Regioni e Uffici scolastici regionali stanno pubblicando i piani di dimensionamento scolastico per l'anno scolastico 2027/28. L'articolo Dimensionamento scolast…"
         }
       ]
     },
@@ -87,22 +87,22 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
+          "title": "Apple, ricavi oltre le stime con l’iPhone. Titolo debole nell’after hours",
+          "link": "https://www.ilsole24ore.com/art/apple-attesa-la-trimestrale-che-fa-conto-sull-iphone-AJvqgJ2B",
+          "pubDate": "Mon, 2 Nov 2026 19:34:00 GMT",
+          "description": "Il gruppo di Cupertino ha registrato un fatturato di 114,5 miliardi di dollari, in crescita del 12% su base annua. Ok l’utile"
+        },
+        {
+          "title": "Wall Street chiude contrastata alla vigilia delle midterm. Borse europee su con tonfo greggio",
+          "link": "https://www.ilsole24ore.com/art/positive-borse-cinesi-shanghai-09percento-e-shenzhen-18percento-AJpZfX1B",
+          "pubDate": "Mon, 2 Nov 2026 06:25:00 GMT",
+          "description": "Il Brent perde più del 10%, il Wti viaggia sui 97 dollari e il gas scende di circa l'8%. L'euro si rafforza attorno a 1,12 dollari, giù lo spread a 113 punti"
+        },
+        {
           "title": "Cyberattacchi alla catena del freddo: colpite due aziende italiane, allerta Acn",
           "link": "https://www.ilsole24ore.com/art/cyberattacchi-catena-freddo-colpite-due-aziende-italiane-allerta-acn-AJ0l6I2B",
           "pubDate": "Mon, 2 Nov 2026 18:20:00 GMT",
           "description": "Un’impresa toscana della ristorazione collettiva e un’azienda emiliana dei surgelati sono finite nel mirino. L’Agenzia per la cybersicurezza nazionale rafforza…"
-        },
-        {
-          "title": "Le Borse europee riprendono quota con tonfo greggio e rimbalzo tech. Milano chiude a +0,9%",
-          "link": "https://www.ilsole24ore.com/art/positive-borse-cinesi-shanghai-09percento-e-shenzhen-18percento-AJpZfX1B",
-          "pubDate": "Mon, 2 Nov 2026 06:25:00 GMT",
-          "description": "Il Brent perde più del 10%, il Wti viaggia sui 97 dollari e il gas scende di circa l'8%. L'euro si rafforza attorno a 1,12 dollari, giù lo spread a 113 punti. A…"
-        },
-        {
-          "title": "Anthropic, ricavi dodici volte più alti e 23 miliardi di perdite",
-          "link": "https://www.ilsole24ore.com/art/anthropic-l-ultima-trimestrale-prima-dell-ipo-crescono-ricavi-e-costi-AJIRJ51B",
-          "pubDate": "Mon, 2 Nov 2026 15:56:00 GMT",
-          "description": "Perdita netta di 23,3 miliardi di dollari, contro i 12,1 miliardi di un anno fa. Ma le entrate sono da record"
         },
         {
           "title": "Addio a Nadia Santini, icona della cucina italiana e anima del Pescatore di Canneto sull’Oglio, tre stelle Michelin",
