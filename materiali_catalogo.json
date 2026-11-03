@@ -55,6 +55,17 @@
     "categoria": "Verifiche"
   },
   {
+    "classe": "Prima",
+    "titolo": "Bit e byte — 20 esercizi",
+    "descrizione": "Conversioni, codifiche e capacità di memoria. Difficoltà media–alta, risposte aperte senza soluzioni. PDF finale con nome, cognome e classe.",
+    "tipo": "esercizio",
+    "file_path": "tracce/Prime/bit-byte.html",
+    "target_page": "tracce/Prime/bit-byte.html",
+    "ordine": 5,
+    "attivo": true,
+    "categoria": "Esercizi"
+  },
+  {
     "classe": "Seconda",
     "titolo": "Gli elementi base del linguaggio",
     "descrizione": "Strutture selettive e iterative.",
@@ -307,7 +318,6 @@
     "attivo": true,
     "categoria": "Lezioni"
   },
-  
   {
     "classe": "Quinta",
     "titolo": "Sistemi lineari con Foglio di calcolo",
