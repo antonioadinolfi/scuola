@@ -180,3 +180,11 @@ footer .license>a:first-child{text-decoration:none}
 .cc-badge b{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#fff;color:#102a43;font-size:.72rem}
 @media print{footer .wrap{font-size:0}footer .license{font-size:9pt;margin:0}footer .license>a:first-child{display:none}}
 .lesson-figure.wide img{max-width:100%}
+/* v14 · materiali da scaricare */
+.download-card{display:flex;gap:22px;align-items:flex-start}
+.dl-icon{flex:none;width:72px;height:88px;border-radius:10px;background:#c4661b;color:#fff;font-weight:800;font-size:1.05rem;display:grid;place-items:center;letter-spacing:.05em;box-shadow:inset 0 -14px 0 rgba(0,0,0,.12)}
+.download-card h3{margin:0 0 4px}
+.download-card .muted{margin:0 0 6px}
+.dl-note{margin-top:12px}
+@media(max-width:600px){.download-card{flex-direction:column}}
+@media print{.download-card .actions{display:none}}
