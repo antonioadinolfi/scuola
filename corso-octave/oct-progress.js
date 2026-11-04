@@ -17,12 +17,13 @@ window.OctCourse = (() => {
   function teacher() { try { return localStorage.getItem(TEACHER) === '1'; } catch { return false; } }
   function available(n) { return !!(lessons[n - 1] && lessons[n - 1].available); }
   function missing(n) { if (teacher()) return null; for (let i = 1; i < n; i++) if (!passed(i)) return i; return null; }
-  function save(n, answers) {
+  function save(n, answers, meta) {
     if (!validAnswers(n, answers)) throw Error('Rispondi a tutte le domande.');
-    const old = read(n), attempt = { answers: [...answers], at: new Date().toISOString() };
+    const old = read(n), attempt = { answers: [...answers], at: new Date().toISOString(), meta: meta || null };
     let best = old && old.best || null;
     if (score(n, answers) >= threshold(n) && (!best || score(n, answers) >= score(n, best.answers))) best = attempt;
-    const r = { version: VERSION, last: attempt, best, attempts: (old && old.attempts || 0) + 1 };
+    const history = ((old && old.history) || []).concat([{ at: meta ? meta.end : attempt.at, id: meta ? meta.id : null, score: score(n, answers), durMs: meta ? meta.durMs : null, who: meta ? meta.who : null }]).slice(-30);
+    const r = { version: VERSION, last: attempt, best, attempts: (old && old.attempts || 0) + 1, history };
     if (!ls.set(PREFIX + n, r)) throw Error('Il browser non consente di salvare il risultato: abilita i dati del sito.');
     return r;
   }
@@ -64,7 +65,7 @@ window.OctCourse = (() => {
     if (!teacher()) { if (b) b.remove(); return; }
     if (b || !document.body) return;
     b = document.createElement('div'); b.id = 'teacherBadge'; b.className = 'trainer-badge'; b.setAttribute('role', 'status');
-    b.innerHTML = '<span><strong>Modalità docente</strong> · lezioni sbloccate su questo browser</span> <button type="button">Disattiva</button>';
+    b.innerHTML = '<span><strong>Modalità docente</strong> · lezioni sbloccate su questo browser · <a href="./verifica.html" style="color:inherit">Verifica dei PDF</a></span> <button type="button">Disattiva</button>';
     b.querySelector('button').onclick = () => { try { localStorage.removeItem(TEACHER); } catch {} location.reload(); };
     document.body.append(b);
   }
@@ -88,7 +89,7 @@ window.OctCourse = (() => {
         for (let i = 0; i < localStorage.length; i++) {
           const k = localStorage.key(i);
           if (k.startsWith('octCode-')) data.code[k] = localStorage.getItem(k).slice(0, 20000);
-          if (k.startsWith('octEx-')) data.exercises[k] = '1';
+          if (k.startsWith('octEx-')) data.exercises[k] = localStorage.getItem(k);
         }
       } catch {}
       const nr = Object.keys(data.results).length, ne = Object.keys(data.exercises).length;
@@ -105,11 +106,11 @@ window.OctCourse = (() => {
       for (const [k, r] of Object.entries(data.results || {})) {
         const n = Number(k); if (!(n >= 1 && n <= lessons.length) || !r || r.version !== VERSION || !r.last || !validAnswers(n, r.last.answers)) continue;
         const cur = read(n), sc = x => score(n, ((x.best || x.last) || {}).answers);
-        if (!cur || sc(r) >= sc(cur)) { if (ls.set(PREFIX + n, r)) tests++; }
+        if (!cur || sc(r) >= sc(cur)) { r.imported = new Date().toISOString(); if (ls.set(PREFIX + n, r)) tests++; }
       }
       try {
         for (const [k, v] of Object.entries(data.code || {})) if (/^octCode-[\w-]+$/.test(k) && typeof v === 'string' && !localStorage.getItem(k)) localStorage.setItem(k, v.slice(0, 20000));
-        for (const k of Object.keys(data.exercises || {})) if (/^octEx-[\w-]+$/.test(k)) { if (!localStorage.getItem(k)) ex++; localStorage.setItem(k, '1'); }
+        for (const k of Object.keys(data.exercises || {})) if (/^octEx-[\w-]+$/.test(k)) { if (!localStorage.getItem(k)) { ex++; localStorage.setItem(k, 'importato'); } }
       } catch {}
       return { tests, msg: 'Avanzamento caricato: ' + tests + ' test e ' + ex + ' esercizi.' };
     }

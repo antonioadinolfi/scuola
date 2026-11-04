@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="./oct.css?v=1">
 <script src="./oct-config.js?v=1"></script>
 <script src="./oct-data.js?v=1"></script>
-<script src="./oct-progress.js?v=1"></script>
+<script src="./oct-progress.js?v=2"></script>
 </head>
 <body>
 <noscript><style>html.course-pending body{visibility:visible}</style><p>Attiva JavaScript per eseguire il codice e svolgere il test.</p></noscript>
@@ -411,10 +411,22 @@ fprintf('radice di 10 = %.12f dopo %d passi\n', x, passi);
 <section class="section" id="test-finale">
   <div class="kicker">Test di fine lezione · 10 domande</div>
   <h2>Verifica che cosa hai imparato</h2>
-  <p>Rispondi a tutte le domande e invia. Per sbloccare la Lezione 2 servono almeno <strong>7 risposte esatte su 10 (70%)</strong>. Dopo l’invio vedrai quali risposte sono esatte e un suggerimento per le altre, senza la soluzione: ripassa e riprova, i tentativi sono illimitati. Alla fine invia l’esito al docente.</p>
-  <form id="finalQuiz">
+  <p>Rispondi a tutte le domande e invia. Per sbloccare la Lezione 2 servono almeno <strong>7 risposte esatte su 10 (70%)</strong>. Dopo l’invio vedrai quali risposte sono esatte e un suggerimento per le altre, senza la soluzione: ripassa e riprova, i tentativi sono illimitati. Alla fine scarica il <strong>PDF dell’esito</strong> e consegnalo su Classroom.</p>
+  <div class="panel builder" id="startBox">
+    <h3>Prima di iniziare</h3>
+    <p>Inserisci i tuoi dati: compariranno nel PDF e non si possono cambiare dopo l’inizio del tentativo. Dal clic su <strong>Inizia il test</strong> vengono registrati, e riportati nel PDF, l’ora di inizio e di consegna, il tempo di ogni risposta, le <strong>uscite dalla pagina</strong> (cambio di scheda o di applicazione) e i ricaricamenti. Resta su questa pagina fino alla consegna.</p>
+    <div class="row3">
+      <div><label for="stNome">Nome</label><input id="stNome" maxlength="40" autocomplete="given-name"></div>
+      <div><label for="stCognome">Cognome</label><input id="stCognome" maxlength="40" autocomplete="family-name"></div>
+      <div><label for="stClasse">Classe</label><input id="stClasse" maxlength="6" placeholder="es. 5A" autocomplete="off"></div>
+    </div>
+    <div class="actions" style="margin-top:14px"><button class="button primary" type="button" id="startQuiz">Inizia il test</button></div>
+    <p id="startMsg" role="alert"></p>
+  </div>
+  <p class="quiz-live" id="quizLive" hidden><span>Test in corso · <strong id="quizIdentity"></strong></span></p>
+  <form id="finalQuiz" hidden>
     <div id="quizQuestions"></div>
-    <p id="quizCount" role="status" aria-live="polite"></p>
+    <p id="quizCount" role="status" aria-live="off"></p>
     <button class="button primary" id="submitQuiz" disabled>Invia e verifica il risultato</button>
   </form>
   <p id="quizMessage" role="status" aria-live="polite"></p>
@@ -422,21 +434,17 @@ fprintf('radice di 10 = %.12f dopo %d passi\n', x, passi);
     <h3 id="quizScore"></h3>
     <p id="attemptCount" class="muted"></p>
     <div class="actions">
-      <button class="button" id="retryQuiz">Ripassa e riprova</button>
-      <button class="button" id="downloadQuiz">Scarica l’esito</button>
-      <a class="button primary" id="continueLink" data-lesson-link="2" href="./lezione-2.html" hidden>Prosegui alla Lezione 2 →</a>
+      <button class="button primary" id="pdfQuiz" type="button">📄 Scarica il PDF per Classroom</button>
+      <button class="button" id="retryQuiz" type="button">Ripassa e riprova</button>
+      <a class="button" id="continueLink" data-lesson-link="2" href="./lezione-2.html" hidden>Prosegui alla Lezione 2 →</a>
     </div>
+    <p id="pdfStatus" role="status" aria-live="polite"></p>
+    <p class="muted">Il PDF contiene i dati dell’ultimo tentativo, firmati digitalmente: caricalo su Classroom così com’è. Se rifai il test, scarica e consegna il nuovo PDF.</p>
   </div>
   <div class="panel builder consegna" id="consegnaBox" hidden>
-    <h3>Consegna al docente</h3>
-    <p>Invia l’esito di questo tentativo: il docente riceverà un PDF con risposte, punteggio ed esercizi completati. Puoi consegnare di nuovo dopo un nuovo tentativo.</p>
-    <form id="consegnaForm">
-      <div class="row">
-        <div><label for="stNome">Nome e cognome</label><input id="stNome" maxlength="80" autocomplete="name" required></div>
-        <div><label for="stClasse">Classe</label><input id="stClasse" maxlength="6" placeholder="es. 5A" required></div>
-      </div>
-      <div class="actions" style="margin-top:14px"><button class="button primary" id="consegnaBtn">Consegna l’esito</button></div>
-    </form>
+    <h3>Invio online al docente</h3>
+    <p>In alternativa al PDF, se il docente lo richiede, puoi inviare l’esito direttamente.</p>
+    <div class="actions"><button class="button" id="consegnaBtn" type="button">Invia l’esito</button></div>
     <p id="consegnaStatus" role="status" aria-live="polite"></p>
   </div>
 </section>
@@ -456,7 +464,8 @@ fprintf('radice di 10 = %.12f dopo %d passi\n', x, passi);
 
 <footer><div class="wrap">Calcolo numerico con Octave · Lezione 1 di 9 · <a href="./">Guida al corso</a> · Liceo Scientifico «N. Cortese»</div></footer>
 
-<script src="./oct-runner.js?v=1"></script>
-<script src="./oct-lesson.js?v=1"></script>
+<script src="./oct-runner.js?v=2"></script>
+<script src="./oct-pdf.js?v=1"></script>
+<script src="./oct-lesson.js?v=2"></script>
 </body>
 </html>

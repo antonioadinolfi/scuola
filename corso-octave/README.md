@@ -24,7 +24,17 @@ URL (non linkato dal sito, `noindex`): `https://antonioadinolfiscuola.it/corso-o
 - `oct-interp.js` (lexer, parser, aritmetica, formattazione) + `oct-eval.js` (esecuzione, funzioni predefinite, grafici, workspace): il simulatore di Octave. Gira in `oct-worker.js` con un timeout di 6 secondi.
 - `oct-runner.js`: editor degli script, Command Window con workspace e cronologia, grafici con Plotly (`../plotly-2.35.2.min.js`, caricato al primo grafico), spiegazione in italiano degli errori di Octave.
 - `oct-progress.js`, `oct-lesson.js`: soglia del 70%, sblocco progressivo, modalità docente, esportazione dell'avanzamento, test e consegna.
-- `apps-script/` + `oct-config.js`: consegna dei test in PDF su Drive (vedi `apps-script/README.md`).
+- `oct-pdf.js` + `vendor/` (jsPDF 4.2.1 e qrcode-generator 1.4.4, licenza MIT): PDF dell'esito da consegnare su Classroom, con dati firmati.
+- `verifica.html`: pagina del docente (non linkata, `noindex`) che controlla i PDF scaricati da Classroom.
+- `apps-script/` + `oct-config.js`: invio online facoltativo dell'esito su Drive (vedi `apps-script/README.md`); il pannello compare solo se `appsScriptUrl` è impostato.
+
+## Consegna su Classroom e controllo anti-copia
+1. Prima del test lo studente inserisce **nome, cognome e classe**: restano legati al tentativo e non si cambiano dopo l'inizio.
+2. Da «Inizia il test» vengono registrati: inizio e consegna (orologio del dispositivo e ora del sito, letta dall'intestazione `Date` del server), durata misurata con `performance.now()`, tempo della prima risposta e numero di modifiche per ogni domanda, uscite dalla pagina (cambio di scheda o di app: numero, istanti, durata), ricaricamenti (il test riprende dove era, ma l'evento è registrato), ordine casuale delle opzioni, ID casuale del tentativo e del dispositivo, browser e schermo.
+3. Alla consegna i dati vengono firmati (HMAC-SHA-256); il pulsante **Scarica il PDF per Classroom** crea `L1_5A_Cognome_Nome_AAAAMMGG-hhmm.pdf` con esito, tempi, risposte (senza la soluzione), storico dei tentativi, esercizi, segnalazioni automatiche, codice di verifica e QR. I dati completi firmati sono nei metadati del PDF.
+4. Il docente scarica da Classroom i PDF del compito e li trascina in `verifica.html` (anche link «Verifica dei PDF» nel riquadro della modalità docente). La pagina, senza inviare nulla in rete, segnala: firma non valida o punteggio alterato, file senza dati (stampato o rigenerato), stesso tentativo consegnato da due studenti, stesso dispositivo usato per studenti diversi, risposte identiche con errori uguali, tempi troppo brevi, uscite e ricaricamenti, orologio del dispositivo spostato, tentativi importati da un altro dispositivo. Esporta un CSV.
+
+Limite: la chiave della firma è nel codice del sito, quindi la firma rende evidenti le modifiche al file e lo scambio dei PDF ma non resiste a chi analizza il JavaScript. Per una prova sommativa conviene il test in classe sotto sorveglianza; le segnalazioni sono indizi da valutare.
 
 ## Il simulatore
 Riproduce il sottoinsieme di Octave usato nel corso, con i messaggi di errore e la visualizzazione dei risultati di Octave (`x = 5`, matrici in colonna, `Columns 1 through 8`, `format long`).

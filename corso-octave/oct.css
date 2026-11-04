@@ -273,3 +273,8 @@ header{background:linear-gradient(120deg,#102a43,#0f5e7a 55%,#176b87)}
 @media(max-width:800px){.oc-cmd-body{grid-template-columns:1fr}.oc-side{border-left:0;border-top:1px solid #dce4ec;max-height:none}.py-vs{grid-template-columns:1fr}.oc-term{height:300px}}
 @media(max-width:520px){.oc-in{font-size:16px}}
 @media print{.oc-tools,.oc-hint,.oc-chips,.oc-chips-lab,.oc-prompt{display:none!important}.oc-term{height:auto;background:#fff;color:#111}.oc-editor{max-height:none}}
+/* v2 · avvio del test e PDF */
+.row3{display:grid;grid-template-columns:1fr 1fr 120px;gap:12px}
+.quiz-live{position:sticky;top:0;z-index:20;margin:10px 0;padding:9px 14px;border-radius:10px;background:#102a43;color:#fff;font-size:.92rem}
+#startMsg{color:#c0562b;font-weight:600}
+@media(max-width:700px){.row3{grid-template-columns:1fr}}

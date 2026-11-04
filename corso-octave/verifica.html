@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Verifica dei PDF · Calcolo numerico con Octave</title>
+<link rel="stylesheet" href="./oct.css?v=2">
+<style>
+.drop{border:3px dashed #a9bfce;border-radius:16px;padding:34px;text-align:center;background:#fff;cursor:pointer}
+.drop.over{border-color:#176b87;background:#eef6f9}
+.vt{border-collapse:collapse;width:100%;font-size:.86rem;background:#fff}
+.vt th{background:#102a43;color:#fff;text-align:left;padding:8px;position:sticky;top:0}
+.vt td{padding:7px 8px;border-bottom:1px solid #dce4ec;vertical-align:top}
+.vt tr.row{cursor:pointer}.vt tr.row:hover{background:#f3f8fb}
+.st{font-weight:800;white-space:nowrap}.st.ok{color:#1f8a70}.st.warn{color:#b7791f}.st.ko{color:#c0562b}
+.fl{margin:0;padding-left:16px}.fl li{margin:2px 0}
+.det td{background:#fbfdfe}.det table{border-collapse:collapse;font-size:.82rem;margin:6px 0}.det th,.det td td{padding:3px 8px;border-bottom:1px solid #e3eaf0;text-align:left}
+.summary-bar{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}.summary-bar span{background:#e5edf3;border-radius:999px;padding:5px 12px;font-weight:700;font-size:.88rem}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="topbar"><a href="./">← Calcolo numerico con Octave</a><span>Area docente</span></div>
+  <div class="hero"><div class="kicker">Strumento per il docente</div><h1>Verifica dei PDF consegnati</h1>
+  <p>Trascina qui i PDF degli esiti scaricati da Classroom (anche tutti insieme). La pagina controlla la firma digitale, ricalcola il punteggio, legge i tempi e confronta i file tra loro per individuare copie e contraffazioni. I file restano sul tuo computer: nulla viene inviato in rete.</p></div>
+</div></header>
+<main class="wrap">
+  <section class="section">
+    <label class="drop" id="drop" tabindex="0">
+      <strong>Trascina qui i PDF</strong> oppure fai clic per sceglierli
+      <input type="file" id="files" accept="application/pdf,.pdf" multiple hidden>
+    </label>
+    <p class="muted">Da Classroom: apri il compito → <em>Tutti</em> → seleziona la cartella su Drive del compito e scaricala come ZIP; estrai l’archivio e trascina qui i PDF.</p>
+    <div class="summary-bar" id="summary"></div>
+    <div class="actions"><button class="button" id="csv" type="button" hidden>Scarica la tabella (CSV)</button><button class="button" id="clear" type="button" hidden>Svuota</button></div>
+    <div class="table-wrap panel" id="out" hidden></div>
+  </section>
+  <section class="section">
+    <h2>Che cosa viene controllato</h2>
+    <div class="panel">
+      <ul>
+        <li><strong>Firma</strong>: il PDF contiene, nei metadati, tutti i dati del tentativo firmati con HMAC-SHA-256. Se un dato viene cambiato (nome, classe, punteggio, orari) la firma non corrisponde più. Se il file è stato stampato, convertito o rigenerato con un altro programma, i dati firmati spariscono: il file risulta «senza dati di verifica».</li>
+        <li><strong>Punteggio</strong>: viene ricalcolato dalle risposte con le domande del corso.</li>
+        <li><strong>Tempi</strong>: durata, tempo medio per domanda, uscite dalla pagina, ricaricamenti, differenza tra l’orologio del dispositivo e l’ora del sito (che lo studente non può modificare).</li>
+        <li><strong>Confronto tra i file</strong>: stesso tentativo consegnato da due studenti (file copiato), stesso dispositivo usato per studenti diversi, risposte identiche (errori compresi) date in finestre di tempo sovrapposte, tentativi importati da un altro dispositivo.</li>
+      </ul>
+      <p class="muted">Limite: la firma è calcolata nel browser dello studente, perciò scoraggia e rende evidente la modifica del file e lo scambio dei PDF, ma non è una prova assoluta contro chi analizzasse il codice del sito. Le segnalazioni sono indizi da valutare, non sanzioni automatiche.</p>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">Calcolo numerico con Octave · Verifica degli esiti</div></footer>
+<script src="./oct-data.js?v=1"></script>
+<script src="./oct-pdf.js?v=1"></script>
+<script>
+"use strict";
+(() => {
+  const $ = id => document.getElementById(id);
+  const items = [];
+  const fmt = iso => iso ? new Date(iso).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }) : 'n.d.';
+  const dur = ms => ms == null ? 'n.d.' : (ms >= 60000 ? Math.floor(ms / 60000) + ' min ' : '') + Math.round(ms % 60000 / 1000) + ' s';
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+  const metaCore = (p) => ({ id: p.att.id, who: p.who, start: p.att.start, end: p.att.end, durMs: p.att.durMs, srvStart: p.att.srvStart, srvEnd: p.att.srvEnd, order: p.att.order, q: p.att.q, away: p.att.away, reloads: p.att.reloads, env: p.env });
+
+  async function analyse(file) {
+    const it = { file: file.name, flags: [], status: 'ok' };
+    try {
+      const bytes = new Uint8Array(await file.arrayBuffer());
+      let text = ''; for (let i = 0; i < bytes.length; i += 65536) text += String.fromCharCode.apply(null, bytes.subarray(i, i + 65536));
+      const code = window.OctPdf.findCode(text);
+      if (!code) { it.status = 'ko'; it.flags.push('Nessun dato di verifica: il file non è quello generato dal corso (rigenerato, stampato in PDF, modificato o di un altro tipo).'); return it; }
+      const { payload: p, valid } = await window.OctPdf.unpack(code);
+      it.p = p;
+      if (!valid) { it.status = 'ko'; it.flags.push('FIRMA NON VALIDA: i dati del file sono stati modificati.'); }
+      const lesson = window.OCT_LESSONS[p.lesson - 1];
+      if (lesson && lesson.quiz.length === p.att.answers.length) {
+        const sc = lesson.quiz.reduce((s, q, i) => s + (q.correct === p.att.answers[i] ? 1 : 0), 0);
+        it.score = sc; if (sc !== p.att.score) { it.status = 'ko'; it.flags.push('Il punteggio dichiarato (' + p.att.score + ') non corrisponde alle risposte (' + sc + ').'); }
+      } else { it.score = p.att.score; it.flags.push('Domande del test cambiate dopo la consegna: punteggio non ricalcolato.'); }
+      const local = await window.OctPdf.sign({ lesson: p.lesson, answers: p.att.answers, meta: metaCore(p) });
+      if (local !== p.att.localSig) { it.status = 'ko'; it.flags.push('La firma del tentativo, calcolata alla consegna del test, non corrisponde: dati alterati nel browser.'); }
+      (p.flags || []).forEach(f => { it.flags.push(f); if (it.status === 'ok') it.status = 'warn'; });
+    } catch (e) { it.status = 'ko'; it.flags.push('File non leggibile: ' + e.message); }
+    return it;
+  }
+  function crossChecks() {
+    const ok = items.filter(x => x.p);
+    ok.forEach(x => { x.cross = []; });
+    const name = x => x.p.who.cognome + ' ' + x.p.who.nome;
+    const key = x => (name(x) + '|' + x.p.who.classe).toLowerCase();
+    for (let i = 0; i < ok.length; i++) for (let j = i + 1; j < ok.length; j++) {
+      const a = ok[i], b = ok[j], same = key(a) === key(b);
+      if (a.p.att.id === b.p.att.id && !same) [a, b].forEach((x, k) => x.cross.push('Stesso tentativo consegnato anche da ' + name(k ? a : b) + ': file copiato.'));
+      if (!same && a.p.env.device === b.p.env.device) [a, b].forEach((x, k) => x.cross.push('Stesso dispositivo usato da ' + name(k ? a : b) + '.'));
+      if (!same && a.p.lesson === b.p.lesson) {
+        const q = window.OCT_LESSONS[a.p.lesson - 1].quiz;
+        const wrongSame = a.p.att.answers.filter((v, k) => v === b.p.att.answers[k] && v !== q[k].correct).length;
+        const identical = a.p.att.answers.every((v, k) => v === b.p.att.answers[k]);
+        const overlap = Date.parse(a.p.att.start) < Date.parse(b.p.att.end) && Date.parse(b.p.att.start) < Date.parse(a.p.att.end);
+        const gap = Math.round(Math.abs(Date.parse(a.p.att.start) - Date.parse(b.p.att.start)) / 60000);
+        const when = overlap ? 'test svolti in contemporanea' : 'inizi a ' + (gap < 1 ? 'meno di un minuto' : gap + ' minut' + (gap === 1 ? 'o' : 'i')) + ' di distanza';
+        if (identical && wrongSame >= 2) [a, b].forEach((x, k) => x.cross.push('Risposte identiche a ' + name(k ? a : b) + ', con ' + wrongSame + ' errori uguali (' + when + ').'));
+        else if (wrongSame >= 3) [a, b].forEach((x, k) => x.cross.push(wrongSame + ' errori identici a ' + name(k ? a : b) + ' (' + when + ').'));
+      }
+      if (same && a.p.att.id === b.p.att.id) [a, b].forEach(x => x.cross.push('Lo stesso file è stato caricato più volte.'));
+      else if (same && a.p.lesson === b.p.lesson && a.p.att.id !== b.p.att.id) [a, b].forEach(x => x.cross.push('Più PDF dello stesso studente per questa lezione: considera il più recente.'));
+    }
+  }
+  function render() {
+    crossChecks();
+    const rows = items.slice().sort((a, b) => ((a.p && a.p.who.classe) || '').localeCompare((b.p && b.p.who.classe) || '') || ((a.p && a.p.who.cognome) || a.file).localeCompare((b.p && b.p.who.cognome) || b.file));
+    const st = x => { const s = x.status === 'ko' ? 'ko' : (x.status === 'warn' || (x.cross && x.cross.length)) ? 'warn' : 'ok'; return s; };
+    const counts = { ok: 0, warn: 0, ko: 0 }; rows.forEach(x => counts[st(x)]++);
+    $('summary').innerHTML = '<span>File: ' + rows.length + '</span><span style="color:#1f8a70">Regolari: ' + counts.ok + '</span><span style="color:#b7791f">Da controllare: ' + counts.warn + '</span><span style="color:#c0562b">Non validi: ' + counts.ko + '</span>';
+    let h = '<table class="vt"><thead><tr><th>Esito</th><th>Studente</th><th>Classe</th><th>Lez.</th><th>Punti</th><th>Inizio</th><th>Durata</th><th>Uscite</th><th>Ricar.</th><th>Disp.</th><th>Segnalazioni</th></tr></thead><tbody>';
+    rows.forEach((x, k) => {
+      const s = st(x), p = x.p, fl = [...new Set([...x.flags, ...(x.cross || [])])];
+      h += '<tr class="row" data-k="' + k + '"><td class="st ' + s + '">' + (s === 'ok' ? '✓ Regolare' : s === 'warn' ? '⚠ Controlla' : '✗ Non valido') + '</td>';
+      if (p) h += '<td><strong>' + esc(p.who.cognome) + '</strong> ' + esc(p.who.nome) + '</td><td>' + esc(p.who.classe) + '</td><td>' + p.lesson + '</td><td>' + x.score + '/' + p.att.total + '</td><td>' + fmt(p.att.start) + '</td><td>' + dur(p.att.durMs) + '</td><td>' + p.att.away.n + (p.att.away.n ? ' (' + dur(p.att.away.ms) + ')' : '') + '</td><td>' + (p.att.reloads || 0) + '</td><td><code>' + esc(p.env.device) + '</code></td>';
+      else h += '<td colspan="9">' + esc(x.file) + '</td>';
+      h += '<td>' + (fl.length ? '<ul class="fl">' + fl.map(f => '<li>' + esc(f) + '</li>').join('') + '</ul>' : '—') + '</td></tr>';
+      if (p) {
+        const q = window.OCT_LESSONS[p.lesson - 1].quiz;
+        h += '<tr class="det" data-d="' + k + '" hidden><td colspan="11"><strong>File:</strong> ' + esc(x.file) + ' · <strong>Tentativo</strong> ' + esc(p.att.id) + ' (n. ' + p.att.attemptNo + ') · <strong>Consegna</strong> ' + fmt(p.att.end) + ' · <strong>Ora del sito</strong> ' + fmt(p.att.srvStart) + ' → ' + fmt(p.att.srvEnd) + ' · <strong>Browser</strong> ' + esc(p.env.ua) + ' ' + esc(p.env.scr) + ' · <strong>PDF generato</strong> ' + fmt(p.gen) + ' · <strong>Esercizi</strong> ' + p.ex.done + '/' + p.ex.total +
+          '<table><tr><th>Domanda</th><th>Risposta</th><th>Prima risposta</th><th>Modifiche</th></tr>' + q.map((qq, i) => { const t = p.att.q[i] || {}; const r = p.att.answers[i] === qq.correct; return '<tr><td>' + (i + 1) + '</td><td style="color:' + (r ? '#1f8a70' : '#c0562b') + '">' + (r ? 'esatta' : 'errata') + ' (' + String.fromCharCode(65 + (p.att.order[i] || []).indexOf(p.att.answers[i])) + ')</td><td>' + dur(t.first) + '</td><td>' + Math.max(0, (t.changes || 1) - 1) + '</td></tr>'; }).join('') + '</table>' +
+          (p.att.away.events && p.att.away.events.length ? '<div><strong>Uscite:</strong> ' + p.att.away.events.map(e => 'a ' + dur(e.t) + ' per ' + dur(e.ms)).join(' · ') + '</div>' : '') +
+          (p.history && p.history.length > 1 ? '<div><strong>Tentativi:</strong> ' + p.history.map(t => fmt(t.at) + ' ' + t.score + '/' + p.att.total).join(' · ') + '</div>' : '') + '</td></tr>';
+      }
+    });
+    $('out').innerHTML = h + '</tbody></table>'; $('out').hidden = !rows.length; $('csv').hidden = $('clear').hidden = !rows.length;
+    $('out').querySelectorAll('tr.row').forEach(tr => tr.onclick = () => { const d = $('out').querySelector('tr[data-d="' + tr.dataset.k + '"]'); if (d) d.hidden = !d.hidden; });
+    window._rows = rows; window._st = st;
+  }
+  async function add(files) {
+    for (const f of files) { if (!/\.pdf$/i.test(f.name) && f.type !== 'application/pdf') continue; items.push(await analyse(f)); }
+    render();
+  }
+  const drop = $('drop');
+  drop.addEventListener('click', e => { if (e.target === drop || e.target.tagName === 'STRONG') $('files').click(); });
+  drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); $('files').click(); } });
+  $('files').addEventListener('change', e => { add([...e.target.files]); e.target.value = ''; });
+  ['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('over'); }));
+  ['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('over'); }));
+  drop.addEventListener('drop', e => add([...e.dataTransfer.files]));
+  $('clear').onclick = () => { items.length = 0; render(); $('summary').innerHTML = ''; };
+  $('csv').onclick = () => {
+    const q = s => '"' + String(s == null ? '' : s).replace(/"/g, '""') + '"';
+    const lines = [['Esito', 'Cognome', 'Nome', 'Classe', 'Lezione', 'Punteggio', 'Totale', 'Inizio', 'Consegna', 'Durata (s)', 'Uscite', 'Tempo fuori (s)', 'Ricaricamenti', 'Dispositivo', 'Tentativo', 'File', 'Segnalazioni'].map(q).join(';')];
+    window._rows.forEach(x => { const p = x.p; const s = window._st(x); lines.push([s === 'ok' ? 'regolare' : s === 'warn' ? 'da controllare' : 'non valido', p && p.who.cognome, p && p.who.nome, p && p.who.classe, p && p.lesson, x.score, p && p.att.total, p && fmt(p.att.start), p && fmt(p.att.end), p && Math.round(p.att.durMs / 1000), p && p.att.away.n, p && Math.round(p.att.away.ms / 1000), p && p.att.reloads, p && p.env.device, p && p.att.id, x.file, [...new Set([...x.flags, ...(x.cross || [])])].join(' | ')].map(q).join(';')); });
+    const url = URL.createObjectURL(new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' }));
+    const a = document.createElement('a'); a.href = url; a.download = 'verifica-esiti-octave.csv'; document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
+})();
+</script>
+</body>
+</html>

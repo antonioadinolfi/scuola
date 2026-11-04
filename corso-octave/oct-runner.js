@@ -247,7 +247,7 @@ window.OctRunner = (() => {
         });
         const all = okN === ex.checks.length;
         checks.prepend(el('li', 'summary', all ? '🎉 Tutte le verifiche superate (' + okN + '/' + ex.checks.length + '). Esercizio completato!' : 'Verifiche superate: ' + okN + ' su ' + ex.checks.length + '. Correggi e riprova.'));
-        if (all) { store.set(doneKey, '1'); markDone(); document.dispatchEvent(new CustomEvent('oct-exercise-done', { detail: exId })); }
+        if (all) { if (!store.get(doneKey)) store.set(doneKey, new Date().toISOString()); markDone(); document.dispatchEvent(new CustomEvent('oct-exercise-done', { detail: exId })); }
       };
       btnHint.onclick = () => { const hs = ex.hints || []; if (!hs.length) return; hint.hidden = false; hint.textContent = '💡 Suggerimento ' + (hintIdx + 1) + ' di ' + hs.length + ': ' + hs[hintIdx]; hintIdx = (hintIdx + 1) % hs.length; };
       btnSol.onclick = () => {
@@ -331,7 +331,7 @@ window.OctRunner = (() => {
 
   function exercisesDone(prefix) {
     const ids = Object.keys(window.OCT_EXERCISES || {}).filter(k => k.startsWith(prefix));
-    return { done: ids.filter(k => store.get('octEx-' + k)).length, total: ids.length };
+    return { done: ids.filter(k => store.get('octEx-' + k)).length, total: ids.length, items: ids.filter(k => store.get('octEx-' + k)).map(k => { const v = store.get('octEx-' + k); return { id: k, at: /^\d{4}-/.test(v) ? v : null }; }) };
   }
 
   document.addEventListener('DOMContentLoaded', () => {
