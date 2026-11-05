@@ -1,9 +1,15 @@
 {
-  "updatedAt": "2026-11-05T14:21:43+00:00",
+  "updatedAt": "2026-11-05T21:50:13+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
       "items": [
+        {
+          "title": "Il Liceo Cortese rinnova la partecipazione a #ioleggoperché 2026",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/11/05/il-liceo-cortese-rinnova-la-partecipazione-a-ioleggoperche-2026/",
+          "pubDate": "Thu, 05 Nov 2026 16:00:07 +0000",
+          "description": "Anche quest’anno il Dipartimento di Lettere del Liceo Scientifico “Nino Cortese” di Maddaloni aderisce a #ioleggoperché, l&#8217;iniziativa nazionale promossa d…"
+        },
         {
           "title": "Eccellenza e innovazione europea al Liceo “Nino Cortese”: consegnati i National Quality Label eTwinning!",
           "link": "https://www.liceoscientificocortese.edu.it/2026/10/31/eccellenza-e-innovazione-europea-al-liceo-nino-cortese-consegnati-i-national-quality-label-etwinning/",
@@ -33,12 +39,6 @@
           "link": "https://www.liceoscientificocortese.edu.it/2026/10/23/il-nino-cortese-protagonista-alla-flik-flok-innovazione-sport-e-interviste-nella-seconda-giornata/",
           "pubDate": "Fri, 23 Oct 2026 17:58:16 +0000",
           "description": "Prosegue con straordinario successo e partecipazione la presenza del Liceo Scientifico Statale “Nino Cortese” alla ventitreesima edizione della Flik Flok, la pr…"
-        },
-        {
-          "title": "Il Liceo “Nino Cortese” alla XXIII Edizione della Flik Flok: al via una quattro giorni di sport, valore e territorio",
-          "link": "https://www.liceoscientificocortese.edu.it/2026/10/22/il-liceo-nino-cortese-alla-xxiii-edizione-della-flik-flok-al-via-una-quattro-giorni-di-sport-valore-e-territorio/",
-          "pubDate": "Thu, 22 Oct 2026 20:31:39 +0000",
-          "description": "La comunità scolastica del Liceo Scientifico “Nino Cortese” di Maddaloni ha inaugurato la propria partecipazione alla XXIII Edizione della &#8220;Flik Flok&#822…"
         }
       ]
     },
@@ -46,40 +46,40 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
-          "title": "FLC Cgil: “Il 20 novembre sciopero generale contro precarietà e salari da fame”",
-          "link": "https://www.orizzontescuola.it/flc-cgil-il-20-novembre-sciopero-generale-contro-precarieta-e-salari-da-fame/",
-          "pubDate": "Thu, 05 Nov 2026 14:14:44 +0000",
-          "description": "Il prossimo 20 novembre il personale di scuola, università, ricerca, AFAM, formazione professionale e istituti non statali si fermerà per l'intera giornata di m…"
+          "title": "Manovra, i sindacati convocati a Palazzo Chigi il 13 novembre. Ma la scuola resta in mobilitazione: sit-in a Roma l’11, assemblee il 16 e sciopero Flc Cgil il 20",
+          "link": "https://www.orizzontescuola.it/manovra-i-sindacati-convocati-a-palazzo-chigi-il-13-novembre-ma-la-scuola-resta-in-mobilitazione-sit-in-a-roma-l11-assemblee-il-16-e-sciopero-flc-cgil-il-20/",
+          "pubDate": "Thu, 05 Nov 2026 20:23:20 +0000",
+          "description": "I sindacati sono stati convocati a Palazzo Chigi per venerdì 13 novembre alle 9: davanti avranno una delegazione dell’esecutivo e un tema preciso, il disegno di…"
         },
         {
-          "title": "Legge di Bilancio, Pacifico (ANIEF): “Tagliare posti di lavoro nella scuola è un grave errore. Gli organici non possono essere ridotti”",
-          "link": "https://www.orizzontescuola.it/legge-di-bilancio-pacifico-anief-tagliare-posti-di-lavoro-nella-scuola-e-un-grave-errore-gli-organici-non-possono-essere-ridotti/",
-          "pubDate": "Thu, 05 Nov 2026 14:13:22 +0000",
-          "description": "Stop immediato ai tagli agli organici del personale docente e ATA previsti dalla legge di bilancio: è la richiesta formale presentata in maniera unitaria da ANI…"
+          "title": "Il doppio canale di assunzioni di cui si discute nel Decreto Scuola 2026 riguarda solo prima fascia GPS, sia sostegno sia classe di concorso",
+          "link": "https://www.orizzontescuola.it/il-doppio-canale-di-assunzioni-di-cui-si-discute-nel-decreto-scuola-2026-riguarda-solo-prima-fascia-gps-sia-sostegno-sia-classe-di-concorso/",
+          "pubDate": "Thu, 05 Nov 2026 19:45:25 +0000",
+          "description": "Il doppio canale di assunzioni, nell'unica versione che entro poche settimane potrebbe essere approvata sotto forma di emendamento al Decreto Scuola n. 170 /202…"
         },
         {
-          "title": "In UE carenza di insegnanti e competenze informatiche. Un quindicenne su tre ha difficoltà in lettura e matematica, sarà istituita una rete di supporto alle scuole",
-          "link": "https://www.orizzontescuola.it/in-ue-carenza-di-insegnanti-e-competenze-informatiche-un-quindicenne-su-tre-ha-difficolta-in-lettura-e-matematica-sara-istituita-una-rete-di-supporto-alle-scuole/",
-          "pubDate": "Thu, 05 Nov 2026 13:59:09 +0000",
-          "description": "Un adolescente europeo su tre non raggiunge livelli adeguati di competenza nella lettura e nella matematica. Le difficoltà riguardano anche le scienze, dove uno…"
+          "title": "Dal 2027 Google spegne l’IA negli account degli studenti americani: le scuole che la rifiutano del tutto perdono anche il motore di ricerca",
+          "link": "https://www.orizzontescuola.it/dal-2027-google-spegne-lia-negli-account-degli-studenti-americani-le-scuole-che-la-rifiutano-del-tutto-perdono-anche-il-motore-di-ricerca/",
+          "pubDate": "Thu, 05 Nov 2026 19:20:34 +0000",
+          "description": "Le scuole americane potranno decidere se lasciare l’intelligenza artificiale di Google negli account dei propri studenti oppure tenerla fuori. Chi sceglie di sp…"
         },
         {
-          "title": "PNRR, il Ministro Foti: “Superato il target su Its Academy, 40mila iscritti. Priorità a divario competenze”",
-          "link": "https://www.orizzontescuola.it/pnrr-il-ministro-foti-superato-il-target-su-its-academy-40mila-iscritti-priorita-a-divario-competenze/",
-          "pubDate": "Thu, 05 Nov 2026 13:56:23 +0000",
-          "description": "Il settore degli Its Academy rappresenta una leva strategica fondamentale per ridurre il divario tra la domanda delle imprese e l'offerta di competenze disponib…"
+          "title": "Come si racconta l’Europa agli studenti? Giochi, dibattiti e giochi di ruolo: le proposte gratuite del Parlamento europeo per la scuola",
+          "link": "https://www.orizzontescuola.it/come-si-racconta-leuropa-agli-studenti-giochi-dibattiti-e-giochi-di-ruolo-le-proposte-gratuite-del-parlamento-europeo-per-la-scuola/",
+          "pubDate": "Thu, 05 Nov 2026 19:01:59 +0000",
+          "description": "Giochi, puzzle, dibattiti, giochi di ruolo e piccoli progetti di ricerca per raccontare l’Europa ai ragazzi senza annoiarli. Il Parlamento europeo mette a dispo…"
         },
         {
-          "title": "Cade al rientro dal bagno e si rompe i denti, niente risarcimento all’alunna senza testimoni diretti. La decisione del Tribunale",
-          "link": "https://www.orizzontescuola.it/cade-al-rientro-dal-bagno-e-si-rompe-i-denti-niente-risarcimento-allalunna-senza-testimoni-diretti-la-decisione-del-tribunale/",
-          "pubDate": "Thu, 05 Nov 2026 13:42:16 +0000",
-          "description": "Una caduta tra i banchi di scuola durante il cambio d'ora, un dente spezzato e una richiesta di risarcimento che si infrange dopo anni da una sentenza emessa da…"
+          "title": "Nasce Edu-Edic, otto Stati Ue uniti per l’intelligenza artificiale nella scuola: ecco cosa è previsto",
+          "link": "https://www.orizzontescuola.it/nasce-edu-edic-otto-stati-ue-uniti-per-lintelligenza-artificiale-nella-scuola-ecco-cosa-e-previsto/",
+          "pubDate": "Thu, 05 Nov 2026 18:33:16 +0000",
+          "description": "La Commissione Europea ha ufficializzato l'istituzione del consorzio Edu-Edic, promosso dai Paesi Bassi e composto originariamente da Belgio, Francia, Spagna, G…"
         },
         {
-          "title": "Manifestazioni in Francia, liceo incendiato vicino a Tolosa",
-          "link": "https://www.orizzontescuola.it/manifestazioni-in-francia-liceo-incendiato-vicino-a-tolosa/",
-          "pubDate": "Thu, 05 Nov 2026 13:22:48 +0000",
-          "description": "Momenti di tensione in Francia, dove un liceo nei pressi di Tolosa è stato incendiato durante le manifestazioni di oggi. L'articolo Manifestazioni in Francia, l…"
+          "title": "Supplenze docenti, si lavora tramite interpello e tutto diventa “precario”. Anche attendere la conferma per la presa di servizio",
+          "link": "https://www.orizzontescuola.it/supplenze-docenti-si-lavora-tramite-interpello-e-tutto-diventa-precario-anche-attendere-la-conferma-per-la-presa-di-servizio/",
+          "pubDate": "Thu, 05 Nov 2026 18:30:39 +0000",
+          "description": "Supplenze docenti: nessuna chiamata nella propria provincia, centinaia di interpelli pubblicati ogni giorno, domande da inviare, risposte da controllare. Termin…"
         }
       ]
     },
@@ -87,22 +87,22 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Banche e assicurazioni sotto attacco: gli hacker passano dalle email",
-          "link": "https://www.ilsole24ore.com/art/banche-e-assicurazioni-sotto-attacco-hacker-passano-email-AJhE8q5B",
-          "pubDate": "Thu, 5 Nov 2026 13:10:00 GMT",
-          "description": "L’Acn registra 168 eventi nei primi nove mesi del 2026. Quacivi in Parlamento: nelle banche prevale la criminalità informatica, nelle assicurazioni l’hacktivism…"
-        },
-        {
-          "title": "Aerei: almeno 18 i voli interessati da allarmi bomba, 6 coinvolgono l’Italia",
-          "link": "https://www.ilsole24ore.com/art/falsi-allarmi-bomba-sette-voli-europa-due-diretti-roma-AJe1IL3B",
-          "pubDate": "Tue, 3 Nov 2026 15:35:00 GMT",
-          "description": "Nuova ondata di allarmi bomba sui voli europei, anche diretti o partiti dall’Italia. Le segnalazioni salgono ad almeno 18. Nessuna minaccia è risultata conferma…"
-        },
-        {
-          "title": "Borse Ue ancora in rialzo in scia a Midterm, a Milano scatta Tenaris",
+          "title": "Borse, Wall Street affonda e brucia 3.200 miliardi con la fuga dall’AI",
           "link": "https://www.ilsole24ore.com/art/borsa-indici-giovedi-5-novembre-2026-AJerTS5B",
           "pubDate": "Thu, 5 Nov 2026 06:22:00 GMT",
-          "description": "Gli investitori sperano in una soluzione diplomatica dei conflitti. Intanto la Bank of England ha portato i tassi al 4%. E' il primo rialzo da oltre tre anni"
+          "description": "Si spegne la volata Midterm, con l’onda blu dei Democratici al Congresso si teme una regolamentazione più stringente dell’AI. A Piazza Affari St e Technoprobe i…"
+        },
+        {
+          "title": "Paraguay, il presidente Peña si dimette dopo il caos di Ueno Bank",
+          "link": "https://www.ilsole24ore.com/art/paraguay-presidente-pena-si-dimette-il-caos-ueno-bank-AJ9OSV6B",
+          "pubDate": "Thu, 5 Nov 2026 20:13:00 GMT",
+          "description": "Il presidente del Paraguay, Santiago Peña, si è dimesso dopo il commissariamento da parte della banca centrale di Ueno Bank, un istituto di credito digitale che…"
+        },
+        {
+          "title": "Aeroporti, caos nei cieli europei: almeno 25 voli colpiti da falsi allarmi bomba, 10 coinvolgono l’Italia",
+          "link": "https://www.ilsole24ore.com/art/falsi-allarmi-bomba-sette-voli-europa-due-diretti-roma-AJe1IL3B",
+          "pubDate": "Tue, 3 Nov 2026 15:35:00 GMT",
+          "description": "Giornata di caos nei cieli europei. Almeno 25 voli verso città europee, di cui 10 casi hanno riguardato l’Italia , hanno subito falsi allarmi di bomba oggi cost…"
         },
         {
           "title": "Bonus mobili e voucher elettrodomestici, nel 2027 doppio sconto per arredare casa",
@@ -111,16 +111,16 @@
           "description": "La manovra conferma entrambi gli strumenti per il prossimo anno: le regole da conoscere per due misure che non è possibile cumulare"
         },
         {
-          "title": "Torna l’ipotesi condono, ma dall’ultima sanatoria incassato solo un terzo del previsto",
-          "link": "https://www.ilsole24ore.com/art/torna-l-ipotesi-condono-ma-dall-ultima-sanatoria-incassato-solo-terzo-previsto-AJMxXc4B",
-          "pubDate": "Thu, 5 Nov 2026 09:58:16 GMT",
-          "description": "La maggioranza guarda al condono del 2003 ma anche a quello del 1985. Sullo sfondo il caso della Campania"
+          "title": "Fine vita, il governo impugna la legge del Veneto: Salvini non vota in Cdm. Il leghista Altieri presidente dell’Anac",
+          "link": "https://www.ilsole24ore.com/art/fine-vita-governo-impugna-legge-veneto-salvini-non-vota-cdm-calderoli-contrario-AJHFDG6B",
+          "pubDate": "Thu, 5 Nov 2026 17:24:00 GMT",
+          "description": "Il governo ha deciso di impugnare la legge sul fine vita del Veneto, prima Regione amministrata dal centrodestra a dare il via libera a “procedure e tempi per..…"
         },
         {
-          "title": "Investimenti, Nato, Carabinieri: alla Difesa 4,8 miliardi in più",
-          "link": "https://www.ilsole24ore.com/art/investimenti-nato-carabinieri-difesa-48-miliardi-piu-AJJGj94B",
-          "pubDate": "Thu, 5 Nov 2026 07:38:46 GMT",
-          "description": "A riarmo e sicurezza 10,9 miliardi extra nei prossimi tre anni, concentrati per l’85% sul 2027-28 per la clausola Ue. Nei programmi anche i piani interforze e i…"
+          "title": "Moda, continuano le uscite: Piccioli lascia Balenciaga, Colangelo dice addio a Giada",
+          "link": "https://www.ilsole24ore.com/art/moda-continuano-uscite-piccioli-lascia-balenciaga-colangelo-dice-addio-giada-AJ0aID6B",
+          "pubDate": "Thu, 5 Nov 2026 16:51:00 GMT",
+          "description": "L’esperienza del creativo romano nella maison del gruppo Kering è durata un anno e mezzo, mentre Colangelo era alla guida del marchio del gruppo cinese Redstone…"
         }
       ]
     }
