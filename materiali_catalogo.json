@@ -493,5 +493,16 @@
     "ordine": 1,
     "attivo": true,
     "categoria": "Verifiche"
+  },
+  {
+    "classe": "Quarta",
+    "titolo": "Quiz OOP – Traccia l'esecuzione",
+    "descrizione": "10 casi interattivi su incapsulamento, ereditarietà e polimorfismo in Python, con la sequenza di esecuzione spiegata passo per passo.",
+    "tipo": "esercizio",
+    "file_path": "tracce/Quarte/quiz_oop_python.html",
+    "target_page": "",
+    "ordine": 6,
+    "attivo": true,
+    "categoria": "Esercizi"
   }
 ]
