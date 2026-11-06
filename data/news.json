@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T19:09:49+00:00",
+  "updatedAt": "2026-11-06T23:59:52+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,24 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Toxic positivity, la dittatura della felicità: perché i giovani sentono di dover essere sempre belli, vincenti e felici",
+          "link": "https://www.orizzontescuola.it/toxic-positivity-la-dittatura-della-felicita-perche-i-giovani-sentono-di-dover-essere-sempre-belli-vincenti-e-felici/",
+          "pubDate": "Fri, 06 Nov 2026 20:00:00 +0000",
+          "description": "Essere felici sembra diventato un dovere. Non basta attraversare la giovinezza, imparare, sbagliare, cercare una strada: bisogna apparire entusiasti, attraenti,…"
+        },
+        {
+          "title": "Formazione, l’ex ministro Profumo (PoliTo): “Non basterà più ciò che si è imparato all’inizio della vita, bisognerà tornare a scuola molte volte”",
+          "link": "https://www.orizzontescuola.it/formazione-lex-ministro-profumo-polito-non-bastera-piu-cio-che-si-e-imparato-allinizio-della-vita-bisognera-tornare-a-scuola-molte-volte/",
+          "pubDate": "Fri, 06 Nov 2026 19:53:34 +0000",
+          "description": "Francesco Profumo, già ministro dell'Istruzione, Università e Ricerca e professore emerito del Politecnico di Torino, ha indicato nella formazione continua un e…"
+        },
+        {
+          "title": "Dipendenze digitali, il 61,4% dei bimbi tra 0 e 6 anni usa lo schermo ogni giorno. Lavenia: “Genitori che non sanno parlare ai figli senza uno schermo di mezzo”",
+          "link": "https://www.orizzontescuola.it/dipendenze-digitali-il-614-dei-bimbi-tra-0-e-6-anni-usa-lo-schermo-ogni-giorno-lavenia-genitori-che-non-sanno-parlare-ai-figli-senza-uno-schermo-di-mezzo/",
+          "pubDate": "Fri, 06 Nov 2026 19:35:27 +0000",
+          "description": "Il 61,4% dei bambini tra zero e sei anni utilizza uno schermo ogni giorno e per il 41,5% il primo contatto con i dispositivi avviene tra i due e i tre anni. L'a…"
+        },
+        {
           "title": "Italiano, latino e greco con 4, matematica con 5, alunna con “disturbo misto delle capacità scolastiche”. Famiglia fa ricorso al TAR contro la bocciatura, ma i giudici dicono no: ecco perché",
           "link": "https://www.orizzontescuola.it/italiano-latino-e-greco-con-4-matematica-con-5-alunna-con-disturbo-misto-delle-capacita-scolastiche-famiglia-fa-ricorso-al-tar-contro-la-bocciatura-ma-i-giudici-dicono-no-ecco-perche/",
           "pubDate": "Fri, 06 Nov 2026 18:55:53 +0000",
@@ -62,24 +80,6 @@
           "link": "https://www.orizzontescuola.it/supplenze-al-30-giugno-quando-la-scuola-puo-nominare-da-graduatoria-di-istituto-e-perche-anche-unora-puo-vincolare-il-docente-pillole-di-question-time/",
           "pubDate": "Fri, 06 Nov 2026 17:50:17 +0000",
           "description": "Nel Question Time di Orizzonte Scuola, condotto da Francesco Bunetto con la partecipazione di Chiara Cozzetto, segretaria nazionale ANIEF, è stato fatto il punt…"
-        },
-        {
-          "title": "Manovra, Schlein: “Va completamente riscritta. Non solo hanno provato a cacciare i bambini stranieri, ora cacciano anche gli insegnanti”",
-          "link": "https://www.orizzontescuola.it/manovra-schlein-va-completamente-riscritta-non-solo-hanno-provato-a-cacciare-i-bambini-stranieri-ora-cacciano-anche-gli-insegnanti/",
-          "pubDate": "Fri, 06 Nov 2026 17:45:40 +0000",
-          "description": "Elly Schlein, segretaria del Partito Democratico, ha chiesto una riscrittura completa della manovra economica del governo, annunciando una battaglia congiunta c…"
-        },
-        {
-          "title": "Concorso 2023 ed. motoria alla primaria, il ruolo arriverà (prima o poi). Assunzioni anche da elenco regionale",
-          "link": "https://www.orizzontescuola.it/concorso-2023-ed-motoria-alla-primaria-il-ruolo-arrivera-prima-o-poi-assunzioni-anche-da-elenco-regionale/",
-          "pubDate": "Fri, 06 Nov 2026 16:30:05 +0000",
-          "description": "Concorso ed. motoria alla primaria: finora è stato svolto un'unica procedura, indetta con Decreto del Direttore Generale n. 1330 del 4 agosto 2023 per la copert…"
-        },
-        {
-          "title": "TikTok, l’Ue contro l’effetto “tana del coniglio”: l’algoritmo propone video sempre simili, anche su perdita di peso e salute mentale. Possibile multa fino al 6% del fatturato",
-          "link": "https://www.orizzontescuola.it/tiktok-lue-contro-leffetto-tana-del-coniglio-lalgoritmo-propone-video-sempre-simili-anche-su-perdita-di-peso-e-salute-mentale-possibile-multa-fino-al-6/",
-          "pubDate": "Fri, 06 Nov 2026 16:00:41 +0000",
-          "description": "La Commissione europea mette sotto accusa il cuore di TikTok: il feed “Per te”, che propone video senza sosta in base ai gusti di chi scorre. L'articolo TikTok,…"
         }
       ]
     },
@@ -87,16 +87,10 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Bce, lo spagnolo de Cos e l’olandese Knot in corsa per la successione a Lagarde: chi sono i due sfidanti",
-          "link": "https://www.ilsole24ore.com/art/bce-spagnolo-de-cos-e-l-olandese-knot-corsa-la-successione-lagarde-chi-sono-due-sfidanti-AJcuQc7B",
-          "pubDate": "Fri, 6 Nov 2026 17:04:00 GMT",
-          "description": "Alla scadenza dei termini per la presentazione delle candidature, fissata alle 17 di oggi, l’Eurogruppo ha ricevuto soltanto i nomi dei due ex governatori delle…"
-        },
-        {
-          "title": "Borse Ue positive nella settimana delle Midterm, Milano +1,1%. Giù i tech con dubbi su AI",
-          "link": "https://www.ilsole24ore.com/art/borsa-europa-avvio-calo-il-giovedi-nero-nasdaq-AJN9Lv6B",
-          "pubDate": "Fri, 6 Nov 2026 07:24:00 GMT",
-          "description": "Forti ribassi per il petrolio: nell'ottava il Brent ha lasciato sul terreno il 17%, il Wti il 12,7%. Il gas ad Amsterdam ha perso il 17,2%"
+          "title": "Con il gas sahariano l’Ue punta a sganciarsi da Putin. Mosca, però, vuole costruire le tubature",
+          "link": "https://www.ilsole24ore.com/art/con-gas-sahariano-l-ue-punta-sganciarsi-putin-mosca-pero-vuole-costruire-tubature-AJ3OgR6B",
+          "pubDate": "Fri, 6 Nov 2026 12:39:28 GMT",
+          "description": "L’Europa vuole uscire dal gas russo, ma potrebbe ritrovare imprese russe nella costruzione di un’infrastruttura destinata a diversificare le sue forniture. Il 4…"
         },
         {
           "title": "Mps: conti sopra le attese, l’utile sale del 21% a 1,65 miliardi. Entro novembre le valutazioni sull’Opas Intesa",
@@ -111,16 +105,22 @@
           "description": "Dopo la procura di Milano, anche la procura di Roma ha avviato un’inchiesta sugli allarmi bomba che hanno riguardato diversi voli in questi giorni, anche nello…"
         },
         {
+          "title": "Occupazione Usa in forte crescita a ottobre: 165mila nuovi posti trainati da servizi e tecnologia",
+          "link": "https://www.ilsole24ore.com/art/occupazione-usa-forte-crescita-ottobre-165mila-nuovi-posti-trainati-servizi-e-tecnologia-AJcL4V7B",
+          "pubDate": "Fri, 6 Nov 2026 20:39:00 GMT",
+          "description": "Dati solidi e ben oltre le attese: la disoccupazione è scesa al 4,1%. Più probabile un rialzo dei tassi da parte della Fed a dicembre"
+        },
+        {
+          "title": "In Sudafrica l’Anc verso i minimi storici, scatta rebus coalizioni",
+          "link": "https://www.ilsole24ore.com/art/in-sudafrica-l-anc-i-minimi-storici-scatta-rebus-coalizioni-AJyTBp7B",
+          "pubDate": "Fri, 6 Nov 2026 19:46:39 GMT",
+          "description": "Il partito veleggia sul 32% dei consensi, suggellando una crisi sancita dalla perdita di maggioranza nel 2024"
+        },
+        {
           "title": "Bonus mobili e voucher elettrodomestici, nel 2027 doppio sconto per arredare casa",
           "link": "https://www.ilsole24ore.com/art/bonus-mobili-e-voucher-elettrodomestici-2027-doppio-sconto-arredare-casa-AJzRIk4B",
           "pubDate": "Thu, 5 Nov 2026 04:17:00 GMT",
           "description": "La manovra conferma entrambi gli strumenti per il prossimo anno: le regole da conoscere per due misure che non è possibile cumulare"
-        },
-        {
-          "title": "Exit tax, come funziona la tassa anti-fuga in manovra e come potrebbe essere trasformata",
-          "link": "https://www.ilsole24ore.com/art/exit-tax-come-funziona-tassa-anti-fuga-manovra-e-come-potrebbe-essere-trasformata-AJfapC7B",
-          "pubDate": "Fri, 6 Nov 2026 14:43:32 GMT",
-          "description": "Partire costerà, ma solo a chi ha un portafoglio sopra gli 800mila euro. La manovra introduce dal 2027 un’imposta sui guadagni finanziari maturati e non ancora…"
         }
       ]
     }
