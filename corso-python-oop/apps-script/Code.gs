@@ -9,7 +9,7 @@
  */
 
 // ID della cartella Drive che raccoglie le consegne (la parte finale dell'URL della cartella).
-const FOLDER_ID = 'INSERISCI_QUI_ID_CARTELLA';
+const FOLDER_ID = '19QuUCP0OygtCsTWpOZDudOCVpP6_cCjK'; // Drive: Consegne Python OOP
 const REGISTRO = 'Registro consegne Python OOP';
 const MAX_BYTES = 60000;
 

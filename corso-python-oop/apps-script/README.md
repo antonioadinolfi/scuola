@@ -3,8 +3,8 @@
 Il sito invia l'esito di ogni test a una web app Apps Script del docente. Lo script crea un PDF nella cartella Drive del docente (`Classe/Lezione N/`) e aggiunge una riga al foglio **Registro consegne Python OOP**.
 
 ## Attivazione (circa 5 minuti)
-1. Crea su Drive una cartella, ad esempio `Consegne Python OOP`, e copia il suo ID: è la parte dell'URL dopo `/folders/`.
-2. Vai su <https://script.google.com>, crea un **Nuovo progetto** e incolla il contenuto di `Code.gs`. Sostituisci `INSERISCI_QUI_ID_CARTELLA` con l'ID.
+1. La cartella Drive `Consegne Python OOP` esiste già (account lscortese.com) e il suo ID è già inserito in `Code.gs`.
+2. Vai su <https://script.google.com>, crea un **Nuovo progetto** e incolla il contenuto di `Code.gs`.
 3. Esegui una volta la funzione `prova` e concedi le autorizzazioni per Drive e Fogli.
 4. Scegli **Distribuisci → Nuova distribuzione → App web**, con *Esegui come: Me* e *Chi ha accesso: Chiunque*. Copia l'URL che termina con `/exec`.
 5. Incolla l'URL in `corso-python-oop/oop-config.js` (`appsScriptUrl`), quindi esegui commit e push.
