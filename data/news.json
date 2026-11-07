@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-07T18:31:56+00:00",
+  "updatedAt": "2026-11-07T23:31:06+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -87,10 +87,28 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
+          "title": "Manovra 2027 sotto assedio: sindacati, banche e Comuni all’attacco delle misure del governo",
+          "link": "https://www.ilsole24ore.com/art/manovra-2027-sotto-assedio-sindacati-banche-e-comuni-all-attacco-misure-governo-AJFHKm8B",
+          "pubDate": "Sat, 7 Nov 2026 19:53:00 GMT",
+          "description": "Sugli scudi ci sono già enti territoriali, sindacati e associazioni: faro acceso su pensioni, sanità e scuola, settore finanziario."
+        },
+        {
           "title": "Berkshire Hathaway, cresce a 377 miliardi di dollari la montagna di liquidità",
           "link": "https://www.ilsole24ore.com/art/berkshire-hathaway-cresce-377-miliardi-dollari-montagna-liquidita-AJc4sY8B",
           "pubDate": "Sat, 7 Nov 2026 16:03:17 GMT",
           "description": "Continua a crescere la montagna di liquidità di Berkshire Hathaway che ha raggiunto i 377,4 miliardi di dollari, rispetto ai 365,5 miliardi di fine giugno mentr…"
+        },
+        {
+          "title": "Usa, Trump vuole portavoce il campione di arti marziali e ordina indagini sui dem",
+          "link": "https://www.ilsole24ore.com/art/usa-trump-ha-chiesto-dana-white-essere-portavoce-casa-bianca-AJYzbk8B",
+          "pubDate": "Sat, 7 Nov 2026 19:02:00 GMT",
+          "description": "L’era di Stephen Miller alla Casa Bianca si apre all’insegna di un Donald Trump agguerrito. Il presidente ha infatti ordinato indagini nei confronti dei democra…"
+        },
+        {
+          "title": "Licenziato l’operaio inabile agli sforzi per il medico aziendale ma che in palestra fa il “culturista”",
+          "link": "https://www.ilsole24ore.com/art/licenziato-operaio-inabile-sforzi-il-medico-aziendale-che-palestra-fa-culturista-AJ6AdY7B",
+          "pubDate": "Sat, 7 Nov 2026 04:02:00 GMT",
+          "description": "L'azienda lo aveva adibito a mansioni poco gravose, in cui il peso da sollevare era di 4,5 chili, ma in palestra ne alzava fino a 80"
         },
         {
           "title": "Ucraina, missili su Kiev: colpite infrastrutture energetiche. Pistorius: «Germania non può più fornire sistemi Patriot»",
@@ -99,28 +117,10 @@
           "description": "Martedì ad Abu Dhabi ripartono i colloqui trilaterali con gli Usa"
         },
         {
-          "title": "Polonia: sale a 6 morti il bilancio della sparatoria a Cracovia",
+          "title": "Polonia: in mimetica e con arma militare spara a caso dall’auto, 6 morti a Cracovia",
           "link": "https://www.ilsole24ore.com/art/polonia-2-persone-uccise-e-almeno-10-ferite-una-sparatoria-centro-cracovia-AJo9aX8B",
           "pubDate": "Sat, 7 Nov 2026 15:23:00 GMT",
-          "description": "Il Comando provinciale di polizia ha precisato che l’autore della sparatoria nella piazza del mercato di Cracovia è un cittadino polacco ed ha agito da solo, sm…"
-        },
-        {
-          "title": "Gasolio, fine del taglio accise: in Gazzetta non c’è la proroga dello sconto",
-          "link": "https://www.ilsole24ore.com/art/gasolio-fine-taglio-accise-gazzetta-non-c-e-proroga-sconto-AJcvyI8B",
-          "pubDate": "Sat, 7 Nov 2026 12:48:00 GMT",
-          "description": "Si torna alle accise ordinarie. Di nuovo. Nella Gazzetta ufficiale di sabato 7 novembre, ultimo giorno di sconto sul prezzo del gasolio , non c’è la proroga del…"
-        },
-        {
-          "title": "Tabacco, verso stretta Ue su acquisti esteri e nuove accise ma più tempo a Italia",
-          "link": "https://www.ilsole24ore.com/art/tabacco-stretta-ue-acquisti-esteri-e-nuove-accise-ma-piu-tempo-italia-AJCjyb8B",
-          "pubDate": "Sat, 7 Nov 2026 16:31:46 GMT",
-          "description": "La presidenza irlandese della Ue propone un’imposta minima iniziale del 10% del prezzo oppure 30 euro al chilo, da aumentare gradualmente fino al 50% oppure 50…"
-        },
-        {
-          "title": "Trump prepara la vendetta con la nomina del falco Stephen Miller",
-          "link": "https://www.ilsole24ore.com/art/trump-prepara-vendetta-la-nomina-falco-stephen-miller-AJZi5g7B",
-          "pubDate": "Sat, 7 Nov 2026 06:52:00 GMT",
-          "description": "«Non cederò mai», dice il presidente ai suoi sostenitori. E dopo la sconfitta al Midterm riparte dal nuovo capo dello staff, il regista delle deportazioni e del…"
+          "description": "&nbsp; La corsa in auto, gli spari, il terrore e la strage. La Polonia è in lutto dopo che un cittadino polacco di 25 anni, in mimetica, ha raggiunto a..."
         }
       ]
     }
