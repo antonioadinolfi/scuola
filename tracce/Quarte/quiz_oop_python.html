@@ -113,7 +113,7 @@
   "opzioni": ["500", "100", "Errore: AttributeError", "None"],
   "corretta": 1,
   "sequenza": [
-   {"righe": [1,2,3,4,5,6], "testo": "Python definisce la classe Conto. Dentro la classe, ogni nome che inizia con due underscore viene rinominato (name mangling): self.__saldo diventa in realtà self._Conto__saldo.", "stato": "(nessun oggetto ancora)", "out": ""},
+   {"righe": [1, 2, 3, 4, 5, 6], "testo": "Python definisce la classe Conto. Dentro la classe, ogni nome che inizia con due underscore viene rinominato (name mangling): self.__saldo diventa in realtà self._Conto__saldo.", "stato": "(nessun oggetto ancora)", "out": ""},
    {"righe": [8, 3], "testo": "Conto(100) crea l'oggetto e chiama __init__: il valore 100 viene salvato nell'attributo _Conto__saldo.", "stato": "c._Conto__saldo = 100", "out": ""},
    {"righe": [9], "testo": "Questa riga è FUORI dalla classe, quindi non c'è rinomina: Python crea un attributo NUOVO, chiamato proprio __saldo. L'attributo originale non viene toccato.", "stato": "c._Conto__saldo = 100\nc.__saldo       = 500   (attributo nuovo, scollegato)", "out": ""},
    {"righe": [10, 6], "testo": "get_saldo() è dentro la classe: il suo self.__saldo viene letto come self._Conto__saldo, che vale ancora 100.", "stato": "c._Conto__saldo = 100\nc.__saldo       = 500", "out": "100"}
@@ -122,63 +122,62 @@
  },
  {
   "tema": "incapsulamento",
-  "titolo": "Il setter che controlla",
-  "traccia": "La temperatura viene impostata con un valore impossibile (sotto lo zero assoluto). Che cosa stampa?",
+  "titolo": "Il metodo set che controlla",
+  "traccia": "La temperatura viene impostata con un valore impossibile (sotto lo zero assoluto) usando il metodo set. Che cosa stampa?",
   "codice": [
    "class Termometro:",
    "    def __init__(self):",
-   "        self._celsius = 0",
+   "        self.__celsius = 0",
    "",
-   "    @property",
-   "    def celsius(self):",
-   "        return self._celsius",
+   "    def get_celsius(self):",
+   "        return self.__celsius",
    "",
-   "    @celsius.setter",
-   "    def celsius(self, valore):",
+   "    def set_celsius(self, valore):",
    "        if valore < -273:",
    "            valore = -273",
-   "        self._celsius = valore",
+   "        self.__celsius = valore",
    "",
    "t = Termometro()",
-   "t.celsius = -300",
-   "print(t.celsius)"
+   "t.set_celsius(-300)",
+   "print(t.get_celsius())"
   ],
   "opzioni": ["-300", "0", "-273", "Errore: AttributeError"],
   "corretta": 2,
   "sequenza": [
-   {"righe": [15, 3], "testo": "Termometro() crea l'oggetto: __init__ imposta l'attributo interno _celsius a 0.", "stato": "t._celsius = 0", "out": ""},
-   {"righe": [16, 10], "testo": "t.celsius = -300 sembra un'assegnazione diretta, ma celsius è una property: Python chiama il metodo setter passando valore = -300.", "stato": "t._celsius = 0   |   valore = -300", "out": ""},
-   {"righe": [11, 12], "testo": "Il setter controlla il dato: -300 < -273 è vero, quindi valore viene corretto a -273.", "stato": "t._celsius = 0   |   valore = -273", "out": ""},
-   {"righe": [13], "testo": "Solo ora il valore (già validato) viene salvato nell'attributo interno.", "stato": "t._celsius = -273", "out": ""},
-   {"righe": [17, 7], "testo": "Leggere t.celsius chiama il getter, che restituisce _celsius.", "stato": "t._celsius = -273", "out": "-273"}
+   {"righe": [13, 3], "testo": "Termometro() crea l'oggetto: __init__ imposta l'attributo privato __celsius a 0 (rinominato da Python in _Termometro__celsius, come nel caso 1).", "stato": "t._Termometro__celsius = 0", "out": ""},
+   {"righe": [14, 8], "testo": "Dall'esterno non si scrive direttamente l'attributo: si chiama il metodo set_celsius passando valore = -300.", "stato": "t._Termometro__celsius = 0   |   valore = -300", "out": ""},
+   {"righe": [9, 10], "testo": "Il metodo controlla il dato: -300 < -273 è vero, quindi valore viene corretto a -273.", "stato": "t._Termometro__celsius = 0   |   valore = -273", "out": ""},
+   {"righe": [11], "testo": "Solo ora il valore (già controllato) viene salvato nell'attributo privato.", "stato": "t._Termometro__celsius = -273", "out": ""},
+   {"righe": [15, 6], "testo": "get_celsius() restituisce il valore dell'attributo privato, che viene stampato.", "stato": "t._Termometro__celsius = -273", "out": "-273"}
   ],
-  "concetto": "Con @property l'accesso resta semplice (t.celsius) ma passa sempre da un metodo che può validare i dati: è l'incapsulamento in stile Python."
+  "concetto": "I metodi get e set sono l'unica porta di accesso all'attributo privato: il set può controllare i dati e impedire che l'oggetto finisca in uno stato non valido."
  },
  {
   "tema": "incapsulamento",
   "titolo": "Privato... ma non troppo",
-  "traccia": "Prima si prova a leggere la password con il suo nome, poi con un altro nome. Che cosa stampa?",
+  "traccia": "La password viene prima controllata con un metodo, poi letta dall'esterno con due nomi diversi. Che cosa stampa?",
   "codice": [
    "class Utente:",
    "    def __init__(self, pwd):",
    "        self.__pwd = pwd",
    "",
+   "    def verifica(self, tentativo):",
+   "        return tentativo == self.__pwd",
+   "",
    "u = Utente('abc')",
-   "try:",
-   "    print(u.__pwd)",
-   "except AttributeError:",
-   "    print('errore')",
-   "print(u._Utente__pwd)"
+   "print(u.verifica('xyz'))",
+   "print(u._Utente__pwd)",
+   "print(u.__pwd)"
   ],
-  "opzioni": ["abc\nabc", "errore\nabc", "errore\nerrore", "abc\nerrore"],
+  "opzioni": ["False\nabc\nabc", "False\nabc\nErrore: AttributeError", "False\nErrore: AttributeError", "Errore: AttributeError"],
   "corretta": 1,
   "sequenza": [
-   {"righe": [5, 3], "testo": "Il costruttore salva 'abc'. Essendo dentro la classe, __pwd viene rinominato in _Utente__pwd.", "stato": "u._Utente__pwd = 'abc'", "out": ""},
-   {"righe": [7], "testo": "Fuori dalla classe u.__pwd NON viene rinominato: l'oggetto non ha nessun attributo chiamato esattamente __pwd, quindi Python solleva AttributeError.", "stato": "u._Utente__pwd = 'abc'", "out": ""},
-   {"righe": [8, 9], "testo": "L'eccezione viene catturata dal blocco except, che stampa 'errore'.", "stato": "u._Utente__pwd = 'abc'", "out": "errore"},
-   {"righe": [10], "testo": "Usando il nome rinominato _Utente__pwd l'accesso funziona: Python non ha attributi davvero privati.", "stato": "u._Utente__pwd = 'abc'", "out": "errore\nabc"}
+   {"righe": [8, 3], "testo": "Il costruttore salva 'abc'. Essendo dentro la classe, __pwd viene rinominato in _Utente__pwd (name mangling).", "stato": "u._Utente__pwd = 'abc'", "out": ""},
+   {"righe": [9, 6], "testo": "verifica() è un metodo della classe, quindi può leggere self.__pwd. Confronta 'xyz' con 'abc': sono diversi, restituisce False.", "stato": "u._Utente__pwd = 'abc'", "out": "False"},
+   {"righe": [10], "testo": "Usando il nome rinominato _Utente__pwd la lettura dall'esterno funziona: Python non ha attributi davvero privati.", "stato": "u._Utente__pwd = 'abc'", "out": "False\nabc"},
+   {"righe": [11], "testo": "Fuori dalla classe u.__pwd NON viene rinominato: l'oggetto non ha nessun attributo chiamato esattamente __pwd, quindi Python segnala AttributeError e il programma si ferma.", "stato": "u._Utente__pwd = 'abc'", "out": "False\nabc\nAttributeError: 'Utente' object has no attribute '__pwd'"}
   ],
-  "concetto": "In Python la privacy è una convenzione rafforzata dal name mangling, non un blocco assoluto. Il nome rinominato non va usato nel codice normale: si accede ai dati tramite i metodi della classe."
+  "concetto": "In Python la privacy è una convenzione rafforzata dal name mangling, non un blocco assoluto. Il nome rinominato non va usato nel codice normale: ai dati si accede tramite i metodi della classe, come verifica()."
  },
  {
   "tema": "ereditarietà",
