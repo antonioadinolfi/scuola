@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="it" data-lesson="0" class="course-pending"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>Kit del formatore | Il nostro DVR · Linea F Service</title>
+<link rel="stylesheet" href="./corso.css?v=1"><link rel="stylesheet" href="./corso-slide.css?v=1">
+<script src="./corso-data.js?v=1"></script><script src="./corso-azienda.js?v=1"></script><script src="./corso-progress.js?v=1"></script>
+<style>
+.doc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 30px;margin:18px 0}
+.doc h3{margin-top:0}.doc table{border-collapse:collapse;width:100%;font-size:.92rem}.doc th,.doc td{border:1px solid #9aa9b8;padding:7px 8px;text-align:left;vertical-align:top}.doc thead th{background:#eef2f6}
+.doc .sign td{height:34px}.doc .hd{display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:.92rem;margin:0 0 12px}
+.sez{font-family:ui-monospace,Consolas,monospace;font-size:.8rem;background:#eaf2f7;border-radius:6px;padding:1px 6px;margin-right:6px}
+#jsonBox{width:100%;min-height:120px;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;border:1px solid #a9bfce;border-radius:10px;padding:10px}
+@media print{body{background:#fff}header,nav,footer,.no-print,.dati-sec{display:none!important}.doc{border:0;padding:0;margin:0;break-after:page}.doc table{font-size:9.5pt}@page{size:A4;margin:12mm}}
+</style></head>
+<body><a class="skip" href="#contenuti">Vai ai contenuti</a>
+<header><div class="wrap"><div class="topbar"><a href="./">← Il nostro DVR · Guida al corso</a><a href="./verifica-finale.html">Verifica finale ↗</a></div>
+<div class="hero"><div class="kicker">Per il formatore · prima della registrazione</div><h1>Kit del formatore</h1>
+<p>I dati da reperire presso il datore di lavoro, che compaiono nelle slide; poi programma, registro, verbale e questionario pronti da stampare.</p>
+<div class="actions"><a class="button primary" href="#dati">Completa i dati aziendali ↓</a><button class="button ghost" type="button" onclick="print()">Stampa programma, registro e verbale</button></div></div></div></header>
+<main class="wrap" id="contenuti">
+
+<section class="section dati-sec" id="dati"><div class="kicker">Prima della registrazione</div><h2>Dati da reperire presso il datore di lavoro</h2>
+<div class="panel"><p>Ogni campo corrisponde a una voce della <b>checklist delle incongruenze del DVR rev. 01</b> (la lettera indica la sezione). Scrivete la risposta così come deve comparire nella slide e salvate: le slide di questo browser si aggiornano subito.</p>
+<p><b>Mancano <span class="miss-count" id="missing"></span></b>. Le slide mostrano i campi vuoti come riquadro arancione «da completare»: registrate solo quando il contatore arriva a zero.</p></div>
+<form id="datiForm" class="fieldsheet" novalidate></form>
+<div class="actions no-print" style="margin-top:16px"><button class="button primary" type="button" id="saveBtn">Salva i dati</button><span class="muted" id="saveMsg" role="status"></span></div>
+<div class="panel no-print"><h3>Salvare i dati per sempre o su un altro computer</h3>
+<p class="muted">I dati salvati restano in questo browser. Per portarli su un altro computer, copiate il testo qui sotto e incollatelo nello stesso riquadro dell’altro computer. Per renderli definitivi nella versione pubblicata, incollate il testo dopo <code>const DEFAULTS=</code> nel file <code>corso-azienda.js</code>.</p>
+<textarea id="jsonBox" aria-label="Dati aziendali in formato JSON"></textarea>
+<div class="actions"><button class="button" type="button" id="copyBtn">Copia</button><button class="button" type="button" id="importBtn">Importa il testo incollato</button><span class="muted" id="jsonMsg" role="status"></span></div></div>
+<div class="panel"><h3>Checklist per la registrazione</h3><ol>
+<li>Tutti i dati aziendali completati (contatore a zero) e verificati con il datore di lavoro.</li>
+<li>Guida al corso → «Attiva modalità formatore».</li>
+<li>Aprire il modulo, premere <b>Vista relatore</b> e spostare quella finestra sul secondo schermo: mostra il copione di ogni slide e il cronometro.</li>
+<li>Sul primo schermo cliccare sulle slide e premere <b>F</b> (schermo intero). Avviare la registrazione dello schermo e del microfono.</li>
+<li>Avanzare con <kbd>→</kbd>. Nelle slide «Ripassiamo» girare le schede dopo una breve pausa.</li>
+<li>Durata indicativa: Modulo 1 e 2 circa 40 minuti, Modulo 3 e 4 circa 45 minuti.</li>
+</ol></div>
+</section>
+
+<div class="doc" id="programma"><h3>Programma — Informazione sui contenuti del DVR (art. 36 D.Lgs. 81/2008)</h3>
+<div class="hd"><span><b>Azienda</b>: Linea F Service S.a.s. di Aniello Ferraro — Via Fillak 1, Cuorgnè (TO)</span><span><b>Riferimento</b>: DVR rev. 01 del 05/10/2024</span><span><b>Docente</b>: Ing. Antonio Adinolfi</span><span><b>Modalità</b>: lezioni registrate · test di modulo (7/10) · verifica finale 20 domande (soglia 70%)</span></div>
+<table><thead><tr><th>Modulo</th><th>Durata</th><th>Contenuti</th></tr></thead><tbody>
+<tr><td>1 · Il nostro DVR</td><td>40 min</td><td>Che cos’è il DVR e la rev. 01; cicli di lavoro e luoghi; organigramma della sicurezza; doveri e diritti; pericolo, rischio, danno; matrice P × D; distribuzione e rischi più alti; aggiornamento del DVR.</td></tr>
+<tr><td>2 · Assemblaggio</td><td>40 min</td><td>Fasi e attrezzature; movimentazione carichi e posture; transpallet e investimento; inciampi e caduta di materiale; incendio; sostanze chimiche; rumore e vibrazioni; elettricità e videoterminale; spedizioni; DPI.</td></tr>
+<tr><td>3 · Lavori forestali</td><td>45 min</td><td>Le sette fasi; abbattimento; motosega; rischio biologico (tetano, zecche, rabbia); punture e morsi; trattore, verricello e pala; sramatura e depezzatura; lavoro isolato; DPI forestali.</td></tr>
+<tr><td>4 · Edilizia, emergenze, salute</td><td>45 min</td><td>Fasi edili e POS; sforzi eccessivi; trabattello e ponte su cavalletti; aperture e demolizioni; polveri, rumore e vibrazioni; incendio ed evacuazione; primo soccorso; sorveglianza sanitaria; formazione e abilitazioni; segnalazioni.</td></tr>
+</tbody></table>
+<p class="muted">Questa informazione non sostituisce la formazione generale e specifica né i corsi abilitanti previsti dall’Accordo Stato-Regioni Rep. 59/CSR del 17/04/2025.</p></div>
+
+<div class="doc" id="registro"><h3>Registro di fruizione dei moduli registrati</h3>
+<div class="hd"><span><b>Corso</b>: Il nostro DVR — informazione sui rischi</span><span><b>Sede</b>: Via Fillak 1, Cuorgnè (TO)</span><span><b>Docente</b>: Ing. Antonio Adinolfi</span><span><b>Firma</b>: a fine di ogni modulo</span></div>
+<table><thead><tr><th>Lavoratore</th><th>Modulo 1<br>data ______</th><th>Modulo 2<br>data ______</th><th>Modulo 3<br>data ______</th><th>Modulo 4<br>data ______</th><th>Test 1–4 superati</th></tr></thead>
+<tbody class="sign"><tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td><b>Firma docente</b></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+
+<div class="doc" id="verbale"><h3>Verbale della verifica finale</h3>
+<p>In data ____/____/________ i lavoratori di Linea F Service S.a.s. di Aniello Ferraro, dopo aver seguito i quattro moduli registrati sui contenuti del DVR rev. 01 del 05/10/2024, hanno svolto la verifica finale mediante test di 20 domande a risposta multipla, con soglia di superamento del 70% (14 risposte corrette).</p>
+<table><thead><tr><th>Lavoratore</th><th>Moduli seguiti</th><th>Risposte corrette / 20</th><th>Esito</th></tr></thead>
+<tbody class="sign"><tr><td>&nbsp;</td><td></td><td></td><td></td></tr><tr><td>&nbsp;</td><td></td><td></td><td></td></tr><tr><td>&nbsp;</td><td></td><td></td><td></td></tr></tbody></table>
+<p style="margin-top:22px">Il docente: Ing. Antonio Adinolfi ______________________ &nbsp;&nbsp;&nbsp; Il datore di lavoro: ______________________</p></div>
+
+<div class="doc" id="gradimento"><h3>Questionario di gradimento (anonimo)</h3>
+<p class="muted">Indica un valore da 1 (per niente) a 5 (moltissimo).</p>
+<table><thead><tr><th>Domanda</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead><tbody>
+<tr><td>I contenuti erano utili per il mio lavoro</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Gli esempi presi dal nostro DVR erano chiari</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Le registrazioni erano comprensibili (audio, ritmo)</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Ora so che cosa fare in caso di emergenza nel bosco e in sede</td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<p style="margin-top:14px">Che cosa cambieresti? ______________________________________________________________</p></div>
+</main>
+<footer><div class="wrap"><p>Studio Tecnico Ing. Antonio Adinolfi · Maddaloni (CE).</p></div></footer>
+<script>
+(()=>{const A=SicAzienda,form=document.getElementById('datiForm'),box=document.getElementById('jsonBox');
+ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+ function draw(){const v=A.values();form.innerHTML=A.FIELDS.map(f=>{const val=v[f.k]||'';return '<div class="fld '+(val.trim()?'done':'missing')+'"><label for="f_'+f.k+'"><span class="sez">'+f.sez+'</span>'+esc(f.label)+'</label><p class="why">'+esc(f.why)+' · Compare in: '+f.slide+'</p><textarea id="f_'+f.k+'" data-k="'+f.k+'">'+esc(val)+'</textarea></div>'}).join('');
+  const m=A.missing().length;document.getElementById('missing').textContent=m?m+' dati su '+A.FIELDS.length:'0 dati: pronto per la registrazione';
+  const clean={};A.FIELDS.forEach(f=>{if((v[f.k]||'').trim())clean[f.k]=v[f.k].trim()});box.value=JSON.stringify(clean,null,1)}
+ function collect(){const o={};form.querySelectorAll('textarea').forEach(t=>{if(t.value.trim())o[t.dataset.k]=t.value.trim()});return o}
+ document.getElementById('saveBtn').onclick=()=>{const ok=A.save(collect());document.getElementById('saveMsg').textContent=ok?'Dati salvati in questo browser.':'Il browser non consente di salvare: abilita i dati del sito.';draw()};
+ document.getElementById('copyBtn').onclick=async()=>{try{await navigator.clipboard.writeText(box.value);document.getElementById('jsonMsg').textContent='Copiato.'}catch{box.select();document.getElementById('jsonMsg').textContent='Seleziona il testo e copialo con Ctrl+C.'}};
+ document.getElementById('importBtn').onclick=()=>{try{const o=JSON.parse(box.value);if(typeof o!=='object'||Array.isArray(o))throw 0;A.save(o);document.getElementById('jsonMsg').textContent='Dati importati.';draw()}catch{document.getElementById('jsonMsg').textContent='Testo non valido: incolla il testo copiato dal riquadro di un altro computer.'}};
+ draw()})();
+</script>
+</body></html>

@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0d1b2e">
+<meta name="description" content="Indice dei corsi di formazione e informazione sulla salute e sicurezza nei luoghi di lavoro (D.Lgs. 81/2008) tenuti dall'Ing. Antonio Adinolfi.">
+<title>Corsi sulla sicurezza nei luoghi di lavoro · Ing. Antonio Adinolfi</title>
+<style>
+:root{
+  --navy:#0d1b2e; --navy-2:#16304d; --ink:#17212b; --muted:#5a6773; --line:#dde3e8;
+  --bg:#f5f6f3; --surface:#fff; --gold:#c8963e;
+  --giallo:#f2b600; --obbligo:#1f5fa8; --divieto:#c4291c; --emergenza:#1d7a46;
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--font)}
+a{color:var(--obbligo)}
+:focus-visible{outline:3px solid var(--giallo);outline-offset:3px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+h1,h2,h3{line-height:1.15;margin:0;text-wrap:balance}
+p{margin:0 0 12px}
+
+/* testata */
+.hazard{height:9px;background:repeating-linear-gradient(-45deg,var(--giallo) 0 14px,var(--navy) 14px 28px)}
+header.top{background:var(--navy);color:#fff}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 22px;flex-wrap:wrap}
+.top a{color:#fff;text-decoration:none}
+.brand{font-weight:800;letter-spacing:.05em;font-size:.95rem}
+.brand span{font-weight:400;opacity:.8}
+.hero{background:linear-gradient(120deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;padding:54px 0 58px}
+.eyebrow{font:600 .78rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--giallo)}
+.hero h1{font-size:clamp(2.2rem,5.5vw,3.9rem);margin:.25em 0 .3em;font-weight:800}
+.lead{font-size:1.15rem;max-width:760px;color:#dfe7ef}
+.stats{display:flex;flex-wrap:wrap;gap:12px 34px;margin-top:28px}
+.stat b{display:block;font-size:2rem;line-height:1;color:#fff}
+.stat span{font-size:.85rem;color:#b9c6d3}
+
+/* barra filtri */
+.filters{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.filters .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:30px;padding:7px 15px;font:600 .9rem var(--font);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.search{margin-left:auto;display:flex;align-items:center;gap:8px}
+.search input{border:1px solid var(--line);border-radius:9px;padding:8px 12px;font:inherit;min-width:230px;background:#fff;color:var(--ink)}
+
+/* elenco corsi */
+main{padding:36px 0 60px}
+.section-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.section-head h2{font-size:1.65rem}
+.count{color:var(--muted);font-size:.95rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 6px 24px #0d1b2e0a;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-2px);box-shadow:0 10px 30px #0d1b2e14}
+.card-band{height:6px;background:var(--c,var(--obbligo))}
+.card-body{padding:20px 22px 18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.kicker{font:600 .74rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:color-mix(in srgb,var(--c,var(--obbligo)) 72%,#000)}
+.card h3{font-size:1.3rem}
+.client{color:var(--muted);font-size:.93rem;margin-top:-4px}
+.desc{font-size:.97rem;margin:0}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:.88rem;margin:4px 0 0;padding:12px 0 0;border-top:1px dashed var(--line)}
+.facts dt{color:var(--muted)}
+.facts dd{margin:0;font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.76rem;font-weight:700;border-radius:20px;padding:2px 10px;background:#eef1f4;color:#33414e}
+.tag.fmt{background:#fff4d1;color:#7a5600}
+.card-actions{display:flex;flex-wrap:wrap;gap:8px;padding:0 22px 20px}
+.btn{display:inline-flex;align-items:center;gap:6px;border-radius:9px;padding:9px 15px;font-weight:700;font-size:.93rem;text-decoration:none;border:1px solid var(--navy);background:var(--navy);color:#fff}
+.btn.alt{background:#fff;color:var(--navy)}
+.empty{display:none;padding:30px;text-align:center;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:14px}
+
+/* box informativi */
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:46px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.panel h3{font-size:1.15rem;margin-bottom:10px}
+.panel ul{margin:0;padding-left:20px;display:grid;gap:6px;font-size:.95rem}
+.panel.note{border-left:5px solid var(--giallo)}
+.small{color:var(--muted);font-size:.9rem}
+
+footer{background:var(--navy);color:#cfd9e3;font-size:.87rem;padding:26px 0}
+footer a{color:#fff}
+@media (max-width:640px){
+  .hero{padding:36px 0 40px}
+  .search{margin-left:0;width:100%}.search input{flex:1;min-width:0}
+  .grid{grid-template-columns:1fr}
+}
+@media print{
+  .filters,.hazard,.card-actions{display:none}
+  header.top,.hero,footer{background:none;color:#000}.hero h1,.lead,.stat b,.stat span{color:#000}
+  .card{break-inside:avoid;box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="hazard" aria-hidden="true"></div>
+<header class="top"><div class="wrap">
+  <div class="brand">SICUREZZA SUL LAVORO <span>/ Corsi di formazione</span></div>
+  <a href="../index.html" aria-label="Torna al sito principale">← Sito didattico</a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">D.Lgs. 81/2008 · artt. 36–37 · Accordo Stato-Regioni 17/04/2025</div>
+  <h1>Corsi sulla sicurezza nei luoghi di lavoro</h1>
+  <p class="lead">L'indice delle guide e delle slide dei corsi di formazione e informazione che tengo come ingegnere e consulente per la sicurezza: lavoratori, preposti, datori di lavoro e dirigenti, attrezzature.</p>
+  <div class="stats" id="stats" aria-live="polite"></div>
+</div></section>
+
+<nav class="filters" aria-label="Filtra i corsi"><div class="wrap">
+  <div role="group" aria-label="Destinatari" id="chips"></div>
+  <label class="search"><span class="small">Cerca</span><input type="search" id="q" placeholder="settore, azienda, argomento…"></label>
+</div></nav>
+
+<main class="wrap">
+  <div class="section-head"><h2>I corsi</h2><span class="count" id="count"></span></div>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty">Nessun corso corrisponde ai filtri scelti.</div>
+
+  <div class="info">
+    <section class="panel">
+      <h3>Come si usano le pagine</h3>
+      <ul>
+        <li><b>Guida al corso</b>: moduli con slide, test di fine modulo (si sblocca il successivo con 7/10) e verifica finale.</li>
+        <li><b>Slide</b>: presentazione per l'aula, da proiettare o rivedere dopo l'incontro.</li>
+        <li>Risultati dei test e annotazioni restano nel browser che usate: nessun dato viene inviato a un server.</li>
+      </ul>
+    </section>
+    <section class="panel note">
+      <h3>Valore dei materiali</h3>
+      <p class="small">Le pagine sono materiale didattico di supporto al corso. Non sostituiscono il progetto formativo, il registro presenze, la verifica finale e l'attestato previsti dall'Accordo Stato-Regioni per il soggetto che eroga la formazione, né l'addestramento pratico dove richiesto.</p>
+    </section>
+    <section class="panel">
+      <h3>Il formatore</h3>
+      <p><b>Ing. Antonio Adinolfi</b><br>Ingegnere elettronico, iscritto all'Ordine degli Ingegneri della Provincia di Caserta (n. 2733)<br>Studio Tecnico Ing. Antonio Adinolfi · Maddaloni (CE)</p>
+      <p class="small">RSPP esterno e consulente per la sicurezza nei luoghi di lavoro.</p>
+    </section>
+  </div>
+</main>
+
+<footer><div class="wrap">Corsi sulla sicurezza nei luoghi di lavoro · Ing. Antonio Adinolfi · <a href="../index.html">antonioadinolfiscuola.it</a><br>Le presentazioni a slide si aprono su claude.ai in una nuova scheda.</div></footer>
+
+<script>
+/* ===== Elenco dei corsi =====
+   Per aggiungere un corso basta aggiungere un oggetto all'array.
+   target: lavoratori | preposti | dirigenti | attrezzature | formatori
+   color:  var(--obbligo) blu · var(--emergenza) verde · var(--giallo) giallo · var(--divieto) rosso */
+const CORSI = [
+  {
+    titolo: "Il nostro DVR, rischio per rischio",
+    cliente: "Linea F Service S.a.s. · officina, magazzino, lavori forestali ed edili",
+    kicker: "Informazione dei lavoratori · art. 36",
+    desc: "Corso registrato sui contenuti del DVR aziendale (rev. 01 del 05/10/2024): organizzazione della sicurezza, officina e spedizioni, lavori forestali dal sopralluogo all'esbosco, cantiere edile, emergenze e sorveglianza sanitaria.",
+    target: ["lavoratori"],
+    durata: "circa 3 ore · 4 moduli registrati",
+    verifica: "test di modulo da 10 domande · verifica finale 14/20",
+    formato: "Guida al corso",
+    tags: ["DVR", "Forestale", "Edilizia", "Magazzino"],
+    color: "var(--obbligo)",
+    links: [
+      { label: "Apri il corso", url: "./linea-f-service-dvr/" },
+      { label: "Edizione 2021 (DVR rev. 0)", url: "./linea-f-service-dvr-2021/", alt: true }
+    ]
+  },
+  {
+    titolo: "Lavorare bene, lavorare sicure",
+    cliente: "Tra Sogno e Realtà S.r.l.s. · centro estetico, Caserta",
+    kicker: "Formazione lavoratori · generale + specifica",
+    desc: "Formazione generale (4 ore) e specifica a rischio basso per i servizi alla persona (4 ore), costruita sul DVR e sul Piano di emergenza del centro: trattamenti, prodotti, DPI, incendio, evacuazione e primo soccorso.",
+    target: ["lavoratori"],
+    durata: "8 ore · 4 moduli",
+    verifica: "verifica finale 21/30 · presenza ≥ 90%",
+    formato: "Guida al corso",
+    tags: ["Servizi alla persona", "Rischio basso", "Emergenze"],
+    color: "var(--emergenza)",
+    links: [{ label: "Apri il corso", url: "./tra-sogno-e-realta/" }]
+  },
+  {
+    titolo: "Decidere, organizzare, vigilare",
+    cliente: "Imprese di pulizie · settore servizi di pulizia",
+    kicker: "Datori di lavoro e dirigenti · art. 37 c. 7",
+    desc: "Ruoli, responsabilità e deleghe; valutazione dei rischi del servizio; appalti nei luoghi dei clienti, emergenze e lavoro isolato; comunicazione, formazione e miglioramento. Dieci casi aziendali e un laboratorio decisionale.",
+    target: ["dirigenti", "formatori"],
+    durata: "16 ore datore di lavoro · 12 ore dirigente",
+    verifica: "verifica finale 21/30 · presenza ≥ 90%",
+    formato: "Guida al corso",
+    tags: ["Pulizie", "Appalti", "Lavoro isolato"],
+    color: "var(--divieto)",
+    links: [
+      { label: "Apri il corso", url: "./pulizie-datori-dirigenti/" },
+      { label: "Versione formatore", url: "./pulizie-datori-dirigenti-docente/", alt: true }
+    ]
+  },
+  {
+    titolo: "Corso Preposti · Impresa di pulizie",
+    cliente: "Imprese di pulizie e igiene ambientale",
+    kicker: "Formazione preposti · art. 37 c. 7",
+    desc: "Il percorso per capisquadra e responsabili di cantiere presso i clienti: ruoli e relazioni nel sistema di prevenzione, quasi incidenti, comunicazione, rischi del settore (agenti chimici e biologici, scivolamenti, movimentazione, lavoro isolato), vigilanza del preposto.",
+    target: ["preposti"],
+    durata: "12 ore · 8 sezioni · 89 slide",
+    verifica: "aggiornamento biennale (6 ore)",
+    formato: "Slide",
+    tags: ["Pulizie", "Preposti", "Rischio chimico"],
+    color: "var(--giallo)",
+    links: [{ label: "Apri le slide", url: "https://claude.ai/artifact/P7LcFC9tEDrhmGonZjN5Lr" }]
+  },
+  {
+    titolo: "PLE: lavorare in quota in sicurezza",
+    cliente: "Operatori di piattaforme di lavoro mobili elevabili",
+    kicker: "Attrezzature · art. 73 c. 5",
+    desc: "Tipi e classificazione delle PLE, quadro normativo 2024-2026, verifiche pre-uso, terreno e stabilizzatori, portata, linee elettriche e meteo, ribaltamento e trattenuta, guasti ed emergenze, con 30 domande di ripasso.",
+    target: ["attrezzature", "lavoratori"],
+    durata: "90 minuti",
+    verifica: "30 domande di autoverifica",
+    formato: "Slide",
+    tags: ["PLE", "Lavori in quota", "Attrezzature"],
+    color: "var(--obbligo)",
+    links: [{ label: "Apri le slide", url: "https://claude.ai/artifact/SfRHtjn9xejyM3iUcYW9ez" }]
+  }
+];
+
+const FILTRI = [
+  { id: "tutti", label: "Tutti" },
+  { id: "lavoratori", label: "Lavoratori" },
+  { id: "preposti", label: "Preposti" },
+  { id: "dirigenti", label: "Datori di lavoro e dirigenti" },
+  { id: "attrezzature", label: "Attrezzature" },
+  { id: "formatori", label: "Per il formatore" }
+];
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+let filtro = "tutti";
+
+function card(c) {
+  const links = c.links.map(l =>
+    (l.url.startsWith("http")
+      ? `<a class="btn${l.alt ? " alt" : ""}" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`
+      : `<a class="btn${l.alt ? " alt" : ""}" href="${esc(l.url)}">${esc(l.label)} →</a>`)).join("");
+  const tags = [`<span class="tag fmt">${esc(c.formato)}</span>`, ...c.tags.map(t => `<span class="tag">${esc(t)}</span>`)].join("");
+  return `<article class="card" style="--c:${c.color}">
+    <div class="card-band"></div>
+    <div class="card-body">
+      <div class="kicker">${esc(c.kicker)}</div>
+      <h3>${esc(c.titolo)}</h3>
+      <div class="client">${esc(c.cliente)}</div>
+      <p class="desc">${esc(c.desc)}</p>
+      <div class="tags">${tags}</div>
+      <dl class="facts"><dt>Durata</dt><dd>${esc(c.durata)}</dd><dt>Verifica</dt><dd>${esc(c.verifica)}</dd></dl>
+    </div>
+    <div class="card-actions">${links}</div>
+  </article>`;
+}
+
+function render() {
+  const q = $("#q").value.trim().toLowerCase();
+  const lista = CORSI.filter(c =>
+    (filtro === "tutti" || c.target.includes(filtro)) &&
+    (!q || [c.titolo, c.cliente, c.kicker, c.desc, c.formato, ...c.tags].join(" ").toLowerCase().includes(q)));
+  $("#grid").innerHTML = lista.map(card).join("");
+  $("#empty").style.display = lista.length ? "none" : "block";
+  $("#count").textContent = `${lista.length} di ${CORSI.length} corsi`;
+}
+
+$("#chips").innerHTML = FILTRI.map(f =>
+  `<button class="chip" type="button" data-f="${f.id}" aria-pressed="${f.id === filtro}">${esc(f.label)}</button>`).join(" ");
+$("#chips").addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  filtro = b.dataset.f;
+  document.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", x === b));
+  render();
+});
+$("#q").addEventListener("input", render);
+
+const guide = CORSI.filter(c => c.formato === "Guida al corso").length;
+$("#stats").innerHTML =
+  `<div class="stat"><b>${CORSI.length}</b><span>corsi</span></div>` +
+  `<div class="stat"><b>${guide}</b><span>guide interattive</span></div>` +
+  `<div class="stat"><b>${CORSI.length - guide}</b><span>presentazioni</span></div>`;
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="it" data-lesson="0" class="course-pending"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>Verifica finale | Sicurezza nelle imprese di pulizie · Datori di lavoro e dirigenti</title>
+<link rel="stylesheet" href="./corso.css?v=1"><link rel="stylesheet" href="./corso-slide.css?v=1">
+<script src="./corso-data.js?v=1"></script><script src="./corso-progress.js?v=1"></script>
+<style>
+#cartaceo,#chiave{display:none}
+.paper h1{font-size:16pt;margin:0 0 4pt}.paper .head{border:1px solid #333;padding:6pt 8pt;margin:6pt 0 10pt;font-size:10.5pt;display:grid;grid-template-columns:1fr 1fr;gap:4pt 16pt}
+.paper ol{padding-left:18pt;font-size:10pt}.paper li{break-inside:avoid;margin-bottom:7pt}.paper .opt{display:block;margin-left:6pt}
+.paper .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:4pt 10pt;font:10.5pt ui-monospace,Consolas,monospace}
+@media print{html.print-paper body>*:not(#cartaceo),html.print-key body>*:not(#chiave){display:none!important}html.print-paper #cartaceo,html.print-key #chiave{display:block}@page{size:A4;margin:14mm}}
+</style></head>
+<body><a class="skip" href="#contenuti">Vai ai contenuti</a>
+<header><div class="wrap"><div class="topbar"><a href="./">← Sicurezza nelle imprese di pulizie · Guida al corso</a><a href="./kit-docente.html">Kit del formatore ↗</a></div>
+<div class="hero"><div class="kicker">Verifica finale dell’apprendimento · 30 domande · soglia 21/30</div><h1>Verifica finale</h1>
+<p>Formazione di datori di lavoro e dirigenti, servizi di pulizia. Si accede con almeno il 90% di presenza. Rispondi a tutte le domande: è superata con almeno il 70% di risposte corrette.</p>
+<div class="actions"><button class="button primary" type="button" id="printPaper">Stampa la versione cartacea</button><button class="button ghost trainer-only" type="button" id="printKey" style="display:none">Stampa la chiave di correzione</button></div></div></div></header>
+<main class="wrap" id="contenuti">
+<section class="section"><div id="quizRoot"><form novalidate><div class="builder"><label for="quizName">Nome e cognome</label><input id="quizName" class="quiz-name" autocomplete="name"></div><div class="quiz-questions"></div><p class="quiz-count muted"></p><button class="button primary quiz-submit" type="submit" disabled>Consegna la verifica</button></form>
+<p class="quiz-message" role="status"></p>
+<div class="panel quiz-result" hidden tabindex="-1"><h3 class="quiz-score"></h3><div class="actions"><button class="button quiz-download" type="button">Scarica il risultato</button><button class="button quiz-retry trainer-only" type="button" style="display:none">Nuova compilazione</button></div></div></div></section>
+</main>
+<footer><div class="wrap"><p>Docente: Ing. Antonio Adinolfi · Studio Tecnico Ing. Antonio Adinolfi, Maddaloni (CE). Il risultato resta solo in questo browser: scaricalo e consegnalo al formatore.</p></div></footer>
+<section id="cartaceo" class="paper"></section>
+<section id="chiave" class="paper"></section>
+<script src="./corso-quiz.js?v=1"></script>
+<script>
+(()=>{const Q=window.SIC_FINAL;
+ if(SicCourse.trainer())document.querySelectorAll('.trainer-only').forEach(x=>x.style.display='');
+ SicQuiz.mount({root:document.getElementById('quizRoot'),questions:Q,threshold:21,title:'SICUREZZA NELLE IMPRESE DI PULIZIE — VERIFICA FINALE DATORI DI LAVORO E DIRIGENTI',fileName:'verifica-finale',passText:'Verifica superata. Consegna il file del risultato al formatore.'});
+ // versione cartacea: ordine delle opzioni fisso (pseudo-casuale con seme) per avere una chiave stabile
+ let seed=20261105;const rnd=()=>{seed=(seed*1103515245+12345)%2147483648;return seed/2147483648};
+ const L='ABCD',key=[];
+ const items=Q.map((q,i)=>{const ord=[0,1,2,3];for(let k=3;k>0;k--){const r=Math.floor(rnd()*(k+1));[ord[k],ord[r]]=[ord[r],ord[k]]}key.push(L[ord.indexOf(q.c)]);return '<li><b>'+q.q+'</b>'+ord.map((j,p)=>'<span class="opt">☐ '+L[p]+'. '+q.o[j]+'</span>').join('')+'</li>'}).join('');
+ const head='<div class="head"><span>Cognome e nome: ______________________________</span><span>Data: ____ / ____ / ________</span><span>Impresa: ______________________________</span><span>Percorso: ☐ datore di lavoro (16 h) ☐ dirigente (12 h)</span></div>';
+ document.getElementById('cartaceo').innerHTML='<h1>Verifica finale dell’apprendimento — Sicurezza nelle imprese di pulizie · Datori di lavoro e dirigenti</h1>'+head+'<p style="font-size:10pt">Segna una sola risposta per domanda. Soglia di superamento: 21 risposte corrette su 30 (70%).</p><ol>'+items+'</ol><p style="font-size:10.5pt">Risposte corrette: ____ / 30 — Esito: ☐ superata ☐ non superata — Firma del docente: ______________________</p>';
+ document.getElementById('chiave').innerHTML='<h1>Chiave di correzione — versione cartacea</h1><div class="grid">'+key.map((k,i)=>'<span>'+(i+1)+'. '+k+'</span>').join('')+'</div>';
+ const pr=c=>{document.documentElement.classList.add(c);const done=()=>{document.documentElement.classList.remove(c);removeEventListener('afterprint',done)};addEventListener('afterprint',done);setTimeout(()=>print(),50)};
+ document.getElementById('printPaper').onclick=()=>pr('print-paper');document.getElementById('printKey').onclick=()=>pr('print-key');
+})();
+</script>
+</body></html>
