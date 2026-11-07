@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quiz OOP in Python – Traccia l'esecuzione</title>
+<title>Quiz OOP in Python – Classe quarta</title>
 <style>
   :root {
     --bg: #f5f6f8; --card: #ffffff; --ink: #1d2330; --muted: #5b6475;
     --line: #dde1e8; --accent: #2457c5; --accent-ink: #ffffff;
-    --ok: #1d7a46; --ok-bg: #e5f4ec; --ko: #b3261e; --ko-bg: #fbe9e8;
-    --code-bg: #1e2230; --code-ink: #e6e9ef; --hl: #3a4a7a;
+    --ok: #1d7a46; --ok-bg: #e5f4ec; --ko: #b3261e; --ko-bg: #fbe9e8; --warn-bg: #fff6e0; --warn: #8a5a00;
+    --code-bg: #1e2230; --code-ink: #e6e9ef;
     --kw: #c792ea; --str: #c3e88d; --num: #f78c6c; --bi: #82aaff; --self: #ffcb6b; --com: #8a93a6;
     --enc: #7b3fb5; --inh: #b0640a; --pol: #127a7a;
   }
@@ -19,26 +19,29 @@
   main { max-width: 860px; margin: 0 auto; padding: 16px; }
   h1 { font-size: 1.5rem; margin: 0 0 4px; }
   h2 { font-size: 1.2rem; margin: 0 0 8px; }
-  h3 { font-size: 1rem; margin: 0 0 8px; }
   .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin-bottom: 14px; }
   .muted { color: var(--muted); }
   .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
-  .progress { height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; margin-bottom: 14px; }
-  .progress > div { height: 100%; background: var(--accent); transition: width .25s; }
   .badge { display: inline-block; font-size: .8rem; font-weight: 600; padding: 2px 10px; border-radius: 999px; color: #fff; }
   .t-incapsulamento { background: var(--enc); } .t-ereditarietà { background: var(--inh); } .t-polimorfismo { background: var(--pol); }
   button { font: inherit; min-height: 44px; padding: 8px 18px; border-radius: 8px; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink); cursor: pointer; font-weight: 600; }
   button.secondary { background: #fff; color: var(--accent); }
   button:disabled { opacity: .45; cursor: not-allowed; }
-  button:focus-visible, input:focus-visible + .opt-body, [tabindex]:focus-visible { outline: 3px solid #f2b705; outline-offset: 2px; }
+  button:focus-visible, input:focus-visible + .opt-body, input[type=text]:focus-visible, [tabindex]:focus-visible { outline: 3px solid #f2b705; outline-offset: 2px; }
   .actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 12px; }
+  .actions .spacer { flex: 1; }
+
+  /* navigatore domande */
+  .nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .nav button { min-width: 44px; padding: 6px 0; background: #fff; color: var(--ink); border: 2px solid var(--line); }
+  .nav button.risposta { background: #eef3fd; border-color: var(--accent); color: var(--accent); }
+  .nav button[aria-current="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
 
   /* codice */
   .code { background: var(--code-bg); color: var(--code-ink); border-radius: 8px; overflow-x: auto; font-family: ui-monospace, "Cascadia Code", Consolas, "Courier New", monospace; font-size: 14px; padding: 8px 0; }
   .code ol { list-style: none; margin: 0; padding: 0; min-width: max-content; }
   .code li { display: flex; padding: 0 12px 0 0; white-space: pre; border-left: 4px solid transparent; }
   .code li .ln { display: inline-block; width: 3ch; text-align: right; margin-right: 14px; color: var(--com); user-select: none; flex-shrink: 0; }
-  .code li.hl { background: var(--hl); border-left-color: #f2b705; }
   .kw { color: var(--kw); } .str { color: var(--str); } .num { color: var(--num); } .bi { color: var(--bi); } .self { color: var(--self); } .com { color: var(--com); font-style: italic; } .dec { color: var(--bi); }
 
   /* opzioni */
@@ -53,45 +56,33 @@
   .opt pre { margin: 0; font-family: ui-monospace, Consolas, monospace; font-size: 14px; white-space: pre-wrap; word-break: break-word; }
   .opt input:checked + .opt-body { border-color: var(--accent); background: #eef3fd; }
   .opt input:checked + .opt-body .opt-key { background: var(--accent); color: #fff; }
-  .opt input:disabled + .opt-body { cursor: default; }
-  .opt.giusta input + .opt-body { border-color: var(--ok); background: var(--ok-bg); }
-  .opt.sbagliata input + .opt-body { border-color: var(--ko); background: var(--ko-bg); }
-  .opt.giusta input + .opt-body .opt-key { background: var(--ok); color: #fff; }
-  .opt.sbagliata input + .opt-body .opt-key { background: var(--ko); color: #fff; }
-  .err { color: var(--ko); font-weight: 600; min-height: 1.5em; margin: 8px 0 0; }
 
-  /* feedback */
-  .esito { padding: 10px 12px; border-radius: 8px; font-weight: 600; margin-bottom: 12px; }
-  .esito.ok { background: var(--ok-bg); color: var(--ok); } .esito.ko { background: var(--ko-bg); color: var(--ko); }
-  .passo { border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
-  .passo-righe { font-size: .85rem; color: var(--muted); margin-bottom: 4px; }
-  .stato, .console { font-family: ui-monospace, Consolas, monospace; font-size: 14px; border-radius: 6px; padding: 8px 10px; margin-top: 10px; white-space: pre-wrap; word-break: break-word; }
-  .stato { background: #f0f2f6; }
-  .console { background: #111; color: #d7f7d7; min-height: 2.2em; }
-  .lbl { display: block; font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-top: 10px; }
-  .concetto { margin-top: 12px; padding: 10px 12px; border-left: 4px solid var(--accent); background: #eef3fd; border-radius: 0 8px 8px 0; }
+  /* moduli e messaggi */
+  label.campo { display: block; font-weight: 600; margin-top: 12px; }
+  input[type=text] { font: inherit; min-height: 44px; padding: 8px 12px; border: 2px solid var(--line); border-radius: 8px; width: 140px; text-transform: uppercase; }
+  .err { color: var(--ko); font-weight: 600; min-height: 1.5em; margin: 8px 0 0; }
+  .avviso { padding: 10px 12px; border-radius: 8px; background: var(--warn-bg); color: var(--warn); margin-top: 12px; }
+  .utente { padding: 10px 12px; border-radius: 8px; background: var(--ok-bg); margin-top: 12px; }
   code.inline { font-family: ui-monospace, Consolas, monospace; background: #eceff4; padding: 0 4px; border-radius: 4px; font-size: .92em; }
   .kbd-help { font-size: .85rem; color: var(--muted); }
   kbd { font-family: inherit; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; background: #fff; font-size: .85em; }
+  #gsi-btn { margin-top: 12px; min-height: 44px; }
 
-  /* riepilogo */
+  /* riepilogo ed esito */
   table { width: 100%; border-collapse: collapse; }
   th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  .punteggio { font-size: 2.4rem; font-weight: 800; }
-  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .link { background: none; border: 0; color: var(--accent); text-decoration: underline; padding: 0; min-height: 0; font-weight: 600; }
+  .vuota { color: var(--ko); font-weight: 600; }
+  .punteggio { font-size: 2.4rem; font-weight: 800; margin: 4px 0; }
+  .esito { display: inline-block; padding: 6px 14px; border-radius: 8px; font-weight: 800; font-size: 1.2rem; }
+  .esito.ok { background: var(--ok-bg); color: var(--ok); } .esito.ko { background: var(--ko-bg); color: var(--ko); }
+  .conferma { border: 2px solid var(--accent); border-radius: 8px; padding: 12px; margin-top: 12px; background: #f6f8fe; }
 </style>
 </head>
 <body>
 <main id="app" aria-live="polite"></main>
 
-<!-- ============================================================
-     DATI DEI 10 CASI (fittizi, a scopo didattico)
-     - codice: array di righe (numerazione a partire da 1)
-     - opzioni: output possibili; "Errore: X" = eccezione X sollevata
-     - corretta: indice (0-3) dell'opzione corretta
-     - sequenza: passi di esecuzione {righe, testo, stato, out}
-       out = output cumulativo della console a quel passo
-     ============================================================ -->
+<!-- Testi dei 10 casi (senza soluzioni: la correzione avviene sul server del docente). -->
 <script type="application/json" id="dati-casi">
 [
  {
@@ -110,15 +101,7 @@
    "c.__saldo = 500",
    "print(c.get_saldo())"
   ],
-  "opzioni": ["500", "100", "Errore: AttributeError", "None"],
-  "corretta": 1,
-  "sequenza": [
-   {"righe": [1, 2, 3, 4, 5, 6], "testo": "Python definisce la classe Conto. Dentro la classe, ogni nome che inizia con due underscore viene rinominato (name mangling): self.__saldo diventa in realtà self._Conto__saldo.", "stato": "(nessun oggetto ancora)", "out": ""},
-   {"righe": [8, 3], "testo": "Conto(100) crea l'oggetto e chiama __init__: il valore 100 viene salvato nell'attributo _Conto__saldo.", "stato": "c._Conto__saldo = 100", "out": ""},
-   {"righe": [9], "testo": "Questa riga è FUORI dalla classe, quindi non c'è rinomina: Python crea un attributo NUOVO, chiamato proprio __saldo. L'attributo originale non viene toccato.", "stato": "c._Conto__saldo = 100\nc.__saldo       = 500   (attributo nuovo, scollegato)", "out": ""},
-   {"righe": [10, 6], "testo": "get_saldo() è dentro la classe: il suo self.__saldo viene letto come self._Conto__saldo, che vale ancora 100.", "stato": "c._Conto__saldo = 100\nc.__saldo       = 500", "out": "100"}
-  ],
-  "concetto": "Il doppio underscore protegge l'attributo da modifiche accidentali dall'esterno: l'assegnazione esterna crea un attributo diverso e non cambia lo stato interno."
+  "opzioni": ["500", "100", "Errore: AttributeError", "None"]
  },
  {
   "tema": "incapsulamento",
@@ -141,16 +124,7 @@
    "t.set_celsius(-300)",
    "print(t.get_celsius())"
   ],
-  "opzioni": ["-300", "0", "-273", "Errore: AttributeError"],
-  "corretta": 2,
-  "sequenza": [
-   {"righe": [13, 3], "testo": "Termometro() crea l'oggetto: __init__ imposta l'attributo privato __celsius a 0 (rinominato da Python in _Termometro__celsius, come nel caso 1).", "stato": "t._Termometro__celsius = 0", "out": ""},
-   {"righe": [14, 8], "testo": "Dall'esterno non si scrive direttamente l'attributo: si chiama il metodo set_celsius passando valore = -300.", "stato": "t._Termometro__celsius = 0   |   valore = -300", "out": ""},
-   {"righe": [9, 10], "testo": "Il metodo controlla il dato: -300 < -273 è vero, quindi valore viene corretto a -273.", "stato": "t._Termometro__celsius = 0   |   valore = -273", "out": ""},
-   {"righe": [11], "testo": "Solo ora il valore (già controllato) viene salvato nell'attributo privato.", "stato": "t._Termometro__celsius = -273", "out": ""},
-   {"righe": [15, 6], "testo": "get_celsius() restituisce il valore dell'attributo privato, che viene stampato.", "stato": "t._Termometro__celsius = -273", "out": "-273"}
-  ],
-  "concetto": "I metodi get e set sono l'unica porta di accesso all'attributo privato: il set può controllare i dati e impedire che l'oggetto finisca in uno stato non valido."
+  "opzioni": ["-300", "0", "-273", "Errore: AttributeError"]
  },
  {
   "tema": "incapsulamento",
@@ -169,15 +143,7 @@
    "print(u._Utente__pwd)",
    "print(u.__pwd)"
   ],
-  "opzioni": ["False\nabc\nabc", "False\nabc\nErrore: AttributeError", "False\nErrore: AttributeError", "Errore: AttributeError"],
-  "corretta": 1,
-  "sequenza": [
-   {"righe": [8, 3], "testo": "Il costruttore salva 'abc'. Essendo dentro la classe, __pwd viene rinominato in _Utente__pwd (name mangling).", "stato": "u._Utente__pwd = 'abc'", "out": ""},
-   {"righe": [9, 6], "testo": "verifica() è un metodo della classe, quindi può leggere self.__pwd. Confronta 'xyz' con 'abc': sono diversi, restituisce False.", "stato": "u._Utente__pwd = 'abc'", "out": "False"},
-   {"righe": [10], "testo": "Usando il nome rinominato _Utente__pwd la lettura dall'esterno funziona: Python non ha attributi davvero privati.", "stato": "u._Utente__pwd = 'abc'", "out": "False\nabc"},
-   {"righe": [11], "testo": "Fuori dalla classe u.__pwd NON viene rinominato: l'oggetto non ha nessun attributo chiamato esattamente __pwd, quindi Python segnala AttributeError e il programma si ferma.", "stato": "u._Utente__pwd = 'abc'", "out": "False\nabc\nAttributeError: 'Utente' object has no attribute '__pwd'"}
-  ],
-  "concetto": "In Python la privacy è una convenzione rafforzata dal name mangling, non un blocco assoluto. Il nome rinominato non va usato nel codice normale: ai dati si accede tramite i metodi della classe, come verifica()."
+  "opzioni": ["False\nabc\nabc", "False\nabc\nErrore: AttributeError", "False\nErrore: AttributeError", "Errore: AttributeError"]
  },
  {
   "tema": "ereditarietà",
@@ -198,15 +164,7 @@
    "print(fido.presentati())",
    "print(fido.nome)"
   ],
-  "opzioni": ["Sono Fido\nFido", "Errore: TypeError", "Sono Fido\nErrore: AttributeError", "Sono \nFido"],
-  "corretta": 0,
-  "sequenza": [
-   {"righe": [8, 9], "testo": "Cane(Animale) significa che Cane eredita da Animale. Con pass non aggiunge nulla, ma possiede tutto ciò che ha Animale.", "stato": "(nessun oggetto ancora)", "out": ""},
-   {"righe": [11, 2, 3], "testo": "Cane('Fido'): Python cerca __init__ in Cane, non lo trova e risale ad Animale, che salva nome = 'Fido'.", "stato": "fido.nome = 'Fido'", "out": ""},
-   {"righe": [12, 6], "testo": "Anche presentati() viene trovato risalendo ad Animale. Restituisce 'Sono Fido'.", "stato": "fido.nome = 'Fido'", "out": "Sono Fido"},
-   {"righe": [13], "testo": "Anche l'attributo nome esiste: lo ha creato l'__init__ ereditato da Animale al passo 2.", "stato": "fido.nome = 'Fido'", "out": "Sono Fido\nFido"}
-  ],
-  "concetto": "Se un metodo non è nella classe dell'oggetto, Python lo cerca nella classe base (relazione \"è un\"). La sottoclasse eredita sia gli attributi sia i metodi."
+  "opzioni": ["Sono Fido\nFido", "Errore: TypeError", "Sono Fido\nErrore: AttributeError", "Sono \nFido"]
  },
  {
   "tema": "ereditarietà",
@@ -226,15 +184,7 @@
    "a = Auto()",
    "print(a.ruote)"
   ],
-  "opzioni": ["Veicolo 4\nAuto\n4", "Auto\n4", "Auto\nErrore: AttributeError", "Auto\nVeicolo 4\n4"],
-  "corretta": 3,
-  "sequenza": [
-   {"righe": [11, 7], "testo": "Auto() chiama l'__init__ di Auto (la sottoclasse), non quello di Veicolo.", "stato": "a: (ancora nessun attributo)", "out": ""},
-   {"righe": [8], "testo": "La prima istruzione è la stampa di 'Auto'.", "stato": "a: (ancora nessun attributo)", "out": "Auto"},
-   {"righe": [9, 2, 3, 4], "testo": "super().__init__(4) esegue il costruttore della classe base: imposta ruote = 4 e stampa 'Veicolo 4'.", "stato": "a.ruote = 4", "out": "Auto\nVeicolo 4"},
-   {"righe": [12], "testo": "L'attributo ruote esiste perché è stato creato dal costruttore della base.", "stato": "a.ruote = 4", "out": "Auto\nVeicolo 4\n4"}
-  ],
-  "concetto": "super() chiama il metodo della classe base. L'ordine delle stampe dipende da dove si trova la chiamata a super() dentro il metodo."
+  "opzioni": ["Veicolo 4\nAuto\n4", "Auto\n4", "Auto\nErrore: AttributeError", "Auto\nVeicolo 4\n4"]
  },
  {
   "tema": "ereditarietà",
@@ -253,15 +203,7 @@
    "print(s.classe)",
    "print(s.nome)"
   ],
-  "opzioni": ["4B\n4B", "4B\nErrore: AttributeError", "Errore: TypeError", "4B\nNone"],
-  "corretta": 1,
-  "sequenza": [
-   {"righe": [9, 6, 7], "testo": "Studente ha un proprio __init__, che SOSTITUISCE quello di Persona (override). Viene eseguito solo self.classe = '4B'.", "stato": "s.classe = '4B'", "out": ""},
-   {"righe": [2, 3], "testo": "Il costruttore di Persona non viene mai chiamato: nessuno crea l'attributo nome.", "stato": "s.classe = '4B'   (nome NON esiste)", "out": ""},
-   {"righe": [10], "testo": "classe esiste: viene stampato 4B.", "stato": "s.classe = '4B'", "out": "4B"},
-   {"righe": [11], "testo": "nome non esiste nell'oggetto: Python solleva AttributeError e il programma si interrompe.", "stato": "s.classe = '4B'", "out": "4B\nAttributeError: 'Studente' object has no attribute 'nome'"}
-  ],
-  "concetto": "Se una sottoclasse ridefinisce __init__, quello della base non parte da solo: bisogna chiamarlo con super().__init__(...)."
+  "opzioni": ["4B\n4B", "4B\nErrore: AttributeError", "Errore: TypeError", "4B\nNone"]
  },
  {
   "tema": "polimorfismo",
@@ -282,14 +224,7 @@
    "print(Base().saluta())",
    "print(Figlia().saluta())"
   ],
-  "opzioni": ["Ciao da Base\nCiao da Base", "Ciao da Base\nCiao da Figlia", "Ciao da Figlia\nCiao da Figlia", "Ciao da Base\nErrore: AttributeError"],
-  "corretta": 1,
-  "sequenza": [
-   {"righe": [12, 3, 6], "testo": "Su un oggetto Base, saluta() chiama self.chi(): self è un Base, quindi viene eseguito chi() di Base.", "stato": "self → oggetto di tipo Base", "out": "Ciao da Base"},
-   {"righe": [13, 3], "testo": "Su un oggetto Figlia, saluta() non esiste in Figlia e viene ereditato da Base. Ma self ora è un oggetto Figlia...", "stato": "self → oggetto di tipo Figlia", "out": "Ciao da Base"},
-   {"righe": [9, 10], "testo": "...quindi self.chi() viene cercato a partire da Figlia, che lo ridefinisce: restituisce 'Figlia'.", "stato": "self → oggetto di tipo Figlia", "out": "Ciao da Base\nCiao da Figlia"}
-  ],
-  "concetto": "Il metodo da eseguire viene scelto in base al tipo reale dell'oggetto (self) al momento della chiamata, non in base alla classe in cui è scritto il codice."
+  "opzioni": ["Ciao da Base\nCiao da Base", "Ciao da Base\nCiao da Figlia", "Ciao da Figlia\nCiao da Figlia", "Ciao da Base\nErrore: AttributeError"]
  },
  {
   "tema": "polimorfismo",
@@ -316,16 +251,7 @@
    "    totale += f.area()",
    "print(totale)"
   ],
-  "opzioni": ["5", "Errore: AttributeError", "13", "0"],
-  "corretta": 2,
-  "sequenza": [
-   {"righe": [15, 16], "testo": "Vengono creati tre oggetti di tipi diversi, tutti sottoclassi di Forma. totale parte da 0.", "stato": "forme = [Quadrato(lato=3), Cerchio(), Quadrato(lato=2)]\ntotale = 0", "out": ""},
-   {"righe": [17, 18, 10], "testo": "1° giro: f è un Quadrato → area() di Quadrato → 3 × 3 = 9.", "stato": "totale = 9", "out": ""},
-   {"righe": [17, 18, 3], "testo": "2° giro: f è un Cerchio, che non ridefinisce area() → si usa quella di Forma → 0.", "stato": "totale = 9", "out": ""},
-   {"righe": [17, 18, 10], "testo": "3° giro: Quadrato con lato 2 → 4.", "stato": "totale = 13", "out": ""},
-   {"righe": [19], "testo": "Fine ciclo: si stampa il totale.", "stato": "totale = 13", "out": "13"}
-  ],
-  "concetto": "La stessa istruzione f.area() esegue codice diverso a seconda del tipo di f: questo è il polimorfismo. Se la sottoclasse non ridefinisce il metodo, vale quello ereditato."
+  "opzioni": ["5", "Errore: AttributeError", "13", "0"]
  },
  {
   "tema": "polimorfismo",
@@ -346,15 +272,7 @@
    "for oggetto in [Anatra(), Robot(), 'ciao']:",
    "    fai_parlare(oggetto)"
   ],
-  "opzioni": ["Errore: TypeError", "Qua\nBip", "Qua\nBip\nNone", "Qua\nBip\nErrore: AttributeError"],
-  "corretta": 3,
-  "sequenza": [
-   {"righe": [12], "testo": "Python non controlla in anticipo i tipi degli elementi: la lista può contenere oggetti qualsiasi.", "stato": "lista = [Anatra(), Robot(), 'ciao']", "out": ""},
-   {"righe": [13, 10, 3], "testo": "1° giro: x è un'Anatra, ha il metodo verso() → stampa 'Qua'.", "stato": "x → Anatra", "out": "Qua"},
-   {"righe": [13, 10, 7], "testo": "2° giro: x è un Robot. Non è parente di Anatra, ma ha anche lui verso() → stampa 'Bip'.", "stato": "x → Robot", "out": "Qua\nBip"},
-   {"righe": [13, 10], "testo": "3° giro: x è la stringa 'ciao', che non ha un metodo verso(): AttributeError solo ora, al momento della chiamata.", "stato": "x → str", "out": "Qua\nBip\nAttributeError: 'str' object has no attribute 'verso'"}
-  ],
-  "concetto": "Duck typing: in Python conta che l'oggetto abbia il metodo richiesto, non la sua classe. L'errore emerge solo quando il metodo manca davvero."
+  "opzioni": ["Errore: TypeError", "Qua\nBip", "Qua\nBip\nNone", "Qua\nBip\nErrore: AttributeError"]
  },
  {
   "tema": "polimorfismo",
@@ -376,32 +294,42 @@
    "print(C().info())",
    "print(B().info())"
   ],
-  "opzioni": ["C\nB", "ABC\nAB", "CBA\nBA", "CBA\nB"],
-  "corretta": 2,
-  "sequenza": [
-   {"righe": [13, 11], "testo": "C().info() esegue la versione di C: 'C' + super().info(). Per completare la stringa deve prima attendere il risultato di B.", "stato": "in sospeso: 'C' + ?", "out": ""},
-   {"righe": [7], "testo": "info() di B: 'B' + super().info(). Anche B resta in attesa del risultato di A.", "stato": "in sospeso: 'C' + ('B' + ?)", "out": ""},
-   {"righe": [3], "testo": "info() di A restituisce 'A'. Ora le chiamate in sospeso si chiudono a ritroso: B restituisce 'BA', poi C restituisce 'CBA'.", "stato": "'C' + ('B' + 'A') = 'CBA'", "out": "CBA"},
-   {"righe": [14, 7, 3], "testo": "B().info() parte dalla versione di B: 'B' + super().info() → 'B' + 'A' = 'BA'. La versione di C non viene coinvolta, perché l'oggetto è un B.", "stato": "'B' + 'A' = 'BA'", "out": "CBA\nBA"}
-  ],
-  "concetto": "Un override può estendere il metodo della base invece di sostituirlo del tutto. Le chiamate a super() si accumulano: il risultato si compone dal livello più basso verso l'alto."
+  "opzioni": ["C\nB", "ABC\nAB", "CBA\nBA", "CBA\nB"]
  }
 ]
 </script>
 
 <script>
+/* Configurazione: appsScriptUrl è l'URL /exec della web app Apps Script del docente
+   (vedi quiz_oop_apps_script/README.md). Finché è vuoto la consegna non è attiva. */
+window.QUIZ_OOP_CONFIG = Object.assign({
+  appsScriptUrl: "",
+  clientId: "1011752872320-713mjtge9ofhtnclhjfvdoc2h2q2uelv.apps.googleusercontent.com",
+  dominio: "lscortese.com",
+  quizId: "oop-quarta-v1",
+  soglia: 0.7
+}, window.QUIZ_OOP_CONFIG || {});
+</script>
+
+<script>
 (function () {
   "use strict";
+  const CFG = window.QUIZ_OOP_CONFIG;
   const CASI = JSON.parse(document.getElementById("dati-casi").textContent);
-  const TEMI = ["incapsulamento", "ereditarietà", "polimorfismo"];
+  const N = CASI.length;
+  const MIN_OK = Math.ceil(CFG.soglia * N);
   const app = document.getElementById("app");
 
-  const S = { idx: 0, fase: "inizio", scelta: null, risposte: [], passo: 0 };
+  const S = {
+    fase: "inizio", idx: 0, scelte: new Array(N).fill(null),
+    token: null, utente: null, classe: "", inizio: null,
+    consegnaId: null, confermaAperta: false, risultato: null
+  };
 
   // ---------- utilità ----------
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  const KW = new Set(["class","def","return","if","else","elif","for","in","try","except","pass","while","import","from","and","or","not","is","None","True","False","lambda","with","as","raise"]);
-  const BI = new Set(["print","super","isinstance","len","range","property","str","int"]);
+  const KW = new Set(["class","def","return","if","else","elif","for","in","pass","while","import","from","and","or","not","is","None","True","False","lambda","with","as"]);
+  const BI = new Set(["print","super","len","range","str","int"]);
   const TOK = /(#.*$)|('(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*")|(@[\w.]+)|\b(\d+)\b|\b([A-Za-z_]\w*)\b/g;
   function evidenzia(riga) {
     let out = "", last = 0, m;
@@ -422,168 +350,293 @@
     return out + esc(riga.slice(last));
   }
   const badge = tema => `<span class="badge t-${tema}">${tema[0].toUpperCase() + tema.slice(1)}</span>`;
+  const date = () => S.scelte.filter(x => x !== null).length;
+  function nuovoId() {
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+    return "id-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 10);
+  }
+  function decodificaJwt(tok) {
+    try {
+      const b = tok.split(".")[1].replace(/-/g, "+").replace(/_/g, "/");
+      const json = decodeURIComponent(atob(b).split("").map(c => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2)).join(""));
+      return JSON.parse(json);
+    } catch (e) { return null; }
+  }
 
-  // ---------- schermate ----------
+  // ---------- accesso Google (Google Identity Services) ----------
+  let gsiPronto = false, dopoAccesso = null;
+  function caricaGsi(cb) {
+    if (window.google && google.accounts && google.accounts.id) return cb();
+    if (!document.getElementById("gsi-script")) {
+      const s = document.createElement("script");
+      s.id = "gsi-script"; s.src = "https://accounts.google.com/gsi/client"; s.async = true;
+      s.onerror = () => mostraErroreAccesso("Impossibile caricare l'accesso Google. Controlla la connessione e ricarica la pagina.");
+      document.head.appendChild(s);
+    }
+    const t0 = Date.now();
+    (function attendi() {
+      if (window.google && google.accounts && google.accounts.id) return cb();
+      if (Date.now() - t0 > 15000) return mostraErroreAccesso("L'accesso Google non risponde. Ricarica la pagina.");
+      setTimeout(attendi, 100);
+    })();
+  }
+  function inizializzaGsi() {
+    if (gsiPronto) return;
+    google.accounts.id.initialize({ client_id: CFG.clientId, callback: credenziale, auto_select: false, cancel_on_tap_outside: false });
+    gsiPronto = true;
+  }
+  function mostraPulsanteGoogle(idContenitore) {
+    caricaGsi(() => {
+      inizializzaGsi();
+      const el = document.getElementById(idContenitore);
+      if (el) google.accounts.id.renderButton(el, { type: "standard", theme: "outline", size: "large", text: "signin_with", shape: "rectangular" });
+    });
+  }
+  function mostraErroreAccesso(msg) {
+    const e = document.getElementById("err-accesso");
+    if (e) e.textContent = msg;
+  }
+  function credenziale(resp) {
+    const p = decodificaJwt(resp && resp.credential);
+    if (!p || !p.email) return mostraErroreAccesso("Accesso non riuscito: riprova.");
+    if (!String(p.email).toLowerCase().endsWith("@" + CFG.dominio)) {
+      return mostraErroreAccesso(`Usa l'account della scuola (@${CFG.dominio}): ${p.email} non è ammesso.`);
+    }
+    S.token = resp.credential;
+    S.utente = { email: p.email, nome: p.given_name || "", cognome: p.family_name || "", completo: p.name || p.email };
+    if (typeof dopoAccesso === "function") { const f = dopoAccesso; dopoAccesso = null; f(); }
+    else if (S.fase === "inizio") schermataInizio();
+  }
+
+  // ---------- schermata iniziale ----------
   function schermataInizio() {
     S.fase = "inizio";
+    const loggato = !!S.utente;
     app.innerHTML = `
       <div class="card">
-        <h1>Traccia l'esecuzione: OOP in Python</h1>
+        <h1>Quiz OOP in Python – Classe quarta</h1>
         <p class="muted">10 casi su incapsulamento, ereditarietà e polimorfismo.</p>
-        <p>Per ogni caso leggi il codice, prevedi <strong>esattamente</strong> che cosa stampa e scegli una delle 4 risposte.
-        Dopo la verifica puoi rivedere l'esecuzione <strong>passo per passo</strong>, con le righe evidenziate.</p>
-        <p>Hai <strong>un solo tentativo</strong> per caso. Se un'opzione contiene <code class="inline">Errore: NomeEccezione</code>, vuol dire che il programma stampa le righe precedenti e poi si ferma con quell'eccezione.</p>
-        <p class="kbd-help">Tastiera: <kbd>1</kbd>–<kbd>4</kbd> scegli · <kbd>Invio</kbd> verifica / avanti · <kbd>←</kbd> <kbd>→</kbd> passi della sequenza</p>
-        <div class="actions"><button id="btn-inizia">Inizia il quiz</button></div>
+        <ul>
+          <li>Per ogni caso leggi il codice e scegli che cosa stampa <strong>esattamente</strong>.</li>
+          <li>Puoi muoverti tra le domande e cambiare le risposte fino alla <strong>consegna finale</strong>.</li>
+          <li>Il test è <strong>superato</strong> con almeno <strong>${MIN_OK} risposte esatte su ${N}</strong> (${Math.round(CFG.soglia * 100)}%). Le domande senza risposta valgono come errate.</li>
+          <li>Se un'opzione contiene <code class="inline">Errore: NomeEccezione</code>, il programma stampa le righe precedenti e poi si ferma con quell'errore.</li>
+          <li>Alla consegna il risultato viene inviato al docente con il tuo nome e la tua email della scuola.</li>
+        </ul>
+        <p class="kbd-help">Tastiera: <kbd>1</kbd>–<kbd>4</kbd> scegli · <kbd>←</kbd> <kbd>→</kbd> domanda precedente/successiva · <kbd>Invio</kbd> successiva</p>
+      </div>
+      <div class="card">
+        <h2>1. Accedi con l'account della scuola</h2>
+        ${loggato
+          ? `<div class="utente" id="utente">Accesso effettuato: <strong>${esc(S.utente.completo)}</strong> (${esc(S.utente.email)})</div>`
+          : `<p>Per svolgere il quiz devi accedere con il tuo account <strong>@${esc(CFG.dominio)}</strong>.</p><div id="gsi-btn"></div>`}
+        <p class="err" id="err-accesso" role="alert"></p>
+        <h2 style="margin-top:14px">2. Indica la tua classe</h2>
+        <label class="campo" for="classe">Classe (es. 4B)</label>
+        <input type="text" id="classe" maxlength="3" autocomplete="off" value="${esc(S.classe)}" ${loggato ? "" : "disabled"}>
+        <p class="err" id="err-classe" role="alert"></p>
+        ${CFG.appsScriptUrl ? "" : `<div class="avviso">La consegna online non è ancora attiva: puoi svolgere il quiz, ma non potrai consegnarlo. Avvisa il docente.</div>`}
+        <div class="actions"><button id="btn-inizia" ${loggato ? "" : "disabled"}>Inizia il quiz</button></div>
       </div>`;
-    const b = document.getElementById("btn-inizia");
-    b.addEventListener("click", () => { S.idx = 0; S.risposte = []; mostraCaso(); });
-    b.focus();
+    if (!loggato) mostraPulsanteGoogle("gsi-btn");
+    const inp = document.getElementById("classe");
+    document.getElementById("btn-inizia").addEventListener("click", avvia);
+    inp.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); avvia(); } });
+    if (loggato) inp.focus();
+  }
+
+  function avvia() {
+    if (!S.utente) { mostraErroreAccesso("Prima accedi con l'account della scuola."); return; }
+    const v = document.getElementById("classe").value.trim().toUpperCase().replace(/\s+/g, "");
+    if (!/^4[A-Z]{1,2}$/.test(v)) {
+      document.getElementById("err-classe").textContent = "Scrivi la tua classe quarta: un 4 seguito dalla sezione, per esempio 4B.";
+      document.getElementById("classe").focus();
+      return;
+    }
+    S.classe = v; S.idx = 0; S.scelte = new Array(N).fill(null);
+    S.inizio = new Date(); S.consegnaId = nuovoId(); S.confermaAperta = false;
+    mostraCaso();
+  }
+
+  // ---------- domande ----------
+  function navigatore() {
+    return `<nav class="nav" aria-label="Vai alla domanda">${CASI.map((c, i) =>
+      `<button type="button" data-vai="${i}" class="${S.scelte[i] !== null ? "risposta" : ""}" ${i === S.idx && S.fase === "domanda" ? 'aria-current="true"' : ""} aria-label="Domanda ${i + 1}${S.scelte[i] !== null ? ", risposta data" : ", senza risposta"}">${i + 1}</button>`).join("")}</nav>`;
+  }
+  function collegaNavigatore() {
+    app.querySelectorAll("[data-vai]").forEach(b => b.addEventListener("click", () => { S.idx = Number(b.dataset.vai); mostraCaso(); }));
   }
 
   function mostraCaso() {
-    const c = CASI[S.idx];
-    S.fase = "risposta"; S.scelta = null; S.passo = 0;
-    const pct = (S.idx / CASI.length) * 100;
+    S.fase = "domanda";
+    const c = CASI[S.idx], ultimo = S.idx === N - 1;
     app.innerHTML = `
       <div class="top">
-        <span><strong>Caso ${S.idx + 1} di ${CASI.length}</strong> &nbsp;${badge(c.tema)}</span>
-        <span class="muted">Punti: <strong id="punti">${punti()}</strong></span>
+        <span><strong>Domanda ${S.idx + 1} di ${N}</strong> &nbsp;${badge(c.tema)}</span>
+        <span class="muted">Risposte date: <strong id="contatore">${date()}</strong>/${N}</span>
       </div>
-      <div class="progress" role="progressbar" aria-label="Avanzamento" aria-valuemin="0" aria-valuemax="${CASI.length}" aria-valuenow="${S.idx}"><div style="width:${pct}%"></div></div>
+      ${navigatore()}
       <section class="card" aria-labelledby="titolo-caso">
         <h2 id="titolo-caso" tabindex="-1">${esc(c.titolo)}</h2>
         <p>${esc(c.traccia)}</p>
         <div class="code" role="region" aria-label="Codice Python" tabindex="0">
-          <ol id="codice">${c.codice.map((r, i) => `<li data-r="${i + 1}"><span class="ln" aria-hidden="true">${i + 1}</span><span>${evidenzia(r) || " "}</span></li>`).join("")}</ol>
+          <ol>${c.codice.map((r, i) => `<li><span class="ln" aria-hidden="true">${i + 1}</span><span>${evidenzia(r) || " "}</span></li>`).join("")}</ol>
         </div>
         <fieldset>
           <legend>Che cosa stampa il programma?</legend>
-          <div class="opts" id="opts">
+          <div class="opts">
             ${c.opzioni.map((o, i) => `
               <label class="opt" id="opt-${i}">
-                <input type="radio" name="risposta" value="${i}">
+                <input type="radio" name="risposta" value="${i}" ${S.scelte[S.idx] === i ? "checked" : ""}>
                 <span class="opt-body"><span class="opt-key" aria-hidden="true">${i + 1}</span><pre>${esc(o)}</pre></span>
               </label>`).join("")}
           </div>
         </fieldset>
-        <p class="err" id="err" role="alert"></p>
-        <div class="actions"><button id="btn-verifica">Verifica</button></div>
+        <div class="actions">
+          <button class="secondary" id="btn-prec" ${S.idx === 0 ? "disabled" : ""}>← Precedente</button>
+          <span class="spacer"></span>
+          <button id="btn-succ">${ultimo ? "Rivedi e consegna" : "Successiva →"}</button>
+        </div>
       </section>
-      <div id="feedback"></div>`;
-    app.querySelectorAll('input[name="risposta"]').forEach(inp =>
-      inp.addEventListener("change", () => { S.scelta = Number(inp.value); document.getElementById("err").textContent = ""; }));
-    document.getElementById("btn-verifica").addEventListener("click", verifica);
+      <div class="actions"><button class="secondary" id="btn-riepilogo">Vai al riepilogo e consegna</button></div>`;
+    app.querySelectorAll('input[name="risposta"]').forEach(inp => inp.addEventListener("change", () => scegli(Number(inp.value), false)));
+    document.getElementById("btn-prec").addEventListener("click", () => sposta(-1));
+    document.getElementById("btn-succ").addEventListener("click", () => sposta(1));
+    document.getElementById("btn-riepilogo").addEventListener("click", schermataRiepilogo);
+    collegaNavigatore();
     document.getElementById("titolo-caso").focus();
   }
 
-  function verifica() {
-    if (S.fase !== "risposta") return;                         // doppio click / doppio Invio
-    if (S.scelta === null) {
-      document.getElementById("err").textContent = "Seleziona una risposta prima di verificare.";
-      return;
-    }
-    const c = CASI[S.idx];
-    const giusta = S.scelta === c.corretta;
-    S.risposte[S.idx] = { scelta: S.scelta, giusta };
-    S.fase = "feedback";
+  function scegli(i, focus) {
+    S.scelte[S.idx] = i;
+    const inp = app.querySelector(`input[name="risposta"][value="${i}"]`);
+    if (inp) { inp.checked = true; if (focus) inp.focus(); }
+    document.getElementById("contatore").textContent = date();
+    const b = app.querySelector(`[data-vai="${S.idx}"]`);
+    if (b) { b.classList.add("risposta"); b.setAttribute("aria-label", `Domanda ${S.idx + 1}, risposta data`); }
+  }
 
-    app.querySelectorAll('input[name="risposta"]').forEach(i => i.disabled = true);
-    document.getElementById(`opt-${c.corretta}`).classList.add("giusta");
-    if (!giusta) document.getElementById(`opt-${S.scelta}`).classList.add("sbagliata");
-    document.getElementById("btn-verifica").disabled = true;
-    document.getElementById("punti").textContent = punti();
+  function sposta(d) {
+    if (S.fase !== "domanda") return;
+    const n = S.idx + d;
+    if (n < 0) return;
+    if (n >= N) { schermataRiepilogo(); return; }
+    S.idx = n; mostraCaso(); window.scrollTo(0, 0);
+  }
 
-    const ultimo = S.idx === CASI.length - 1;
-    document.getElementById("feedback").innerHTML = `
-      <section class="card" aria-labelledby="titolo-fb">
-        <h2 id="titolo-fb" tabindex="-1" class="sr-only">Esito e sequenza di esecuzione</h2>
-        <div class="esito ${giusta ? "ok" : "ko"}" id="esito">${giusta ? "✔ Corretto!" : "✘ Non corretto. La risposta giusta è la " + (c.corretta + 1) + "."}</div>
-        <h3>Sequenza di esecuzione</h3>
-        <div class="passo" id="passo" aria-live="polite"></div>
+  // ---------- riepilogo e consegna ----------
+  function schermataRiepilogo() {
+    S.fase = "riepilogo";
+    const mancanti = N - date();
+    app.innerHTML = `
+      ${navigatore()}
+      <section class="card" aria-labelledby="titolo-riep">
+        <h1 id="titolo-riep" tabindex="-1">Riepilogo prima della consegna</h1>
+        <p>${esc(S.utente.completo)} · ${esc(S.utente.email)} · classe <strong>${esc(S.classe)}</strong></p>
+        <table>
+          <thead><tr><th>#</th><th>Caso</th><th>La tua risposta</th></tr></thead>
+          <tbody>${CASI.map((c, i) => `<tr>
+            <td>${i + 1}</td>
+            <td><button class="link" data-vai="${i}">${esc(c.titolo)}</button></td>
+            <td>${S.scelte[i] === null ? '<span class="vuota">senza risposta</span>' : "opzione " + (S.scelte[i] + 1)}</td></tr>`).join("")}</tbody>
+        </table>
+        ${mancanti ? `<div class="avviso" id="avviso-mancanti">Hai <strong>${mancanti}</strong> ${mancanti === 1 ? "domanda" : "domande"} senza risposta: alla consegna ${mancanti === 1 ? "verrà contata come errata" : "verranno contate come errate"}.</div>` : ""}
         <div class="actions">
-          <button class="secondary" id="btn-prec">← Passo precedente</button>
-          <button class="secondary" id="btn-succ">Passo successivo →</button>
+          <button class="secondary" id="btn-torna">← Torna alle domande</button>
+          <button id="btn-consegna" ${CFG.appsScriptUrl ? "" : "disabled"}>Consegna il test</button>
         </div>
-        <div class="concetto"><strong>Concetto chiave.</strong> ${esc(c.concetto)}</div>
-        <div class="actions"><button id="btn-avanti">${ultimo ? "Vedi il riepilogo" : "Caso successivo"}</button></div>
+        ${CFG.appsScriptUrl ? "" : `<div class="avviso">La consegna online non è ancora attiva. Avvisa il docente.</div>`}
+        <div id="zona-conferma"></div>
       </section>`;
-    document.getElementById("btn-prec").addEventListener("click", () => vaiPasso(-1));
-    document.getElementById("btn-succ").addEventListener("click", () => vaiPasso(1));
-    document.getElementById("btn-avanti").addEventListener("click", avanti);
-    disegnaPasso();
-    document.getElementById("esito").setAttribute("tabindex", "-1");
-    document.getElementById("esito").focus();
+    collegaNavigatore();
+    document.getElementById("btn-torna").addEventListener("click", () => { S.idx = Math.min(S.idx, N - 1); mostraCaso(); });
+    document.getElementById("btn-consegna").addEventListener("click", apriConferma);
+    document.getElementById("titolo-riep").focus();
   }
 
-  function disegnaPasso() {
-    const c = CASI[S.idx], seq = c.sequenza, p = seq[S.passo];
-    document.getElementById("passo").innerHTML = `
-      <div class="passo-righe">Passo ${S.passo + 1} di ${seq.length} · riga ${p.righe.join(" → ")}</div>
-      <div>${esc(p.testo)}</div>
-      <span class="lbl">Stato</span><div class="stato">${esc(p.stato || "–")}</div>
-      <span class="lbl">Console (output finora)</span><div class="console">${esc(p.out || "")}</div>`;
-    app.querySelectorAll("#codice li").forEach(li => li.classList.toggle("hl", p.righe.includes(Number(li.dataset.r))));
-    document.getElementById("btn-prec").disabled = S.passo === 0;
-    document.getElementById("btn-succ").disabled = S.passo === seq.length - 1;
+  function apriConferma() {
+    if (S.fase !== "riepilogo") return;
+    S.confermaAperta = true;
+    document.getElementById("zona-conferma").innerHTML = `
+      <div class="conferma" role="dialog" aria-labelledby="tit-conf">
+        <p id="tit-conf"><strong>Confermi la consegna?</strong> Dopo la consegna non potrai più modificare le risposte.</p>
+        <div class="actions">
+          <button id="btn-conferma">Sì, consegna</button>
+          <button class="secondary" id="btn-annulla">Annulla</button>
+        </div>
+      </div>`;
+    document.getElementById("btn-conferma").addEventListener("click", consegna);
+    document.getElementById("btn-annulla").addEventListener("click", () => { S.confermaAperta = false; document.getElementById("zona-conferma").innerHTML = ""; document.getElementById("btn-consegna").focus(); });
+    document.getElementById("btn-conferma").focus();
   }
 
-  function vaiPasso(d) {
-    if (S.fase !== "feedback") return;
-    const n = S.passo + d;
-    if (n < 0 || n >= CASI[S.idx].sequenza.length) return;
-    S.passo = n; disegnaPasso();
+  async function consegna() {
+    if (S.fase !== "riepilogo" && S.fase !== "errore") return;   // evita doppio invio
+    S.fase = "invio";
+    app.innerHTML = `<section class="card"><h1 id="tit-invio" tabindex="-1">Invio in corso…</h1><p>Non chiudere la pagina.</p></section>`;
+    document.getElementById("tit-invio").focus();
+    const payload = {
+      quizId: CFG.quizId, consegnaId: S.consegnaId, idToken: S.token, classe: S.classe,
+      scelte: S.scelte, inizio: S.inizio.toISOString(), fine: new Date().toISOString(),
+      browser: navigator.userAgent.slice(0, 200)
+    };
+    let data;
+    try {
+      const res = await fetch(CFG.appsScriptUrl, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload) });
+      data = await res.json();
+    } catch (e) {
+      data = { ok: false, error: "Connessione non riuscita. Controlla la rete e riprova." };
+    }
+    if (data.ok) { S.risultato = data; schermataEsito(); return; }
+    schermataErrore(data);
   }
 
-  function avanti() {
-    if (S.fase !== "feedback") return;
-    if (S.idx < CASI.length - 1) { S.idx++; mostraCaso(); window.scrollTo(0, 0); }
-    else schermataFine();
+  function schermataErrore(data) {
+    S.fase = "errore";
+    const serveAccesso = data.codice === "token";
+    app.innerHTML = `
+      <section class="card">
+        <h1 id="tit-err" tabindex="-1">Consegna non riuscita</h1>
+        <p class="err">${esc(data.error || "Errore sconosciuto.")}</p>
+        <p>Le tue risposte non sono andate perse.</p>
+        ${serveAccesso ? `<p>Il tuo accesso è scaduto: accedi di nuovo e la consegna ripartirà da sola.</p><div id="gsi-btn"></div><p class="err" id="err-accesso" role="alert"></p>` : ""}
+        <div class="actions">
+          ${serveAccesso ? "" : `<button id="btn-riprova">Riprova la consegna</button>`}
+          <button class="secondary" id="btn-indietro">Torna al riepilogo</button>
+        </div>
+      </section>`;
+    if (serveAccesso) { dopoAccesso = consegna; mostraPulsanteGoogle("gsi-btn"); }
+    else document.getElementById("btn-riprova").addEventListener("click", consegna);
+    document.getElementById("btn-indietro").addEventListener("click", schermataRiepilogo);
+    document.getElementById("tit-err").focus();
   }
 
-  const punti = () => S.risposte.filter(r => r && r.giusta).length;
-
-  function schermataFine() {
+  function schermataEsito() {
     S.fase = "fine";
-    const perTema = TEMI.map(t => {
-      const ids = CASI.map((c, i) => c.tema === t ? i : -1).filter(i => i >= 0);
-      return { t, tot: ids.length, ok: ids.filter(i => S.risposte[i].giusta).length };
-    });
+    const r = S.risultato;
     app.innerHTML = `
       <section class="card" aria-labelledby="titolo-fine">
-        <h1 id="titolo-fine" tabindex="-1">Riepilogo</h1>
-        <p class="punteggio" id="punteggio-finale">${punti()} / ${CASI.length}</p>
-        <table>
-          <thead><tr><th>Tema</th><th>Corrette</th></tr></thead>
-          <tbody>${perTema.map(x => `<tr><td>${badge(x.t)}</td><td>${x.ok} / ${x.tot}</td></tr>`).join("")}</tbody>
-        </table>
-      </section>
-      <section class="card">
-        <h2>Dettaglio dei casi</h2>
-        <table>
-          <thead><tr><th>#</th><th>Caso</th><th>Esito</th></tr></thead>
-          <tbody>${CASI.map((c, i) => `<tr><td>${i + 1}</td><td>${esc(c.titolo)}<br><span class="muted">${c.tema}</span></td><td>${S.risposte[i].giusta ? "✔" : "✘ (giusta: " + (c.corretta + 1) + ")"}</td></tr>`).join("")}</tbody>
-        </table>
-        <div class="actions"><button id="btn-ricomincia">Ricomincia</button></div>
+        <h1 id="titolo-fine" tabindex="-1">Test consegnato</h1>
+        <p>${esc(S.utente.completo)} · classe ${esc(S.classe)}</p>
+        <p class="punteggio" id="punteggio-finale">${r.punteggio} / ${r.totale}</p>
+        <p><span class="esito ${r.superato ? "ok" : "ko"}" id="esito-finale">${r.superato ? "SUPERATO" : "NON SUPERATO"}</span></p>
+        <p class="muted">Soglia: almeno ${r.minimo} risposte esatte su ${r.totale} (${Math.round(r.soglia * 100)}%).</p>
+        <p>Il risultato è stato inviato al docente.</p>
       </section>`;
-    document.getElementById("btn-ricomincia").addEventListener("click", () => { S.idx = 0; S.risposte = []; mostraCaso(); });
     document.getElementById("titolo-fine").focus();
   }
 
-  // ---------- tastiera ----------
+  // ---------- tastiera e uscita dalla pagina ----------
   document.addEventListener("keydown", e => {
-    if (e.ctrlKey || e.metaKey || e.altKey) return;
-    const suBottone = e.target.tagName === "BUTTON";
-    if (S.fase === "risposta") {
-      if (/^[1-4]$/.test(e.key)) {
-        const inp = app.querySelector(`input[name="risposta"][value="${Number(e.key) - 1}"]`);
-        if (inp) { inp.checked = true; inp.dispatchEvent(new Event("change")); inp.focus(); e.preventDefault(); }
-      } else if (e.key === "Enter" && !suBottone) { e.preventDefault(); verifica(); }
-    } else if (S.fase === "feedback") {
-      if (e.key === "ArrowRight") { e.preventDefault(); vaiPasso(1); }
-      else if (e.key === "ArrowLeft") { e.preventDefault(); vaiPasso(-1); }
-      else if (e.key === "Enter" && !suBottone) { e.preventDefault(); avanti(); }
-    }
+    if (e.ctrlKey || e.metaKey || e.altKey || S.fase !== "domanda") return;
+    const t = e.target, suRadio = t.type === "radio", suBottone = t.tagName === "BUTTON";
+    if (/^[1-4]$/.test(e.key)) { e.preventDefault(); scegli(Number(e.key) - 1, true); }
+    else if (e.key === "ArrowRight" && !suRadio) { e.preventDefault(); sposta(1); }
+    else if (e.key === "ArrowLeft" && !suRadio) { e.preventDefault(); sposta(-1); }
+    else if (e.key === "Enter" && !suBottone) { e.preventDefault(); sposta(1); }
+  });
+  window.addEventListener("beforeunload", e => {
+    if (["domanda", "riepilogo", "invio", "errore"].includes(S.fase)) { e.preventDefault(); e.returnValue = ""; }
   });
 
   schermataInizio();
