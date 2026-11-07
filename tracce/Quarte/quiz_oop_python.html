@@ -182,7 +182,7 @@
  {
   "tema": "ereditarietà",
   "titolo": "Una sottoclasse vuota",
-  "traccia": "La classe Cane non definisce nulla di suo. Che cosa stampa?",
+  "traccia": "La classe Cane non definisce nulla di suo: né __init__ né metodi. Che cosa stampa?",
   "codice": [
    "class Animale:",
    "    def __init__(self, nome):",
@@ -196,15 +196,15 @@
    "",
    "fido = Cane('Fido')",
    "print(fido.presentati())",
-   "print(isinstance(fido, Animale))"
+   "print(fido.nome)"
   ],
-  "opzioni": ["Sono Fido\nTrue", "Errore: TypeError", "Sono Fido\nFalse", "Sono \nTrue"],
+  "opzioni": ["Sono Fido\nFido", "Errore: TypeError", "Sono Fido\nErrore: AttributeError", "Sono \nFido"],
   "corretta": 0,
   "sequenza": [
    {"righe": [8, 9], "testo": "Cane(Animale) significa che Cane eredita da Animale. Con pass non aggiunge nulla, ma possiede tutto ciò che ha Animale.", "stato": "(nessun oggetto ancora)", "out": ""},
    {"righe": [11, 2, 3], "testo": "Cane('Fido'): Python cerca __init__ in Cane, non lo trova e risale ad Animale, che salva nome = 'Fido'.", "stato": "fido.nome = 'Fido'", "out": ""},
    {"righe": [12, 6], "testo": "Anche presentati() viene trovato risalendo ad Animale. Restituisce 'Sono Fido'.", "stato": "fido.nome = 'Fido'", "out": "Sono Fido"},
-   {"righe": [13], "testo": "Un Cane È UN Animale: isinstance restituisce True anche per la classe base.", "stato": "fido.nome = 'Fido'", "out": "Sono Fido\nTrue"}
+   {"righe": [13], "testo": "Anche l'attributo nome esiste: lo ha creato l'__init__ ereditato da Animale al passo 2.", "stato": "fido.nome = 'Fido'", "out": "Sono Fido\nFido"}
   ],
   "concetto": "Se un metodo non è nella classe dell'oggetto, Python lo cerca nella classe base (relazione \"è un\"). La sottoclasse eredita sia gli attributi sia i metodi."
  },
@@ -359,7 +359,7 @@
  {
   "tema": "polimorfismo",
   "titolo": "La catena di super()",
-  "traccia": "Ogni classe ridefinisce info() e richiama quella della classe superiore. Che cosa stampa?",
+  "traccia": "Ogni classe ridefinisce info() e richiama quella della classe superiore. Il metodo viene chiamato su un oggetto C e poi su un oggetto B. Che cosa stampa?",
   "codice": [
    "class A:",
    "    def info(self):",
@@ -374,15 +374,15 @@
    "        return 'C' + super().info()",
    "",
    "print(C().info())",
-   "print(isinstance(C(), A))"
+   "print(B().info())"
   ],
-  "opzioni": ["C\nTrue", "ABC\nTrue", "CBA\nTrue", "CBA\nFalse"],
+  "opzioni": ["C\nB", "ABC\nAB", "CBA\nBA", "CBA\nB"],
   "corretta": 2,
   "sequenza": [
    {"righe": [13, 11], "testo": "C().info() esegue la versione di C: 'C' + super().info(). Per completare la stringa deve prima attendere il risultato di B.", "stato": "in sospeso: 'C' + ?", "out": ""},
    {"righe": [7], "testo": "info() di B: 'B' + super().info(). Anche B resta in attesa del risultato di A.", "stato": "in sospeso: 'C' + ('B' + ?)", "out": ""},
    {"righe": [3], "testo": "info() di A restituisce 'A'. Ora le chiamate in sospeso si chiudono a ritroso: B restituisce 'BA', poi C restituisce 'CBA'.", "stato": "'C' + ('B' + 'A') = 'CBA'", "out": "CBA"},
-   {"righe": [14], "testo": "C eredita da B, che eredita da A: un C è anche un A.", "stato": "C → B → A", "out": "CBA\nTrue"}
+   {"righe": [14, 7, 3], "testo": "B().info() parte dalla versione di B: 'B' + super().info() → 'B' + 'A' = 'BA'. La versione di C non viene coinvolta, perché l'oggetto è un B.", "stato": "'B' + 'A' = 'BA'", "out": "CBA\nBA"}
   ],
   "concetto": "Un override può estendere il metodo della base invece di sostituirlo del tutto. Le chiamate a super() si accumulano: il risultato si compone dal livello più basso verso l'alto."
  }
