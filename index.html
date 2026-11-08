@@ -447,6 +447,31 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
   }
 }
 
+/* ── RISORSE: due riquadri affiancati, distanziati e della stessa altezza ── */
+.resource-cards-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
+  max-width: 960px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  align-items: stretch;
+}
+.resource-cards-grid .tool-card {
+  min-width: 0;
+  height: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+@media (max-width: 700px) {
+  .resource-cards-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.2rem;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -652,7 +677,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
       <p class="section-sub">Materiali didattici, glossario, aggiornamenti e collegamenti utili.</p>
     </div>
 
-    <div class="tool-grid" style="grid-template-columns: 1fr; max-width: 420px;">
+    <div class="tool-grid resource-cards-grid">
       <a href="materiali.html" class="tool-card">
         <div class="tool-card-top"><span class="tool-num">01</span><span class="tool-icon">📚</span></div>
         <div class="tool-h">Materiali</div>
