@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-08T18:42:47+00:00",
+  "updatedAt": "2026-11-08T23:30:07+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,12 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Voti da 4 a 5 in cinque materie e 6 in condotta, la famiglia ricorre, ma i giudici confermano la bocciatura dell’alunna: “Valutazione dei docenti è stata corretta”",
+          "link": "https://www.orizzontescuola.it/voti-da-4-a-5-in-cinque-materie-e-6-in-condotta-la-famiglia-ricorre-ma-i-giudici-confermano-la-bocciatura-dellalunna-valutazione-dei-docenti-e-stata-corretta/",
+          "pubDate": "Sun, 08 Nov 2026 18:52:21 +0000",
+          "description": "Una bocciatura all'esame di terza media finisce davanti ai giudici e ne esce confermata. È la vicenda raccontata nella sentenza 1378/2026 del Tar della Lombardi…"
+        },
+        {
           "title": "Elenchi aggiuntivi GPS prima fascia ed elenchi regionali 2027, a che punto siamo? QUESTION TIME con Sonia Cannas. LIVE Lunedì 9 novembre alle 14:30",
           "link": "https://www.orizzontescuola.it/elenchi-aggiuntivi-gps-prima-fascia-ed-elenchi-regionali-2027-a-che-punto-siamo-question-time-con-sonia-cannas-live-lunedi-9-novembre-alle-1430/",
           "pubDate": "Sun, 08 Nov 2026 18:27:05 +0000",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/elenchi-regionali-idonei-concorso-ordinario-e-prossimo-concorso-cosa-cambia-per-le-prossime-assunzioni-pillole-di-question-time/",
           "pubDate": "Sun, 08 Nov 2026 15:23:53 +0000",
           "description": "Nel Question Time di Orizzonte Scuola, condotto da Francesco Bunetto con la partecipazione di Chiara Cozzetto, segretaria nazionale ANIEF, è stato fatto il punt…"
-        },
-        {
-          "title": "Matematica Senza Frontiere 2026/27, al via la XXXVI edizione per le scuole primarie e secondarie. Previsto anche il concorso LOGO MsF 2027",
-          "link": "https://www.orizzontescuola.it/matematica-senza-frontiere-2026-27-al-via-la-xxxvi-edizione-per-le-scuole-primarie-e-secondarie-previsto-anche-il-concorso-logo-msf-2027/",
-          "pubDate": "Sun, 08 Nov 2026 15:19:36 +0000",
-          "description": "Torna per l'anno scolastico 2026/2027 la competizione nazionale \"Matematica Senza Frontiere\", promossa dall'Ufficio Scolastico Regionale per la Lombardia e giun…"
         }
       ]
     },
@@ -87,10 +87,16 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "America spaccata sulla nomina di Miller, ma Trump rilancia con il re delle arti marziali",
-          "link": "https://www.ilsole24ore.com/art/america-spaccata-nomina-miller-ma-trump-rilancia-il-re-arti-marziali-AJQrfx8B",
-          "pubDate": "Sun, 8 Nov 2026 07:41:00 GMT",
-          "description": "Dem e parte dei repubblicani attaccano il presidente per il capo dello staff. Il tycoon offre a Dana White di fargli da portavoce ma lui rifiuta"
+          "title": "Intesa-Mps, la Consob dà l’ok al prospetto: offerta al via il 24 novembre",
+          "link": "https://www.ilsole24ore.com/art/intesa-mps-consob-da-via-libera-prospetto-offerta-via-24-novembre-AJtJ6Y9B",
+          "pubDate": "Sun, 8 Nov 2026 19:38:00 GMT",
+          "description": "La Consob dà il disco verde a Intesa Sanpaolo. L’Authority ha infatti approvato il documento d’offerta dell’Opas lanciata da Ca’ de Sass su Monte dei Paschi di…"
+        },
+        {
+          "title": "Ex Ilva, scade termine per le offerte: Flacks si sfila",
+          "link": "https://www.ilsole24ore.com/art/ex-ilva-fonti-flacks-offerta-solo-un-incontro-meloni-AJHsNW9B",
+          "pubDate": "Sun, 8 Nov 2026 18:27:00 GMT",
+          "description": "La corsa per l’ex Ilva perde il tassello di Flacks Group. Mentre mancano poche ore al termine per la presentazione delle offerte vincolanti, il fondo americano…"
         },
         {
           "title": "Export, per l’Italia +53% in dieci anni: battuti i concorrenti europei",
@@ -111,16 +117,10 @@
           "description": "I blitz di Mosca su una portacontainer a Odessa e una centrale energetica a Zhitomir. Due morti e diversi feriti"
         },
         {
-          "title": "Da oggi stop allo sconto sulle accise del gasolio: ecco come cambiano i prezzi",
-          "link": "https://www.ilsole24ore.com/art/da-oggi-stop-sconto-accise-gasolio-ecco-come-cambiano-prezzi-AJWPd98B",
-          "pubDate": "Sun, 8 Nov 2026 10:49:58 GMT",
-          "description": "Il price cap sul diesel torna intorno a 2,25 euro al litro"
-        },
-        {
-          "title": "Apre Roma Outlet Village, investiti 100 milioni per un centro da 90 negozi",
-          "link": "https://www.ilsole24ore.com/art/apre-roma-outlet-village-investiti-100-milioni-un-centro-90-negozi-AJhA678B",
-          "pubDate": "Sun, 8 Nov 2026 09:32:00 GMT",
-          "description": "Il gruppo Arcus Real Estate rinnova e ridà vita a una struttura abbandonata da 10 anni, con ricadute positive per tutto il territorio a Nord di Roma"
+          "title": "Flessibilità per l’Italia, Bce e tabacchi: i 3 dossier caldi sul tavolo di Bruxelles",
+          "link": "https://www.ilsole24ore.com/art/flessibilita-l-italia-bce-e-tabacchi-3-dossier-caldi-tavolo-bruxelles-AJxWod8B",
+          "pubDate": "Sun, 8 Nov 2026 19:04:36 GMT",
+          "description": "Il via libera alla maggiore flessibilità di bilancio richiesta dall’Italia, il confronto sulla successione di Christine Lagarde alla guida della Bce e il tentat…"
         }
       ]
     }
