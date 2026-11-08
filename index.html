@@ -7,7 +7,7 @@
 <meta property="og:title" content="Prof. Antonio Adinolfi | Liceo Scientifico N. Cortese">
 <meta property="og:description" content="Risorse didattiche, materiali per le classi e bacheca news del Dipartimento di Informatica.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#0D444B">
+<meta name="theme-color" content="#26354B">
 <title>Prof. Antonio Adinolfi – Docente di Informatica | Liceo Scientifico Nino Cortese Maddaloni</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,9 +23,7 @@
    professionale 1280–1440px indicato. */
 :root { --container-max: 1440px; }
 
-/* Override locale di --space-section: da 3-6vw-5.5rem a un valore più
-   contenuto, per il solo scopo di riportare 'Accesso Rapido' e le sue
-   5 card interamente nella prima schermata desktop (above the fold).
+/* Spaziatura verticale compatta nella sola homepage.
    design-system.css resta invariato: altre pagine non impattate. */
 :root { --space-section: clamp(2rem, 4vw, 3.5rem); }
 
@@ -271,18 +269,6 @@ nav {
 .activity-list li:last-child { border: none; padding-bottom: 0; }
 .bullet { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 
-/* ── ACCESSO RAPIDO ── */
-.quick-access-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-bottom: 2rem; }
-.quick-card {
-  display: flex; flex-direction: column; gap: 6px; background: var(--white);
-  border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem 1.15rem;
-  box-shadow: var(--shadow); transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-}
-.quick-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); border-color: var(--border-gold); }
-.quick-card-icon { font-size: 22px; }
-.quick-card-h { font-weight: 600; font-size: 13px; color: var(--navy); }
-.quick-card-p { font-size: 12px; color: var(--text-muted); line-height: 1.48; }
-
 /* ── CALENDARIO ── */
 .calendar-block { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 1.5rem; margin-bottom: 3.4rem; }
 .calendar-h { font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--navy); margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
@@ -398,7 +384,6 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
   .hamburger { display: flex; }
   .tool-grid { grid-template-columns: 1fr 1fr; }
   .activity-grid { grid-template-columns: 1fr; }
-  .quick-access-grid { grid-template-columns: 1fr 1fr; }
   .news-grid { grid-template-columns: 1fr; }
   .news-col { border-right: none; border-bottom: 1px solid var(--border); }
   .news-col:last-child { border-bottom: none; }
@@ -412,7 +397,6 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
 @media (max-width: 600px) {
   .tool-grid { grid-template-columns: 1fr; }
   .tool-grid-2up { grid-template-columns: 1fr; }
-  .quick-access-grid { grid-template-columns: 1fr; }
   .hero-card-stats { grid-template-columns: repeat(2, 1fr); }
   .hero-card-stats div:nth-child(2) { border-right: none; }
 }
@@ -474,84 +458,82 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
 
 
 /* ════════════════════════════════════════════════════════════
-   TEMA STEM LAB — SOLO HOMEPAGE (2026-11-08)
-   Override cromatici locali: design-system.css e pagine interne
-   rimangono invariati. Nessuna modifica a struttura/JS/link.
+   TEMA ACADEMIC EDITORIAL — SOLO HOMEPAGE (2026-11-08)
+   Avorio, blu ardesia e bronzo; font e identità editoriale.
+   design-system.css resta condiviso e NON viene modificato.
    ════════════════════════════════════════════════════════════ */
 :root {
-  --color-primary:        #0D444B; /* Petrolio istituzionale */
-  --color-primary-dark:   #082E34;
-  --color-primary-light:  #155B63;
-  --color-secondary:      #0B746E; /* Teal accessibile */
-  --color-secondary-light:#398F87;
-  --color-accent:         #0B746E;
-  --color-accent-light:   #69E2C5; /* Menta, su fondi scuri */
-  --color-accent-pale:    rgba(11,116,110,.12);
-  --color-background:     #F3FAF8;
-  --color-background-2:   #E6F2EE;
-  --color-surface:        #FFFFFF;
-  --color-text:           #14363B;
-  --color-muted:          #53696A;
-  --color-border:         rgba(13,68,75,.14);
-  --color-border-accent:  rgba(11,116,110,.30);
-  --shadow:               0 5px 22px rgba(13,68,75,.075);
-  --shadow-hover:         0 12px 28px rgba(13,68,75,.14);
+  --color-primary:         #26354B; /* Blu ardesia */
+  --color-primary-dark:    #1C293D;
+  --color-primary-light:   #354C67;
+  --color-secondary:       #4B5F77;
+  --color-secondary-light: #687F99;
+  --color-accent:          #865B28; /* Bronzo scuro: leggibile su bianco */
+  --color-accent-light:    #E4C28E; /* Bronzo chiaro su fondi blu */
+  --color-accent-pale:     rgba(186,133,66,.12);
+  --color-background:      #F6F2E9;
+  --color-background-2:    #EDE5D8;
+  --color-surface:         #FFFFFF;
+  --color-text:            #26354B;
+  --color-muted:           #625E58;
+  --color-border:          rgba(38,53,75,.15);
+  --color-border-accent:   rgba(186,133,66,.32);
+  --shadow:                0 5px 22px rgba(38,53,75,.065);
+  --shadow-hover:          0 12px 28px rgba(38,53,75,.13);
 }
-
 body {
-  background: linear-gradient(180deg, #F8FCFB 0%, #F3FAF8 42%, #ECF6F3 100%);
+  background: linear-gradient(180deg, #FBFAF6 0%, #F6F2E9 49%, #F1EADF 100%);
 }
-nav, footer { background: #0A353B; }
+nav, footer { background: #26354B; }
 .nav-badge, .footer-badge, .nav-cta, .btn-primary {
-  background: #69E2C5;
-  color: #0A353B !important;
+  background: #DAB27B;
+  color: #26354B !important;
 }
 .nav-cta:hover, .btn-primary:hover {
-  background: #98F0DA !important;
-  color: #0A353B !important;
+  background: #ECD1A6 !important;
+  color: #26354B !important;
 }
-.nav-links a { color: rgba(255,255,255,.78); }
-.nav-links a:hover, .nav-links a.active { color: #A5F0DD; }
-
+.nav-links a { color: rgba(255,255,255,.80); }
+.nav-links a:hover, .nav-links a.active { color: #E4C28E; }
 .hero-stem {
   background-image:
-    linear-gradient(to right, rgba(7,48,54,.96) 0%, rgba(7,48,54,.84) 34%, rgba(7,48,54,.40) 65%, rgba(7,48,54,.07) 88%),
+    linear-gradient(to right, rgba(29,42,60,.96) 0%, rgba(29,42,60,.82) 34%, rgba(29,42,60,.40) 65%, rgba(29,42,60,.06) 88%),
     url('immagini/hero_stem.jpg');
 }
-.hero-stem-eyebrow { color: #93F0D6; }
-.hero-stem .btn-secondary:hover { border-color: #93F0D6; }
+.hero-stem-eyebrow { color: #E4C28E; }
+.hero-stem .btn-secondary:hover { border-color: #E4C28E; }
 .hero::before {
   background-image:
-    linear-gradient(rgba(105,226,197,.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(105,226,197,.07) 1px, transparent 1px);
+    linear-gradient(rgba(228,194,142,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(228,194,142,.06) 1px, transparent 1px);
 }
-.tag:hover { background: rgba(105,226,197,.12); }
+.tag:hover { background: rgba(228,194,142,.10); }
 .avatar-circle {
-  background: rgba(105,226,197,.14);
-  border-color: rgba(105,226,197,.30);
+  background: rgba(228,194,142,.13);
+  border-color: rgba(228,194,142,.28);
 }
 .section-badge.restricted {
-  background: rgba(11,116,110,.09);
-  color: #0B746E;
-  border-color: rgba(11,116,110,.25);
+  background: #F0E6D7;
+  color: #865B28;
+  border-color: rgba(186,133,66,.30);
 }
-.quick-card, .activity-block, .calendar-block,
-.resource-cards-grid .tool-card {
-  border-color: rgba(13,68,75,.14);
+.section-title { letter-spacing: -.015em; }
+.activity-block, .calendar-block, .resource-cards-grid .tool-card {
+  border-color: rgba(38,53,75,.14);
 }
-.quick-card:hover, .resource-cards-grid .tool-card:hover {
-  border-color: rgba(11,116,110,.38);
+.resource-cards-grid .tool-card:hover {
+  border-color: rgba(186,133,66,.42);
+  background: #FFFCF7;
   box-shadow: var(--shadow-hover);
 }
-.resource-cards-grid .tool-card:hover { background: #F8FCFB; }
 .contacts-calendar-layout .calendar-block,
 .contacts-calendar-layout .activity-block {
-  border-top-color: #0B746E;
+  border-top-color: #BA8542;
 }
 @media (max-width: 600px) {
   .hero-stem {
     background-image:
-      linear-gradient(180deg, rgba(7,48,54,.50) 0%, rgba(7,48,54,.88) 55%, rgba(7,48,54,.98) 100%),
+      linear-gradient(180deg, rgba(29,42,60,.53) 0%, rgba(29,42,60,.88) 55%, rgba(29,42,60,.98) 100%),
       url('immagini/hero_stem.jpg');
   }
 }
@@ -607,51 +589,10 @@ nav, footer { background: #0A353B; }
 <main id="main">
 <div class="container">
 
-  <!-- ── ACCESSO RAPIDO ── -->
-  <div id="accesso-rapido" class="hp-section">
-    <div class="section-header">
-      <div class="section-eyebrow"><span class="section-num">01 —</span></div>
-      <h2 class="section-title">Accesso Rapido</h2>
-      <p class="section-sub">I punti di ingresso principali del sito: materiali, laboratori, progetti e calendario.</p>
-    </div>
-    <div class="quick-access-grid">
-      <a href="#laboratori" class="quick-card">
-        <span class="quick-card-icon">📚</span>
-        <span class="quick-card-h">Materiali Didattici</span>
-        <span class="quick-card-p">Dispense, esercizi e risorse.</span>
-      </a>
-      <a href="#strumenti" class="quick-card">
-        <span class="quick-card-icon">🧪</span>
-        <span class="quick-card-h">Laboratori Online</span>
-        <span class="quick-card-p">SQL, Python e strumenti interattivi.</span>
-      </a>
-      <a href="#progetti" class="quick-card">
-        <span class="quick-card-icon">🔬</span>
-        <span class="quick-card-h">Progetti</span>
-        <span class="quick-card-p">STEM, PCTO, gare e iniziative.</span>
-      </a>
-      <a href="#data-science-pcto" class="quick-card">
-        <span class="quick-card-icon">📊</span>
-        <span class="quick-card-h">Data Science &amp; PCTO</span>
-        <span class="quick-card-p">Data analysis, IA e percorsi PCTO.</span>
-      </a>
-      <a href="calendario.html" class="quick-card">
-        <span class="quick-card-icon">📅</span>
-        <span class="quick-card-h">Calendario Lezioni</span>
-        <span class="quick-card-p">Orario, verifiche e appuntamenti.</span>
-      </a>
-      <a href="qrcode.html" class="quick-card">
-        <span class="quick-card-icon">▣</span>
-        <span class="quick-card-h">Generatore QR</span>
-        <span class="quick-card-p">Trasforma uno o più link in QR Code scaricabili.</span>
-      </a>
-    </div>
-  </div>
-
   <!-- ── DIDATTICA ── -->
   <div id="didattica" class="hp-section">
     <div class="section-header">
-      <div class="section-eyebrow"><span class="section-num">02 —</span></div>
+      <div class="section-eyebrow"><span class="section-num">01 —</span></div>
       <h2 class="section-title">Didattica</h2>
       <p class="section-sub">Organizzazione dei contenuti e dell'accesso alle attività didattiche del Dipartimento di Informatica.</p>
     </div>
@@ -684,7 +625,7 @@ nav, footer { background: #0A353B; }
   <div id="strumenti" class="hp-section">
     <div class="section-header">
       <div class="section-eyebrow">
-        <span class="section-num">03 —</span>
+        <span class="section-num">02 —</span>
         <span class="section-badge restricted">🔒 Accesso riservato @lscortese.com</span>
       </div>
       <h2 class="section-title">Laboratori Online</h2>
@@ -728,7 +669,7 @@ nav, footer { background: #0A353B; }
   <!-- ── PROGETTI ── -->
   <div id="progetti" class="hp-section">
     <div class="section-header">
-      <div class="section-eyebrow"><span class="section-num">04 —</span></div>
+      <div class="section-eyebrow"><span class="section-num">03 —</span></div>
       <h2 class="section-title">Progetti</h2>
       <p class="section-sub">STEM, intelligenza artificiale, data science, PCTO e progetti europei: le iniziative di ricerca e sperimentazione didattica del Dipartimento di Informatica.</p>
     </div>
@@ -756,7 +697,7 @@ nav, footer { background: #0A353B; }
   <!-- ── RISORSE ── -->
   <div id="laboratori" class="hp-section">
     <div class="section-header">
-      <div class="section-eyebrow"><span class="section-num">05 —</span></div>
+      <div class="section-eyebrow"><span class="section-num">04 —</span></div>
       <h2 class="section-title">Risorse</h2>
       <p class="section-sub">Materiali didattici, glossario, aggiornamenti e collegamenti utili.</p>
     </div>
@@ -839,7 +780,7 @@ nav, footer { background: #0A353B; }
   <!-- ── SEZIONE UNIFICATA: CONTATTI E AGENDA ── -->
   <section id="contatti-agenda" class="hp-section contacts-agenda-section" aria-labelledby="contatti-agenda-heading">
     <div class="section-header">
-      <div class="section-eyebrow"><span class="section-num">06 —</span></div>
+      <div class="section-eyebrow"><span class="section-num">05 —</span></div>
       <h2 class="section-title" id="contatti-agenda-heading">Contatti e Agenda</h2>
       <p class="section-sub">Riferimenti utili e prossimi appuntamenti in programma.</p>
     </div>
