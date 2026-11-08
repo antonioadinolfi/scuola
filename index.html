@@ -417,20 +417,33 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
   .hero-card-stats div:nth-child(2) { border-right: none; }
 }
 
-/* ── CONTATTI E CALENDARIO: due colonne nella homepage ── */
+/* ── CONTATTI E AGENDA: intestazione unica e schede allineate ── */
+.contacts-agenda-section { margin-top: 0.4rem; }
 .contacts-calendar-layout {
   display: grid;
   grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
-  align-items: start;
+  align-items: stretch;
   gap: clamp(1.4rem, 3vw, 2.5rem);
-  margin: 0.4rem 0 2.6rem;
 }
-.contacts-calendar-layout > * { min-width: 0; }
-.contacts-calendar-layout .calendar-block { margin-bottom: 0; }
+.contacts-calendar-layout > section { display: flex; min-width: 0; }
+.contacts-calendar-layout .activity-block,
+.contacts-calendar-layout .calendar-block {
+  width: 100%;
+  height: 100%;
+}
+.contacts-calendar-layout .calendar-block {
+  margin-bottom: 0;
+  padding: 1.8rem;
+  border-top: 3px solid var(--navy3);
+}
+.contacts-calendar-layout .calendar-h {
+  font-size: 12px;
+  margin-bottom: 1.1rem;
+}
 @media (max-width: 800px) {
   .contacts-calendar-layout {
     grid-template-columns: minmax(0, 1fr);
-    gap: 1.8rem;
+    gap: 1.3rem;
   }
 }
 
@@ -714,37 +727,37 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
 
   </div>
 
-  <!-- ── CONTATTI E CALENDARIO AFFIANCATI ── -->
-  <div class="contacts-calendar-layout">
-    <section aria-label="Contatti e riferimenti">
-      <div class="activity-block alt" id="contatti">
-        <div class="activity-h">Contatti e Riferimenti</div>
-        <ul class="activity-list">
-          <li><span class="bullet"></span>Ricevimento: mercoledì 10:00–11:00</li>
-          <li><span class="bullet"></span>Email istituzionale disponibile sul sito del Liceo</li>
-          <li><span class="bullet"></span><a href="https://www.liceoscientificocortese.edu.it" target="_blank" style="color:var(--accent)">liceoscientificocortese.edu.it</a></li>
-          <li><span class="bullet"></span><a href="pubblicazioni.html" style="color:var(--accent)">Pubblicazioni e contributi</a></li>
-          <li><span class="bullet"></span><a href="privacy.html" style="color:var(--accent)">Informativa Privacy</a></li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="calendario-sezione" aria-labelledby="calendario-heading">
-      <div class="section-header">
-        <div class="section-eyebrow"><span class="section-num">06 —</span></div>
-        <h2 class="section-title" id="calendario-heading">Calendario</h2>
-        <p class="section-sub">Prossimi appuntamenti e lezioni in programma.</p>
-      </div>
-      <!-- CALENDARIO LEZIONI: PREVIEW -->
-      <div class="calendar-block">
-        <div class="calendar-h">📅 Calendario Lezioni</div>
-        <div id="calendarPreviewList" class="calendar-preview-list">
-          <p class="calendar-preview-status">Caricamento prossimi appuntamenti…</p>
+  <!-- ── SEZIONE UNIFICATA: CONTATTI E AGENDA ── -->
+  <section id="contatti-agenda" class="hp-section contacts-agenda-section" aria-labelledby="contatti-agenda-heading">
+    <div class="section-header">
+      <div class="section-eyebrow"><span class="section-num">06 —</span></div>
+      <h2 class="section-title" id="contatti-agenda-heading">Contatti e Agenda</h2>
+      <p class="section-sub">Riferimenti utili e prossimi appuntamenti in programma.</p>
+    </div>
+    <div class="contacts-calendar-layout">
+      <section aria-label="Contatti e riferimenti">
+        <div class="activity-block alt" id="contatti">
+          <div class="activity-h">Contatti e Riferimenti</div>
+          <ul class="activity-list">
+            <li><span class="bullet"></span>Ricevimento: mercoledì 10:00–11:00</li>
+            <li><span class="bullet"></span>Email istituzionale disponibile sul sito del Liceo</li>
+            <li><span class="bullet"></span><a href="https://www.liceoscientificocortese.edu.it" target="_blank" style="color:var(--accent)">liceoscientificocortese.edu.it</a></li>
+            <li><span class="bullet"></span><a href="pubblicazioni.html" style="color:var(--accent)">Pubblicazioni e contributi</a></li>
+            <li><span class="bullet"></span><a href="privacy.html" style="color:var(--accent)">Informativa Privacy</a></li>
+          </ul>
         </div>
-        <a href="calendario.html" class="calendar-preview-btn">Apri calendario completo →</a>
-      </div>
-    </section>
-  </div>
+      </section>
+      <section id="calendario-sezione" aria-label="Calendario lezioni">
+        <div class="calendar-block">
+          <div class="calendar-h">📅 Calendario Lezioni</div>
+          <div id="calendarPreviewList" class="calendar-preview-list">
+            <p class="calendar-preview-status">Caricamento prossimi appuntamenti…</p>
+          </div>
+          <a href="calendario.html" class="calendar-preview-btn">Apri calendario completo →</a>
+        </div>
+      </section>
+    </div>
+  </section>
 
 </div><!-- /container -->
 </main>
