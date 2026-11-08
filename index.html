@@ -416,6 +416,24 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
   .hero-card-stats { grid-template-columns: repeat(2, 1fr); }
   .hero-card-stats div:nth-child(2) { border-right: none; }
 }
+
+/* ── CONTATTI E CALENDARIO: due colonne nella homepage ── */
+.contacts-calendar-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(1.4rem, 3vw, 2.5rem);
+  margin: 0.4rem 0 2.6rem;
+}
+.contacts-calendar-layout > * { min-width: 0; }
+.contacts-calendar-layout .calendar-block { margin-bottom: 0; }
+@media (max-width: 800px) {
+  .contacts-calendar-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.8rem;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -694,8 +712,11 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
       </div>
     </div>
 
-    <!-- ── CONTATTI ── -->
-    <div class="activity-grid" style="grid-template-columns: 1fr; max-width: 420px; margin-top: 1.8rem;">
+  </div>
+
+  <!-- ── CONTATTI E CALENDARIO AFFIANCATI ── -->
+  <div class="contacts-calendar-layout">
+    <section aria-label="Contatti e riferimenti">
       <div class="activity-block alt" id="contatti">
         <div class="activity-h">Contatti e Riferimenti</div>
         <ul class="activity-list">
@@ -706,24 +727,23 @@ footer { background: var(--navy); border-top: 1px solid var(--border-gold); padd
           <li><span class="bullet"></span><a href="privacy.html" style="color:var(--accent)">Informativa Privacy</a></li>
         </ul>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- ── CALENDARIO ── -->
-  <div id="calendario-sezione" class="hp-section" style="margin-top: 0.4rem;">
-    <div class="section-header">
-      <div class="section-eyebrow"><span class="section-num">06 —</span></div>
-      <h2 class="section-title">Calendario</h2>
-      <p class="section-sub">Prossimi appuntamenti e lezioni in programma.</p>
-    </div>
-    <!-- CALENDARIO LEZIONI: PREVIEW -->
-    <div class="calendar-block">
-      <div class="calendar-h">📅 Calendario Lezioni</div>
-      <div id="calendarPreviewList" class="calendar-preview-list">
-        <p class="calendar-preview-status">Caricamento prossimi appuntamenti…</p>
+    <section id="calendario-sezione" aria-labelledby="calendario-heading">
+      <div class="section-header">
+        <div class="section-eyebrow"><span class="section-num">06 —</span></div>
+        <h2 class="section-title" id="calendario-heading">Calendario</h2>
+        <p class="section-sub">Prossimi appuntamenti e lezioni in programma.</p>
       </div>
-      <a href="calendario.html" class="calendar-preview-btn">Apri calendario completo →</a>
-    </div>
+      <!-- CALENDARIO LEZIONI: PREVIEW -->
+      <div class="calendar-block">
+        <div class="calendar-h">📅 Calendario Lezioni</div>
+        <div id="calendarPreviewList" class="calendar-preview-list">
+          <p class="calendar-preview-status">Caricamento prossimi appuntamenti…</p>
+        </div>
+        <a href="calendario.html" class="calendar-preview-btn">Apri calendario completo →</a>
+      </div>
+    </section>
   </div>
 
 </div><!-- /container -->
