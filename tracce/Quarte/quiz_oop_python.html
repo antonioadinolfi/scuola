@@ -23,6 +23,7 @@
   .muted { color: var(--muted); }
   .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
   .badge { display: inline-block; font-size: .8rem; font-weight: 600; padding: 2px 10px; border-radius: 999px; color: #fff; }
+  .livello { font-size: .8rem; font-weight: 600; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; white-space: nowrap; }
   .t-incapsulamento { background: var(--enc); } .t-ereditarietà { background: var(--inh); } .t-polimorfismo { background: var(--pol); }
   button { font: inherit; min-height: 44px; padding: 8px 18px; border-radius: 8px; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink); cursor: pointer; font-weight: 600; }
   button.secondary { background: #fff; color: var(--accent); }
@@ -82,30 +83,83 @@
 <body>
 <main id="app" aria-live="polite"></main>
 
-<!-- Testi dei 10 casi (senza soluzioni: la correzione avviene sul server del docente). -->
+<!-- Testi dei casi (senza soluzioni: la correzione avviene sul server del docente). -->
 <script type="application/json" id="dati-casi">
 [
  {
   "tema": "incapsulamento",
-  "titolo": "Il saldo \"privato\"",
-  "traccia": "Il codice prova a modificare dall'esterno un attributo con doppio underscore. Che cosa stampa?",
+  "titolo": "Il contatore",
+  "livello": "base",
+  "traccia": "Il metodo incrementa() viene chiamato due volte. Che cosa stampa?",
   "codice": [
-   "class Conto:",
-   "    def __init__(self, saldo):",
-   "        self.__saldo = saldo",
+   "class Contatore:",
+   "    def __init__(self):",
+   "        self.__valore = 0",
    "",
-   "    def get_saldo(self):",
-   "        return self.__saldo",
+   "    def incrementa(self):",
+   "        self.__valore += 1",
    "",
-   "c = Conto(100)",
-   "c.__saldo = 500",
-   "print(c.get_saldo())"
+   "    def get_valore(self):",
+   "        return self.__valore",
+   "",
+   "c = Contatore()",
+   "c.incrementa()",
+   "c.incrementa()",
+   "print(c.get_valore())"
   ],
-  "opzioni": ["500", "100", "Errore: AttributeError", "None"]
+  "opzioni": ["0", "1", "2", "Errore: AttributeError"]
+ },
+ {
+  "tema": "incapsulamento",
+  "titolo": "Due oggetti, due stati",
+  "livello": "base",
+  "traccia": "Si creano due contatori dalla stessa classe. Che cosa stampa?",
+  "codice": [
+   "class Contatore:",
+   "    def __init__(self):",
+   "        self.__valore = 0",
+   "",
+   "    def incrementa(self):",
+   "        self.__valore += 1",
+   "",
+   "    def get_valore(self):",
+   "        return self.__valore",
+   "",
+   "a = Contatore()",
+   "b = Contatore()",
+   "a.incrementa()",
+   "a.incrementa()",
+   "b.incrementa()",
+   "print(a.get_valore(), b.get_valore())"
+  ],
+  "opzioni": ["3 3", "2 1", "2 2", "1 2"]
+ },
+ {
+  "tema": "ereditarietà",
+  "titolo": "Una sottoclasse vuota",
+  "livello": "base",
+  "traccia": "La classe Cane non definisce nulla di suo: né __init__ né metodi. Che cosa stampa?",
+  "codice": [
+   "class Animale:",
+   "    def __init__(self, nome):",
+   "        self.nome = nome",
+   "",
+   "    def presentati(self):",
+   "        return 'Sono ' + self.nome",
+   "",
+   "class Cane(Animale):",
+   "    pass",
+   "",
+   "fido = Cane('Fido')",
+   "print(fido.presentati())",
+   "print(fido.nome)"
+  ],
+  "opzioni": ["Sono Fido\nFido", "Errore: TypeError", "Sono Fido\nErrore: AttributeError", "Sono \nFido"]
  },
  {
   "tema": "incapsulamento",
   "titolo": "Il metodo set che controlla",
+  "livello": "base",
   "traccia": "La temperatura viene impostata con un valore impossibile (sotto lo zero assoluto) usando il metodo set. Che cosa stampa?",
   "codice": [
    "class Termometro:",
@@ -127,48 +181,86 @@
   "opzioni": ["-300", "0", "-273", "Errore: AttributeError"]
  },
  {
-  "tema": "incapsulamento",
-  "titolo": "Privato... ma non troppo",
-  "traccia": "La password viene prima controllata con un metodo, poi letta dall'esterno con due nomi diversi. Che cosa stampa?",
-  "codice": [
-   "class Utente:",
-   "    def __init__(self, pwd):",
-   "        self.__pwd = pwd",
-   "",
-   "    def verifica(self, tentativo):",
-   "        return tentativo == self.__pwd",
-   "",
-   "u = Utente('abc')",
-   "print(u.verifica('xyz'))",
-   "print(u._Utente__pwd)",
-   "print(u.__pwd)"
-  ],
-  "opzioni": ["False\nabc\nabc", "False\nabc\nErrore: AttributeError", "False\nErrore: AttributeError", "Errore: AttributeError"]
- },
- {
   "tema": "ereditarietà",
-  "titolo": "Una sottoclasse vuota",
-  "traccia": "La classe Cane non definisce nulla di suo: né __init__ né metodi. Che cosa stampa?",
+  "titolo": "Il metodo aggiunto",
+  "livello": "base",
+  "traccia": "Cane aggiunge un metodo che Animale non ha. Che cosa stampa?",
   "codice": [
    "class Animale:",
    "    def __init__(self, nome):",
    "        self.nome = nome",
    "",
-   "    def presentati(self):",
-   "        return 'Sono ' + self.nome",
+   "    def mangia(self):",
+   "        return self.nome + ' mangia'",
    "",
    "class Cane(Animale):",
+   "    def abbaia(self):",
+   "        return self.nome + ' abbaia'",
+   "",
+   "a = Animale('Micio')",
+   "d = Cane('Fido')",
+   "print(d.mangia())",
+   "print(d.abbaia())",
+   "print(a.abbaia())"
+  ],
+  "opzioni": ["Fido mangia\nFido abbaia\nErrore: AttributeError", "Errore: AttributeError", "Fido mangia\nFido abbaia\nMicio abbaia", "Fido mangia\nErrore: AttributeError"]
+ },
+ {
+  "tema": "polimorfismo",
+  "titolo": "L'orchestra",
+  "livello": "base",
+  "traccia": "Tre strumenti diversi ricevono la stessa chiamata suona(). Che cosa stampa?",
+  "codice": [
+   "class Strumento:",
+   "    def suona(self):",
+   "        return '...'",
+   "",
+   "class Chitarra(Strumento):",
+   "    def suona(self):",
+   "        return 'Dlen'",
+   "",
+   "class Tamburo(Strumento):",
+   "    def suona(self):",
+   "        return 'Tum'",
+   "",
+   "class Triangolo(Strumento):",
    "    pass",
    "",
-   "fido = Cane('Fido')",
-   "print(fido.presentati())",
-   "print(fido.nome)"
+   "for s in [Chitarra(), Tamburo(), Triangolo()]:",
+   "    print(s.suona())"
   ],
-  "opzioni": ["Sono Fido\nFido", "Errore: TypeError", "Sono Fido\nErrore: AttributeError", "Sono \nFido"]
+  "opzioni": ["...\n...\n...", "Dlen\nTum", "Dlen\nTum\nErrore: AttributeError", "Dlen\nTum\n..."]
+ },
+ {
+  "tema": "incapsulamento",
+  "titolo": "Il prelievo controllato",
+  "livello": "base",
+  "traccia": "Il metodo preleva() controlla il saldo prima di modificarlo. Che cosa stampa?",
+  "codice": [
+   "class Conto:",
+   "    def __init__(self, saldo):",
+   "        self.__saldo = saldo",
+   "",
+   "    def preleva(self, importo):",
+   "        if self.__saldo < importo:",
+   "            return False",
+   "        self.__saldo = self.__saldo - importo",
+   "        return True",
+   "",
+   "    def get_saldo(self):",
+   "        return self.__saldo",
+   "",
+   "c = Conto(100)",
+   "print(c.preleva(30))",
+   "print(c.preleva(80))",
+   "print(c.get_saldo())"
+  ],
+  "opzioni": ["True\nTrue\n-10", "True\nFalse\n70", "False\nFalse\n100", "True\nFalse\n100"]
  },
  {
   "tema": "ereditarietà",
   "titolo": "Chi parla per primo?",
+  "livello": "intermedio",
   "traccia": "Il costruttore di Auto chiama anche quello di Veicolo. In che ordine compaiono le stampe?",
   "codice": [
    "class Veicolo:",
@@ -189,6 +281,7 @@
  {
   "tema": "ereditarietà",
   "titolo": "Il super() dimenticato",
+  "livello": "intermedio",
   "traccia": "Studente ridefinisce __init__ ma non chiama quello di Persona. Che cosa succede?",
   "codice": [
    "class Persona:",
@@ -207,28 +300,8 @@
  },
  {
   "tema": "polimorfismo",
-  "titolo": "Lo stesso metodo, due risposte",
-  "traccia": "saluta() è scritto solo nella classe Base. Che cosa stampa?",
-  "codice": [
-   "class Base:",
-   "    def saluta(self):",
-   "        return 'Ciao da ' + self.chi()",
-   "",
-   "    def chi(self):",
-   "        return 'Base'",
-   "",
-   "class Figlia(Base):",
-   "    def chi(self):",
-   "        return 'Figlia'",
-   "",
-   "print(Base().saluta())",
-   "print(Figlia().saluta())"
-  ],
-  "opzioni": ["Ciao da Base\nCiao da Base", "Ciao da Base\nCiao da Figlia", "Ciao da Figlia\nCiao da Figlia", "Ciao da Base\nErrore: AttributeError"]
- },
- {
-  "tema": "polimorfismo",
   "titolo": "Somma di aree",
+  "livello": "intermedio",
   "traccia": "Una lista contiene forme diverse e si somma il risultato di area(). Che cosa stampa?",
   "codice": [
    "class Forma:",
@@ -254,8 +327,61 @@
   "opzioni": ["5", "Errore: AttributeError", "13", "0"]
  },
  {
+  "tema": "ereditarietà",
+  "titolo": "Lo stipendio del manager",
+  "livello": "intermedio",
+  "traccia": "Manager estende sia il costruttore sia il metodo paga() di Dipendente. Che cosa stampa?",
+  "codice": [
+   "class Dipendente:",
+   "    def __init__(self, nome, stipendio):",
+   "        self.nome = nome",
+   "        self.stipendio = stipendio",
+   "",
+   "    def paga(self):",
+   "        return self.stipendio",
+   "",
+   "class Manager(Dipendente):",
+   "    def __init__(self, nome, stipendio, bonus):",
+   "        super().__init__(nome, stipendio)",
+   "        self.bonus = bonus",
+   "",
+   "    def paga(self):",
+   "        return super().paga() + self.bonus",
+   "",
+   "squadra = [Dipendente('Ada', 1500), Manager('Bruno', 2000, 500)]",
+   "totale = 0",
+   "for d in squadra:",
+   "    totale += d.paga()",
+   "print(totale)"
+  ],
+  "opzioni": ["4000", "3500", "4500", "Errore: TypeError"]
+ },
+ {
+  "tema": "polimorfismo",
+  "titolo": "Lo stesso metodo, due risposte",
+  "livello": "intermedio",
+  "traccia": "saluta() è scritto solo nella classe Base. Che cosa stampa?",
+  "codice": [
+   "class Base:",
+   "    def saluta(self):",
+   "        return 'Ciao da ' + self.chi()",
+   "",
+   "    def chi(self):",
+   "        return 'Base'",
+   "",
+   "class Figlia(Base):",
+   "    def chi(self):",
+   "        return 'Figlia'",
+   "",
+   "print(Base().saluta())",
+   "print(Figlia().saluta())"
+  ],
+  "opzioni": ["Ciao da Base\nCiao da Base", "Ciao da Base\nCiao da Figlia", "Ciao da Figlia\nCiao da Figlia", "Ciao da Base\nErrore: AttributeError"]
+ },
+ {
   "tema": "polimorfismo",
   "titolo": "Se fa \"qua\" come un'anatra...",
+  "livello": "intermedio",
   "traccia": "Anatra e Robot non hanno una classe in comune. La lista contiene anche una stringa. Che cosa stampa?",
   "codice": [
    "class Anatra:",
@@ -275,8 +401,145 @@
   "opzioni": ["Errore: TypeError", "Qua\nBip", "Qua\nBip\nNone", "Qua\nBip\nErrore: AttributeError"]
  },
  {
+  "tema": "incapsulamento",
+  "titolo": "Il termostato",
+  "livello": "intermedio",
+  "traccia": "Il metodo imposta() accetta solo valori compresi tra 15 e 30 (esclusi) e alza() lo riutilizza. Che cosa stampa?",
+  "codice": [
+   "class Termostato:",
+   "    def __init__(self):",
+   "        self.__temp = 20",
+   "",
+   "    def imposta(self, valore):",
+   "        if 15 < valore:",
+   "            if valore < 30:",
+   "                self.__temp = valore",
+   "",
+   "    def alza(self, gradi):",
+   "        self.imposta(self.__temp + gradi)",
+   "",
+   "    def get_temp(self):",
+   "        return self.__temp",
+   "",
+   "t = Termostato()",
+   "t.alza(5)",
+   "t.alza(8)",
+   "t.imposta(10)",
+   "print(t.get_temp())"
+  ],
+  "opzioni": ["25", "10", "20", "33"]
+ },
+ {
+  "tema": "ereditarietà",
+  "titolo": "Tre costruttori in fila",
+  "livello": "avanzato",
+  "traccia": "Ogni classe ha il suo __init__ e due di esse chiamano super(). In che ordine compaiono le stampe?",
+  "codice": [
+   "class A:",
+   "    def __init__(self):",
+   "        print('A')",
+   "",
+   "class B(A):",
+   "    def __init__(self):",
+   "        super().__init__()",
+   "        print('B')",
+   "",
+   "class C(B):",
+   "    def __init__(self):",
+   "        print('C')",
+   "        super().__init__()",
+   "",
+   "c = C()"
+  ],
+  "opzioni": ["C\nB\nA", "A\nB\nC", "C\nA\nB", "C"]
+ },
+ {
+  "tema": "polimorfismo",
+  "titolo": "Descrivi la forma",
+  "livello": "avanzato",
+  "traccia": "descrivi() è scritto solo in Forma, ma chiama lati(). Che cosa stampa?",
+  "codice": [
+   "class Forma:",
+   "    def __init__(self, nome):",
+   "        self.nome = nome",
+   "",
+   "    def descrivi(self):",
+   "        return self.nome + ': ' + self.lati()",
+   "",
+   "    def lati(self):",
+   "        return '?'",
+   "",
+   "class Triangolo(Forma):",
+   "    def __init__(self):",
+   "        super().__init__('triangolo')",
+   "",
+   "    def lati(self):",
+   "        return '3'",
+   "",
+   "class Cerchio(Forma):",
+   "    def __init__(self):",
+   "        super().__init__('cerchio')",
+   "",
+   "for f in [Triangolo(), Cerchio()]:",
+   "    print(f.descrivi())"
+  ],
+  "opzioni": ["triangolo: ?\ncerchio: ?", "triangolo: 3\nErrore: AttributeError", "Errore: TypeError", "triangolo: 3\ncerchio: ?"]
+ },
+ {
+  "tema": "ereditarietà",
+  "titolo": "Quante ruote ha la moto?",
+  "livello": "avanzato",
+  "traccia": "Moto imposta le ruote e poi chiama il costruttore di Veicolo. Che cosa stampa?",
+  "codice": [
+   "class Veicolo:",
+   "    def __init__(self):",
+   "        self.ruote = 4",
+   "        self.tipo = 'veicolo'",
+   "",
+   "class Moto(Veicolo):",
+   "    def __init__(self):",
+   "        self.ruote = 2",
+   "        super().__init__()",
+   "        self.tipo = 'moto'",
+   "",
+   "m = Moto()",
+   "print(m.tipo, m.ruote)"
+  ],
+  "opzioni": ["moto 2", "moto 4", "veicolo 4", "veicolo 2"]
+ },
+ {
+  "tema": "polimorfismo",
+  "titolo": "Commissioni diverse",
+  "livello": "avanzato",
+  "traccia": "preleva() è scritto solo in Conto, ma usa commissione(). Che cosa stampa?",
+  "codice": [
+   "class Conto:",
+   "    def __init__(self):",
+   "        self.saldo = 100",
+   "",
+   "    def commissione(self):",
+   "        return 2",
+   "",
+   "    def preleva(self, importo):",
+   "        self.saldo = self.saldo - importo - self.commissione()",
+   "",
+   "class ContoStudente(Conto):",
+   "    def commissione(self):",
+   "        return 0",
+   "",
+   "a = Conto()",
+   "b = ContoStudente()",
+   "for c in [a, b]:",
+   "    c.preleva(10)",
+   "    c.preleva(10)",
+   "print(a.saldo, b.saldo)"
+  ],
+  "opzioni": ["76 80", "76 76", "78 80", "80 80"]
+ },
+ {
   "tema": "polimorfismo",
   "titolo": "La catena di super()",
+  "livello": "avanzato",
   "traccia": "Ogni classe ridefinisce info() e richiama quella della classe superiore. Il metodo viene chiamato su un oggetto C e poi su un oggetto B. Che cosa stampa?",
   "codice": [
    "class A:",
@@ -295,6 +558,32 @@
    "print(B().info())"
   ],
   "opzioni": ["C\nB", "ABC\nAB", "CBA\nBA", "CBA\nB"]
+ },
+ {
+  "tema": "polimorfismo",
+  "titolo": "Il saluto della famiglia",
+  "livello": "avanzato",
+  "traccia": "C ridefinisce saluto() usando super(), B ridefinisce solo nome(). Che cosa stampa?",
+  "codice": [
+   "class A:",
+   "    def nome(self):",
+   "        return 'A'",
+   "",
+   "    def saluto(self):",
+   "        return 'Ciao ' + self.nome()",
+   "",
+   "class B(A):",
+   "    def nome(self):",
+   "        return 'B'",
+   "",
+   "class C(B):",
+   "    def saluto(self):",
+   "        return super().saluto() + '!'",
+   "",
+   "print(B().saluto())",
+   "print(C().saluto())"
+  ],
+  "opzioni": ["Ciao A\nCiao A!", "Ciao B\nCiao A!", "Ciao B\nErrore: AttributeError", "Ciao B\nCiao B!"]
  }
 ]
 </script>
@@ -306,7 +595,7 @@ window.QUIZ_OOP_CONFIG = Object.assign({
   appsScriptUrl: "https://script.google.com/macros/s/AKfycbwOagsCVY0UDKEbQCJeK4E47JyaDtYvoelv4oHYt8OMH4RuUoFpBEO3wYAEdhSd1Cap/exec",
   clientId: "1011752872320-713mjtge9ofhtnclhjfvdoc2h2q2uelv.apps.googleusercontent.com",
   dominio: "lscortese.com",
-  quizId: "oop-quarta-v1",
+  quizId: "oop-quarta-v2",
   soglia: 0.7
 }, window.QUIZ_OOP_CONFIG || {});
 </script>
@@ -415,7 +704,7 @@ window.QUIZ_OOP_CONFIG = Object.assign({
     app.innerHTML = `
       <div class="card">
         <h1>Quiz OOP in Python – Classe quarta</h1>
-        <p class="muted">10 casi su incapsulamento, ereditarietà e polimorfismo.</p>
+        <p class="muted">${N} casi su incapsulamento, ereditarietà e polimorfismo, in ordine di difficoltà crescente (base, intermedio, avanzato).</p>
         <ul>
           <li>Per ogni caso leggi il codice e scegli che cosa stampa <strong>esattamente</strong>.</li>
           <li>Puoi muoverti tra le domande e cambiare le risposte fino alla <strong>consegna finale</strong>.</li>
@@ -472,7 +761,7 @@ window.QUIZ_OOP_CONFIG = Object.assign({
     const c = CASI[S.idx], ultimo = S.idx === N - 1;
     app.innerHTML = `
       <div class="top">
-        <span><strong>Domanda ${S.idx + 1} di ${N}</strong> &nbsp;${badge(c.tema)}</span>
+        <span><strong>Domanda ${S.idx + 1} di ${N}</strong> &nbsp;${badge(c.tema)} <span class="livello">livello ${esc(c.livello)}</span></span>
         <span class="muted">Risposte date: <strong id="contatore">${date()}</strong>/${N}</span>
       </div>
       ${navigatore()}

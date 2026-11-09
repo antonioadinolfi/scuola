@@ -3,7 +3,7 @@
 La pagina `tracce/Quarte/quiz_oop_python.html` non contiene le soluzioni. Alla consegna invia le risposte a questa web app, che:
 
 1. verifica l'identità dello studente con il token di accesso Google (solo account `@lscortese.com`);
-2. corregge il test con la chiave contenuta in `Chiave.gs`; il test è superato con almeno 7 risposte esatte su 10 (70%);
+2. corregge il test con la chiave contenuta in `Chiave.gs`; il test è superato con almeno il 70% di risposte esatte (14 su 20);
 3. crea un PDF con i dati dello studente, l'esito e il dettaglio delle risposte;
 4. invia il PDF per email a `antonioadinolfi@lscortese.com` (il destinatario è fisso nello script);
 5. salva il PDF nella cartella Drive **Consegne Quiz OOP Python**, divisa per classe, e aggiunge una riga al foglio **Registro Quiz OOP Python**.
