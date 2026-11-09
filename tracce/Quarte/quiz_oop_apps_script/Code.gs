@@ -3,8 +3,8 @@
  *
  * Riceve dal sito le risposte di uno studente, verifica la sua identità con il token
  * Google (solo account @lscortese.com), corregge il test con la chiave contenuta in
- * Chiave.gs, crea il PDF dell'esito, lo invia per email al docente, lo salva su Drive
- * e aggiunge una riga al foglio di registro.
+ * Chiave.gs, crea il PDF dell'esito, lo salva su Drive e aggiunge una riga al foglio
+ * di registro. L'invio per email è disattivato (INVIA_EMAIL = false).
  *
  * Il progetto Apps Script contiene DUE file:
  *   - Code.gs   (questo file, pubblico)
@@ -16,6 +16,7 @@
  */
 
 const DOCENTE = 'antonioadinolfi@lscortese.com';      // destinatario fisso delle email
+const INVIA_EMAIL = false;                            // true = invia anche il PDF per email al docente
 const CLIENT_ID = '1011752872320-713mjtge9ofhtnclhjfvdoc2h2q2uelv.apps.googleusercontent.com';
 const DOMINIO = 'lscortese.com';
 const NOME_CARTELLA = 'Consegne Quiz OOP Python';       // creata nel Drive del docente se manca
@@ -78,8 +79,9 @@ function doPost(e) {
       const pdf = Utilities.newBlob(htmlPdf_(info, c), 'text/html', 'esito.html').getAs('application/pdf').setName(nomeFile);
       const file = sottocartella_(cartella, d.classe).createFile(pdf);
 
-      let inviata = 'sì';
-      try {
+      let inviata = 'no (invio email disattivato)';
+      if (INVIA_EMAIL) try {
+        inviata = 'sì';
         MailApp.sendEmail({
           to: DOCENTE,
           replyTo: id.email,
@@ -265,12 +267,12 @@ function json_(o) {
 /** Esegui una volta per concedere le autorizzazioni (Drive, Fogli, Gmail, connessioni esterne). */
 function autorizza() {
   Logger.log('Cartella: ' + cartella_().getName());
-  Logger.log('Email ancora inviabili oggi: ' + MailApp.getRemainingDailyQuota());
+  if (INVIA_EMAIL) Logger.log('Email ancora inviabili oggi: ' + MailApp.getRemainingDailyQuota());
   Logger.log('Chiave caricata: ' + QUIZ_ID + ', ' + CHIAVE.length + ' domande');
   UrlFetchApp.fetch('https://oauth2.googleapis.com/tokeninfo', { muteHttpExceptions: true });
 }
 
-/** Prova completa senza studente: crea un PDF di esempio, lo salva e lo invia al docente. */
+/** Prova completa senza studente: crea un PDF di esempio e lo salva su Drive (e lo invia per email solo se INVIA_EMAIL è true). */
 function provaConsegna() {
   const scelte = CHIAVE.map((k, i) => i < 7 ? k.corretta : null);
   const c = correggi_(scelte);
@@ -281,7 +283,7 @@ function provaConsegna() {
   const pdf = Utilities.newBlob(htmlPdf_(info, c), 'text/html', 'esito.html').getAs('application/pdf')
     .setName('PROVA_esito_quiz_oop.pdf');
   const file = sottocartella_(cartella_(), 'PROVE').createFile(pdf);
-  MailApp.sendEmail({ to: DOCENTE, subject: '[Quiz OOP] PROVA – ' + c.punteggio + '/' + c.totale,
+  if (INVIA_EMAIL) MailApp.sendEmail({ to: DOCENTE, subject: '[Quiz OOP] PROVA – ' + c.punteggio + '/' + c.totale,
     htmlBody: htmlEmail_(info, c, file.getUrl()), attachments: [pdf] });
   Logger.log('PDF di prova: ' + file.getUrl());
 }
