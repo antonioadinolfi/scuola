@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ripasso OOP in Python – prima del quiz</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --card: #ffffff; --ink: #1d2330; --muted: #5b6475;
+    --line: #dde1e8; --accent: #2457c5; --accent-ink: #ffffff;
+    --code-bg: #1e2230; --code-ink: #e6e9ef; --out-bg: #111; --out-ink: #d7f7d7;
+    --kw: #c792ea; --str: #c3e88d; --num: #f78c6c; --bi: #82aaff; --self: #ffcb6b; --com: #8a93a6;
+    --enc: #7b3fb5; --inh: #b0640a; --pol: #127a7a; --err: #b3261e;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body { margin: 0; }
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.55; font-size: 16px; }
+  main { max-width: 860px; margin: 0 auto; padding: 16px; }
+  h1 { font-size: 1.6rem; margin: 0 0 6px; }
+  h2 { font-size: 1.3rem; margin: 0 0 10px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  h3 { font-size: 1.05rem; margin: 18px 0 6px; }
+  p, li { max-width: 72ch; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px; margin-bottom: 16px; scroll-margin-top: 12px; }
+  .muted { color: var(--muted); }
+  .badge { display: inline-block; font-size: .8rem; font-weight: 600; padding: 2px 10px; border-radius: 999px; color: #fff; }
+  .t-enc { background: var(--enc); } .t-inh { background: var(--inh); } .t-pol { background: var(--pol); } .t-gen { background: var(--accent); } .t-err { background: var(--err); }
+  nav.indice ol { margin: 6px 0 0; padding-left: 22px; }
+  nav.indice a { color: var(--accent); font-weight: 600; }
+  a:focus-visible, .btn:focus-visible, pre:focus-visible { outline: 3px solid #f2b705; outline-offset: 2px; }
+  code { font-family: ui-monospace, "Cascadia Code", Consolas, "Courier New", monospace; background: #eceff4; padding: 0 4px; border-radius: 4px; font-size: .92em; }
+  .esempio { margin: 10px 0 14px; }
+  .lbl { display: block; font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin: 8px 0 4px; }
+  pre { margin: 0; border-radius: 8px; overflow-x: auto; font-family: ui-monospace, "Cascadia Code", Consolas, "Courier New", monospace; font-size: 14px; line-height: 1.5; }
+  pre.py { background: var(--code-bg); color: var(--code-ink); padding: 10px 14px; }
+  pre.out { background: var(--out-bg); color: var(--out-ink); padding: 8px 14px; white-space: pre-wrap; }
+  pre.py code, pre.out code { background: none; padding: 0; font-size: inherit; color: inherit; }
+  .kw { color: var(--kw); } .str { color: var(--str); } .num { color: var(--num); } .bi { color: var(--bi); } .self { color: var(--self); } .com { color: var(--com); font-style: italic; }
+  .ricorda { border-left: 4px solid var(--accent); background: #eef3fd; border-radius: 0 8px 8px 0; padding: 10px 14px; margin-top: 12px; }
+  .ricorda strong:first-child { display: block; margin-bottom: 4px; }
+  .ricorda ul { margin: 0; padding-left: 20px; }
+  .attenzione { border-left-color: var(--err); background: #fbe9e8; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  ol.passi li { margin-bottom: 6px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 20px; border-radius: 8px; background: var(--accent); color: var(--accent-ink); font-weight: 700; text-decoration: none; }
+  .fine { text-align: center; }
+  @media (max-width: 600px) { main { padding: 10px; } .card { padding: 14px; } h1 { font-size: 1.35rem; } }
+</style>
+</head>
+<body>
+<main>
+  <header class="card">
+    <h1>Ripasso: classi, incapsulamento, ereditarietà e polimorfismo</h1>
+    <p class="muted">Leggi questa pagina prima del <a href="quiz_oop_python.html">Quiz OOP</a>. Contiene tutto quello che serve per rispondere, con esempi diversi da quelli del test.</p>
+    <nav class="indice" aria-label="Indice">
+      <strong>Indice</strong>
+      <ol>
+        <li><a href="#classi">Classi, oggetti e <code>self</code></a></li>
+        <li><a href="#incapsulamento">Incapsulamento</a></li>
+        <li><a href="#ereditarieta">Ereditarietà e <code>super()</code></a></li>
+        <li><a href="#polimorfismo">Polimorfismo</a></li>
+        <li><a href="#errori">Quando il programma si ferma: gli errori</a></li>
+        <li><a href="#metodo">Come tracciare l'esecuzione</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <!-- 1 -->
+  <section class="card" id="classi" aria-labelledby="h-classi">
+    <h2 id="h-classi"><span class="badge t-gen">1</span> Classi, oggetti e <code>self</code></h2>
+    <p>Una <strong>classe</strong> è il progetto, un <strong>oggetto</strong> è un esemplare costruito con quel progetto. Quando scrivi <code>Lampada('rossa')</code>, Python crea un nuovo oggetto ed esegue subito il metodo <code>__init__</code>, che prepara gli attributi.</p>
+    <p>Dentro i metodi, <code>self</code> è <strong>l'oggetto su cui è stato chiamato il metodo</strong>: in <code>a.accendi()</code>, <code>self</code> è <code>a</code>.</p>
+    <div class="esempio">
+      <span class="lbl">Esempio</span>
+<pre class="py" data-esempio="classi" tabindex="0"><code>class Lampada:
+    def __init__(self, colore):
+        self.colore = colore
+        self.accesa = False
+
+    def accendi(self):
+        self.accesa = True
+
+    def descrivi(self):
+        return 'lampada ' + self.colore
+
+a = Lampada('rossa')
+b = Lampada('blu')
+a.accendi()
+print(a.descrivi(), a.accesa)
+print(b.descrivi(), b.accesa)</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="classi"><code>lampada rossa True
+lampada blu False</code></pre>
+    </div>
+    <div class="ricorda">
+      <strong>Da ricordare</strong>
+      <ul>
+        <li>Ogni oggetto ha <strong>i suoi</strong> attributi: accendere <code>a</code> non cambia <code>b</code>.</li>
+        <li><code>return</code> restituisce un valore a chi ha chiamato il metodo; solo <code>print</code> lo fa comparire sullo schermo.</li>
+        <li><code>print(x, y)</code> stampa i due valori sulla stessa riga, separati da uno spazio.</li>
+        <li>Un confronto come <code>a == b</code> o <code>a &lt; b</code> vale <code>True</code> oppure <code>False</code>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="card" id="incapsulamento" aria-labelledby="h-inc">
+    <h2 id="h-inc"><span class="badge t-enc">2</span> Incapsulamento</h2>
+    <p>Incapsulare significa <strong>proteggere lo stato dell'oggetto</strong>: i dati si modificano solo attraverso i metodi della classe, che possono controllare che i valori abbiano senso.</p>
+    <p>Un attributo che inizia con due underscore, come <code>self.__valore</code>, è <strong>privato</strong>: si usa solo dentro la classe, tramite <code>self</code>. Dall'esterno si passa dai metodi: il <strong>get</strong> per leggere, il <strong>set</strong> per modificare.</p>
+    <div class="esempio">
+      <span class="lbl">Esempio</span>
+<pre class="py" data-esempio="incapsulamento" tabindex="0"><code>class Voto:
+    def __init__(self):
+        self.__valore = 6
+
+    def set_valore(self, v):
+        if v &lt; 1:
+            v = 1
+        if 10 &lt; v:
+            v = 10
+        self.__valore = v
+
+    def get_valore(self):
+        return self.__valore
+
+    def aumenta(self, punti):
+        self.set_valore(self.__valore + punti)
+
+v = Voto()
+v.set_valore(12)
+print(v.get_valore())
+v.set_valore(7)
+v.aumenta(2)
+print(v.get_valore())</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="incapsulamento"><code>10
+9</code></pre>
+    </div>
+    <p>Un metodo può anche <strong>rifiutare</strong> un'operazione e comunicarlo restituendo <code>True</code> o <code>False</code>. Quando incontra <code>return</code>, il metodo termina subito: le righe successive non vengono eseguite.</p>
+    <div class="esempio">
+<pre class="py" data-esempio="rifiuta" tabindex="0"><code>class Zaino:
+    def __init__(self):
+        self.__peso = 0
+
+    def aggiungi(self, kg):
+        if 10 &lt; self.__peso + kg:
+            return False
+        self.__peso = self.__peso + kg
+        return True
+
+    def get_peso(self):
+        return self.__peso
+
+z = Zaino()
+print(z.aggiungi(6))
+print(z.aggiungi(6))
+print(z.get_peso())</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="rifiuta"><code>True
+False
+6</code></pre>
+    </div>
+    <div class="ricorda">
+      <strong>Da ricordare</strong>
+      <ul>
+        <li>Il set è il posto giusto per i <strong>controlli</strong>: l'oggetto non finisce mai in uno stato non valido.</li>
+        <li>Un metodo può chiamare un altro metodo della stessa classe con <code>self.nome_metodo(...)</code>: in <code>aumenta</code> il controllo del set viene riusato.</li>
+        <li>Gli attributi privati si leggono e si modificano <strong>solo dentro la classe</strong>; da fuori si usano i metodi.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="card" id="ereditarieta" aria-labelledby="h-inh">
+    <h2 id="h-inh"><span class="badge t-inh">3</span> Ereditarietà e <code>super()</code></h2>
+    <p>Con <code>class Studente(Persona):</code> la classe <code>Studente</code> <strong>eredita</strong> attributi e metodi di <code>Persona</code> e può aggiungerne di nuovi. Uno studente <em>è una</em> persona.</p>
+    <p><code>super()</code> permette di chiamare un metodo della classe base. Si usa soprattutto nel costruttore: <code>super().__init__(...)</code>.</p>
+    <div class="esempio">
+      <span class="lbl">Esempio</span>
+<pre class="py" data-esempio="ereditarieta" tabindex="0"><code>class Persona:
+    def __init__(self, nome):
+        self.nome = nome
+
+    def saluta(self):
+        return 'Ciao, sono ' + self.nome
+
+class Studente(Persona):
+    def __init__(self, nome, classe):
+        super().__init__(nome)
+        self.classe = classe
+
+    def studia(self):
+        return self.nome + ' studia in ' + self.classe
+
+s = Studente('Luca', '4C')
+print(s.saluta())
+print(s.studia())</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="ereditarieta"><code>Ciao, sono Luca
+Luca studia in 4C</code></pre>
+    </div>
+    <h3>Dove cerca Python un metodo?</h3>
+    <p>Per eseguire <code>s.saluta()</code> Python guarda prima nella classe dell'oggetto (<code>Studente</code>). Se non trova il metodo sale alla classe base (<code>Persona</code>), poi alla base della base, e così via. Se non lo trova da nessuna parte segnala <code>AttributeError</code>.</p>
+    <p>La ricerca va <strong>solo verso l'alto</strong>: un metodo aggiunto nella sottoclasse (<code>studia</code>) non esiste per un oggetto <code>Persona</code>.</p>
+    <h3>L'ordine delle istruzioni conta</h3>
+    <p>Le istruzioni di <code>__init__</code> vengono eseguite nell'ordine in cui sono scritte, prima e dopo la chiamata a <code>super()</code>. Se lo stesso attributo viene assegnato più volte, vale l'<strong>ultima</strong> assegnazione eseguita.</p>
+    <div class="esempio">
+<pre class="py" data-esempio="ordine" tabindex="0"><code>class Base:
+    def __init__(self):
+        print('inizio Base')
+        self.x = 1
+
+class Figlia(Base):
+    def __init__(self):
+        print('inizio Figlia')
+        super().__init__()
+        print('fine Figlia', self.x)
+
+f = Figlia()</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="ordine"><code>inizio Figlia
+inizio Base
+fine Figlia 1</code></pre>
+    </div>
+    <div class="ricorda attenzione">
+      <strong>Attenzione</strong>
+      <ul>
+        <li>Se la sottoclasse scrive un proprio <code>__init__</code>, quello della base <strong>non parte da solo</strong>: gli attributi creati lì esistono solo se chiami <code>super().__init__(...)</code>.</li>
+        <li>Se la sottoclasse non scrive <code>__init__</code>, viene usato quello della base, con i suoi parametri.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="card" id="polimorfismo" aria-labelledby="h-pol">
+    <h2 id="h-pol"><span class="badge t-pol">4</span> Polimorfismo</h2>
+    <p>Polimorfismo significa che <strong>la stessa chiamata</strong>, per esempio <code>p.costo(100)</code>, esegue codice diverso a seconda del <strong>tipo reale</strong> dell'oggetto. Si ottiene con l'<strong>override</strong>: la sottoclasse riscrive un metodo della base con lo stesso nome.</p>
+    <h3>Sostituire o estendere un metodo</h3>
+    <div class="esempio">
+<pre class="py" data-esempio="override" tabindex="0"><code>class Pagamento:
+    def costo(self, prezzo):
+        return prezzo
+
+class ConSconto(Pagamento):
+    def costo(self, prezzo):
+        return prezzo - 10
+
+class ConSpedizione(Pagamento):
+    def costo(self, prezzo):
+        return super().costo(prezzo) + 5
+
+for p in [Pagamento(), ConSconto(), ConSpedizione()]:
+    print(p.costo(100))</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="override"><code>100
+90
+105</code></pre>
+    </div>
+    <p><code>ConSconto</code> <strong>sostituisce</strong> il metodo della base. <code>ConSpedizione</code> lo <strong>estende</strong>: chiama la versione della base con <code>super()</code> e aggiunge qualcosa. Se ogni livello di una gerarchia fa così, le chiamate a <code>super()</code> si concatenano dal basso verso l'alto.</p>
+    <h3>Un metodo ereditato che chiama <code>self.altro_metodo()</code></h3>
+    <p>Anche se un metodo è scritto nella classe base, <code>self</code> è sempre l'oggetto reale. Per questo <code>self.canale()</code> usa la versione della classe dell'oggetto, se esiste.</p>
+    <div class="esempio">
+<pre class="py" data-esempio="self" tabindex="0"><code>class Messaggio:
+    def invia(self):
+        return '[' + self.canale() + '] inviato'
+
+    def canale(self):
+        return 'email'
+
+class Sms(Messaggio):
+    def canale(self):
+        return 'sms'
+
+print(Messaggio().invia())
+print(Sms().invia())</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="self"><code>[email] inviato
+[sms] inviato</code></pre>
+    </div>
+    <h3>Duck typing: conta il metodo, non la famiglia</h3>
+    <p>In Python due classi senza nessuna base in comune possono essere usate allo stesso modo, purché abbiano il metodo richiesto. Python non controlla i tipi in anticipo: se il metodo manca, l'errore arriva solo nel momento della chiamata.</p>
+    <div class="esempio">
+<pre class="py" data-esempio="duck" tabindex="0"><code>class Gatto:
+    def verso(self):
+        return 'Miao'
+
+class Sveglia:
+    def verso(self):
+        return 'Driin'
+
+for x in [Gatto(), Sveglia()]:
+    print(x.verso())</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="duck"><code>Miao
+Driin</code></pre>
+    </div>
+    <div class="ricorda">
+      <strong>Da ricordare</strong>
+      <ul>
+        <li>Per sapere quale metodo parte, chiediti: <strong>di che classe è davvero l'oggetto?</strong> La ricerca parte da lì.</li>
+        <li>Una sottoclasse che non riscrive un metodo usa quello ereditato.</li>
+        <li><code>super().metodo()</code> esegue la versione della classe base, poi il risultato può essere completato.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="card" id="errori" aria-labelledby="h-err">
+    <h2 id="h-err"><span class="badge t-err">5</span> Quando il programma si ferma: gli errori</h2>
+    <p>Quando un'istruzione non si può eseguire, Python solleva un errore e <strong>il programma si ferma in quella riga</strong>. Le righe stampate prima restano sullo schermo; quelle dopo non vengono eseguite.</p>
+    <table>
+      <thead><tr><th>Errore</th><th>Quando capita (nel quiz)</th></tr></thead>
+      <tbody>
+        <tr><td><code>AttributeError</code></td><td>L'oggetto non ha l'attributo o il metodo richiesto: l'attributo non è mai stato creato, per esempio perché manca <code>super().__init__(...)</code>, oppure il metodo esiste solo in un'altra classe.</td></tr>
+        <tr><td><code>TypeError</code></td><td>Una chiamata ha il numero sbagliato di argomenti, per esempio un costruttore che ne vuole due e ne riceve uno.</td></tr>
+      </tbody>
+    </table>
+    <div class="esempio">
+<pre class="py" data-esempio="errore" tabindex="0"><code>class Punto:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+p = Punto(1, 2)
+print(p.x)
+print(p.z)
+print('fine')</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="errore"><code>1
+Errore: AttributeError</code></pre>
+    </div>
+    <div class="ricorda">
+      <strong>Nel quiz</strong>
+      Un'opzione come <code>1</code> seguito da <code>Errore: AttributeError</code> significa: il programma ha stampato <code>1</code>, poi si è fermato con quell'errore. Infatti <code>'fine'</code> non compare.
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="card" id="metodo" aria-labelledby="h-met">
+    <h2 id="h-met"><span class="badge t-gen">6</span> Come tracciare l'esecuzione</h2>
+    <p>Per ogni domanda del quiz procedi così, con carta e penna:</p>
+    <ol class="passi">
+      <li><strong>Disegna la gerarchia</strong>: quali classi ci sono e chi eredita da chi.</li>
+      <li><strong>Salta le definizioni</strong>: il programma comincia dalla prima riga scritta fuori dalle classi.</li>
+      <li>A ogni creazione di un oggetto, <strong>segui il suo <code>__init__</code></strong>: quale viene eseguito, e c'è un <code>super().__init__</code>?</li>
+      <li>A ogni chiamata <code>oggetto.metodo()</code> chiediti <strong>di che classe è l'oggetto</strong> e cerca il metodo partendo da quella classe e salendo verso la base.</li>
+      <li>Tieni una piccola <strong>tabella dello stato</strong>: per ogni oggetto, il valore attuale dei suoi attributi.</li>
+      <li>Scrivi l'<strong>output riga per riga</strong>, nell'ordine dei <code>print</code>. Se una riga provoca un errore, fermati lì.</li>
+    </ol>
+  </section>
+
+  <div class="fine card">
+    <p><strong>Pronto?</strong> Il quiz ha 20 domande di difficoltà crescente. Lo superi con almeno 14 risposte esatte.</p>
+    <a class="btn" href="quiz_oop_python.html">Vai al quiz →</a>
+  </div>
+</main>
+
+<script>
+/* Evidenziazione della sintassi Python nei blocchi di codice. */
+(function () {
+  "use strict";
+  const esc = s => s.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+  const KW = new Set(["class","def","return","if","for","in","pass","and","or","not","None","True","False"]);
+  const BI = new Set(["print","super"]);
+  const TOK = /(#.*$)|('(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*")|\b(\d+)\b|\b([A-Za-z_]\w*)\b/gm;
+  document.querySelectorAll("pre.py code").forEach(el => {
+    const src = el.textContent;
+    let out = "", last = 0, m;
+    while ((m = TOK.exec(src)) !== null) {
+      out += esc(src.slice(last, m.index));
+      const t = esc(m[0]);
+      if (m[1]) out += `<span class="com">${t}</span>`;
+      else if (m[2]) out += `<span class="str">${t}</span>`;
+      else if (m[3]) out += `<span class="num">${t}</span>`;
+      else if (KW.has(m[4])) out += `<span class="kw">${t}</span>`;
+      else if (BI.has(m[4])) out += `<span class="bi">${t}</span>`;
+      else if (m[4] === "self") out += `<span class="self">${t}</span>`;
+      else out += t;
+      last = TOK.lastIndex;
+    }
+    el.innerHTML = out + esc(src.slice(last));
+  });
+})();
+</script>
+</body>
+</html>

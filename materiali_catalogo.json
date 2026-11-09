@@ -496,12 +496,23 @@
   },
   {
     "classe": "Quarta",
+    "titolo": "Ripasso teoria per il Quiz OOP",
+    "descrizione": "Classi, self, incapsulamento, ereditarietà con super(), polimorfismo ed errori: tutto quello che serve per il Quiz OOP, con esempi commentati.",
+    "tipo": "esercizio",
+    "file_path": "tracce/Quarte/teoria_oop_python.html",
+    "target_page": "",
+    "ordine": 6,
+    "attivo": true,
+    "categoria": "Esercizi"
+  },
+  {
+    "classe": "Quarta",
     "titolo": "Quiz OOP – Traccia l'esecuzione",
     "descrizione": "Test su incapsulamento, ereditarietà e polimorfismo in Python: 20 casi di difficoltà crescente, accesso con l'account della scuola, esito inviato al docente.",
     "tipo": "esercizio",
     "file_path": "tracce/Quarte/quiz_oop_python.html",
     "target_page": "",
-    "ordine": 6,
+    "ordine": 7,
     "attivo": true,
     "categoria": "Esercizi"
   }
