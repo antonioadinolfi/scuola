@@ -29,7 +29,7 @@ const FUSO = 'Europe/Rome';
 
 const COLONNE = ['Ricevuto', 'ID consegna', 'Email', 'Cognome', 'Nome', 'Classe', 'Tentativo',
   'Punteggio', 'Totale', 'Percentuale', 'Esito', 'Inizio (browser)', 'Fine (browser)', 'Durata',
-  'Risposte', 'Email inviata', 'PDF', 'Modalità consegna'];
+  'Risposte', 'Email inviata', 'PDF', 'Modalità consegna', 'Orologio dispositivo (min di scarto)'];
 
 function doGet() {
   return json_({ ok: true, servizio: 'Quiz OOP Python – consegne', quiz: QUIZ_ID });
@@ -71,7 +71,8 @@ function doPost(e) {
       const info = {
         email: id.email, nome: id.nome, cognome: id.cognome, classe: d.classe, tentativo: tentativo,
         consegnaId: d.consegnaId, ricevuto: ricevuto, inizio: inizio, fine: fine,
-        durata: durata_(inizio, fine), browser: d.browser,
+        durata: d.durataSecondi !== null ? minSec_(d.durataSecondi) : durata_(inizio, fine), browser: d.browser,
+        scarto: isData_(fine) ? Math.round((ricevuto - fine) / 60000) : null,
         modalita: d.scaduto ? 'automatica (tempo scaduto)' : 'manuale'
       };
 
@@ -100,7 +101,8 @@ function doPost(e) {
       reg.appendRow([ricevuto, d.consegnaId, id.email, id.cognome, id.nome, d.classe, tentativo,
         c.punteggio, c.totale, c.percentuale + '%', c.superato ? 'SUPERATO' : 'NON SUPERATO',
         isData_(inizio) ? inizio : '', isData_(fine) ? fine : '', info.durata,
-        d.scelte.map(x => x === null ? '-' : x + 1).join(' '), inviata, file.getUrl(), info.modalita]);
+        d.scelte.map(x => x === null ? '-' : x + 1).join(' '), inviata, file.getUrl(), info.modalita,
+        info.scarto === null ? '' : info.scarto]);
 
       return json_(esitoJson_(c.punteggio, c.totale, tentativo));
     } finally {
@@ -143,6 +145,8 @@ function valida_(d) {
   }
   d.browser = String(d.browser || '').slice(0, 200);
   d.scaduto = d.scaduto === true;
+  // durata misurata dal browser con un orologio interno che non risente dell'ora del computer
+  d.durataSecondi = (Number.isInteger(d.durataSecondi) && d.durataSecondi >= 0 && d.durataSecondi <= (TEMPO_MINUTI + 15) * 60) ? d.durataSecondi : null;
   return null;
 }
 
@@ -201,6 +205,8 @@ function htmlPdf_(i, c) {
     '<tr><td>Inizio / fine sul dispositivo</td><td>' + f(i.inizio) + ' / ' + f(i.fine) + ' · durata ' + esc_(i.durata) +
     ' (tempo a disposizione: ' + TEMPO_MINUTI + ' min)</td></tr>' +
     '<tr><td>Modalità di consegna</td><td>' + esc_(i.modalita) + '</td></tr>' +
+    (i.scarto !== null && Math.abs(i.scarto) > 2 ? '<tr><td>Orologio del dispositivo</td><td>spostato di ' + i.scarto +
+      ' min rispetto al server: le date del dispositivo non sono attendibili, la durata sì</td></tr>' : '') +
     '<tr><td>ID consegna</td><td>' + esc_(i.consegnaId) + '</td></tr>' +
     '<tr><td>Browser</td><td class="muted">' + esc_(i.browser) + '</td></tr></table>' +
     '<h2>Esito</h2><p>Punteggio: <b>' + c.punteggio + ' / ' + c.totale + '</b> (' + c.percentuale + '%) · soglia: almeno ' +
@@ -250,6 +256,10 @@ function registro_(cartella) {
 // ---------- utilità ----------
 function isData_(d) { return d instanceof Date && !isNaN(d.getTime()); }
 
+function minSec_(s) {
+  return Math.floor(s / 60) + ' min ' + (s % 60) + ' s';
+}
+
 function durata_(a, b) {
   if (!isData_(a) || !isData_(b) || b < a) return 'non disponibile';
   const s = Math.round((b - a) / 1000);
@@ -290,7 +300,7 @@ function provaConsegna() {
   const info = { email: 'studente.prova@' + DOMINIO, nome: 'Mario', cognome: 'Rossi (PROVA)', classe: '4X',
     tentativo: 1, consegnaId: 'prova-' + ora.getTime(), ricevuto: ora,
     inizio: new Date(ora.getTime() - 9 * 60000), fine: ora, durata: '9 min 0 s', browser: 'prova dall\'editor',
-    modalita: 'manuale' };
+    modalita: 'manuale', scarto: 0 };
   const pdf = Utilities.newBlob(htmlPdf_(info, c), 'text/html', 'esito.html').getAs('application/pdf')
     .setName('PROVA_esito_quiz_oop.pdf');
   const file = sottocartella_(cartella_(), 'PROVE').createFile(pdf);

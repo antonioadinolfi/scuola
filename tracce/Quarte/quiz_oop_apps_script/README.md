@@ -11,7 +11,7 @@ L'invio del PDF per email ad `antonioadinolfi@lscortese.com` è **disattivato** 
 
 Allo studente viene mostrato solo il punteggio e l'esito (superato o non superato).
 
-Il test dura 45 minuti. Allo scadere del tempo la pagina blocca le risposte e consegna in automatico; il PDF e il registro riportano la modalità di consegna (manuale o automatica). Il timer funziona nel browser: chi ricarica la pagina perde le risposte e riparte con un nuovo tentativo, che viene registrato.
+Il test dura 45 minuti. Allo scadere del tempo la pagina blocca le risposte e consegna in automatico; il PDF e il registro riportano la modalità di consegna (manuale o automatica). Il timer funziona nel browser: chi ricarica la pagina perde le risposte e riparte con un nuovo tentativo, che viene registrato. Timer e durata usano un orologio interno del browser (`performance.now()`), che non risente dell'ora del computer: un computer con la data sbagliata, o che la corregge durante la prova, non chiude il test in anticipo. Il PDF segnala quando l'orologio del dispositivo è spostato rispetto al server.
 
 ## Attivazione (circa 5 minuti, con l'account @lscortese.com)
 

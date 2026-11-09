@@ -703,7 +703,9 @@ window.QUIZ_OOP_CONFIG = Object.assign({
       return mostraErroreAccesso(`Usa l'account della scuola (@${CFG.dominio}): ${p.email} non è ammesso.`);
     }
     S.token = resp.credential;
-    S.scadenzaToken = Number(p.exp || 0) * 1000;
+    // Durata residua del token misurata senza l'orologio del computer, che può essere sbagliato.
+    S.tokenDurata = (Number(p.exp || 0) - Number(p.iat || 0)) * 1000;
+    S.tokenDa = performance.now();
     S.utente = { email: p.email, nome: p.given_name || "", cognome: p.family_name || "", completo: p.name || p.email };
     if (typeof dopoAccesso === "function") { const f = dopoAccesso; dopoAccesso = null; f(); }
     else if (S.fase === "inizio") schermataInizio();
@@ -758,7 +760,7 @@ window.QUIZ_OOP_CONFIG = Object.assign({
       return;
     }
     // Il token Google dura circa un'ora: deve coprire tutto il tempo del test.
-    if (S.scadenzaToken && S.scadenzaToken - Date.now() < (CFG.durataMinuti + 2) * 60000) {
+    if (S.tokenDurata > 0 && S.tokenDurata - (performance.now() - S.tokenDa) < (CFG.durataMinuti + 2) * 60000) {
       S.token = null; S.utente = null;
       schermataInizio();
       mostraErroreAccesso("Il tuo accesso è troppo vecchio per coprire tutto il test: accedi di nuovo e poi premi «Inizia il quiz».");
@@ -767,7 +769,9 @@ window.QUIZ_OOP_CONFIG = Object.assign({
     S.classe = v; S.idx = 0; S.scelte = new Array(N).fill(null);
     S.inizio = new Date(); S.consegnaId = nuovoId(); S.confermaAperta = false;
     S.scaduto = false; S.annunciati = {};
-    S.scadenza = Date.now() + CFG.durataMinuti * 60000;
+    // performance.now() è un orologio interno del browser: non salta se l'ora del computer viene corretta.
+    S.avvioMono = performance.now();
+    S.scadenza = S.avvioMono + CFG.durataMinuti * 60000;
     avviaTimer();
     mostraCaso();
   }
@@ -784,7 +788,7 @@ window.QUIZ_OOP_CONFIG = Object.assign({
     if (nascondi) document.getElementById("timer-bar").hidden = true;
   }
   function aggiornaTimer() {
-    const resto = S.scadenza - Date.now();
+    const resto = S.scadenza - performance.now();
     if (resto <= 0) { tempoScaduto(); return; }
     const sec = Math.ceil(resto / 1000), mm = Math.floor(sec / 60), ss = sec % 60;
     document.getElementById("timer").textContent = String(mm).padStart(2, "0") + ":" + String(ss).padStart(2, "0");
@@ -943,7 +947,8 @@ window.QUIZ_OOP_CONFIG = Object.assign({
       quizId: CFG.quizId, consegnaId: S.consegnaId, idToken: S.token, classe: S.classe,
       scelte: S.scelte, inizio: S.inizio.toISOString(), fine: new Date().toISOString(),
       browser: navigator.userAgent.slice(0, 200),
-      scaduto: S.scaduto, durataMinuti: CFG.durataMinuti
+      scaduto: S.scaduto, durataMinuti: CFG.durataMinuti,
+      durataSecondi: Math.round((performance.now() - S.avvioMono) / 1000)
     };
     let data;
     try {
