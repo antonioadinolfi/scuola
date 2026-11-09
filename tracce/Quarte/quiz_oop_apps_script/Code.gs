@@ -23,12 +23,13 @@ const NOME_CARTELLA = 'Consegne Quiz OOP Python';       // creata nel Drive del 
 const REGISTRO = 'Registro Quiz OOP Python';
 const TITOLO_QUIZ = 'Quiz OOP in Python – Classe quarta';
 const SOGLIA = 0.7;                                     // superato con almeno il 70%
+const TEMPO_MINUTI = 45;                                // tempo a disposizione (riportato nel PDF)
 const MAX_BYTES = 20000;
 const FUSO = 'Europe/Rome';
 
 const COLONNE = ['Ricevuto', 'ID consegna', 'Email', 'Cognome', 'Nome', 'Classe', 'Tentativo',
   'Punteggio', 'Totale', 'Percentuale', 'Esito', 'Inizio (browser)', 'Fine (browser)', 'Durata',
-  'Risposte', 'Email inviata', 'PDF'];
+  'Risposte', 'Email inviata', 'PDF', 'Modalità consegna'];
 
 function doGet() {
   return json_({ ok: true, servizio: 'Quiz OOP Python – consegne', quiz: QUIZ_ID });
@@ -70,7 +71,8 @@ function doPost(e) {
       const info = {
         email: id.email, nome: id.nome, cognome: id.cognome, classe: d.classe, tentativo: tentativo,
         consegnaId: d.consegnaId, ricevuto: ricevuto, inizio: inizio, fine: fine,
-        durata: durata_(inizio, fine), browser: d.browser
+        durata: durata_(inizio, fine), browser: d.browser,
+        modalita: d.scaduto ? 'automatica (tempo scaduto)' : 'manuale'
       };
 
       const stamp = Utilities.formatDate(ricevuto, FUSO, 'yyyy-MM-dd_HHmm');
@@ -98,7 +100,7 @@ function doPost(e) {
       reg.appendRow([ricevuto, d.consegnaId, id.email, id.cognome, id.nome, d.classe, tentativo,
         c.punteggio, c.totale, c.percentuale + '%', c.superato ? 'SUPERATO' : 'NON SUPERATO',
         isData_(inizio) ? inizio : '', isData_(fine) ? fine : '', info.durata,
-        d.scelte.map(x => x === null ? '-' : x + 1).join(' '), inviata, file.getUrl()]);
+        d.scelte.map(x => x === null ? '-' : x + 1).join(' '), inviata, file.getUrl(), info.modalita]);
 
       return json_(esitoJson_(c.punteggio, c.totale, tentativo));
     } finally {
@@ -140,6 +142,7 @@ function valida_(d) {
     if (!Number.isInteger(s) || s < 0 || s >= CHIAVE[i].opzioni.length) return 'Risposte non valide.';
   }
   d.browser = String(d.browser || '').slice(0, 200);
+  d.scaduto = d.scaduto === true;
   return null;
 }
 
@@ -195,7 +198,9 @@ function htmlPdf_(i, c) {
     '<tr><td>Classe</td><td>' + esc_(i.classe) + ' (indicata dallo studente)</td></tr>' +
     '<tr><td>Tentativo</td><td>n. ' + i.tentativo + '</td></tr>' +
     '<tr><td>Consegna ricevuta il</td><td>' + f(i.ricevuto) + ' (ora del server)</td></tr>' +
-    '<tr><td>Inizio / fine sul dispositivo</td><td>' + f(i.inizio) + ' / ' + f(i.fine) + ' · durata ' + esc_(i.durata) + '</td></tr>' +
+    '<tr><td>Inizio / fine sul dispositivo</td><td>' + f(i.inizio) + ' / ' + f(i.fine) + ' · durata ' + esc_(i.durata) +
+    ' (tempo a disposizione: ' + TEMPO_MINUTI + ' min)</td></tr>' +
+    '<tr><td>Modalità di consegna</td><td>' + esc_(i.modalita) + '</td></tr>' +
     '<tr><td>ID consegna</td><td>' + esc_(i.consegnaId) + '</td></tr>' +
     '<tr><td>Browser</td><td class="muted">' + esc_(i.browser) + '</td></tr></table>' +
     '<h2>Esito</h2><p>Punteggio: <b>' + c.punteggio + ' / ' + c.totale + '</b> (' + c.percentuale + '%) · soglia: almeno ' +
@@ -228,7 +233,12 @@ function sottocartella_(padre, nome) {
 
 function registro_(cartella) {
   const it = cartella.getFilesByName(REGISTRO);
-  if (it.hasNext()) return SpreadsheetApp.open(it.next()).getSheets()[0];
+  if (it.hasNext()) {
+    const esistente = SpreadsheetApp.open(it.next()).getSheets()[0];
+    // registro creato da una versione precedente: aggiunge le intestazioni nuove
+    if (esistente.getRange(1, COLONNE.length).getValue() === '') esistente.getRange(1, 1, 1, COLONNE.length).setValues([COLONNE]);
+    return esistente;
+  }
   const ss = SpreadsheetApp.create(REGISTRO);
   DriveApp.getFileById(ss.getId()).moveTo(cartella);
   const sh = ss.getSheets()[0];
@@ -279,7 +289,8 @@ function provaConsegna() {
   const ora = new Date();
   const info = { email: 'studente.prova@' + DOMINIO, nome: 'Mario', cognome: 'Rossi (PROVA)', classe: '4X',
     tentativo: 1, consegnaId: 'prova-' + ora.getTime(), ricevuto: ora,
-    inizio: new Date(ora.getTime() - 9 * 60000), fine: ora, durata: '9 min 0 s', browser: 'prova dall\'editor' };
+    inizio: new Date(ora.getTime() - 9 * 60000), fine: ora, durata: '9 min 0 s', browser: 'prova dall\'editor',
+    modalita: 'manuale' };
   const pdf = Utilities.newBlob(htmlPdf_(info, c), 'text/html', 'esito.html').getAs('application/pdf')
     .setName('PROVA_esito_quiz_oop.pdf');
   const file = sottocartella_(cartella_(), 'PROVE').createFile(pdf);

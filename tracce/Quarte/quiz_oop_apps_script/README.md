@@ -11,6 +11,8 @@ L'invio del PDF per email ad `antonioadinolfi@lscortese.com` è **disattivato** 
 
 Allo studente viene mostrato solo il punteggio e l'esito (superato o non superato).
 
+Il test dura 45 minuti. Allo scadere del tempo la pagina blocca le risposte e consegna in automatico; il PDF e il registro riportano la modalità di consegna (manuale o automatica). Il timer funziona nel browser: chi ricarica la pagina perde le risposte e riparte con un nuovo tentativo, che viene registrato.
+
 ## Attivazione (circa 5 minuti, con l'account @lscortese.com)
 
 1. Apri <https://script.google.com> e crea un **Nuovo progetto**, chiamato per esempio `Quiz OOP Python – consegne`.
