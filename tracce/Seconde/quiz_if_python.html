@@ -103,6 +103,8 @@
   .orario { padding: 10px 12px; border-radius: 8px; background: var(--ok-bg); color: var(--ok); margin-top: 12px; font-weight: 600; }
   .orario[hidden] { display: none; }
   .orario.bloccato { background: var(--warn-bg); color: var(--warn); }
+  .btn-seb { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 18px; border-radius: 8px; background: var(--accent); color: #fff; font-weight: 600; text-decoration: none; }
+  .btn-seb:focus-visible { outline: 3px solid #f2b705; outline-offset: 2px; }
   .conferma { border: 2px solid var(--accent); border-radius: 8px; padding: 12px; margin-top: 12px; background: #f6f8fe; }
 </style>
 </head>
@@ -701,6 +703,7 @@ window.QUIZ_OOP_CONFIG = Object.assign({
         ${r.daValutare ? `<p><strong>Esito provvisorio:</strong> il punteggio riguarda le ${r.totale} domande corrette in automatico. Le ${r.daValutare} risposte in codice le valuta il docente e possono cambiare il voto.</p>` : ""}
         ${S.scaduto ? `<p><strong>Consegnato automaticamente allo scadere dei ${CFG.durataMinuti} minuti.</strong></p>` : ""}
         <p>Il risultato è stato inviato al docente.</p>
+        ${/\bSEB\//.test(navigator.userAgent) ? `<p><a class="btn-seb" id="btn-esci-seb" href="../esci_seb.html">Esci da Safe Exam Browser</a></p>` : ""}
       </section>`;
     document.getElementById("titolo-fine").focus();
   }
