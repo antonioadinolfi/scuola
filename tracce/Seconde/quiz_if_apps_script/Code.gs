@@ -28,6 +28,15 @@ const TITOLO_QUIZ = 'Quiz Python – Classe seconda: variabili e if / elif / els
 const SOGLIA = 0.7;                                     // superato con almeno il 70%
 const TEMPO_MINUTI = 45;                                // tempo a disposizione (riportato nel PDF)
 const MAX_BYTES = 20000;
+
+// ---------- Orario del test (ora italiana) ----------
+// Formato 'AAAA-MM-GG HH:MM', per esempio '2026-11-12 09:00'. Lasciare '' per non avere limiti.
+// Prima di APERTURA il test non si può iniziare né consegnare.
+// Dopo CHIUSURA non si può più iniziare; chi ha già iniziato consegna entro TEMPO_MINUTI + MARGINE_MINUTI.
+// Dopo ogni modifica: Distribuisci → Gestisci distribuzioni → Modifica → Nuova versione.
+const APERTURA = '';
+const CHIUSURA = '';
+const MARGINE_MINUTI = 5;
 const FUSO = 'Europe/Rome';
 
 const COLONNE = ['Ricevuto', 'ID consegna', 'Email', 'Cognome', 'Nome', 'Classe', 'Tentativo',
@@ -37,7 +46,13 @@ const COLONNE = ['Ricevuto', 'ID consegna', 'Email', 'Cognome', 'Nome', 'Classe'
   'Tentativi di incolla', 'Domande da valutare', 'Risposte aperte da valutare'];
 
 function doGet() {
-  return json_({ ok: true, servizio: 'Quiz Python seconda – consegne', quiz: QUIZ_ID });
+  let f;
+  try { f = finestra_(); } catch (err) {
+    return json_({ ok: false, codice: 'orario', error: 'Orario del test non configurato correttamente: avvisa il docente.', dettaglio: String(err.message || err) });
+  }
+  const ora = new Date();
+  return json_({ ok: true, quiz: QUIZ_ID, ora: ora.getTime(), apertura: f.a ? f.a.getTime() : null, chiusura: f.c ? f.c.getTime() : null,
+    stato: stato_(f, ora), margineMinuti: MARGINE_MINUTI, tempoMinuti: TEMPO_MINUTI, servizio: 'Quiz Python seconda – consegne' });
 }
 
 function doPost(e) {
@@ -68,6 +83,16 @@ function doPost(e) {
         if (String(gia[2]).toLowerCase() !== id.email) return errore_('Consegna non valida.');
         return json_(esitoJson_(Number(gia[7]), Number(gia[8]), Number(gia[6]), Number(gia[25]) || 0));
       }
+
+      // Orario del test: controllato dopo il doppio invio, così una consegna già registrata risponde sempre.
+      let f;
+      try { f = finestra_(); } catch (err) { return errore_('Orario del test non configurato correttamente: avvisa il docente.', 'orario'); }
+      const adesso = new Date(), st = stato_(f, adesso);
+      if (st === 'prima') return errore_('Il test non è ancora aperto: si apre il ' + fmt_(f.a) + '.', 'orario');
+      if (st === 'concluso') return errore_('Il tempo per consegnare è terminato: il test ha chiuso il ' + fmt_(f.c) +
+        ' e le consegne erano accettate per altri ' + (TEMPO_MINUTI + MARGINE_MINUTI) + ' minuti.', 'orario');
+      if (f.c && d.durataSecondi !== null && adesso.getTime() - d.durataSecondi * 1000 > f.c.getTime() + 60000)
+        return errore_('Il test risulta iniziato dopo la chiusura (' + fmt_(f.c) + ').', 'orario');
 
       const tentativo = righe.filter(r => String(r[2]).toLowerCase() === id.email).length + 1;
       const c = correggi_(d.scelte);
@@ -291,6 +316,30 @@ function registro_(cartella) {
 }
 
 // ---------- utilità ----------
+/** Legge APERTURA e CHIUSURA (ora italiana). Un formato sbagliato blocca il test invece di lasciarlo aperto. */
+function finestra_() {
+  const leggi = s => {
+    s = String(s || '').trim();
+    if (!s) return null;
+    if (!/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(s)) throw new Error('formato non valido: "' + s + '" (usa AAAA-MM-GG HH:MM)');
+    const d = Utilities.parseDate(s, FUSO, 'yyyy-MM-dd HH:mm');
+    if (Utilities.formatDate(d, FUSO, 'yyyy-MM-dd HH:mm') !== s) throw new Error('data inesistente: "' + s + '"');
+    return d;
+  };
+  const a = leggi(APERTURA), c = leggi(CHIUSURA);
+  if (a && c && c <= a) throw new Error('CHIUSURA deve essere dopo APERTURA');
+  return { a: a, c: c };
+}
+
+/** prima | aperto | chiuso (non si inizia più, si consegna ancora) | concluso (niente più consegne) */
+function stato_(f, ora) {
+  if (f.a && ora < f.a) return 'prima';
+  if (f.c && ora > f.c) return ora.getTime() > f.c.getTime() + (TEMPO_MINUTI + MARGINE_MINUTI) * 60000 ? 'concluso' : 'chiuso';
+  return 'aperto';
+}
+
+function fmt_(d) { return Utilities.formatDate(d, FUSO, "dd/MM/yyyy 'alle' HH:mm"); }
+
 function isData_(d) { return d instanceof Date && !isNaN(d.getTime()); }
 
 /** Dati raccolti dal browser durante la prova: numeri interi tra 0 e 100000, altrimenti assenti. */
@@ -343,7 +392,16 @@ function json_(o) {
 // ---------- funzioni da eseguire dall'editor ----------
 
 /** Esegui una volta per concedere le autorizzazioni (Drive, Fogli, Gmail, connessioni esterne). */
+/** Esegui dall'editor per controllare l'orario impostato. */
+function controllaOrario() {
+  const f = finestra_();
+  Logger.log('Apertura: ' + (f.a ? fmt_(f.a) : 'nessuna (sempre aperto)'));
+  Logger.log('Chiusura: ' + (f.c ? fmt_(f.c) + '; consegne accettate fino a ' + TEMPO_MINUTI + ' + ' + MARGINE_MINUTI + ' minuti dopo' : 'nessuna'));
+  Logger.log('Adesso il test è: ' + stato_(f, new Date()));
+}
+
 function autorizza() {
+  controllaOrario();
   Logger.log('Cartella: ' + cartella_().getName());
   if (INVIA_EMAIL) Logger.log('Email ancora inviabili oggi: ' + MailApp.getRemainingDailyQuota());
   Logger.log('Chiave caricata: ' + QUIZ_ID + ', ' + CHIAVE.length + ' domande');

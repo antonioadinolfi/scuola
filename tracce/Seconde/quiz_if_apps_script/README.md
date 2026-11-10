@@ -12,15 +12,33 @@ La pagina `tracce/Seconde/quiz_if_python.html` non contiene le soluzioni. Alla c
 
 ## Le domande
 
-15 esercizi in ordine di difficoltà (base 1-5, intermedio 6-10, avanzato 11-15):
+20 esercizi in ordine di difficoltà (base 1-7, intermedio 8-14, avanzato 15-20):
 
 | Tipo | Quante | Correzione |
 |---|---|---|
-| Scelta multipla | 10 | automatica |
-| Valore da scrivere | 3 | automatica: tollera spazi in più, virgolette esterne e maiuscole, ma il valore deve essere esatto (`70.0` non vale `70`) |
-| Codice da scrivere | 2 | del docente, nel PDF |
+| Scelta multipla | 13 | automatica |
+| Valore da scrivere | 4 | automatica: tollera spazi in più, virgolette esterne e maiuscole, ma il valore deve essere esatto (`70.0` non vale `70`) |
+| Codice da scrivere | 3 | del docente, nel PDF |
 
-Lo studente vede il punteggio delle 13 domande corrette in automatico e un **esito provvisorio** (superato con almeno 10 su 13, cioè il 70%). Il PDF segnala le 2 risposte da valutare.
+Lo studente vede il punteggio delle 17 domande corrette in automatico e un **esito provvisorio** (superato con almeno 12 su 17, cioè il 70%). Il PDF segnala le 3 risposte da valutare.
+
+## Orario di apertura e chiusura
+
+In cima a `Code.gs`, nell'editor di Apps Script:
+
+```javascript
+const APERTURA = '2026-11-12 09:00';   // ora italiana, formato AAAA-MM-GG HH:MM
+const CHIUSURA = '2026-11-12 10:00';   // facoltativa
+```
+
+- **Prima di APERTURA** la pagina mostra il giorno e l'ora di apertura con il conto alla rovescia, il pulsante «Inizia il quiz» è disattivato e lo script rifiuta le consegne. All'ora indicata il pulsante si sblocca da solo, senza ricaricare la pagina.
+- **Dopo CHIUSURA** non si può più iniziare. Chi ha già iniziato può consegnare per altri 45 minuti più 5 di margine (`MARGINE_MINUTI`); la consegna automatica allo scadere del timer rientra sempre in questo tempo.
+- **Campi vuoti** (`''`): il test è sempre aperto.
+- Conta l'**ora del server**, non quella del computer dello studente.
+- Un orario scritto male (formato sbagliato, data inesistente, chiusura prima dell'apertura) **blocca** il test con un messaggio, invece di lasciarlo aperto. Per controllare gli orari esegui la funzione `controllaOrario` e guarda il registro di esecuzione.
+- Dopo ogni modifica: **Distribuisci → Gestisci distribuzioni → Modifica → Nuova versione**. Senza nuova versione la web app continua a usare gli orari precedenti.
+
+**Limite.** Le domande sono già nella pagina, codificate, anche prima dell'apertura: uno studente molto esperto potrebbe decodificarle in anticipo. Per escluderlo del tutto le domande dovrebbero essere inviate dallo script solo dopo l'apertura.
 
 ## Attivazione (circa 5 minuti, con l'account @lscortese.com)
 

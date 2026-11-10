@@ -37,7 +37,7 @@
   pre.py code, pre.out code { background: none; padding: 0; font-size: inherit; color: inherit; }
   .kw { color: var(--kw); } .str { color: var(--str); } .num { color: var(--num); } .bi { color: var(--bi); } .self { color: var(--self); } .com { color: var(--com); font-style: italic; }
   .ricorda { border-left: 4px solid var(--accent); background: #eef3fd; border-radius: 0 8px 8px 0; padding: 10px 14px; margin-top: 12px; }
-  .ricorda strong:first-child { display: block; margin-bottom: 4px; }
+  .ricorda > strong:first-child { display: block; margin-bottom: 4px; }
   .ricorda ul { margin: 0; padding-left: 20px; }
   .attenzione { border-left-color: var(--err); background: #fbe9e8; }
   table { width: 100%; border-collapse: collapse; }
@@ -58,7 +58,7 @@
       <ol>
         <li><a href="#variabili">Variabili e assegnazione</a></li>
         <li><a href="#operatori">Operatori aritmetici</a></li>
-        <li><a href="#condizioni">Confronti, and, or, not</a></li>
+        <li><a href="#condizioni">Confronti e operatori logici (and, or, not)</a></li>
         <li><a href="#ifelse">if ed else</a></li>
         <li><a href="#elif">if / elif / else</a></li>
         <li><a href="#annidati">if in sequenza e if annidati</a></li>
@@ -122,35 +122,122 @@ print(s / 100)</code></pre>
   </section>
 
   <section class="card" id="condizioni" aria-labelledby="h-cond">
-    <h2 id="h-cond"><span class="badge t-inh">3</span> Confronti, <code>and</code>, <code>or</code>, <code>not</code></h2>
-    <p>Un <strong>confronto</strong> vale <code>True</code> (vero) oppure <code>False</code> (falso). Attenzione: <code>=</code> assegna, <code>==</code> confronta.</p>
+    <h2 id="h-cond"><span class="badge t-inh">3</span> Confronti e operatori logici: <code>and</code>, <code>or</code>, <code>not</code></h2>
+    <p>Ogni condizione, alla fine, vale <code>True</code> (vera) oppure <code>False</code> (falsa). Le condizioni semplici sono i <strong>confronti</strong>; con gli <strong>operatori logici</strong> si uniscono più confronti in una condizione sola.</p>
+    <h3>I confronti</h3>
+    <p>Attenzione: <code>=</code> assegna un valore, <code>==</code> confronta due valori.</p>
     <table>
       <thead><tr><th>Scrittura</th><th>Si legge</th></tr></thead>
       <tbody>
         <tr><td><code>a == b</code> · <code>a != b</code></td><td>a uguale a b · a diverso da b</td></tr>
         <tr><td><code>a &lt; b</code> · <code>a &lt;= b</code></td><td>a minore di b · a minore o uguale a b</td></tr>
         <tr><td><code>a &gt; b</code> · <code>a &gt;= b</code></td><td>a maggiore di b · a maggiore o uguale a b</td></tr>
-        <tr><td><code>c1 and c2</code></td><td>vero solo se <strong>entrambe</strong> le condizioni sono vere</td></tr>
-        <tr><td><code>c1 or c2</code></td><td>vero se <strong>almeno una</strong> delle due è vera</td></tr>
-        <tr><td><code>not c</code></td><td>il contrario di c</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Le tavole di verità</h3>
+    <p>Ogni operatore logico ha una regola precisa, che si riassume in una <strong>tavola di verità</strong>: per ogni combinazione di valori di A e B dice il risultato.</p>
+    <table>
+      <thead><tr><th>A</th><th>B</th><th><code>A and B</code></th><th><code>A or B</code></th></tr></thead>
+      <tbody>
+        <tr><td><code>True</code></td><td><code>True</code></td><td><code>True</code></td><td><code>True</code></td></tr>
+        <tr><td><code>True</code></td><td><code>False</code></td><td><code>False</code></td><td><code>True</code></td></tr>
+        <tr><td><code>False</code></td><td><code>True</code></td><td><code>False</code></td><td><code>True</code></td></tr>
+        <tr><td><code>False</code></td><td><code>False</code></td><td><code>False</code></td><td><code>False</code></td></tr>
+      </tbody>
+    </table>
+    <table>
+      <thead><tr><th>A</th><th><code>not A</code></th></tr></thead>
+      <tbody>
+        <tr><td><code>True</code></td><td><code>False</code></td></tr>
+        <tr><td><code>False</code></td><td><code>True</code></td></tr>
+      </tbody>
+    </table>
+    <div class="ricorda">
+      <strong>Come ricordarle</strong>
+      <ul>
+        <li><code>and</code> («e»): è vera <strong>solo se tutte e due</strong> le condizioni sono vere. Basta una falsa per renderla falsa.</li>
+        <li><code>or</code> («oppure»): è vera se <strong>almeno una</strong> è vera, anche se lo sono tutte e due. È falsa solo se sono false entrambe.</li>
+        <li><code>not</code> («non»): <strong>rovescia</strong> il valore: il vero diventa falso e il falso diventa vero.</li>
+      </ul>
+    </div>
+    <div class="esempio">
+<pre class="py" data-esempio="tavole" tabindex="0"><code>a = True
+b = False
+print(a and b, a or b, not a)</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="tavole"><code>False True False</code></pre>
+    </div>
+
+    <h3>Come si calcola una condizione lunga</h3>
+    <p>Python calcola una condizione in quest'ordine: prima i <strong>calcoli</strong> (<code>+ - * / // %</code>), poi i <strong>confronti</strong>, poi <code>not</code>, poi <code>and</code>, e per ultimo <code>or</code>. Le <strong>parentesi</strong> cambiano l'ordine: quello che sta tra parentesi si calcola per primo.</p>
+    <div class="esempio">
+<pre class="py" data-esempio="precedenza" tabindex="0"><code>x = 6
+print(x > 5 or x > 3 and x < 0)
+print((x > 5 or x > 3) and x < 0)</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="precedenza"><code>True
+False</code></pre>
+    </div>
+    <p>Nella prima riga, senza parentesi, Python calcola prima l'<code>and</code>: <code>x &gt; 3 and x &lt; 0</code> vale <code>True and False</code>, cioè <code>False</code>. Resta <code>x &gt; 5 or False</code>, cioè <code>True or False</code>, che vale <code>True</code>. Nella seconda riga le parentesi fanno calcolare prima l'<code>or</code> (<code>True</code>), e poi <code>True and False</code> dà <code>False</code>.</p>
+    <div class="ricorda">
+      <strong>Il metodo per non sbagliare</strong>
+      <ul>
+        <li>Calcola <strong>ogni confronto</strong> e scrivi sopra <code>True</code> o <code>False</code>.</li>
+        <li>Risolvi le <strong>parentesi</strong>, poi i <code>not</code>, poi gli <code>and</code>, infine gli <code>or</code>.</li>
+        <li>Quando scrivi tu una condizione che mescola <code>and</code> e <code>or</code>, <strong>metti le parentesi</strong>: il codice diventa più chiaro e fa quello che intendi.</li>
+      </ul>
+    </div>
+
+    <h3><code>not</code> davanti a una parentesi</h3>
+    <p>Il <code>not</code> davanti a una parentesi rovescia il risultato di <strong>tutta</strong> la parentesi. Si può anche portarlo dentro, ma allora <code>and</code> e <code>or</code> si scambiano (leggi di De Morgan):</p>
+    <table>
+      <thead><tr><th>Questa condizione…</th><th>…equivale a</th></tr></thead>
+      <tbody>
+        <tr><td><code>not (A and B)</code></td><td><code>not A or not B</code></td></tr>
+        <tr><td><code>not (A or B)</code></td><td><code>not A and not B</code></td></tr>
       </tbody>
     </table>
     <div class="esempio">
-<pre class="py" data-esempio="condizioni" tabindex="0"><code>a = 4
-print(a > 2 and a < 10)
-print(a == 5 or a < 0)
-print(not a == 4)</code></pre>
+<pre class="py" data-esempio="demorgan" tabindex="0"><code>sole = True
+caldo = False
+print(not (sole and caldo), not sole or not caldo)
+print(not (sole or caldo), not sole and not caldo)</code></pre>
       <span class="lbl">Output</span>
-<pre class="out" data-output="condizioni"><code>True
-False
-False</code></pre>
+<pre class="out" data-output="demorgan"><code>True True
+False False</code></pre>
     </div>
-    <div class="ricorda">
-      <strong>Da ricordare</strong>
+
+    <h3>Intervalli: dentro e fuori</h3>
+    <p>Per dire che un numero sta <strong>dentro</strong> un intervallo servono due confronti uniti da <code>and</code>. Per dire che sta <strong>fuori</strong> se ne usano due uniti da <code>or</code>, con i confronti rovesciati.</p>
+    <div class="esempio">
+<pre class="py" data-esempio="intervalli" tabindex="0"><code>t = 37
+if t >= 36 and t <= 37.5:
+    print('normale')
+if t < 36 or t > 37.5:
+    print('da controllare')</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="intervalli"><code>normale</code></pre>
+    </div>
+
+    <div class="ricorda attenzione">
+      <strong>Errori tipici</strong>
       <ul>
-        <li>Per dire «x è tra 1 e 10» servono due confronti uniti da <code>and</code>: <code>x &gt;= 1 and x &lt;= 10</code>.</li>
-        <li>Una variabile che vale <code>True</code> o <code>False</code> si può usare direttamente come condizione: <code>if pioggia:</code>.</li>
+        <li><code>x &gt; 5 and &lt; 10</code> è un errore: ogni lato di <code>and</code> e <code>or</code> deve essere un confronto completo. Si scrive <code>x &gt; 5 and x &lt; 10</code>.</li>
+        <li><code>giorno == 'sabato' or 'domenica'</code> non controlla la domenica: Python non dà errore ma la condizione risulta sempre vera. Si scrive <code>giorno == 'sabato' or giorno == 'domenica'</code>.</li>
+        <li><code>or</code> non vuol dire «o l'uno o l'altro, ma non tutti e due»: se sono vere entrambe, <code>or</code> è vero.</li>
+        <li>Una variabile che vale già <code>True</code> o <code>False</code> si usa direttamente: <code>if pioggia:</code> e <code>if not pioggia:</code>, senza <code>== True</code>.</li>
       </ul>
+    </div>
+    <div class="esempio">
+      <span class="lbl">La forma corretta del secondo errore</span>
+<pre class="py" data-esempio="weekend" tabindex="0"><code>giorno = 'domenica'
+if giorno == 'sabato' or giorno == 'domenica':
+    print('weekend')
+else:
+    print('giorno feriale')</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="weekend"><code>weekend</code></pre>
     </div>
   </section>
 
@@ -266,7 +353,7 @@ else:
   </section>
 
   <div class="fine card">
-    <p><strong>Pronto?</strong> Il quiz ha 15 esercizi di difficoltà crescente, a scelta multipla e a risposta aperta, e dura <strong>45 minuti</strong>: allo scadere viene consegnato automaticamente.</p>
+    <p><strong>Pronto?</strong> Il quiz ha 20 esercizi di difficoltà crescente, a scelta multipla e a risposta aperta, e dura <strong>45 minuti</strong>: allo scadere viene consegnato automaticamente.</p>
     <a class="btn" href="quiz_if_python.html">Vai al quiz →</a>
   </div>
 </main>
