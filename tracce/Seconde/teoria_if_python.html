@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ripasso Python seconda – variabili e if / elif / else</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --card: #ffffff; --ink: #1d2330; --muted: #5b6475;
+    --line: #dde1e8; --accent: #2457c5; --accent-ink: #ffffff;
+    --code-bg: #1e2230; --code-ink: #e6e9ef; --out-bg: #111; --out-ink: #d7f7d7;
+    --kw: #c792ea; --str: #c3e88d; --num: #f78c6c; --bi: #82aaff; --self: #ffcb6b; --com: #8a93a6;
+    --enc: #7b3fb5; --inh: #b0640a; --pol: #127a7a; --err: #b3261e;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body { margin: 0; }
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.55; font-size: 16px; }
+  main { max-width: 860px; margin: 0 auto; padding: 16px; }
+  h1 { font-size: 1.6rem; margin: 0 0 6px; }
+  h2 { font-size: 1.3rem; margin: 0 0 10px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  h3 { font-size: 1.05rem; margin: 18px 0 6px; }
+  p, li { max-width: 72ch; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px; margin-bottom: 16px; scroll-margin-top: 12px; }
+  .muted { color: var(--muted); }
+  .badge { display: inline-block; font-size: .8rem; font-weight: 600; padding: 2px 10px; border-radius: 999px; color: #fff; }
+  .t-enc { background: var(--enc); } .t-inh { background: var(--inh); } .t-pol { background: var(--pol); } .t-gen { background: var(--accent); } .t-err { background: var(--err); }
+  nav.indice ol { margin: 6px 0 0; padding-left: 22px; }
+  nav.indice a { color: var(--accent); font-weight: 600; }
+  a:focus-visible, .btn:focus-visible, pre:focus-visible { outline: 3px solid #f2b705; outline-offset: 2px; }
+  code { font-family: ui-monospace, "Cascadia Code", Consolas, "Courier New", monospace; background: #eceff4; padding: 0 4px; border-radius: 4px; font-size: .92em; }
+  .esempio { margin: 10px 0 14px; }
+  .lbl { display: block; font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin: 8px 0 4px; }
+  pre { margin: 0; border-radius: 8px; overflow-x: auto; font-family: ui-monospace, "Cascadia Code", Consolas, "Courier New", monospace; font-size: 14px; line-height: 1.5; }
+  pre.py { background: var(--code-bg); color: var(--code-ink); padding: 10px 14px; }
+  pre.out { background: var(--out-bg); color: var(--out-ink); padding: 8px 14px; white-space: pre-wrap; }
+  pre.py code, pre.out code { background: none; padding: 0; font-size: inherit; color: inherit; }
+  .kw { color: var(--kw); } .str { color: var(--str); } .num { color: var(--num); } .bi { color: var(--bi); } .self { color: var(--self); } .com { color: var(--com); font-style: italic; }
+  .ricorda { border-left: 4px solid var(--accent); background: #eef3fd; border-radius: 0 8px 8px 0; padding: 10px 14px; margin-top: 12px; }
+  .ricorda strong:first-child { display: block; margin-bottom: 4px; }
+  .ricorda ul { margin: 0; padding-left: 20px; }
+  .attenzione { border-left-color: var(--err); background: #fbe9e8; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  ol.passi li { margin-bottom: 6px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 20px; border-radius: 8px; background: var(--accent); color: var(--accent-ink); font-weight: 700; text-decoration: none; }
+  .fine { text-align: center; }
+  @media (max-width: 600px) { main { padding: 10px; } .card { padding: 14px; } h1 { font-size: 1.35rem; } }
+</style>
+</head>
+<body>
+<main>
+  <header class="card">
+    <h1>Ripasso: variabili, operatori e if / elif / else</h1>
+    <p class="muted">Leggi questa pagina prima del <a href="quiz_if_python.html">quiz di seconda</a>. Contiene tutto quello che serve per rispondere, con esempi diversi da quelli del test.</p>
+    <nav class="indice" aria-label="Indice">
+      <strong>Indice</strong>
+      <ol>
+        <li><a href="#variabili">Variabili e assegnazione</a></li>
+        <li><a href="#operatori">Operatori aritmetici</a></li>
+        <li><a href="#condizioni">Confronti, and, or, not</a></li>
+        <li><a href="#ifelse">if ed else</a></li>
+        <li><a href="#elif">if / elif / else</a></li>
+        <li><a href="#annidati">if in sequenza e if annidati</a></li>
+        <li><a href="#metodo">Come tracciare e come scrivere un algoritmo</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <section class="card" id="variabili" aria-labelledby="h-var">
+    <h2 id="h-var"><span class="badge t-gen">1</span> Variabili e assegnazione</h2>
+    <p>Una <strong>variabile</strong> è un nome che contiene un valore. Con <code>=</code> le si assegna un valore: Python calcola prima tutto ciò che sta a destra, poi lo salva nella variabile a sinistra.</p>
+    <div class="esempio">
+      <span class="lbl">Esempio</span>
+<pre class="py" data-esempio="variabili" tabindex="0"><code>x = 2
+y = x * 3
+x = x + 1
+print(x, y)</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="variabili"><code>3 6</code></pre>
+    </div>
+    <div class="ricorda">
+      <strong>Da ricordare</strong>
+      <ul>
+        <li>Le istruzioni vengono eseguite <strong>dall'alto verso il basso</strong>, una alla volta.</li>
+        <li><code>y = x * 3</code> usa il valore che <code>x</code> ha <strong>in quel momento</strong>: se poi <code>x</code> cambia, <code>y</code> non cambia.</li>
+        <li><code>x = x + 1</code> significa: prendi il valore attuale di <code>x</code>, aggiungi 1, salva il risultato in <code>x</code>.</li>
+        <li><code>print(a, b)</code> stampa i due valori sulla stessa riga, separati da uno spazio.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="card" id="operatori" aria-labelledby="h-op">
+    <h2 id="h-op"><span class="badge t-enc">2</span> Operatori aritmetici</h2>
+    <table>
+      <thead><tr><th>Operatore</th><th>Significato</th><th>Esempio</th><th>Risultato</th></tr></thead>
+      <tbody>
+        <tr><td><code>+ - *</code></td><td>somma, sottrazione, moltiplicazione</td><td><code>4 * 3</code></td><td><code>12</code></td></tr>
+        <tr><td><code>/</code></td><td>divisione: il risultato è <strong>sempre decimale</strong></td><td><code>9 / 2</code> e <code>8 / 2</code></td><td><code>4.5</code> e <code>4.0</code></td></tr>
+        <tr><td><code>//</code></td><td>divisione intera (quoziente senza resto)</td><td><code>9 // 2</code></td><td><code>4</code></td></tr>
+        <tr><td><code>%</code></td><td>resto della divisione intera</td><td><code>9 % 2</code></td><td><code>1</code></td></tr>
+      </tbody>
+    </table>
+    <div class="esempio">
+      <span class="lbl">Esempio: da secondi a minuti e secondi</span>
+<pre class="py" data-esempio="operatori" tabindex="0"><code>s = 200
+m = s // 60
+r = s % 60
+print(m, r)
+print(s / 100)</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="operatori"><code>3 20
+2.0</code></pre>
+    </div>
+    <div class="ricorda">
+      <strong>Da ricordare</strong>
+      <ul>
+        <li>Un numero è <strong>pari</strong> se <code>n % 2 == 0</code>; in generale <code>a</code> è divisibile per <code>b</code> se <code>a % b == 0</code>.</li>
+        <li>Con <code>/</code> Python scrive sempre la parte decimale, anche quando è zero: <code>2.0</code>, non <code>2</code>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="card" id="condizioni" aria-labelledby="h-cond">
+    <h2 id="h-cond"><span class="badge t-inh">3</span> Confronti, <code>and</code>, <code>or</code>, <code>not</code></h2>
+    <p>Un <strong>confronto</strong> vale <code>True</code> (vero) oppure <code>False</code> (falso). Attenzione: <code>=</code> assegna, <code>==</code> confronta.</p>
+    <table>
+      <thead><tr><th>Scrittura</th><th>Si legge</th></tr></thead>
+      <tbody>
+        <tr><td><code>a == b</code> · <code>a != b</code></td><td>a uguale a b · a diverso da b</td></tr>
+        <tr><td><code>a &lt; b</code> · <code>a &lt;= b</code></td><td>a minore di b · a minore o uguale a b</td></tr>
+        <tr><td><code>a &gt; b</code> · <code>a &gt;= b</code></td><td>a maggiore di b · a maggiore o uguale a b</td></tr>
+        <tr><td><code>c1 and c2</code></td><td>vero solo se <strong>entrambe</strong> le condizioni sono vere</td></tr>
+        <tr><td><code>c1 or c2</code></td><td>vero se <strong>almeno una</strong> delle due è vera</td></tr>
+        <tr><td><code>not c</code></td><td>il contrario di c</td></tr>
+      </tbody>
+    </table>
+    <div class="esempio">
+<pre class="py" data-esempio="condizioni" tabindex="0"><code>a = 4
+print(a > 2 and a < 10)
+print(a == 5 or a < 0)
+print(not a == 4)</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="condizioni"><code>True
+False
+False</code></pre>
+    </div>
+    <div class="ricorda">
+      <strong>Da ricordare</strong>
+      <ul>
+        <li>Per dire «x è tra 1 e 10» servono due confronti uniti da <code>and</code>: <code>x &gt;= 1 and x &lt;= 10</code>.</li>
+        <li>Una variabile che vale <code>True</code> o <code>False</code> si può usare direttamente come condizione: <code>if pioggia:</code>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="card" id="ifelse" aria-labelledby="h-if">
+    <h2 id="h-if"><span class="badge t-pol">4</span> <code>if</code> ed <code>else</code></h2>
+    <p>Con <code>if</code> il programma esegue un blocco di righe <strong>solo se</strong> la condizione è vera. Il blocco <code>else</code>, se c'è, viene eseguito quando la condizione è falsa. Le righe del blocco sono <strong>rientrate di 4 spazi</strong>.</p>
+    <div class="esempio">
+<pre class="py" data-esempio="ifelse" tabindex="0"><code>altezza = 135
+if altezza >= 140:
+    print('puoi salire')
+else:
+    print('troppo basso')
+print('fine')</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="ifelse"><code>troppo basso
+fine</code></pre>
+    </div>
+    <p>Un <code>if</code> senza <code>else</code> non fa nulla quando la condizione è falsa, e il programma prosegue.</p>
+  </section>
+
+  <section class="card" id="elif" aria-labelledby="h-elif">
+    <h2 id="h-elif"><span class="badge t-gen">5</span> <code>if</code> / <code>elif</code> / <code>else</code></h2>
+    <p>Quando i casi sono più di due si usa <code>elif</code> («altrimenti se»). Python controlla le condizioni <strong>dall'alto verso il basso</strong>: esegue il blocco della <strong>prima condizione vera</strong> e salta tutte le altre, anche se sarebbero vere. Se nessuna è vera, esegue <code>else</code>.</p>
+    <div class="esempio">
+<pre class="py" data-esempio="elif" tabindex="0"><code>punti = 85
+if punti >= 90:
+    print('oro')
+elif punti >= 70:
+    print('argento')
+elif punti >= 50:
+    print('bronzo')
+else:
+    print('nessuna medaglia')</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="elif"><code>argento</code></pre>
+    </div>
+    <div class="ricorda attenzione">
+      <strong>Attenzione all'ordine</strong>
+      <ul>
+        <li>85 è anche maggiore di 50, ma <code>'bronzo'</code> non viene stampato: dopo la prima condizione vera la catena finisce.</li>
+        <li>Con soglie come queste si parte dalla condizione <strong>più restrittiva</strong>. Se la prima fosse <code>punti &gt;= 50</code>, chiunque arrivi a 50 prenderebbe il bronzo, anche con 95 punti.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="card" id="annidati" aria-labelledby="h-ann">
+    <h2 id="h-ann"><span class="badge t-enc">6</span> <code>if</code> in sequenza e <code>if</code> annidati</h2>
+    <h3>Due <code>if</code> separati non sono un <code>elif</code></h3>
+    <p>Due <code>if</code> scritti uno sotto l'altro sono <strong>indipendenti</strong>: il secondo viene controllato in ogni caso, anche se il primo era vero. Se il primo blocco cambia una variabile, il secondo vede il valore nuovo.</p>
+    <div class="esempio">
+<pre class="py" data-esempio="sequenza" tabindex="0"><code>n = 12
+if n % 2 == 0:
+    print('pari')
+if n % 3 == 0:
+    print('multiplo di 3')
+k = 5
+if k < 10:
+    k = k + 10
+if k > 12:
+    k = 0
+print(k)</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="sequenza"><code>pari
+multiplo di 3
+0</code></pre>
+    </div>
+    <h3>Un <code>if</code> dentro un altro</h3>
+    <p>Un <code>if</code> può stare dentro il blocco di un altro <code>if</code> (rientrato di altri 4 spazi): viene controllato solo se la condizione esterna è vera.</p>
+    <div class="esempio">
+<pre class="py" data-esempio="annidati" tabindex="0"><code>eta = 16
+accompagnato = True
+if eta < 18:
+    if accompagnato:
+        print('entra con un adulto')
+    else:
+        print('non entra')
+else:
+    print('entra')</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="annidati"><code>entra con un adulto</code></pre>
+    </div>
+  </section>
+
+  <section class="card" id="metodo" aria-labelledby="h-met">
+    <h2 id="h-met"><span class="badge t-gen">7</span> Come tracciare e come scrivere un algoritmo</h2>
+    <h3>Per prevedere che cosa stampa un programma</h3>
+    <ol class="passi">
+      <li>Prepara una <strong>tabella</strong> con una colonna per ogni variabile.</li>
+      <li>Esegui le righe <strong>una alla volta</strong>, dall'alto: a ogni assegnazione scrivi il nuovo valore nella tabella.</li>
+      <li>A ogni <code>if</code> calcola la condizione con i valori <strong>attuali</strong> e segui solo il ramo giusto.</li>
+      <li>In una catena <code>if / elif / else</code> fermati alla prima condizione vera.</li>
+      <li>Scrivi l'output <strong>esattamente</strong>: con <code>/</code> il risultato ha il punto decimale.</li>
+    </ol>
+    <h3>Per scrivere un algoritmo con le condizioni</h3>
+    <ol class="passi">
+      <li>Elenca <strong>tutti i casi</strong> possibili e che cosa deve succedere in ognuno.</li>
+      <li>Traduci ogni caso in una condizione con <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>%</code>, unendo le parti con <code>and</code> e <code>or</code>.</li>
+      <li>Scegli l'<strong>ordine</strong>: prima i casi più particolari, poi quelli più generali, e in fondo l'<code>else</code>.</li>
+      <li><strong>Prova</strong> l'algoritmo a mano con almeno un valore per ogni ramo, compresi i valori al confine (per esempio esattamente 18 in <code>eta &gt;= 18</code>).</li>
+    </ol>
+    <div class="esempio">
+      <span class="lbl">Esempio: segno di un numero (tre casi)</span>
+<pre class="py" data-esempio="algoritmo" tabindex="0"><code>n = -3
+if n > 0:
+    print('positivo')
+elif n < 0:
+    print('negativo')
+else:
+    print('zero')</code></pre>
+      <span class="lbl">Output</span>
+<pre class="out" data-output="algoritmo"><code>negativo</code></pre>
+    </div>
+  </section>
+
+  <div class="fine card">
+    <p><strong>Pronto?</strong> Il quiz ha 15 esercizi di difficoltà crescente, a scelta multipla e a risposta aperta, e dura <strong>45 minuti</strong>: allo scadere viene consegnato automaticamente.</p>
+    <a class="btn" href="quiz_if_python.html">Vai al quiz →</a>
+  </div>
+</main>
+
+<script>
+/* Evidenziazione della sintassi Python nei blocchi di codice. */
+(function () {
+  "use strict";
+  const esc = s => s.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+  const KW = new Set(["class","def","return","if","elif","else","for","in","pass","and","or","not","None","True","False"]);
+  const BI = new Set(["print","super"]);
+  const TOK = /(#.*$)|('(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*")|\b(\d+)\b|\b([A-Za-z_]\w*)\b/gm;
+  document.querySelectorAll("pre.py code").forEach(el => {
+    const src = el.textContent;
+    let out = "", last = 0, m;
+    while ((m = TOK.exec(src)) !== null) {
+      out += esc(src.slice(last, m.index));
+      const t = esc(m[0]);
+      if (m[1]) out += `<span class="com">${t}</span>`;
+      else if (m[2]) out += `<span class="str">${t}</span>`;
+      else if (m[3]) out += `<span class="num">${t}</span>`;
+      else if (KW.has(m[4])) out += `<span class="kw">${t}</span>`;
+      else if (BI.has(m[4])) out += `<span class="bi">${t}</span>`;
+      else if (m[4] === "self") out += `<span class="self">${t}</span>`;
+      else out += t;
+      last = TOK.lastIndex;
+    }
+    el.innerHTML = out + esc(src.slice(last));
+  });
+})();
+</script>
+</body>
+</html>

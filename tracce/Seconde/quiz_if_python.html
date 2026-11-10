@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz Python – Classe seconda: variabili e if / elif / else</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --card: #ffffff; --ink: #1d2330; --muted: #5b6475;
+    --line: #dde1e8; --accent: #2457c5; --accent-ink: #ffffff;
+    --ok: #1d7a46; --ok-bg: #e5f4ec; --ko: #b3261e; --ko-bg: #fbe9e8; --warn-bg: #fff6e0; --warn: #8a5a00;
+    --code-bg: #1e2230; --code-ink: #e6e9ef;
+    --kw: #c792ea; --str: #c3e88d; --num: #f78c6c; --bi: #82aaff; --self: #ffcb6b; --com: #8a93a6;
+    --enc: #7b3fb5; --inh: #b0640a; --pol: #127a7a;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.5; font-size: 16px; }
+  main { max-width: 860px; margin: 0 auto; padding: 16px; }
+  h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  h2 { font-size: 1.2rem; margin: 0 0 8px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin-bottom: 14px; }
+  .muted { color: var(--muted); }
+  .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .badge { display: inline-block; font-size: .8rem; font-weight: 600; padding: 2px 10px; border-radius: 999px; color: #fff; }
+  .livello { font-size: .8rem; font-weight: 600; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; white-space: nowrap; }
+  .t-0 { background: var(--enc); } .t-1 { background: var(--inh); } .t-2 { background: var(--pol); } .t-3 { background: #2457c5; } .t-4 { background: #b3261e; } .t-5 { background: #1d7a46; }
+  button { font: inherit; min-height: 44px; padding: 8px 18px; border-radius: 8px; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink); cursor: pointer; font-weight: 600; }
+  button.secondary { background: #fff; color: var(--accent); }
+  button:disabled { opacity: .45; cursor: not-allowed; }
+  button:focus-visible, input:focus-visible + .opt-body, input[type=text]:focus-visible, [tabindex]:focus-visible { outline: 3px solid #f2b705; outline-offset: 2px; }
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 12px; }
+  .actions .spacer { flex: 1; }
+
+  /* navigatore domande */
+  .nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .nav button { min-width: 44px; padding: 6px 0; background: #fff; color: var(--ink); border: 2px solid var(--line); }
+  .nav button.risposta { background: #eef3fd; border-color: var(--accent); color: var(--accent); }
+  .nav button[aria-current="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  /* codice */
+  .code { background: var(--code-bg); color: var(--code-ink); border-radius: 8px; overflow-x: auto; font-family: ui-monospace, "Cascadia Code", Consolas, "Courier New", monospace; font-size: 14px; padding: 8px 0; }
+  .code ol { list-style: none; margin: 0; padding: 0; min-width: max-content; }
+  .code li { display: flex; padding: 0 12px 0 0; white-space: pre; border-left: 4px solid transparent; }
+  .code li .ln { display: inline-block; width: 3ch; text-align: right; margin-right: 14px; color: var(--com); user-select: none; flex-shrink: 0; }
+  .kw { color: var(--kw); } .str { color: var(--str); } .num { color: var(--num); } .bi { color: var(--bi); } .self { color: var(--self); } .com { color: var(--com); font-style: italic; } .dec { color: var(--bi); }
+
+  /* opzioni */
+  fieldset { border: 0; padding: 0; margin: 14px 0 0; }
+  legend { font-weight: 600; margin-bottom: 8px; padding: 0; }
+  .opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 600px) { .opts { grid-template-columns: 1fr; } main { padding: 10px; } .card { padding: 12px; } }
+  .opt { position: relative; display: block; cursor: pointer; }
+  .opt input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .opt-body { display: flex; gap: 10px; align-items: flex-start; border: 2px solid var(--line); border-radius: 8px; padding: 10px; min-height: 44px; background: #fff; }
+  .opt-key { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--line); display: grid; place-items: center; font-weight: 700; font-size: .85rem; }
+  .opt pre { margin: 0; font-family: ui-monospace, Consolas, monospace; font-size: 14px; white-space: pre-wrap; word-break: break-word; }
+  .opt input:checked + .opt-body { border-color: var(--accent); background: #eef3fd; }
+  .opt input:checked + .opt-body .opt-key { background: var(--accent); color: #fff; }
+
+  /* moduli e messaggi */
+  label.campo { display: block; font-weight: 600; margin-top: 12px; }
+  input[type=text] { font: inherit; min-height: 44px; padding: 8px 12px; border: 2px solid var(--line); border-radius: 8px; width: 140px; text-transform: uppercase; }
+  .err { color: var(--ko); font-weight: 600; min-height: 1.5em; margin: 8px 0 0; }
+  .avviso { padding: 10px 12px; border-radius: 8px; background: var(--warn-bg); color: var(--warn); margin-top: 12px; }
+  .utente { padding: 10px 12px; border-radius: 8px; background: var(--ok-bg); margin-top: 12px; }
+  code.inline { font-family: ui-monospace, Consolas, monospace; background: #eceff4; padding: 0 4px; border-radius: 4px; font-size: .92em; }
+  .kbd-help { font-size: .85rem; color: var(--muted); }
+  kbd { font-family: inherit; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; background: #fff; font-size: .85em; }
+  #gsi-btn { margin-top: 12px; min-height: 44px; }
+
+  /* riepilogo ed esito */
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .link { background: none; border: 0; color: var(--accent); text-decoration: underline; padding: 0; min-height: 0; font-weight: 600; }
+  .vuota { color: var(--ko); font-weight: 600; }
+  .punteggio { font-size: 2.4rem; font-weight: 800; margin: 4px 0; }
+  .esito { display: inline-block; padding: 6px 14px; border-radius: 8px; font-weight: 800; font-size: 1.2rem; }
+  .esito.ok { background: var(--ok-bg); color: var(--ok); } .esito.ko { background: var(--ko-bg); color: var(--ko); }
+  .ripasso { padding: 10px 12px; border-left: 4px solid var(--accent); background: #eef3fd; border-radius: 0 8px 8px 0; margin: 12px 0; }
+  .ripasso a { color: var(--accent); font-weight: 700; }
+  .timer-bar { position: sticky; top: 0; z-index: 10; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 8px 12px; background: var(--card); border-bottom: 1px solid var(--line); font-size: 1rem; }
+  .timer-bar[hidden] { display: none; }
+  .timer-bar strong { font-variant-numeric: tabular-nums; font-size: 1.15rem; }
+  .timer-bar.poco { background: var(--ko-bg); color: var(--ko); border-bottom-color: var(--ko); }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  /* protezione delle domande durante la prova */
+  body.in-prova main, body.in-prova .timer-bar { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  .filigrana { position: relative; }
+  .code.filigrana::after, .opts.filigrana::after { content: ""; position: absolute; inset: 0; pointer-events: none; background-repeat: repeat; }
+  .code.filigrana::after { background-image: var(--filigrana-scura); }
+  .opts.filigrana::after { background-image: var(--filigrana-chiara); }
+  body.in-prova .timer-bar { z-index: 60; }
+  .copertura { position: fixed; inset: 0; z-index: 50; background: var(--bg); display: grid; place-items: center; padding: 24px; text-align: center; }
+  .copertura[hidden] { display: none; }
+  .copertura > div { max-width: 480px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 20px; }
+  @media print { body > * { display: none !important; } body::before { content: "La stampa del quiz non è consentita."; display: block; font: 16px Arial, sans-serif; padding: 24px; } }
+  .aperta { margin-top: 14px; }
+  #risp { width: 100%; text-transform: none; font-family: ui-monospace, "Cascadia Code", Consolas, "Courier New", monospace; font-size: 15px; padding: 10px 12px; border: 2px solid var(--line); border-radius: 8px; min-height: 44px; -webkit-user-select: text; user-select: text; }
+  #risp:focus-visible { outline: 3px solid #f2b705; outline-offset: 2px; }
+  textarea#risp { resize: vertical; line-height: 1.5; tab-size: 4; }
+  .nota-manuale { font-size: .85rem; margin: 6px 0 0; }
+  .conferma { border: 2px solid var(--accent); border-radius: 8px; padding: 12px; margin-top: 12px; background: #f6f8fe; }
+</style>
+</head>
+<body>
+<div class="timer-bar" id="timer-bar" hidden><span>⏱ Tempo rimasto</span> <strong id="timer" role="timer" aria-label="Tempo rimasto">--:--</strong></div>
+<div class="sr-only" id="annuncio-tempo" aria-live="assertive"></div>
+<main id="app" aria-live="polite"></main>
+<div class="copertura" id="copertura" hidden role="dialog" aria-modal="true" aria-labelledby="cop-tit">
+  <div><h2 id="cop-tit">Quiz nascosto</h2><p id="cop-testo"></p><button id="btn-riprendi">Torna al quiz</button></div>
+</div>
+
+<!-- Testi dei casi, codificati (senza soluzioni: la correzione avviene sul server del docente). -->
+<script type="text/plain" id="dati-casi">
+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
+</script>
+
+<script>
+/* Configurazione: appsScriptUrl è l'URL /exec della web app Apps Script del docente
+   (vedi quiz_oop_apps_script/README.md). Finché è vuoto la consegna non è attiva. */
+window.QUIZ_OOP_CONFIG = Object.assign({
+  appsScriptUrl: "",
+  clientId: "1011752872320-713mjtge9ofhtnclhjfvdoc2h2q2uelv.apps.googleusercontent.com",
+  dominio: "lscortese.com",
+  quizId: "if-seconda-v1",
+  soglia: 0.7,
+  durataMinuti: 45
+}, window.QUIZ_OOP_CONFIG || {});
+</script>
+
+<script>
+(function () {
+  "use strict";
+  const CFG = window.QUIZ_OOP_CONFIG;
+  // Le domande non sono scritte in chiaro nel codice della pagina (non basta «Visualizza sorgente» per copiarle).
+  function decodifica(testo) {
+    const k = "oop-quarta", bin = atob(testo.trim()), u = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i) ^ k.charCodeAt(i % k.length);
+    return JSON.parse(new TextDecoder().decode(u));
+  }
+  const CASI = decodifica(document.getElementById("dati-casi").textContent);
+  const N = CASI.length;
+  const tipo = c => c.tipo || "scelta";
+  const MANUALI = CASI.filter(c => tipo(c) === "aperta").length, VALORI = CASI.filter(c => tipo(c) === "valore").length;
+  const AUTO = N - MANUALI;
+  const CON_ERRORI = CASI.some(c => (c.opzioni || []).some(o => o.includes("Errore:")));
+  const MIN_OK = Math.ceil(CFG.soglia * AUTO);
+  const app = document.getElementById("app");
+
+  const S = {
+    fase: "inizio", idx: 0, scelte: new Array(N).fill(null),
+    token: null, utente: null, classe: "", inizio: null,
+    consegnaId: null, confermaAperta: false, risultato: null,
+    scadenza: 0, scaduto: false, timerId: null, annunciati: {},
+    sorv: { uscite: 0, msFuori: 0, fuoriDa: null, copie: 0, catture: 0, stampe: 0, incolla: 0 }
+  };
+
+  // ---------- utilità ----------
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const KW = new Set(["class","def","return","if","else","elif","for","in","pass","while","import","from","and","or","not","is","None","True","False","lambda","with","as"]);
+  const BI = new Set(["print","super","len","range","str","int"]);
+  const TOK = /(#.*$)|('(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*")|(@[\w.]+)|\b(\d+)\b|\b([A-Za-z_]\w*)\b/g;
+  function evidenzia(riga) {
+    let out = "", last = 0, m;
+    TOK.lastIndex = 0;
+    while ((m = TOK.exec(riga)) !== null) {
+      out += esc(riga.slice(last, m.index));
+      const t = esc(m[0]);
+      if (m[1]) out += `<span class="com">${t}</span>`;
+      else if (m[2]) out += `<span class="str">${t}</span>`;
+      else if (m[3]) out += `<span class="dec">${t}</span>`;
+      else if (m[4]) out += `<span class="num">${t}</span>`;
+      else if (KW.has(m[5])) out += `<span class="kw">${t}</span>`;
+      else if (BI.has(m[5])) out += `<span class="bi">${t}</span>`;
+      else if (m[5] === "self") out += `<span class="self">${t}</span>`;
+      else out += t;
+      last = TOK.lastIndex;
+    }
+    return out + esc(riga.slice(last));
+  }
+  const TEMI = [...new Set(CASI.map(c => c.tema))];        // colore del tema = ordine in cui compare nel quiz
+  const badge = tema => `<span class="badge t-${TEMI.indexOf(tema) % 6}">${esc(tema[0].toUpperCase() + tema.slice(1))}</span>`;
+  const date = () => S.scelte.filter(x => x !== null && x !== "").length;
+  function nuovoId() {
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+    return "id-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 10);
+  }
+  function decodificaJwt(tok) {
+    try {
+      const b = tok.split(".")[1].replace(/-/g, "+").replace(/_/g, "/");
+      const json = decodeURIComponent(atob(b).split("").map(c => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2)).join(""));
+      return JSON.parse(json);
+    } catch (e) { return null; }
+  }
+
+  // ---------- accesso Google (Google Identity Services) ----------
+  let gsiPronto = false, dopoAccesso = null;
+  function caricaGsi(cb) {
+    if (window.google && google.accounts && google.accounts.id) return cb();
+    if (!document.getElementById("gsi-script")) {
+      const s = document.createElement("script");
+      s.id = "gsi-script"; s.src = "https://accounts.google.com/gsi/client"; s.async = true;
+      s.onerror = () => mostraErroreAccesso("Impossibile caricare l'accesso Google. Controlla la connessione e ricarica la pagina.");
+      document.head.appendChild(s);
+    }
+    const t0 = Date.now();
+    (function attendi() {
+      if (window.google && google.accounts && google.accounts.id) return cb();
+      if (Date.now() - t0 > 15000) return mostraErroreAccesso("L'accesso Google non risponde. Ricarica la pagina.");
+      setTimeout(attendi, 100);
+    })();
+  }
+  function inizializzaGsi() {
+    if (gsiPronto) return;
+    google.accounts.id.initialize({ client_id: CFG.clientId, callback: credenziale, auto_select: false, cancel_on_tap_outside: false });
+    gsiPronto = true;
+  }
+  function mostraPulsanteGoogle(idContenitore) {
+    caricaGsi(() => {
+      inizializzaGsi();
+      const el = document.getElementById(idContenitore);
+      if (el) google.accounts.id.renderButton(el, { type: "standard", theme: "outline", size: "large", text: "signin_with", shape: "rectangular" });
+    });
+  }
+  function mostraErroreAccesso(msg) {
+    const e = document.getElementById("err-accesso");
+    if (e) e.textContent = msg;
+  }
+  function credenziale(resp) {
+    const p = decodificaJwt(resp && resp.credential);
+    if (!p || !p.email) return mostraErroreAccesso("Accesso non riuscito: riprova.");
+    if (!String(p.email).toLowerCase().endsWith("@" + CFG.dominio)) {
+      return mostraErroreAccesso(`Usa l'account della scuola (@${CFG.dominio}): ${p.email} non è ammesso.`);
+    }
+    S.token = resp.credential;
+    // Durata residua del token misurata senza l'orologio del computer, che può essere sbagliato.
+    S.tokenDurata = (Number(p.exp || 0) - Number(p.iat || 0)) * 1000;
+    S.tokenDa = performance.now();
+    S.utente = { email: p.email, nome: p.given_name || "", cognome: p.family_name || "", completo: p.name || p.email };
+    if (typeof dopoAccesso === "function") { const f = dopoAccesso; dopoAccesso = null; f(); }
+    else if (S.fase === "inizio") schermataInizio();
+  }
+
+  // ---------- schermata iniziale ----------
+  function schermataInizio() {
+    S.fase = "inizio";
+    const loggato = !!S.utente;
+    app.innerHTML = `
+      <div class="card">
+        <h1>Quiz Python – Classe seconda: variabili e if / elif / else</h1>
+        <p class="muted">${N} esercizi su variabili, operatori e strutture if / elif / else, a scelta multipla e a risposta aperta, in ordine di difficoltà crescente (base, intermedio, avanzato).</p>
+        <ul>
+          ${MANUALI || VALORI ? `<li>Nelle domande a scelta multipla leggi il codice e scegli che cosa stampa <strong>esattamente</strong>. Nelle domande aperte scrivi il valore stampato oppure le righe di codice richieste.</li>` : `<li>Per ogni caso leggi il codice e scegli che cosa stampa <strong>esattamente</strong>.</li>`}
+          <li>Puoi muoverti tra le domande e cambiare le risposte fino alla <strong>consegna finale</strong>.</li>
+          ${MANUALI ? `<li>Il test è <strong>superato</strong> con almeno <strong>${MIN_OK} risposte esatte su ${AUTO}</strong> domande corrette in automatico (${Math.round(CFG.soglia * 100)}%). Le ${MANUALI} risposte in codice le valuta il docente. Le domande senza risposta valgono come errate.</li>` : `<li>Il test è <strong>superato</strong> con almeno <strong>${MIN_OK} risposte esatte su ${N}</strong> (${Math.round(CFG.soglia * 100)}%). Le domande senza risposta valgono come errate.</li>`}
+          ${CON_ERRORI ? `<li>Se un'opzione contiene <code class="inline">Errore: NomeEccezione</code>, il programma stampa le righe precedenti e poi si ferma con quell'errore.</li>` : ""}
+          <li>Hai <strong>${CFG.durataMinuti} minuti</strong> dal momento in cui premi «Inizia il quiz». Allo scadere del tempo le risposte vengono <strong>bloccate e consegnate automaticamente</strong>, così come sono.</li>
+          <li>Durante il test non si possono copiare né stampare le domande, che riportano il tuo nome in filigrana. Se lasci la pagina (altra scheda, altra app, cattura dello schermo) le domande si nascondono e l'uscita viene registrata.</li>
+          <li>Alla consegna il risultato viene inviato al docente con il tuo nome e la tua email della scuola, insieme al numero di uscite dalla pagina.</li>
+        </ul>
+        <div class="ripasso"><strong>Prima di iniziare</strong> ripassa la teoria che serve per il quiz:
+          <a href="teoria_if_python.html" id="link-teoria">Ripasso: variabili, operatori, if / elif / else</a></div>
+        <p class="kbd-help">Tastiera: <kbd>1</kbd>–<kbd>4</kbd> scegli · <kbd>←</kbd> <kbd>→</kbd> domanda precedente/successiva · <kbd>Invio</kbd> successiva</p>
+      </div>
+      <div class="card">
+        <h2>1. Accedi con l'account della scuola</h2>
+        ${loggato
+          ? `<div class="utente" id="utente">Accesso effettuato: <strong>${esc(S.utente.completo)}</strong> (${esc(S.utente.email)})</div>`
+          : `<p>Per svolgere il quiz devi accedere con il tuo account <strong>@${esc(CFG.dominio)}</strong>.</p><div id="gsi-btn"></div>`}
+        <p class="err" id="err-accesso" role="alert"></p>
+        <h2 style="margin-top:14px">2. Indica la tua classe</h2>
+        <label class="campo" for="classe">Classe (es. 2B)</label>
+        <input type="text" id="classe" maxlength="3" autocomplete="off" value="${esc(S.classe)}" ${loggato ? "" : "disabled"}>
+        <p class="err" id="err-classe" role="alert"></p>
+        ${CFG.appsScriptUrl ? "" : `<div class="avviso">La consegna online non è ancora attiva: puoi svolgere il quiz, ma non potrai consegnarlo. Avvisa il docente.</div>`}
+        <div class="actions"><button id="btn-inizia" ${loggato ? "" : "disabled"}>Inizia il quiz</button></div>
+      </div>`;
+    if (!loggato) mostraPulsanteGoogle("gsi-btn");
+    const inp = document.getElementById("classe");
+    document.getElementById("btn-inizia").addEventListener("click", avvia);
+    inp.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); avvia(); } });
+    if (loggato) inp.focus();
+  }
+
+  function avvia() {
+    if (!S.utente) { mostraErroreAccesso("Prima accedi con l'account della scuola."); return; }
+    const v = document.getElementById("classe").value.trim().toUpperCase().replace(/\s+/g, "");
+    if (!/^2[A-Z]{1,2}$/.test(v)) {
+      document.getElementById("err-classe").textContent = "Scrivi la tua classe seconda: un 2 seguito dalla sezione, per esempio 2B.";
+      document.getElementById("classe").focus();
+      return;
+    }
+    // Il token Google dura circa un'ora: deve coprire tutto il tempo del test.
+    if (S.tokenDurata > 0 && S.tokenDurata - (performance.now() - S.tokenDa) < (CFG.durataMinuti + 2) * 60000) {
+      S.token = null; S.utente = null;
+      schermataInizio();
+      mostraErroreAccesso("Il tuo accesso è troppo vecchio per coprire tutto il test: accedi di nuovo e poi premi «Inizia il quiz».");
+      return;
+    }
+    S.classe = v; S.idx = 0; S.scelte = new Array(N).fill(null);
+    S.inizio = new Date(); S.consegnaId = nuovoId(); S.confermaAperta = false;
+    S.scaduto = false; S.annunciati = {};
+    S.sorv = { uscite: 0, msFuori: 0, fuoriDa: null, copie: 0, catture: 0, stampe: 0, incolla: 0 };
+    preparaFiligrana(S.utente.email + " · " + S.classe);
+    document.body.classList.add("in-prova");
+    // performance.now() è un orologio interno del browser: non salta se l'ora del computer viene corretta.
+    S.avvioMono = performance.now();
+    S.scadenza = S.avvioMono + CFG.durataMinuti * 60000;
+    avviaTimer();
+    mostraCaso();
+  }
+
+  // ---------- timer ----------
+  function avviaTimer() {
+    clearInterval(S.timerId);
+    document.getElementById("timer-bar").hidden = false;
+    aggiornaTimer();
+    S.timerId = setInterval(aggiornaTimer, 1000);
+  }
+  function fermaTimer(nascondi) {
+    clearInterval(S.timerId); S.timerId = null;
+    if (nascondi) document.getElementById("timer-bar").hidden = true;
+  }
+  function aggiornaTimer() {
+    const resto = S.scadenza - performance.now();
+    if (resto <= 0) { tempoScaduto(); return; }
+    const sec = Math.ceil(resto / 1000), mm = Math.floor(sec / 60), ss = sec % 60;
+    document.getElementById("timer").textContent = String(mm).padStart(2, "0") + ":" + String(ss).padStart(2, "0");
+    document.getElementById("timer-bar").classList.toggle("poco", resto <= 5 * 60000);
+    [10, 5, 1].forEach(m => {
+      if (resto <= m * 60000 && !S.annunciati[m] && CFG.durataMinuti > m) {
+        S.annunciati[m] = true;
+        document.getElementById("annuncio-tempo").textContent = m === 1 ? "Manca 1 minuto alla consegna automatica." : `Mancano ${m} minuti alla consegna automatica.`;
+      }
+    });
+  }
+  function tempoScaduto() {
+    if (S.scaduto) return;
+    S.scaduto = true;
+    fermaTimer(false);
+    document.getElementById("timer").textContent = "00:00";
+    document.getElementById("timer-bar").classList.add("poco");
+    document.getElementById("annuncio-tempo").textContent = "Tempo scaduto: il test viene consegnato.";
+    if (S.fase === "domanda" || S.fase === "riepilogo") {
+      if (CFG.appsScriptUrl) consegna();
+      else schermataBloccata();
+    } else if (S.fase === "errore") {
+      const b = document.getElementById("btn-indietro");
+      if (b) b.remove();
+    }
+  }
+  function schermataBloccata() {
+    S.fase = "bloccato";
+    app.innerHTML = `<section class="card"><h1 id="tit-blocco" tabindex="-1">Tempo scaduto</h1>
+      <p>Le risposte sono bloccate. La consegna online non è attiva: avvisa il docente.</p></section>`;
+    document.getElementById("tit-blocco").focus();
+  }
+
+  // ---------- domande ----------
+  function navigatore() {
+    return `<nav class="nav" aria-label="Vai alla domanda">${CASI.map((c, i) =>
+      `<button type="button" data-vai="${i}" class="${S.scelte[i] !== null ? "risposta" : ""}" ${i === S.idx && S.fase === "domanda" ? 'aria-current="true"' : ""} aria-label="Domanda ${i + 1}${S.scelte[i] !== null ? ", risposta data" : ", senza risposta"}">${i + 1}</button>`).join("")}</nav>`;
+  }
+  function collegaNavigatore() {
+    app.querySelectorAll("[data-vai]").forEach(b => b.addEventListener("click", () => { S.idx = Number(b.dataset.vai); mostraCaso(); }));
+  }
+
+  function mostraCaso() {
+    if (S.scaduto) return;                                       // tempo scaduto: risposte bloccate
+    S.fase = "domanda";
+    const c = CASI[S.idx], ultimo = S.idx === N - 1;
+    app.innerHTML = `
+      <div class="top">
+        <span><strong>Domanda ${S.idx + 1} di ${N}</strong> &nbsp;${badge(c.tema)} <span class="livello">livello ${esc(c.livello)}</span></span>
+        <span class="muted">Risposte date: <strong id="contatore">${date()}</strong>/${N}</span>
+      </div>
+      ${navigatore()}
+      <section class="card" aria-labelledby="titolo-caso">
+        <h2 id="titolo-caso" tabindex="-1">${esc(c.titolo)}</h2>
+        <p>${esc(c.traccia)}</p>
+        <div class="code filigrana" role="region" aria-label="Codice Python" tabindex="0">
+          <ol>${c.codice.map((r, i) => `<li><span class="ln" aria-hidden="true">${i + 1}</span><span>${evidenzia(r) || " "}</span></li>`).join("")}</ol>
+        </div>
+        ${tipo(c) === "scelta" ? `<fieldset>
+          <legend>Che cosa stampa il programma?</legend>
+          <div class="opts filigrana">
+            ${c.opzioni.map((o, i) => `
+              <label class="opt" id="opt-${i}">
+                <input type="radio" name="risposta" value="${i}" ${S.scelte[S.idx] === i ? "checked" : ""}>
+                <span class="opt-body"><span class="opt-key" aria-hidden="true">${i + 1}</span><pre>${esc(o)}</pre></span>
+              </label>`).join("")}
+          </div>
+        </fieldset>` : tipo(c) === "valore" ? `<div class="aperta">
+          <label class="campo" for="risp">Scrivi esattamente il valore che il programma stampa</label>
+          <input type="text" id="risp" class="risp-valore" maxlength="60" autocomplete="off" autocapitalize="off" spellcheck="false" value="${esc(S.scelte[S.idx] ?? "")}">
+        </div>` : `<div class="aperta">
+          <label class="campo" for="risp">La tua risposta${(c.righe || 3) > 4 ? " (codice Python, rientri con 4 spazi)" : ""}</label>
+          <textarea id="risp" class="risp-codice" rows="${c.righe || 3}" maxlength="1500" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${esc(c.segnaposto || "")}">${esc(S.scelte[S.idx] ?? "")}</textarea>
+          <p class="muted nota-manuale">Questa risposta la valuta il docente.</p>
+        </div>`}
+        <div class="actions">
+          <button class="secondary" id="btn-prec" ${S.idx === 0 ? "disabled" : ""}>← Precedente</button>
+          <span class="spacer"></span>
+          <button id="btn-succ">${ultimo ? "Rivedi e consegna" : "Successiva →"}</button>
+        </div>
+      </section>
+      <div class="actions"><button class="secondary" id="btn-riepilogo">Vai al riepilogo e consegna</button></div>`;
+    app.querySelectorAll('input[name="risposta"]').forEach(inp => inp.addEventListener("change", () => scegli(Number(inp.value), false)));
+    const campo = document.getElementById("risp");
+    if (campo) campo.addEventListener("input", () => scriviRisposta(campo.value));
+    document.getElementById("btn-prec").addEventListener("click", () => sposta(-1));
+    document.getElementById("btn-succ").addEventListener("click", () => sposta(1));
+    document.getElementById("btn-riepilogo").addEventListener("click", schermataRiepilogo);
+    collegaNavigatore();
+    document.getElementById("titolo-caso").focus();
+  }
+
+  function scegli(i, focus) {
+    if (S.scaduto || S.fase !== "domanda") return;
+    S.scelte[S.idx] = i;
+    const inp = app.querySelector(`input[name="risposta"][value="${i}"]`);
+    if (inp) { inp.checked = true; if (focus) inp.focus(); }
+    document.getElementById("contatore").textContent = date();
+    const b = app.querySelector(`[data-vai="${S.idx}"]`);
+    if (b) { b.classList.add("risposta"); b.setAttribute("aria-label", `Domanda ${S.idx + 1}, risposta data`); }
+  }
+
+  function scriviRisposta(testo) {
+    if (S.scaduto || S.fase !== "domanda") return;
+    S.scelte[S.idx] = testo.trim() === "" ? null : testo;
+    document.getElementById("contatore").textContent = date();
+    const b = app.querySelector(`[data-vai="${S.idx}"]`), data = S.scelte[S.idx] !== null;
+    if (b) { b.classList.toggle("risposta", data); b.setAttribute("aria-label", `Domanda ${S.idx + 1}, ${data ? "risposta data" : "senza risposta"}`); }
+  }
+
+  function sposta(d) {
+    if (S.fase !== "domanda") return;
+    const n = S.idx + d;
+    if (n < 0) return;
+    if (n >= N) { schermataRiepilogo(); return; }
+    S.idx = n; mostraCaso(); window.scrollTo(0, 0);
+  }
+
+  // ---------- riepilogo e consegna ----------
+  function schermataRiepilogo() {
+    if (S.scaduto) return;
+    S.fase = "riepilogo";
+    const mancanti = N - date();
+    app.innerHTML = `
+      ${navigatore()}
+      <section class="card" aria-labelledby="titolo-riep">
+        <h1 id="titolo-riep" tabindex="-1">Riepilogo prima della consegna</h1>
+        <p>${esc(S.utente.completo)} · ${esc(S.utente.email)} · classe <strong>${esc(S.classe)}</strong></p>
+        <table>
+          <thead><tr><th>#</th><th>Caso</th><th>La tua risposta</th></tr></thead>
+          <tbody>${CASI.map((c, i) => `<tr>
+            <td>${i + 1}</td>
+            <td><button class="link" data-vai="${i}">${esc(c.titolo)}</button></td>
+            <td>${S.scelte[i] === null ? '<span class="vuota">senza risposta</span>' : typeof S.scelte[i] === "number" ? "opzione " + (S.scelte[i] + 1) : "risposta scritta"}</td></tr>`).join("")}</tbody>
+        </table>
+        ${mancanti ? `<div class="avviso" id="avviso-mancanti">Hai <strong>${mancanti}</strong> ${mancanti === 1 ? "domanda" : "domande"} senza risposta: alla consegna ${mancanti === 1 ? "verrà contata come errata" : "verranno contate come errate"}.</div>` : ""}
+        <div class="actions">
+          <button class="secondary" id="btn-torna">← Torna alle domande</button>
+          <button id="btn-consegna" ${CFG.appsScriptUrl ? "" : "disabled"}>Consegna il test</button>
+        </div>
+        ${CFG.appsScriptUrl ? "" : `<div class="avviso">La consegna online non è ancora attiva. Avvisa il docente.</div>`}
+        <div id="zona-conferma"></div>
+      </section>`;
+    collegaNavigatore();
+    document.getElementById("btn-torna").addEventListener("click", () => { S.idx = Math.min(S.idx, N - 1); mostraCaso(); });
+    document.getElementById("btn-consegna").addEventListener("click", apriConferma);
+    document.getElementById("titolo-riep").focus();
+  }
+
+  function apriConferma() {
+    if (S.fase !== "riepilogo") return;
+    S.confermaAperta = true;
+    document.getElementById("zona-conferma").innerHTML = `
+      <div class="conferma" role="dialog" aria-labelledby="tit-conf">
+        <p id="tit-conf"><strong>Confermi la consegna?</strong> Dopo la consegna non potrai più modificare le risposte.</p>
+        <div class="actions">
+          <button id="btn-conferma">Sì, consegna</button>
+          <button class="secondary" id="btn-annulla">Annulla</button>
+        </div>
+      </div>`;
+    document.getElementById("btn-conferma").addEventListener("click", consegna);
+    document.getElementById("btn-annulla").addEventListener("click", () => { S.confermaAperta = false; document.getElementById("zona-conferma").innerHTML = ""; document.getElementById("btn-consegna").focus(); });
+    document.getElementById("btn-conferma").focus();
+  }
+
+  async function consegna() {
+    const automatica = S.scaduto && S.fase === "domanda";
+    rientra(); document.getElementById("copertura").hidden = true; document.body.classList.remove("in-prova");
+    if (S.fase !== "riepilogo" && S.fase !== "errore" && !automatica) return;   // evita doppio invio
+    S.fase = "invio";
+    app.innerHTML = `<section class="card"><h1 id="tit-invio" tabindex="-1">${S.scaduto ? "Tempo scaduto: consegna automatica in corso…" : "Invio in corso…"}</h1><p>Non chiudere la pagina.</p></section>`;
+    document.getElementById("tit-invio").focus();
+    const payload = {
+      quizId: CFG.quizId, consegnaId: S.consegnaId, idToken: S.token, classe: S.classe,
+      scelte: S.scelte, inizio: S.inizio.toISOString(), fine: new Date().toISOString(),
+      browser: navigator.userAgent.slice(0, 200),
+      scaduto: S.scaduto, durataMinuti: CFG.durataMinuti,
+      durataSecondi: Math.round((performance.now() - S.avvioMono) / 1000),
+      sorveglianza: {
+        uscite: S.sorv.uscite, copie: S.sorv.copie, catture: S.sorv.catture, stampe: S.sorv.stampe, incolla: S.sorv.incolla,
+        secondiFuori: Math.round((S.sorv.msFuori + (S.sorv.fuoriDa === null ? 0 : performance.now() - S.sorv.fuoriDa)) / 1000)
+      }
+    };
+    let data;
+    try {
+      const res = await fetch(CFG.appsScriptUrl, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload) });
+      data = await res.json();
+    } catch (e) {
+      data = { ok: false, error: "Connessione non riuscita. Controlla la rete e riprova." };
+    }
+    if (data.ok) { S.risultato = data; fermaTimer(true); schermataEsito(); return; }
+    schermataErrore(data);
+  }
+
+  function schermataErrore(data) {
+    S.fase = "errore";
+    const serveAccesso = data.codice === "token";
+    app.innerHTML = `
+      <section class="card">
+        <h1 id="tit-err" tabindex="-1">Consegna non riuscita</h1>
+        <p class="err">${esc(data.error || "Errore sconosciuto.")}</p>
+        <p>Le tue risposte non sono andate perse.${S.scaduto ? " Il tempo è scaduto: le risposte sono bloccate, ripeti solo la consegna." : ""}</p>
+        ${serveAccesso ? `<p>Il tuo accesso è scaduto: accedi di nuovo e la consegna ripartirà da sola.</p><div id="gsi-btn"></div><p class="err" id="err-accesso" role="alert"></p>` : ""}
+        <div class="actions">
+          ${serveAccesso ? "" : `<button id="btn-riprova">Riprova la consegna</button>`}
+          ${S.scaduto ? "" : `<button class="secondary" id="btn-indietro">Torna al riepilogo</button>`}
+        </div>
+      </section>`;
+    if (serveAccesso) { dopoAccesso = consegna; mostraPulsanteGoogle("gsi-btn"); }
+    else document.getElementById("btn-riprova").addEventListener("click", consegna);
+    const indietro = document.getElementById("btn-indietro");
+    if (indietro) indietro.addEventListener("click", () => { if (!S.scaduto) schermataRiepilogo(); });
+    document.getElementById("tit-err").focus();
+  }
+
+  function schermataEsito() {
+    S.fase = "fine";
+    const r = S.risultato;
+    app.innerHTML = `
+      <section class="card" aria-labelledby="titolo-fine">
+        <h1 id="titolo-fine" tabindex="-1">Test consegnato</h1>
+        <p>${esc(S.utente.completo)} · classe ${esc(S.classe)}</p>
+        <p class="punteggio" id="punteggio-finale">${r.punteggio} / ${r.totale}</p>
+        <p><span class="esito ${r.superato ? "ok" : "ko"}" id="esito-finale">${r.superato ? "SUPERATO" : "NON SUPERATO"}</span></p>
+        <p class="muted">Soglia: almeno ${r.minimo} risposte esatte su ${r.totale} (${Math.round(r.soglia * 100)}%).</p>
+        ${r.daValutare ? `<p><strong>Esito provvisorio:</strong> il punteggio riguarda le ${r.totale} domande corrette in automatico. Le ${r.daValutare} risposte in codice le valuta il docente e possono cambiare il voto.</p>` : ""}
+        ${S.scaduto ? `<p><strong>Consegnato automaticamente allo scadere dei ${CFG.durataMinuti} minuti.</strong></p>` : ""}
+        <p>Il risultato è stato inviato al docente.</p>
+      </section>`;
+    document.getElementById("titolo-fine").focus();
+  }
+
+  // ---------- protezione delle domande ----------
+  // Una pagina web non può impedire una cattura dello schermo o una foto: qui si rendono scomodi copia e stampa,
+  // si nascondono le domande quando lo studente lascia la pagina e si registra quello che il browser può rilevare.
+  const inProva = () => S.fase === "domanda" || S.fase === "riepilogo";
+  function preparaFiligrana(testo) {
+    const svg = c => `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='300' height='120'><text x='12' y='86' transform='rotate(-18 150 60)' font-family='Arial' font-size='13' fill='${c}'>${esc(testo)}</text></svg>`)}")`;
+    document.documentElement.style.setProperty("--filigrana-scura", svg("rgba(255,255,255,0.13)"));
+    document.documentElement.style.setProperty("--filigrana-chiara", svg("rgba(0,0,0,0.08)"));
+  }
+  function copri(testo) {
+    document.getElementById("cop-testo").textContent = testo;
+    document.getElementById("copertura").hidden = false;
+  }
+  function esci() {
+    if (!inProva() || S.sorv.fuoriDa !== null) return;
+    S.sorv.uscite++; S.sorv.fuoriDa = performance.now();
+    copri("Hai lasciato la pagina del quiz: le domande restano nascoste finché non torni. Ogni uscita viene registrata e comunicata al docente.");
+  }
+  function rientra() {
+    if (S.sorv.fuoriDa === null) return;
+    S.sorv.msFuori += performance.now() - S.sorv.fuoriDa; S.sorv.fuoriDa = null;
+  }
+  document.getElementById("btn-riprendi").addEventListener("click", () => {
+    rientra(); document.getElementById("copertura").hidden = true;
+    const t = document.getElementById("titolo-caso") || document.getElementById("titolo-riep"); if (t) t.focus();
+  });
+  window.addEventListener("blur", esci);
+  window.addEventListener("focus", rientra);
+  document.addEventListener("visibilitychange", () => { if (document.hidden) esci(); else rientra(); });
+  const inCampo = el => !!(el && el.closest && el.closest("#risp"));
+  ["copy", "cut", "paste", "drop", "contextmenu", "dragstart", "selectstart"].forEach(ev => document.addEventListener(ev, e => {
+    if (!inProva()) return;
+    if (ev === "selectstart" && inCampo(e.target)) return;      // si può selezionare il proprio testo
+    e.preventDefault();
+    if (ev === "copy" || ev === "cut") S.sorv.copie++;
+    if (ev === "paste" || ev === "drop") S.sorv.incolla++;
+  }));
+  document.addEventListener("keydown", e => {
+    if (!inProva()) return;
+    const k = (e.key || "").toLowerCase(), mod = e.ctrlKey || e.metaKey;
+    if (mod && k === "a" && inCampo(e.target)) return;           // seleziona tutto nel proprio campo
+    if (mod && ["c", "x", "a", "p", "s", "u"].includes(k)) {
+      e.preventDefault(); e.stopPropagation();
+      if (k === "c" || k === "x") S.sorv.copie++;
+      if (k === "p") S.sorv.stampe++;
+    } else if (e.key === "F12" || (mod && e.shiftKey && ["i", "j", "c"].includes(k))) {
+      e.preventDefault(); e.stopPropagation();
+    }
+  }, true);
+  window.addEventListener("beforeprint", () => { if (inProva()) S.sorv.stampe++; });
+  // Il tasto Stamp non si può bloccare: si registra, si nascondono le domande e si prova a svuotare gli appunti.
+  document.addEventListener("keyup", e => {
+    if (e.key !== "PrintScreen" || !inProva()) return;
+    S.sorv.catture++;
+    copri("È stata rilevata una cattura dello schermo: l'evento viene registrato e comunicato al docente.");
+    try { navigator.clipboard.writeText("Cattura non consentita durante il quiz").catch(() => {}); } catch (x) { /* non disponibile */ }
+  });
+
+  // ---------- tastiera e uscita dalla pagina ----------
+  document.addEventListener("keydown", e => {
+    if (e.ctrlKey || e.metaKey || e.altKey || S.fase !== "domanda") return;
+    const t = e.target, suRadio = t.type === "radio", suBottone = t.tagName === "BUTTON";
+    if (t.tagName === "TEXTAREA") return;
+    if (t.tagName === "INPUT" && t.type === "text") { if (e.key === "Enter") { e.preventDefault(); sposta(1); } return; }
+    if (/^[1-4]$/.test(e.key)) { if (tipo(CASI[S.idx]) === "scelta") { e.preventDefault(); scegli(Number(e.key) - 1, true); } }
+    else if (e.key === "ArrowRight" && !suRadio) { e.preventDefault(); sposta(1); }
+    else if (e.key === "ArrowLeft" && !suRadio) { e.preventDefault(); sposta(-1); }
+    else if (e.key === "Enter" && !suBottone) { e.preventDefault(); sposta(1); }
+  });
+  // Nelle schede in secondo piano i browser rallentano i timer: ricontrollo al ritorno.
+  document.addEventListener("visibilitychange", () => { if (S.timerId && !document.hidden) aggiornaTimer(); });  // ricontrollo del timer
+  window.addEventListener("beforeunload", e => {
+    if (["domanda", "riepilogo", "invio", "errore"].includes(S.fase)) { e.preventDefault(); e.returnValue = ""; }
+  });
+
+  schermataInizio();
+})();
+</script>
+</body>
+</html>

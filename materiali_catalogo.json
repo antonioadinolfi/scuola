@@ -144,6 +144,28 @@
   },
   {
     "classe": "Seconda",
+    "titolo": "Ripasso teoria per il Quiz su if / elif / else",
+    "descrizione": "Variabili, operatori, confronti, if / elif / else e come tracciare un algoritmo: tutto quello che serve per il quiz, con esempi commentati.",
+    "tipo": "esercizio",
+    "file_path": "tracce/Seconde/teoria_if_python.html",
+    "target_page": "",
+    "ordine": 6,
+    "attivo": true,
+    "categoria": "Esercizi"
+  },
+  {
+    "classe": "Seconda",
+    "titolo": "Quiz Python – variabili e if / elif / else",
+    "descrizione": "Test di 15 esercizi di difficoltà crescente, a scelta multipla e a risposta aperta, con accesso tramite l'account della scuola.",
+    "tipo": "esercizio",
+    "file_path": "tracce/Seconde/quiz_if_python.html",
+    "target_page": "",
+    "ordine": 7,
+    "attivo": true,
+    "categoria": "Esercizi"
+  },
+  {
+    "classe": "Seconda",
     "titolo": "Verifica MAggio 2026 - Generale",
     "descrizione": "Python - strutture di controllo",
     "tipo": "esercizio",
