@@ -1,9 +1,15 @@
 {
-  "updatedAt": "2026-11-09T15:40:50+00:00",
+  "updatedAt": "2026-11-10T00:01:34+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
       "items": [
+        {
+          "title": "Il Liceo “Nino Cortese” di nuovo in gara per la XVII Edizione dei Giochi Matematici del Mediterraneo",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/11/09/il-liceo-nino-cortese-di-nuovo-in-gara-per-la-xvii-edizione-dei-giochi-matematici-del-mediterraneo/",
+          "pubDate": "Mon, 09 Nov 2026 16:00:30 +0000",
+          "description": "Anche per questo anno scolastico, il Liceo Scientifico &#8220;Nino Cortese&#8221; riconferma la propria adesione ai Giochi Matematici del Mediterraneo (GMM), la…"
+        },
         {
           "title": "La Realtà Virtuale entra nell’ora di Informatica: gli studenti di Scienze Appliate esplorano il futuro con Oculus 2",
           "link": "https://www.liceoscientificocortese.edu.it/2026/11/09/la-realta-virtuale-entra-nellora-di-informatica-gli-studenti-di-scienze-appliate-esplorano-il-futuro-con-oculus-2/",
@@ -33,12 +39,6 @@
           "link": "https://www.liceoscientificocortese.edu.it/2026/10/30/insieme-verso-il-futuro-al-liceo-cortese-prende-il-via-la-seconda-edizione-del-progetto-sulla-parita-di-genere/",
           "pubDate": "Fri, 30 Oct 2026 17:00:04 +0000",
           "description": "Il 29 ottobre, presso l’Aula Magna del Liceo Scientifico “Nino Cortese”, sotto la direzione del Dirigente Scolastico Dott. Prof. Marcellino Falcone, si è tenuto…"
-        },
-        {
-          "title": "Cerimonia di Consegna dei National Quality Label eTwinning",
-          "link": "https://www.liceoscientificocortese.edu.it/2026/10/29/cerimonia-di-consegna-dei-national-quality-label-etwinning/",
-          "pubDate": "Thu, 29 Oct 2026 05:20:20 +0000",
-          "description": "Eccellenza e innovazione europea al Liceo “Nino Cortese”: il 30 ottobre 2026 la cerimonia di consegna dei National Quality Label eTwinning! &#160;"
         }
       ]
     },
@@ -46,40 +46,40 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
-          "title": "Caro vita docenti fuori sede, il CNDDU propone un contributo per gli affitti: fondo casa per il personale scolastico",
-          "link": "https://www.orizzontescuola.it/caro-vita-docenti-fuori-sede-il-cnddu-propone-un-contributo-per-gli-affitti-fondo-casa-per-il-personale-scolastico/",
-          "pubDate": "Mon, 09 Nov 2026 15:39:18 +0000",
-          "description": "La spinta dell’inflazione e il rialzo continuo dei prezzi continuano a pesare sulle tasche degli italiani. L'ultima indagine condotta da Confesercenti e Ipsos m…"
+          "title": "Supplenze docenti 2026/27: i bollettini del 9 novembre [AGGIORNATO]",
+          "link": "https://www.orizzontescuola.it/supplenze-docenti-ecco-i-bollettini-nomine-al-31-agosto-o-30-giugno-2027-in-aggiornamento/",
+          "pubDate": "Mon, 09 Nov 2026 20:52:36 +0000",
+          "description": "Supplenze docenti a.s. 2026/27: proseguono i bollettini dalle GPS, anche se i turni sono sempre meno numerosi. L'articolo Supplenze docenti 2026/27: i bollettin…"
         },
         {
-          "title": "Programma Itaca 2027/28, domande entro il 10 novembre. Borse di studio INPS fino a 15mila euro per studiare all’estero",
-          "link": "https://www.orizzontescuola.it/programma-itaca-2027-28-domande-entro-il-10-novembre-borse-di-studio-inps-fino-a-15mila-euro-per-studiare-allestero/",
-          "pubDate": "Mon, 09 Nov 2026 15:22:34 +0000",
-          "description": "Scade domani, martedì 10 novembre 2026, alle ore 12, il termine per presentare domanda per il Programma Itaca 2027/2028 dell'INPS. L'articolo Programma Itaca 20…"
+          "title": "Spreco alimentare, Valditara domani a Milano firma un protocollo con il Banco Alimentare: iniziative nelle scuole per studenti, docenti e famiglie",
+          "link": "https://www.orizzontescuola.it/spreco-alimentare-valditara-domani-a-milano-firma-un-protocollo-con-il-banco-alimentare-iniziative-nelle-scuole-per-studenti-docenti-e-famiglie/",
+          "pubDate": "Mon, 09 Nov 2026 19:32:39 +0000",
+          "description": "Sabato 14 novembre si terrà la 30esima Giornata nazionale della Colletta alimentare, e il ministro dell’Istruzione e del Merito Giuseppe Valditara chiederà agli…"
         },
         {
-          "title": "Valditara: “Integrazione significa condividere valori e lingua”",
-          "link": "https://www.orizzontescuola.it/valditara-integrazione-significa-condividere-valori-e-lingua/",
-          "pubDate": "Mon, 09 Nov 2026 15:11:57 +0000",
-          "description": "La scuola cambia passo e punta con decisione sulla lingua come chiave di volta per l'accoglienza. In mattinata, durante l'evento Connecting to the Future organi…"
+          "title": "330 milioni di bambini all’anno colpiti da eventi estremi: Save the Children chiede di proteggere la scuola",
+          "link": "https://www.orizzontescuola.it/330-milioni-di-bambini-allanno-colpiti-da-eventi-estremi-save-the-children-chiede-di-proteggere-la-scuola/",
+          "pubDate": "Mon, 09 Nov 2026 19:30:05 +0000",
+          "description": "Caldo record, siccità, cicloni, piogge violente. Tra gennaio 2022 e settembre 2026, ogni anno, in media 330 milioni di bambini hanno subito almeno uno di questi…"
         },
         {
-          "title": "Riforma 4+2, Valditara: “È il futuro dell’istruzione tecnica e professionale”. Il percorso quinquennale sarà progressivamente superato",
-          "link": "https://www.orizzontescuola.it/riforma-42-valditara-e-il-futuro-dellistruzione-tecnica-e-professionale-il-percorso-quinquennale-sara-progressivamente-superato/",
-          "pubDate": "Mon, 09 Nov 2026 15:09:49 +0000",
-          "description": "Il modello 4+2 rappresenta il futuro dell'istruzione tecnica e professionale italiana. Lo ha dichiarato il ministro dell'Istruzione e del Merito, Giuseppe Valdi…"
+          "title": "Bocciatura valida anche con docenti esterni all’esame, il TAR respinge il ricorso di una studentessa: ecco cosa hanno detto i giudici",
+          "link": "https://www.orizzontescuola.it/bocciatura-valida-anche-con-docenti-esterni-allesame-il-tar-respinge-il-ricorso-di-una-studentessa-ecco-cosa-hanno-detto-i-giudici/",
+          "pubDate": "Mon, 09 Nov 2026 19:07:28 +0000",
+          "description": "La decisione dell'istituto scolastico è legittima: la bocciatura disposta al termine degli esami di riparazione resta valida anche se alle prove estive assiston…"
         },
         {
-          "title": "Supplenze docenti 2026: fino al 31 dicembre scorrono le GPS e poi si passa alle graduatorie di istituto",
-          "link": "https://www.orizzontescuola.it/supplenze-docenti-2026-fino-al-31-dicembre-scorrono-le-gps-e-poi-si-passa-alle-graduatorie-di-istituto/",
-          "pubDate": "Mon, 09 Nov 2026 14:58:21 +0000",
-          "description": "Molti docenti si chiedono fino a quali mesi sia possibile ricevere un incarico annuale o al 30 giugno tramite GPS: il sistema informatizzato degli Uffici Scolas…"
+          "title": "GPS con riserva per titolo estero sul sostegno, la supplenza è possibile ma con clausola risolutiva. Pillole di Question Time",
+          "link": "https://www.orizzontescuola.it/gps-con-riserva-per-titolo-estero-sul-sostegno-la-supplenza-e-possibile-ma-con-clausola-risolutiva-pillole-di-question-time/",
+          "pubDate": "Mon, 09 Nov 2026 19:04:54 +0000",
+          "description": "Nel Question Time del 20 ottobre 2026 su OrizzonteScuola TV, condotto da Andrea Carlino con la partecipazione di Chiara Cozzetto (ANIEF), è stato affrontato anc…"
         },
         {
-          "title": "Musei gratis anche per dirigenti scolastici e personale ATA: ANP scrive al ministro Giuli",
-          "link": "https://www.orizzontescuola.it/musei-gratis-anche-per-dirigenti-scolastici-e-personale-ata-anp-scrive-al-ministro-giuli/",
-          "pubDate": "Mon, 09 Nov 2026 14:47:47 +0000",
-          "description": "Estendere l'ingresso gratuito nei musei e negli altri luoghi della cultura statali anche ai dirigenti scolastici e al personale ATA. L'articolo Musei gratis anc…"
+          "title": "Mattarella e i 118mila studenti albanesi nelle scuole: radici, cultura e lingua “non pregiudicano affatto l’integrazione nella vita di una nuova comunità”",
+          "link": "https://www.orizzontescuola.it/mattarella-e-i-118mila-studenti-albanesi-nelle-scuole-radici-cultura-e-lingua-non-pregiudicano-affatto-lintegrazione-nella-vita-di-una-nuova-comunita/",
+          "pubDate": "Mon, 09 Nov 2026 18:24:48 +0000",
+          "description": "Anche la scuola è uno dei luoghi in cui la cultura arbëreshë resta viva. Il presidente della Repubblica Sergio Mattarella lo ha ricordato oggi, 9 novembre, al Q…"
         }
       ]
     },
@@ -87,40 +87,40 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Manovra, Corte Conti: «Così Irpef diverge da progressività, è categoriale»",
-          "link": "https://www.ilsole24ore.com/art/manovra-corte-conti-cosi-irpef-diverge-progressivita-e-categoriale-AJbijPAC",
-          "pubDate": "Mon, 9 Nov 2026 14:57:00 GMT",
-          "description": "La Corte dei conti sottolinea che per quanto riguarda la rivalutazione delle pensioni la manovra alimenta un quadro di incertezza"
+          "title": "Carburanti, tornano  le accise mobili: taglio da 4,9 centesimi sul gasolio fino al 23 novembre",
+          "link": "https://www.ilsole24ore.com/art/carburanti-tornano-accise-mobili-taglio-49-centesimi-gasolio-fino-23-novembre-AJJWJvAC",
+          "pubDate": "Mon, 9 Nov 2026 21:52:00 GMT",
+          "description": "Le accise ordinarie sul gasolio sono durate soltanto due giorni. Il Governo torna a intervenire sul prezzo del diesel tagliando le imposte di 4,9 centesimi al l…"
         },
         {
-          "title": "La Ue ha attivato la clausola sulla flessibilità dell’Italia",
-          "link": "https://www.ilsole24ore.com/art/flessibilita-l-italia-bce-e-tabacchi-3-dossier-caldi-tavolo-bruxelles-AJxWod8B",
-          "pubDate": "Sun, 8 Nov 2026 19:04:00 GMT",
-          "description": "Il Consiglio Ue Ecofin ha dato il via libera all’attivazione della clausola nazionale di salvaguardia (Nec) dell’Italia per le misure nell’energia e nella difes…"
+          "title": "Decreto Bollette bis: via libera del Cdm al tetto sul prezzo del gas",
+          "link": "https://www.ilsole24ore.com/art/decreto-bollette-bis-via-libera-cdm-tetto-prezzo-gas-AJVedJAC",
+          "pubDate": "Mon, 9 Nov 2026 17:54:00 GMT",
+          "description": "Dopo due rinvii arriva il disco verde al provvedimento che stabilisce un price cap per il gas pagato dalla generazione termoelettrica. Pichetto Fratin: «Primo p…"
         },
         {
-          "title": "Scandalo Nvidia, il ceo ammette relazione con spia cinese. Azienda apre indagine, Trump lo difende, titolo crolla",
-          "link": "https://www.ilsole24ore.com/art/scandalo-nvidia-ceo-ammette-relazione-spia-cinese-l-azienda-apre-indagine-ma-trump-difende-AJKjNu9B",
-          "pubDate": "Mon, 9 Nov 2026 06:41:00 GMT",
-          "description": "Il consiglio di amministrazione di Nvidia ha aperto un’indagine su Jensen Huang, amministratore delegato e co-fondatore dell’azienda , ai vertici da 30 anni, do…"
-        },
-        {
-          "title": "Province, il Governo fa tornare l’elezione diretta dei presidenti",
-          "link": "https://www.ilsole24ore.com/art/province-governo-fa-tornare-l-elezione-diretta-presidenti-AJHK4CAC",
-          "pubDate": "Mon, 9 Nov 2026 12:03:00 GMT",
-          "description": "Preparata in vista di una delle prossime riunioni del consiglio dei ministri, la riforma con vertici e consigli votati dai cittadini. Vince senza ballottaggio c…"
-        },
-        {
-          "title": "Borse, maxi rimbalzo con tech e calo greggio. A Milano vola Banco Bpm",
+          "title": "Borse, maxi rimbalzo con tech e calo greggio. A Milano (+2,7%) vola Banco Bpm",
           "link": "https://www.ilsole24ore.com/art/borsa-indici-lunedi-9-novembre-2026-AJjuZt9B",
           "pubDate": "Mon, 9 Nov 2026 06:18:00 GMT",
-          "description": "Credit Agricole ha proposto a Piazza Meda una fusione «amichevole» con la sua divisione italiana. Wall Street positiva nonostante il tonfo di Nvidia. Petrolio B…"
+          "description": "Credit Agricole ha proposto a Piazza Meda una fusione «amichevole» con la sua divisione italiana. Wall Street corre nonostante il tonfo di Nvidia. Petrolio Bren…"
+        },
+        {
+          "title": "Contratto bancari, la tassa sugli extraprofitti delle banche fa irruzione al tavolo Abi",
+          "link": "https://www.ilsole24ore.com/art/contratto-bancari-tassa-extraprofitti-banche-fa-irruzione-tavolo-abi-AJnGcYAC",
+          "pubDate": "Mon, 9 Nov 2026 17:11:00 GMT",
+          "description": "Prime aperture degli istituti sul rinnovo, ma pesa il contesto molto incerto sia per le conseguenze della manovra di bilancio che per le operazioni straordinari…"
         },
         {
           "title": "Crédit Agricole rompe gli indugi su BancoBpm: fusione amichevole in Italia, un miliardo di dividendo ai soci ma senza Opa",
           "link": "https://www.ilsole24ore.com/art/credit-agricole-rompe-indugi-bancobpm-tavolo-fusione-italia-miliardo-dividendo-straordinario-soci-AJ16dt9B",
           "pubDate": "Mon, 9 Nov 2026 06:23:00 GMT",
           "description": "I francesi mettono sul tavolo un premio sul multiplo prezzo/utili 2027 (senza Opa), una cedola straordinaria per salire al 45%, ma c’è il nodo whitewash e il te…"
+        },
+        {
+          "title": "UniCredit, nel trimestre utile a 3,3 miliardi (+24%) e il target sale 11,5 miliardi nel 2026. Orcel dopo Agricole-Bpm: «In Italia ora solo crescita organica»",
+          "link": "https://www.ilsole24ore.com/art/unicredit-trimestre-oltre-attese-33-miliardi-24percento-94-miliardi-nove-mesi-AJP8Lf9B",
+          "pubDate": "Mon, 9 Nov 2026 06:10:00 GMT",
+          "description": "Ancora un trimestre record per UniCredit, che alza la guidance per il 2026 e chiude a operazioni straordinarie in Italia, puntando solo sulla crescita organica.…"
         }
       ]
     }
