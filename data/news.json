@@ -1,9 +1,15 @@
 {
-  "updatedAt": "2026-11-10T09:28:52+00:00",
+  "updatedAt": "2026-11-10T17:34:07+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
       "items": [
+        {
+          "title": "Doppio riconoscimento per due progetti eTwinning nel nostro Liceo!🎉",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/11/10/doppio-riconoscimento-per-due-progetti-etwinning-nel-nostro-liceo%f0%9f%8e%89/",
+          "pubDate": "Tue, 10 Nov 2026 16:00:33 +0000",
+          "description": "Un&#8217;altra grande soddisfazione per il Liceo Scientifico “N. Cortese”, diretto dal Dirigente Scolastico Dott. Prof. Marcellino Falcone! Due progetti eTwinni…"
+        },
         {
           "title": "Il Liceo “Nino Cortese” di nuovo in gara per la XVII Edizione dei Giochi Matematici del Mediterraneo",
           "link": "https://www.liceoscientificocortese.edu.it/2026/11/09/il-liceo-nino-cortese-di-nuovo-in-gara-per-la-xvii-edizione-dei-giochi-matematici-del-mediterraneo/",
@@ -33,12 +39,6 @@
           "link": "https://www.liceoscientificocortese.edu.it/2026/10/31/eccellenza-e-innovazione-europea-al-liceo-nino-cortese-consegnati-i-national-quality-label-etwinning/",
           "pubDate": "Sat, 31 Oct 2026 17:00:45 +0000",
           "description": "Il 30 ottobre, nell&#8217;Aula Magna del Liceo Scientifico &#8220;Nino Cortese&#8221; di Maddaloni, si è tenuta la cerimonia di consegna dei National Quality La…"
-        },
-        {
-          "title": "“Insieme verso il Futuro”: al Liceo Cortese prende il via la seconda edizione del progetto sulla parità di genere",
-          "link": "https://www.liceoscientificocortese.edu.it/2026/10/30/insieme-verso-il-futuro-al-liceo-cortese-prende-il-via-la-seconda-edizione-del-progetto-sulla-parita-di-genere/",
-          "pubDate": "Fri, 30 Oct 2026 17:00:04 +0000",
-          "description": "Il 29 ottobre, presso l’Aula Magna del Liceo Scientifico “Nino Cortese”, sotto la direzione del Dirigente Scolastico Dott. Prof. Marcellino Falcone, si è tenuto…"
         }
       ]
     },
@@ -46,40 +46,40 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
-          "title": "Scadenza 10 novembre 2026: candidatura per iniziative su orientamento, dispersione ed educazione civica",
-          "link": "https://www.orizzontescuola.it/scadenza-10-novembre-2026-candidatura-per-iniziative-su-orientamento-dispersione-ed-educazione-civica/",
-          "pubDate": "Tue, 10 Nov 2026 09:23:26 +0000",
-          "description": "Entro le ore 23:59 scade il termine per presentare la manifestazione di interesse al Ministero. L'articolo Scadenza 10 novembre 2026: candidatura per iniziative…"
+          "title": "Terza fascia ATA 2027, come funzionerà l’aggiornamento? Ecco come prepararsi. QUESTION TIME con Mileto (Gilda Sinatas). LIVE Mercoledì 11 novembre alle 14:30",
+          "link": "https://www.orizzontescuola.it/terza-fascia-ata-2027-come-funzionera-laggiornamento-ecco-come-prepararsi-question-time-con-mileto-gilda-sinatas-live-mercoledi-11-novembre-alle-1430/",
+          "pubDate": "Tue, 10 Nov 2026 17:28:39 +0000",
+          "description": "Si riapre la partita per le graduatorie di terza fascia del personale ATA della scuola, in vista dell'aggiornamento previsto per il 2027. Si tratta di un passag…"
         },
         {
-          "title": "Prevenzione della corruzione, ANAC: amministrazioni ed enti devono verificare gli obiettivi entro il 31 dicembre. Previsto un monitoraggio a campione",
-          "link": "https://www.orizzontescuola.it/prevenzione-della-corruzione-anac-amministrazioni-ed-enti-devono-verificare-gli-obiettivi-entro-il-31-dicembre-previsto-un-monitoraggio-a-campione/",
-          "pubDate": "Tue, 10 Nov 2026 09:21:01 +0000",
-          "description": "Amministrazioni ed enti sono chiamati a verificare entro il 31 dicembre lo stato di attuazione delle misure previste dalla Strategia nazionale per la prevenzion…"
+          "title": "TFS e TFR, l’INPS chiede alle scuole il rimborso degli interessi per i ritardi nei pagamenti. ANP: “Il ritardo da solo non basta”. Come procedere",
+          "link": "https://www.orizzontescuola.it/tfs-e-tfr-linps-chiede-alle-scuole-il-rimborso-degli-interessi-per-i-ritardi-nei-pagamenti-anp-il-ritardo-da-solo-non-basta-come-procedere/",
+          "pubDate": "Tue, 10 Nov 2026 17:00:14 +0000",
+          "description": "Continuano ad arrivare alle istituzioni scolastiche richieste dell'INPS per il rimborso degli interessi corrisposti a causa della liquidazione tardiva del TFS e…"
         },
         {
-          "title": "La scuola in cui si sta bene: il dirigente e gli insegnanti hanno la responsabilità di costruire un clima educativo positivo",
-          "link": "https://www.orizzontescuola.it/la-scuola-in-cui-si-sta-bene-il-dirigente-e-gli-insegnanti-hanno-la-responsabilita-di-costruire-un-clima-educativo-positivo/",
-          "pubDate": "Tue, 10 Nov 2026 09:20:00 +0000",
-          "description": "Esiste una dimensione della qualità scolastica che difficilmente può essere rappresentata attraverso le sole statistiche sul rendimento, le percentuali di promo…"
+          "title": "UIL Scuola e Federazione dei Lavoratori Egiziani in Italia: firmato un protocollo d’intesa",
+          "link": "https://www.orizzontescuola.it/uil-scuola-e-federazione-dei-lavoratori-egiziani-in-italia-firmato-un-protocollo-dintesa/",
+          "pubDate": "Tue, 10 Nov 2026 16:48:59 +0000",
+          "description": "La UIL Scuola e la Federazione dei Lavoratori Egiziani in Italia hanno sottoscritto oggi a Roma un accordo di durata annuale finalizzato ad agevolare l'accesso…"
         },
         {
-          "title": "Monreale Capitale italiana del libro 2027: plurilinguismo e dialogo tra culture al centro del progetto vincitore",
-          "link": "https://www.orizzontescuola.it/monreale-capitale-italiana-del-libro-2027-plurilinguismo-e-dialogo-tra-culture-al-centro-del-progetto-vincitore/",
-          "pubDate": "Tue, 10 Nov 2026 09:12:54 +0000",
-          "description": "Adesso è ufficiale: Monreale sarà la Capitale italiana del libro 2027. Il Consiglio dei Ministri si è riunito lunedì 9 novembre a Palazzo Chigi e ha deliberato…"
+          "title": "Liberato a Malta il 15enne italiano arrestato per procurato allarme nella scuola che frequentava",
+          "link": "https://www.orizzontescuola.it/liberato-a-malta-il-15enne-italiano-arrestato-per-procurato-allarme-nella-scuola-che-frequentava/",
+          "pubDate": "Tue, 10 Nov 2026 16:31:33 +0000",
+          "description": "Le autorità giudiziarie maltesi hanno disposto la concessione della libertà su cauzione per il quindicenne arrestato a Malta lo scorso 25 maggio a seguito di un…"
         },
         {
-          "title": "Docente di sostegno che svolge assistenza igienica: chi risponde se accade qualcosa? Il Punto di De Martino",
-          "link": "https://www.orizzontescuola.it/docente-di-sostegno-che-svolge-assistenza-igienica-chi-risponde-se-accade-qualcosa-il-punto-di-de-martino/",
-          "pubDate": "Tue, 10 Nov 2026 09:00:44 +0000",
-          "description": "Cosa succede sul piano della responsabilità se un docente di sostegno svolge attività di assistenza igienica in seguito a un ordine di servizio? L'articolo Doce…"
+          "title": "Anno 1, n. 40 Mondo ATA – Terza fascia: è possibile cancellare un vecchio servizio? Iscriviti gratuitamente alla newsletter del 13 novembre",
+          "link": "https://www.orizzontescuola.it/anno-1-n-40-mondo-ata-terza-fascia-e-possibile-cancellare-un-vecchio-servizio-iscriviti-gratuitamente-alla-newsletter-del-13-novembre/",
+          "pubDate": "Tue, 10 Nov 2026 16:30:31 +0000",
+          "description": "Mondo ATA è la newsletter pensata per chi lavora nella scuola, per chi è in graduatoria e per chi aspira a entrarci. Niente confusione, solo ciò che serve davve…"
         },
         {
-          "title": "Tirocinio diretto per specializzazione sostegno, scuole possono stipulare convenzioni solo con Università italiane",
-          "link": "https://www.orizzontescuola.it/tirocinio-diretto-per-specializzazione-sostegno-scuole-possono-stipulare-convenzioni-solo-con-universita-italiane/",
-          "pubDate": "Tue, 10 Nov 2026 09:00:36 +0000",
-          "description": "L'USR Lombardia ha pubblicato una nota di chiarimenti sullo svolgimento delle attività di tirocinio diretto nell'ambito dei percorsi di specializzazione per il…"
+          "title": "Decreto Scuola, slitta ancora esame al Senato, centinaia di emendamenti da votare. Testo da convertire in legge entro il 29 novembre",
+          "link": "https://www.orizzontescuola.it/decreto-scuola-slitta-ancora-esame-al-senato-centinaia-di-emendamenti-da-votare-testo-da-convertire-in-legge-entro-il-29-novembre/",
+          "pubDate": "Tue, 10 Nov 2026 16:16:13 +0000",
+          "description": "Slitta per la seconda volta l'esame del decreto scuola nell'Aula del Senato in prima lettura. La decisione è emersa al termine della conferenza dei capigruppo d…"
         }
       ]
     },
@@ -87,40 +87,40 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Borse, Europa tonica con calo petrolio e rimbalzo tech. Attesa per l'inflazione Usa",
+          "title": "Borse, l'inflazione Usa spegne gli entusiasmi. Milano (+0,7%) regge con banche e old economy",
           "link": "https://www.ilsole24ore.com/art/borse-asia-rialzo-trainata-tecnologici-e-chip-petrolio-calo-AJu167AC",
           "pubDate": "Tue, 10 Nov 2026 06:22:00 GMT",
-          "description": "Rimbalzano i titoli tecnologici a livello globale dopo una settimana turbolenta, attenzione all'Ipo di Anthropic e alle reazioni di Nvidia dopo lo scandalo che…"
+          "description": "A Piazza Affari gli occhi degli investitori sono puntati sul nuovo capitolo del risiko, in attesa del cda di Banco Bpm che giovedì avvierà l'esame della propost…"
         },
         {
-          "title": "Cina, il surplus commerciale del 2026 ha già superato i mille miliardi",
-          "link": "https://www.ilsole24ore.com/art/cina-surplus-commerciale-2026-ha-gia-superato-mille-miliardi-AJ7oD6AC",
-          "pubDate": "Tue, 10 Nov 2026 05:21:00 GMT",
-          "description": "Il traguardo, destinato ad acuire le tensioni con Europa e Stati Uniti, è stato raggiunto solo in parte grazie agli investimenti nell’intelligenza artificiale"
+          "title": "Anthropic punta a 1.400 miliardi, ma l’offerta base resta sotto SpaceX",
+          "link": "https://www.ilsole24ore.com/art/anthropic-punta-1400-miliardi-ma-l-offerta-base-resta-sotto-spacex-AJSVFeBC",
+          "pubDate": "Tue, 10 Nov 2026 15:26:00 GMT",
+          "description": "Doveva essere l’Ipo più grande della storia. Invece i numeri dicono che molto probabilmente non lo sarà. Almeno se ci si ferma all’offerta base. Anthropic ha in…"
         },
         {
-          "title": "Ucraina, al via il trilaterale di Abu Dhabi. Spiragli per un ruolo europeo",
-          "link": "https://www.ilsole24ore.com/art/ucraina-via-trilaterale-abu-dhabi-spiragli-un-ruolo-europeo-AJUoBrAC",
-          "pubDate": "Tue, 10 Nov 2026 06:23:00 GMT",
-          "description": "«Frenerei le aspettative – ha risposto il premier norvegese Jonas Gahr Støre a Politico , che gli chiedeva un parere sui negoziati per l’Ucraina in programma og…"
+          "title": "Intesa Sanpaolo, in arrivo il prospetto dell’Opas su Banca Monte dei Paschi",
+          "link": "https://www.ilsole24ore.com/art/intesa-sanpaolo-arrivo-prospetto-dell-opas-banca-monte-paschi-AJmPPiBC",
+          "pubDate": "Tue, 10 Nov 2026 16:20:30 GMT",
+          "description": "Intesa Sanpaolo procede spedita nella road map dell’Opas su Mps. Ottenuta domenica sera l’autorizzazione della Consob, da smarcare resta solo la pubblicazione d…"
         },
         {
-          "title": "Iran, da Trump e Khamenei passi verso il negoziato. Impeachment contro Hegseth",
-          "link": "https://www.ilsole24ore.com/art/iran-trump-e-khamenei-passi-il-negoziato-impeachment-contro-hegseth-AJ2F0QAC",
-          "pubDate": "Tue, 10 Nov 2026 06:16:00 GMT",
-          "description": "La guida suprema «ha chiesto di uscire dalla situazione di stallo». Vance vedrà a Doha i vertici militari iraniani. Alla Camera voto sull’accusa al capo del Pen…"
+          "title": "Valditara: «Manuale di storia di Laterza indottrina gli studenti, va ritirato». È scontro con l’editore",
+          "link": "https://www.ilsole24ore.com/art/valditara-manuale-storia-laterza-indottrina-studenti-va-ritirato-AJDNhOBC",
+          "pubDate": "Tue, 10 Nov 2026 11:45:00 GMT",
+          "description": "Il ministro dell’Istruzione interviene sul testo secondo cui il governo Meloni come «si distingue nell’attuazione di misure liberticide». La replica dell’editor…"
         },
         {
-          "title": "Paul McCartney è il terzo musicista più ricco del mondo: patrimonio da 1,4 mld $",
-          "link": "https://www.ilsole24ore.com/art/paul-mccartney-e-terzo-musicista-piu-ricco-mondo-patrimonio-14-mld-$-AJaN28AC",
-          "pubDate": "Tue, 10 Nov 2026 07:01:00 GMT",
-          "description": "Secondo Forbes, l’ex Beatle è sul podio assieme a Jay-Z e Taylor Swift. Ecco quali sono i suoi asset"
+          "title": "Maxi inchiesta Urbanistica, la procura chiede di archiviare Sala, Boeri e Catella",
+          "link": "https://www.ilsole24ore.com/art/maxi-inchiesta-urbanistica-procura-chiede-archiviare-sala-boeri-catella-AJv4ziBC",
+          "pubDate": "Tue, 10 Nov 2026 16:37:00 GMT",
+          "description": "La Procura di Milano ha chiesto di archiviare la posizione del sindaco Giuseppe Sala, dell’ex assessore alla Rigenerazione urbana Giancarlo Tancredi, dell’archi…"
         },
         {
-          "title": "La California dice no alla tassa del 5% per i miliardari",
-          "link": "https://www.ilsole24ore.com/art/la-california-dice-no-tassa-5percento-i-miliardari-AJKLI9AC",
-          "pubDate": "Tue, 10 Nov 2026 07:04:00 GMT",
-          "description": "La California ha respinto tramite referendum una proposta di imposta sul patrimonio dei miliardari, sostenuta, tra gli altri, dall’economista Gabriel Zucman, se…"
+          "title": "Decreto bollette, come funziona il tetto sul prezzo del gas e chi ne beneficerà",
+          "link": "https://www.ilsole24ore.com/art/decreto-bollette-via-libera-governo-tetto-prezzo-gas-come-funziona-e-chi-ne-beneficera-AJBrCEBC",
+          "pubDate": "Tue, 10 Nov 2026 09:26:00 GMT",
+          "description": "Il meccanismo opererà per un periodo massimo di 18 mesi (12 mesi di piena applicazione più 6 di phase out graduale) e il suo costo non graverà sulle casse dello…"
         }
       ]
     }
