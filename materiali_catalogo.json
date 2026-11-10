@@ -156,7 +156,7 @@
   {
     "classe": "Seconda",
     "titolo": "Quiz Python – variabili e if / elif / else",
-    "descrizione": "Test di 15 esercizi di difficoltà crescente, a scelta multipla e a risposta aperta, con accesso tramite l'account della scuola.",
+    "descrizione": "Test di 20 esercizi di difficoltà crescente, a scelta multipla e a risposta aperta, con accesso tramite l'account della scuola.",
     "tipo": "esercizio",
     "file_path": "tracce/Seconde/quiz_if_python.html",
     "target_page": "",

@@ -12,15 +12,15 @@ La pagina `tracce/Seconde/quiz_if_python.html` non contiene le soluzioni. Alla c
 
 ## Le domande
 
-15 esercizi in ordine di difficoltà (base 1-5, intermedio 6-10, avanzato 11-15):
+20 esercizi in ordine di difficoltà (base 1-7, intermedio 8-14, avanzato 15-20):
 
 | Tipo | Quante | Correzione |
 |---|---|---|
-| Scelta multipla | 10 | automatica |
-| Valore da scrivere | 3 | automatica: tollera spazi in più, virgolette esterne e maiuscole, ma il valore deve essere esatto (`70.0` non vale `70`) |
-| Codice da scrivere | 2 | del docente, nel PDF |
+| Scelta multipla | 13 | automatica |
+| Valore da scrivere | 4 | automatica: tollera spazi in più, virgolette esterne e maiuscole, ma il valore deve essere esatto (`70.0` non vale `70`) |
+| Codice da scrivere | 3 | del docente, nel PDF |
 
-Lo studente vede il punteggio delle 13 domande corrette in automatico e un **esito provvisorio** (superato con almeno 10 su 13, cioè il 70%). Il PDF segnala le 2 risposte da valutare.
+Lo studente vede il punteggio delle 17 domande corrette in automatico e un **esito provvisorio** (superato con almeno 12 su 17, cioè il 70%). Il PDF segnala le 3 risposte da valutare.
 
 ## Attivazione (circa 5 minuti, con l'account @lscortese.com)
 
