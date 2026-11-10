@@ -21,6 +21,24 @@ Il PDF e il registro riportano: uscite dalla pagina e tempo passato fuori, tenta
 
 **Limiti.** Una pagina web non può impedire una cattura dello schermo fatta dal sistema operativo o una foto con il telefono, e uno studente esperto può aggirare i blocchi con gli strumenti per sviluppatori. Le protezioni scoraggiano e documentano, non impediscono. Per un blocco completo serve un browser d'esame (per esempio Safe Exam Browser) o la sorveglianza in aula.
 
+## Orario di apertura e chiusura
+
+In cima a `Code.gs`, nell'editor di Apps Script:
+
+```javascript
+const APERTURA = '2026-11-12 09:00';   // ora italiana, formato AAAA-MM-GG HH:MM
+const CHIUSURA = '2026-11-12 10:00';   // facoltativa
+```
+
+- **Prima di APERTURA** la pagina mostra il giorno e l'ora di apertura con il conto alla rovescia, il pulsante «Inizia il quiz» è disattivato e lo script rifiuta le consegne. All'ora indicata il pulsante si sblocca da solo, senza ricaricare la pagina.
+- **Dopo CHIUSURA** non si può più iniziare. Chi ha già iniziato può consegnare per altri 45 minuti più 5 di margine (`MARGINE_MINUTI`); la consegna automatica allo scadere del timer rientra sempre in questo tempo.
+- **Campi vuoti** (`''`): il test è sempre aperto.
+- Conta l'**ora del server**, non quella del computer dello studente.
+- Un orario scritto male (formato sbagliato, data inesistente, chiusura prima dell'apertura) **blocca** il test con un messaggio, invece di lasciarlo aperto. Per controllare gli orari esegui la funzione `controllaOrario` e guarda il registro di esecuzione.
+- Dopo ogni modifica: **Distribuisci → Gestisci distribuzioni → Modifica → Nuova versione**. Senza nuova versione la web app continua a usare gli orari precedenti.
+
+**Limite.** Le domande sono già nella pagina, codificate, anche prima dell'apertura: uno studente molto esperto potrebbe decodificarle in anticipo. Per escluderlo del tutto le domande dovrebbero essere inviate dallo script solo dopo l'apertura.
+
 ## Attivazione (circa 5 minuti, con l'account @lscortese.com)
 
 1. Apri <https://script.google.com> e crea un **Nuovo progetto**, chiamato per esempio `Quiz OOP Python – consegne`.

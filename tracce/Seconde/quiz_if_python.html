@@ -100,6 +100,9 @@
   #risp:focus-visible { outline: 3px solid #f2b705; outline-offset: 2px; }
   textarea#risp { resize: vertical; line-height: 1.5; tab-size: 4; }
   .nota-manuale { font-size: .85rem; margin: 6px 0 0; }
+  .orario { padding: 10px 12px; border-radius: 8px; background: var(--ok-bg); color: var(--ok); margin-top: 12px; font-weight: 600; }
+  .orario[hidden] { display: none; }
+  .orario.bloccato { background: var(--warn-bg); color: var(--warn); }
   .conferma { border: 2px solid var(--accent); border-radius: 8px; padding: 12px; margin-top: 12px; background: #f6f8fe; }
 </style>
 </head>
@@ -247,6 +250,7 @@ window.QUIZ_OOP_CONFIG = Object.assign({
     token: null, utente: null, classe: "", inizio: null,
     consegnaId: null, confermaAperta: false, risultato: null,
     scadenza: 0, scaduto: false, timerId: null, annunciati: {},
+    orario: null, orarioChiesto: false, orarioTimer: null,
     sorv: { uscite: 0, msFuori: 0, fuoriDa: null, copie: 0, catture: 0, stampe: 0, incolla: 0 }
   };
 
@@ -368,6 +372,7 @@ window.QUIZ_OOP_CONFIG = Object.assign({
         <input type="text" id="classe" maxlength="3" autocomplete="off" value="${esc(S.classe)}" ${loggato ? "" : "disabled"}>
         <p class="err" id="err-classe" role="alert"></p>
         ${CFG.appsScriptUrl ? "" : `<div class="avviso">La consegna online non è ancora attiva: puoi svolgere il quiz, ma non potrai consegnarlo. Avvisa il docente.</div>`}
+        <div class="orario" id="orario" role="status" aria-live="polite" hidden></div>
         <div class="actions"><button id="btn-inizia" ${loggato ? "" : "disabled"}>Inizia il quiz</button></div>
       </div>`;
     if (!loggato) mostraPulsanteGoogle("gsi-btn");
@@ -375,10 +380,60 @@ window.QUIZ_OOP_CONFIG = Object.assign({
     document.getElementById("btn-inizia").addEventListener("click", avvia);
     inp.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); avvia(); } });
     if (loggato) inp.focus();
+    aggiornaOrario();
+    if (CFG.appsScriptUrl && !S.orarioChiesto) caricaOrario();
+  }
+
+  // ---------- orario di apertura e chiusura (impostato nello script del docente) ----------
+  // L'ora di riferimento è quella del server: l'orologio del computer dello studente può essere sbagliato.
+  async function caricaOrario() {
+    S.orarioChiesto = true;
+    try {
+      const res = await fetch(CFG.appsScriptUrl, { method: "GET" });
+      const d = await res.json();
+      if (d && d.ok === false && d.codice === "orario") S.orario = { errore: d.error };
+      else if (d && typeof d.ora === "number") S.orario = { ora: d.ora, rif: performance.now(), apertura: d.apertura, chiusura: d.chiusura };
+      else S.orario = { libero: true };                 // script senza orario: sempre aperto
+    } catch (e) {
+      S.orario = { nonVerificato: true };               // rete assente: lo script controllerà alla consegna
+    }
+    aggiornaOrario();
+    clearInterval(S.orarioTimer);
+    S.orarioTimer = setInterval(() => { if (S.fase === "inizio") aggiornaOrario(); else clearInterval(S.orarioTimer); }, 1000);
+  }
+  const oraServer = () => S.orario.ora + (performance.now() - S.orario.rif);
+  const fmtOra = ms => new Intl.DateTimeFormat("it-IT", { timeZone: "Europe/Rome", weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" }).format(new Date(ms));
+  const fmtSoloOra = ms => new Intl.DateTimeFormat("it-IT", { timeZone: "Europe/Rome", hour: "2-digit", minute: "2-digit" }).format(new Date(ms));
+  function statoOrario() {
+    const o = S.orario;
+    if (!o || o.libero || o.nonVerificato) return "aperto";
+    if (o.errore) return "errore";
+    const t = oraServer();
+    if (o.apertura && t < o.apertura) return "prima";
+    if (o.chiusura && t > o.chiusura) return "chiuso";
+    return "aperto";
+  }
+  function aggiornaOrario() {
+    const box = document.getElementById("orario"), btn = document.getElementById("btn-inizia");
+    if (!box || !S.orario) return;
+    const o = S.orario, st = statoOrario();
+    let testo = "";
+    if (st === "errore") testo = o.errore;
+    else if (st === "prima") {
+      const sec = Math.ceil((o.apertura - oraServer()) / 1000), h = Math.floor(sec / 3600), m = Math.floor(sec % 3600 / 60), s2 = sec % 60;
+      testo = `Il test si apre ${fmtOra(o.apertura)}. Mancano ${h ? h + " h " : ""}${m} min ${String(s2).padStart(2, "0")} s.`;
+    }
+    else if (st === "chiuso") testo = `Il test è chiuso: si poteva iniziare fino alle ${fmtSoloOra(o.chiusura)} di ${fmtOra(o.chiusura).split(" ").slice(0, 3).join(" ")}.`;
+    else if (o.chiusura) testo = `Il test è aperto: si può iniziare fino alle ${fmtSoloOra(o.chiusura)}.`;
+    else if (o.nonVerificato) testo = "Non è stato possibile verificare l'orario del test: controlla la connessione.";
+    box.hidden = !testo; box.textContent = testo;
+    box.className = "orario" + (st === "aperto" ? "" : " bloccato");
+    if (btn) btn.disabled = !S.utente || st === "prima" || st === "chiuso" || st === "errore";
   }
 
   function avvia() {
     if (!S.utente) { mostraErroreAccesso("Prima accedi con l'account della scuola."); return; }
+    if (["prima", "chiuso", "errore"].includes(statoOrario())) { aggiornaOrario(); return; }
     const v = document.getElementById("classe").value.trim().toUpperCase().replace(/\s+/g, "");
     if (!/^2[A-Z]{1,2}$/.test(v)) {
       document.getElementById("err-classe").textContent = "Scrivi la tua classe seconda: un 2 seguito dalla sezione, per esempio 2B.";
