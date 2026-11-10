@@ -84,6 +84,17 @@
   .timer-bar strong { font-variant-numeric: tabular-nums; font-size: 1.15rem; }
   .timer-bar.poco { background: var(--ko-bg); color: var(--ko); border-bottom-color: var(--ko); }
   .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  /* protezione delle domande durante la prova */
+  body.in-prova main, body.in-prova .timer-bar { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  .filigrana { position: relative; }
+  .code.filigrana::after, .opts.filigrana::after { content: ""; position: absolute; inset: 0; pointer-events: none; background-repeat: repeat; }
+  .code.filigrana::after { background-image: var(--filigrana-scura); }
+  .opts.filigrana::after { background-image: var(--filigrana-chiara); }
+  body.in-prova .timer-bar { z-index: 60; }
+  .copertura { position: fixed; inset: 0; z-index: 50; background: var(--bg); display: grid; place-items: center; padding: 24px; text-align: center; }
+  .copertura[hidden] { display: none; }
+  .copertura > div { max-width: 480px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 20px; }
+  @media print { body > * { display: none !important; } body::before { content: "La stampa del quiz non è consentita."; display: block; font: 16px Arial, sans-serif; padding: 24px; } }
   .conferma { border: 2px solid var(--accent); border-radius: 8px; padding: 12px; margin-top: 12px; background: #f6f8fe; }
 </style>
 </head>
@@ -91,510 +102,171 @@
 <div class="timer-bar" id="timer-bar" hidden><span>⏱ Tempo rimasto</span> <strong id="timer" role="timer" aria-label="Tempo rimasto">--:--</strong></div>
 <div class="sr-only" id="annuncio-tempo" aria-live="assertive"></div>
 <main id="app" aria-live="polite"></main>
+<div class="copertura" id="copertura" hidden role="dialog" aria-modal="true" aria-labelledby="cop-tit">
+  <div><h2 id="cop-tit">Quiz nascosto</h2><p id="cop-testo"></p><button id="btn-riprendi">Torna al quiz</button></div>
+</div>
 
-<!-- Testi dei casi (senza soluzioni: la correzione avviene sul server del docente). -->
-<script type="application/json" id="dati-casi">
-[
- {
-  "tema": "incapsulamento",
-  "titolo": "Il contatore",
-  "livello": "base",
-  "traccia": "Il metodo incrementa() viene chiamato due volte. Che cosa stampa?",
-  "codice": [
-   "class Contatore:",
-   "    def __init__(self):",
-   "        self.__valore = 0",
-   "",
-   "    def incrementa(self):",
-   "        self.__valore += 1",
-   "",
-   "    def get_valore(self):",
-   "        return self.__valore",
-   "",
-   "c = Contatore()",
-   "c.incrementa()",
-   "c.incrementa()",
-   "print(c.get_valore())"
-  ],
-  "opzioni": ["0", "1", "2", "Errore: AttributeError"]
- },
- {
-  "tema": "incapsulamento",
-  "titolo": "Due oggetti, due stati",
-  "livello": "base",
-  "traccia": "Si creano due contatori dalla stessa classe. Che cosa stampa?",
-  "codice": [
-   "class Contatore:",
-   "    def __init__(self):",
-   "        self.__valore = 0",
-   "",
-   "    def incrementa(self):",
-   "        self.__valore += 1",
-   "",
-   "    def get_valore(self):",
-   "        return self.__valore",
-   "",
-   "a = Contatore()",
-   "b = Contatore()",
-   "a.incrementa()",
-   "a.incrementa()",
-   "b.incrementa()",
-   "print(a.get_valore(), b.get_valore())"
-  ],
-  "opzioni": ["3 3", "2 1", "2 2", "1 2"]
- },
- {
-  "tema": "ereditarietà",
-  "titolo": "Una sottoclasse vuota",
-  "livello": "base",
-  "traccia": "La classe Cane non definisce nulla di suo: né __init__ né metodi. Che cosa stampa?",
-  "codice": [
-   "class Animale:",
-   "    def __init__(self, nome):",
-   "        self.nome = nome",
-   "",
-   "    def presentati(self):",
-   "        return 'Sono ' + self.nome",
-   "",
-   "class Cane(Animale):",
-   "    pass",
-   "",
-   "fido = Cane('Fido')",
-   "print(fido.presentati())",
-   "print(fido.nome)"
-  ],
-  "opzioni": ["Sono Fido\nFido", "Errore: TypeError", "Sono Fido\nErrore: AttributeError", "Sono \nFido"]
- },
- {
-  "tema": "incapsulamento",
-  "titolo": "Il metodo set che controlla",
-  "livello": "base",
-  "traccia": "La temperatura viene impostata con un valore impossibile (sotto lo zero assoluto) usando il metodo set. Che cosa stampa?",
-  "codice": [
-   "class Termometro:",
-   "    def __init__(self):",
-   "        self.__celsius = 0",
-   "",
-   "    def get_celsius(self):",
-   "        return self.__celsius",
-   "",
-   "    def set_celsius(self, valore):",
-   "        if valore < -273:",
-   "            valore = -273",
-   "        self.__celsius = valore",
-   "",
-   "t = Termometro()",
-   "t.set_celsius(-300)",
-   "print(t.get_celsius())"
-  ],
-  "opzioni": ["-300", "0", "-273", "Errore: AttributeError"]
- },
- {
-  "tema": "ereditarietà",
-  "titolo": "Il metodo aggiunto",
-  "livello": "base",
-  "traccia": "Cane aggiunge un metodo che Animale non ha. Che cosa stampa?",
-  "codice": [
-   "class Animale:",
-   "    def __init__(self, nome):",
-   "        self.nome = nome",
-   "",
-   "    def mangia(self):",
-   "        return self.nome + ' mangia'",
-   "",
-   "class Cane(Animale):",
-   "    def abbaia(self):",
-   "        return self.nome + ' abbaia'",
-   "",
-   "a = Animale('Micio')",
-   "d = Cane('Fido')",
-   "print(d.mangia())",
-   "print(d.abbaia())",
-   "print(a.abbaia())"
-  ],
-  "opzioni": ["Fido mangia\nFido abbaia\nErrore: AttributeError", "Errore: AttributeError", "Fido mangia\nFido abbaia\nMicio abbaia", "Fido mangia\nErrore: AttributeError"]
- },
- {
-  "tema": "polimorfismo",
-  "titolo": "L'orchestra",
-  "livello": "base",
-  "traccia": "Tre strumenti diversi ricevono la stessa chiamata suona(). Che cosa stampa?",
-  "codice": [
-   "class Strumento:",
-   "    def suona(self):",
-   "        return '...'",
-   "",
-   "class Chitarra(Strumento):",
-   "    def suona(self):",
-   "        return 'Dlen'",
-   "",
-   "class Tamburo(Strumento):",
-   "    def suona(self):",
-   "        return 'Tum'",
-   "",
-   "class Triangolo(Strumento):",
-   "    pass",
-   "",
-   "for s in [Chitarra(), Tamburo(), Triangolo()]:",
-   "    print(s.suona())"
-  ],
-  "opzioni": ["...\n...\n...", "Dlen\nTum", "Dlen\nTum\nErrore: AttributeError", "Dlen\nTum\n..."]
- },
- {
-  "tema": "incapsulamento",
-  "titolo": "Il prelievo controllato",
-  "livello": "base",
-  "traccia": "Il metodo preleva() controlla il saldo prima di modificarlo. Che cosa stampa?",
-  "codice": [
-   "class Conto:",
-   "    def __init__(self, saldo):",
-   "        self.__saldo = saldo",
-   "",
-   "    def preleva(self, importo):",
-   "        if self.__saldo < importo:",
-   "            return False",
-   "        self.__saldo = self.__saldo - importo",
-   "        return True",
-   "",
-   "    def get_saldo(self):",
-   "        return self.__saldo",
-   "",
-   "c = Conto(100)",
-   "print(c.preleva(30))",
-   "print(c.preleva(80))",
-   "print(c.get_saldo())"
-  ],
-  "opzioni": ["True\nTrue\n-10", "True\nFalse\n70", "False\nFalse\n100", "True\nFalse\n100"]
- },
- {
-  "tema": "ereditarietà",
-  "titolo": "Chi parla per primo?",
-  "livello": "intermedio",
-  "traccia": "Il costruttore di Auto chiama anche quello di Veicolo. In che ordine compaiono le stampe?",
-  "codice": [
-   "class Veicolo:",
-   "    def __init__(self, ruote):",
-   "        self.ruote = ruote",
-   "        print('Veicolo', ruote)",
-   "",
-   "class Auto(Veicolo):",
-   "    def __init__(self):",
-   "        print('Auto')",
-   "        super().__init__(4)",
-   "",
-   "a = Auto()",
-   "print(a.ruote)"
-  ],
-  "opzioni": ["Veicolo 4\nAuto\n4", "Auto\n4", "Auto\nErrore: AttributeError", "Auto\nVeicolo 4\n4"]
- },
- {
-  "tema": "ereditarietà",
-  "titolo": "Il super() dimenticato",
-  "livello": "intermedio",
-  "traccia": "Studente ridefinisce __init__ ma non chiama quello di Persona. Che cosa succede?",
-  "codice": [
-   "class Persona:",
-   "    def __init__(self, nome):",
-   "        self.nome = nome",
-   "",
-   "class Studente(Persona):",
-   "    def __init__(self, classe):",
-   "        self.classe = classe",
-   "",
-   "s = Studente('4B')",
-   "print(s.classe)",
-   "print(s.nome)"
-  ],
-  "opzioni": ["4B\n4B", "4B\nErrore: AttributeError", "Errore: TypeError", "4B\nNone"]
- },
- {
-  "tema": "polimorfismo",
-  "titolo": "Somma di aree",
-  "livello": "intermedio",
-  "traccia": "Una lista contiene forme diverse e si somma il risultato di area(). Che cosa stampa?",
-  "codice": [
-   "class Forma:",
-   "    def area(self):",
-   "        return 0",
-   "",
-   "class Quadrato(Forma):",
-   "    def __init__(self, lato):",
-   "        self.lato = lato",
-   "",
-   "    def area(self):",
-   "        return self.lato * self.lato",
-   "",
-   "class Cerchio(Forma):",
-   "    pass",
-   "",
-   "forme = [Quadrato(3), Cerchio(), Quadrato(2)]",
-   "totale = 0",
-   "for f in forme:",
-   "    totale += f.area()",
-   "print(totale)"
-  ],
-  "opzioni": ["5", "Errore: AttributeError", "13", "0"]
- },
- {
-  "tema": "ereditarietà",
-  "titolo": "Lo stipendio del manager",
-  "livello": "intermedio",
-  "traccia": "Manager estende sia il costruttore sia il metodo paga() di Dipendente. Che cosa stampa?",
-  "codice": [
-   "class Dipendente:",
-   "    def __init__(self, nome, stipendio):",
-   "        self.nome = nome",
-   "        self.stipendio = stipendio",
-   "",
-   "    def paga(self):",
-   "        return self.stipendio",
-   "",
-   "class Manager(Dipendente):",
-   "    def __init__(self, nome, stipendio, bonus):",
-   "        super().__init__(nome, stipendio)",
-   "        self.bonus = bonus",
-   "",
-   "    def paga(self):",
-   "        return super().paga() + self.bonus",
-   "",
-   "squadra = [Dipendente('Ada', 1500), Manager('Bruno', 2000, 500)]",
-   "totale = 0",
-   "for d in squadra:",
-   "    totale += d.paga()",
-   "print(totale)"
-  ],
-  "opzioni": ["4000", "3500", "4500", "Errore: TypeError"]
- },
- {
-  "tema": "polimorfismo",
-  "titolo": "Lo stesso metodo, due risposte",
-  "livello": "intermedio",
-  "traccia": "saluta() è scritto solo nella classe Base. Che cosa stampa?",
-  "codice": [
-   "class Base:",
-   "    def saluta(self):",
-   "        return 'Ciao da ' + self.chi()",
-   "",
-   "    def chi(self):",
-   "        return 'Base'",
-   "",
-   "class Figlia(Base):",
-   "    def chi(self):",
-   "        return 'Figlia'",
-   "",
-   "print(Base().saluta())",
-   "print(Figlia().saluta())"
-  ],
-  "opzioni": ["Ciao da Base\nCiao da Base", "Ciao da Base\nCiao da Figlia", "Ciao da Figlia\nCiao da Figlia", "Ciao da Base\nErrore: AttributeError"]
- },
- {
-  "tema": "polimorfismo",
-  "titolo": "Se fa \"qua\" come un'anatra...",
-  "livello": "intermedio",
-  "traccia": "Anatra e Robot non hanno una classe in comune. La lista contiene anche una stringa. Che cosa stampa?",
-  "codice": [
-   "class Anatra:",
-   "    def verso(self):",
-   "        return 'Qua'",
-   "",
-   "class Robot:",
-   "    def verso(self):",
-   "        return 'Bip'",
-   "",
-   "def fai_parlare(x):",
-   "    print(x.verso())",
-   "",
-   "for oggetto in [Anatra(), Robot(), 'ciao']:",
-   "    fai_parlare(oggetto)"
-  ],
-  "opzioni": ["Errore: TypeError", "Qua\nBip", "Qua\nBip\nNone", "Qua\nBip\nErrore: AttributeError"]
- },
- {
-  "tema": "incapsulamento",
-  "titolo": "Il termostato",
-  "livello": "intermedio",
-  "traccia": "Il metodo imposta() accetta solo valori compresi tra 15 e 30 (esclusi) e alza() lo riutilizza. Che cosa stampa?",
-  "codice": [
-   "class Termostato:",
-   "    def __init__(self):",
-   "        self.__temp = 20",
-   "",
-   "    def imposta(self, valore):",
-   "        if 15 < valore:",
-   "            if valore < 30:",
-   "                self.__temp = valore",
-   "",
-   "    def alza(self, gradi):",
-   "        self.imposta(self.__temp + gradi)",
-   "",
-   "    def get_temp(self):",
-   "        return self.__temp",
-   "",
-   "t = Termostato()",
-   "t.alza(5)",
-   "t.alza(8)",
-   "t.imposta(10)",
-   "print(t.get_temp())"
-  ],
-  "opzioni": ["25", "10", "20", "33"]
- },
- {
-  "tema": "ereditarietà",
-  "titolo": "Tre costruttori in fila",
-  "livello": "avanzato",
-  "traccia": "Ogni classe ha il suo __init__ e due di esse chiamano super(). In che ordine compaiono le stampe?",
-  "codice": [
-   "class A:",
-   "    def __init__(self):",
-   "        print('A')",
-   "",
-   "class B(A):",
-   "    def __init__(self):",
-   "        super().__init__()",
-   "        print('B')",
-   "",
-   "class C(B):",
-   "    def __init__(self):",
-   "        print('C')",
-   "        super().__init__()",
-   "",
-   "c = C()"
-  ],
-  "opzioni": ["C\nB\nA", "A\nB\nC", "C\nA\nB", "C"]
- },
- {
-  "tema": "polimorfismo",
-  "titolo": "Descrivi la forma",
-  "livello": "avanzato",
-  "traccia": "descrivi() è scritto solo in Forma, ma chiama lati(). Che cosa stampa?",
-  "codice": [
-   "class Forma:",
-   "    def __init__(self, nome):",
-   "        self.nome = nome",
-   "",
-   "    def descrivi(self):",
-   "        return self.nome + ': ' + self.lati()",
-   "",
-   "    def lati(self):",
-   "        return '?'",
-   "",
-   "class Triangolo(Forma):",
-   "    def __init__(self):",
-   "        super().__init__('triangolo')",
-   "",
-   "    def lati(self):",
-   "        return '3'",
-   "",
-   "class Cerchio(Forma):",
-   "    def __init__(self):",
-   "        super().__init__('cerchio')",
-   "",
-   "for f in [Triangolo(), Cerchio()]:",
-   "    print(f.descrivi())"
-  ],
-  "opzioni": ["triangolo: ?\ncerchio: ?", "triangolo: 3\nErrore: AttributeError", "Errore: TypeError", "triangolo: 3\ncerchio: ?"]
- },
- {
-  "tema": "ereditarietà",
-  "titolo": "Quante ruote ha la moto?",
-  "livello": "avanzato",
-  "traccia": "Moto imposta le ruote e poi chiama il costruttore di Veicolo. Che cosa stampa?",
-  "codice": [
-   "class Veicolo:",
-   "    def __init__(self):",
-   "        self.ruote = 4",
-   "        self.tipo = 'veicolo'",
-   "",
-   "class Moto(Veicolo):",
-   "    def __init__(self):",
-   "        self.ruote = 2",
-   "        super().__init__()",
-   "        self.tipo = 'moto'",
-   "",
-   "m = Moto()",
-   "print(m.tipo, m.ruote)"
-  ],
-  "opzioni": ["moto 2", "moto 4", "veicolo 4", "veicolo 2"]
- },
- {
-  "tema": "polimorfismo",
-  "titolo": "Commissioni diverse",
-  "livello": "avanzato",
-  "traccia": "preleva() è scritto solo in Conto, ma usa commissione(). Che cosa stampa?",
-  "codice": [
-   "class Conto:",
-   "    def __init__(self):",
-   "        self.saldo = 100",
-   "",
-   "    def commissione(self):",
-   "        return 2",
-   "",
-   "    def preleva(self, importo):",
-   "        self.saldo = self.saldo - importo - self.commissione()",
-   "",
-   "class ContoStudente(Conto):",
-   "    def commissione(self):",
-   "        return 0",
-   "",
-   "a = Conto()",
-   "b = ContoStudente()",
-   "for c in [a, b]:",
-   "    c.preleva(10)",
-   "    c.preleva(10)",
-   "print(a.saldo, b.saldo)"
-  ],
-  "opzioni": ["76 80", "76 76", "78 80", "80 80"]
- },
- {
-  "tema": "polimorfismo",
-  "titolo": "La catena di super()",
-  "livello": "avanzato",
-  "traccia": "Ogni classe ridefinisce info() e richiama quella della classe superiore. Il metodo viene chiamato su un oggetto C e poi su un oggetto B. Che cosa stampa?",
-  "codice": [
-   "class A:",
-   "    def info(self):",
-   "        return 'A'",
-   "",
-   "class B(A):",
-   "    def info(self):",
-   "        return 'B' + super().info()",
-   "",
-   "class C(B):",
-   "    def info(self):",
-   "        return 'C' + super().info()",
-   "",
-   "print(C().info())",
-   "print(B().info())"
-  ],
-  "opzioni": ["C\nB", "ABC\nAB", "CBA\nBA", "CBA\nB"]
- },
- {
-  "tema": "polimorfismo",
-  "titolo": "Il saluto della famiglia",
-  "livello": "avanzato",
-  "traccia": "C ridefinisce saluto() usando super(), B ridefinisce solo nome(). Che cosa stampa?",
-  "codice": [
-   "class A:",
-   "    def nome(self):",
-   "        return 'A'",
-   "",
-   "    def saluto(self):",
-   "        return 'Ciao ' + self.nome()",
-   "",
-   "class B(A):",
-   "    def nome(self):",
-   "        return 'B'",
-   "",
-   "class C(B):",
-   "    def saluto(self):",
-   "        return super().saluto() + '!'",
-   "",
-   "print(B().saluto())",
-   "print(C().saluto())"
-  ],
-  "opzioni": ["Ciao A\nCiao A!", "Ciao B\nCiao A!", "Ciao B\nErrore: AttributeError", "Ciao B\nCiao B!"]
- }
-]
+<!-- Testi dei casi, codificati (senza soluzioni: la correzione avviene sul server del docente). -->
+<script type="text/plain" id="dati-casi">
+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
 </script>
 
 <script>
@@ -614,7 +286,13 @@ window.QUIZ_OOP_CONFIG = Object.assign({
 (function () {
   "use strict";
   const CFG = window.QUIZ_OOP_CONFIG;
-  const CASI = JSON.parse(document.getElementById("dati-casi").textContent);
+  // Le domande non sono scritte in chiaro nel codice della pagina (non basta «Visualizza sorgente» per copiarle).
+  function decodifica(testo) {
+    const k = "oop-quarta", bin = atob(testo.trim()), u = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i) ^ k.charCodeAt(i % k.length);
+    return JSON.parse(new TextDecoder().decode(u));
+  }
+  const CASI = decodifica(document.getElementById("dati-casi").textContent);
   const N = CASI.length;
   const MIN_OK = Math.ceil(CFG.soglia * N);
   const app = document.getElementById("app");
@@ -623,7 +301,8 @@ window.QUIZ_OOP_CONFIG = Object.assign({
     fase: "inizio", idx: 0, scelte: new Array(N).fill(null),
     token: null, utente: null, classe: "", inizio: null,
     consegnaId: null, confermaAperta: false, risultato: null,
-    scadenza: 0, scaduto: false, timerId: null, annunciati: {}
+    scadenza: 0, scaduto: false, timerId: null, annunciati: {},
+    sorv: { uscite: 0, msFuori: 0, fuoriDa: null, copie: 0, catture: 0, stampe: 0 }
   };
 
   // ---------- utilità ----------
@@ -725,7 +404,8 @@ window.QUIZ_OOP_CONFIG = Object.assign({
           <li>Il test è <strong>superato</strong> con almeno <strong>${MIN_OK} risposte esatte su ${N}</strong> (${Math.round(CFG.soglia * 100)}%). Le domande senza risposta valgono come errate.</li>
           <li>Se un'opzione contiene <code class="inline">Errore: NomeEccezione</code>, il programma stampa le righe precedenti e poi si ferma con quell'errore.</li>
           <li>Hai <strong>${CFG.durataMinuti} minuti</strong> dal momento in cui premi «Inizia il quiz». Allo scadere del tempo le risposte vengono <strong>bloccate e consegnate automaticamente</strong>, così come sono.</li>
-          <li>Alla consegna il risultato viene inviato al docente con il tuo nome e la tua email della scuola.</li>
+          <li>Durante il test non si possono copiare né stampare le domande, che riportano il tuo nome in filigrana. Se lasci la pagina (altra scheda, altra app, cattura dello schermo) le domande si nascondono e l'uscita viene registrata.</li>
+          <li>Alla consegna il risultato viene inviato al docente con il tuo nome e la tua email della scuola, insieme al numero di uscite dalla pagina.</li>
         </ul>
         <div class="ripasso"><strong>Prima di iniziare</strong> ripassa la teoria che serve per il quiz:
           <a href="teoria_oop_python.html" id="link-teoria">Ripasso: classi, incapsulamento, ereditarietà e polimorfismo</a></div>
@@ -769,6 +449,9 @@ window.QUIZ_OOP_CONFIG = Object.assign({
     S.classe = v; S.idx = 0; S.scelte = new Array(N).fill(null);
     S.inizio = new Date(); S.consegnaId = nuovoId(); S.confermaAperta = false;
     S.scaduto = false; S.annunciati = {};
+    S.sorv = { uscite: 0, msFuori: 0, fuoriDa: null, copie: 0, catture: 0, stampe: 0 };
+    preparaFiligrana(S.utente.email + " · " + S.classe);
+    document.body.classList.add("in-prova");
     // performance.now() è un orologio interno del browser: non salta se l'ora del computer viene corretta.
     S.avvioMono = performance.now();
     S.scadenza = S.avvioMono + CFG.durataMinuti * 60000;
@@ -844,12 +527,12 @@ window.QUIZ_OOP_CONFIG = Object.assign({
       <section class="card" aria-labelledby="titolo-caso">
         <h2 id="titolo-caso" tabindex="-1">${esc(c.titolo)}</h2>
         <p>${esc(c.traccia)}</p>
-        <div class="code" role="region" aria-label="Codice Python" tabindex="0">
+        <div class="code filigrana" role="region" aria-label="Codice Python" tabindex="0">
           <ol>${c.codice.map((r, i) => `<li><span class="ln" aria-hidden="true">${i + 1}</span><span>${evidenzia(r) || " "}</span></li>`).join("")}</ol>
         </div>
         <fieldset>
           <legend>Che cosa stampa il programma?</legend>
-          <div class="opts">
+          <div class="opts filigrana">
             ${c.opzioni.map((o, i) => `
               <label class="opt" id="opt-${i}">
                 <input type="radio" name="risposta" value="${i}" ${S.scelte[S.idx] === i ? "checked" : ""}>
@@ -939,6 +622,7 @@ window.QUIZ_OOP_CONFIG = Object.assign({
 
   async function consegna() {
     const automatica = S.scaduto && S.fase === "domanda";
+    rientra(); document.getElementById("copertura").hidden = true; document.body.classList.remove("in-prova");
     if (S.fase !== "riepilogo" && S.fase !== "errore" && !automatica) return;   // evita doppio invio
     S.fase = "invio";
     app.innerHTML = `<section class="card"><h1 id="tit-invio" tabindex="-1">${S.scaduto ? "Tempo scaduto: consegna automatica in corso…" : "Invio in corso…"}</h1><p>Non chiudere la pagina.</p></section>`;
@@ -948,7 +632,11 @@ window.QUIZ_OOP_CONFIG = Object.assign({
       scelte: S.scelte, inizio: S.inizio.toISOString(), fine: new Date().toISOString(),
       browser: navigator.userAgent.slice(0, 200),
       scaduto: S.scaduto, durataMinuti: CFG.durataMinuti,
-      durataSecondi: Math.round((performance.now() - S.avvioMono) / 1000)
+      durataSecondi: Math.round((performance.now() - S.avvioMono) / 1000),
+      sorveglianza: {
+        uscite: S.sorv.uscite, copie: S.sorv.copie, catture: S.sorv.catture, stampe: S.sorv.stampe,
+        secondiFuori: Math.round((S.sorv.msFuori + (S.sorv.fuoriDa === null ? 0 : performance.now() - S.sorv.fuoriDa)) / 1000)
+      }
     };
     let data;
     try {
@@ -998,6 +686,60 @@ window.QUIZ_OOP_CONFIG = Object.assign({
     document.getElementById("titolo-fine").focus();
   }
 
+  // ---------- protezione delle domande ----------
+  // Una pagina web non può impedire una cattura dello schermo o una foto: qui si rendono scomodi copia e stampa,
+  // si nascondono le domande quando lo studente lascia la pagina e si registra quello che il browser può rilevare.
+  const inProva = () => S.fase === "domanda" || S.fase === "riepilogo";
+  function preparaFiligrana(testo) {
+    const svg = c => `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='300' height='120'><text x='12' y='86' transform='rotate(-18 150 60)' font-family='Arial' font-size='13' fill='${c}'>${esc(testo)}</text></svg>`)}")`;
+    document.documentElement.style.setProperty("--filigrana-scura", svg("rgba(255,255,255,0.13)"));
+    document.documentElement.style.setProperty("--filigrana-chiara", svg("rgba(0,0,0,0.08)"));
+  }
+  function copri(testo) {
+    document.getElementById("cop-testo").textContent = testo;
+    document.getElementById("copertura").hidden = false;
+  }
+  function esci() {
+    if (!inProva() || S.sorv.fuoriDa !== null) return;
+    S.sorv.uscite++; S.sorv.fuoriDa = performance.now();
+    copri("Hai lasciato la pagina del quiz: le domande restano nascoste finché non torni. Ogni uscita viene registrata e comunicata al docente.");
+  }
+  function rientra() {
+    if (S.sorv.fuoriDa === null) return;
+    S.sorv.msFuori += performance.now() - S.sorv.fuoriDa; S.sorv.fuoriDa = null;
+  }
+  document.getElementById("btn-riprendi").addEventListener("click", () => {
+    rientra(); document.getElementById("copertura").hidden = true;
+    const t = document.getElementById("titolo-caso") || document.getElementById("titolo-riep"); if (t) t.focus();
+  });
+  window.addEventListener("blur", esci);
+  window.addEventListener("focus", rientra);
+  document.addEventListener("visibilitychange", () => { if (document.hidden) esci(); else rientra(); });
+  ["copy", "cut", "contextmenu", "dragstart", "selectstart"].forEach(tipo => document.addEventListener(tipo, e => {
+    if (!inProva()) return;
+    e.preventDefault();
+    if (tipo === "copy" || tipo === "cut") S.sorv.copie++;
+  }));
+  document.addEventListener("keydown", e => {
+    if (!inProva()) return;
+    const k = (e.key || "").toLowerCase(), mod = e.ctrlKey || e.metaKey;
+    if (mod && ["c", "x", "a", "p", "s", "u"].includes(k)) {
+      e.preventDefault(); e.stopPropagation();
+      if (k === "c" || k === "x") S.sorv.copie++;
+      if (k === "p") S.sorv.stampe++;
+    } else if (e.key === "F12" || (mod && e.shiftKey && ["i", "j", "c"].includes(k))) {
+      e.preventDefault(); e.stopPropagation();
+    }
+  }, true);
+  window.addEventListener("beforeprint", () => { if (inProva()) S.sorv.stampe++; });
+  // Il tasto Stamp non si può bloccare: si registra, si nascondono le domande e si prova a svuotare gli appunti.
+  document.addEventListener("keyup", e => {
+    if (e.key !== "PrintScreen" || !inProva()) return;
+    S.sorv.catture++;
+    copri("È stata rilevata una cattura dello schermo: l'evento viene registrato e comunicato al docente.");
+    try { navigator.clipboard.writeText("Cattura non consentita durante il quiz").catch(() => {}); } catch (x) { /* non disponibile */ }
+  });
+
   // ---------- tastiera e uscita dalla pagina ----------
   document.addEventListener("keydown", e => {
     if (e.ctrlKey || e.metaKey || e.altKey || S.fase !== "domanda") return;
@@ -1008,7 +750,7 @@ window.QUIZ_OOP_CONFIG = Object.assign({
     else if (e.key === "Enter" && !suBottone) { e.preventDefault(); sposta(1); }
   });
   // Nelle schede in secondo piano i browser rallentano i timer: ricontrollo al ritorno.
-  document.addEventListener("visibilitychange", () => { if (S.timerId && !document.hidden) aggiornaTimer(); });
+  document.addEventListener("visibilitychange", () => { if (S.timerId && !document.hidden) aggiornaTimer(); });  // ricontrollo del timer
   window.addEventListener("beforeunload", e => {
     if (["domanda", "riepilogo", "invio", "errore"].includes(S.fase)) { e.preventDefault(); e.returnValue = ""; }
   });

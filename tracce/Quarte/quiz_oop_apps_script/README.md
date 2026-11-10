@@ -13,6 +13,14 @@ Allo studente viene mostrato solo il punteggio e l'esito (superato o non superat
 
 Il test dura 45 minuti. Allo scadere del tempo la pagina blocca le risposte e consegna in automatico; il PDF e il registro riportano la modalità di consegna (manuale o automatica). Il timer funziona nel browser: chi ricarica la pagina perde le risposte e riparte con un nuovo tentativo, che viene registrato. Timer e durata usano un orologio interno del browser (`performance.now()`), che non risente dell'ora del computer: un computer con la data sbagliata, o che la corregge durante la prova, non chiude il test in anticipo. Il PDF segnala quando l'orologio del dispositivo è spostato rispetto al server.
 
+## Protezione delle domande
+
+Durante la prova la pagina impedisce selezione, copia, menu contestuale, trascinamento e stampa (Ctrl/Cmd + C, X, A, P, S, U), mostra nome ed email dello studente in filigrana su codice e opzioni, e nasconde le domande quando la finestra perde il focus (altra scheda, altra app, strumento di cattura). Le domande sono codificate nel sorgente della pagina, quindi non si leggono con «Visualizza sorgente».
+
+Il PDF e il registro riportano: uscite dalla pagina e tempo passato fuori, tentativi di copia, pressioni del tasto Stamp, tentativi di stampa.
+
+**Limiti.** Una pagina web non può impedire una cattura dello schermo fatta dal sistema operativo o una foto con il telefono, e uno studente esperto può aggirare i blocchi con gli strumenti per sviluppatori. Le protezioni scoraggiano e documentano, non impediscono. Per un blocco completo serve un browser d'esame (per esempio Safe Exam Browser) o la sorveglianza in aula.
+
 ## Attivazione (circa 5 minuti, con l'account @lscortese.com)
 
 1. Apri <https://script.google.com> e crea un **Nuovo progetto**, chiamato per esempio `Quiz OOP Python – consegne`.

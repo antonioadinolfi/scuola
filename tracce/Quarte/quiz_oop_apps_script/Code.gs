@@ -29,7 +29,8 @@ const FUSO = 'Europe/Rome';
 
 const COLONNE = ['Ricevuto', 'ID consegna', 'Email', 'Cognome', 'Nome', 'Classe', 'Tentativo',
   'Punteggio', 'Totale', 'Percentuale', 'Esito', 'Inizio (browser)', 'Fine (browser)', 'Durata',
-  'Risposte', 'Email inviata', 'PDF', 'Modalità consegna', 'Orologio dispositivo (min di scarto)'];
+  'Risposte', 'Email inviata', 'PDF', 'Modalità consegna', 'Orologio dispositivo (min di scarto)',
+  'Uscite dalla pagina', 'Secondi fuori dalla pagina', 'Tentativi di copia', 'Tasto Stamp', 'Tentativi di stampa'];
 
 function doGet() {
   return json_({ ok: true, servizio: 'Quiz OOP Python – consegne', quiz: QUIZ_ID });
@@ -73,6 +74,7 @@ function doPost(e) {
         consegnaId: d.consegnaId, ricevuto: ricevuto, inizio: inizio, fine: fine,
         durata: d.durataSecondi !== null ? minSec_(d.durataSecondi) : durata_(inizio, fine), browser: d.browser,
         scarto: isData_(fine) ? Math.round((ricevuto - fine) / 60000) : null,
+        sorv: d.sorveglianza,
         modalita: d.scaduto ? 'automatica (tempo scaduto)' : 'manuale'
       };
 
@@ -102,7 +104,8 @@ function doPost(e) {
         c.punteggio, c.totale, c.percentuale + '%', c.superato ? 'SUPERATO' : 'NON SUPERATO',
         isData_(inizio) ? inizio : '', isData_(fine) ? fine : '', info.durata,
         d.scelte.map(x => x === null ? '-' : x + 1).join(' '), inviata, file.getUrl(), info.modalita,
-        info.scarto === null ? '' : info.scarto]);
+        info.scarto === null ? '' : info.scarto].concat(d.sorveglianza ? [d.sorveglianza.uscite, d.sorveglianza.secondiFuori,
+        d.sorveglianza.copie, d.sorveglianza.catture, d.sorveglianza.stampe] : ['', '', '', '', '']));
 
       return json_(esitoJson_(c.punteggio, c.totale, tentativo));
     } finally {
@@ -145,6 +148,7 @@ function valida_(d) {
   }
   d.browser = String(d.browser || '').slice(0, 200);
   d.scaduto = d.scaduto === true;
+  d.sorveglianza = sorveglianza_(d.sorveglianza);
   // durata misurata dal browser con un orologio interno che non risente dell'ora del computer
   d.durataSecondi = (Number.isInteger(d.durataSecondi) && d.durataSecondi >= 0 && d.durataSecondi <= (TEMPO_MINUTI + 15) * 60) ? d.durataSecondi : null;
   return null;
@@ -209,6 +213,7 @@ function htmlPdf_(i, c) {
       ' min rispetto al server: le date del dispositivo non sono attendibili, la durata sì</td></tr>' : '') +
     '<tr><td>ID consegna</td><td>' + esc_(i.consegnaId) + '</td></tr>' +
     '<tr><td>Browser</td><td class="muted">' + esc_(i.browser) + '</td></tr></table>' +
+    htmlSorveglianza_(i.sorv) +
     '<h2>Esito</h2><p>Punteggio: <b>' + c.punteggio + ' / ' + c.totale + '</b> (' + c.percentuale + '%) · soglia: almeno ' +
     c.minimo + ' risposte esatte (' + Math.round(SOGLIA * 100) + '%)</p>' +
     '<p class="esito ' + (c.superato ? 'ok">SUPERATO' : 'ko">NON SUPERATO') + '</p>' +
@@ -255,6 +260,26 @@ function registro_(cartella) {
 
 // ---------- utilità ----------
 function isData_(d) { return d instanceof Date && !isNaN(d.getTime()); }
+
+/** Dati raccolti dal browser durante la prova: numeri interi tra 0 e 100000, altrimenti assenti. */
+function sorveglianza_(o) {
+  if (!o || typeof o !== 'object') return null;
+  const n = x => (Number.isInteger(x) && x >= 0 && x <= 100000) ? x : 0;
+  return { uscite: n(o.uscite), secondiFuori: n(o.secondiFuori), copie: n(o.copie), catture: n(o.catture), stampe: n(o.stampe) };
+}
+
+function htmlSorveglianza_(v) {
+  if (!v) return '<h2>Durante la prova</h2><p class="muted">Dati non disponibili (pagina del quiz di una versione precedente).</p>';
+  const segnala = v.uscite + v.copie + v.catture + v.stampe > 0;
+  return '<h2>Durante la prova</h2><table class="id">' +
+    '<tr><td>Uscite dalla pagina</td><td>' + v.uscite + (v.uscite ? ' (in totale ' + minSec_(v.secondiFuori) + ' fuori dalla pagina)' : '') + '</td></tr>' +
+    '<tr><td>Tentativi di copia</td><td>' + v.copie + '</td></tr>' +
+    '<tr><td>Tasto Stamp (cattura dello schermo)</td><td>' + v.catture + '</td></tr>' +
+    '<tr><td>Tentativi di stampa</td><td>' + v.stampe + '</td></tr></table>' +
+    '<p class="muted">' + (segnala ? 'Da verificare con lo studente. ' : '') +
+    'Dati rilevati dal browser, indicativi: un\'uscita può essere anche una notifica o un clic fuori dalla finestra; ' +
+    'le catture fatte con altri strumenti (per esempio il telefono) non sono rilevabili.</p>';
+}
 
 function minSec_(s) {
   return Math.floor(s / 60) + ' min ' + (s % 60) + ' s';
