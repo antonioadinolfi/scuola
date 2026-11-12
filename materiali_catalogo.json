@@ -45,7 +45,7 @@
   },
   {
     "classe": "Prima",
-    "titolo": "Verifica MAggio 2026 - Generale",
+    "titolo": "Verifica Maggio 2026 - Generale",
     "descrizione": "Hardware e Software",
     "tipo": "esercizio",
     "file_path": "materiali/verifiche/Verifica _Classe_1_Maggio_2026.bat",
@@ -79,7 +79,7 @@
   {
     "classe": "Seconda",
     "titolo": "Gli elementi base del linguaggio",
-    "descrizione": "Librerie di funzioni in Pyhton.",
+    "descrizione": "Librerie di funzioni in Python.",
     "tipo": "slide",
     "file_path": "materiali/slide/Tibone_powerpoint_parte_2.1.pdf",
     "target_page": "",
@@ -166,7 +166,7 @@
   },
   {
     "classe": "Seconda",
-    "titolo": "Verifica MAggio 2026 - Generale",
+    "titolo": "Verifica Maggio 2026 - Generale",
     "descrizione": "Python - strutture di controllo",
     "tipo": "esercizio",
     "file_path": "materiali/verifiche/Verifica _Classe_2_Maggio_2026.bat",
@@ -351,18 +351,17 @@
     "attivo": true,
     "categoria": "Esercizi"
   },
-   {
+  {
     "classe": "Quinta",
-    "titolo": "Corso-octave",
-    "descrizione": "Introduzione a Matlab\Octave",
+    "titolo": "Corso di calcolo numerico con Octave",
+    "descrizione": "Introduzione a MATLAB/Octave: lezioni guidate con codice eseguibile nel browser, esercizi e test con PDF da consegnare su Classroom.",
     "tipo": "lezione",
-    "file_path": "tracce/Quinte/https://antonioadinolfiscuola.it/corso-octave/lezione-1.html",
+    "file_path": "corso-octave/index.html",
     "target_page": "",
-    "ordine": 1,
+    "ordine": 2,
     "attivo": true,
-    "categoria": "Esercizi"
+    "categoria": "Lezioni"
   },
-  
   {
     "classe": "STEM",
     "titolo": "Robotica educativa",
@@ -377,7 +376,7 @@
   {
     "classe": "Ripasso",
     "titolo": "Ripasso classe II-III",
-    "descrizione": "Variabili, strutture selettive-itertive, liste, funzioni.",
+    "descrizione": "Variabili, strutture selettive-iterative, liste, funzioni.",
     "tipo": "slide",
     "file_path": "materiali/Ripasso/Python_Manuale_Preparazione_Ripasso.pdf",
     "target_page": "",
