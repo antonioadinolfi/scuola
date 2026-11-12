@@ -805,7 +805,9 @@ BI.lu = function (args, n) {
   if (n <= 2) { return [matmul(transpose(P, false), L), U]; }
   return [L, U, P];
 };
-BI.pinv = function (args) { const a = toM(args[0]); const at = transpose(a, false); return a.r >= a.c ? matmul(inv(matmul(at, a), this), at) : matmul(at, inv(matmul(a, at), this)); };
+BI.pinv = function (args) { const a = toM(args[0]); realOnly(a, 'pinv'); return C.minNormSolve(a, eye(a.r)); };
+BI.svd = function (args, n) { const a = toM(args[0]); realOnly(a, 'svd'); const r = C.svd(a); const ord = [...r.S.keys()].sort((p, q) => r.S[q] - r.S[p]); const s = ord.map(k => r.S[k]); if (n <= 1) return colOf(s.slice(0, Math.min(a.r, a.c))); err('svd: nel simulatore è disponibile solo s = svd(A)'); };
+BI.null = function () { err('null: non disponibile nel simulatore'); };
 BI.kron = function (args) { const a = toM(args[0]), b = toM(args[1]); const o = M(a.r * b.r, a.c * b.c); for (let i = 0; i < a.r; i++) for (let j = 0; j < a.c; j++) for (let p = 0; p < b.r; p++) for (let q = 0; q < b.c; q++) o.re[i * b.r + p + (j * b.c + q) * o.r] = a.re[i + j * a.r] * b.re[p + q * b.r]; return o; };
 
 // testo e output

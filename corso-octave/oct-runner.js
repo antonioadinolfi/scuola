@@ -9,7 +9,7 @@ window.OctRunner = (() => {
 
   function start() {
     if (ready) return ready;
-    worker = new Worker('./oct-worker.js?v=1');
+    worker = new Worker('./oct-worker.js?v=2');
     ready = new Promise((resolve, reject) => {
       worker.onmessage = e => {
         const m = e.data;
@@ -45,8 +45,11 @@ window.OctRunner = (() => {
     [/^index \((-?\d+)[,_\d]*\): out of bound; value (-?\d+)/, 'In Octave gli indici partono da 1 (non da 0 come in Python): il primo elemento è v(1), l’ultimo v(end).'],
     [/^(\w+)\((.+)\): out of bound (\d+) \(dimensions are (\d+x\d+)\)/, 'Chiedi un elemento che non esiste: «$1» ha dimensioni $4. Usa size($1) per controllarle; per l’ultimo elemento puoi scrivere end.'],
     [/operator \*: nonconformant arguments \(op1 is (\d+)x(\d+), op2 is (\d+)x(\d+)\)/, 'Prodotto riga per colonna impossibile: le colonne del primo fattore ($2) devono essere quante le righe del secondo ($3). Se volevi moltiplicare elemento per elemento usa .* (con il punto).'],
+    [/operator \\: nonconformant arguments \(op1 is (\d+)x(\d+), op2 is 1x(\d+)\)/, 'Per A \\ b il vettore b deve avere tante righe quante A ($1): hai scritto i termini noti come riga. Usa i punti e virgola, [6; 0; 9], oppure trasponi con b\'.'],
+    [/operator \/: nonconformant arguments \(op1 is (\d+)x(\d+), op2 is (\d+)x1\)/, 'Lo slash / risolve sistemi scritti come x·A = b. Per A x = b serve il backslash: x = A \\ b.'],
+    [/operator \\: nonconformant arguments/, 'A e b devono avere lo stesso numero di righe: una per ogni equazione.'],
     [/operator (\S+): nonconformant arguments \(op1 is (\d+x\d+), op2 is (\d+x\d+)\)/, 'Le due matrici hanno dimensioni incompatibili ($2 e $3): per le operazioni elemento per elemento servono le stesse dimensioni (oppure uno scalare).'],
-    [/vertical dimensions mismatch/, 'Tra parentesi quadre ogni riga (separata da ;) deve avere lo stesso numero di elementi.'],
+    [/vertical dimensions mismatch/, 'Tra parentesi quadre ogni riga (separata da ;) deve avere lo stesso numero di elementi. In un sistema: un coefficiente per ogni incognita, anche quando vale 0.'],
     [/horizontal dimensions mismatch/, 'Stai affiancando (con lo spazio o la virgola) blocchi con un numero di righe diverso.'],
     [/^parse error: stringa non terminata/, 'Ogni testo va chiuso con lo stesso apice con cui si apre: \'ciao\'.'],
     [/^parse error: '=' inatteso: per confrontare/, 'Dentro if e while si confronta con == (due uguali); = da solo serve ad assegnare un valore.'],

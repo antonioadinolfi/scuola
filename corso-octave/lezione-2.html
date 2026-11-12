@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="it" data-lesson="2" class="course-pending">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Lezione 2: sistemi lineari con Octave. Matrici e vettori colonna, forma matriciale Ax = b, operatore backslash, residuo, determinante, rango e teorema di Rouché-Capelli.">
+<title>Lezione 2 · Sistemi lineari e operatore backslash | Calcolo numerico con Octave</title>
+<link rel="stylesheet" href="./oct.css?v=3">
+<script src="./oct-config.js?v=1"></script>
+<script src="./oct-data.js?v=4"></script>
+<script src="./oct-progress.js?v=2"></script>
+</head>
+<body>
+<noscript><style>html.course-pending body{visibility:visible}</style><p>Attiva JavaScript per eseguire il codice e svolgere il test.</p></noscript>
+<a class="skip" href="#contenuti">Vai ai contenuti</a>
+
+<header><div class="wrap">
+  <div class="topbar"><a href="./">← Calcolo numerico con Octave · Guida al corso</a><span>Classi quinte · Scienze applicate</span></div>
+  <div class="hero">
+    <div class="kicker">Lezione 2 di 9 · 1 ora</div>
+    <h1>Sistemi lineari e operatore backslash</h1>
+    <p>Trasformerai un sistema di equazioni in una matrice e due vettori, lo risolverai con un solo carattere, <code>\</code>, e imparerai a verificare la soluzione e a riconoscere i sistemi impossibili e indeterminati.</p>
+    <div class="actions">
+      <a class="button primary" href="#problema">Inizia ↓</a>
+      <a class="button ghost" href="#esercizi">Esercizi ↓</a>
+      <a class="button ghost" href="#test-finale">Test finale ↓</a>
+      <button class="button ghost" id="projection" aria-pressed="false">Testo ingrandito</button>
+      <button class="button ghost" onclick="window.print()">Stampa / PDF</button>
+    </div>
+  </div>
+</div></header>
+
+<main class="wrap" id="contenuti">
+<nav class="lesson-nav" aria-label="Percorso delle lezioni">
+  <a class="button" data-lesson-link="1" href="./lezione-1.html">Lezione 1<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="2" href="./lezione-2.html" aria-current="page">Lezione 2<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="3" href="./lezione-3.html">Lezione 3<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="4" href="./lezione-4.html">Lezione 4<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="5" href="./lezione-5.html">Lezione 5<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="6" href="./lezione-6.html">Lezione 6<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="7" href="./lezione-7.html">Lezione 7<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="8" href="./lezione-8.html">Lezione 8<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="9" href="./lezione-9.html">Lezione 9<span class="nav-state"></span></a>
+</nav>
+
+<section class="section" id="obiettivi">
+  <div class="kicker">Obiettivi della lezione</div>
+  <h2>Al termine saprai…</h2>
+  <div class="panel">
+    <ul>
+      <li>scrivere in Octave una <strong>matrice</strong> e un <strong>vettore colonna</strong>;</li>
+      <li>passare da un sistema di equazioni alla <strong>forma matriciale</strong> <var>A</var><var>x</var> = <var>b</var>;</li>
+      <li>risolvere il sistema con l’operatore <code>\</code> e spiegare perché è preferibile a <code>inv(A)*b</code>;</li>
+      <li><strong>verificare</strong> una soluzione con il residuo <code>A*x - b</code>;</li>
+      <li>riconoscere con <code>det</code> e <code>rank</code> i sistemi <strong>impossibili</strong> e <strong>indeterminati</strong>.</li>
+    </ul>
+    <div class="timeline" aria-label="Organizzazione dell’ora">
+      <div><b>5′</b>Il problema</div>
+      <div><b>10′</b>Matrici e forma matriciale</div>
+      <div><b>10′</b>Risolvere e verificare</div>
+      <div><b>10′</b>Quando la soluzione non è unica</div>
+      <div><b>15′</b>Esercizi</div>
+      <div><b>10′</b>Test finale</div>
+    </div>
+    <p class="muted">Nella Lezione 3 approfondirai le operazioni tra matrici, nelle Lezioni 4 e 5 i metodi di Gauss e Gauss-Jordan che stanno dietro a <code>\</code>. Prerequisiti dalla matematica: sistemi lineari, prodotto riga per colonna, determinante. Se hai svolto l’esercitazione sul sistema 4×4 con il foglio di calcolo, qui ritroverai lo stesso sistema.</p>
+  </div>
+</section>
+
+<section class="section" id="problema">
+  <div class="kicker">1 · Il problema</div>
+  <h2>Il conto della pizzeria</h2>
+  <p>Tre tavoli di una pizzeria hanno ordinato pizze, succhi e dolci. Conosciamo solo i totali pagati: quanto costa ogni prodotto?</p>
+  <div class="panel table-wrap">
+    <table class="compare">
+      <thead><tr><th></th><th>Pizze</th><th>Succhi</th><th>Dolci</th><th>Totale</th></tr></thead>
+      <tbody>
+        <tr><th>Tavolo 1</th><td>2</td><td>1</td><td>1</td><td>22,50 €</td></tr>
+        <tr><th>Tavolo 2</th><td>3</td><td>2</td><td>0</td><td>29,00 €</td></tr>
+        <tr><th>Tavolo 3</th><td>1</td><td>2</td><td>2</td><td>21,00 €</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Chiamando <var>p</var>, <var>s</var>, <var>d</var> i prezzi di pizza, succo e dolce si ottiene un <strong>sistema lineare</strong> di tre equazioni in tre incognite:</p>
+  <div class="panel"><pre><code>2p +  s +  d = 22.5
+3p + 2s      = 29
+ p + 2s + 2d = 21</code></pre></div>
+  <p>A mano lo risolvi per sostituzione in qualche minuto. Con quattro incognite, come nell’esercitazione con il foglio di calcolo, serve già molta pazienza. I problemi reali sono molto più grandi: il calcolo delle forze in un ponte, delle correnti in un circuito elettrico, della temperatura in un motore o le previsioni meteo portano a sistemi con migliaia o milioni di incognite. È il problema tipico del calcolo numerico, e MATLAB è nato proprio per questo: <em>MATrix LABoratory</em>.</p>
+</section>
+
+<section class="section" id="matrici">
+  <div class="kicker">2 · Matrici e vettori in Octave</div>
+  <h2>Quanto basta per i sistemi</h2>
+  <p>In Octave matrici e vettori si scrivono tra <strong>parentesi quadre</strong>. Gli elementi di una riga sono separati da uno <strong>spazio</strong> (o da una virgola); il <strong>punto e virgola</strong> va a capo.</p>
+  <div class="concept-grid">
+    <article class="concept-card"><h3>Matrice 3×3</h3><pre><code>A = [2 1 1; 3 2 0; 1 2 2]</code></pre><p>Tre righe di tre numeri. Puoi anche andare a capo al posto del <code>;</code>.</p></article>
+    <article class="concept-card"><h3>Vettore colonna 3×1</h3><pre><code>b = [22.5; 29; 21]</code></pre><p>Un numero per riga: è la forma che serve per i termini noti.</p></article>
+    <article class="concept-card"><h3>Vettore riga 1×3</h3><pre><code>v = [22.5 29 21]</code></pre><p>Diventa una colonna con l’apice di trasposizione: <code>v'</code>.</p></article>
+  </div>
+  <p>Prova nella Command Window. <code>size</code> restituisce le dimensioni [righe colonne]; <code>A(2,1)</code> è l’elemento della riga 2 e della colonna 1; l’ultimo comando moltiplica A per il vettore dei prezzi veri: che cosa ottieni?</p>
+  <div class="oc-cmd" data-cmd="l2-cw" data-try="A = [2 1 1; 3 2 0; 1 2 2]|b = [22.5; 29; 21]|size(A)|size(b)|A(2,1)|v = [22.5 29 21]|v'|A * [8; 2.5; 4]"></div>
+
+  <details class="ricorda"><summary>il prodotto riga per colonna</summary>
+    <p>Il prodotto di una matrice per un vettore colonna si calcola riga per colonna: ogni elemento del risultato è la somma dei prodotti di una riga di A per gli elementi del vettore. Per la prima riga: 2·8 + 1·2,5 + 1·4 = 22,5. Il prodotto esiste solo se le <strong>colonne</strong> di A sono quante gli elementi (le <strong>righe</strong>) del vettore.</p>
+    <p>In Python la stessa matrice sarebbe una lista di liste, <code>[[2, 1, 1], [3, 2, 0], [1, 2, 2]]</code>, e il prodotto richiederebbe due cicli for (o la libreria NumPy). In Octave è un solo operatore: <code>A * v</code>.</p>
+  </details>
+</section>
+
+<section class="section" id="forma-matriciale">
+  <div class="kicker">3 · La forma matriciale</div>
+  <h2>Da tre equazioni a <var>A</var><var>x</var> = <var>b</var></h2>
+  <p>Il sistema contiene tre ingredienti: i <strong>coefficienti</strong> delle incognite, le <strong>incognite</strong> e i <strong>termini noti</strong>. Mettendoli in una matrice e in due vettori, il sistema diventa una sola equazione tra matrici.</p>
+  <figure class="panel diagram">
+    <svg viewBox="0 0 760 180" role="img" aria-labelledby="fmT fmD" style="width:100%;height:auto">
+      <title id="fmT">Dal sistema alla forma matriciale</title>
+      <desc id="fmD">A sinistra il sistema 2p + s + d = 22,5; 3p + 2s + 0d = 29; p + 2s + 2d = 21. A destra la matrice A dei coefficienti, il vettore delle incognite p, s, d e il vettore b dei termini noti.</desc>
+      <g font-family="ui-monospace,Consolas,monospace" font-size="19">
+        <text x="10" y="55"><tspan fill="#0f5e7a" font-weight="700">2</tspan>p + <tspan fill="#0f5e7a" font-weight="700">1</tspan>s + <tspan fill="#0f5e7a" font-weight="700">1</tspan>d = <tspan fill="#c0562b" font-weight="700">22.5</tspan></text>
+        <text x="10" y="95"><tspan fill="#0f5e7a" font-weight="700">3</tspan>p + <tspan fill="#0f5e7a" font-weight="700">2</tspan>s + <tspan fill="#0f5e7a" font-weight="700">0</tspan>d = <tspan fill="#c0562b" font-weight="700">29</tspan></text>
+        <text x="10" y="135"><tspan fill="#0f5e7a" font-weight="700">1</tspan>p + <tspan fill="#0f5e7a" font-weight="700">2</tspan>s + <tspan fill="#0f5e7a" font-weight="700">2</tspan>d = <tspan fill="#c0562b" font-weight="700">21</tspan></text>
+        <text x="262" y="97" font-size="28" fill="#52657a">→</text>
+        <g fill="#0f5e7a" font-weight="700" text-anchor="middle">
+          <text x="345" y="55">2</text><text x="385" y="55">1</text><text x="425" y="55">1</text>
+          <text x="345" y="95">3</text><text x="385" y="95">2</text><text x="425" y="95">0</text>
+          <text x="345" y="135">1</text><text x="385" y="135">2</text><text x="425" y="135">2</text>
+        </g>
+        <g fill="#102a43" text-anchor="middle"><text x="505" y="55">p</text><text x="505" y="95">s</text><text x="505" y="135">d</text></g>
+        <text x="555" y="97" fill="#102a43">=</text>
+        <g fill="#c0562b" font-weight="700" text-anchor="middle"><text x="635" y="55">22.5</text><text x="635" y="95">29</text><text x="635" y="135">21</text></g>
+      </g>
+      <g fill="none" stroke="#102a43" stroke-width="2">
+        <path d="M330 30 H320 V148 H330"/><path d="M440 30 H450 V148 H440"/>
+        <path d="M490 30 H480 V148 H490"/><path d="M520 30 H530 V148 H520"/>
+        <path d="M600 30 H590 V148 H600"/><path d="M670 30 H680 V148 H670"/>
+      </g>
+      <g font-family="system-ui,sans-serif" font-size="14" font-weight="700" text-anchor="middle">
+        <text x="385" y="172" fill="#0f5e7a">A (coefficienti)</text><text x="505" y="172" fill="#102a43">x</text><text x="635" y="172" fill="#c0562b">b (termini noti)</text>
+      </g>
+    </svg>
+  </figure>
+  <div class="task"><strong>Le tre regole della forma matriciale.</strong> 1) Una <strong>riga</strong> di A per ogni equazione, una <strong>colonna</strong> per ogni incognita, sempre nello stesso ordine. 2) Se un’incognita manca in un’equazione, il suo coefficiente è <strong>0</strong> e va scritto. 3) I termini noti formano un vettore <strong>colonna</strong>, con tante righe quante sono le equazioni.</div>
+  <p>Facendo il prodotto riga per colonna A·x si ritrovano esattamente i primi membri delle tre equazioni: per questo il sistema si scrive <var>A</var><var>x</var> = <var>b</var>.</p>
+</section>
+
+<section class="section" id="backslash">
+  <div class="kicker">4 · Risolvere e verificare</div>
+  <h2>L’operatore <code>\</code></h2>
+  <p>Per un’equazione di primo grado come 7<var>x</var> = 21 basta dividere: <var>x</var> = 21/7. Per <var>A</var><var>x</var> = <var>b</var> Octave offre la <strong>divisione a sinistra</strong>: <code>x = A \ b</code> si legge «A divide b da sinistra», perché la matrice A sta a sinistra di x. Il simbolo <code>\</code> è il <em>backslash</em> (sulla tastiera italiana: <kbd>AltGr</kbd> + <kbd>ò</kbd>, oppure il tasto con <code>|</code>, a sinistra dell’1).</p>
+
+  <div class="oc-box" data-oc="l2-x1" data-file="pizzeria.m" data-title="Esempio 1 · Il conto della pizzeria"><textarea class="oc-src">
+% Il conto della pizzeria: p = pizza, s = succo, d = dolce
+%   2p +  s +  d = 22.5
+%   3p + 2s      = 29
+%    p + 2s + 2d = 21
+A = [2 1 1; 3 2 0; 1 2 2];     % coefficienti: una riga per equazione
+b = [22.5; 29; 21];            % termini noti: vettore colonna
+x = A \ b                      % soluzione: [p; s; d]
+fprintf('Pizza %.2f €, succo %.2f €, dolce %.2f €\n', x);
+</textarea></div>
+
+  <h3>Fidarsi è bene, verificare è meglio: il residuo</h3>
+  <p>Una soluzione si controlla sostituendola nel sistema. In forma matriciale basta calcolare il <strong>residuo</strong> <var>r</var> = <var>A</var><var>x</var> − <var>b</var>: se <var>x</var> è la soluzione, <var>r</var> è il vettore nullo. Per riassumerlo in un solo numero si usa la sua lunghezza, <code>norm(r)</code>.</p>
+  <div class="oc-box" data-oc="l2-x2" data-file="verifica.m" data-title="Esempio 2 · Residuo e matrice inversa"><textarea class="oc-src">
+A = [2 1 1; 3 2 0; 1 2 2];
+b = [22.5; 29; 21];
+x = A \ b;
+
+r = A*x - b          % residuo: quasi zero, non esattamente zero
+norm(r)              % circa 1e-15: errori di arrotondamento
+
+d = det(A)           % diverso da 0: la soluzione è unica
+x2 = inv(A) * b      % stessa soluzione, passando per l'inversa
+x - x2               % differenze minime, dovute agli arrotondamenti
+</textarea></div>
+  <p>Il residuo vale circa 10⁻¹⁵ e non 0: è l’errore di arrotondamento che hai incontrato nella Lezione 1 con <code>sqrt(2)^2 - 2</code>. Per decidere se una soluzione è corretta si confronta quindi <code>norm(r)</code> con una piccola <strong>tolleranza</strong>, ad esempio <code>norm(r) &lt; 1e-10</code>.</p>
+
+  <div class="concept-grid">
+    <article class="concept-card"><h3>Perché non <code>inv(A)*b</code>?</h3><p>Matematicamente <var>x</var> = <var>A</var>⁻¹<var>b</var>, ma calcolare tutta l’inversa è uno spreco. <code>\</code> risolve il sistema direttamente con l’eliminazione di Gauss (la vedrai nella Lezione 4). La documentazione di MATLAB lo raccomanda esplicitamente: più veloce e numericamente più accurato.</p></article>
+    <article class="concept-card"><h3>Attenzione all’ordine</h3><p>Il prodotto tra matrici non è commutativo: <code>inv(A)*b</code> è corretto, <code>b*inv(A)</code> dà errore. Allo stesso modo <code>A \ b</code> non è <code>A / b</code>: lo slash serve per i sistemi scritti come <var>x</var><var>A</var> = <var>b</var>.</p></article>
+    <article class="concept-card"><h3>Il determinante</h3><p>Se <code>det(A)</code> è diverso da 0 la matrice è <strong>invertibile</strong> e il sistema ha una e una sola soluzione (teorema di Cramer). Ma un determinante «piccolo» non vuol dire nulla da solo: è il rango a decidere, come vedrai tra poco.</p></article>
+  </div>
+
+  <h3>Il sistema 4×4: dal foglio di calcolo a Octave</h3>
+  <p>Nell’esercitazione con il foglio di calcolo hai risolto questo sistema con <code>MATR.DETERM</code>, <code>MATR.INVERSA</code> e <code>MATR.PRODOTTO</code>, su decine di celle. In Octave bastano poche righe; la matrice si può scrivere anche andando a capo, una riga per equazione.</p>
+  <div class="oc-box" data-oc="l2-x3" data-file="sistema4x4.m" data-title="Esempio 3 · Il sistema dell’esercitazione Excel"><textarea class="oc-src">
+%   2x +  y -  z + 3w =  3
+%    x - 2y + 3z -  w = 12
+%   3x +  y + 2z - 2w =  9
+%   -x + 3y +  z + 2w =  0
+A = [ 2  1 -1  3
+      1 -2  3 -1
+      3  1  2 -2
+     -1  3  1  2];
+b = [3; 12; 9; 0];
+
+d = det(A)                 % foglio di calcolo: MATR.DETERM
+X = inv(A) * b             % MATR.PRODOTTO(MATR.INVERSA(A); B)
+x = A \ b                  % Octave: una sola istruzione
+residuo = norm(A*x - b)
+</textarea></div>
+  <div class="panel table-wrap">
+    <table class="compare">
+      <thead><tr><th>Operazione</th><th>Foglio di calcolo (italiano)</th><th>Octave / MATLAB</th></tr></thead>
+      <tbody>
+        <tr><th>Determinante</th><td><code>=MATR.DETERM(B5:E8)</code></td><td><code>det(A)</code></td></tr>
+        <tr><th>Matrice inversa</th><td><code>=MATR.INVERSA(B5:E8)</code></td><td><code>inv(A)</code></td></tr>
+        <tr><th>Prodotto riga per colonna</th><td><code>=MATR.PRODOTTO(…; …)</code></td><td><code>A * x</code></td></tr>
+        <tr><th>Soluzione del sistema</th><td>inversa per termini noti</td><td><code>A \ b</code></td></tr>
+        <tr><th>Rango</th><td>non disponibile</td><td><code>rank(A)</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="singolari">
+  <div class="kicker">5 · Quando la soluzione non è una sola</div>
+  <h2>Sistemi impossibili e indeterminati</h2>
+  <p>Se <code>det(A) = 0</code> la matrice è <strong>singolare</strong>: il sistema non ha una e una sola soluzione. Può essere <strong>impossibile</strong> (nessuna soluzione) o <strong>indeterminato</strong> (infinite soluzioni). Per distinguere i due casi si usa il <strong>teorema di Rouché-Capelli</strong>, confrontando il rango di <var>A</var> con quello della <em>matrice completa</em> [<var>A</var> <var>b</var>], ottenuta affiancando a <var>A</var> la colonna dei termini noti.</p>
+  <div class="panel table-wrap">
+    <table class="compare">
+      <thead><tr><th>Ranghi (<var>n</var> = numero di incognite)</th><th>Sistema</th><th>In Octave</th></tr></thead>
+      <tbody>
+        <tr><th><code>rank(A) == rank([A b]) == n</code></th><td><strong>Determinato</strong>: una sola soluzione</td><td><code>A \ b</code> la calcola; residuo circa 0</td></tr>
+        <tr><th><code>rank(A) == rank([A b]) &lt; n</code></th><td><strong>Indeterminato</strong>: infinite soluzioni</td><td>avviso; restituisce <em>una</em> delle soluzioni; residuo circa 0</td></tr>
+        <tr><th><code>rank(A) &lt; rank([A b])</code></th><td><strong>Impossibile</strong>: nessuna soluzione</td><td>avviso; restituisce un vettore che <em>non</em> risolve il sistema; residuo grande</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>L’approfondimento dell’esercitazione Excel proponeva proprio questo: sostituire la quarta riga di <var>A</var> con la somma delle prime due. La matrice diventa singolare; il quarto termine noto decide se il sistema è indeterminato (3 + 12 = 15) o impossibile (10).</p>
+  <div class="oc-box" data-oc="l2-x4" data-file="singolare.m" data-title="Esempio 4 · Una matrice singolare"><textarea class="oc-src">
+% Riga 4 = riga 1 + riga 2: la matrice diventa singolare
+S = [ 2  1 -1  3
+      1 -2  3 -1
+      3  1  2 -2
+      3 -1  2  2];
+d = det(S)
+rS = rank(S)
+
+% Caso 1: b4 = 3 + 12 = 15
+b1 = [3; 12; 9; 15];
+rank([S b1])                  % uguale a rank(S): indeterminato
+x1 = S \ b1
+residuo1 = norm(S*x1 - b1)    % circa 0: x1 è UNA delle infinite soluzioni
+
+% Caso 2: b4 = 10
+b2 = [3; 12; 9; 10];
+rank([S b2])                  % maggiore di rank(S): impossibile
+x2 = S \ b2
+residuo2 = norm(S*x2 - b2)    % grande: x2 non risolve il sistema
+</textarea></div>
+  <div class="task"><strong>Leggi sempre gli avvisi.</strong> Con una matrice singolare Octave scrive <code>warning: matrix singular to machine precision</code>, ma mostra comunque un vettore: è la cosiddetta soluzione «di minima norma», la più vicina a una soluzione e, tra le soluzioni possibili, quella di lunghezza minore. Non è la risposta alla domanda «qual è la soluzione del sistema?». MATLAB in questo caso si comporta diversamente: stampa <code>Warning: Matrix is singular to working precision.</code> e restituisce valori <code>Inf</code> o <code>NaN</code>. In entrambi i casi l’avviso significa: <strong>controlla rango e residuo</strong>.</div>
+  <p class="muted">Esiste anche un caso intermedio: matrici con determinante diverso da zero ma «quasi» singolari, dette <em>mal condizionate</em>, per cui piccoli errori nei dati producono grandi errori nella soluzione. Octave le segnala con lo stesso avviso, aggiungendo il valore di <code>rcond</code>. Il numero di condizionamento <code>cond(A)</code> ne misura la gravità: lo approfondiremo con il metodo di Gauss nella Lezione 4.</p>
+</section>
+
+<section class="section" id="errori">
+  <div class="kicker">6 · Errori tipici</div>
+  <h2>I messaggi che vedrai più spesso</h2>
+  <div class="panel table-wrap">
+    <table class="err-table">
+      <thead><tr><th>Errore</th><th>Messaggio di Octave</th><th>Come si corregge</th></tr></thead>
+      <tbody>
+        <tr><th>Termini noti scritti come riga</th><td><code>operator \: nonconformant arguments (op1 is 3x3, op2 is 1x3)</code></td><td>Scrivi <code>b = [6; 0; 9]</code> con i punti e virgola, oppure trasponi: <code>b'</code>.</td></tr>
+        <tr><th>Coefficiente 0 dimenticato</th><td><code>vertical dimensions mismatch (1x3 vs 1x2)</code></td><td>Ogni riga di A ha un numero per ogni incognita: <code>2x - y = 0</code> diventa <code>[2 -1 0]</code>.</td></tr>
+        <tr><th>Slash al posto del backslash</th><td><code>operator /: nonconformant arguments (op1 is 3x3, op2 is 3x1)</code></td><td>Per <var>A</var><var>x</var> = <var>b</var> si usa <code>A \ b</code>.</td></tr>
+        <tr><th>Matrice singolare</th><td><code>warning: matrix singular to machine precision</code></td><td>Non è un errore del codice: il sistema è impossibile o indeterminato. Controlla <code>rank</code> e residuo.</td></tr>
+        <tr><th>Incognite in ordine diverso nelle equazioni</th><td>nessun messaggio: risultato sbagliato</td><td>Riscrivi tutte le equazioni nello stesso ordine (p, s, d) prima di costruire A.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Lo script contiene il primo errore della tabella. Eseguilo, leggi il messaggio e correggilo.</p>
+  <div class="oc-box" data-oc="l2-x5" data-file="errore.m" data-title="Esempio 5 · Leggi l’errore"><textarea class="oc-src">
+A = [2 1 1; 3 2 0; 1 2 2];
+b = [22.5 29 21];
+x = A \ b
+</textarea></div>
+</section>
+
+<section class="section" id="esercizi">
+  <div class="kicker">7 · Esercizi · circa 15 minuti</div>
+  <h2>Ora tocca a te</h2>
+  <div class="panel">
+    <p><strong>Come funzionano.</strong> Scrivi il codice e premi <strong>▶ Esegui</strong> per provarlo (Ctrl+Invio). Quando pensi di aver finito premi <strong>✓ Verifica</strong> (Ctrl+Maiusc+Invio): il sistema esegue delle prove automatiche e ti dice quali hai superato. Se ti blocchi usa <strong>💡 Suggerimento</strong>. La <strong>soluzione</strong> si sblocca dopo tre verifiche.</p>
+    <p id="exProgress" class="ex-badge" role="status"></p>
+  </div>
+
+  <article class="panel exercise" id="es-1">
+    <div class="ex-head"><h3>Esercizio 1 · Dal problema alla matrice</h3><span><span class="ex-level">★ Guidato</span> <span class="ex-badge"></span></span></div>
+    <p>In un negozio di elettronica tre clienti hanno speso: 2 cavi, 3 adattatori e 1 caricatore per 61 €; 1 cavo, 1 adattatore e 2 caricatori per 53 €; 3 cavi e 2 caricatori per 60 €. Scrivi la matrice <code>A</code> dei coefficienti (incognite nell’ordine cavo, adattatore, caricatore), il vettore colonna <code>b</code> e calcola i prezzi in <code>x</code>.</p>
+    <div class="oc-box" data-oc="l2-e1" data-ex="l2-e1" data-file="negozio.m"><textarea class="oc-src">
+% Negozio di elettronica: c = cavo, a = adattatore, k = caricatore
+%   2c + 3a +  k = 61
+%    c +  a + 2k = 53
+%   3c      + 2k = 60
+A = [ ];      % completa: una riga per equazione
+b = [ ];      % completa: vettore colonna dei termini noti
+% calcola x
+</textarea></div>
+  </article>
+
+  <article class="panel exercise" id="es-2">
+    <div class="ex-head"><h3>Esercizio 2 · Fidarsi è bene…</h3><span><span class="ex-level">★★ Verifica</span> <span class="ex-badge"></span></span></div>
+    <p>Un compagno sostiene che la soluzione del sistema è <code>[1; 2; 3]</code>. Calcola il residuo <code>r</code> della sua proposta e salva in <code>corretta</code> il risultato del confronto <code>norm(r) &lt; 1e-10</code>. Poi calcola la soluzione vera <code>x</code> e la norma del suo residuo in <code>errore</code>.</p>
+    <div class="oc-box" data-oc="l2-e2" data-ex="l2-e2" data-file="controllo.m"><textarea class="oc-src">
+% Un compagno dice che la soluzione del sistema è [1; 2; 3]. Verifica!
+A = [4 -1 0; -1 4 -1; 0 -1 4];
+b = [2; 4; 11];
+proposta = [1; 2; 3];
+
+% r = residuo della proposta
+% corretta = la proposta è giusta? (confronto con una tolleranza)
+
+% x = soluzione vera
+% errore = norma del residuo di x
+</textarea></div>
+  </article>
+
+  <article class="panel exercise" id="es-3">
+    <div class="ex-head"><h3>Esercizio 3 · Caccia all’errore</h3><span><span class="ex-level">★★ Debug</span> <span class="ex-badge"></span></span></div>
+    <p>Lo script dovrebbe risolvere il sistema scritto nei commenti (soluzione attesa: <var>x</var> = 1, <var>y</var> = 2, <var>z</var> = 3) ma contiene <strong>tre errori</strong>. Correggili uno alla volta, leggendo i messaggi di Octave.</p>
+    <div class="oc-box" data-oc="l2-e3" data-ex="l2-e3" data-file="debug_sistema.m"><textarea class="oc-src">
+% Sistema:
+%    x +  y + z = 6
+%   2x -  y     = 0
+%        3y + z = 9
+% Lo script contiene TRE errori: correggili uno alla volta.
+A = [1 1 1; 2 -1; 0 3 1];
+b = [6 0 9];
+x = A / b
+</textarea></div>
+  </article>
+
+  <article class="panel exercise" id="es-4">
+    <div class="ex-head"><h3>Esercizio 4 · Rouché-Capelli in una funzione</h3><span><span class="ex-level">★★★ Sfida</span> <span class="ex-badge"></span></span></div>
+    <p>Completa la funzione <code>classifica(A, b)</code>: deve restituire il testo <code>'determinato'</code>, <code>'impossibile'</code> oppure <code>'indeterminato'</code> confrontando <code>rank(A)</code>, <code>rank([A b])</code> e il numero di incognite <code>size(A, 2)</code>. Le prime righe dello script la usano sui tre sistemi dell’esercitazione Excel.</p>
+    <div class="oc-box" data-oc="l2-e4" data-ex="l2-e4" data-file="classifica.m"><textarea class="oc-src">
+% Classifica un sistema con il teorema di Rouché-Capelli
+A = [2 1 -1 3; 1 -2 3 -1; 3 1 2 -2; -1 3 1 2];   % sistema dell'esercitazione Excel
+S = [2 1 -1 3; 1 -2 3 -1; 3 1 2 -2; 3 -1 2 2];    % riga 4 = riga 1 + riga 2
+t1 = classifica(A, [3; 12; 9; 0])
+t2 = classifica(S, [3; 12; 9; 15])
+t3 = classifica(S, [3; 12; 9; 10])
+
+function tipo = classifica(A, b)
+  % completa: calcola i ranghi e il numero di incognite,
+  % poi assegna a tipo 'determinato', 'impossibile' o 'indeterminato'
+
+end
+</textarea></div>
+  </article>
+</section>
+
+<section class="section" id="sintesi">
+  <div class="kicker">In sintesi</div>
+  <h2>Che cosa porti a casa</h2>
+  <div class="panel">
+    <ul>
+      <li>In Octave <code>[2 1 1; 3 2 0]</code> è una matrice: lo spazio separa gli elementi, il <code>;</code> va a capo. I termini noti sono un vettore <strong>colonna</strong>: <code>[22.5; 29; 21]</code>.</li>
+      <li>Un sistema lineare si scrive <var>A</var><var>x</var> = <var>b</var>: una riga per equazione, una colonna per incognita, coefficienti 0 compresi.</li>
+      <li><code>x = A \ b</code> risolve il sistema senza calcolare l’inversa: è il metodo da preferire a <code>inv(A)*b</code>.</li>
+      <li>Il <strong>residuo</strong> <code>norm(A*x - b)</code> verifica la soluzione: si confronta con una tolleranza, perché gli arrotondamenti lo rendono circa 10⁻¹⁵, non 0.</li>
+      <li>Con <code>det(A) = 0</code> il sistema è impossibile o indeterminato: lo stabiliscono <code>rank(A)</code> e <code>rank([A b])</code> (Rouché-Capelli). L’avviso <em>matrix singular</em> va sempre letto.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="test-finale">
+  <div class="kicker">Test di fine lezione · 10 domande</div>
+  <h2>Verifica che cosa hai imparato</h2>
+  <p>Rispondi a tutte le domande e invia. Per sbloccare la Lezione 3 servono almeno <strong>7 risposte esatte su 10 (70%)</strong>. Dopo l’invio vedrai quali risposte sono esatte e un suggerimento per le altre, senza la soluzione: ripassa e riprova, i tentativi sono illimitati. Alla fine scarica il <strong>PDF dell’esito</strong> e consegnalo su Classroom.</p>
+  <div class="panel builder" id="startBox">
+    <h3>Prima di iniziare</h3>
+    <p>Inserisci i tuoi dati: compariranno nel PDF e non si possono cambiare dopo l’inizio del tentativo. Dal clic su <strong>Inizia il test</strong> vengono registrati, e riportati nel PDF, l’ora di inizio e di consegna, il tempo di ogni risposta, le <strong>uscite dalla pagina</strong> (cambio di scheda o di applicazione) e i ricaricamenti. Resta su questa pagina fino alla consegna.</p>
+    <div class="row3">
+      <div><label for="stNome">Nome</label><input id="stNome" maxlength="40" autocomplete="given-name"></div>
+      <div><label for="stCognome">Cognome</label><input id="stCognome" maxlength="40" autocomplete="family-name"></div>
+      <div><label for="stClasse">Classe</label><input id="stClasse" maxlength="6" placeholder="es. 5A" autocomplete="off"></div>
+    </div>
+    <div class="actions" style="margin-top:14px"><button class="button primary" type="button" id="startQuiz">Inizia il test</button></div>
+    <p id="startMsg" role="alert"></p>
+  </div>
+  <p class="quiz-live" id="quizLive" hidden><span>Test in corso · <strong id="quizIdentity"></strong></span></p>
+  <form id="finalQuiz" hidden>
+    <div id="quizQuestions"></div>
+    <p id="quizCount" role="status" aria-live="off"></p>
+    <button class="button primary" id="submitQuiz" disabled>Invia e verifica il risultato</button>
+  </form>
+  <p id="quizMessage" role="status" aria-live="polite"></p>
+  <div class="panel" id="quizResult" tabindex="-1" hidden>
+    <h3 id="quizScore"></h3>
+    <p id="attemptCount" class="muted"></p>
+    <div class="actions">
+      <button class="button primary" id="pdfQuiz" type="button">📄 Scarica il PDF per Classroom</button>
+      <button class="button" id="retryQuiz" type="button">Ripassa e riprova</button>
+      <a class="button" id="continueLink" data-lesson-link="3" href="./lezione-3.html" hidden>Prosegui alla Lezione 3 →</a>
+    </div>
+    <p id="pdfStatus" role="status" aria-live="polite"></p>
+    <p class="muted">Il PDF contiene i dati dell’ultimo tentativo, firmati digitalmente: caricalo su Classroom così com’è. Se rifai il test, scarica e consegna il nuovo PDF.</p>
+  </div>
+  <div class="panel builder consegna" id="consegnaBox" hidden>
+    <h3>Invio online al docente</h3>
+    <p>In alternativa al PDF, se il docente lo richiede, puoi inviare l’esito direttamente.</p>
+    <div class="actions"><button class="button" id="consegnaBtn" type="button">Invia l’esito</button></div>
+    <p id="consegnaStatus" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="section" id="fonti">
+  <h2>Per approfondire</h2>
+  <ol>
+    <li><a href="https://docs.octave.org/latest/Solving-Systems-of-Linear-Equations.html" target="_blank" rel="noopener noreferrer">GNU Octave, «Solving Systems of Linear Equations»</a> — l’operatore <code>\</code> e il comportamento con matrici singolari.</li>
+    <li><a href="https://www.mathworks.com/help/matlab/ref/double.mldivide.html" target="_blank" rel="noopener noreferrer">MathWorks, «mldivide, \»</a> — il backslash in MATLAB, con gli esempi di matrici singolari.</li>
+    <li><a href="https://www.mathworks.com/help/matlab/ref/inv.html" target="_blank" rel="noopener noreferrer">MathWorks, «inv»</a> — perché <code>A\b</code> è preferibile a <code>inv(A)*b</code>.</li>
+    <li><a href="https://www.mathworks.com/help/matlab/math/systems-of-linear-equations.html" target="_blank" rel="noopener noreferrer">MathWorks, «Systems of Linear Equations»</a> — sistemi quadrati, singolari, sovradeterminati e sottodeterminati.</li>
+  </ol>
+</section>
+</main>
+
+<footer><div class="wrap">Calcolo numerico con Octave · Lezione 2 di 9 · <a href="./">Guida al corso</a> · Liceo Scientifico «N. Cortese»</div></footer>
+
+<script src="./oct-runner.js?v=3"></script>
+<script src="./oct-pdf.js?v=1"></script>
+<script src="./oct-lesson.js?v=2"></script>
+</body>
+</html>

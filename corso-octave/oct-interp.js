@@ -504,6 +504,41 @@ function inv(A, interp) {
 }
 function norm1(m) { let best = 0; for (let j = 0; j < m.c; j++) { let s = 0; for (let i = 0; i < m.r; i++) s += Math.hypot(m.re[i + j * m.r], m.im ? m.im[i + j * m.r] : 0); best = Math.max(best, s); } return best; }
 function rcondEst(a, ainv) { const v = 1 / (norm1(a) * norm1(ainv)); return Number.isFinite(v) ? v : 0; }
+/* SVD a una via di Jacobi (matrici reali piccole): A = U*diag(S)*V' */
+function svd(A) {
+  let m = A.r, n = A.c, tr = false, a;
+  if (m < n) { tr = true; a = transpose(A, false); [m, n] = [n, m]; } else a = A;
+  const U = Float64Array.from(a.re), V = eye(n).re;
+  for (let sweep = 0; sweep < 60; sweep++) {
+    let off = 0;
+    for (let p = 0; p < n - 1; p++) for (let q = p + 1; q < n; q++) {
+      let al = 0, be = 0, ga = 0;
+      for (let i = 0; i < m; i++) { const x = U[i + p * m], y = U[i + q * m]; al += x * x; be += y * y; ga += x * y; }
+      if (Math.abs(ga) <= 1e-15 * Math.sqrt(al * be) || ga === 0) continue;
+      off = Math.max(off, Math.abs(ga) / Math.sqrt(al * be));
+      const z = (be - al) / (2 * ga), t = Math.sign(z || 1) / (Math.abs(z) + Math.sqrt(1 + z * z)), c = 1 / Math.sqrt(1 + t * t), sn = c * t;
+      for (let i = 0; i < m; i++) { const x = U[i + p * m], y = U[i + q * m]; U[i + p * m] = c * x - sn * y; U[i + q * m] = sn * x + c * y; }
+      for (let i = 0; i < n; i++) { const x = V[i + p * n], y = V[i + q * n]; V[i + p * n] = c * x - sn * y; V[i + q * n] = sn * x + c * y; }
+    }
+    if (off < 1e-15) break;
+  }
+  const S = new Float64Array(n);
+  for (let j = 0; j < n; j++) { let s2 = 0; for (let i = 0; i < m; i++) s2 += U[i + j * m] ** 2; S[j] = Math.sqrt(s2); if (S[j] > 0) for (let i = 0; i < m; i++) U[i + j * m] /= S[j]; }
+  const u = M(m, n, U), v = M(n, n, V);
+  return tr ? { U: v, S, V: u } : { U: u, S, V: v };
+}
+/* soluzione di minima norma ai minimi quadrati (pseudoinversa) */
+function minNormSolve(a, b) {
+  const { U, S, V } = svd(a), k = S.length, tol = Math.max(a.r, a.c) * Math.max(0, ...S) * EPS;
+  const x = M(a.c, b.c);
+  for (let col = 0; col < b.c; col++) for (let j = 0; j < k; j++) {
+    if (S[j] <= tol) continue;
+    let d = 0; for (let i = 0; i < U.r; i++) d += U.re[i + j * U.r] * b.re[i + col * b.r];
+    d /= S[j];
+    for (let i = 0; i < V.r; i++) x.re[i + col * x.r] += V.re[i + j * V.r] * d;
+  }
+  return x;
+}
 function mldivide(A, B, interp) {
   const a = toM(A, '\\'), b = toM(B, '\\');
   if (a.r * a.c === 1) return elementwise(b, a, '\\', (x, y) => x / y, (p, q, r, s) => cdiv(p, q, r, s));
@@ -511,14 +546,13 @@ function mldivide(A, B, interp) {
   realOnly(a, 'mldivide'); realOnly(b, 'mldivide');
   if (a.r === a.c) {
     const L = lup(a);
-    if (L.singular) { interp.warn('matrix singular to machine precision'); const o = M(a.c, b.c); for (let i = 0; i < o.re.length; i++) o.re[i] = Infinity; return o; }
+    if (L.singular) { interp.warn('matrix singular to machine precision'); return minNormSolve(a, b); }
     const x = luSolve(L, b);
-    if (a.r > 1) { const rc = rcondEst(a, luSolve(L, eye(a.r))); if (rc < EPS) interp.warn('matrix singular to machine precision, rcond = ' + rc.toExponential(5)); }
+    if (a.r > 1) { const rc = rcondEst(a, luSolve(L, eye(a.r))); if (rc < EPS) interp.warn('matrix singular to machine precision, rcond = ' + rc.toExponential(5).replace(/e([+-])(\d)$/, 'e$10$2')); }
     return x;
   }
-  // minimi quadrati (equazioni normali): A'A x = A'b
-  const at = transpose(a, false);
-  return mldivide(matmul(at, a), matmul(at, b), interp);
+  // sistemi non quadrati: soluzione di minima norma ai minimi quadrati, come Octave
+  return minNormSolve(a, b);
 }
 function mpower(A, B, interp) {
   const a = toM(A, '^'), b = toM(B, '^');
@@ -724,6 +758,6 @@ function mat2str(v, prec) {
 }
 
 root.OctCore = { OctError, M, num, cnum, bool, str, empty, isM, isStr, isFn, isCell, toM, numel, dims, dimStr, narrow, clone, scalar, truthy, textOf, lex, parse,
-  cmul, cdiv, cpow, elementwise, epow, matmul, transpose, eye, lup, luSolve, det, inv, mldivide, mpower, rref, norm1, realOnly, requireSquare, EPS,
+  cmul, cdiv, cpow, elementwise, epow, matmul, transpose, eye, lup, luSolve, det, inv, mldivide, svd, minNormSolve, mpower, rref, norm1, realOnly, requireSquare, EPS,
   display, dispText, fnText, formatPrintf, num2str, mat2str, fmtScalarReal, isInt, trimG, err };
 })(typeof self !== 'undefined' ? self : globalThis);

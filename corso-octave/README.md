@@ -8,14 +8,16 @@ URL (non linkato dal sito, `noindex`): `https://antonioadinolfiscuola.it/corso-o
 | Lezione | Contenuti | Stato |
 |---|---|---|
 | 1 · L'ambiente di lavoro | calcolo numerico, MATLAB vs Octave (proprietario/libero), Command Window, workspace, script `.m`, funzioni | pronta |
-| 2 · Tipi di dato e operazioni | scalari/vettori/matrici nativi, precedenza, reali e complessi, funzioni predefinite | da fare |
-| 3 · Creare e indicizzare vettori e matrici | riga/colonna, `:` e `linspace`, `eye`/`zeros`/`ones`, indici ed `end` | da fare |
-| 4 · Operazioni matriciali e puntuali | `*` vs `.*`, `./`, `.^`, trasposta, `det`, `trace`, `inv` | da fare |
-| 5 · Sistemi lineari e backslash | forma `Ax = b`, `\`, residuo, matrici singolari | da fare |
-| 6 · Il metodo di Gauss | eliminazione, pivot, sostituzione all'indietro, implementazione | da fare |
-| 7 · Il metodo di Gauss-Jordan | riduzione completa, `rref`, inversa con `[A I]` | da fare |
+| 2 · Sistemi lineari e backslash | matrici e vettori colonna, forma `Ax = b`, `\`, residuo, `det`, `rank`, Rouché-Capelli; ponte con l'esercitazione Excel 4×4 | pronta |
+| 3 · Operazioni matriciali e puntuali | `*` vs `.*`, `./`, `.^`, trasposta, `det`, `trace`, `inv`, verifica `A*inv(A)` | da fare |
+| 4 · Il metodo di Gauss | eliminazione, pivot, sostituzione all'indietro; righe `A(i,:)` quanto basta; implementazione e confronto con `\` | da fare |
+| 5 · Il metodo di Gauss-Jordan | riduzione completa, `rref`, inversa con `[A I]` | da fare |
+| 6 · Tipi di dato e operazioni | scalari/vettori/matrici nativi, precedenza, reali e complessi, funzioni predefinite | da fare |
+| 7 · Creare e indicizzare vettori e matrici | `:` e `linspace`, `eye`/`zeros`/`ones`, indici, `end`, sottomatrici | da fare |
 | 8 · Grafici 2D | `plot`, stili, `xlabel`/`ylabel`/`title`/`legend`/`grid` | da fare |
 | 9 · Più grafici e progetto finale | `figure`, `hold on`, `subplot`, progetto, test finale | da fare |
+
+Ordine rivisto il 12/11/2026: tutta l'algebra lineare (Lezioni 2-5) nella prima metà del corso. La Lezione 2 introduce matrici e vettori «quanto basta», la 4 l'indicizzazione di righe necessaria a Gauss; le Lezioni 6-7 riprendono tipi e indicizzazione in modo sistematico.
 
 ## File
 - `index.html`: guida al corso, prova dell'editor (con grafico), mappa delle lezioni, avanzamento, glossario.
@@ -38,6 +40,7 @@ Limite: la chiave della firma è nel codice del sito, quindi la firma rende evid
 
 ## Il simulatore
 Riproduce il sottoinsieme di Octave usato nel corso, con i messaggi di errore e la visualizzazione dei risultati di Octave (`x = 5`, matrici in colonna, `Columns 1 through 8`, `format long`).
+- Con una matrice singolare `\\` stampa l'avviso e restituisce la soluzione di minima norma, come Octave (MATLAB darebbe `Inf`/`NaN`); i sistemi non quadrati sono risolti ai minimi quadrati (SVD).
 - Matrici reali e complesse, intervalli `a:p:b`, indicizzazione con `end`, `:` e indici logici, crescita e cancellazione (`A(2,:) = []`).
 - Operatori `+ - * / \ ^ .* ./ .^ ' .'`, confronti, `& | ~ && ||`; `if`/`elseif`, `for`, `while`, `switch`, `try`, `break`/`continue`.
 - Funzioni definite nello script (anche più uscite e ricorsive) e funzioni anonime `@(x) …`.

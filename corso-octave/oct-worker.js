@@ -2,7 +2,7 @@
    La pagina può terminare il worker se il codice non termina (es. ciclo while infinito).
    Le sessioni (Command Window) conservano le variabili tra un comando e l'altro. */
 "use strict";
-importScripts('./oct-interp.js?v=1', './oct-eval.js?v=1');
+importScripts('./oct-interp.js?v=2', './oct-eval.js?v=2');
 const sessions = new Map();
 postMessage({ type: 'ready' });
 onmessage = e => {
