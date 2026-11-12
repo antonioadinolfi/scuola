@@ -45,17 +45,6 @@
   },
   {
     "classe": "Prima",
-    "titolo": "Verifica Maggio 2026 - Generale",
-    "descrizione": "Hardware e Software",
-    "tipo": "esercizio",
-    "file_path": "materiali/verifiche/Verifica _Classe_1_Maggio_2026.bat",
-    "target_page": "",
-    "ordine": 3,
-    "attivo": true,
-    "categoria": "Verifiche"
-  },
-  {
-    "classe": "Prima",
     "titolo": "Bit e byte — 20 esercizi",
     "descrizione": "Conversioni, codifiche e capacità di memoria. Difficoltà media–alta, risposte aperte senza soluzioni. PDF finale con nome, cognome e classe.",
     "tipo": "esercizio",
@@ -165,17 +154,6 @@
     "categoria": "Esercizi"
   },
   {
-    "classe": "Seconda",
-    "titolo": "Verifica Maggio 2026 - Generale",
-    "descrizione": "Python - strutture di controllo",
-    "tipo": "esercizio",
-    "file_path": "materiali/verifiche/Verifica _Classe_2_Maggio_2026.bat",
-    "target_page": "",
-    "ordine": 3,
-    "attivo": true,
-    "categoria": "Verifiche"
-  },
-  {
     "classe": "Terza",
     "titolo": "Le strutture dati complesse",
     "descrizione": "Liste, Tuple, Set e Dizionari",
@@ -229,17 +207,6 @@
     "ordine": 3,
     "attivo": true,
     "categoria": "Esercizi"
-  },
-  {
-    "classe": "Terza",
-    "titolo": "Verifica Maggio 2026 -File",
-    "descrizione": "",
-    "tipo": "slide",
-    "file_path": "materiali/verifiche/Verifica _Classe_3_Maggio_2026.bat",
-    "target_page": "",
-    "ordine": 3,
-    "attivo": true,
-    "categoria": "Verifiche"
   },
   {
     "classe": "Quarta",
@@ -319,28 +286,6 @@
     "categoria": "Esercizi"
   },
   {
-    "classe": "Quarta",
-    "titolo": "Verifica Maggio 2026 - SQL",
-    "descrizione": "database",
-    "tipo": "esercizio",
-    "file_path": "materiali/verifiche/Verifica _Classe_4_Maggio_2026.bat",
-    "target_page": "",
-    "ordine": 6,
-    "attivo": true,
-    "categoria": "Verifiche"
-  },
-  {
-    "classe": "Quinta",
-    "titolo": "Crittografia e sicurezza",
-    "descrizione": "Concetti base di sicurezza informatica.",
-    "tipo": "slide",
-    "file_path": "materiali/slide/crittografia_sicurezza.pdf",
-    "target_page": "",
-    "ordine": 1,
-    "attivo": true,
-    "categoria": "Lezioni"
-  },
-  {
     "classe": "Quinta",
     "titolo": "Sistemi lineari con Foglio di calcolo",
     "descrizione": "Uso del foglio di calcolo per la soluzione di sistemi lineari",
@@ -359,17 +304,6 @@
     "file_path": "corso-octave/index.html",
     "target_page": "",
     "ordine": 2,
-    "attivo": true,
-    "categoria": "Lezioni"
-  },
-  {
-    "classe": "STEM",
-    "titolo": "Robotica educativa",
-    "descrizione": "Sensori, attuatori e laboratorio.",
-    "tipo": "slide",
-    "file_path": "materiali/slide/robotica_educativa.pdf",
-    "target_page": "",
-    "ordine": 1,
     "attivo": true,
     "categoria": "Lezioni"
   },
@@ -456,28 +390,6 @@
     "descrizione": "IA",
     "tipo": "slide",
     "file_path": "materiali/slide/Tibone_powerpoint_81647_c08.pdf",
-    "target_page": "",
-    "ordine": 1,
-    "attivo": true,
-    "categoria": "Lezioni"
-  },
-  {
-    "classe": "Quinta",
-    "titolo": "Introduzione a Matlab",
-    "descrizione": "Infografica",
-    "tipo": "slide",
-    "file_path": "materiali/infografica/Infografica_MATLAB_Calcolo_Numerico.pdf",
-    "target_page": "",
-    "ordine": 1,
-    "attivo": true,
-    "categoria": "Infografiche"
-  },
-  {
-    "classe": "Quarta",
-    "titolo": "OOP_interattiva",
-    "descrizione": "OOP",
-    "tipo": "slide",
-    "file_path": "materiali/lezione_oop_python_interattiva_chiara.exe",
     "target_page": "",
     "ordine": 1,
     "attivo": true,
