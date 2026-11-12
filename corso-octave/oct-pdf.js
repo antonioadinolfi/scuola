@@ -138,6 +138,7 @@ window.OctPdf = (() => {
       doc.setPage(p); doc.setFont('helvetica', 'normal'); doc.setFontSize(7.5); doc.setTextColor(...grey);
       doc.text(pdfText(who.cognome + ' ' + who.nome + ' · ' + who.classe + ' · Lezione ' + payload.lesson + ' · tentativo ' + att.id), M, 290);
       doc.text(p + '/' + pages, W - M, 290, { align: 'right' });
+      doc.text(pdfText('© 2026 Prof. Antonio Adinolfi · Calcolo numerico con Octave · licenza CC BY-NC-SA 4.0'), M, 294);
     }
     doc.setProperties({ title: 'Esito Lezione ' + payload.lesson + ' - ' + who.cognome + ' ' + who.nome + ' ' + who.classe, author: who.cognome + ' ' + who.nome, subject: 'Calcolo numerico con Octave', creator: 'antonioadinolfiscuola.it/corso-octave', keywords: code });
     const stamp = new Date(payload.gen); const z = x => String(x).padStart(2, '0');

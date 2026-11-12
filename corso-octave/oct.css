@@ -278,3 +278,10 @@ header{background:linear-gradient(120deg,#102a43,#0f5e7a 55%,#176b87)}
 .quiz-live{position:sticky;top:0;z-index:20;margin:10px 0;padding:9px 14px;border-radius:10px;background:#102a43;color:#fff;font-size:.92rem}
 #startMsg{color:#c0562b;font-weight:600}
 @media(max-width:700px){.row3{grid-template-columns:1fr}}
+/* licenza Creative Commons (come nei corsi Vibe Coding e Python OOP) */
+footer .license{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:14px 0 0;font-size:.82rem;color:#b9cfdc;line-height:1.5}
+footer .license a{color:#fff}
+footer .license>a:first-child{text-decoration:none}
+.cc-badge{display:inline-flex;align-items:center;gap:6px;border:1.5px solid #fff;border-radius:6px;padding:3px 8px;font-size:.78rem;font-weight:700;letter-spacing:.03em;color:#fff;white-space:nowrap}
+.cc-badge b{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#fff;color:#102a43;font-size:.72rem}
+@media print{footer{display:block!important;background:none;color:#222;padding:12px 0;margin-top:16px;border-top:1px solid #999}footer .wrap{font-size:0}footer .license{font-size:9pt;margin:0;color:#222}footer .license a{color:#222}footer .license>a:first-child{display:none}}
