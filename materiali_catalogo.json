@@ -460,5 +460,16 @@
     "ordine": 7,
     "attivo": true,
     "categoria": "Esercizi"
+  },
+  {
+    "classe": "Terza",
+    "titolo": "Laboratorio Python – Liste, tuple, vettori e matrici",
+    "descrizione": "20 esercizi interattivi Python con editor Skulpt, test automatici e consegna progressiva in PDF con identificativo univoco.",
+    "tipo": "esercizio",
+    "file_path": "tracce/Terze/laboratorio_python_strutture.html",
+    "target_page": "tracce/Terze/laboratorio_python_strutture.html",
+    "ordine": 8,
+    "attivo": true,
+    "categoria": "Laboratorio Python"
   }
 ]
