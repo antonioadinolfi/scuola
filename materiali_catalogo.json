@@ -351,6 +351,18 @@
     "attivo": true,
     "categoria": "Esercizi"
   },
+   {
+    "classe": "Quinta",
+    "titolo": "Corso-octave",
+    "descrizione": "Introduzione a Matlab\Octave",
+    "tipo": "lezione",
+    "file_path": "tracce/Quinte/https://antonioadinolfiscuola.it/corso-octave/lezione-1.html",
+    "target_page": "",
+    "ordine": 1,
+    "attivo": true,
+    "categoria": "Esercizi"
+  },
+  
   {
     "classe": "STEM",
     "titolo": "Robotica educativa",
