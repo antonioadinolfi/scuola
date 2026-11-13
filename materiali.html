@@ -942,8 +942,12 @@
       const list = document.createElement('div');
       list.className = 'file-list';
 
-      const categoryOrder = ['Lezioni', 'Infografiche', 'Esercizi', 'Verifiche'];
-      const groups = categoryOrder.map(category => ({
+      // Mantieni le categorie tradizionali e mostra anche le nuove sezioni
+      // definite nel catalogo, ad esempio "Laboratorio Python".
+      const categoryOrder = ['Lezioni', 'Infografiche', 'Esercizi', 'Laboratorio Python', 'Verifiche'];
+      const extraCategories = [...new Set(items.map(item => item.categoria || 'Lezioni'))]
+        .filter(category => !categoryOrder.includes(category));
+      const groups = [...categoryOrder, ...extraCategories].map(category => ({
         category,
         items: items.filter(item => (item.categoria || 'Lezioni') === category)
       })).filter(group => group.items.length);
