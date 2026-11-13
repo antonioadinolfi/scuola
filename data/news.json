@@ -1,9 +1,15 @@
 {
-  "updatedAt": "2026-11-13T11:58:36+00:00",
+  "updatedAt": "2026-11-13T19:32:32+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
       "items": [
+        {
+          "title": "MARADONA AL MARATONA ” La corsa di Miguel”",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/11/13/maradona-al-maratona-la-corsa-di-miguel/",
+          "pubDate": "Fri, 13 Nov 2026 18:03:40 +0000",
+          "description": "Il Liceo Scientifico Statale &#8220;Nino Cortese&#8221; di Maddaloni, sotto la guida del Dirigente Scolastico Dott. Prof. Marcellino Falcone, ha partecipato con…"
+        },
         {
           "title": "Doppio riconoscimento per due progetti eTwinning nel nostro Liceo!🎉",
           "link": "https://www.liceoscientificocortese.edu.it/2026/11/10/doppio-riconoscimento-per-due-progetti-etwinning-nel-nostro-liceo%f0%9f%8e%89/",
@@ -33,12 +39,6 @@
           "link": "https://www.liceoscientificocortese.edu.it/2026/11/05/il-liceo-cortese-rinnova-la-partecipazione-a-ioleggoperche-2026/",
           "pubDate": "Thu, 05 Nov 2026 16:00:07 +0000",
           "description": "Anche quest’anno il Dipartimento di Lettere del Liceo Scientifico “Nino Cortese” di Maddaloni aderisce a #ioleggoperché, l&#8217;iniziativa nazionale promossa d…"
-        },
-        {
-          "title": "Eccellenza e innovazione europea al Liceo “Nino Cortese”: consegnati i National Quality Label eTwinning!",
-          "link": "https://www.liceoscientificocortese.edu.it/2026/10/31/eccellenza-e-innovazione-europea-al-liceo-nino-cortese-consegnati-i-national-quality-label-etwinning/",
-          "pubDate": "Sat, 31 Oct 2026 17:00:45 +0000",
-          "description": "Il 30 ottobre, nell&#8217;Aula Magna del Liceo Scientifico &#8220;Nino Cortese&#8221; di Maddaloni, si è tenuta la cerimonia di consegna dei National Quality La…"
         }
       ]
     },
@@ -46,40 +46,40 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
-          "title": "Sicilia, un milione di euro per nuovi scuolabus: contributi fino a 75mila euro per i Comuni, domande entro il 30 novembre",
-          "link": "https://www.orizzontescuola.it/sicilia-un-milione-di-euro-per-nuovi-scuolabus-contributi-fino-a-75mila-euro-per-i-comuni-domande-entro-il-30-novembre/",
-          "pubDate": "Fri, 13 Nov 2026 11:51:07 +0000",
-          "description": "La Regione Siciliana mette a disposizione un milione di euro per l’acquisto di nuovi scuolabus. Ne dà notizia la stessa Regione, che ha pubblicato il decreto co…"
+          "title": "IA a scuola, Frassinetti: “Strumento di potenziamento, ma non sostituirà mai il docente. Bisogna educare alla consapevolezza” (VIDEO)",
+          "link": "https://www.orizzontescuola.it/ia-a-scuola-frassinetti-strumento-di-potenziamento-ma-non-sostituira-mai-il-docente-bisogna-educare-alla-consapevolezza-video/",
+          "pubDate": "Fri, 13 Nov 2026 18:55:02 +0000",
+          "description": "Formazione dei docenti, investimenti sulle infrastrutture digitali e una bussola etica ben salda per non smarrire la centralità della persona. È questa la linea…"
         },
         {
-          "title": "Educazione finanziaria a scuola, firmato il protocollo Consob-Mim: corsi per i docenti con attestato nominativo e materiali per la didattica",
-          "link": "https://www.orizzontescuola.it/educazione-finanziaria-a-scuola-firmato-il-protocollo-consob-mim-corsi-per-i-docenti-con-attestato-nominativo-e-materiali-per-la-didattica/",
-          "pubDate": "Fri, 13 Nov 2026 11:35:40 +0000",
-          "description": "Per portare l’educazione finanziaria nelle scuole si comincia dagli insegnanti. Lo prevede il protocollo d’intesa firmato a ottobre dal presidente della Consob,…"
+          "title": "Climatizzatori e pompe di calore nelle scuole. Il premier: “Risorse a partire dal 2028. Nessuno dovrebbe studiare al freddo d’inverno o a 35 gradi a giugno”",
+          "link": "https://www.orizzontescuola.it/climatizzatori-e-pompe-di-calore-nelle-scuole-il-premier-risorse-a-partire-dal-2028-nessuno-dovrebbe-studiare-al-freddo-dinverno-o-a-35-gradi-a-giugno/",
+          "pubDate": "Fri, 13 Nov 2026 18:44:00 +0000",
+          "description": "Dall'ammodernamento strutturale degli istituti al comfort climatico delle aule. Nel bilancio tracciato sui social al termine del confronto sulla manovra con i s…"
         },
         {
-          "title": "Falsi allarmi bomba nelle scuole, quanto sono costati? Le ore di lavoro perse dai genitori andati a riprendere i figli valgono fino a 9 milioni. I dati",
-          "link": "https://www.orizzontescuola.it/falsi-allarmi-bomba-nelle-scuole-quanto-sono-costati-le-ore-di-lavoro-perse-dai-genitori-andati-a-riprendere-i-figli-valgono-fino-a-9-milioni-i-dati/",
-          "pubDate": "Fri, 13 Nov 2026 11:16:54 +0000",
-          "description": "Una mattina di lezioni interrotta, i genitori che lasciano il lavoro per andare a prendere i figli, le forze dell’ordine chiamate a controllare gli edifici. Le…"
+          "title": "“Gestire la scuola” senza essere lasciati soli: strumenti, procedure e consulenza. I nostri servizi",
+          "link": "https://www.orizzontescuola.it/gestire-la-scuola-senza-essere-lasciati-soli-strumenti-procedure-e-consulenza-i-nostri-servizi/",
+          "pubDate": "Fri, 13 Nov 2026 18:41:41 +0000",
+          "description": "Gestire una scuola significa affrontare ogni giorno decisioni, procedure, scadenze e responsabilità. Una richiesta di un dipendente, una procedura amministrativ…"
         },
         {
-          "title": "Due bombole di gas esilarante abbandonate davanti a una scuola primaria: arrivano gli artificieri, escluso l’ordigno",
-          "link": "https://www.orizzontescuola.it/due-bombole-di-gas-esilarante-abbandonate-davanti-a-una-scuola-primaria-arrivano-gli-artificieri-escluso-lordigno/",
-          "pubDate": "Fri, 13 Nov 2026 10:56:02 +0000",
-          "description": "Chi ha lasciato due bombole di protossido d’azoto davanti a una scuola primaria di Genova, nel cuore della notte? È la domanda a cui ora devono rispondere gli i…"
+          "title": "Meloni: “Già 206mila assunzioni nella scuola e altre 40mila nel 2027, risorse aumentate del 13,1%. Oltre 400 euro al mese in più ai docenti, 300 agli ATA con tre rinnovi contrattuali”",
+          "link": "https://www.orizzontescuola.it/manovra-meloni-togliamo-la-misura-sulla-scuola-ma-nessun-docente-o-ata-avrebbe-perso-il-posto-questo-governo-ha-investito-nella-scuola-piu-di-quanto-hanno-fatto-i-suoi-predecessori/",
+          "pubDate": "Fri, 13 Nov 2026 18:30:45 +0000",
+          "description": "Il governo fa marcia indietro sulle norme relative al personale scolastico inserite nel testo del disegno di legge della Manovra 2027, ma la presidente del Cons…"
         },
         {
-          "title": "Percorsi abilitanti IV ciclo 2026/27: ecco le pagine delle Università [AGGIORNATO]",
-          "link": "https://www.orizzontescuola.it/percorsi-abilitanti-iv-ciclo-2026-27-ecco-le-pagine-delle-universita/",
-          "pubDate": "Fri, 13 Nov 2026 10:43:59 +0000",
-          "description": "Percorsi abilitanti a.s. 2026/27: il quarto ciclo parte con la novità introdotta dal Decreto Scuola che ha reso strutturale l'accesso dei docenti con tre anni d…"
+          "title": "La Russa: “Il popolo ha voluto il fascismo, la volontà popolare può essere imperfetta. E sul manuale scolastico: “Sbaglia chi offre un solo racconto della storia”",
+          "link": "https://www.orizzontescuola.it/la-russa-il-popolo-ha-voluto-il-fascismo-la-volonta-popolare-puo-essere-imperfetta-e-sul-manuale-scolastico-sbaglia-chi-offre-un-solo-racconto-della-storia/",
+          "pubDate": "Fri, 13 Nov 2026 18:25:09 +0000",
+          "description": "Un intervento articolato che ha toccato il ruolo dell'insegnamento scolastico, il valore della volontà popolare, la storia del Novecento e l'attualità della Car…"
         },
         {
-          "title": "Quasi 800 mila studenti in meno ma aumento (apparente) degli insegnanti. I dati",
-          "link": "https://www.orizzontescuola.it/scuola-quasi-800-mila-studenti-in-meno-ma-aumento-apparente-degli-insegnanti-i-dati/",
-          "pubDate": "Fri, 13 Nov 2026 10:30:11 +0000",
-          "description": "Quasi 800 mila studenti in meno, appena 7.798 classi eliminate dal conteggio nazionale e un numero di posti docenti complessivamente superiore rispetto a nove a…"
+          "title": "Decreto Scuola, Marti: “Risorse non imponenti, ma in piena emergenza abbiamo fatto grandi passi. Attendiamo i pareri della Ragioneria per non creare squilibri istituzionali”",
+          "link": "https://www.orizzontescuola.it/decreto-scuola-marti-replica-sulle-risorse-non-sono-imponenti-ma-in-piena-emergenza-abbiamo-fatto-grandi-passi-attendiamo-i-pareri-della-ragioneria-per-non-creare-squilibri-istituzionali/",
+          "pubDate": "Fri, 13 Nov 2026 18:12:03 +0000",
+          "description": "L’iter parlamentare del Decreto Scuola e le polemiche legate alle risorse stanziate dal governo sono stati al centro di un'intervista rilasciata a Radio Radical…"
         }
       ]
     },
@@ -87,40 +87,40 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Flat tax, disparità sotto tiro: per le partite Iva risparmi fino a 23mila euro",
-          "link": "https://www.ilsole24ore.com/art/flat-tax-disparita-sotto-tiro-le-partite-iva-risparmi-fino-23mila-euro-AJ4zYMFC",
-          "pubDate": "Fri, 13 Nov 2026 09:29:00 GMT",
-          "description": "Dalle audizioni sulla manovra emerge più di una criticità sull’aumento della soglia di ricavi o compensi a 100mila euro per la Flat tax delle partite Iva. Anche…"
+          "title": "Nvidia, ecco i nomi dei possibili successori di Jensen Huang",
+          "link": "https://www.ilsole24ore.com/art/nvidia-ecco-nomi-possibili-successori-jensen-huang-AJOSQtFC",
+          "pubDate": "Fri, 13 Nov 2026 17:37:00 GMT",
+          "description": "Dopo la nomina di Colette Kress come Ceo ad interim di Nvidia, la società deve affrontare lo spinoso nodo di trovare un successore definitivo a Jensen Huang , t…"
         },
         {
-          "title": "Problemi a Teams, Outlook e Copilot in 74 Paesi. Microsoft: «Servizi in miglioramento, ripristino a fasi» ++",
-          "link": "https://www.ilsole24ore.com/art/microsoft-problemi-i-servizi-diffusi-tutto-mondo-coinvolto-anche-outlook-AJWv0hEC",
-          "pubDate": "Thu, 12 Nov 2026 18:57:00 GMT",
-          "description": "Proseguono le attività di recupero delle piattaforme Microsoft, i cui disservizi sono partiti oltre 16 ore fa e si sono diffusi a livello mondiale. Tramite X, l…"
+          "title": "Apple aggiorna il record in Borsa: ora vale più di 5.200 miliardi di dollari",
+          "link": "https://www.ilsole24ore.com/art/apple-aggiorna-record-borsa-ora-vale-piu-5200-miliardi-dollari-AJxb71FC",
+          "pubDate": "Fri, 13 Nov 2026 17:51:00 GMT",
+          "description": "Le azioni di Apple salgono di oltre l’1% a Wall Street e raggiungono al Nasdaq i 360,83 dollari, il livello più alto nella sua storia: la Casa di Cupertino vale…"
         },
         {
-          "title": "Borse, il rapporto Aie sul petrolio sostiene l'Europa. A Milano brilla Bpm",
-          "link": "https://www.ilsole24ore.com/art/borse-asia-debole-le-dimissioni-jensen-huang-focus-titoli-ia-AJDa7BFC",
-          "pubDate": "Fri, 13 Nov 2026 06:39:00 GMT",
-          "description": "L’Aie stima che l’offerta mondiale di greggio dovrebbe superare la domanda nell’ultimo trimestre del 2026 per la prima volta dallo scoppio della guerra in Iran,…"
+          "title": "Il 5G diventa un radar diffuso. L’idea è usarlo contro i droni",
+          "link": "https://www.ilsole24ore.com/art/il-5g-diventa-radar-diffuso-l-idea-e-usarlo-contro-droni-AJPkQWEC",
+          "pubDate": "Fri, 13 Nov 2026 06:33:33 GMT",
+          "description": "Ericsson lavora all’utilizzo delle riflessioni delle onde radio per tracciare apparecchi senza pilota"
         },
         {
-          "title": "Scandalo Nvidia: spunta una terza amante. Alice Huang legata a Huawei. Il Congresso Usa convoca Lutnick",
-          "link": "https://www.ilsole24ore.com/art/scandalo-nvidia-dubbi-007-spia-cinese-mentre-lutnick-testimonia-congresso-AJp8OBFC",
-          "pubDate": "Fri, 13 Nov 2026 06:32:00 GMT",
-          "description": "Lo scandalo che ha travolto Jensen Huang, ormai ex ceo di Nvidia, non finisce con le dimissioni del potente stratega dei chip avvenute 24 ore fa con la..."
+          "title": "Codice della strada: come funzionerà la precedenza nelle rotatorie",
+          "link": "https://www.ilsole24ore.com/art/codice-strada-come-funzionera-precedenza-rotatorie-AJteyXEC",
+          "pubDate": "Thu, 12 Nov 2026 17:47:00 GMT",
+          "description": "La modifica delle regole di circolazione stradale comporta sempre e comunque un periodo di adattamento. Se poi cambiano le regole di natura generale, e cioè que…"
         },
         {
-          "title": "Protezione civile, Mattarella firma la legge ma invia lettera di rilievi alle Camere e al Governo",
-          "link": "https://www.ilsole24ore.com/art/protezione-civile-scudo-autorita-operatori-e-volontari-cosa-prevede-legge-segnalata-mattarella-AJlgaLFC",
-          "pubDate": "Fri, 13 Nov 2026 10:17:00 GMT",
-          "description": "Il Capo dello Stato Sergio Mattarella ha promulgato la legge sulla protezione civile, approvata dal Senato il 4 agosto e dalla Camera il 21 ottobre, ma ha accom…"
+          "title": "Clima: la Cina rinuncia alla Cop del 2028, ma il picco di gas serra sembra già alle spalle",
+          "link": "https://www.ilsole24ore.com/art/clima-cina-rinuncia-cop-2028-ma-picco-gas-serra-sembra-gia-spalle-AJHlsbFC",
+          "pubDate": "Fri, 13 Nov 2026 17:26:00 GMT",
+          "description": "ANTALYA (TURCHIA) - La Cina rinuncia a ospitare la Cop33 del 2028. Circolata a lungo, l’ipotesi di una conferenza mondiale sul clima nella seconda economia mond…"
         },
         {
-          "title": "Papa Leone XIV arriva nella sua Chiclayo. Da Lima appello ai giovani: «Appassionatevi»",
-          "link": "https://www.ilsole24ore.com/art/papa-leone-xiv-sua-chiclayo-lancia-appello-giovani-appassionatevi-AJuLaOFC",
-          "pubDate": "Fri, 13 Nov 2026 10:25:00 GMT",
-          "description": "Durante la veglia a Lima, il Pontefice ha esortato i giovani a coltivare valori veri e a superare le difficoltà con il sostegno dell’amicizia"
+          "title": "Il modello Atalanta continua a produrre utili: 26,5 milioni nella stagione 2025/26 e record di ricavi a 325 milioni",
+          "link": "https://www.ilsole24ore.com/art/il-modello-atalanta-continua-produrre-utili-265-milioni-stagione-202526-e-record-ricavi-325-milioni-AJ6yYoFC",
+          "pubDate": "Fri, 13 Nov 2026 16:49:22 GMT",
+          "description": "Nel calcio italiano resta un laboratorio quasi unico. Mentre gran parte dei club continua a inseguire l’equilibrio economico, Atalanta Bergamasca Calcio archivi…"
         }
       ]
     }
