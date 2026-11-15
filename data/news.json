@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-15T19:38:02+00:00",
+  "updatedAt": "2026-11-15T23:51:28+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,24 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "15enne tenta di colpire un compagno con un taglierino davanti ad un liceo, un insegnante evita il peggio",
+          "link": "https://www.orizzontescuola.it/15enne-tenta-di-colpire-un-compagno-con-un-taglierino-davanti-ad-un-liceo-un-insegnante-evita-il-peggio/",
+          "pubDate": "Sun, 15 Nov 2026 21:00:55 +0000",
+          "description": "Una lite tra due studenti minorenni è degenerata in un'aggressione con un taglierino nei pressi del liceo scientifico, in provincia di Como. L'episodio risale a…"
+        },
+        {
+          "title": "“Mamma, vado a manifestare”, adolescenti e proteste di piazza: come educare i giovani al dissenso consapevole, responsabile e sicuro. I consigli di Maria Beatrice Alonzi",
+          "link": "https://www.orizzontescuola.it/mamma-vado-a-manifestare-adolescenti-e-proteste-di-piazza-come-educare-i-giovani-al-dissenso-consapevole-responsabile-e-sicuro-i-consigli-di-maria-beatrice-alonzi/",
+          "pubDate": "Sun, 15 Nov 2026 21:00:32 +0000",
+          "description": "La comunicazione di un figlio quindicenne che annuncia di voler partecipare a una manifestazione genera quasi istintivamente timore nei genitori. Il primo impul…"
+        },
+        {
+          "title": "La musica come “educatrice del sentire”, l’intervento di Franco Mussida: “Vero e proprio strumento di crescita interiore e riscatto sociale” (VIDEO)",
+          "link": "https://www.orizzontescuola.it/la-musica-come-educatrice-del-sentire-lintervento-di-franco-mussida-vero-e-proprio-strumento-di-crescita-interiore-e-riscatto-sociale-video/",
+          "pubDate": "Sun, 15 Nov 2026 20:00:15 +0000",
+          "description": "Protagonista di uno dei tavoli tematici degli Stati Generali della Scuola Digitale, Franco Mussida — artista, musicista, ricercatore, nonché co-fondatore della…"
+        },
+        {
           "title": "Stipendi docenti infanzia e primaria, Ranieri (UIL Scuola): “Stessa retribuzione, ma 25 ore di insegnamento contro 22”",
           "link": "https://www.orizzontescuola.it/stipendi-docenti-infanzia-e-primaria-ranieri-uil-scuola-stessa-retribuzione-ma-25-ore-di-insegnamento-contro-22/",
           "pubDate": "Sun, 15 Nov 2026 19:30:37 +0000",
@@ -62,24 +80,6 @@
           "link": "https://www.orizzontescuola.it/invalsi-il-presidente-ricci-la-valutazione-deve-tutelare-le-competenze-di-base-ma-anche-sostenere-le-inclinazioni-individuali-video/",
           "pubDate": "Sun, 15 Nov 2026 17:41:49 +0000",
           "description": "Ripensare la valutazione scolastica affinché non sia soltanto una fotografia statica, ma uno strumento capace di accompagnare tanto chi fatica quanto chi eccell…"
-        },
-        {
-          "title": "Intelligenza artificiale, se impara da sé stessa rischia il collasso: lo studio che punta sulla “sorpresa”",
-          "link": "https://www.orizzontescuola.it/intelligenza-artificiale-se-impara-da-se-stessa-rischia-il-collasso-lo-studio-che-punta-sulla-sorpresa/",
-          "pubDate": "Sun, 15 Nov 2026 17:35:29 +0000",
-          "description": "Più contenuti scritti dalle macchine finiscono online, più cresce il rischio che le intelligenze artificiali vengano allenate su testi prodotti da altre intelli…"
-        },
-        {
-          "title": "Video del docente pubblicato per deriderlo: quali strumenti di tutela ha l’insegnante? Il Punto di De Martino",
-          "link": "https://www.orizzontescuola.it/video-del-docente-pubblicato-per-deriderlo-quali-strumenti-di-tutela-ha-linsegnante-il-punto-di-de-martino/",
-          "pubDate": "Sun, 15 Nov 2026 17:04:54 +0000",
-          "description": "Un video registrato in classe viene diffuso sui social o in una chat con l’obiettivo di ridicolizzare, screditare o danneggiare l’insegnante. Quali strumenti ha…"
-        },
-        {
-          "title": "Figli e intelligenza artificiale, il 30% dei genitori teme che i ragazzi si rivolgano all’AI invece che a loro. L’indagine",
-          "link": "https://www.orizzontescuola.it/figli-e-intelligenza-artificiale-il-30-dei-genitori-teme-che-i-ragazzi-si-rivolgano-allai-invece-che-a-loro-lindagine/",
-          "pubDate": "Sun, 15 Nov 2026 16:35:19 +0000",
-          "description": "Quando un figlio adolescente attraversa un momento difficile, a chi si rivolge? Per molti genitori la risposta potrebbe essere anche un chatbot. Il 30% si dice…"
         }
       ]
     },
@@ -87,10 +87,10 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Francia, le Poste sotto attacco hacker: violati 22 milioni di account",
-          "link": "https://www.ilsole24ore.com/art/francia-poste-sotto-attacco-hacker-violati-22-milioni-account-AJhUPaHC",
-          "pubDate": "Sun, 15 Nov 2026 17:17:08 GMT",
-          "description": "È un maxi-attacco hacker devastante quello che ha messo sotto scacco la Francia nelle ultime ore. Nel mirino dei pirati informatici è finita Maileva, snodo stra…"
+          "title": "Ft: «Jensen Huang pensa a un clamoroso ritorno alla guida di Nvidia»",
+          "link": "https://www.ilsole24ore.com/art/ft-jensen-huang-pensa-un-clamoroso-ritorno-guida-nvidia-AJ4kafHC",
+          "pubDate": "Sun, 15 Nov 2026 20:00:00 GMT",
+          "description": "JSecondo quanto riportato domenica dal Financial Times , che cita fonti vicine alla vicenda, Jensen Huang starebbe valutando un ritorno alla guida di Nvidia com…"
         },
         {
           "title": "Schlein: «Io per tassa sui super ricchi». Conte: «Tassiamo la speculazione finanziaria»",
@@ -105,6 +105,12 @@
           "description": "Il rischio ingorgo nelle Camere è dietro l’angolo. Non a caso è stato lo stesso ministro per i rapporti con il Parlamento Luca Ciriani a lanciare nell’ultimo Cd…"
         },
         {
+          "title": "Francia, le Poste sotto attacco hacker: violati 22 milioni di account",
+          "link": "https://www.ilsole24ore.com/art/francia-poste-sotto-attacco-hacker-violati-22-milioni-account-AJhUPaHC",
+          "pubDate": "Sun, 15 Nov 2026 17:17:08 GMT",
+          "description": "È un maxi-attacco hacker devastante quello che ha messo sotto scacco la Francia nelle ultime ore. Nel mirino dei pirati informatici è finita Maileva, snodo stra…"
+        },
+        {
           "title": "Tra sconti e consigli per acquisti responsabili, una mappa per muoversi nel Black Friday",
           "link": "https://www.ilsole24ore.com/art/tra-sconti-e-consigli-acquisti-responsabili-mappa-muoversi-black-friday-AJOr9nDC",
           "pubDate": "Sun, 15 Nov 2026 16:46:52 GMT",
@@ -115,12 +121,6 @@
           "link": "https://www.ilsole24ore.com/art/il-primo-mac-schermo-touch-gli-utenti-nativi-se-aspettano-AJFrrZCC",
           "pubDate": "Sun, 15 Nov 2026 14:56:22 GMT",
           "description": "In questa fase particolarmente dinamica, aperta dall’arrivo del nuovo ceo John Ternus e caratterizzata da un ritmo più frequente di lancio dei prodotti, dopo l’…"
-        },
-        {
-          "title": "Cobas proclamano sciopero generale il 20 novembre, esclusi trasporti",
-          "link": "https://www.ilsole24ore.com/art/cobas-proclamano-sciopero-generale-20-novembre-esclusi-trasporti-AJkdNXHC",
-          "pubDate": "Sun, 15 Nov 2026 16:05:00 GMT",
-          "description": "La mobilitazione riguarderà per l’intera giornata tutti i settori pubblici e privati"
         }
       ]
     }
