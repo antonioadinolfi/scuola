@@ -471,5 +471,16 @@
     "ordine": 8,
     "attivo": true,
     "categoria": "Laboratorio Python"
+  },
+  {
+    "classe": "Prima",
+    "titolo": "Laboratorio interattivo – Codifica dell'informazione e ASCII",
+    "descrizione": "10 esercizi di codifica dell'informazione, memoria, immagini e ASCII. Timer 30 minuti, verifica disabilitata, blocco alla scadenza e consegna PDF con ID univoco.",
+    "tipo": "esercizio",
+    "file_path": "tracce/Prime/laboratorio_codifica_interattivo.html",
+    "target_page": "tracce/Prime/laboratorio_codifica_interattivo.html",
+    "ordine": 6,
+    "attivo": true,
+    "categoria": "Laboratorio Interattivo"
   }
 ]
