@@ -482,5 +482,16 @@
     "ordine": 6,
     "attivo": true,
     "categoria": "Laboratorio Interattivo"
+  },
+  {
+    "classe": "Prima",
+    "titolo": "Avvia verifica con Safe Exam Browser (.seb)",
+    "descrizione": "Scarica il file SEB cifrato per aprire la verifica Codifica dell'informazione (30 minuti) in modalità protetta.",
+    "tipo": "esercizio",
+    "file_path": "tracce/Prime/scarica_verifica_codifica_seb.html",
+    "target_page": "tracce/Prime/scarica_verifica_codifica_seb.html",
+    "ordine": 7,
+    "attivo": true,
+    "categoria": "Laboratorio Interattivo"
   }
 ]
