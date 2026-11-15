@@ -1,142 +1,55 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pubblicazioni | Prof. Antonio Adinolfi</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="design-system.css">
-    <style>
-        :root { --iris-blue: var(--color-primary); --iris-light-blue: var(--color-background); --border-gray: var(--color-border); --text-dark: var(--color-text); }
-        * { box-sizing: border-box; }
-        body { font-family: var(--font-sans); background-color: var(--color-background); margin: 0; color: var(--text-dark); }
-        .site-topbar { background: var(--color-primary); padding: 0 3rem; height: 64px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--color-border-accent); }
-        .site-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .site-badge { width: 34px; height: 34px; background: var(--color-accent); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-style: italic; color: #fff; font-size: 15px; flex-shrink: 0; }
-        .site-name { color: #fff; font-size: 13.5px; font-weight: 500; }
-        .site-inst { color: rgba(255,255,255,0.45); font-size: 11px; letter-spacing: 0.3px; margin-top: 1px; }
-        .site-back { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 13px; font-weight: 600; transition: color var(--transition-fast); }
-        .site-back:hover { color: #fff; }
-        .iris-header { padding: 10px 5%; border-bottom: 1px solid var(--iris-light-blue); font-size: 13px; color: var(--iris-blue); background-color: var(--color-background-2); }
-        .container { max-width: 1200px; margin: 20px auto; padding: 0 20px; }
-        .author-title { font-size: 32px; font-weight: 300; color: #444; margin-bottom: 30px; display: flex; align-items: center; gap: 15px; }
-        .author-title i { color: var(--iris-blue); font-size: 24px; }
-        .info-box { border: 5px solid #e2e2e2; border-radius: 15px; padding: 25px; margin-bottom: 40px; }
-        .info-row { display: flex; margin-bottom: 15px; border-bottom: 1px solid #f9f9f9; padding-bottom: 10px; }
-        .info-label { width: 250px; font-weight: 500; color: #666; font-size: 14px; }
-        .info-value { font-weight: 400; color: #000; text-transform: uppercase; font-size: 14px; }
-        .controls-row { display: flex; justify-content: flex-end; gap: 10px; margin-bottom: 20px; }
-        .btn-iris { background-color: var(--iris-blue); color: white; border: none; padding: 8px 20px; border-radius: 20px; font-size: 14px; cursor: pointer; font-weight: 500; }
-        .pub-item { border: 1px solid #e2e2e2; border-radius: 10px; padding: 20px; margin-bottom: 12px; position: relative; background: #fff; }
-        .pub-title { color: #0076a3; text-decoration: none; font-size: 16px; font-weight: 500; display: block; margin-bottom: 8px; padding-right: 30px; }
-        .pub-title:hover { text-decoration: underline; }
-        .pub-meta { font-size: 13px; color: #555; line-height: 1.6; }
-        .tag-settore { display: inline-block; background: #f0f0f0; padding: 2px 8px; border-radius: 3px; font-size: 11px; margin-top: 10px; color: #666; border: 1px solid #ddd; }
-        footer { margin: 50px 0; padding: 20px; text-align: center; border-top: 1px solid #eee; }
-        .pub-identity { background: var(--color-primary); border-radius: var(--radius-lg, 12px); padding: 1.8rem 2.2rem; margin: 20px 0 28px; display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
-        .pub-identity-intro { max-width: 480px; }
-        .pub-identity-eyebrow { font-family: var(--font-sans); font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px; color: var(--color-accent); font-weight: 600; margin: 0 0 0.6rem; }
-        .pub-identity-heading { font-family: var(--font-serif); font-weight: 400; color: #fff; font-size: clamp(1.25rem, 2.2vw, 1.7rem); line-height: 1.35; margin: 0; }
-        .pub-identity-author { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
-        .pub-identity-photo { width: 200px; height: 200px; border-radius: 10px; object-fit: cover; border: 1px solid rgba(255,255,255,0.16); display: block; }
-        .pub-identity-photo-fallback { width: 200px; height: 200px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.04); align-items: center; justify-content: center; font-family: var(--font-serif); font-style: italic; font-size: 34px; color: var(--color-accent-light, var(--color-accent)); }
-        .pub-identity-author-text { font-family: var(--font-sans); }
-        .pub-identity-author-name { font-family: var(--font-serif); font-style: italic; color: #fff; font-size: 15.5px; margin-bottom: 5px; }
-        .pub-identity-author-role { font-size: 11.5px; color: rgba(255,255,255,0.55); line-height: 1.55; }
-        @media (max-width: 640px) {
-            .pub-identity { flex-direction: column; align-items: flex-start; padding: 1.5rem 1.4rem; }
-            .pub-identity-photo, .pub-identity-photo-fallback { width: 110px; height: 110px; }
-            .pub-identity-photo-fallback { font-size: 20px; }
-            .pub-identity-author { gap: 12px; }
-        }
-    </style>
-    <link rel="manifest" href="manifest.webmanifest"/>
-    <meta name="theme-color" content="#0d1b2e"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0d1b2e">
+<meta name="description" content="Pubblicazioni e contributi tecnico-scientifici di Antonio Adinolfi.">
+<title>Pubblicazioni | Prof. Antonio Adinolfi</title>
+<link rel="stylesheet" href="design-system.css">
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+:root{--navy:#0d1b2e;--blue:#155b9a;--border:#e3e8f0;--muted:#657287;--paper:#fff;--bg:#f5f7fb}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#192b40;font-family:Arial,Helvetica,sans-serif;line-height:1.5}a{color:var(--blue)}button,input,select{font:inherit}
+.topbar{background:var(--navy);color:white}.topinner{max-width:1240px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 22px;gap:16px}.brand{font-weight:700;color:white;text-decoration:none;font-size:18px}.brand span{color:#8ac3ed}.back{color:#d7e7f5;text-decoration:none;font-size:13px}
+.subnav{background:white;border-bottom:1px solid var(--border)}.subinner{max-width:1240px;margin:auto;padding:12px 22px;display:flex;align-items:center;gap:28px;font-size:13px}.subinner a{text-decoration:none;font-weight:600}
+.layout{max-width:1240px;margin:30px auto;display:grid;grid-template-columns:245px minmax(0,1fr) 230px;gap:24px;padding:0 22px;align-items:start}
+.sidebar,.aside-card,.paper,.intro,.toolbar{background:var(--paper);border:1px solid var(--border);border-radius:12px}
+.sidebar{padding:22px;position:sticky;top:16px;text-align:center}.portrait{width:116px;height:116px;object-fit:cover;border-radius:50%;border:4px solid #eef3f9;margin:0 auto 12px;display:block}.portrait-fallback{width:116px;height:116px;border-radius:50%;background:#e8eef6;color:var(--blue);display:none;align-items:center;justify-content:center;margin:0 auto 12px;font-size:34px;font-weight:bold}.sidebar h1{font-size:19px;margin:6px 0}.role{font-size:13px;color:var(--muted);margin:4px 0}.profile-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0;border-top:1px solid var(--border);padding-top:18px}.stat strong{display:block;font-size:22px;color:var(--navy)}.stat small{font-size:11px;color:var(--muted)}.side-link{display:block;text-align:left;padding:10px 12px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600}.side-link.active{background:#eaf3fd}
+.intro{padding:24px 26px;margin-bottom:18px}.eyebrow{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;font-weight:bold;color:var(--blue)}.intro h2{font-size:clamp(24px,3vw,34px);line-height:1.15;margin:9px 0}.intro p{color:var(--muted);font-size:14px;margin-bottom:0}
+.toolbar{padding:14px;display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap}.search{flex:1;min-width:190px}.search input,.toolbar select{width:100%;padding:10px 12px;border:1px solid #d4dce8;border-radius:8px;background:white;color:#25344a}.toolbar select{width:auto}.btn{border:1px solid #cbd8e7;background:white;border-radius:8px;padding:10px 13px;cursor:pointer;color:var(--blue);font-weight:bold;font-size:12px}.btn:hover,.paper-actions a:hover{background:#eef5fd}.count{color:var(--muted);font-size:12px;margin:0 0 12px 2px}
+.paper{display:grid;grid-template-columns:80px 1fr;gap:20px;padding:22px;margin-bottom:14px}.paper-cover{height:104px;background:linear-gradient(145deg,#eef3f9,#d9e5f2);border:1px solid #d0dbe9;border-radius:5px;display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:34px;box-shadow:3px 4px 0 #e5eaf1}.paper h3{font-size:17px;line-height:1.4;margin:0 0 8px}.paper h3 a{text-decoration:none;color:#173e6b}.paper h3 a:hover{text-decoration:underline}.meta{font-size:12px;color:var(--muted)}.tag{display:inline-block;font-size:11px;color:#3c6486;background:#edf4fb;border-radius:5px;padding:4px 8px;margin-top:10px}.paper-actions{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}.paper-actions a{border:1px solid #d7e1ec;border-radius:7px;padding:7px 11px;text-decoration:none;font-size:12px;font-weight:bold}.paper-actions .disabled{font-size:12px;color:var(--muted)}.aside-card{padding:19px;margin-bottom:16px}.aside-card h3{margin:0 0 10px;font-size:14px}.aside-card p{color:var(--muted);font-size:12px}.topic{display:inline-block;border:1px solid #dbe5f0;border-radius:30px;padding:6px 10px;margin:3px;font-size:11px;color:#315a82}.empty{padding:32px;text-align:center;color:var(--muted)}footer{text-align:center;padding:30px;font-size:12px;color:var(--muted)}
+@media(max-width:1050px){.layout{grid-template-columns:220px minmax(0,1fr)}.rightcol{display:none}}@media(max-width:720px){.layout{display:block;margin-top:16px;padding:0 14px}.sidebar{position:static;margin-bottom:16px}.sidebar .portrait,.sidebar .portrait-fallback{width:76px;height:76px}.profile-stats{margin:12px 0}.intro{padding:20px}.paper{grid-template-columns:55px 1fr;gap:13px;padding:15px}.paper-cover{height:78px;font-size:24px}.paper h3{font-size:15px}.topinner,.subinner{padding-left:14px;padding-right:14px}.toolbar select{flex:1}}
+</style>
 </head>
 <body>
-<nav class="site-topbar">
-    <a href="index.html" class="site-brand">
-      <div class="site-badge">A</div>
-      <div><div class="site-name">Prof. Antonio Adinolfi</div><div class="site-inst">Pubblicazioni e contributi</div></div>
-    </a>
-    <a href="index.html" class="site-back">&larr; Torna alla home</a>
-</nav>
-<div class="iris-header">Ing. Antonio Adinolfi / Pubblicazioni</div>
-<div class="container">
-    <div class="pub-identity">
-        <div class="pub-identity-intro">
-            <p class="pub-identity-eyebrow">Pubblicazioni</p>
-            <h2 class="pub-identity-heading">Ricerca, contributi e materiali<br>del Prof. Antonio Adinolfi</h2>
-        </div>
-        <div class="pub-identity-author">
-            <img src="immagini/foto_adinolfi.jpg" alt="Prof. Antonio Adinolfi" class="pub-identity-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="pub-identity-photo-fallback" style="display:none">AA</div>
-            <div class="pub-identity-author-text">
-                <div class="pub-identity-author-name">Prof. Antonio Adinolfi</div>
-                <div class="pub-identity-author-role">Docente di Informatica · A041</div>
-                <div class="pub-identity-author-role">Liceo Scientifico "Nino Cortese" · Maddaloni</div>
-            </div>
-        </div>
-    </div>
-    <h1 class="author-title">ADINOLFI, ANTONIO <i class="fas fa-microchip"></i></h1>
-    <div class="info-box">
-        <div class="info-row"><div class="info-label">Nominativo Professionale</div><div class="info-value">Ing. Antonio Adinolfi</div></div>
-        <div class="info-row"><div class="info-label">Dipartimento / Afferenza</div><div class="info-value">Dipartimento di Informatica - Liceo "N. Cortese"</div></div>
-        <div class="info-row"><div class="info-label">Settore Scientifico-Disciplinare</div><div class="info-value">A/41 - Scienze e Tecnologie Informatiche</div></div>
-    </div>
-    <div class="controls-row">
-        <button class="btn-iris" type="button">Esporta Elenco <i class="fas fa-download"></i></button>
-        <button class="btn-iris" type="button">Record Totali (7)</button>
-    </div>
-    <div style="font-size:13px;margin-bottom:20px;color:#888;border-left:3px solid var(--iris-blue);padding-left:10px;">
-        Elenco delle pubblicazioni tecniche e contributi scientifici.
-    </div>
-    <div class="pub-list">
-        <div class="pub-item">
-            <a href="Pubblicazioni/La_cinematica_del_punto_materiale_equazioni.pdf" class="pub-title">La cinematica del punto materiale: equazioni, genesi storica e applicazioni contemporanee</a>
-            <div class="pub-meta"><strong>2026</strong> | Adinolfi, Antonio.<br><em>Articolo didattico-scientifico · Novembre 2026</em></div>
-            <span class="tag-settore">Cinematica · Robotica · Python</span>
-        </div>
-        <div class="pub-item">
-            <a href="Pubblicazioni/Tesi di laurea.pdf" class="pub-title">SIMULAZIONE 2D DELL’INTERAZIONE TRA UN IMPULSO LASER E UN CAMPIONE DI SILICIO A LIVELLI DI INIEZIONE ARBITRARI</a>
-            <div class="pub-meta"><strong>2024</strong> | Adinolfi, Antonio.<br><em>Independent.academia.edu</em></div>
-            <span class="tag-settore">ING-INF/05</span>
-        </div>
-        <div class="pub-item">
-            <a href="Pubblicazioni/DIDAMATICA2026_Adinolfi_EasyChair.pdf" class="pub-title">Adaptive Learning 5.0: un'architettura a retroazione per la personalizzazione etica della didattica</a>
-            <div class="pub-meta"><strong>2026</strong> | Adinolfi, Antonio.<br><em>Didamatica 2026</em></div>
-            <span class="tag-settore">ING-INF/05</span>
-        </div>
-        <div class="pub-item">
-            <a href="Pubblicazioni/Strutture_Dati_Fondamentali_Articolo_IEEE_v2_Antonio_Adinolfi (2).pdf" class="pub-title">Strutture dati fondamentali: analisi, implementazione in PYTHON e applicazioni reali</a>
-            <div class="pub-meta"><strong>2026</strong> | Adinolfi, Antonio.<br><em>Independent.academia.edu</em></div>
-            <span class="tag-settore">ING-INF/05</span>
-        </div>
-        <div class="pub-item">
-            <a href="Pubblicazioni/Velocita_di_Fuga_Articolo_IXXX (2).pdf" class="pub-title">Dalla dinamica newtoniana alla velocità di fuga: una derivazione geometrico-algebrica dell’energia cinetica, dell’energia potenziale e della sua conservazione</a>
-            <div class="pub-meta"><strong>2026</strong> | Adinolfi, Antonio.<br><em>Independent.academia.edu</em></div>
-            <span class="tag-settore">ING-INF/05</span>
-        </div>
-        <div class="pub-item">
-            <a href="Pubblicazioni/Orbite_Satelliti_Keplero_IEEE.pdf" class="pub-title">Dalle leggi di Keplero alle orbite dei satelliti: una derivazione geometrico-algebrica delle traiettorie coniche nel campo gravitazionale</a>
-            <div class="pub-meta"><strong>2026</strong> | Adinolfi, Antonio.<br><em>Articolo tecnico-scientifico</em></div>
-            <span class="tag-settore">ING-INF/05</span>
-        </div>
-        <div class="pub-item">
-            <a href="" class="pub-title">ORDINE INGEGNERI - PRESIDENTE COMMISSIONE IMPIANTI</a>
-            <div class="pub-meta"><strong>2017-2021</strong> | Adinolfi, Antonio.<br><em>Ordine Ingegneri Caserta nr. 2733</em></div>
-            <span class="tag-settore">ING-INF/05</span>
-        </div>
-    </div>
+<header class="topbar"><div class="topinner"><a class="brand" href="index.html">Antonio Adinolfi <span>/ Pubblicazioni</span></a><a class="back" href="index.html">← Torna al sito</a></div></header>
+<nav class="subnav" aria-label="Navigazione"><div class="subinner"><a href="index.html">Home</a><a href="pubblicazioni.html" aria-current="page">Pubblicazioni</a><a href="materiali.html">Materiali didattici</a></div></nav>
+<div class="layout">
+<aside class="sidebar">
+<img class="portrait" src="immagini/foto_adinolfi.jpg" alt="Ritratto di Antonio Adinolfi" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="portrait-fallback">AA</div>
+<h1>Antonio Adinolfi</h1><p class="role">Ingegnere · Docente di Informatica</p><p class="role">Liceo Scientifico Nino Cortese, Maddaloni</p>
+<div class="profile-stats"><div class="stat"><strong id="totalCount">7</strong><small>Contributi</small></div><div class="stat"><strong id="documentCount">6</strong><small>Documenti PDF</small></div></div>
+<a class="side-link active" href="pubblicazioni.html">▤ Pubblicazioni</a><a class="side-link" href="materiali.html">▣ Materiali didattici</a><a class="side-link" href="index.html">⌂ Profilo docente</a>
+</aside>
+<main>
+<section class="intro"><div class="eyebrow">Biblioteca personale · Ricerca e didattica</div><h2>Pubblicazioni e contributi scientifici</h2><p>Articoli, studi e materiali tecnico-scientifici consultabili direttamente in PDF. Una raccolta dedicata a informatica, fisica, automazione e innovazione didattica.</p></section>
+<div class="toolbar"><label class="search"><input id="search" type="search" placeholder="Cerca per titolo, argomento o anno…" aria-label="Cerca pubblicazioni"></label><select id="year" aria-label="Filtra per anno"><option value="">Tutti gli anni</option></select><button id="export" class="btn" type="button">↓ Esporta elenco</button></div>
+<p class="count" id="resultCount" aria-live="polite"></p><div id="papers"></div>
+</main>
+<aside class="rightcol"><div class="aside-card"><h3>Ambiti di interesse</h3><span class="topic">Informatica</span><span class="topic">Fisica</span><span class="topic">Automazione</span><span class="topic">Didattica</span><span class="topic">Modelli matematici</span></div><div class="aside-card"><h3>Consultazione</h3><p>Seleziona il titolo o il pulsante «Leggi PDF» per aprire il documento originale. Usa la ricerca per individuare rapidamente un contributo.</p></div><div class="aside-card"><h3>Profilo accademico</h3><p>Le pubblicazioni presenti in questa pagina sono ospitate sul sito personale; eventuali profili esterni sono indipendenti.</p></div></aside>
 </div>
-<footer style="border-top:1px solid var(--color-border);">
-    <a href="index.html" style="color:var(--iris-blue);text-decoration:none;font-weight:500;"><i class="fas fa-chevron-left"></i> Ritorna al profilo docente</a>
-</footer>
+<footer>© Antonio Adinolfi · Pubblicazioni e contributi</footer>
+<script>
+const papers=[{"href":"Pubblicazioni/La_cinematica_del_punto_materiale_equazioni.pdf","title":"La cinematica del punto materiale: equazioni, genesi storica e applicazioni contemporanee","year":"2026","meta":"2026 | Adinolfi, Antonio. Articolo didattico-scientifico · Novembre 2026","tag":"Cinematica · Robotica · Python","isDocument":true},{"href":"Pubblicazioni/Tesi di laurea.pdf","title":"SIMULAZIONE 2D DELL’INTERAZIONE TRA UN IMPULSO LASER E UN CAMPIONE DI SILICIO A LIVELLI DI INIEZIONE ARBITRARI","year":"2024","meta":"2024 | Adinolfi, Antonio. Independent.academia.edu","tag":"ING-INF/05","isDocument":true},{"href":"Pubblicazioni/DIDAMATICA2026_Adinolfi_EasyChair.pdf","title":"Adaptive Learning 5.0: un'architettura a retroazione per la personalizzazione etica della didattica","year":"2026","meta":"2026 | Adinolfi, Antonio. Didamatica 2026","tag":"ING-INF/05","isDocument":true},{"href":"Pubblicazioni/Strutture_Dati_Fondamentali_Articolo_IEEE_v2_Antonio_Adinolfi (2).pdf","title":"Strutture dati fondamentali: analisi, implementazione in PYTHON e applicazioni reali","year":"2026","meta":"2026 | Adinolfi, Antonio. Independent.academia.edu","tag":"ING-INF/05","isDocument":true},{"href":"Pubblicazioni/Velocita_di_Fuga_Articolo_IXXX (2).pdf","title":"Dalla dinamica newtoniana alla velocità di fuga: una derivazione geometrico-algebrica dell’energia cinetica, dell’energia potenziale e della sua conservazione","year":"2026","meta":"2026 | Adinolfi, Antonio. Independent.academia.edu","tag":"ING-INF/05","isDocument":true},{"href":"Pubblicazioni/Orbite_Satelliti_Keplero_IEEE.pdf","title":"Dalle leggi di Keplero alle orbite dei satelliti: una derivazione geometrico-algebrica delle traiettorie coniche nel campo gravitazionale","year":"2026","meta":"2026 | Adinolfi, Antonio. Articolo tecnico-scientifico","tag":"ING-INF/05","isDocument":true},{"href":"","title":"ORDINE INGEGNERI - PRESIDENTE COMMISSIONE IMPIANTI","year":"2017-2021","meta":"2017-2021 | Adinolfi, Antonio. Ordine Ingegneri Caserta nr. 2733","tag":"ING-INF/05","isDocument":false}];
+const list=document.getElementById('papers'),search=document.getElementById('search'),year=document.getElementById('year'),count=document.getElementById('resultCount');
+const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const years=[...new Set(papers.map(p=>p.year))].sort((a,b)=>b.localeCompare(a));for(const y of years){const o=document.createElement('option');o.value=y;o.textContent=y;year.append(o)}
+document.getElementById('totalCount').textContent=papers.length;document.getElementById('documentCount').textContent=papers.filter(p=>p.isDocument).length;
+function render(){const q=search.value.trim().toLocaleLowerCase('it');const shown=papers.filter(p=>(!year.value||p.year===year.value)&&[p.title,p.meta,p.tag,p.year].join(' ').toLocaleLowerCase('it').includes(q));count.textContent=shown.length+' risultati su '+papers.length+' contributi';list.innerHTML=shown.length?shown.map(p=>'<article class="paper"><div class="paper-cover" aria-hidden="true">▤</div><div><h3>'+(p.isDocument?'<a href="'+encodeURI(p.href)+'" target="_blank" rel="noopener noreferrer">'+escapeHTML(p.title)+'</a>':escapeHTML(p.title))+'</h3><div class="meta">'+escapeHTML(p.meta)+'</div><span class="tag">'+escapeHTML(p.tag)+'</span><div class="paper-actions">'+(p.isDocument?'<a href="'+encodeURI(p.href)+'" target="_blank" rel="noopener noreferrer">↗ Leggi PDF</a><a href="'+encodeURI(p.href)+'" download>↓ Scarica</a>':'<span class="disabled">Scheda professionale · Nessun PDF associato</span>')+'</div></div></article>').join(''):'<div class="empty">Nessuna pubblicazione corrisponde ai filtri selezionati.</div>'}
+search.addEventListener('input',render);year.addEventListener('change',render);
+document.getElementById('export').addEventListener('click',()=>{const rows=[['Titolo','Anno','Autore e fonte','Argomento','PDF'],...papers.map(p=>[p.title,p.year,p.meta,p.tag,p.href])];const csv='\uFEFF'+rows.map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\r\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='pubblicazioni-antonio-adinolfi.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)});
+render();
+</script>
 <script src="pwa-register.js"></script>
-</body>
-</html>
+</body></html>
