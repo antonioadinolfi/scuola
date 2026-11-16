@@ -495,13 +495,13 @@
     "categoria": "Verifiche"
   },
   {
-    "classe": "Terza",
-    "titolo": "Laboratorio interattivo OOP – 8 esercizi casuali",
-    "descrizione": "20 tracce di incapsulamento, ereditarietà e polimorfismo. Estrazione casuale bilanciata di 8 esercizi per prova; progettazione, codice Python e PDF di consegna.",
+    "classe": "Quarta",
+    "titolo": "Laboratorio interattivo OOP – 4 esercizi casuali",
+    "descrizione": "4 esercizi casuali tratti da una banca di 20 su incapsulamento, ereditarietà e polimorfismo. Strategia, codice e PDF di consegna.",
     "tipo": "esercizio",
-    "file_path": "tracce/Terze/laboratorio_oop_random.html",
-    "target_page": "tracce/Terze/laboratorio_oop_random.html",
-    "ordine": 9,
+    "file_path": "tracce/Quarte/laboratorio_oop_random.html",
+    "target_page": "tracce/Quarte/laboratorio_oop_random.html",
+    "ordine": 11,
     "attivo": true,
     "categoria": "Laboratorio Interattivo"
   }
