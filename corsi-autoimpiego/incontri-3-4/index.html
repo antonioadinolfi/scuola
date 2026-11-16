@@ -50,6 +50,6 @@
 <footer><div class="wrap"><p><b>UD12 · Competenze digitali</b> · Incontri 3 e 4 · Documenti, dati, sicurezza, vendita · Corso di formazione Progetto per l’Autoimpiego (Ente Nazionale per il Microcredito, PNRR M5C1R1.1). Le slide originali sono riprodotte senza modifiche; le slide di approfondimento, le simulazioni e gli esercizi sono materiali integrativi del docente.</p><p>Docente: Ing. Antonio Adinolfi. I risultati dei test restano solo in questo browser.</p></div></footer>
 <script>
 (()=>{const st=document.getElementById('trainerState');const upd=()=>st.textContent=SicCourse.trainer()?'Modalità docente attiva in questo browser.':'Modalità docente non attiva.';
-document.getElementById('trainerOn').onclick=()=>{SicCourse.setTrainer(true);upd()};document.getElementById('trainerOff').onclick=()=>{SicCourse.setTrainer(false);upd()};upd()})();
+document.getElementById('trainerOn').onclick=()=>{const c=prompt('Codice docente');if(c!==null&&c.trim()==='UD12docente'){SicCourse.setTrainer(true);upd()}else if(c!==null){alert('Codice non valido')}};document.getElementById('trainerOff').onclick=()=>{SicCourse.setTrainer(false);upd()};upd()})();
 </script>
 </body></html>

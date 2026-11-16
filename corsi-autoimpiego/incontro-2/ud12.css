@@ -93,3 +93,11 @@
 [data-match] select{font-size:18px;padding:3px 6px}
 .net .node{z-index:2}
 .slide.orig.a4{background:#fff}
+
+/* protezione slide ufficiali */
+.slide.orig img{pointer-events:none;-webkit-user-drag:none;user-drag:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.slide.orig{user-select:none;-webkit-user-select:none}
+#btnPrint,#btnPrintNotes{display:none!important}
+html.trainer-on #btnPrint,html.trainer-on #btnPrintNotes{display:inline-flex!important}
+@media print{html:not(.trainer-on) .slide.orig img,html.no-print-orig .slide.orig img{visibility:hidden}
+ html:not(.trainer-on) .slide.orig::after{content:"Slide ufficiale UD12 · riservata ai corsisti, non riproducibile";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:700 28px system-ui;color:#555}}

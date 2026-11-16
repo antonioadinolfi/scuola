@@ -381,3 +381,14 @@ function mount(){document.querySelectorAll('[data-sim]').forEach(el=>{if(el.data
 document.readyState==='loading'?document.addEventListener('DOMContentLoaded',mount):mount();
 window.UD12Sim=S;
 })();
+
+/* protezione slide ufficiali (deterrente lato client) */
+(function(){
+ var T=function(){return document.documentElement.classList.contains('trainer-on')};
+ document.addEventListener('contextmenu',function(e){if(!T()&&e.target.closest('.slide.orig, .slide img'))e.preventDefault()},true);
+ document.addEventListener('dragstart',function(e){if(!T()&&e.target.closest('.slide'))e.preventDefault()},true);
+ document.addEventListener('copy',function(e){if(!T()&&e.target.closest&&e.target.closest('.slide.orig'))e.preventDefault()},true);
+ document.addEventListener('keydown',function(e){if(T())return;var k=(e.key||'').toLowerCase();if((e.ctrlKey||e.metaKey)&&(k==='p'||k==='s')){e.preventDefault();e.stopPropagation()}},true);
+ window.addEventListener('beforeprint',function(){if(!T())document.documentElement.classList.add('no-print-orig')});
+ window.addEventListener('afterprint',function(){document.documentElement.classList.remove('no-print-orig')});
+})();
