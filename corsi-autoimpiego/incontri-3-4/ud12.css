@@ -1,0 +1,94 @@
+/* UD12 · Lezione 3 — estensioni allo stile del corso «Tra Sogno e Realtà»:
+   slide originali (immagini intatte) e simulazioni interattive. */
+.slide.orig{padding:0;background:#5b87c0}
+.slide.orig img{width:1280px;height:720px;display:block;object-fit:contain}
+.slide.orig .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.deck-reading .slide.orig{padding:0}
+.overview button.extra{border-left:5px solid var(--gold)}
+.cat-originale .s-badge{display:none}
+.cat-approfondimento .s-badge{background:#176b87}
+.cat-infografica .s-badge{background:#7a3e9d}
+.cat-simulazione .s-badge{background:var(--orange)}
+.cat-esercizio .s-badge,.cat-attivita .s-badge{background:var(--teal)}
+/* contenitore simulazioni */
+.sim{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 20px;font-size:20px;line-height:1.4}
+.sim h3{font-size:21px;margin:0 0 6px}
+.sim button,.sim select,.sim input,.sim textarea{font:inherit;font-size:18px}
+.sim .btn{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:10px;background:var(--navy);color:#fff;font-weight:700;font-size:18px}
+.sim .btn.gold{background:var(--gold);color:var(--navy)}
+.sim .btn.ghost{background:#eaf2f7;color:var(--navy)}
+.sim .btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.sim .btn[aria-pressed=true]{background:var(--teal)}
+.sim .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.sim .out{min-height:28px;font-weight:700;color:var(--navy)}
+.sim label.sl{display:grid;grid-template-columns:200px 1fr 46px;align-items:center;gap:10px;font-size:17px;margin:3px 0}
+.sim input[type=range]{width:100%;accent-color:#176b87}
+.sim .meter{height:16px;border-radius:999px;background:#e8eef3;overflow:hidden}
+.sim .meter span{display:block;height:100%;width:0;border-radius:999px;transition:width .35s,background .35s}
+.tag{display:inline-block;padding:2px 10px;border-radius:999px;font-size:15px;font-weight:800;background:#eaf2f7;color:var(--navy)}
+.tag.ok{background:#d8f1e6;color:#145d53}.tag.ko{background:#fde4d4;color:#8a3d06}.tag.wait{background:#fff1b8;color:#7a5600}
+/* infografiche SVG */
+.ig{width:100%;height:auto;display:block}
+.ig text{font-family:system-ui,-apple-system,'Segoe UI',sans-serif}
+@keyframes dash{to{stroke-dashoffset:0}}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes flow{from{offset-distance:0%}to{offset-distance:100%}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.slide.active .anim-pop{animation:pop .5s both}
+.slide.active .anim-pop.d1{animation-delay:.25s}.slide.active .anim-pop.d2{animation-delay:.5s}.slide.active .anim-pop.d3{animation-delay:.75s}.slide.active .anim-pop.d4{animation-delay:1s}.slide.active .anim-pop.d5{animation-delay:1.25s}
+.pulse{animation:pulse 1.4s infinite}
+/* editor e foglio */
+.mini-doc{border:1px solid #c9d6e2;border-radius:10px;background:#fbfdff;padding:10px 14px;min-height:120px;font-size:18px;outline:none;white-space:pre-wrap}
+.mini-doc:focus{border-color:#176b87;box-shadow:0 0 0 3px #176b8733}
+.sheet{border-collapse:collapse;font-size:17px;background:#fff}
+.sheet th{background:#eef2f6;color:#52657a;font-weight:700;padding:3px 8px;border:1px solid #c9d6e2;min-width:34px}
+.sheet td{border:1px solid #c9d6e2;padding:0;min-width:120px}
+.sheet td input{all:unset;box-sizing:border-box;width:100%;padding:4px 8px;font-size:17px}
+.sheet td input:focus{background:#fff9e9;box-shadow:inset 0 0 0 2px var(--gold)}
+.sheet td.calc input{color:#145d53;font-weight:700}
+.sheet td.err input{color:#8a3d06}
+.fx{display:flex;gap:8px;align-items:center;font-family:ui-monospace,Consolas,monospace;font-size:16px;background:#eef2f6;border-radius:8px;padding:5px 10px;margin-bottom:8px}
+/* firewall, vpn, rete */
+.net{position:relative;height:250px;background:#f3f7fb;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.net .node{position:absolute;top:50%;transform:translateY(-50%);display:grid;place-items:center;text-align:center;font-size:15px;font-weight:700;color:var(--navy);width:118px}
+.net .node svg{width:64px;height:64px}
+.net .wall{position:absolute;left:50%;top:18px;bottom:18px;width:22px;margin-left:-11px;border-radius:6px;background:repeating-linear-gradient(0deg,#d9822b 0 14px,#b8661a 14px 16px);box-shadow:0 0 0 3px #fff}
+.net .pkt{position:absolute;left:120px;top:50%;margin-top:-14px;height:28px;padding:0 10px;border-radius:999px;font-size:13px;font-weight:800;display:flex;align-items:center;white-space:nowrap;color:#fff;background:#176b87;transition:left 1.6s linear,opacity .4s}
+.net .pkt.blocked{background:#c0392b}
+.net .pkt.ok{background:#2a9d8f}
+.rules{width:100%;border-collapse:collapse;font-size:17px}
+.rules th,.rules td{border-bottom:1px solid var(--line);padding:4px 6px;text-align:left}
+.rules select{font-size:15px}
+.log{font-family:ui-monospace,Consolas,monospace;font-size:14px;background:#0b1f33;color:#cfe3f1;border-radius:10px;padding:8px 10px;height:130px;overflow:auto;white-space:pre}
+.tunnel{position:absolute;left:130px;right:130px;top:32%;height:46px;margin-top:-23px;border-radius:23px;background:repeating-linear-gradient(90deg,#7a3e9d22 0 18px,#7a3e9d44 18px 36px);border:3px solid #7a3e9d;opacity:0;transition:opacity .4s}
+.net.vpn-on .tunnel{opacity:1}
+.eye{position:absolute;bottom:10px;font-size:16px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px 10px;width:250px;line-height:1.35}
+/* password */
+.pw-in{width:100%;font-family:ui-monospace,Consolas,monospace!important;font-size:24px!important;padding:8px 12px;border:2px solid #c9d6e2;border-radius:10px}
+.checks{list-style:none;padding:0!important;margin:8px 0;columns:2;font-size:17px}
+.checks li{margin:0 0 4px}.checks li::before{content:'✗ ';color:#c0392b;font-weight:800}.checks li.ok::before{content:'✓ ';color:#2a9d8f}
+/* funnel */
+.funnel-bar{height:44px;border-radius:8px;margin:6px auto;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px;transition:width .4s}
+/* carte trascinabili semplificate (clic) */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{all:unset;cursor:pointer;padding:6px 12px;border-radius:999px;background:#eaf2f7;color:var(--navy);font-weight:700;font-size:16px;border:2px solid transparent}
+.chip.sel{border-color:var(--gold);background:#fff9e9}
+.chip.ok{background:#d8f1e6;color:#145d53}.chip.ko{background:#fde4d4;color:#8a3d06}
+.bins{display:grid;gap:10px}
+.bin{border:2px dashed #a9bfce;border-radius:12px;padding:8px 10px;min-height:70px;cursor:pointer}
+.bin h4{margin:0 0 6px;font-size:17px;color:var(--navy)}
+.bin:focus-visible{outline:3px solid var(--gold)}
+/* stelle open data */
+.stars{display:flex;gap:10px}
+.star{all:unset;cursor:pointer;flex:1;border-radius:12px;border:2px solid var(--line);padding:10px;text-align:center;font-size:16px;background:#fff}
+.star b{display:block;font-size:30px;color:#c9a227}
+.star.on{border-color:var(--gold);background:#fff9e9}
+/* timeline scaletta */
+.agenda{display:grid;gap:6px}
+.agenda div{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.agenda b{color:var(--navy)}
+.agenda .pausa{background:#fff9e9}
+@media print{.sim .btn{display:none}}
+[data-match] label{display:flex;flex-direction:column;gap:4px}
+[data-match] select{font-size:18px;padding:3px 6px}
+.net .node{z-index:2}
