@@ -28,7 +28,7 @@ const names={I:'Incapsulamento',E:'Ereditarietà',P:'Polimorfismo'};
 const randomId=()=>{const b=new Uint8Array(10);crypto.getRandomValues(b);return 'OOP4-'+Array.from(b,x=>x.toString(16).padStart(2,'0')).join('').toUpperCase()};
 function shuffle(a){for(let i=a.length-1;i>0;i--){const b=new Uint32Array(1);crypto.getRandomValues(b);const j=b[0]%(i+1);[a[i],a[j]]=[a[j],a[i]]}return a}
 function fresh(){const extra=['I','E','P'][shuffle([0,1,2])[0]];const ids=['I','E','P'].flatMap(cat=>shuffle(BANK.filter(x=>x.cat===cat).map(x=>x.id)).slice(0,cat===extra?2:1));return{id:randomId(),ids:shuffle(ids),active:0,name:'',surname:'',classe:'',answers:{},revision:0,created:new Date().toISOString()}}
-function valid(s){return s&&/^OOP3-[A-F0-9]{20}$/.test(s.id)&&Array.isArray(s.ids)&&s.ids.length===4&&new Set(s.ids).size===8&&s.ids.every(id=>BANK.some(x=>x.id===id))&&s.answers&&typeof s.answers==='object'}
+function valid(s){return s&&/^OOP4-[A-F0-9]{20}$/.test(s.id)&&Array.isArray(s.ids)&&s.ids.length===4&&new Set(s.ids).size===4&&s.ids.every(id=>BANK.some(x=>x.id===id))&&s.answers&&typeof s.answers==='object'}
 let state=null;
 try{const id=sessionStorage.getItem(TAB);if(id){const saved=JSON.parse(localStorage.getItem(STORE+id)||'null');if(valid(saved))state=saved}}catch(e){}
 if(!state)state=fresh();
