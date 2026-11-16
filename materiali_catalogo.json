@@ -504,5 +504,16 @@
     "ordine": 11,
     "attivo": true,
     "categoria": "Laboratorio Interattivo"
+  },
+  {
+    "classe": "Quarta",
+    "titolo": "Avvio verifica OOP con Safe Exam Browser (.seb)",
+    "descrizione": "Scarica la configurazione SEB cifrata per la verifica di quarta: 4 esercizi casuali di incapsulamento, ereditarietà e polimorfismo. Verificare sul PC l'URL contenuto nella configurazione.",
+    "tipo": "esercizio",
+    "file_path": "tracce/Quarte/scarica_verifica_oop_seb.html",
+    "target_page": "tracce/Quarte/scarica_verifica_oop_seb.html",
+    "ordine": 12,
+    "attivo": true,
+    "categoria": "Laboratorio Interattivo"
   }
 ]
