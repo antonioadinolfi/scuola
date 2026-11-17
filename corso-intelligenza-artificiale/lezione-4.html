@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="it" data-lesson="4" class="course-pending">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Lezione 4: le reti neurali, i concetti di base. Neurone artificiale, pesi e bias, funzioni di attivazione, percettrone, reti multistrato e deep learning, backpropagation e discesa del gradiente.">
+<title>Lezione 4 · Le reti neurali | Introduzione all’intelligenza artificiale</title>
+<link rel="stylesheet" href="./ia.css?v=2">
+<script src="./ia-config.js?v=1"></script>
+<script src="./ia-data.js?v=1"></script>
+<script src="./ia-progress.js?v=1"></script>
+</head>
+<body>
+<noscript><style>html.course-pending body{visibility:visible}</style><p>Attiva JavaScript per usare le simulazioni e svolgere il test.</p></noscript>
+<a class="skip" href="#contenuti">Vai ai contenuti</a>
+
+<header><div class="wrap">
+  <div class="topbar"><a href="./">← Introduzione all’IA · Guida al corso</a><span>Classi quinte</span></div>
+  <div class="hero">
+    <div class="kicker">Lezione 4 di 4 · 1 ora · Capitolo 8.4</div>
+    <h1>Le reti neurali: i concetti di base</h1>
+    <p>Dentro il deep learning ci sono operazioni semplicissime: moltiplicazioni, somme e una funzione di attivazione, ripetute milioni di volte. Costruirai un neurone, gli farai imparare una funzione logica e addestrerai una piccola rete davanti ai tuoi occhi.</p>
+    <div class="actions">
+      <a class="button primary" href="#neurone">Inizia ↓</a>
+      <a class="button ghost" href="#slide">Slide ↓</a>
+      <a class="button ghost" href="#esercizi">Esercizi ↓</a>
+      <a class="button ghost" href="#test-finale">Test finale ↓</a>
+      <button class="button ghost" id="projection" aria-pressed="false">Testo ingrandito</button>
+      <button class="button ghost" onclick="window.print()">Stampa / PDF</button>
+    </div>
+  </div>
+</div></header>
+
+<main class="wrap" id="contenuti">
+<nav class="lesson-nav" aria-label="Percorso delle lezioni">
+  <a class="button" data-lesson-link="1" href="./lezione-1.html">Lezione 1<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="2" href="./lezione-2.html">Lezione 2<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="3" href="./lezione-3.html">Lezione 3<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="4" href="./lezione-4.html" aria-current="page">Lezione 4<span class="nav-state"></span></a>
+</nav>
+
+<section class="section" id="obiettivi">
+  <div class="kicker">Obiettivi della lezione</div>
+  <h2>Al termine saprai…</h2>
+  <div class="panel">
+    <ul>
+      <li>calcolare l’uscita di un <strong>neurone artificiale</strong> a partire da input, <strong>pesi</strong> e <strong>bias</strong>;</li>
+      <li>riconoscere le principali <strong>funzioni di attivazione</strong>: gradino, sigmoide, tanh, softplus, <strong>ReLU</strong>;</li>
+      <li>spiegare perché un singolo percettrone non risolve XOR e servono <strong>reti multistrato</strong> (deep learning);</li>
+      <li>descrivere l’addestramento come <strong>minimizzazione dell’errore</strong> tramite <strong>backpropagation</strong> e discesa del gradiente.</li>
+    </ul>
+    <div class="timeline" aria-label="Organizzazione dell’ora">
+      <div><b>10′</b>Il neurone artificiale</div>
+      <div><b>10′</b>Percettrone e reti multistrato</div>
+      <div><b>15′</b>Come impara una rete</div>
+      <div><b>15′</b>Esercizi</div>
+      <div><b>10′</b>Test finale</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="slide">
+  <div class="kicker">Le slide del capitolo 8.4</div>
+  <h2>Le slide della lezione</h2>
+  <p>Le slide del libro di testo, da usare in classe alla LIM o per ripassare. Scorri con le frecce (anche da tastiera ← →), scegli una miniatura o passa a schermo intero; «Vai all’argomento» porta alla parte della lezione con spiegazioni, simulazioni ed esercizi.</p>
+  <div class="slide-viewer" data-from="22" data-to="26"></div>
+  <p class="slide-credit">Slide: A. Tibone, <em>Progettare e programmare</em> vol. 3 © Zanichelli editore 2019, materiale didattico per le classi che adottano il testo. Le slide sono escluse dalla licenza Creative Commons del corso.</p>
+</section>
+
+<section class="section" id="neurone">
+  <div class="kicker">1 · Il neurone artificiale</div>
+  <h2>Una cellula fatta di calcoli</h2>
+  <p>Le <strong>reti neurali</strong> sono software di grande successo nel machine learning. Il loro mattone è il <strong>neurone artificiale</strong>, <mark class="key">una simulazione software di alcune proprietà di un neurone biologico</mark>.</p>
+  <figure class="infografica">
+    <svg viewBox="0 0 760 220" role="img" aria-labelledby="bioT">
+      <title id="bioT">Confronto tra neurone biologico e neurone artificiale: i dendriti corrispondono agli input con i pesi, il corpo cellulare alla somma, l’assone all’uscita</title>
+      <g text-anchor="middle">
+        <text class="ig-k" x="190" y="22">NEURONE BIOLOGICO</text><text class="ig-k" x="570" y="22">NEURONE ARTIFICIALE</text>
+        <g stroke="#2a9d8f" stroke-width="3" fill="none" stroke-linecap="round"><path d="M40 60L120 100"/><path d="M30 110H115"/><path d="M45 165L120 125"/><path d="M60 45L75 70"/><path d="M52 180L70 160"/><path d="M190 112H330"/><path d="M330 112L350 95M330 112L352 112M330 112L350 130"/></g>
+        <circle cx="155" cy="112" r="38" fill="#e9f7f2" stroke="#2a9d8f" stroke-width="3"/><circle cx="155" cy="112" r="10" fill="#2a9d8f"/>
+        <text class="ig-s" x="60" y="200">dendriti: stimoli in ingresso</text><text class="ig-s" x="160" y="170">corpo cellulare</text><text class="ig-s" x="270" y="100">assone: segnale in uscita</text>
+        <g stroke="#176b87" stroke-width="2.5"><path d="M420 60L520 108"/><path d="M420 112H516"/><path d="M420 164L520 116"/><path d="M600 112H700"/></g>
+        <circle cx="410" cy="60" r="14" fill="#e5f2f7" stroke="#176b87"/><circle cx="410" cy="112" r="14" fill="#e5f2f7" stroke="#176b87"/><circle cx="410" cy="164" r="14" fill="#e5f2f7" stroke="#176b87"/>
+        <text class="ig-s" x="410" y="65">x₁</text><text class="ig-s" x="410" y="117">x₂</text><text class="ig-s" x="410" y="169">x₃</text>
+        <text class="ig-s" x="470" y="72">w₁</text><text class="ig-s" x="465" y="106">w₂</text><text class="ig-s" x="470" y="160">w₃</text>
+        <circle cx="560" cy="112" r="40" fill="#102a43"/><text x="560" y="108" style="font:700 15px system-ui;fill:#fff">Σ + b</text><text x="560" y="128" style="font:700 14px system-ui;fill:#f4b942">f(z)</text>
+        <text class="ig-t" x="725" y="117">y</text><text class="ig-s" x="410" y="200">input con i loro pesi</text><text class="ig-s" x="560" y="175">somma e attivazione</text><text class="ig-s" x="680" y="100">output</text>
+      </g>
+    </svg>
+    <figcaption>L’analogia è solo ispirazione: un neurone biologico è enormemente più complesso del suo modello matematico.</figcaption>
+  </figure>
+  <div class="concept-grid four">
+    <article class="concept-card"><h3>Input</h3><p>Il neurone <strong>riceve come input stimoli</strong> da altri neuroni (o dai dati), che possono attivarlo o meno.</p></article>
+    <article class="concept-card"><h3>Pesi</h3><p><mark class="key">A ogni input è associato un peso che ne definisce l’importanza</mark>. Un peso negativo «frena» l’attivazione.</p></article>
+    <article class="concept-card"><h3>Somma pesata</h3><p>z = w₁x₁ + w₂x₂ + w₃x₃ + b. Il <strong>bias</strong> b sposta la soglia: rende il neurone più o meno «facile» da attivare.</p></article>
+    <article class="concept-card"><h3>Attivazione</h3><p>La <strong>funzione di attivazione</strong> f calcola l’uscita y = f(z), che diventa input di altri neuroni o l’output finale della rete.</p></article>
+  </div>
+  <p>Muovi i cursori e osserva: lo spessore delle connessioni è proporzionale al valore assoluto del peso, il colore ne indica il segno (blu positivo, arancione negativo).</p>
+  <div class="sim" id="neuron">
+    <div class="sim-head"><b>Simulatore del neurone artificiale</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body">
+      <svg viewBox="0 0 580 270" role="img" aria-label="Schema del neurone con i valori correnti"></svg>
+      <div class="sim-grid" style="margin-top:10px">
+        <div class="sim-controls" style="grid-template-columns:repeat(3,minmax(0,1fr));display:grid">
+          <label>x₁ <span class="v" id="n_x1V"></span><input type="range" id="n_x1" min="-2" max="2" step="0.1" value="1"></label>
+          <label>x₂ <span class="v" id="n_x2V"></span><input type="range" id="n_x2" min="-2" max="2" step="0.1" value="0.5"></label>
+          <label>x₃ <span class="v" id="n_x3V"></span><input type="range" id="n_x3" min="-2" max="2" step="0.1" value="-1"></label>
+          <label>w₁ <span class="v" id="n_w1V"></span><input type="range" id="n_w1" min="-2" max="2" step="0.1" value="0.8"></label>
+          <label>w₂ <span class="v" id="n_w2V"></span><input type="range" id="n_w2" min="-2" max="2" step="0.1" value="1.2"></label>
+          <label>w₃ <span class="v" id="n_w3V"></span><input type="range" id="n_w3" min="-2" max="2" step="0.1" value="0.4"></label>
+          <label>bias b <span class="v" id="n_bV"></span><input type="range" id="n_b" min="-2" max="2" step="0.1" value="-0.2"></label>
+          <label style="grid-column:span 2">Funzione di attivazione <select id="nAct"></select></label>
+        </div>
+        <div><canvas width="420" height="240" aria-label="Grafico della funzione di attivazione con il punto corrente"></canvas></div>
+      </div>
+      <pre class="sim-out" id="nCalc" aria-live="polite"></pre>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="attivazione">
+  <div class="kicker">1 · Funzioni di attivazione</div>
+  <h2>Gradino, sigmoide, ReLU…</h2>
+  <p><mark class="key">La scelta della funzione di attivazione determina il funzionamento della rete neurale</mark>: a seconda del valore della somma pesata z, ogni neurone produce un’uscita stabilita dalla funzione scelta. Nel simulatore qui sopra cambia la funzione e osserva il grafico.</p>
+  <div class="panel table-wrap">
+    <table>
+      <thead><tr><th>Funzione</th><th>Formula</th><th>Uscita</th><th>Uso tipico</th></tr></thead>
+      <tbody>
+        <tr><th>Gradino</th><td>1 se z ≥ 0, altrimenti 0</td><td>0 oppure 1</td><td>Il percettrone originale: tutto o niente.</td></tr>
+        <tr><th>Sigmoide</th><td>1 / (1 + e<sup>−z</sup>)</td><td>tra 0 e 1, curva a S</td><td>Versione «morbida» del gradino; utile in uscita per esprimere una probabilità.</td></tr>
+        <tr><th>Tangente iperbolica</th><td>tanh(z)</td><td>tra −1 e 1</td><td>Simile alla sigmoide ma centrata nello zero.</td></tr>
+        <tr><th>Softplus</th><td>ln(1 + e<sup>z</sup>)</td><td>maggiore di 0</td><td>Versione arrotondata della ReLU.</td></tr>
+        <tr><th>ReLU</th><td>f<sub>RETT</sub>(z) = max(0, z)</td><td>0 o z</td><td>La più usata nelle reti profonde.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="task"><strong>Perché la ReLU?</strong> Oggi i neuroni più usati nelle reti neurali profonde sono i neuroni <strong>ReLU</strong> (<em>Rectified Linear Unit</em>), che hanno come funzione di attivazione il rettificatore f(z) = max(0, z). È velocissima da calcolare e, per z positivi, <mark class="key">non si «appiattisce» come la sigmoide</mark>: quando la curva è piatta la pendenza è quasi nulla e l’addestramento rallenta.</div>
+  <p>Ma perché serve una funzione di attivazione? Senza, ogni neurone farebbe solo una somma pesata, e <mark class="warn">una catena di somme pesate resta una somma pesata</mark>: anche con cento strati la rete potrebbe tracciare solo confini rettilinei.</p>
+</section>
+
+<section class="section" id="percettrone">
+  <div class="kicker">2 · Dal percettrone alle reti multistrato</div>
+  <h2>Un neurone che fa logica</h2>
+  <p>Con la funzione gradino e due input che valgono 0 o 1, un neurone può comportarsi come una porta logica. Prova a trovare a mano pesi e bias che realizzano <strong>AND</strong> (uscita 1 solo se entrambi gli input sono 1) e poi <strong>OR</strong>.</p>
+  <div class="sim" id="gate">
+    <div class="sim-head"><b>Progetta un neurone logico</b><span class="sim-tag">Sfida</span></div>
+    <div class="sim-body sim-grid">
+      <div>
+        <div class="table-wrap"><table class="data-table" id="gTable" style="min-width:0"><thead><tr><th>x₁</th><th>x₂</th><th>z</th><th>uscita</th><th>attesa</th><th></th></tr></thead><tbody></tbody></table></div>
+        <p class="ex-status" id="gStatus" aria-live="polite"></p>
+        <p class="sim-note">Porte risolte: <b id="gSolved"></b></p>
+      </div>
+      <div class="sim-controls">
+        <label>Obiettivo <select id="gTarget"><option value="and">AND</option><option value="or">OR</option><option value="nand">NAND (facoltativo)</option></select></label>
+        <label>w₁ <span class="v" id="g_w1V"></span><input type="range" id="g_w1" min="-2" max="2" step="0.1" value="0.5"></label>
+        <label>w₂ <span class="v" id="g_w2V"></span><input type="range" id="g_w2" min="-2" max="2" step="0.1" value="0.5"></label>
+        <label>bias b <span class="v" id="g_bV"></span><input type="range" id="g_b" min="-2" max="2" step="0.1" value="0"></label>
+        <p class="sim-note">Funzione di attivazione: gradino. Suggerimento: per AND la somma deve superare 0 solo quando entrambi gli input valgono 1.</p>
+      </div>
+    </div>
+  </div>
+  <p>Trovare i pesi a mano è facile con due input, impossibile con milioni. Il <strong>percettrone</strong> di Rosenblatt li trova da solo: per ogni esempio sbagliato corregge ogni peso di una quantità proporzionale all’errore e all’input. Scegli una funzione e lascialo imparare.</p>
+  <div class="sim" id="perc">
+    <div class="sim-head"><b>Il percettrone impara</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body sim-grid">
+      <div><canvas width="420" height="320" aria-label="I quattro casi della funzione logica e la regione di decisione del percettrone"></canvas></div>
+      <div class="sim-controls">
+        <label>Funzione da imparare <select id="pFun"><option value="and">AND</option><option value="or">OR</option><option value="xor">XOR (o esclusivo)</option></select></label>
+        <div class="btn-row"><button type="button" class="sb" id="pStep">Un’epoca</button><button type="button" class="sb main" id="pRun">▶ 30 epoche</button><button type="button" class="sb" id="pReset">Ricomincia</button></div>
+        <div class="stat"><span>Epoche</span><b id="pEp">0</b></div>
+        <pre class="sim-out" id="pLog" aria-live="polite"></pre>
+      </div>
+    </div>
+  </div>
+  <div class="check"><strong>Il limite del percettrone.</strong> Un singolo neurone divide il piano con una <strong>retta</strong>. Per XOR i due «1» stanno in angoli opposti: <mark class="warn">nessuna retta separa gli 1 dagli 0, quindi un solo percettrone non può imparare XOR</mark>. Questa scoperta, resa celebre da Minsky e Papert nel 1969, contribuì al primo inverno dell’IA.</div>
+
+  <h2 id="multistrato">Più strati: il deep learning</h2>
+  <p>La soluzione è mettere i neuroni in <strong>strati</strong>: uno strato di input, uno o più <strong>strati nascosti</strong> e uno strato di output. <mark class="key">Il deep learning si basa su reti multistrato di neuroni artificiali</mark>: «deep», profondo, si riferisce al numero di strati. Ecco una rete con due neuroni nascosti che risolve XOR: fai clic sugli input.</p>
+  <div class="sim" id="mlpxor">
+    <div class="sim-head"><b>Una rete a due strati che calcola XOR</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body">
+      <svg viewBox="0 0 520 290" role="img" aria-label="Rete neurale con due input, due neuroni nascosti e un output"></svg>
+      <pre class="sim-out" id="xorRes" aria-live="polite"></pre>
+      <p class="sim-note">h₁ si comporta come OR, h₂ come AND; l’uscita si attiva quando h₁ è attivo ma h₂ no. Ogni strato costruisce caratteristiche più astratte a partire da quelle dello strato precedente: nelle reti che riconoscono immagini, i primi strati rilevano bordi, i successivi forme, gli ultimi oggetti interi.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="apprendimento">
+  <div class="kicker">3 · Come impara una rete</div>
+  <h2>Backpropagation e discesa del gradiente</h2>
+  <p>Le reti neurali imparano dai dati grazie all’algoritmo della <strong>backpropagation</strong> (propagazione all’indietro dell’errore). <mark class="key">Nel corso del training la backpropagation aggiusta progressivamente i pesi delle sinapsi in modo da ridurre l’errore complessivo della rete</mark>.</p>
+  <figure class="infografica">
+    <svg viewBox="0 0 760 170" role="img" aria-labelledby="bpT">
+      <title id="bpT">Ciclo di addestramento: propagazione in avanti, calcolo dell’errore, propagazione all’indietro, aggiornamento dei pesi</title>
+      <defs><marker id="ar4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#176b87"/></marker></defs>
+      <g text-anchor="middle">
+        <rect x="10" y="40" width="160" height="80" rx="14" fill="#e5f2f7" stroke="#176b87"/><text class="ig-t" x="90" y="72">1 · In avanti</text><text class="ig-s" x="90" y="94">input → output</text>
+        <rect x="200" y="40" width="160" height="80" rx="14" fill="#fff9e9" stroke="#d9a227"/><text class="ig-t" x="280" y="72">2 · Errore</text><text class="ig-s" x="280" y="94">output vs risposta esatta</text>
+        <rect x="390" y="40" width="160" height="80" rx="14" fill="#102a43"/><text x="470" y="72" style="font:700 15px system-ui;fill:#fff">3 · All’indietro</text><text x="470" y="94" style="font:13px system-ui;fill:#b2ebe5">colpa di ogni peso</text>
+        <rect x="580" y="40" width="170" height="80" rx="14" fill="#e9f7f2" stroke="#2a9d8f"/><text class="ig-t" x="665" y="72">4 · Aggiorna</text><text class="ig-s" x="665" y="94">w ← w − η · pendenza</text>
+      </g>
+      <g stroke="#176b87" stroke-width="2.5" fill="none" marker-end="url(#ar4)"><path d="M171 80H197"/><path d="M361 80H387"/><path d="M551 80H577"/><path d="M665 121V150H90V124"/></g>
+      <text class="ig-s" x="378" y="164" text-anchor="middle">si ripete per migliaia di epoche</text>
+    </svg>
+  </figure>
+  <p>Si tratta di un <strong>problema di ottimizzazione</strong>: <mark class="key">si cerca di minimizzare il valore di una funzione di errore</mark>. Immagina l’errore come un paesaggio di colline e valli in cui la posizione dipende dai pesi: allenare la rete significa scendere verso il fondo della valle. A ogni passo si calcola la <strong>pendenza</strong> (il gradiente) e ci si sposta in discesa, di un passo proporzionale al <strong>learning rate</strong> η.</p>
+  <div class="sim" id="descent">
+    <div class="sim-head"><b>Discesa del gradiente con un solo peso</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body sim-grid">
+      <div><canvas width="620" height="320" aria-label="Curva dell’errore in funzione del peso e pallina che scende"></canvas></div>
+      <div class="sim-controls">
+        <label>Paesaggio dell’errore <select id="dFun"><option value="valle">Una valle sola</option><option value="buche">Con un minimo locale</option></select></label>
+        <label>Learning rate η: <span class="v" id="dLrV"></span><input type="range" id="dLr" min="0.02" max="1.1" step="0.02" value="0.1"></label>
+        <div class="btn-row"><button type="button" class="sb" id="dStep">Un passo</button><button type="button" class="sb main" id="dRun">▶ Scendi</button><button type="button" class="sb" id="dReset">Ricomincia</button></div>
+        <div class="stat-row"><div class="stat"><span>Passi</span><b id="dSteps">0</b></div><div class="stat"><span>Errore</span><b id="dErr">—</b></div></div>
+        <pre class="sim-out" id="dLog" aria-live="polite"></pre>
+      </div>
+    </div>
+  </div>
+  <div class="split">
+    <div class="task"><strong>Prova 1.</strong> Con η = 0,1 la pallina scende con calma. Porta η a 0,9 e poi a 1,1: <mark class="warn">con un learning rate troppo grande la pallina scavalca il minimo, oscilla o schizza via</mark>.</div>
+    <div class="task"><strong>Prova 2.</strong> Scegli il paesaggio con un minimo locale e parti da destra: la pallina può fermarsi in una buca che non è la più profonda. Le reti vere hanno milioni di pesi, cioè paesaggi con milioni di dimensioni.</div>
+  </div>
+
+  <h2 id="playground-intro">Il tuo playground</h2>
+  <p>Ora tutto insieme: una vera rete neurale, addestrata con la backpropagation direttamente nel browser. Ogni punto è un esempio di training; lo sfondo mostra che cosa prevede la rete in ogni zona. Scegli il problema, il numero di strati e di neuroni e premi <strong>Addestra</strong>.</p>
+  <div class="sim" id="playground">
+    <div class="sim-head"><b>Mini playground di rete neurale</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body sim-grid">
+      <div><canvas id="pgCanvas" width="420" height="420" aria-label="Dati di training e regione di decisione della rete"></canvas></div>
+      <div class="sim-controls">
+        <label>Problema <select id="pgData"><option value="cerchio">Cerchio</option><option value="xor">XOR (quadranti)</option><option value="nuvole">Due nuvole</option><option value="spirale">Spirale (difficile)</option></select></label>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <label>Strati nascosti <select id="pgL"><option value="1">1</option><option value="2">2</option></select></label>
+          <label>Attivazione <select id="pgAct"><option value="tanh">tanh</option><option value="relu">ReLU</option><option value="sigmoide">sigmoide</option></select></label>
+        </div>
+        <label>Neuroni per strato: <span class="v" id="pgHV"></span><input type="range" id="pgH" min="1" max="8" value="4"></label>
+        <label>Learning rate: <span class="v" id="pgLrV"></span><input type="range" id="pgLr" min="0.05" max="3" step="0.05" value="0.8"></label>
+        <div class="btn-row"><button type="button" class="sb main" id="pgGo">▶ Addestra</button><button type="button" class="sb" id="pgReset">Ricomincia</button></div>
+        <div class="stat-row"><div class="stat"><span>Epoche</span><b id="pgEp">0</b></div><div class="stat"><span>Errore</span><b id="pgLossV">—</b></div><div class="stat"><span>Accuratezza</span><b id="pgAcc">—</b></div><div class="stat"><span>Pesi e bias</span><b id="pgParams">—</b></div></div>
+        <canvas id="pgLoss" width="320" height="70" aria-label="Andamento dell’errore durante l’addestramento" style="background:#fff"></canvas>
+        <p class="sim-note" id="pgMsg" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+  <p>Per esplorare di più, il sito <a href="https://playground.tensorflow.org" target="_blank" rel="noopener noreferrer">playground.tensorflow.org</a> permette di «giocare» con una rete neurale scegliendo il tipo di problema, il numero di strati, il numero di neuroni in ciascuno strato e la funzione di attivazione.</p>
+</section>
+
+<section class="section" id="esercizi">
+  <div class="kicker">4 · Esercizi · circa 15 minuti</div>
+  <h2>Ora tocca a te</h2>
+  <div class="panel">
+    <p><strong>Come funzionano.</strong> Gli esercizi 1 e 2 si verificano con <strong>✓ Verifica</strong>. Gli esercizi 3 e 4 sono sfide: si completano da soli quando raggiungi l’obiettivo nella simulazione indicata.</p>
+    <p id="exProgress" class="ex-badge" role="status"></p>
+  </div>
+
+  <article class="panel exercise" id="es-1">
+    <div class="ex-head"><h3>Esercizio 1 · Calcola l’uscita del neurone</h3><span><span class="ex-level">★ Calcolo</span> <span class="ex-badge"></span></span></div>
+    <p>Un neurone ha input <strong>x = (1; 0; 2)</strong>, pesi <strong>w = (0,5; −1; 0,25)</strong> e bias <strong>b = −0,5</strong>. Usa la virgola o il punto per i decimali; per la sigmoide arrotonda ai centesimi.</p>
+    <div class="ia-ex" data-ex="l4-e1" data-hint="z = 0,5·1 + (−1)·0 + 0,25·2 − 0,5; poi applica ogni funzione a z. Per la sigmoide calcola 1/(1+e^(−z)).">
+      <div class="calc-line">a) somma pesata z = <input data-answer="0.5" data-tol="0.001" inputmode="decimal" aria-label="z"></div>
+      <div class="calc-line">b) uscita con il gradino = <input data-answer="1" inputmode="decimal" aria-label="gradino"></div>
+      <div class="calc-line">c) uscita con la ReLU = <input data-answer="0.5" data-tol="0.001" inputmode="decimal" aria-label="ReLU"></div>
+      <div class="calc-line">d) uscita con la sigmoide ≈ <input data-answer="0.62" data-tol="0.006" inputmode="decimal" aria-label="sigmoide"></div>
+    </div>
+  </article>
+
+  <article class="panel exercise" id="es-2">
+    <div class="ex-head"><h3>Esercizio 2 · Riconosci la funzione di attivazione</h3><span><span class="ex-level">★★ Concetti</span> <span class="ex-badge"></span></span></div>
+    <div class="ia-ex" data-ex="l4-e2" data-hint="rivedi la tabella delle funzioni di attivazione e prova ciascuna nel simulatore del neurone.">
+      <ul class="ex-items">
+        <li><span>Uscita «tutto o niente»: 0 oppure 1</span><select data-answer="gradino"><option value="">— scegli —</option><option value="gradino">gradino</option><option value="sigmoide">sigmoide</option><option value="tanh">tanh</option><option value="softplus">softplus</option><option value="relu">ReLU</option></select></li>
+        <li><span>Curva a S con uscita tra 0 e 1, usata per esprimere una probabilità</span><select data-answer="sigmoide"><option value="">— scegli —</option><option value="gradino">gradino</option><option value="sigmoide">sigmoide</option><option value="tanh">tanh</option><option value="softplus">softplus</option><option value="relu">ReLU</option></select></li>
+        <li><span>Vale 0 per z negativo e z per z positivo: la più usata nelle reti profonde</span><select data-answer="relu"><option value="">— scegli —</option><option value="gradino">gradino</option><option value="sigmoide">sigmoide</option><option value="tanh">tanh</option><option value="softplus">softplus</option><option value="relu">ReLU</option></select></li>
+        <li><span>Curva a S centrata nello zero, con uscita tra −1 e 1</span><select data-answer="tanh"><option value="">— scegli —</option><option value="gradino">gradino</option><option value="sigmoide">sigmoide</option><option value="tanh">tanh</option><option value="softplus">softplus</option><option value="relu">ReLU</option></select></li>
+        <li><span>Versione arrotondata della ReLU, ln(1 + e<sup>z</sup>)</span><select data-answer="softplus"><option value="">— scegli —</option><option value="gradino">gradino</option><option value="sigmoide">sigmoide</option><option value="tanh">tanh</option><option value="softplus">softplus</option><option value="relu">ReLU</option></select></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="panel exercise" id="es-3">
+    <div class="ex-head"><h3>Esercizio 3 · Sfida: i neuroni AND e OR</h3><span><span class="ex-level">★★ Sfida</span> <span class="ex-badge"></span></span></div>
+    <p>Nel simulatore <a href="#gate">«Progetta un neurone logico»</a> trova a mano pesi e bias che realizzano <strong>AND</strong> e poi quelli che realizzano <strong>OR</strong>. Sul quaderno annota i valori trovati e spiega perché funzionano: che cosa cambia tra le due soluzioni?</p>
+    <div class="ia-ex" data-ex="l4-e3" data-type="challenge"></div>
+  </article>
+
+  <article class="panel exercise" id="es-4">
+    <div class="ex-head"><h3>Esercizio 4 · Sfida: addestra la rete sul cerchio</h3><span><span class="ex-level">★★★ Sfida</span> <span class="ex-badge"></span></span></div>
+    <p>Nel <a href="#playground">mini playground</a> scegli il problema <strong>Cerchio</strong> e porta l’accuratezza almeno al <strong>95%</strong>. Prima prova con 1 solo neurone nascosto, poi con 2, poi con più neuroni: qual è il minimo che basta? Annota la risposta e spiega perché con un neurone solo la rete non ce la fa.</p>
+    <div class="ia-ex" data-ex="l4-e4" data-type="challenge"></div>
+  </article>
+</section>
+
+<section class="section" id="sintesi">
+  <div class="kicker">In sintesi</div>
+  <h2>Che cosa porti a casa</h2>
+  <div class="panel">
+    <ul>
+      <li>Un <strong>neurone artificiale</strong> calcola z = Σ wᵢxᵢ + b e restituisce y = f(z). I <strong>pesi</strong> esprimono l’importanza degli input, il <strong>bias</strong> sposta la soglia.</li>
+      <li>Funzioni di attivazione: <strong>gradino</strong> (percettrone), <strong>sigmoide</strong>, tanh, softplus e <strong>ReLU</strong> = max(0, z), oggi la più usata.</li>
+      <li>Un percettrone separa i dati con una retta: non può imparare <strong>XOR</strong>. Le <strong>reti multistrato</strong> sì: è il <strong>deep learning</strong>.</li>
+      <li>Il training è un <strong>problema di ottimizzazione</strong>: la <strong>backpropagation</strong> calcola come correggere ogni peso e la discesa del gradiente riduce l’errore passo dopo passo, con un <strong>learning rate</strong> né troppo piccolo né troppo grande.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="test-finale">
+  <div class="kicker">Test di fine lezione · 10 domande</div>
+  <h2>Verifica che cosa hai imparato</h2>
+  <p>Rispondi a tutte le domande e invia. Per completare il corso servono almeno <strong>7 risposte esatte su 10 (70%)</strong>. Dopo l’invio vedrai quali risposte sono esatte e un suggerimento per le altre: ripassa e riprova, i tentativi sono illimitati. Alla fine invia l’esito al docente.</p>
+  <form id="finalQuiz">
+    <div id="quizQuestions"></div>
+    <p id="quizCount" role="status" aria-live="polite"></p>
+    <button class="button primary" id="submitQuiz" disabled>Invia e verifica il risultato</button>
+  </form>
+  <p id="quizMessage" role="status" aria-live="polite"></p>
+  <div class="panel" id="quizResult" tabindex="-1" hidden>
+    <h3 id="quizScore"></h3>
+    <p id="attemptCount" class="muted"></p>
+    <div class="actions">
+      <button class="button" id="retryQuiz">Ripassa e riprova</button>
+      <button class="button" id="downloadQuiz">Scarica l’esito</button>
+      <a class="button primary" id="continueLink" href="./" hidden>Torna alla guida del corso →</a>
+    </div>
+  </div>
+  <div class="panel builder consegna" id="consegnaBox" hidden>
+    <h3>Consegna al docente</h3>
+    <p>Invia l’esito di questo tentativo: il docente riceverà un PDF con risposte, punteggio ed esercizi completati. Puoi consegnare di nuovo dopo un nuovo tentativo.</p>
+    <form id="consegnaForm">
+      <div class="row">
+        <div><label for="stNome">Nome e cognome</label><input id="stNome" maxlength="80" autocomplete="name" required></div>
+        <div><label for="stClasse">Classe</label><input id="stClasse" maxlength="6" placeholder="es. 5B" required></div>
+      </div>
+      <div class="actions" style="margin-top:14px"><button class="button primary" id="consegnaBtn">Consegna l’esito</button></div>
+    </form>
+    <p id="consegnaStatus" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="section" id="fonti">
+  <h2>Fonti e approfondimenti</h2>
+  <ol>
+    <li>A. Tibone, <em>Progettare e programmare</em>, vol. 3, Zanichelli 2019, cap. 8.4.</li>
+    <li><a href="https://playground.tensorflow.org" target="_blank" rel="noopener noreferrer">TensorFlow Playground</a> — rete neurale da esplorare nel browser.</li>
+    <li><a href="http://neuralnetworksanddeeplearning.com/" target="_blank" rel="noopener noreferrer">M. Nielsen, <em>Neural Networks and Deep Learning</em></a> — libro online gratuito su percettroni, sigmoide e backpropagation.</li>
+    <li><a href="https://www.3blue1brown.com/topics/neural-networks" target="_blank" rel="noopener noreferrer">3Blue1Brown, «Neural networks»</a> — video con animazioni su reti neurali, discesa del gradiente e backpropagation.</li>
+  </ol>
+</section>
+</main>
+
+<footer><div class="wrap">Introduzione all’intelligenza artificiale · Lezione 4 di 4 · <a href="./">Guida al corso</a> · Liceo Scientifico «N. Cortese»<p class="license"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer"><span class="cc-badge" aria-label="Licenza Creative Commons BY-NC-SA 4.0"><b>cc</b>BY-NC-SA 4.0</span></a><span>© 2026 <span property="cc:attributionName">Prof. Antonio Adinolfi</span> · «Introduzione all’intelligenza artificiale» è distribuito con licenza <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer">Creative Commons Attribuzione – Non commerciale – Condividi allo stesso modo 4.0 Internazionale</a>. Fanno eccezione i materiali di terzi indicati come tali.</span></p></div></footer>
+
+<script src="./ia-slides.js?v=1"></script>
+<script src="./ia-ex.js?v=1"></script>
+<script src="./ia-sim-4.js?v=1"></script>
+<script src="./ia-lesson.js?v=1"></script>
+<script src="./ia-tools.js?v=1"></script>
+</body>
+</html>

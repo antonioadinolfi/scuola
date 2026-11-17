@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="it" data-lesson="1" class="course-pending">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Lezione 1: breve storia dell’intelligenza artificiale prima di Internet. IA forte, generale e debole, Turing, Dartmouth, ELIZA, sistemi esperti, robotica, game AI e inverni dell’IA.">
+<title>Lezione 1 · Breve storia dell’IA prima di Internet | Introduzione all’intelligenza artificiale</title>
+<link rel="stylesheet" href="./ia.css?v=2">
+<script src="./ia-config.js?v=1"></script>
+<script src="./ia-data.js?v=1"></script>
+<script src="./ia-progress.js?v=1"></script>
+</head>
+<body>
+<noscript><style>html.course-pending body{visibility:visible}</style><p>Attiva JavaScript per usare le simulazioni e svolgere il test.</p></noscript>
+<a class="skip" href="#contenuti">Vai ai contenuti</a>
+
+<header><div class="wrap">
+  <div class="topbar"><a href="./">← Introduzione all’IA · Guida al corso</a><span>Classi quinte</span></div>
+  <div class="hero">
+    <div class="kicker">Lezione 1 di 4 · 1 ora · Capitolo 8.1</div>
+    <h1>Breve storia dell’IA prima di Internet</h1>
+    <p>Dalla macchina di Turing a Deep Blue: le idee, le macchine e le delusioni che hanno preparato l’intelligenza artificiale di oggi. Parlerai con il primo chatbot, interrogherai un sistema esperto e sfiderai un computer a tris.</p>
+    <div class="actions">
+      <a class="button primary" href="#che-cosa">Inizia ↓</a>
+      <a class="button ghost" href="#slide">Slide ↓</a>
+      <a class="button ghost" href="#esercizi">Esercizi ↓</a>
+      <a class="button ghost" href="#test-finale">Test finale ↓</a>
+      <button class="button ghost" id="projection" aria-pressed="false">Testo ingrandito</button>
+      <button class="button ghost" onclick="window.print()">Stampa / PDF</button>
+    </div>
+  </div>
+</div></header>
+
+<main class="wrap" id="contenuti">
+<nav class="lesson-nav" aria-label="Percorso delle lezioni">
+  <a class="button" data-lesson-link="1" href="./lezione-1.html" aria-current="page">Lezione 1<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="2" href="./lezione-2.html">Lezione 2<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="3" href="./lezione-3.html">Lezione 3<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="4" href="./lezione-4.html">Lezione 4<span class="nav-state"></span></a>
+</nav>
+
+<section class="section" id="obiettivi">
+  <div class="kicker">Obiettivi della lezione</div>
+  <h2>Al termine saprai…</h2>
+  <div class="panel">
+    <ul>
+      <li>distinguere <strong>IA forte</strong>, <strong>IA generale</strong> e <strong>IA debole</strong>;</li>
+      <li>collocare nel tempo le tappe principali: cibernetica, Turing, Dartmouth, ELIZA, sistemi esperti, robotica, game AI;</li>
+      <li>spiegare come funziona un <strong>sistema esperto</strong> (base di conoscenza + motore inferenziale) e perché un chatbot come ELIZA <em>sembra</em> capire;</li>
+      <li>spiegare che cosa sono stati gli <strong>inverni dell’IA</strong> e quali fattori hanno portato alla ripresa.</li>
+    </ul>
+    <div class="timeline" aria-label="Organizzazione dell’ora">
+      <div><b>5′</b>Che cos’è l’IA</div>
+      <div><b>15′</b>La linea del tempo</div>
+      <div><b>15′</b>ELIZA e sistemi esperti</div>
+      <div><b>15′</b>Esercizi</div>
+      <div><b>10′</b>Test finale</div>
+    </div>
+    <p class="muted">Le simulazioni funzionano nella pagina, anche da smartphone. Gli esercizi completati restano salvati in questo browser. Se in classe non c’è tempo, il test si completa a casa.</p>
+  </div>
+</section>
+
+<section class="section" id="slide">
+  <div class="kicker">Le slide del capitolo 8.1</div>
+  <h2>Le slide della lezione</h2>
+  <p>Le slide del libro di testo, da usare in classe alla LIM o per ripassare. Scorri con le frecce (anche da tastiera ← →), scegli una miniatura o passa a schermo intero; «Vai all’argomento» porta alla parte della lezione con spiegazioni, simulazioni ed esercizi.</p>
+  <div class="slide-viewer" data-from="2" data-to="10"></div>
+  <p class="slide-credit">Slide: A. Tibone, <em>Progettare e programmare</em> vol. 3 © Zanichelli editore 2019, materiale didattico per le classi che adottano il testo. Le slide sono escluse dalla licenza Creative Commons del corso.</p>
+</section>
+
+<section class="section" id="che-cosa">
+  <div class="kicker">1 · Di che cosa parliamo</div>
+  <h2>Tre significati di «intelligenza artificiale»</h2>
+  <p>Quando si parla di IA si possono intendere cose molto diverse. Gli studiosi distinguono tre categorie: <mark class="key">l’IA forte riguarda la coscienza, l’IA generale la versatilità, l’IA debole un compito specifico</mark>. Seleziona ogni categoria per confrontarle.</p>
+  <div class="panel spectrum" id="spectrum">
+    <div class="spectrum-buttons" role="group" aria-label="Categorie di IA">
+      <button type="button" class="spec-btn" data-k="debole" aria-pressed="true">IA debole<span class="tag">un compito specifico</span></button>
+      <button type="button" class="spec-btn" data-k="generale" aria-pressed="false">IA generale<span class="tag">qualsiasi compito</span></button>
+      <button type="button" class="spec-btn" data-k="forte" aria-pressed="false">IA forte<span class="tag">pensa ed è cosciente</span></button>
+    </div>
+    <div class="spectrum-bar" aria-hidden="true"><span style="left:0%"></span></div>
+    <div class="spectrum-detail" aria-live="polite"></div>
+  </div>
+  <div class="task"><strong>Da ricordare.</strong> Oggi esistono software che, <em>per compiti specifici</em>, hanno abilità superiori a quelle umane e possono <strong>imparare dai dati</strong> di input: è il <strong>machine learning</strong>, che studierai nella Lezione 3. <mark class="warn">Superare l’essere umano in un compito non rende un sistema «forte» o «generale»</mark>: AlphaZero gioca a scacchi meglio di chiunque, ma non sa fare nient’altro.</div>
+</section>
+
+<section class="section" id="storia">
+  <div class="kicker">2 · La linea del tempo</div>
+  <h2>Ottant’anni in diciotto tappe</h2>
+  <p>Scorri la linea del tempo e seleziona ogni tappa per leggerne la scheda. Con i filtri puoi seguire un solo filone: per esempio <strong>Reti neurali</strong> mostra un’idea nata nel 1943 e diventata vincente solo nel 2012.</p>
+  <div class="sim" id="timeline">
+    <div class="sim-head"><b>Linea del tempo interattiva</b><span class="sim-tag">Infografica</span></div>
+    <div class="sim-body">
+      <div class="tl-filters" role="group" aria-label="Filtra per filone"></div>
+      <div class="tl-track"></div>
+      <div class="tl-detail" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <h3>I padri fondatori</h3>
+  <div class="concept-grid">
+    <article class="concept-card"><h3>Norbert Wiener</h3><p>Matematico, fonda la <strong>cibernetica</strong>: <mark class="key">lo studio dei meccanismi di autoregolazione e di controllo negli organismi viventi e nelle macchine</mark>. Vi lavoravano matematici, biologi, psicologi; i loro studi restarono però piuttosto astratti e, con l’arrivo dell’IA basata sui computer, l’interesse calò.</p></article>
+    <article class="concept-card"><h3>Alan Turing</h3><p>Nel 1936 descrive una <strong>macchina programmabile astratta</strong>, idea cruciale per l’architettura di von Neumann. Nel 1950 propone l’<strong>imitation game</strong> per valutare se un computer sa riprodurre un comportamento umano: oggi lo chiamiamo <em>test di Turing</em>.</p></article>
+    <article class="concept-card"><h3>John McCarthy</h3><p>Nel <strong>1956</strong> organizza il seminario del <strong>Dartmouth College</strong>, che riunisce i maggiori studiosi dell’epoca: <mark class="key">è considerato l’atto di nascita dell’IA moderna</mark>. Poco dopo inventa il linguaggio LISP.</p></article>
+  </div>
+
+  <details class="ricorda"><summary>la retroazione (feedback)</summary>
+    <p>Un sistema <strong>a retroazione</strong> misura il risultato della propria azione e lo usa per correggersi. Il termostato confronta la temperatura misurata con quella desiderata: se è più bassa accende la caldaia, se la supera la spegne. Lo stesso principio regola la temperatura del nostro corpo: è l’idea che univa biologi e ingegneri nella cibernetica.</p>
+  </details>
+</section>
+
+<section class="section" id="turing-eliza">
+  <div class="kicker">2 · Linguaggio naturale</div>
+  <h2>Parla con ELIZA, il primo chatbot</h2>
+  <p>Un obiettivo storico dell’IA è la <strong>comprensione del linguaggio naturale</strong>. Nel 1964 Daniel Bobrow scrisse in LISP <strong>STUDENT</strong>, che risolveva problemi di algebra espressi a parole; negli stessi anni Joseph Weizenbaum scrisse <strong>ELIZA</strong>, il primo chatbot, capace di sostenere una conversazione in modo abbastanza convincente.</p>
+  <p>Qui sotto trovi una versione semplificata in italiano costruita con la stessa tecnica. Chiacchiera un po’, poi premi <strong>Mostra le regole</strong>: scoprirai da dove viene ogni risposta.</p>
+  <div class="sim" id="eliza">
+    <div class="sim-head"><b>ELIZA · versione didattica</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body">
+      <div class="chat" aria-live="polite"></div>
+      <form class="chat-form"><input type="text" maxlength="160" placeholder="Scrivi a ELIZA… (es. mi sento stanco)" aria-label="Messaggio per ELIZA" autocomplete="off"><button class="sb main" type="submit">Invia</button></form>
+      <div class="btn-row" style="margin-top:10px">
+        <button type="button" class="sb" id="elizaRules" aria-pressed="false">Mostra le regole</button>
+        <button type="button" class="sb" data-say="Mi sento preoccupato per la verifica">«Mi sento preoccupato…»</button>
+        <button type="button" class="sb" data-say="Non riesco a studiare la sera">«Non riesco a…»</button>
+        <button type="button" class="sb" data-say="Il gatto dorme sul divano">Frase senza parole chiave</button>
+      </div>
+    </div>
+  </div>
+  <div class="panel">
+    <h3>Che cosa hai scoperto?</h3>
+    <ul>
+      <li>ELIZA cerca <strong>parole chiave</strong> e <strong>schemi</strong> (ad esempio «mi sento X») e riformula la frase scambiando le persone (mio → tuo, sono → sei).</li>
+      <li><mark class="key">Non comprende il significato: confronta schemi di testo (pattern matching)</mark>. Se nessuna regola si applica, risponde con una frase generica.</li>
+      <li>Eppure molti utenti dell’epoca le confidavano i propri problemi: tendiamo ad attribuire intelligenza a chi conversa in modo fluido. <mark class="warn">Una conversazione convincente non dimostra che il sistema capisca</mark>.</li>
+    </ul>
+    <div class="check"><strong>Pensaci.</strong> ELIZA supererebbe il test di Turing? Con un giudice ingenuo e per pochi minuti, forse; con un giudice che fa domande inattese, no. E i chatbot di oggi? Ne riparleremo: funzionano in modo molto diverso, perché <em>imparano</em> dai dati invece di seguire regole scritte a mano.</div>
+  </div>
+</section>
+
+<section class="section" id="sistemi-esperti">
+  <div class="kicker">2 · Sistemi esperti</div>
+  <h2>Mettere in un computer la conoscenza di un esperto</h2>
+  <p>Ideati attorno al 1965 a Stanford, i <strong>sistemi esperti</strong> imitano la capacità decisionale di un esperto umano. <mark class="key">Sono formati da due sottosistemi: una base di conoscenza e un motore inferenziale</mark>.</p>
+  <figure class="infografica">
+    <svg viewBox="0 0 760 210" role="img" aria-labelledby="seT">
+      <title id="seT">Architettura di un sistema esperto: i fatti e le regole della base di conoscenza entrano nel motore inferenziale che produce conclusioni e spiegazioni</title>
+      <defs><marker id="ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#176b87"/></marker></defs>
+      <rect x="10" y="20" width="230" height="170" rx="16" fill="#e5f2f7" stroke="#176b87"/>
+      <text class="ig-k" x="28" y="46">BASE DI CONOSCENZA</text>
+      <rect x="28" y="60" width="194" height="52" rx="10" fill="#fff" stroke="#a9bfce"/><text class="ig-t" x="42" y="82">Fatti</text><text class="ig-s" x="42" y="101">livello = 95%, pioggia = 100</text>
+      <rect x="28" y="122" width="194" height="52" rx="10" fill="#fff" stroke="#a9bfce"/><text class="ig-t" x="42" y="144">Regole SE … ALLORA</text><text class="ig-s" x="42" y="163">scritte con l’esperto umano</text>
+      <path d="M240 105H300" stroke="#176b87" stroke-width="2.5" marker-end="url(#ar1)"/>
+      <rect x="305" y="55" width="190" height="100" rx="16" fill="#102a43"/>
+      <text x="400" y="95" text-anchor="middle" style="font:700 16px system-ui;fill:#fff">Motore</text><text x="400" y="116" text-anchor="middle" style="font:700 16px system-ui;fill:#fff">inferenziale</text><text x="400" y="138" text-anchor="middle" style="font:12px system-ui;fill:#b2ebe5">applica le regole ai fatti</text>
+      <path d="M495 85H555" stroke="#176b87" stroke-width="2.5" marker-end="url(#ar1)"/><path d="M495 128H555" stroke="#176b87" stroke-width="2.5" marker-end="url(#ar1)"/>
+      <rect x="560" y="55" width="190" height="52" rx="10" fill="#fff9e9" stroke="#d9a227"/><text class="ig-t" x="574" y="77">Conclusione</text><text class="ig-s" x="574" y="96">«ATTENZIONE»</text>
+      <rect x="560" y="115" width="190" height="52" rx="10" fill="#fff9e9" stroke="#d9a227"/><text class="ig-t" x="574" y="137">Spiegazione</text><text class="ig-s" x="574" y="156">«scattate R1, R2, R4»</text>
+    </svg>
+    <figcaption>Le regole sono scritte da un ingegnere della conoscenza intervistando gli esperti; il motore inferenziale non cambia da un campo all’altro.</figcaption>
+  </figure>
+  <p>Il sistema esperto italiano <strong>MISTRAL</strong> è usato per sorvegliare la sicurezza di grandi dighe. Il simulatore qui sotto ne è una versione <em>molto</em> semplificata e inventata a scopo didattico: muovi i cursori e osserva quali regole scattano. Il motore usa la <strong>concatenazione in avanti</strong>: applica le regole ai fatti, aggiunge i fatti nuovi e ricomincia finché non cambia più nulla.</p>
+  <div class="sim" id="expert">
+    <div class="sim-head"><b>Sistema esperto · sorveglianza di una diga</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body sim-grid">
+      <div>
+        <h4 style="margin-top:0">Base di conoscenza · regole</h4>
+        <ul class="rules-list"></ul>
+        <div class="verdict" aria-live="polite"></div>
+      </div>
+      <div class="sim-controls">
+        <label>Livello del serbatoio: <span class="v"><span data-show="livello"></span>%</span><input type="range" id="exLivello" min="0" max="100" value="70"></label>
+        <label>Pioggia nelle ultime 24 ore: <span class="v"><span data-show="pioggia"></span> mm</span><input type="range" id="exPioggia" min="0" max="150" value="20"></label>
+        <label>Spostamento misurato della diga: <span class="v"><span data-show="spost"></span> mm</span><input type="range" id="exSpost" min="0" max="30" value="4"></label>
+        <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="exScossa"> Scossa di terremoto recente</label>
+        <h4 style="margin:6px 0 0">Motore inferenziale · traccia del ragionamento</h4>
+        <pre class="sim-out" aria-live="polite"></pre>
+      </div>
+    </div>
+  </div>
+  <div class="split">
+    <div class="task"><strong>Punto di forza.</strong> <mark class="key">Un sistema esperto sa spiegare perché ha raggiunto una conclusione</mark>: basta mostrare le regole scattate. È fondamentale quando la decisione è delicata.</div>
+    <div class="check"><strong>Punto debole.</strong> Ogni regola va scritta a mano: la conoscenza è costosa da raccogliere e aggiornare, e <mark class="warn">fuori dai casi previsti dalle regole il sistema non sa che cosa fare</mark>. È una delle cause del secondo inverno dell’IA.</div>
+  </div>
+</section>
+
+<section class="section" id="robot-giochi">
+  <div class="kicker">2 · Robotica e game AI</div>
+  <h2>Robot che si muovono, computer che giocano</h2>
+  <div class="concept-grid">
+    <article class="concept-card"><h3>Shakey (1966-72)</h3><p>Sviluppato allo Stanford Research Institute, è il primo robot semovente capace di <strong>ragionare sulle proprie azioni</strong>: riceveva un obiettivo e pianificava i passi per raggiungerlo.</p></article>
+    <article class="concept-card"><h3>WABOT-1 (1973)</h3><p>Costruito all’università Waseda di Tokyo, si muove e interagisce con l’ambiente. Il successore <strong>WABOT-2</strong> legge uno spartito e lo suona alla tastiera.</p></article>
+    <article class="concept-card"><h3>Deep Blue (1997)</h3><p>Il computer dell’IBM batte il campione del mondo di scacchi Garri Kasparov <mark class="key">esplorando l’albero del gioco grazie a un database e a un’enorme potenza di calcolo</mark>.</p></article>
+  </div>
+  <p>La <strong>game AI</strong> è utile per misurare i progressi dell’IA: le regole sono chiare e il risultato è misurabile. Gioca a tris contro un computer che usa la stessa idea di Deep Blue, l’algoritmo <strong>minimax</strong>: <mark class="key">prima di muovere esplora l’albero di tutte le partite possibili</mark> e sceglie la mossa migliore supponendo che anche tu giochi al meglio.</p>
+  <div class="sim" id="ttt">
+    <div class="sim-head"><b>Tris contro minimax</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body sim-grid">
+      <div><div class="ttt" role="group" aria-label="Griglia del tris"></div></div>
+      <div class="sim-controls">
+        <div class="stat-row"><div class="stat"><span>Ultima mossa</span><b id="tttLast">0</b></div><div class="stat"><span>Totale partita</span><b id="tttTot">0</b></div></div>
+        <p class="sim-note" style="margin:0">posizioni esplorate dal computer</p>
+        <label style="display:flex;gap:8px;align-items:center;font-weight:600"><input type="checkbox" id="tttAB"> Potatura alfa-beta (scarta i rami inutili)</label>
+        <div class="btn-row"><button type="button" class="sb dark" id="tttReset">Nuova partita</button></div>
+        <pre class="sim-out" aria-live="polite"></pre>
+      </div>
+    </div>
+  </div>
+  <p class="muted">Gioca una partita normale, poi rigiocala con la potatura alfa-beta: la mossa scelta è la stessa, ma le posizioni esplorate crollano. Il tris ha poche migliaia di posizioni; gli scacchi ne hanno così tante (si stima oltre 10<sup>40</sup>) che Deep Blue, pur valutando centinaia di milioni di posizioni al secondo, poteva guardare solo poche mosse avanti.</p>
+  <div class="task"><strong>Due modi di giocare.</strong> Deep Blue usava forza bruta e conoscenza scritta a mano. Nel 2017-2018 <strong>AlphaZero</strong> di DeepMind (Google) ha invece <mark class="key">imparato da solo, giocando contro sé stesso con il machine learning</mark>, a giocare a scacchi e a go meglio di qualunque giocatore umano o elettronico. Oggi il machine learning fa passi da gigante anche nei giochi a <strong>informazione imperfetta</strong> come il poker, dove non si vedono le carte degli avversari.</div>
+</section>
+
+<section class="section" id="inverni">
+  <div class="kicker">2 · Crisi e rinascita</div>
+  <h2>Gli inverni dell’IA</h2>
+  <p>La ricerca sull’IA ha avuto pesanti battute d’arresto. <mark class="key">Gli «inverni» dell’IA sono stati periodi di grave crisi in cui i finanziamenti si sono prosciugati</mark>: i ricercatori avevano fatto previsioni troppo ottimistiche e il progresso verso soluzioni praticabili si era rivelato molto lento.</p>
+  <figure class="infografica">
+    <svg viewBox="0 0 760 260" role="img" aria-labelledby="hyT">
+      <title id="hyT">Andamento qualitativo dell’entusiasmo e dei finanziamenti per l’IA dal 1950 a oggi, con due inverni tra 1974-1980 e 1987-1993</title>
+      <rect x="290" y="20" width="75" height="200" fill="#dfe8fb"/><rect x="465" y="20" width="75" height="200" fill="#dfe8fb"/>
+      <text class="ig-k" x="327" y="40" text-anchor="middle">1° INVERNO</text><text class="ig-k" x="502" y="40" text-anchor="middle">2° INVERNO</text>
+      <line x1="50" y1="220" x2="740" y2="220" stroke="#52657a"/><line x1="50" y1="20" x2="50" y2="220" stroke="#52657a"/>
+      <text class="ig-s" x="22" y="125" transform="rotate(-90 22 125)" text-anchor="middle">entusiasmo e fondi</text>
+      <path d="M50 205C110 200 150 170 200 110S260 70 290 120S330 200 360 190S420 120 440 95S465 120 480 170S520 205 545 185S600 160 640 120S700 40 740 30" fill="none" stroke="#176b87" stroke-width="4"/>
+      <g class="ig-s" text-anchor="middle"><text x="50" y="240">1950</text><text x="200" y="240">1960</text><text x="290" y="240">1974</text><text x="365" y="240">1980</text><text x="465" y="240">1987</text><text x="540" y="240">1993</text><text x="640" y="240">2012</text><text x="735" y="240">oggi</text></g>
+      <text class="ig-s" x="205" y="98" text-anchor="middle">Dartmouth, ELIZA</text><text class="ig-s" x="430" y="84" text-anchor="middle">sistemi esperti</text><text class="ig-s" x="640" y="104" text-anchor="middle">GPU + big data</text>
+    </svg>
+    <figcaption>Andamento qualitativo, non una misura: ogni ondata di promesse è stata seguita da una delusione, finché due fattori nuovi hanno cambiato le carte in tavola.</figcaption>
+  </figure>
+  <p>Oggi la disciplina vive una <strong>nuova fioritura</strong>, legata in particolare a due fattori:</p>
+  <ul>
+    <li>la diffusione delle <strong>GPU</strong>, i processori delle schede grafiche, che <mark class="key">hanno reso più economico il calcolo parallelo</mark>;</li>
+    <li>l’avvento dei <strong>big data</strong>, che ha reso indispensabili algoritmi capaci di analizzare in modo autonomo enormi quantità di dati (Lezione 2).</li>
+  </ul>
+  <p>Perché il calcolo parallelo conta così tanto? Una CPU ha pochi core molto potenti; una GPU ne ha migliaia, più semplici, che lavorano contemporaneamente. Gli algoritmi dell’IA ripetono la stessa operazione su moltissimi dati: è il lavoro ideale per una GPU. Prova a colorare 256 caselle.</p>
+  <div class="sim" id="parallel">
+    <div class="sim-head"><b>Calcolo seriale e parallelo</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body">
+      <div class="sim-grid">
+        <div>
+          <p style="margin:0 0 6px"><strong>1 core</strong> · passi: <b id="parCpu">0</b></p><div class="cores cpu"></div>
+          <p style="margin:14px 0 6px"><strong>Molti core in parallelo</strong> · passi: <b id="parGpu">0</b></p><div class="cores gpu"></div>
+        </div>
+        <div class="sim-controls">
+          <label>Core in parallelo: <span class="v" id="parCoresV">32</span><input type="range" id="parCores" min="2" max="128" value="32"></label>
+          <button type="button" class="sb main" id="parGo">▶ Avvia</button>
+          <p class="sim-note">Ogni passo, ogni core colora una casella. Con 32 core servono 256 ÷ 32 = 8 passi invece di 256.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="esercizi">
+  <div class="kicker">3 · Esercizi · circa 15 minuti</div>
+  <h2>Ora tocca a te</h2>
+  <div class="panel">
+    <p><strong>Come funzionano.</strong> Rispondi, poi premi <strong>✓ Verifica</strong>: le risposte esatte si colorano di verde, quelle da rivedere di arancione. Puoi riprovare quante volte vuoi; l’esercizio è completato quando tutto è esatto.</p>
+    <p id="exProgress" class="ex-badge" role="status"></p>
+  </div>
+
+  <article class="panel exercise" id="es-1">
+    <div class="ex-head"><h3>Esercizio 1 · Forte, generale o debole?</h3><span><span class="ex-level">★ Guidato</span> <span class="ex-badge"></span></span></div>
+    <p>Per ogni sistema, reale o immaginario, scegli la categoria.</p>
+    <div class="ia-ex" data-ex="l1-e1" data-hint="chiediti: sa fare una cosa sola? qualsiasi cosa? è cosciente?">
+      <ul class="ex-items">
+        <li><span>Un programma che riconosce i tumori nelle radiografie meglio di molti medici</span><select data-answer="debole"><option value="">— scegli —</option><option value="forte">IA forte</option><option value="generale">IA generale</option><option value="debole">IA debole</option></select></li>
+        <li><span>Il robot di un romanzo che prova nostalgia e sa di provarla</span><select data-answer="forte"><option value="">— scegli —</option><option value="forte">IA forte</option><option value="generale">IA generale</option><option value="debole">IA debole</option></select></li>
+        <li><span>Un sistema ipotetico che impara qualunque mestiere umano, dal cuoco all’avvocato, senza che si sappia se è cosciente</span><select data-answer="generale"><option value="">— scegli —</option><option value="forte">IA forte</option><option value="generale">IA generale</option><option value="debole">IA debole</option></select></li>
+        <li><span>Il filtro antispam della tua posta elettronica</span><select data-answer="debole"><option value="">— scegli —</option><option value="forte">IA forte</option><option value="generale">IA generale</option><option value="debole">IA debole</option></select></li>
+        <li><span>AlphaZero, campione di scacchi e di go</span><select data-answer="debole"><option value="">— scegli —</option><option value="forte">IA forte</option><option value="generale">IA generale</option><option value="debole">IA debole</option></select></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="panel exercise" id="es-2">
+    <div class="ex-head"><h3>Esercizio 2 · Rimetti in ordine la storia</h3><span><span class="ex-level">★★ Linea del tempo</span> <span class="ex-badge"></span></span></div>
+    <p>Usa le frecce per ordinare gli eventi dal più antico al più recente.</p>
+    <div class="ia-ex" data-ex="l1-e2" data-hint="ricorda: prima la macchina astratta, poi il test, poi il seminario che dà il nome alla disciplina.">
+      <ol class="ex-order">
+        <li data-pos="1">Turing descrive una macchina programmabile astratta</li>
+        <li data-pos="2">Turing propone l’imitation game</li>
+        <li data-pos="3">Seminario al Dartmouth College</li>
+        <li data-pos="4">Weizenbaum scrive ELIZA</li>
+        <li data-pos="5">WABOT-1 si muove all’università Waseda</li>
+        <li data-pos="6">Deep Blue batte Kasparov</li>
+        <li data-pos="7">AlphaZero impara da solo scacchi e go</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="panel exercise" id="es-3">
+    <div class="ex-head"><h3>Esercizio 3 · Ragiona come il motore inferenziale</h3><span><span class="ex-level">★★ Sistema esperto</span> <span class="ex-badge"></span></span></div>
+    <p>Usando <strong>solo</strong> le regole R1-R7 del simulatore della diga, prevedi la conclusione per ogni situazione. Ragiona sul quaderno, poi controlla con il simulatore solo alla fine.</p>
+    <div class="ia-ex" data-ex="l1-e3" data-hint="prima ricava i fatti intermedi (invaso_alto, piena_in_arrivo, anomalia_strutturale), poi le conclusioni; se ne scattano due vale la più grave.">
+      <ul class="ex-items">
+        <li><span><b>A</b> · livello 95%, pioggia 100 mm, spostamento 3 mm, nessuna scossa</span><select data-answer="1"><option value="">— scegli —</option><option value="0">Normale</option><option value="1">Attenzione</option><option value="2">Allarme</option></select></li>
+        <li><span><b>B</b> · livello 60%, pioggia 20 mm, spostamento 10 mm, scossa recente</span><select data-answer="2"><option value="">— scegli —</option><option value="0">Normale</option><option value="1">Attenzione</option><option value="2">Allarme</option></select></li>
+        <li><span><b>C</b> · livello 92%, pioggia 30 mm, spostamento 5 mm, nessuna scossa</span><select data-answer="0"><option value="">— scegli —</option><option value="0">Normale</option><option value="1">Attenzione</option><option value="2">Allarme</option></select></li>
+        <li><span><b>D</b> · livello 70%, pioggia 0 mm, spostamento 18 mm, nessuna scossa</span><select data-answer="1"><option value="">— scegli —</option><option value="0">Normale</option><option value="1">Attenzione</option><option value="2">Allarme</option></select></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="panel exercise" id="es-4">
+    <div class="ex-head"><h3>Esercizio 4 · Chi ha fatto che cosa?</h3><span><span class="ex-level">★★★ Collegamenti</span> <span class="ex-badge"></span></span></div>
+    <div class="ia-ex" data-ex="l1-e4" data-hint="ripassa le schede della linea del tempo filtrando per filone.">
+      <ul class="ex-items">
+        <li><span>Studio dell’autoregolazione negli esseri viventi e nelle macchine</span><select data-answer="wiener"><option value="">— scegli —</option><option value="wiener">Norbert Wiener</option><option value="turing">Alan Turing</option><option value="mccarthy">John McCarthy</option><option value="rosenblatt">Frank Rosenblatt</option><option value="weizenbaum">Joseph Weizenbaum</option><option value="bobrow">Daniel Bobrow</option></select></li>
+        <li><span>Macchina capace di imparare a riconoscere semplici forme, basata sulle reti neurali</span><select data-answer="rosenblatt"><option value="">— scegli —</option><option value="wiener">Norbert Wiener</option><option value="turing">Alan Turing</option><option value="mccarthy">John McCarthy</option><option value="rosenblatt">Frank Rosenblatt</option><option value="weizenbaum">Joseph Weizenbaum</option><option value="bobrow">Daniel Bobrow</option></select></li>
+        <li><span>Programma in LISP che risolve problemi di algebra espressi a parole</span><select data-answer="bobrow"><option value="">— scegli —</option><option value="wiener">Norbert Wiener</option><option value="turing">Alan Turing</option><option value="mccarthy">John McCarthy</option><option value="rosenblatt">Frank Rosenblatt</option><option value="weizenbaum">Joseph Weizenbaum</option><option value="bobrow">Daniel Bobrow</option></select></li>
+        <li><span>Organizzazione del seminario che dà avvio all’IA moderna</span><select data-answer="mccarthy"><option value="">— scegli —</option><option value="wiener">Norbert Wiener</option><option value="turing">Alan Turing</option><option value="mccarthy">John McCarthy</option><option value="rosenblatt">Frank Rosenblatt</option><option value="weizenbaum">Joseph Weizenbaum</option><option value="bobrow">Daniel Bobrow</option></select></li>
+        <li><span>Il primo chatbot</span><select data-answer="weizenbaum"><option value="">— scegli —</option><option value="wiener">Norbert Wiener</option><option value="turing">Alan Turing</option><option value="mccarthy">John McCarthy</option><option value="rosenblatt">Frank Rosenblatt</option><option value="weizenbaum">Joseph Weizenbaum</option><option value="bobrow">Daniel Bobrow</option></select></li>
+        <li><span>Un test per stabilire se una macchina imita il comportamento umano</span><select data-answer="turing"><option value="">— scegli —</option><option value="wiener">Norbert Wiener</option><option value="turing">Alan Turing</option><option value="mccarthy">John McCarthy</option><option value="rosenblatt">Frank Rosenblatt</option><option value="weizenbaum">Joseph Weizenbaum</option><option value="bobrow">Daniel Bobrow</option></select></li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<section class="section" id="sintesi">
+  <div class="kicker">In sintesi</div>
+  <h2>Che cosa porti a casa</h2>
+  <div class="panel">
+    <ul>
+      <li><strong>IA forte</strong>: pensa ed è cosciente; <strong>IA generale</strong>: qualsiasi compito intellettuale; <strong>IA debole</strong>: problemi specifici. Esiste solo la terza.</li>
+      <li>Le radici: <strong>cibernetica</strong> (Wiener), <strong>macchina di Turing</strong> (1936), <strong>imitation game</strong> (1950), <strong>Dartmouth</strong> (1956).</li>
+      <li><strong>ELIZA</strong> conversava confrontando schemi di testo, senza capire. I <strong>sistemi esperti</strong> applicano regole scritte da esperti tramite un motore inferenziale, e sanno spiegare le conclusioni.</li>
+      <li>Robotica (Shakey, WABOT) e game AI (Deep Blue con la forza bruta, AlphaZero con il machine learning) misurano i progressi.</li>
+      <li>Dopo gli <strong>inverni</strong>, l’IA rinasce grazie a <strong>GPU</strong> (calcolo parallelo economico) e <strong>big data</strong>.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="test-finale">
+  <div class="kicker">Test di fine lezione · 10 domande</div>
+  <h2>Verifica che cosa hai imparato</h2>
+  <p>Rispondi a tutte le domande e invia. Per sbloccare la Lezione 2 servono almeno <strong>7 risposte esatte su 10 (70%)</strong>. Dopo l’invio vedrai quali risposte sono esatte e un suggerimento per le altre, senza la soluzione: ripassa e riprova, i tentativi sono illimitati. Alla fine invia l’esito al docente.</p>
+  <form id="finalQuiz">
+    <div id="quizQuestions"></div>
+    <p id="quizCount" role="status" aria-live="polite"></p>
+    <button class="button primary" id="submitQuiz" disabled>Invia e verifica il risultato</button>
+  </form>
+  <p id="quizMessage" role="status" aria-live="polite"></p>
+  <div class="panel" id="quizResult" tabindex="-1" hidden>
+    <h3 id="quizScore"></h3>
+    <p id="attemptCount" class="muted"></p>
+    <div class="actions">
+      <button class="button" id="retryQuiz">Ripassa e riprova</button>
+      <button class="button" id="downloadQuiz">Scarica l’esito</button>
+      <a class="button primary" id="continueLink" data-lesson-link="2" href="./lezione-2.html" hidden>Prosegui alla Lezione 2 →</a>
+    </div>
+  </div>
+  <div class="panel builder consegna" id="consegnaBox" hidden>
+    <h3>Consegna al docente</h3>
+    <p>Invia l’esito di questo tentativo: il docente riceverà un PDF con risposte, punteggio ed esercizi completati. Puoi consegnare di nuovo dopo un nuovo tentativo.</p>
+    <form id="consegnaForm">
+      <div class="row">
+        <div><label for="stNome">Nome e cognome</label><input id="stNome" maxlength="80" autocomplete="name" required></div>
+        <div><label for="stClasse">Classe</label><input id="stClasse" maxlength="6" placeholder="es. 5B" required></div>
+      </div>
+      <div class="actions" style="margin-top:14px"><button class="button primary" id="consegnaBtn">Consegna l’esito</button></div>
+    </form>
+    <p id="consegnaStatus" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="section" id="fonti">
+  <h2>Fonti e approfondimenti</h2>
+  <ol>
+    <li>A. Tibone, <em>Progettare e programmare</em>, vol. 3, Zanichelli 2019, cap. 8.1 — il libro di testo da cui è tratta la scaletta della lezione.</li>
+    <li><a href="https://academic.oup.com/mind/article/LIX/236/433/986238" target="_blank" rel="noopener noreferrer">A. M. Turing, «Computing Machinery and Intelligence», <em>Mind</em>, 1950</a> — l’articolo dell’imitation game.</li>
+    <li><a href="https://dl.acm.org/doi/10.1145/365153.365168" target="_blank" rel="noopener noreferrer">J. Weizenbaum, «ELIZA», <em>Communications of the ACM</em>, 1966</a> — l’articolo originale sul primo chatbot.</li>
+    <li><a href="https://home.dartmouth.edu/about/artificial-intelligence-ai-coined-dartmouth" target="_blank" rel="noopener noreferrer">Dartmouth College, «Artificial Intelligence Coined at Dartmouth»</a> — la storia del seminario del 1956.</li>
+    <li><a href="https://www.ibm.com/history/deep-blue" target="_blank" rel="noopener noreferrer">IBM, «Deep Blue»</a> — la storia del computer che batté Kasparov.</li>
+  </ol>
+</section>
+</main>
+
+<footer><div class="wrap">Introduzione all’intelligenza artificiale · Lezione 1 di 4 · <a href="./">Guida al corso</a> · Liceo Scientifico «N. Cortese»<p class="license"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer"><span class="cc-badge" aria-label="Licenza Creative Commons BY-NC-SA 4.0"><b>cc</b>BY-NC-SA 4.0</span></a><span>© 2026 <span property="cc:attributionName">Prof. Antonio Adinolfi</span> · «Introduzione all’intelligenza artificiale» è distribuito con licenza <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer">Creative Commons Attribuzione – Non commerciale – Condividi allo stesso modo 4.0 Internazionale</a>. Fanno eccezione i materiali di terzi indicati come tali.</span></p></div></footer>
+
+<script src="./ia-slides.js?v=1"></script>
+<script src="./ia-ex.js?v=1"></script>
+<script src="./ia-sim-1.js?v=1"></script>
+<script src="./ia-lesson.js?v=1"></script>
+<script src="./ia-tools.js?v=1"></script>
+</body>
+</html>

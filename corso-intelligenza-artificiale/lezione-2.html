@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="it" data-lesson="2" class="course-pending">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Lezione 2: la nuova epoca dei big data. Unità di misura, le 5 V, data science e data analytics, motori di ricerca, visione artificiale, correlazione e causalità.">
+<title>Lezione 2 · La nuova epoca dei big data | Introduzione all’intelligenza artificiale</title>
+<link rel="stylesheet" href="./ia.css?v=2">
+<script src="./ia-config.js?v=1"></script>
+<script src="./ia-data.js?v=1"></script>
+<script src="./ia-progress.js?v=1"></script>
+</head>
+<body>
+<noscript><style>html.course-pending body{visibility:visible}</style><p>Attiva JavaScript per usare le simulazioni e svolgere il test.</p></noscript>
+<a class="skip" href="#contenuti">Vai ai contenuti</a>
+
+<header><div class="wrap">
+  <div class="topbar"><a href="./">← Introduzione all’IA · Guida al corso</a><span>Classi quinte</span></div>
+  <div class="hero">
+    <div class="kicker">Lezione 2 di 4 · 1 ora · Capitolo 8.2</div>
+    <h1>La nuova epoca dei big data</h1>
+    <p>Produciamo più dati di quanti nessun essere umano potrebbe mai leggere. Scoprirai quanto sono grandi, come si descrivono con le 5 V e perché per analizzarli servono programmi «intelligenti».</p>
+    <div class="actions">
+      <a class="button primary" href="#esplosione">Inizia ↓</a>
+      <a class="button ghost" href="#slide">Slide ↓</a>
+      <a class="button ghost" href="#esercizi">Esercizi ↓</a>
+      <a class="button ghost" href="#test-finale">Test finale ↓</a>
+      <button class="button ghost" id="projection" aria-pressed="false">Testo ingrandito</button>
+      <button class="button ghost" onclick="window.print()">Stampa / PDF</button>
+    </div>
+  </div>
+</div></header>
+
+<main class="wrap" id="contenuti">
+<nav class="lesson-nav" aria-label="Percorso delle lezioni">
+  <a class="button" data-lesson-link="1" href="./lezione-1.html">Lezione 1<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="2" href="./lezione-2.html" aria-current="page">Lezione 2<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="3" href="./lezione-3.html">Lezione 3<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="4" href="./lezione-4.html">Lezione 4<span class="nav-state"></span></a>
+</nav>
+
+<section class="section" id="obiettivi">
+  <div class="kicker">Obiettivi della lezione</div>
+  <h2>Al termine saprai…</h2>
+  <div class="panel">
+    <ul>
+      <li>spiegare che cosa sono i <strong>big data</strong> e perché i DBMS relazionali tradizionali non bastano;</li>
+      <li>usare le unità di misura dei dati, dal kilobyte allo zettabyte;</li>
+      <li>descrivere i big data con le <strong>5 V</strong>: volume, varietà, velocità, veridicità, valore;</li>
+      <li>riconoscere applicazioni della <strong>data analytics</strong> e distinguere <strong>correlazione</strong> e <strong>causalità</strong>.</li>
+    </ul>
+    <div class="timeline" aria-label="Organizzazione dell’ora">
+      <div><b>10′</b>L’esplosione dei dati</div>
+      <div><b>10′</b>Le 5 V</div>
+      <div><b>15′</b>Applicazioni e correlazioni</div>
+      <div><b>15′</b>Esercizi</div>
+      <div><b>10′</b>Test finale</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="slide">
+  <div class="kicker">Le slide del capitolo 8.2</div>
+  <h2>Le slide della lezione</h2>
+  <p>Le slide del libro di testo, da usare in classe alla LIM o per ripassare. Scorri con le frecce (anche da tastiera ← →), scegli una miniatura o passa a schermo intero; «Vai all’argomento» porta alla parte della lezione con spiegazioni, simulazioni ed esercizi.</p>
+  <div class="slide-viewer" data-from="11" data-to="16"></div>
+  <p class="slide-credit">Slide: A. Tibone, <em>Progettare e programmare</em> vol. 3 © Zanichelli editore 2019, materiale didattico per le classi che adottano il testo. Le slide sono escluse dalla licenza Creative Commons del corso.</p>
+</section>
+
+<section class="section" id="esplosione">
+  <div class="kicker">1 · L’esplosione dei dati</div>
+  <h2>Dall’analogico al digitale</h2>
+  <p>La crescita esplosiva delle comunicazioni in Rete ha portato ad accumulare quantità sempre crescenti di dati in formato digitale: i <strong>big data</strong>. Uno studio pubblicato su <em>Science</em> nel 2011 ha stimato quanta informazione l’umanità era in grado di memorizzare con tutte le tecnologie, analogiche (libri, videocassette, dischi in vinile, pellicole) e digitali (hard disk, CD, DVD, memorie flash).</p>
+  <figure class="infografica">
+    <svg viewBox="0 0 760 300" role="img" aria-labelledby="hlT">
+      <title id="hlT">Capacità mondiale di memorizzare informazione: 2,6 exabyte nel 1986 (1% digitale), 15,8 nel 1993 (3%), 54,5 nel 2000 (25%), 295 nel 2007 (94%)</title>
+      <line x1="70" y1="250" x2="740" y2="250" stroke="#52657a"/>
+      <g class="ig-s"><text x="64" y="254" text-anchor="end">0</text><text x="64" y="167" text-anchor="end">100 EB</text><text x="64" y="84" text-anchor="end">200 EB</text></g>
+      <line x1="70" y1="167" x2="740" y2="167" stroke="#dce4ec"/><line x1="70" y1="84" x2="740" y2="84" stroke="#dce4ec"/>
+      <!-- scala: 1 EB = 0,83 px -->
+      <rect x="120" y="247.8" width="90" height="2.2" fill="#2a9d8f"/>
+      <rect x="270" y="236.9" width="90" height="13.1" fill="#2a9d8f"/><rect x="270" y="236.9" width="90" height="0.4" fill="#176b87"/>
+      <rect x="420" y="204.8" width="90" height="45.2" fill="#2a9d8f"/><rect x="420" y="204.8" width="90" height="11.3" fill="#176b87"/>
+      <rect x="570" y="5" width="90" height="15" fill="#2a9d8f"/><rect x="570" y="20" width="90" height="230" fill="#176b87"/>
+      <g class="ig-t" text-anchor="middle"><text x="165" y="240">2,6 EB</text><text x="315" y="228">15,8 EB</text><text x="465" y="196">54,5 EB</text><text x="615" y="140" style="fill:#fff">295 EB</text></g>
+      <g class="ig-s" text-anchor="middle"><text x="165" y="272">1986</text><text x="315" y="272">1993</text><text x="465" y="272">2000</text><text x="615" y="272">2007</text>
+      <text x="165" y="290">1% digitale</text><text x="315" y="290">3% digitale</text><text x="465" y="290">25% digitale</text><text x="615" y="290">94% digitale</text></g>
+      <g transform="translate(90 20)"><rect width="14" height="14" fill="#176b87"/><text class="ig-s" x="20" y="12">digitale</text><rect y="22" width="14" height="14" fill="#2a9d8f"/><text class="ig-s" x="20" y="34">analogico</text></g>
+    </svg>
+    <figcaption>Capacità mondiale di memorizzare informazione (dati compressi in modo ottimale). Il sorpasso del digitale sull’analogico avviene nel 2002, considerato l’inizio dell’era digitale. Fonte: M. Hilbert, P. López, <em>Science</em> 332, 2011. Da allora la crescita è continuata: oggi si parla di zettabyte.</figcaption>
+  </figure>
+  <p>Che cosa significano davvero exabyte e zettabyte? Usa il convertitore: scegli una quantità e guarda a che cosa corrisponde.</p>
+  <div class="sim" id="bytes">
+    <div class="sim-head"><b>La scala dei byte</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body">
+      <div class="btn-row" style="align-items:center"><input type="number" id="bQty" value="1" min="0" step="any" aria-label="Quantità" style="width:120px"><select id="bUnit" aria-label="Unità di misura"></select><code id="bSci"></code></div>
+      <div class="byte-scale" aria-hidden="true"></div>
+      <p class="sim-note" style="margin:0 0 10px">corrispondono a circa…</p>
+      <div class="stat-row bytes-out" aria-live="polite"></div>
+      <p class="sim-note">Dimensioni tipiche e approssimate: una pagina di testo 2 kB, una foto 3 MB, una canzone 4 MB, un’ora di video HD 3 GB.</p>
+    </div>
+  </div>
+  <details class="ricorda"><summary>i prefissi delle unità di misura</summary>
+    <p>Come per i metri, ogni prefisso del Sistema Internazionale moltiplica per <strong>1000</strong>: kilo (10<sup>3</sup>), mega (10<sup>6</sup>), giga (10<sup>9</sup>), tera (10<sup>12</sup>), peta (10<sup>15</sup>), exa (10<sup>18</sup>), zetta (10<sup>21</sup>). In informatica si usano anche i prefissi binari, che moltiplicano per 1024: kibibyte (KiB), mebibyte (MiB), gibibyte (GiB)… Per questo un disco da «1 TB» appare nel computer come circa 931 GiB.</p>
+  </details>
+  <div class="task"><strong>Perché «big».</strong> <mark class="key">Oggi abbiamo insiemi di dati così giganteschi che non è più possibile gestirli ed elaborarli con sistemi software tradizionali come i DBMS relazionali</mark>: non stanno su un solo server, arrivano troppo in fretta e spesso non hanno la forma ordinata di una tabella.</div>
+</section>
+
+<section class="section" id="data-science">
+  <div class="kicker">1 · Dai dati alle informazioni</div>
+  <h2>Data science e data analytics</h2>
+  <p>L’enorme quantità di dati che accumuliamo ha fatto nascere la <strong>data science</strong>. Quando si parla di big data si intende anche il processo di <strong>data analytics</strong>: <mark class="key">l’analisi dei dati per estrarne informazioni utili</mark>.</p>
+  <figure class="infografica">
+    <svg viewBox="0 0 760 130" role="img" aria-labelledby="dsT">
+      <title id="dsT">Il percorso della data analytics: raccolta, pulizia, analisi, visualizzazione, decisione</title>
+      <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#176b87"/></marker></defs>
+      <g text-anchor="middle">
+        <rect x="5" y="25" width="128" height="74" rx="14" fill="#e5f2f7" stroke="#176b87"/><text class="ig-t" x="69" y="57">1 · Raccolta</text><text class="ig-s" x="69" y="78">sensori, app, web</text>
+        <rect x="158" y="25" width="128" height="74" rx="14" fill="#e5f2f7" stroke="#176b87"/><text class="ig-t" x="222" y="57">2 · Pulizia</text><text class="ig-s" x="222" y="78">errori, doppioni</text>
+        <rect x="311" y="25" width="128" height="74" rx="14" fill="#102a43"/><text x="375" y="57" style="font:700 15px system-ui;fill:#fff">3 · Analisi</text><text x="375" y="78" style="font:13px system-ui;fill:#b2ebe5">algoritmi di IA</text>
+        <rect x="464" y="25" width="128" height="74" rx="14" fill="#e5f2f7" stroke="#176b87"/><text class="ig-t" x="528" y="57">4 · Visualizza</text><text class="ig-s" x="528" y="78">grafici, mappe</text>
+        <rect x="617" y="25" width="138" height="74" rx="14" fill="#fff9e9" stroke="#d9a227"/><text class="ig-t" x="686" y="57">5 · Decisione</text><text class="ig-s" x="686" y="78">previsioni, azioni</text>
+      </g>
+      <g stroke="#176b87" stroke-width="2.5" marker-end="url(#ar2)"><path d="M134 62H155"/><path d="M287 62H308"/><path d="M440 62H461"/><path d="M593 62H614"/></g>
+    </svg>
+    <figcaption>Il cuore del processo è l’analisi: con questi volumi deve essere svolta da programmi che lavorano in modo autonomo.</figcaption>
+  </figure>
+  <p>Servono quindi nuove applicazioni «intelligenti», capaci di analizzare i dati in modo autonomo, di evidenziarne le <strong>correlazioni nascoste</strong> e di usarli come base per fare <strong>previsioni</strong> sul futuro. <mark class="key">Questa esigenza ha dato nuovo impulso alla ricerca sull’IA</mark>.</p>
+</section>
+
+<section class="section" id="cinque-v">
+  <div class="kicker">2 · Le 5 V</div>
+  <h2>Cinque parole per descrivere i big data</h2>
+  <p>I big data si possono caratterizzare con cinque proprietà, note come <strong>le 5 V</strong>. Seleziona ogni V per leggere la definizione e un esempio.</p>
+  <div class="sim" id="fiveV">
+    <div class="sim-head"><b>Le 5 V dei big data</b><span class="sim-tag">Infografica</span></div>
+    <div class="sim-body">
+      <div class="v-grid" role="group" aria-label="Le 5 V">
+        <button type="button" class="v-card" data-k="volume" aria-pressed="true"><span class="big" aria-hidden="true">V</span>Volume</button>
+        <button type="button" class="v-card" data-k="varieta" aria-pressed="false"><span class="big" aria-hidden="true">V</span>Varietà</button>
+        <button type="button" class="v-card" data-k="velocita" aria-pressed="false"><span class="big" aria-hidden="true">V</span>Velocità</button>
+        <button type="button" class="v-card" data-k="veridicita" aria-pressed="false"><span class="big" aria-hidden="true">V</span>Veridicità</button>
+        <button type="button" class="v-card" data-k="valore" aria-pressed="false"><span class="big" aria-hidden="true">V</span>Valore</button>
+      </div>
+      <div class="tl-detail" style="margin-top:14px" aria-live="polite"></div>
+    </div>
+  </div>
+  <p>La <strong>velocità</strong> è la V più difficile da immaginare. Nella simulazione i dati (punti blu) arrivano a un certo ritmo e finiscono in una coda; il sistema li elabora con una certa capacità. Prova a mandare più dati di quanti il sistema ne riesca a elaborare.</p>
+  <div class="sim" id="stream">
+    <div class="sim-head"><b>Velocità: dati in arrivo e capacità di elaborazione</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body sim-grid">
+      <div><canvas width="640" height="220" aria-label="Animazione del flusso di dati e della coda"></canvas></div>
+      <div class="sim-controls">
+        <label>Dati in arrivo al secondo: <span class="v" id="sInV"></span><input type="range" id="sIn" min="5" max="200" value="40"></label>
+        <label>Dati elaborati al secondo: <span class="v" id="sCapV"></span><input type="range" id="sCap" min="5" max="200" value="60"></label>
+        <div class="btn-row"><button type="button" class="sb main" id="sGo">▶ Avvia</button><button type="button" class="sb" id="sReset">Azzera</button></div>
+        <div class="stat-row"><div class="stat"><span>In coda</span><b id="sQueue">0</b></div><div class="stat"><span>Elaborati</span><b id="sDone">0</b></div><div class="stat"><span>Persi</span><b id="sLost">0</b></div></div>
+        <p class="sim-note live" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+  <div class="check"><strong>Attenzione alla veridicità.</strong> <mark class="warn">Tanti dati non significano dati giusti</mark>: se i dati di partenza sono sbagliati o distorti, anche le conclusioni lo saranno. Gli informatici lo riassumono così: <em>garbage in, garbage out</em> (spazzatura in ingresso, spazzatura in uscita).</div>
+</section>
+
+<section class="section" id="applicazioni">
+  <div class="kicker">3 · Applicazioni</div>
+  <h2>Che cosa si fa con i big data</h2>
+  <div class="concept-grid">
+    <article class="concept-card"><h3>Motori di ricerca</h3><p><mark class="key">Le risposte dei motori di ricerca sono basate sull’analisi automatica di big data</mark>: i risultati di tutte le ricerche fatte in passato da milioni di utenti.</p></article>
+    <article class="concept-card"><h3>Analisi delle immagini</h3><p>Software capaci di identificare oggetti e persone in foto e video, grazie all’<strong>addestramento</strong> su enormi archivi di immagini già etichettate.</p></article>
+    <article class="concept-card"><h3>Guida autonoma</h3><p>I veicoli a guida autonoma sono <strong>sistemi di big data analytics con le ruote</strong>: telecamere, radar e lidar producono un flusso continuo di dati da interpretare in tempo reale.</p></article>
+  </div>
+  <h3>Un motore di ricerca in miniatura</h3>
+  <p>Il simulatore contiene un registro di ricerche passate con il numero di volte in cui sono state fatte. Scrivi l’inizio di una parola: i suggerimenti sono ordinati solo in base alla <strong>frequenza</strong>. Poi premi <strong>Simula 1000 utenti</strong> e guarda che cosa cambia.</p>
+  <div class="sim" id="search">
+    <div class="sim-head"><b>Autocompletamento basato sulle ricerche passate</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body sim-grid">
+      <div>
+        <form class="search-box"><input type="text" placeholder="Cerca…" aria-label="Cerca" autocomplete="off" maxlength="60"></form>
+        <ul class="suggest" aria-live="polite"></ul>
+      </div>
+      <div class="sim-controls">
+        <div class="stat"><span>Ricerche nel registro</span><b id="qTot">0</b></div>
+        <div class="btn-row"><button type="button" class="sb main" id="qSim">Simula 1000 utenti</button><button type="button" class="sb" id="qReset">Ripristina</button></div>
+        <p class="sim-note" id="qMsg" aria-live="polite">Premendo Invio aggiungi anche la tua ricerca al registro.</p>
+      </div>
+    </div>
+  </div>
+  <p>Il programma non sa che cosa significano le parole: <mark class="key">conta, ordina e scopre le tendenze a partire dal comportamento di moltissimi utenti</mark>. I motori di ricerca reali usano molti altri segnali (posizione, lingua, data, link tra pagine), ma l’idea di fondo è la stessa.</p>
+</section>
+
+<section class="section" id="correlazioni">
+  <div class="kicker">3 · Correlazioni nascoste</div>
+  <h2>Correlazione non significa causalità</h2>
+  <p>Analizzando grandi quantità di dati si scoprono <strong>correlazioni</strong>: due grandezze che tendono a crescere o a calare insieme. Il <strong>coefficiente di correlazione</strong> <em>r</em> va da −1 a +1: vicino a +1 le grandezze crescono insieme, vicino a 0 non c’è legame lineare. Ecco i dati (simulati) di 80 giorni in una località di mare.</p>
+  <div class="sim" id="corr">
+    <div class="sim-head"><b>Gelati e scottature</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body sim-grid">
+      <div><canvas width="620" height="360" aria-label="Grafico a dispersione: gelati venduti e persone con scottature"></canvas></div>
+      <div class="sim-controls">
+        <div class="stat-row"><div class="stat"><span>Correlazione r</span><b id="cR">—</b></div><div class="stat"><span>Giorni</span><b id="cN">—</b></div></div>
+        <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="cColor"> Colora i punti in base alla temperatura</label>
+        <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="cBand"> Considera solo i giorni tra 24 e 28 °C</label>
+        <p class="sim-note" id="cMsg" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+  <div class="task"><strong>La lezione.</strong> <mark class="warn">Una correlazione, anche fortissima, non dimostra che una cosa causi l’altra</mark>: spesso c’è una <strong>variabile nascosta</strong> che le influenza entrambe, oppure si tratta di una coincidenza. Gli algoritmi trovano le correlazioni; interpretarle resta un compito di chi li usa.</div>
+</section>
+
+<section class="section" id="esercizi">
+  <div class="kicker">4 · Esercizi · circa 15 minuti</div>
+  <h2>Ora tocca a te</h2>
+  <div class="panel">
+    <p><strong>Come funzionano.</strong> Rispondi, poi premi <strong>✓ Verifica</strong>: le risposte esatte si colorano di verde, quelle da rivedere di arancione. L’esercizio è completato quando tutto è esatto.</p>
+    <p id="exProgress" class="ex-badge" role="status"></p>
+  </div>
+
+  <article class="panel exercise" id="es-1">
+    <div class="ex-head"><h3>Esercizio 1 · Quale V?</h3><span><span class="ex-level">★ Guidato</span> <span class="ex-badge"></span></span></div>
+    <p>Per ogni situazione scegli la V che la descrive meglio.</p>
+    <div class="ia-ex" data-ex="l2-e1" data-hint="chiediti se il problema è la quantità, i formati, il ritmo di arrivo, l’affidabilità o l’utilità dei dati.">
+      <ul class="ex-items">
+        <li><span>Un telescopio produce ogni notte decine di terabyte di immagini</span><select data-answer="volume"><option value="">— scegli —</option><option value="volume">Volume</option><option value="varieta">Varietà</option><option value="velocita">Velocità</option><option value="veridicita">Veridicità</option><option value="valore">Valore</option></select></li>
+        <li><span>Il sistema antifrode di una banca deve bloccare un pagamento sospetto prima che venga completato</span><select data-answer="velocita"><option value="">— scegli —</option><option value="volume">Volume</option><option value="varieta">Varietà</option><option value="velocita">Velocità</option><option value="veridicita">Veridicità</option><option value="valore">Valore</option></select></li>
+        <li><span>Un ospedale archivia referti scritti, radiografie, tracciati dell’elettrocardiogramma e registrazioni vocali</span><select data-answer="varieta"><option value="">— scegli —</option><option value="volume">Volume</option><option value="varieta">Varietà</option><option value="velocita">Velocità</option><option value="veridicita">Veridicità</option><option value="valore">Valore</option></select></li>
+        <li><span>Un sondaggio online viene compilato più volte dalle stesse persone con risposte inventate</span><select data-answer="veridicita"><option value="">— scegli —</option><option value="volume">Volume</option><option value="varieta">Varietà</option><option value="velocita">Velocità</option><option value="veridicita">Veridicità</option><option value="valore">Valore</option></select></li>
+        <li><span>Analizzando gli scontrini, una catena di negozi scopre quali prodotti esporre vicini e aumenta le vendite</span><select data-answer="valore"><option value="">— scegli —</option><option value="volume">Volume</option><option value="varieta">Varietà</option><option value="velocita">Velocità</option><option value="veridicita">Veridicità</option><option value="valore">Valore</option></select></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="panel exercise" id="es-2">
+    <div class="ex-head"><h3>Esercizio 2 · Conti con i byte</h3><span><span class="ex-level">★★ Calcolo</span> <span class="ex-badge"></span></span></div>
+    <p>Usa i prefissi del Sistema Internazionale (ogni gradino vale ×1000). Scrivi solo il numero, senza punti delle migliaia.</p>
+    <div class="ia-ex" data-ex="l2-e2" data-hint="contando i gradini tra due unità sai per quante volte moltiplicare (o dividere) per 1000.">
+      <div class="calc-line">a) 2 TB = <input data-answer="2000" inputmode="decimal" aria-label="Risposta a"> GB</div>
+      <div class="calc-line">b) 7500 MB = <input data-answer="7.5" inputmode="decimal" aria-label="Risposta b"> GB</div>
+      <div class="calc-line">c) 1 PB = <input data-answer="1000000" inputmode="decimal" aria-label="Risposta c"> GB</div>
+      <div class="calc-line">d) Quante foto da 3 MB entrano in una memoria da 12 GB? <input data-answer="4000" inputmode="decimal" aria-label="Risposta d"></div>
+    </div>
+  </article>
+
+  <article class="panel exercise" id="es-3">
+    <div class="ex-head"><h3>Esercizio 3 · Prevedi i suggerimenti</h3><span><span class="ex-level">★★ Ragionamento</span> <span class="ex-badge"></span></span></div>
+    <p>Un registro di ricerche contiene: <code>verbi inglesi</code> 380 volte, <code>versione di latino</code> 510, <code>verifica di fisica</code> 260, <code>vernice per legno</code> 90, <code>verona</code> 450. Uno studente scrive «ver». Metti i suggerimenti nell’ordine in cui li mostra il motore, dal primo all’ultimo.</p>
+    <div class="ia-ex" data-ex="l2-e3" data-hint="il motore ordina per numero di ricerche, dal più grande al più piccolo.">
+      <ol class="ex-order">
+        <li data-pos="1">versione di latino</li>
+        <li data-pos="2">verona</li>
+        <li data-pos="3">verbi inglesi</li>
+        <li data-pos="4">verifica di fisica</li>
+        <li data-pos="5">vernice per legno</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="panel exercise" id="es-4">
+    <div class="ex-head"><h3>Esercizio 4 · Causa o correlazione?</h3><span><span class="ex-level">★★★ Pensiero critico</span> <span class="ex-badge"></span></span></div>
+    <p>Per ogni coppia di grandezze che crescono insieme, scegli la spiegazione più ragionevole.</p>
+    <div class="ia-ex" data-ex="l2-e4" data-hint="cerca un fenomeno che possa influenzare entrambe le grandezze; se non c’è nessun legame plausibile, è probabilmente una coincidenza.">
+      <ul class="ex-items">
+        <li><span>Nei giorni in cui si vendono più ombrelli ci sono più incidenti stradali</span><select data-answer="comune"><option value="">— scegli —</option><option value="causa">Causa-effetto diretto</option><option value="comune">Causa comune nascosta</option><option value="caso">Coincidenza</option></select></li>
+        <li><span>Più si preme l’acceleratore, più aumenta la velocità dell’auto</span><select data-answer="causa"><option value="">— scegli —</option><option value="causa">Causa-effetto diretto</option><option value="comune">Causa comune nascosta</option><option value="caso">Coincidenza</option></select></li>
+        <li><span>Negli incendi in cui intervengono più vigili del fuoco si registrano più danni</span><select data-answer="comune"><option value="">— scegli —</option><option value="causa">Causa-effetto diretto</option><option value="comune">Causa comune nascosta</option><option value="caso">Coincidenza</option></select></li>
+        <li><span>Per dieci anni il numero di film di un attore e il consumo di formaggio di un paese lontano sono saliti e scesi insieme</span><select data-answer="caso"><option value="">— scegli —</option><option value="causa">Causa-effetto diretto</option><option value="comune">Causa comune nascosta</option><option value="caso">Coincidenza</option></select></li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<section class="section" id="sintesi">
+  <div class="kicker">In sintesi</div>
+  <h2>Che cosa porti a casa</h2>
+  <div class="panel">
+    <ul>
+      <li>I <strong>big data</strong> sono insiemi di dati così grandi, veloci e vari da non poter essere gestiti con i software tradizionali come i DBMS relazionali.</li>
+      <li>Le <strong>5 V</strong>: volume, varietà, velocità, veridicità, valore.</li>
+      <li>La <strong>data analytics</strong> estrae informazioni dai dati: correlazioni nascoste e previsioni. Con questi volumi l’analisi deve essere automatica: per questo i big data hanno rilanciato l’IA.</li>
+      <li>Applicazioni: motori di ricerca, analisi delle immagini, guida autonoma.</li>
+      <li><strong>Correlazione non è causalità</strong>: attenzione alle variabili nascoste.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="test-finale">
+  <div class="kicker">Test di fine lezione · 10 domande</div>
+  <h2>Verifica che cosa hai imparato</h2>
+  <p>Rispondi a tutte le domande e invia. Per sbloccare la Lezione 3 servono almeno <strong>7 risposte esatte su 10 (70%)</strong>. Dopo l’invio vedrai quali risposte sono esatte e un suggerimento per le altre: ripassa e riprova, i tentativi sono illimitati. Alla fine invia l’esito al docente.</p>
+  <form id="finalQuiz">
+    <div id="quizQuestions"></div>
+    <p id="quizCount" role="status" aria-live="polite"></p>
+    <button class="button primary" id="submitQuiz" disabled>Invia e verifica il risultato</button>
+  </form>
+  <p id="quizMessage" role="status" aria-live="polite"></p>
+  <div class="panel" id="quizResult" tabindex="-1" hidden>
+    <h3 id="quizScore"></h3>
+    <p id="attemptCount" class="muted"></p>
+    <div class="actions">
+      <button class="button" id="retryQuiz">Ripassa e riprova</button>
+      <button class="button" id="downloadQuiz">Scarica l’esito</button>
+      <a class="button primary" id="continueLink" data-lesson-link="3" href="./lezione-3.html" hidden>Prosegui alla Lezione 3 →</a>
+    </div>
+  </div>
+  <div class="panel builder consegna" id="consegnaBox" hidden>
+    <h3>Consegna al docente</h3>
+    <p>Invia l’esito di questo tentativo: il docente riceverà un PDF con risposte, punteggio ed esercizi completati. Puoi consegnare di nuovo dopo un nuovo tentativo.</p>
+    <form id="consegnaForm">
+      <div class="row">
+        <div><label for="stNome">Nome e cognome</label><input id="stNome" maxlength="80" autocomplete="name" required></div>
+        <div><label for="stClasse">Classe</label><input id="stClasse" maxlength="6" placeholder="es. 5B" required></div>
+      </div>
+      <div class="actions" style="margin-top:14px"><button class="button primary" id="consegnaBtn">Consegna l’esito</button></div>
+    </form>
+    <p id="consegnaStatus" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="section" id="fonti">
+  <h2>Fonti e approfondimenti</h2>
+  <ol>
+    <li>A. Tibone, <em>Progettare e programmare</em>, vol. 3, Zanichelli 2019, cap. 8.2.</li>
+    <li><a href="https://www.science.org/doi/10.1126/science.1200970" target="_blank" rel="noopener noreferrer">M. Hilbert, P. López, «The World’s Technological Capacity to Store, Communicate, and Compute Information», <em>Science</em> 332, 2011</a> — i dati dell’infografica sull’era digitale.</li>
+    <li><a href="https://www.bipm.org/en/publications/si-brochure" target="_blank" rel="noopener noreferrer">BIPM, <em>The International System of Units (SI)</em></a> — i prefissi del Sistema Internazionale.</li>
+    <li><a href="https://www.tylervigen.com/spurious-correlations" target="_blank" rel="noopener noreferrer">T. Vigen, <em>Spurious Correlations</em></a> — una raccolta di correlazioni assurde tra dati reali.</li>
+  </ol>
+</section>
+</main>
+
+<footer><div class="wrap">Introduzione all’intelligenza artificiale · Lezione 2 di 4 · <a href="./">Guida al corso</a> · Liceo Scientifico «N. Cortese»<p class="license"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer"><span class="cc-badge" aria-label="Licenza Creative Commons BY-NC-SA 4.0"><b>cc</b>BY-NC-SA 4.0</span></a><span>© 2026 <span property="cc:attributionName">Prof. Antonio Adinolfi</span> · «Introduzione all’intelligenza artificiale» è distribuito con licenza <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer">Creative Commons Attribuzione – Non commerciale – Condividi allo stesso modo 4.0 Internazionale</a>. Fanno eccezione i materiali di terzi indicati come tali.</span></p></div></footer>
+
+<script src="./ia-slides.js?v=1"></script>
+<script src="./ia-ex.js?v=1"></script>
+<script src="./ia-sim-2.js?v=1"></script>
+<script src="./ia-lesson.js?v=1"></script>
+<script src="./ia-tools.js?v=1"></script>
+</body>
+</html>

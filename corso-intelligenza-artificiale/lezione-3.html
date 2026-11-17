@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="it" data-lesson="3" class="course-pending">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Lezione 3: estrarre informazioni dai dati con il machine learning. Apprendimento con e senza supervisione, training e test, KNN, naive Bayes, alberi di decisione, k-means.">
+<title>Lezione 3 · Il machine learning | Introduzione all’intelligenza artificiale</title>
+<link rel="stylesheet" href="./ia.css?v=2">
+<script src="./ia-config.js?v=1"></script>
+<script src="./ia-data.js?v=1"></script>
+<script src="./ia-progress.js?v=1"></script>
+</head>
+<body>
+<noscript><style>html.course-pending body{visibility:visible}</style><p>Attiva JavaScript per usare le simulazioni e svolgere il test.</p></noscript>
+<a class="skip" href="#contenuti">Vai ai contenuti</a>
+
+<header><div class="wrap">
+  <div class="topbar"><a href="./">← Introduzione all’IA · Guida al corso</a><span>Classi quinte</span></div>
+  <div class="hero">
+    <div class="kicker">Lezione 3 di 4 · 1 ora · Capitolo 8.3</div>
+    <h1>Estrarre informazioni dai dati: il machine learning</h1>
+    <p>Invece di scrivere le regole a mano, si lascia che sia l’algoritmo a ricavarle dagli esempi. Addestrerai un classificatore, farai votare i vicini, costruirai un filtro antispam e vedrai un algoritmo scoprire gruppi da solo.</p>
+    <div class="actions">
+      <a class="button primary" href="#idea">Inizia ↓</a>
+      <a class="button ghost" href="#slide">Slide ↓</a>
+      <a class="button ghost" href="#esercizi">Esercizi ↓</a>
+      <a class="button ghost" href="#test-finale">Test finale ↓</a>
+      <button class="button ghost" id="projection" aria-pressed="false">Testo ingrandito</button>
+      <button class="button ghost" onclick="window.print()">Stampa / PDF</button>
+    </div>
+  </div>
+</div></header>
+
+<main class="wrap" id="contenuti">
+<nav class="lesson-nav" aria-label="Percorso delle lezioni">
+  <a class="button" data-lesson-link="1" href="./lezione-1.html">Lezione 1<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="2" href="./lezione-2.html">Lezione 2<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="3" href="./lezione-3.html" aria-current="page">Lezione 3<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="4" href="./lezione-4.html">Lezione 4<span class="nav-state"></span></a>
+</nav>
+
+<section class="section" id="obiettivi">
+  <div class="kicker">Obiettivi della lezione</div>
+  <h2>Al termine saprai…</h2>
+  <div class="panel">
+    <ul>
+      <li>distinguere apprendimento <strong>con supervisione</strong> (classificazione, regressione) e <strong>senza supervisione</strong> (clustering);</li>
+      <li>spiegare le fasi di <strong>training</strong> e di <strong>test</strong> e il significato di Y = f(X);</li>
+      <li>applicare a mano l’algoritmo <strong>KNN</strong> e percorrere un <strong>albero di decisione</strong>;</li>
+      <li>spiegare l’idea dei classificatori <strong>naive Bayes</strong> e dell’algoritmo di clustering <strong>k-means</strong>.</li>
+    </ul>
+    <div class="timeline" aria-label="Organizzazione dell’ora">
+      <div><b>10′</b>Che cos’è il machine learning</div>
+      <div><b>10′</b>Training e test</div>
+      <div><b>15′</b>Quattro algoritmi</div>
+      <div><b>15′</b>Esercizi</div>
+      <div><b>10′</b>Test finale</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="slide">
+  <div class="kicker">Le slide del capitolo 8.3</div>
+  <h2>Le slide della lezione</h2>
+  <p>Le slide del libro di testo, da usare in classe alla LIM o per ripassare. Scorri con le frecce (anche da tastiera ← →), scegli una miniatura o passa a schermo intero; «Vai all’argomento» porta alla parte della lezione con spiegazioni, simulazioni ed esercizi.</p>
+  <div class="slide-viewer" data-from="17" data-to="21"></div>
+  <p class="slide-credit">Slide: A. Tibone, <em>Progettare e programmare</em> vol. 3 © Zanichelli editore 2019, materiale didattico per le classi che adottano il testo. Le slide sono escluse dalla licenza Creative Commons del corso.</p>
+</section>
+
+<section class="section" id="idea">
+  <div class="kicker">1 · L’idea</div>
+  <h2>Programmi che imparano dagli esempi</h2>
+  <p>Il <strong>machine learning</strong> (apprendimento automatico) permette di analizzare grandi quantità di dati con <mark class="key">algoritmi capaci di apprendimento</mark>. È l’opposto dei sistemi esperti della Lezione 1:</p>
+  <div class="split">
+    <div class="panel"><h3>Programmazione tradizionale</h3><p>Il programmatore scrive le <strong>regole</strong>; il computer le applica ai <strong>dati</strong> e produce le <strong>risposte</strong>.</p><p class="calc-line">regole + dati → risposte</p></div>
+    <div class="panel"><h3>Machine learning</h3><p>Si forniscono al computer <strong>dati</strong> e <strong>risposte</strong> di esempio; l’algoritmo ricava da solo le <strong>regole</strong> (il modello).</p><p class="calc-line">dati + risposte → regole</p></div>
+  </div>
+  <figure class="infografica">
+    <svg viewBox="0 0 760 250" role="img" aria-labelledby="mlT">
+      <title id="mlT">Il machine learning si divide in apprendimento senza supervisione, cioè il clustering, e con supervisione, cioè classificazione e regressione</title>
+      <g stroke="#a9bfce" stroke-width="2" fill="none"><path d="M380 62V85H190V110"/><path d="M380 85H570V110"/><path d="M190 158V185"/><path d="M570 158V172H475V185"/><path d="M570 172H665V185"/></g>
+      <rect x="295" y="16" width="170" height="46" rx="12" fill="#102a43"/><text x="380" y="45" text-anchor="middle" style="font:700 16px system-ui;fill:#fff">machine learning</text>
+      <rect x="85" y="110" width="210" height="48" rx="12" fill="#e5f2f7" stroke="#176b87"/><text class="ig-t" x="190" y="131" text-anchor="middle">senza supervisione</text><text class="ig-s" x="190" y="149" text-anchor="middle">dati senza etichette</text>
+      <rect x="465" y="110" width="210" height="48" rx="12" fill="#fff9e9" stroke="#d9a227"/><text class="ig-t" x="570" y="131" text-anchor="middle">con supervisione</text><text class="ig-s" x="570" y="149" text-anchor="middle">dati con la risposta esatta</text>
+      <rect x="110" y="185" width="160" height="56" rx="12" fill="#fff" stroke="#176b87"/><text class="ig-t" x="190" y="208" text-anchor="middle">clustering</text><text class="ig-s" x="190" y="227" text-anchor="middle">scopre gruppi simili</text>
+      <rect x="400" y="185" width="150" height="56" rx="12" fill="#fff" stroke="#d9a227"/><text class="ig-t" x="475" y="208" text-anchor="middle">classificazione</text><text class="ig-s" x="475" y="227" text-anchor="middle">uscita = categoria</text>
+      <rect x="590" y="185" width="150" height="56" rx="12" fill="#fff" stroke="#d9a227"/><text class="ig-t" x="665" y="208" text-anchor="middle">regressione</text><text class="ig-s" x="665" y="227" text-anchor="middle">uscita = numero</text>
+    </svg>
+    <figcaption>Classificazione: «è un gatto o un cane?». Regressione: «quanto costerà questa casa?». Clustering: «quali gruppi di clienti esistono?».</figcaption>
+  </figure>
+  <div class="concept-grid">
+    <article class="concept-card"><h3>Con supervisione</h3><p>Si <strong>addestra</strong> l’algoritmo con dati di input (problemi) e di output (soluzioni). <mark class="key">Una volta che ha imparato dai dati, l’algoritmo sa prevedere l’output per nuovi input «mai visti prima»</mark>.</p></article>
+    <article class="concept-card"><h3>Senza supervisione</h3><p>L’algoritmo impara in modo autonomo dai dati di input, senza risposte da imitare: <mark class="key">individua strutture o pattern nascosti</mark>, per esempio gruppi di dati simili.</p></article>
+    <article class="concept-card"><h3>Il modello</h3><p>Ciò che l’algoritmo impara è una funzione <strong>Y = f(X)</strong>: X sono le caratteristiche dell’input (peso, altezza, parole di un messaggio…), Y è la risposta (gatto o cane, spam o no).</p></article>
+  </div>
+</section>
+
+<section class="section" id="training">
+  <div class="kicker">2 · Training e test</div>
+  <h2>Addestra un classificatore</h2>
+  <p>Tra le applicazioni più comuni dell’apprendimento con supervisione c’è il <strong>riconoscimento automatico delle immagini</strong>, ad esempio distinguere gatti e cani. Un’immagine ha milioni di pixel; qui semplifichiamo e descriviamo ogni animale con due sole caratteristiche: <strong>peso</strong> e <strong>altezza</strong>. ▲ arancioni = gatti, ■ blu = cani.</p>
+  <p><mark class="key">Durante il training, a ogni nuovo esempio l’algoritmo modifica in modo adattivo i propri parametri</mark>, così che tendano a produrre la risposta corretta per tutti i casi visti fino ad allora. Premi <strong>Un esempio</strong> più volte e guarda la retta che separa le due classi spostarsi solo quando l’algoritmo sbaglia.</p>
+  <div class="sim" id="train">
+    <div class="sim-head"><b>Training di un classificatore lineare (percettrone)</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body sim-grid">
+      <div><canvas width="640" height="420" aria-label="Grafico peso-altezza con gatti, cani e retta di separazione"></canvas><p class="sim-note">Fai clic sul grafico per inserire un nuovo animale: il modello lo classifica.</p></div>
+      <div class="sim-controls">
+        <div class="btn-row"><button type="button" class="sb main" id="trStep">Un esempio</button><button type="button" class="sb dark" id="trEpoch">Un’epoca intera</button><button type="button" class="sb" id="trReset">Ricomincia</button></div>
+        <div class="stat-row"><div class="stat"><span>Epoche</span><b id="trEp">0</b></div><div class="stat"><span>Accuratezza training</span><b id="trAcc">—</b></div><div class="stat"><span>Accuratezza test</span><b id="trTestAcc">—</b></div></div>
+        <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="trTest"> Mostra i dati di test (mai visti)</label>
+        <p class="sim-note" style="margin:0"><code id="trW"></code></p>
+        <pre class="sim-out" id="trLog" aria-live="polite"></pre>
+      </div>
+    </div>
+  </div>
+  <div class="split">
+    <div class="task"><strong>Training.</strong> L’algoritmo guarda gli esempi etichettati e corregge i parametri (qui i tre pesi <code>w</code> che definiscono la retta). Un passaggio su tutti gli esempi si chiama <strong>epoca</strong>.</div>
+    <div class="task"><strong>Test.</strong> <mark class="key">Si misura l’accuratezza su dati mai visti durante il training</mark>: i cerchi verdi sono previsti bene, quelli rossi male. Solo così si sa se l’algoritmo ha imparato una regola generale.</div>
+  </div>
+  <div class="check"><strong>Attenzione.</strong> <mark class="warn">Un modello perfetto sui dati di training ma scarso sui dati nuovi ha imparato «a memoria»</mark>: si parla di <em>overfitting</em> (sovradattamento). È come uno studente che memorizza le soluzioni degli esercizi svolti ma non sa risolverne uno nuovo.</div>
+</section>
+
+<section class="section" id="algoritmi">
+  <div class="kicker">3 · Quattro algoritmi</div>
+  <h2>K-Nearest Neighbors: dimmi chi sono i tuoi vicini</h2>
+  <p>L’algoritmo <strong>KNN</strong> <mark class="key">classifica un nuovo dato in base alla classe più frequente tra i k dati più vicini</mark> di cui è nota la classificazione corretta. Trascina il punto giallo «?» e cambia k.</p>
+  <div class="sim" id="knn">
+    <div class="sim-head"><b>KNN · K-Nearest Neighbors</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body sim-grid">
+      <div><canvas width="620" height="400" aria-label="Piano con triangoli e quadrati; il punto da classificare si può trascinare"></canvas></div>
+      <div class="sim-controls">
+        <label>Numero di vicini k: <span class="v" id="knnKV">3</span><input type="range" id="knnK" min="1" max="15" step="2" value="3"></label>
+        <div class="stat-row"><div class="stat"><span>Voti</span><b id="knnVote">—</b></div><div class="stat"><span>Classificato come</span><b id="knnRes">—</b></div></div>
+        <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="knnReg"> Colora le regioni di decisione</label>
+        <p class="sim-note">Usiamo k dispari per evitare i pareggi tra due classi. Con k = 1 basta un solo vicino «strano» a sbagliare; con k molto grande vince sempre la classe più numerosa.</p>
+      </div>
+    </div>
+  </div>
+  <p>KNN è semplicissimo e non ha una vera fase di training, ma <mark class="warn">usa come modello l’intero insieme di dati di training, perciò richiede molta memoria</mark>: per ogni nuovo punto deve calcolare la distanza da tutti gli altri.</p>
+
+  <h2 id="naive-bayes">Naive Bayes: il filtro antispam</h2>
+  <p>Gli algoritmi <strong>naive Bayes</strong> <mark class="key">calcolano la probabilità che un attributo sia associato a una classe oppure a un’altra</mark>. L’esempio classico è il filtro antispam: dagli esempi si stima quanto spesso ogni parola compare nei messaggi di spam e in quelli normali, poi si combinano le probabilità delle parole di un messaggio nuovo.</p>
+  <div class="sim" id="bayes">
+    <div class="sim-head"><b>Filtro antispam naive Bayes</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body">
+      <div class="sim-grid">
+        <div>
+          <label for="bayesIn" style="font-weight:700">Scrivi un messaggio</label>
+          <input type="text" id="bayesIn" value="clicca subito per il tuo premio" style="width:100%;margin-top:6px" maxlength="140">
+          <div class="btn-row" style="margin-top:8px"><button type="button" class="sb" data-msg="domani ci vediamo a scuola">«ci vediamo a scuola»</button><button type="button" class="sb" data-msg="offerta gratis guadagna soldi">«offerta gratis»</button><button type="button" class="sb" data-msg="gratis gli appunti di informatica per la verifica">messaggio misto</button></div>
+          <div class="word-chips" aria-label="Parole del messaggio"></div>
+          <div class="prob-bar" aria-live="polite"><i></i><b></b></div>
+          <div class="legend-dots"><span><i style="background:#d9822b"></i>indizio di spam</span><span><i style="background:#2a9d8f"></i>indizio di messaggio normale</span><span><i style="background:#dce4ec"></i>parola mai vista</span></div>
+          <pre class="sim-out" style="margin-top:10px"></pre>
+        </div>
+        <div>
+          <h4 style="margin-top:0">Messaggi di addestramento</h4>
+          <div class="table-wrap" style="max-height:330px;overflow:auto"><table class="data-table" id="bayesTrain" style="min-width:0"><thead><tr><th>Classe</th><th>Testo</th></tr></thead><tbody></tbody></table></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>Si chiama <strong>«naive»</strong> (ingenuo) perché <mark class="key">assume che le parole siano indipendenti l’una dall’altra</mark>, come se «clicca» e «qui» non tendessero a comparire insieme. L’ipotesi è falsa, eppure il metodo funziona sorprendentemente bene. Il simulatore usa anche la <em>correzione di Laplace</em> (+1 a ogni conteggio) perché una parola mai vista in una classe non azzeri tutto il prodotto.</p>
+  <details class="ricorda"><summary>la probabilità condizionata</summary>
+    <p><strong>P(A | B)</strong> si legge «probabilità di A sapendo B». Se su 4 messaggi di spam la parola «gratis» compare in 3, allora P(gratis | spam) = 3/4. Il teorema di Bayes permette di «girare» la condizione:</p>
+    <pre><code>P(spam | gratis) = P(gratis | spam) · P(spam) / P(gratis)</code></pre>
+  </details>
+
+  <h2 id="albero">Alberi di decisione</h2>
+  <p>Un <strong>albero di decisione</strong> classifica con una serie di domande: si parte dalla <strong>radice</strong>, a ogni <strong>nodo decisionale</strong> si segue il ramo della risposta, finché si arriva a un <strong>nodo foglia</strong> che contiene la previsione. Rispondi alle domande per prevedere se nevicherà.</p>
+  <div class="sim" id="dtree">
+    <div class="sim-head"><b>Albero di decisione · nevicherà?</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body sim-grid">
+      <svg viewBox="0 0 520 300" role="img" aria-label="Albero di decisione: è inverno, è nuvoloso, temperatura sotto zero">
+        <g><path class="tree-edge" data-from="root" data-to="nuv" d="M300 52L190 112"/><path class="tree-edge" data-from="root" data-to="l1" d="M300 52L430 112"/>
+        <path class="tree-edge" data-from="nuv" data-to="temp" d="M190 140L120 200"/><path class="tree-edge" data-from="nuv" data-to="l2" d="M190 140L290 200"/>
+        <path class="tree-edge" data-from="temp" data-to="l4" d="M120 228L60 262"/><path class="tree-edge" data-from="temp" data-to="l3" d="M120 228L190 262"/></g>
+        <g class="tree-lbl"><text x="232" y="78">sì</text><text x="372" y="78">no</text><text x="140" y="168">sì</text><text x="250" y="168">no</text><text x="74" y="246">sì</text><text x="162" y="246">no</text></g>
+        <g class="tree-node" data-id="root"><rect x="235" y="22" width="130" height="32" rx="9"/><text class="ig-t" x="300" y="43" text-anchor="middle">è inverno?</text></g>
+        <g class="tree-node" data-id="nuv"><rect x="125" y="110" width="130" height="32" rx="9"/><text class="ig-t" x="190" y="131" text-anchor="middle">è nuvoloso?</text></g>
+        <g class="tree-node leaf" data-id="l1"><rect x="375" y="110" width="110" height="32" rx="16"/><text class="ig-s" x="430" y="131" text-anchor="middle">non nevica</text></g>
+        <g class="tree-node" data-id="temp"><rect x="45" y="198" width="150" height="32" rx="9"/><text class="ig-t" x="120" y="219" text-anchor="middle">sotto 0 °C?</text></g>
+        <g class="tree-node leaf" data-id="l2"><rect x="235" y="198" width="110" height="32" rx="16"/><text class="ig-s" x="290" y="219" text-anchor="middle">non nevica</text></g>
+        <g class="tree-node leaf" data-id="l4"><rect x="10" y="262" width="100" height="32" rx="16"/><text class="ig-t" x="60" y="283" text-anchor="middle">nevica</text></g>
+        <g class="tree-node leaf" data-id="l3"><rect x="140" y="262" width="110" height="32" rx="16"/><text class="ig-s" x="195" y="283" text-anchor="middle">non nevica</text></g>
+        <text class="ig-k" x="380" y="40">NODO RADICE</text><text class="ig-k" x="290" y="290">NODI FOGLIA</text>
+      </svg>
+      <div class="sim-controls">
+        <p class="dt-q" style="font-size:1.2rem;font-weight:800;margin:0" aria-live="polite"></p>
+        <div class="btn-row"><button type="button" class="sb main" id="dtYes">Sì</button><button type="button" class="sb dark" id="dtNo">No</button><button type="button" class="sb" id="dtRestart">Ricomincia</button></div>
+        <p class="sim-note dt-ask">L’albero è leggibile da chiunque: per questo è molto usato quando bisogna <em>spiegare</em> una decisione, come nei sistemi esperti.</p>
+      </div>
+    </div>
+  </div>
+  <p>Come si costruisce l’albero a partire dai dati? L’algoritmo sceglie come prima domanda quella che separa meglio gli esempi, poi ripete il ragionamento su ogni ramo. Gli algoritmi decision tree sono detti <strong>greedy</strong> («avidi»): <mark class="key">a ogni diramazione scelgono l’opzione che sembra migliore in quel momento</mark>, senza mai tornare indietro a riconsiderare le scelte precedenti.</p>
+
+  <h2 id="clustering">K-means: trovare gruppi senza etichette</h2>
+  <p>Ecco un algoritmo <strong>senza supervisione</strong>. Il <strong>k-means</strong> riceve punti senza etichetta e un numero k di gruppi da cercare. Ripete due passi: <strong>assegna</strong> ogni punto al centro più vicino, poi <strong>sposta</strong> ogni centro nella media dei suoi punti. Si ferma quando nessun punto cambia più gruppo.</p>
+  <div class="sim" id="kmeans">
+    <div class="sim-head"><b>Clustering k-means</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body sim-grid">
+      <div><canvas width="620" height="400" aria-label="Punti da raggruppare e centri dei gruppi"></canvas></div>
+      <div class="sim-controls">
+        <label>Numero di gruppi k: <span class="v" id="kmKV">4</span><input type="range" id="kmK" min="2" max="5" value="4"></label>
+        <div class="btn-row"><button type="button" class="sb" id="kmStep">Un passo</button><button type="button" class="sb main" id="kmAuto">▶ Fino alla fine</button><button type="button" class="sb dark" id="kmInit">Nuovi centri a caso</button></div>
+        <p class="sim-note" id="kmInfo" aria-live="polite"></p>
+        <p class="sim-note">Prova k = 2 e k = 5: l’algoritmo trova sempre k gruppi, anche quando non hanno senso. Scegliere k resta compito di chi analizza i dati.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="esercizi">
+  <div class="kicker">4 · Esercizi · circa 15 minuti</div>
+  <h2>Ora tocca a te</h2>
+  <div class="panel">
+    <p><strong>Come funzionano.</strong> Rispondi, poi premi <strong>✓ Verifica</strong>: le risposte esatte si colorano di verde, quelle da rivedere di arancione. L’esercizio è completato quando tutto è esatto.</p>
+    <p id="exProgress" class="ex-badge" role="status"></p>
+  </div>
+
+  <article class="panel exercise" id="es-1">
+    <div class="ex-head"><h3>Esercizio 1 · Che tipo di problema è?</h3><span><span class="ex-level">★ Guidato</span> <span class="ex-badge"></span></span></div>
+    <div class="ia-ex" data-ex="l3-e1" data-hint="le etichette sono note? l’uscita è una categoria o un numero?">
+      <ul class="ex-items">
+        <li><span>Stabilire se una radiografia mostra una frattura, avendo migliaia di radiografie già refertate</span><select data-answer="class"><option value="">— scegli —</option><option value="class">Classificazione</option><option value="regr">Regressione</option><option value="clust">Clustering</option></select></li>
+        <li><span>Stimare il consumo di energia elettrica di una scuola nel prossimo mese</span><select data-answer="regr"><option value="">— scegli —</option><option value="class">Classificazione</option><option value="regr">Regressione</option><option value="clust">Clustering</option></select></li>
+        <li><span>Raggruppare i brani di una piattaforma musicale in base a somiglianze che nessuno ha definito prima</span><select data-answer="clust"><option value="">— scegli —</option><option value="class">Classificazione</option><option value="regr">Regressione</option><option value="clust">Clustering</option></select></li>
+        <li><span>Riconoscere la cifra scritta a mano su un modulo (da 0 a 9)</span><select data-answer="class"><option value="">— scegli —</option><option value="class">Classificazione</option><option value="regr">Regressione</option><option value="clust">Clustering</option></select></li>
+        <li><span>Prevedere il voto (da 1 a 10, anche con decimali) che uno studente otterrà all’esame</span><select data-answer="regr"><option value="">— scegli —</option><option value="class">Classificazione</option><option value="regr">Regressione</option><option value="clust">Clustering</option></select></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="panel exercise" id="es-2">
+    <div class="ex-head"><h3>Esercizio 2 · KNN a mano</h3><span><span class="ex-level">★★ Algoritmo</span> <span class="ex-badge"></span></span></div>
+    <p>Un nuovo animale deve essere classificato. La tabella riporta le distanze dagli animali già classificati.</p>
+    <div class="table-wrap" style="max-width:520px"><table class="data-table" style="min-width:0"><thead><tr><th>Animale</th><th>Classe</th><th>Distanza</th></tr></thead><tbody>
+      <tr><td>A</td><td>cane</td><td>1,0</td></tr><tr><td>B</td><td>gatto</td><td>1,4</td></tr><tr><td>C</td><td>gatto</td><td>1,6</td></tr><tr><td>D</td><td>cane</td><td>2,2</td></tr><tr><td>E</td><td>cane</td><td>2,5</td></tr><tr><td>F</td><td>gatto</td><td>3,0</td></tr><tr><td>G</td><td>cane</td><td>3,1</td></tr>
+    </tbody></table></div>
+    <div class="ia-ex" data-ex="l3-e2" data-hint="prendi i k animali con la distanza più piccola e conta i voti di ciascuna classe.">
+      <ul class="ex-items">
+        <li><span>Classificazione con k = 1</span><select data-answer="cane"><option value="">— scegli —</option><option value="cane">cane</option><option value="gatto">gatto</option></select></li>
+        <li><span>Classificazione con k = 3</span><select data-answer="gatto"><option value="">— scegli —</option><option value="cane">cane</option><option value="gatto">gatto</option></select></li>
+        <li><span>Classificazione con k = 5</span><select data-answer="cane"><option value="">— scegli —</option><option value="cane">cane</option><option value="gatto">gatto</option></select></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="panel exercise" id="es-3">
+    <div class="ex-head"><h3>Esercizio 3 · Percorri l’albero</h3><span><span class="ex-level">★★ Albero di decisione</span> <span class="ex-badge"></span></span></div>
+    <p>Usa l’albero di decisione della lezione per prevedere il tempo in questi giorni.</p>
+    <div class="ia-ex" data-ex="l3-e3" data-hint="parti sempre dalla radice («è inverno?») e fermati appena arrivi a una foglia.">
+      <ul class="ex-items">
+        <li><span>Gennaio, cielo coperto, −3 °C</span><select data-answer="si"><option value="">— scegli —</option><option value="si">nevica</option><option value="no">non nevica</option></select></li>
+        <li><span>Febbraio, cielo sereno, −5 °C</span><select data-answer="no"><option value="">— scegli —</option><option value="si">nevica</option><option value="no">non nevica</option></select></li>
+        <li><span>Aprile, cielo coperto, −1 °C</span><select data-answer="no"><option value="">— scegli —</option><option value="si">nevica</option><option value="no">non nevica</option></select></li>
+        <li><span>Dicembre, cielo coperto, 2 °C</span><select data-answer="no"><option value="">— scegli —</option><option value="si">nevica</option><option value="no">non nevica</option></select></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="panel exercise" id="es-4">
+    <div class="ex-head"><h3>Esercizio 4 · Bayes con i numeri</h3><span><span class="ex-level">★★★ Sfida</span> <span class="ex-badge"></span></span></div>
+    <p>Un filtro è addestrato con <strong>10 messaggi</strong>: <strong>4 di spam</strong> e <strong>6 normali</strong>. La parola «gratis» compare in <strong>3</strong> messaggi di spam e in <strong>1</strong> messaggio normale. Scrivi i risultati come numeri decimali (ad esempio 0,25), arrotondando ai centesimi.</p>
+    <div class="ia-ex" data-ex="l3-e4" data-hint="P(spam | gratis) = P(gratis | spam)·P(spam) / [P(gratis | spam)·P(spam) + P(gratis | normale)·P(normale)].">
+      <div class="calc-line">a) P(spam) = <input data-answer="0.4" data-tol="0.005" inputmode="decimal" aria-label="P(spam)"></div>
+      <div class="calc-line">b) P(gratis | spam) = <input data-answer="0.75" data-tol="0.005" inputmode="decimal" aria-label="P(gratis dato spam)"></div>
+      <div class="calc-line">c) P(gratis | normale) = <input data-answer="0.17" data-tol="0.006" inputmode="decimal" aria-label="P(gratis dato normale)"></div>
+      <div class="calc-line">d) P(spam | gratis) = <input data-answer="0.75" data-tol="0.006" inputmode="decimal" aria-label="P(spam dato gratis)"></div>
+    </div>
+  </article>
+</section>
+
+<section class="section" id="sintesi">
+  <div class="kicker">In sintesi</div>
+  <h2>Che cosa porti a casa</h2>
+  <div class="panel">
+    <ul>
+      <li>Nel <strong>machine learning</strong> l’algoritmo ricava le regole dagli esempi: dati + risposte → modello Y = f(X).</li>
+      <li><strong>Con supervisione</strong>: esempi etichettati; <strong>classificazione</strong> (categoria) e <strong>regressione</strong> (numero). <strong>Senza supervisione</strong>: si cercano strutture nascoste, come nel <strong>clustering</strong>.</li>
+      <li>Nel <strong>training</strong> i parametri si correggono a ogni esempio; nel <strong>test</strong> si misura l’accuratezza su dati mai visti, per evitare l’overfitting.</li>
+      <li><strong>KNN</strong>: vota la classe più frequente tra i k vicini (molta memoria). <strong>Naive Bayes</strong>: probabilità delle caratteristiche, supposte indipendenti. <strong>Alberi di decisione</strong>: domande dalla radice alle foglie, costruiti in modo greedy. <strong>K-means</strong>: k gruppi senza etichette.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="test-finale">
+  <div class="kicker">Test di fine lezione · 10 domande</div>
+  <h2>Verifica che cosa hai imparato</h2>
+  <p>Rispondi a tutte le domande e invia. Per sbloccare la Lezione 4 servono almeno <strong>7 risposte esatte su 10 (70%)</strong>. Dopo l’invio vedrai quali risposte sono esatte e un suggerimento per le altre: ripassa e riprova, i tentativi sono illimitati. Alla fine invia l’esito al docente.</p>
+  <form id="finalQuiz">
+    <div id="quizQuestions"></div>
+    <p id="quizCount" role="status" aria-live="polite"></p>
+    <button class="button primary" id="submitQuiz" disabled>Invia e verifica il risultato</button>
+  </form>
+  <p id="quizMessage" role="status" aria-live="polite"></p>
+  <div class="panel" id="quizResult" tabindex="-1" hidden>
+    <h3 id="quizScore"></h3>
+    <p id="attemptCount" class="muted"></p>
+    <div class="actions">
+      <button class="button" id="retryQuiz">Ripassa e riprova</button>
+      <button class="button" id="downloadQuiz">Scarica l’esito</button>
+      <a class="button primary" id="continueLink" data-lesson-link="4" href="./lezione-4.html" hidden>Prosegui alla Lezione 4 →</a>
+    </div>
+  </div>
+  <div class="panel builder consegna" id="consegnaBox" hidden>
+    <h3>Consegna al docente</h3>
+    <p>Invia l’esito di questo tentativo: il docente riceverà un PDF con risposte, punteggio ed esercizi completati. Puoi consegnare di nuovo dopo un nuovo tentativo.</p>
+    <form id="consegnaForm">
+      <div class="row">
+        <div><label for="stNome">Nome e cognome</label><input id="stNome" maxlength="80" autocomplete="name" required></div>
+        <div><label for="stClasse">Classe</label><input id="stClasse" maxlength="6" placeholder="es. 5B" required></div>
+      </div>
+      <div class="actions" style="margin-top:14px"><button class="button primary" id="consegnaBtn">Consegna l’esito</button></div>
+    </form>
+    <p id="consegnaStatus" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="section" id="fonti">
+  <h2>Fonti e approfondimenti</h2>
+  <ol>
+    <li>A. Tibone, <em>Progettare e programmare</em>, vol. 3, Zanichelli 2019, cap. 8.3.</li>
+    <li><a href="https://scikit-learn.org/stable/supervised_learning.html" target="_blank" rel="noopener noreferrer">scikit-learn, «Supervised learning»</a> — la documentazione della libreria Python che implementa KNN, naive Bayes e alberi di decisione.</li>
+    <li><a href="https://scikit-learn.org/stable/modules/clustering.html#k-means" target="_blank" rel="noopener noreferrer">scikit-learn, «Clustering: K-means»</a> — descrizione dell’algoritmo k-means.</li>
+    <li><a href="https://developers.google.com/machine-learning/crash-course" target="_blank" rel="noopener noreferrer">Google, «Machine Learning Crash Course»</a> — corso introduttivo gratuito, con esercizi interattivi.</li>
+  </ol>
+</section>
+</main>
+
+<footer><div class="wrap">Introduzione all’intelligenza artificiale · Lezione 3 di 4 · <a href="./">Guida al corso</a> · Liceo Scientifico «N. Cortese»<p class="license"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer"><span class="cc-badge" aria-label="Licenza Creative Commons BY-NC-SA 4.0"><b>cc</b>BY-NC-SA 4.0</span></a><span>© 2026 <span property="cc:attributionName">Prof. Antonio Adinolfi</span> · «Introduzione all’intelligenza artificiale» è distribuito con licenza <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer">Creative Commons Attribuzione – Non commerciale – Condividi allo stesso modo 4.0 Internazionale</a>. Fanno eccezione i materiali di terzi indicati come tali.</span></p></div></footer>
+
+<script src="./ia-slides.js?v=1"></script>
+<script src="./ia-ex.js?v=1"></script>
+<script src="./ia-sim-3.js?v=1"></script>
+<script src="./ia-lesson.js?v=1"></script>
+<script src="./ia-tools.js?v=1"></script>
+</body>
+</html>

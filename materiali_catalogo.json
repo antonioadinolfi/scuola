@@ -460,5 +460,16 @@
     "ordine": 12,
     "attivo": true,
     "categoria": "Laboratorio Interattivo"
+  },
+  {
+    "classe": "Quinta",
+    "titolo": "Introduzione all'intelligenza artificiale",
+    "descrizione": "Corso interattivo sul cap. 8: slide del libro, simulazioni (ELIZA, sistema esperto, KNN, naive Bayes, k-means, reti neurali), infografiche, esercizi a correzione automatica e test di fine lezione.",
+    "tipo": "lezione",
+    "file_path": "corso-intelligenza-artificiale/index.html",
+    "target_page": "",
+    "ordine": 3,
+    "attivo": true,
+    "categoria": "Laboratorio Interattivo"
   }
 ]
