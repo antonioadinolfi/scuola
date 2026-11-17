@@ -253,39 +253,6 @@
     "categoria": "Lezioni"
   },
   {
-    "classe": "Quarta",
-    "titolo": "Esercizio 2 - Automotosprint",
-    "descrizione": "Automotosprint",
-    "tipo": "slide",
-    "file_path": "https://script.google.com/a/macros/lscortese.com/s/AKfycbykAiMBwrsFhAVtJTpF7kTSpiQlF08WNVjydA1GesRUhI4X5oNi0T43_xGzwZwgBXVvEw/exec",
-    "target_page": "",
-    "ordine": 3,
-    "attivo": true,
-    "categoria": "Esercizi"
-  },
-  {
-    "classe": "Quarta",
-    "titolo": "Esercizio 3 - PrenotazioneVolo",
-    "descrizione": "PrenotazioneVolo",
-    "tipo": "slide",
-    "file_path": "https://script.google.com/macros/s/AKfycbzG7iU1Udt3WRviniKdAiulmviP7KM_pzU2Oof_A03ZRnw1YfaON5gsmMSQgKbYBF2j/exec",
-    "target_page": "",
-    "ordine": 4,
-    "attivo": true,
-    "categoria": "Esercizi"
-  },
-  {
-    "classe": "Quarta",
-    "titolo": "Esercizio 4 - OrdiniImpiegati",
-    "descrizione": "Ordini aziendali",
-    "tipo": "esercizio",
-    "file_path": "https://script.google.com/a/macros/lscortese.com/s/AKfycbxr2hGSWjLdMqBPgF1N4Tij2O9hj9X1LCN6XfjYzx_y2EOcNcagxTGvBvUMyYQz1hfx/exec",
-    "target_page": "",
-    "ordine": 5,
-    "attivo": true,
-    "categoria": "Esercizi"
-  },
-  {
     "classe": "Quinta",
     "titolo": "Sistemi lineari con Foglio di calcolo",
     "descrizione": "Uso del foglio di calcolo per la soluzione di sistemi lineari",
@@ -407,17 +374,6 @@
     "categoria": "Infografiche"
   },
   {
-    "classe": "Quarta",
-    "titolo": "Verifica di Informatica – Classe quarta",
-    "descrizione": "Verifica online tramite Google Moduli.",
-    "tipo": "verifica",
-    "file_path": "https://docs.google.com/forms/d/e/1FAIpQLSfOftqY3x_ViseD0V9NdYZXGfz2xrMac9u6Cj36kwKFMayEuQ/viewform",
-    "target_page": "",
-    "ordine": 7,
-    "attivo": true,
-    "categoria": "Verifiche"
-  },
-  {
     "classe": "Seconda",
     "titolo": "Verifica di Informatica — Python: correzioni e feedback generale",
     "descrizione": "Correzione didattica generale della verifica del 13 ottobre 2026; senza voti o dati individuali.",
@@ -448,7 +404,7 @@
     "target_page": "",
     "ordine": 6,
     "attivo": true,
-    "categoria": "Esercizi"
+    "categoria": "Laboratorio Interattivo"
   },
   {
     "classe": "Quarta",
@@ -459,7 +415,7 @@
     "target_page": "",
     "ordine": 7,
     "attivo": true,
-    "categoria": "Esercizi"
+    "categoria": "Laboratorio Interattivo"
   },
   {
     "classe": "Terza",
@@ -470,7 +426,7 @@
     "target_page": "tracce/Terze/laboratorio_python_strutture.html",
     "ordine": 8,
     "attivo": true,
-    "categoria": "Laboratorio Python"
+    "categoria": "Laboratorio Interattivo"
   },
   {
     "classe": "Prima",
