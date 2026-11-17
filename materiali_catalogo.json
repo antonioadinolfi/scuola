@@ -496,19 +496,8 @@
   },
   {
     "classe": "Quarta",
-    "titolo": "Laboratorio interattivo OOP – 4 esercizi casuali",
-    "descrizione": "4 esercizi casuali tratti da una banca di 20 su incapsulamento, ereditarietà e polimorfismo. Strategia, codice e PDF di consegna.",
-    "tipo": "esercizio",
-    "file_path": "tracce/Quarte/laboratorio_oop_random.html",
-    "target_page": "tracce/Quarte/laboratorio_oop_random.html",
-    "ordine": 11,
-    "attivo": true,
-    "categoria": "Laboratorio Interattivo"
-  },
-  {
-    "classe": "Quarta",
     "titolo": "Avvio verifica OOP con Safe Exam Browser (.seb)",
-    "descrizione": "Scarica la configurazione SEB cifrata per la verifica di quarta: 4 esercizi casuali di incapsulamento, ereditarietà e polimorfismo. Verificare sul PC l'URL contenuto nella configurazione.",
+    "descrizione": "Download configurazione SEB cifrata della verifica OOP quarta: 4 esercizi casuali estratti da 30, con consegna PDF. L'URL iniziale della configurazione deve essere verificato dal docente.",
     "tipo": "esercizio",
     "file_path": "tracce/Quarte/scarica_verifica_oop_seb.html",
     "target_page": "tracce/Quarte/scarica_verifica_oop_seb.html",
