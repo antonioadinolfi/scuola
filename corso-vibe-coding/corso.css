@@ -188,3 +188,12 @@ footer .license>a:first-child{text-decoration:none}
 .dl-note{margin-top:12px}
 @media(max-width:600px){.download-card{flex-direction:column}}
 @media print{.download-card .actions{display:none}}
+/* v15 · tecniche di prompt */
+.technique h3{margin:4px 0 10px}
+.tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0 18px}
+.tech-grid>div{border-radius:12px;padding:14px 16px}
+.tech-grid p{margin:6px 0 0}
+.tech-before{background:#fdf1e6}.tech-before strong{color:#b4531a}
+.tech-after{background:#e9f7f2}.tech-after strong{color:#1f7a6f}
+@media(max-width:700px){.tech-grid{grid-template-columns:1fr}}
+@media print{.technique{break-inside:avoid}}
