@@ -397,7 +397,7 @@
   },
   {
     "classe": "Quarta",
-    "titolo": "Ripasso teoria per il Quiz OOP",
+    "titolo": "Ripasso_OOP",
     "descrizione": "Classi, self, incapsulamento, ereditarietà con super(), polimorfismo ed errori: tutto quello che serve per il Quiz OOP, con esempi commentati.",
     "tipo": "esercizio",
     "file_path": "tracce/Quarte/teoria_oop_python.html",
@@ -408,7 +408,7 @@
   },
   {
     "classe": "Quarta",
-    "titolo": "Quiz OOP – Traccia l'esecuzione",
+    "titolo": "Verifica_OOP_Ottobre",
     "descrizione": "Test su incapsulamento, ereditarietà e polimorfismo in Python: 20 casi di difficoltà crescente, accesso con l'account della scuola, esito inviato al docente.",
     "tipo": "esercizio",
     "file_path": "tracce/Quarte/quiz_oop_python.html",
@@ -452,7 +452,7 @@
   },
   {
     "classe": "Quarta",
-    "titolo": "Avvio verifica OOP con Safe Exam Browser (.seb)",
+    "titolo": "Verifica_OOP_Novembre",
     "descrizione": "Download configurazione SEB cifrata della verifica OOP quarta: 4 esercizi casuali estratti da 30, con consegna PDF. L'URL iniziale della configurazione deve essere verificato dal docente.",
     "tipo": "esercizio",
     "file_path": "tracce/Quarte/scarica_verifica_oop_seb.html",
