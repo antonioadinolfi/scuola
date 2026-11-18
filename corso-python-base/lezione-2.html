@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="it" data-lesson="2" class="course-pending">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Lezione 2: variabili, tipi di dato (int, float, str, bool), type(), tipizzazione dinamica, case-sensitive, la funzione input() e la conversione dei dati con int() e float().">
+<title>Lezione 2 · Variabili, tipi di dato e input | Introduzione a Python</title>
+<link rel="stylesheet" href="./pyb.css?v=1">
+<script src="./pyb-config.js?v=1"></script>
+<script src="./pyb-data.js?v=1"></script>
+<script src="./pyb-progress.js?v=1"></script>
+</head>
+<body>
+<noscript><style>html.course-pending body{visibility:visible}</style><p>Attiva JavaScript per usare l’editor Python e svolgere il test.</p></noscript>
+<a class="skip" href="#contenuti">Vai ai contenuti</a>
+
+<header><div class="wrap">
+  <div class="topbar"><a href="./">← Introduzione a Python · Guida al corso</a><span>Classi seconde</span></div>
+  <div class="hero">
+    <div class="kicker">Lezione 2 di 4 · 1 ora · Capitolo 1.2</div>
+    <h1>Variabili, tipi di dato e input</h1>
+    <p>Come Python ricorda i dati, come ne riconosce il tipo e come li legge dalla tastiera. Guarderai dentro la memoria del programma riga dopo riga e scoprirai perché <code>"4" + "5"</code> fa <code>"45"</code>.</p>
+    <div class="actions">
+      <a class="button primary" href="#variabili">Inizia ↓</a>
+      <a class="button ghost" href="#slide">Slide ↓</a>
+      <a class="button ghost" href="#esercizi">Esercizi ↓</a>
+      <a class="button ghost" href="#test-finale">Test finale ↓</a>
+      <button class="button ghost" id="projection" aria-pressed="false">Testo ingrandito</button>
+      <button class="button ghost" onclick="window.print()">Stampa / PDF</button>
+    </div>
+  </div>
+</div></header>
+
+<main class="wrap" id="contenuti">
+<nav class="lesson-nav" aria-label="Percorso delle lezioni">
+  <a class="button" data-lesson-link="1" href="./lezione-1.html">Lezione 1<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="2" href="./lezione-2.html" aria-current="page">Lezione 2<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="3" href="./lezione-3.html">Lezione 3<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="4" href="./lezione-4.html">Lezione 4<span class="nav-state"></span></a>
+</nav>
+
+<section class="section" id="obiettivi">
+  <div class="kicker">Obiettivi della lezione</div>
+  <h2>Al termine saprai…</h2>
+  <div class="panel">
+    <ul>
+      <li>creare e modificare <strong>variabili</strong> con l’operatore di assegnazione <code>=</code>;</li>
+      <li>riconoscere i tipi <code>int</code>, <code>float</code>, <code>str</code> e <code>bool</code> e verificarli con <code>type()</code>;</li>
+      <li>spiegare che cosa significano <strong>tipizzazione dinamica</strong> e <strong>case-sensitive</strong>;</li>
+      <li>leggere dati da tastiera con <code>input()</code> e convertirli con <code>int()</code> e <code>float()</code>.</li>
+    </ul>
+    <div class="timeline" aria-label="Organizzazione dell’ora">
+      <div><b>5′</b>Slide</div>
+      <div><b>15′</b>Variabili e tipi</div>
+      <div><b>15′</b>input() e conversioni</div>
+      <div><b>15′</b>Esercizi</div>
+      <div><b>10′</b>Test finale</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="slide">
+  <div class="kicker">Le slide del capitolo 1.2</div>
+  <h2>Le slide della lezione</h2>
+  <p>Le slide del libro di testo, da usare in classe alla LIM o per ripassare. Scorri con le frecce (anche da tastiera ← →), scegli una miniatura o passa a schermo intero; «Vai all’argomento» porta alla parte della lezione corrispondente.</p>
+  <div class="slide-viewer" data-from="3" data-to="5"></div>
+  <p class="slide-credit">Slide: A. Tibone, <em>Progettare e programmare</em> © Zanichelli editore 2020, materiale didattico per le classi che adottano il testo. Le slide sono escluse dalla licenza Creative Commons del corso.</p>
+</section>
+
+<section class="section" id="variabili">
+  <div class="kicker">1 · Le variabili</div>
+  <h2>Un nome per ogni dato</h2>
+  <p>Una <strong>variabile</strong> è un nome che il programma usa per ricordare un valore. Si crea con l’<strong>assegnazione</strong>: <code>eta = 17</code> si legge «assegna 17 a eta». <mark class="key">Il segno = in Python non è un’uguaglianza matematica: prende il valore a destra e lo associa al nome a sinistra</mark>. Per questo <code>x = x + 1</code> ha senso: calcola <code>x + 1</code> e mette il risultato in <code>x</code>.</p>
+  <p>Il visualizzatore esegue il programma della slide <strong>una riga alla volta</strong>: premi <strong>▶ Esegui passo passo</strong>, poi <strong>Avanti ▶</strong>. A destra vedi le variabili in memoria con il loro tipo; le righe colorate di verde sono appena cambiate.</p>
+  <div class="py-trace" data-title="Visualizzatore · le variabili in memoria"><textarea class="py-src">
+nome = 'Anna'
+età = 17
+print("Hello world! Sono", nome, "e ho", età, "anni.")
+età = età + 1
+print("Il prossimo anno avrò", età, "anni.")
+</textarea></div>
+  <div class="panel">
+    <h3>Le regole per i nomi</h3>
+    <div class="split" style="margin:0">
+      <ul>
+        <li>contengono lettere, cifre e il trattino basso <code>_</code>;</li>
+        <li>non iniziano con una cifra e non contengono spazi;</li>
+        <li>non sono parole riservate come <code>if</code> o <code>else</code>; evita anche i nomi delle funzioni, come <code>print</code> o <code>input</code>.</li>
+      </ul>
+      <ul>
+        <li>✓ <code>base</code>, <code>altezza_max</code>, <code>voto2</code>, <code>età</code></li>
+        <li>✗ <code>2voto</code>, <code>altezza max</code>, <code>if</code></li>
+        <li>Scegli nomi che spiegano il contenuto: <code>area</code> è meglio di <code>a</code>.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="check"><strong>Python è case-sensitive.</strong> <mark class="warn">Distingue le lettere minuscole dalle maiuscole: <code>nome</code>, <code>Nome</code> e <code>NOME</code> sono tre variabili diverse</mark>. Esegui l’esempio e leggi l’errore, poi correggilo.</div>
+  <div class="py-box" data-py="l2-x1" data-title="Esempio 1 · Trova l’errore"><textarea class="py-src">
+nome = "Luca"
+print("Ciao", Nome)
+</textarea></div>
+</section>
+
+<section class="section" id="tipi">
+  <div class="kicker">1 · I tipi di dato</div>
+  <h2>int, float, str, bool</h2>
+  <p>Ogni valore ha un <strong>tipo</strong>, che stabilisce che cosa si può fare con quel valore. <mark class="key">I principali tipi di dato sono <code>int</code>, <code>float</code>, <code>str</code> e <code>bool</code></mark>.</p>
+  <div class="concept-grid four">
+    <article class="concept-card"><h3><span class="tpill t-int">int</span> intero</h3><p>Numeri senza parte decimale, positivi o negativi: <code>17</code>, <code>-4</code>, <code>2026</code>. In Python possono essere grandi a piacere.</p></article>
+    <article class="concept-card"><h3><span class="tpill t-float">float</span> decimale</h3><p>Numeri con il <strong>punto</strong> decimale: <code>4.7</code>, <code>10.0</code>, <code>-0.5</code>, <code>3e2</code> (cioè 300.0).</p></article>
+    <article class="concept-card"><h3><span class="tpill t-str">str</span> stringa</h3><p>Testo tra virgolette singole o doppie: <code>'Anna'</code>, <code>"10.0"</code>, <code>""</code> (stringa vuota).</p></article>
+    <article class="concept-card"><h3><span class="tpill t-bool">bool</span> booleano</h3><p>Solo due valori: <code>True</code> e <code>False</code>, con la maiuscola e senza virgolette. Servono nelle condizioni (Lezione 4).</p></article>
+  </div>
+  <p><mark class="key">L’interprete di Python riconosce il tipo di dato a runtime, cioè al momento dell’esecuzione del codice</mark>, guardando il valore: non bisogna dichiararlo. Per sapere il tipo di un valore si usa la funzione <code>type()</code>. Scrivi un valore qui sotto e chiedi a Python di che tipo è.</p>
+  <div class="sim" id="typeGuess">
+    <div class="sim-head"><b>Indovina il tipo · risponde Python</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body">
+      <form class="btn-row" style="align-items:center"><input type="text" value="10.0" aria-label="Valore da analizzare" autocomplete="off" spellcheck="false" style="font-family:ui-monospace,Consolas,monospace;flex:1;min-width:180px"><button class="sb main" type="submit">type( )</button></form>
+      <div class="cmd-chips" style="margin-top:10px">
+        <button type="button" data-val="10">10</button><button type="button" data-val="10.0">10.0</button><button type="button" data-val="'10.0'">'10.0'</button><button type="button" data-val="False">False</button><button type="button" data-val="'False'">'False'</button><button type="button" data-val="false">false</button><button type="button" data-val="4,7">4,7</button><button type="button" data-val="3e2">3e2</button><button type="button" data-val="7 / 2">7 / 2</button><button type="button" data-val="'4' + '5'">'4' + '5'</button>
+      </div>
+      <div class="type-out" aria-live="polite" style="margin-top:12px"></div>
+      <p class="sim-note live" aria-live="polite"></p>
+    </div>
+  </div>
+  <div class="py-box" data-py="l2-x2" data-title="Esempio 2 · Il programma della slide 4"><textarea class="py-src">
+# riconoscimento del tipo di dato
+print("10 è", type(10))          # numero intero
+print("10.0 è", type(10.0))      # numero decimale
+print("'10.0' è", type('10.0'))  # stringa
+print("False è", type(False))    # booleano
+</textarea></div>
+
+  <h3 id="dinamica">Una variabile può cambiare tipo</h3>
+  <p>In Python il tipo appartiene al <strong>valore</strong>, non alla variabile: la stessa variabile può contenere prima un intero, poi una stringa, poi un decimale. Guardalo nel visualizzatore.</p>
+  <div class="py-trace" data-title="Visualizzatore · la stessa variabile, tipi diversi"><textarea class="py-src">
+x = 10
+x = "dieci"
+x = 10.5
+x = x > 5
+print(x)
+</textarea></div>
+  <details class="ricorda"><summary>tipizzazione dinamica e «debole»</summary>
+    <p>Il libro di testo chiama questa caratteristica <strong>tipizzazione debole</strong>. Nella documentazione di Python e nei testi di informatica si dice più spesso <strong>tipizzazione dinamica</strong>: il tipo è deciso durante l’esecuzione e una variabile può cambiarlo. Python però non mescola i tipi da solo: <code>"4" + 5</code> dà errore, mentre in linguaggi come JavaScript diventerebbe <code>"45"</code>. Per questo si dice anche che Python è <em>fortemente</em> tipizzato: le conversioni le decide il programmatore.</p>
+  </details>
+</section>
+
+<section class="section" id="input">
+  <div class="kicker">2 · Leggere dalla tastiera</div>
+  <h2>La funzione input()</h2>
+  <p><code>input("messaggio")</code> mostra il messaggio, aspetta che l’utente scriva qualcosa e prema Invio, poi restituisce ciò che è stato scritto. Negli editor di questo corso i dati da tastiera si scrivono nella casella gialla <strong>Input da tastiera</strong>, una riga per ogni <code>input()</code>: l’output li mostra come farebbe IDLE.</p>
+  <figure class="infografica">
+    <svg viewBox="0 0 760 170" role="img" aria-labelledby="inT">
+      <title id="inT">L’utente digita 4.7; input() restituisce la stringa "4.7"; float() la converte nel numero decimale 4.7, che si può usare nei calcoli</title>
+      <defs><marker id="arI" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#176b87"/></marker></defs>
+      <g text-anchor="middle">
+        <rect x="10" y="40" width="140" height="80" rx="14" fill="#e5f2f7" stroke="#176b87"/><text class="ig-t" x="80" y="72">⌨ tastiera</text><text x="80" y="98" style="font:700 18px ui-monospace,monospace;fill:#102a43">4.7</text>
+        <rect x="200" y="40" width="160" height="80" rx="14" fill="#102a43"/><text x="280" y="72" style="font:700 15px ui-monospace,monospace;fill:#fff">input()</text><text x="280" y="98" style="font:13px system-ui;fill:#b2ebe5">legge il testo</text>
+        <rect x="410" y="40" width="140" height="80" rx="14" fill="#fde4d4" stroke="#d9822b"/><text x="480" y="72" style="font:700 18px ui-monospace,monospace;fill:#9a3b12">"4.7"</text><text class="ig-s" x="480" y="98">tipo str</text>
+        <rect x="600" y="40" width="150" height="80" rx="14" fill="#e9f7f2" stroke="#2a9d8f"/><text x="675" y="72" style="font:700 18px ui-monospace,monospace;fill:#145d53">4.7</text><text class="ig-s" x="675" y="98">tipo float</text>
+        <text class="ig-k" x="575" y="30">float( )</text>
+      </g>
+      <g stroke="#176b87" stroke-width="2.5" marker-end="url(#arI)"><path d="M151 80H196"/><path d="M361 80H406"/><path d="M551 80H596"/></g>
+      <text class="ig-s" x="380" y="155" text-anchor="middle">input() restituisce SEMPRE una stringa: per fare calcoli bisogna convertirla</text>
+    </svg>
+  </figure>
+  <p><mark class="key">La funzione <code>input()</code> memorizza come stringa tutti i dati immessi da tastiera: per utilizzarli correttamente, perciò, occorre convertirli</mark> con <code>int()</code> (intero) o <code>float()</code> (decimale). Prova a cambiare i valori nella casella gialla.</p>
+  <div class="py-box" data-py="l2-x3" data-title="Esempio 3 · Il programma della slide 5" data-stdin="4.7\n5.2"><textarea class="py-src">
+# conversione dell'input da stringa a numero
+base = input("inserisci la lunghezza della base: ")
+# convertiamo la base in un float creando una nuova variabile
+base_dec = float(base)
+# convertiamo "al volo" l'altezza in un float
+altezza = float(input("inserisci la lunghezza dell'altezza: "))
+# ora possiamo calcolare l'area
+print("l'area del rettangolo è", base_dec * altezza)
+</textarea></div>
+  <p>Ora prova con base <code>1.1</code> e altezza <code>1.1</code>: l’area risulta <code>1.2100000000000002</code>! Non è un errore del programma: il computer rappresenta i decimali in binario e alcuni, come 1.1, non sono esatti. Nella Lezione 3 imparerai ad arrotondare l’output con <code>format()</code>.</p>
+  <p>Che cosa succede se non converti? E se l’utente scrive un valore che non è un numero? Scrivi due valori come li digiterebbe un utente e osserva.</p>
+  <div class="sim" id="convLab">
+    <div class="sim-head"><b>Laboratorio delle conversioni</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body">
+      <div class="btn-row" style="align-items:center"><label style="font-weight:700">a = input() →</label><input type="text" id="cvA" value="4" style="width:110px;font-family:ui-monospace,Consolas,monospace" aria-label="Primo valore digitato"><label style="font-weight:700">b = input() →</label><input type="text" id="cvB" value="5" style="width:110px;font-family:ui-monospace,Consolas,monospace" aria-label="Secondo valore digitato"></div>
+      <div class="cmd-chips" style="margin-top:8px"><button type="button" data-a="4" data-b="5">4 e 5</button><button type="button" data-a="4.7" data-b="5.2">4.7 e 5.2</button><button type="button" data-a="4,7" data-b="5">4,7 e 5</button><button type="button" data-a=" 12 " data-b="8">␣12␣ e 8</button><button type="button" data-a="tre" data-b="2">tre e 2</button></div>
+      <div class="table-wrap" style="margin-top:12px"><table class="conv-table"><thead><tr><th>Espressione</th><th>Che cosa fa</th><th>Risultato</th><th>Tipo</th></tr></thead><tbody aria-live="polite"></tbody></table></div>
+      <p class="sim-note">Nota: <code>int("4.7")</code> dà errore, ma <code>int(4.7)</code>, applicato a un numero decimale e non a una stringa, funziona e tronca a 4.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="esercizi">
+  <div class="kicker">3 · Esercizi · circa 15 minuti</div>
+  <h2>Ora tocca a te</h2>
+  <div class="panel">
+    <p><strong>Come funzionano.</strong> Negli esercizi a scelta premi <strong>✓ Verifica</strong>. Negli esercizi di codice scrivi i dati di prova nella casella gialla, premi <strong>▶ Esegui</strong> per provare e <strong>✓ Verifica</strong> per i controlli automatici, che provano il tuo programma anche con altri input.</p>
+    <p id="exProgress" class="ex-badge" role="status"></p>
+  </div>
+
+  <article class="panel exercise" id="es-1">
+    <div class="ex-head"><h3>Esercizio 1 · Di che tipo è?</h3><span><span class="ex-level">★ Guidato</span> <span class="ex-badge"></span></span></div>
+    <div class="ia-ex" data-ex="l2-e1" data-hint="cerca virgolette (str), punto decimale o esponente (float), True/False senza virgolette (bool).">
+      <ul class="ex-items">
+        <li><span><code>2026</code></span><select data-answer="int"><option value="">— scegli —</option><option>int</option><option>float</option><option>str</option><option>bool</option></select></li>
+        <li><span><code>2026.0</code></span><select data-answer="float"><option value="">— scegli —</option><option>int</option><option>float</option><option>str</option><option>bool</option></select></li>
+        <li><span><code>"2026"</code></span><select data-answer="str"><option value="">— scegli —</option><option>int</option><option>float</option><option>str</option><option>bool</option></select></li>
+        <li><span><code>True</code></span><select data-answer="bool"><option value="">— scegli —</option><option>int</option><option>float</option><option>str</option><option>bool</option></select></li>
+        <li><span><code>'True'</code></span><select data-answer="str"><option value="">— scegli —</option><option>int</option><option>float</option><option>str</option><option>bool</option></select></li>
+        <li><span><code>-0.5</code></span><select data-answer="float"><option value="">— scegli —</option><option>int</option><option>float</option><option>str</option><option>bool</option></select></li>
+        <li><span>il valore restituito da <code>input()</code> quando l’utente scrive 42</span><select data-answer="str"><option value="">— scegli —</option><option>int</option><option>float</option><option>str</option><option>bool</option></select></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="panel exercise" id="es-2">
+    <div class="ex-head"><h3>Esercizio 2 · Saluto personalizzato</h3><span><span class="ex-level">★★ Codice</span> <span class="ex-badge"></span></span></div>
+    <p>Chiedi all’utente il <strong>nome</strong> e l’<strong>anno di nascita</strong>, poi visualizza un saluto con il nome e l’età che compie nel <strong>2026</strong>. Esempio con Anna e 2010:</p>
+    <pre><code>Ciao Anna, nel 2026 compi 16 anni</code></pre>
+    <div class="py-box" data-py="l2-e2" data-ex="l2-e2" data-stdin="Anna\n2010"><textarea class="py-src">
+nome = input("Come ti chiami? ")
+</textarea></div>
+  </article>
+
+  <article class="panel exercise" id="es-3">
+    <div class="ex-head"><h3>Esercizio 3 · Area e perimetro</h3><span><span class="ex-level">★★ Codice</span> <span class="ex-badge"></span></span></div>
+    <p>Come nella slide 5, chiedi <strong>base</strong> e <strong>altezza</strong> di un rettangolo (anche con decimali) e visualizza <strong>area</strong> e <strong>perimetro</strong>.</p>
+    <div class="py-box" data-py="l2-e3" data-ex="l2-e3" data-stdin="3\n4.5"><textarea class="py-src">
+# leggi base e altezza, poi calcola area e perimetro
+</textarea></div>
+  </article>
+
+  <article class="panel exercise" id="es-4">
+    <div class="ex-head"><h3>Esercizio 4 · Funziona o dà errore?</h3><span><span class="ex-level">★★★ Ragionamento</span> <span class="ex-badge"></span></span></div>
+    <p>Per ogni istruzione decidi se funziona o se Python si ferma con un errore. Puoi verificare nel laboratorio delle conversioni, ma prima ragiona.</p>
+    <div class="ia-ex" data-ex="l2-e4" data-hint="int() accetta solo stringhe con cifre intere (gli spazi ai lati sono tollerati); float() vuole il punto decimale; + tra stringa e numero non è permesso.">
+      <ul class="ex-items">
+        <li><span><code>int("42")</code></span><select data-answer="ok"><option value="">— scegli —</option><option value="ok">funziona</option><option value="err">errore</option></select></li>
+        <li><span><code>int("4.2")</code></span><select data-answer="err"><option value="">— scegli —</option><option value="ok">funziona</option><option value="err">errore</option></select></li>
+        <li><span><code>float("4.2")</code></span><select data-answer="ok"><option value="">— scegli —</option><option value="ok">funziona</option><option value="err">errore</option></select></li>
+        <li><span><code>float("4,2")</code></span><select data-answer="err"><option value="">— scegli —</option><option value="ok">funziona</option><option value="err">errore</option></select></li>
+        <li><span><code>int(" 7 ")</code></span><select data-answer="ok"><option value="">— scegli —</option><option value="ok">funziona</option><option value="err">errore</option></select></li>
+        <li><span><code>"Anni: " + 17</code></span><select data-answer="err"><option value="">— scegli —</option><option value="ok">funziona</option><option value="err">errore</option></select></li>
+        <li><span><code>"Anni: " + str(17)</code></span><select data-answer="ok"><option value="">— scegli —</option><option value="ok">funziona</option><option value="err">errore</option></select></li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<section class="section" id="sintesi">
+  <div class="kicker">In sintesi</div>
+  <h2>Che cosa porti a casa</h2>
+  <div class="panel">
+    <ul>
+      <li>Una <strong>variabile</strong> è un nome associato a un valore con <code>=</code>; il valore può cambiare durante l’esecuzione.</li>
+      <li>I tipi principali sono <code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code>; l’interprete li riconosce a <strong>runtime</strong> e <code>type()</code> li mostra.</li>
+      <li>La stessa variabile può assumere tipi diversi (<strong>tipizzazione dinamica</strong>, detta «debole» nel libro).</li>
+      <li>Python è <strong>case-sensitive</strong>: <code>nome</code> e <code>Nome</code> sono variabili diverse.</li>
+      <li><code>input()</code> restituisce sempre una <strong>stringa</strong>: per i calcoli si converte con <code>int()</code> o <code>float()</code>.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="test-finale">
+  <div class="kicker">Test di fine lezione · 10 domande</div>
+  <h2>Verifica che cosa hai imparato</h2>
+  <p>Rispondi a tutte le domande e invia. Per sbloccare la Lezione 3 servono almeno <strong>7 risposte esatte su 10 (70%)</strong>. Dopo l’invio vedrai quali risposte sono esatte e un suggerimento per le altre: ripassa e riprova, i tentativi sono illimitati. Alla fine invia l’esito al docente.</p>
+  <form id="finalQuiz">
+    <div id="quizQuestions"></div>
+    <p id="quizCount" role="status" aria-live="polite"></p>
+    <button class="button primary" id="submitQuiz" disabled>Invia e verifica il risultato</button>
+  </form>
+  <p id="quizMessage" role="status" aria-live="polite"></p>
+  <div class="panel" id="quizResult" tabindex="-1" hidden>
+    <h3 id="quizScore"></h3>
+    <p id="attemptCount" class="muted"></p>
+    <div class="actions">
+      <button class="button" id="retryQuiz">Ripassa e riprova</button>
+      <button class="button" id="downloadQuiz">Scarica l’esito</button>
+      <a class="button primary" id="continueLink" data-lesson-link="3" href="./lezione-3.html" hidden>Prosegui alla Lezione 3 →</a>
+    </div>
+  </div>
+  <div class="panel builder consegna" id="consegnaBox" hidden>
+    <h3>Consegna al docente</h3>
+    <p>Invia l’esito di questo tentativo: il docente riceverà un PDF con risposte, punteggio ed esercizi completati. Puoi consegnare di nuovo dopo un nuovo tentativo.</p>
+    <form id="consegnaForm">
+      <div class="row">
+        <div><label for="stNome">Nome e cognome</label><input id="stNome" maxlength="80" autocomplete="name" required></div>
+        <div><label for="stClasse">Classe</label><input id="stClasse" maxlength="6" placeholder="es. 2B" required></div>
+      </div>
+      <div class="actions" style="margin-top:14px"><button class="button primary" id="consegnaBtn">Consegna l’esito</button></div>
+    </form>
+    <p id="consegnaStatus" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="section" id="fonti">
+  <h2>Fonti e approfondimenti</h2>
+  <ol>
+    <li>A. Tibone, <em>Progettare e programmare</em>, Zanichelli 2020, cap. 1.2.</li>
+    <li><a href="https://docs.python.org/3/library/stdtypes.html" target="_blank" rel="noopener noreferrer">Python Software Foundation, «Built-in Types»</a> — i tipi numerici, le stringhe e i booleani.</li>
+    <li><a href="https://docs.python.org/3/library/functions.html#input" target="_blank" rel="noopener noreferrer">Documentazione di <code>input()</code>, <code>int()</code>, <code>float()</code> e <code>type()</code></a> — le funzioni built-in usate nella lezione.</li>
+    <li><a href="https://docs.python.org/3/tutorial/floatingpoint.html" target="_blank" rel="noopener noreferrer">«Floating-Point Arithmetic: Issues and Limitations»</a> — perché 1.1 * 1.1 non dà esattamente 1.21.</li>
+    <li><a href="https://pythontutor.com" target="_blank" rel="noopener noreferrer">Python Tutor</a> — un altro visualizzatore passo passo, utile anche a casa.</li>
+  </ol>
+</section>
+</main>
+
+<footer><div class="wrap">Introduzione a Python · Lezione 2 di 4 · <a href="./">Guida al corso</a> · Liceo Scientifico «N. Cortese»<p class="license"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer"><span class="cc-badge" aria-label="Licenza Creative Commons BY-NC-SA 4.0"><b>cc</b>BY-NC-SA 4.0</span></a><span>© 2026 <span property="cc:attributionName">Prof. Antonio Adinolfi</span> · «Introduzione a Python» è distribuito con licenza <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer">Creative Commons Attribuzione – Non commerciale – Condividi allo stesso modo 4.0 Internazionale</a>. Fanno eccezione le slide del libro e gli altri materiali di terzi indicati come tali.</span></p></div></footer>
+
+<script src="./pyb-slides.js?v=1"></script>
+<script src="./pyb-runner.js?v=1"></script>
+<script src="./pyb-ex.js?v=1"></script>
+<script src="./pyb-sim-2.js?v=1"></script>
+<script src="./pyb-lesson.js?v=1"></script>
+<script src="./pyb-tools.js?v=1"></script>
+</body>
+</html>

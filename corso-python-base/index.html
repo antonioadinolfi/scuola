@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="it" class="course-pending">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Corso introduttivo a Python per le classi seconde: il linguaggio, variabili e tipi, input, operatori, output formattato e strutture condizionali, con le slide del libro, codice eseguibile nel browser, simulazioni, esercizi a correzione automatica e test.">
+<title>Introduzione a Python · Corso per le classi seconde</title>
+<link rel="stylesheet" href="./pyb.css?v=2">
+<script src="./pyb-config.js?v=1"></script>
+<script src="./pyb-data.js?v=1"></script>
+<script src="./pyb-progress.js?v=1"></script>
+</head>
+<body>
+<a class="skip" href="#contenuti">Vai ai contenuti</a>
+<header><div class="wrap">
+  <div class="topbar"><span>Liceo Scientifico «N. Cortese» · Informatica</span><span>Classi seconde</span></div>
+  <div class="hero">
+    <div class="kicker">Corso guidato · 4 lezioni da 1 ora · Capitolo 1</div>
+    <h1>Introduzione a Python</h1>
+    <p>Il primo linguaggio di programmazione «vero»: variabili e tipi, dati letti dalla tastiera, calcoli, output in ordine e programmi che prendono decisioni. Python gira direttamente nella pagina: si scrive, si esegue, si sbaglia e si corregge, senza installare nulla.</p>
+    <div class="actions">
+      <a class="button primary" id="startLink" href="./lezione-1.html">Inizia dalla Lezione 1 →</a>
+      <a class="button ghost" href="#come-funziona">Come funziona ↓</a>
+      <a class="button ghost" href="#percorso">Le quattro lezioni ↓</a>
+    </div>
+  </div>
+</div></header>
+
+<main class="wrap" id="contenuti">
+<section class="section" id="come-funziona">
+  <div class="kicker">Il metodo del corso</div>
+  <h2>Come funziona</h2>
+  <div class="concept-grid four">
+    <article class="concept-card"><h3>Lezioni guidate</h3><p>Ogni lezione dura un’ora e segue il capitolo 1 del libro di testo: le <strong>slide del libro</strong> da proiettare, poi concetti, infografiche e una sintesi finale. I riquadri <strong>«Ricorda che…»</strong> approfondiscono quando serve.</p></article>
+    <article class="concept-card"><h3>Python nel browser</h3><p>Editor con <code>input()</code> funzionante, shell <code>&gt;&gt;&gt;</code>, visualizzatore passo passo delle variabili e simulazioni su tipi, operatori e condizioni. Funziona anche su Chromebook e smartphone.</p></article>
+    <article class="concept-card"><h3>Esercizi verificati</h3><p>Ogni lezione ha quattro esercizi: a scelta, a risposta e <strong>di codice</strong>. Premi <strong>✓ Verifica</strong>: i controlli automatici provano il tuo programma anche con altri input e ti dicono che cosa correggere.</p></article>
+    <article class="concept-card"><h3>Test e consegna</h3><p>Ogni lezione si chiude con un test di 10 domande: con almeno il <strong>70%</strong> si sblocca la successiva. L’esito si consegna al docente con un clic.</p></article>
+  </div>
+</section>
+
+<section class="section" id="mappa">
+  <div class="kicker">La mappa del capitolo</div>
+  <h2>Dal primo print() ai programmi che decidono</h2>
+  <figure class="infografica">
+    <svg viewBox="0 0 760 200" role="img" aria-labelledby="mapT">
+      <title id="mapT">Il percorso del corso: il linguaggio Python, variabili tipi e input, operatori e output, strutture condizionali</title>
+      <defs><marker id="arM" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#176b87"/></marker></defs>
+      <g text-anchor="middle">
+        <rect x="8" y="30" width="165" height="120" rx="16" fill="#e5f2f7" stroke="#176b87"/><text class="ig-k" x="90" y="56">LEZIONE 1</text><text class="ig-t" x="90" y="84">Python</text><text class="ig-s" x="90" y="106">interprete, shell,</text><text class="ig-s" x="90" y="124">print()</text>
+        <rect x="200" y="30" width="165" height="120" rx="16" fill="#e5f2f7" stroke="#176b87"/><text class="ig-k" x="282" y="56">LEZIONE 2</text><text class="ig-t" x="282" y="84">Dati</text><text class="ig-s" x="282" y="106">variabili, tipi,</text><text class="ig-s" x="282" y="124">input(), int(), float()</text>
+        <rect x="392" y="30" width="165" height="120" rx="16" fill="#fff9e9" stroke="#d9a227"/><text class="ig-k" x="474" y="56">LEZIONE 3</text><text class="ig-t" x="474" y="84">Calcoli e output</text><text class="ig-s" x="474" y="106">/ // % **, sep, end,</text><text class="ig-s" x="474" y="124">format()</text>
+        <rect x="584" y="30" width="168" height="120" rx="16" fill="#102a43"/><text x="668" y="56" style="font:800 12px system-ui;letter-spacing:.08em;fill:#f4b942">LEZIONE 4</text><text x="668" y="84" style="font:700 15px system-ui;fill:#fff">Decisioni</text><text x="668" y="106" style="font:13px system-ui;fill:#b2ebe5">if, else, elif,</text><text x="668" y="124" style="font:13px system-ui;fill:#b2ebe5">and, or, not</text>
+      </g>
+      <g stroke="#176b87" stroke-width="2.5"><path d="M174 90H196" marker-end="url(#arM)"/><path d="M366 90H388" marker-end="url(#arM)"/><path d="M558 90H580" marker-end="url(#arM)"/></g>
+      <text class="ig-s" x="380" y="186" text-anchor="middle">input → elaborazione → output: lo schema di ogni programma</text>
+    </svg>
+  </figure>
+</section>
+
+<section class="section" id="percorso">
+  <div class="kicker">Il percorso</div>
+  <h2>Le quattro lezioni</h2>
+  <ol class="path-list" id="pathList"></ol>
+  <p class="muted">Una lezione si sblocca superando il test della precedente.</p>
+</section>
+
+<section class="section" id="avanzamento">
+  <div class="kicker">Il tuo avanzamento</div>
+  <h2>Cambi dispositivo?</h2>
+  <div class="panel">
+    <p>Risultati dei test ed esercizi completati sono salvati solo in questo browser. Per continuare su un altro computer o telefono scarica il file di avanzamento e caricalo sull’altro dispositivo.</p>
+    <div class="actions">
+      <button class="button" id="exportBtn">Scarica il mio avanzamento</button>
+      <label class="button file-button">Carica un avanzamento<input type="file" id="importFile" accept="application/json,.json"></label>
+    </div>
+    <p id="transferStatus" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="section" id="glossario">
+  <div class="kicker">Glossario</div>
+  <h2>Le parole del corso</h2>
+  <dl class="glossary">
+    <div><dt>Interprete</dt><dd>Programma che legge il codice ed esegue un’istruzione alla volta; un compilatore invece traduce tutto il programma prima di eseguirlo.</dd></div>
+    <div><dt>Shell ed editor</dt><dd>La shell (&gt;&gt;&gt;) esegue un comando alla volta; l’editor serve per scrivere e salvare un programma completo in un file .py.</dd></div>
+    <div><dt>Variabile</dt><dd>Nome associato a un valore con l’assegnazione =, ad esempio eta = 17.</dd></div>
+    <div><dt>Tipo di dato</dt><dd>int (interi), float (decimali, con il punto), str (stringhe, tra virgolette), bool (True e False).</dd></div>
+    <div><dt>Tipizzazione dinamica</dt><dd>Il tipo è deciso durante l’esecuzione e una variabile può cambiarlo; il libro la chiama «tipizzazione debole».</dd></div>
+    <div><dt>Case-sensitive</dt><dd>Python distingue maiuscole e minuscole: nome e Nome sono variabili diverse.</dd></div>
+    <div><dt>input()</dt><dd>Legge una riga dalla tastiera e la restituisce sempre come stringa.</dd></div>
+    <div><dt>Conversione</dt><dd>int() e float() trasformano una stringa in numero; str() trasforma un numero in stringa.</dd></div>
+    <div><dt>// e %</dt><dd>Divisione intera (quoziente) e modulo (resto): 17 // 5 = 3, 17 % 5 = 2.</dd></div>
+    <div><dt>Concatenamento</dt><dd>Con le stringhe + le unisce (&quot;meta&quot; + &quot;dati&quot;) e * le ripete (&quot;ab&quot; * 3).</dd></div>
+    <div><dt>Carattere di escape</dt><dd>Sequenza che inizia con \ dentro una stringa: \n va a capo, \t inserisce una tabulazione.</dd></div>
+    <div><dt>Indentazione</dt><dd>Il rientro delle righe: in Python definisce i blocchi di codice di if, elif ed else.</dd></div>
+    <div><dt>Operatori relazionali e logici</dt><dd>== != &lt; &gt; &lt;= &gt;= confrontano due valori; and, or, not combinano le condizioni.</dd></div>
+    <div><dt>elif</dt><dd>«altrimenti se»: permette più di due rami con condizioni mutuamente esclusive.</dd></div>
+  </dl>
+</section>
+</main>
+
+<footer><div class="wrap">Introduzione a Python · Corso per le classi seconde · Liceo Scientifico «N. Cortese», Maddaloni<p class="license"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer"><span class="cc-badge" aria-label="Licenza Creative Commons BY-NC-SA 4.0"><b>cc</b>BY-NC-SA 4.0</span></a><span>© 2026 <span property="cc:attributionName">Prof. Antonio Adinolfi</span> · «Introduzione a Python» è distribuito con licenza <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer">Creative Commons Attribuzione – Non commerciale – Condividi allo stesso modo 4.0 Internazionale</a>. Testi, infografiche, simulazioni ed esercizi sono originali; le slide sono tratte da A. Tibone, <em>Progettare e programmare</em> (Zanichelli 2020) e sono escluse dalla licenza, come gli altri materiali di terzi indicati come tali.</span></p></div></footer>
+
+<script src="./pyb-tools.js?v=1"></script>
+<script>
+"use strict";
+(() => {
+  const course = window.PybCourse, list = document.getElementById('pathList');
+  const exDone = n => { let d = 0; try { for (let i = 0; i < localStorage.length; i++) if (localStorage.key(i).startsWith('pybEx-l' + n + '-')) d++; } catch {} return d; };
+  function render() {
+    list.innerHTML = '';
+    let next = null;
+    window.PYB_LESSONS.forEach(l => {
+      const done = course.passed(l.n), blocked = course.missing(l.n), avail = l.available;
+      if (!next && avail && !done && !blocked) next = l.n;
+      const li = document.createElement('li'); li.className = 'path-item' + (done ? ' done' : '') + (!avail || blocked ? ' locked' : '');
+      const a = document.createElement('a'); a.href = './lezione-' + l.n + '.html'; a.dataset.lessonLink = l.n;
+      const state = !avail ? 'In preparazione' : done ? 'Completata ✓' : blocked ? 'Si sblocca con il test della Lezione ' + blocked : 'Disponibile';
+      a.innerHTML = '<span class="path-n">' + (done ? '✓' : l.n) + '</span><span class="path-body"><strong class="path-title"></strong><span></span><span class="path-meta"></span></span>';
+      a.querySelector('.path-title').textContent = 'Lezione ' + l.n + ' · ' + l.title;
+      a.querySelector('.path-body > span').textContent = l.short;
+      a.querySelector('.path-meta').textContent = l.minutes + ' minuti · ' + state + (avail ? ' · esercizi ' + exDone(l.n) + '/4' : '');
+      if (!avail) a.addEventListener('click', e => e.preventDefault());
+      else if (blocked) a.addEventListener('click', e => { e.preventDefault(); location.href = './lezione-' + blocked + '.html#test-finale'; });
+      li.append(a); list.append(li);
+    });
+    const start = document.getElementById('startLink');
+    if (next && next > 1) { start.href = './lezione-' + next + '.html'; start.textContent = 'Continua dalla Lezione ' + next + ' →'; }
+    else if (!next && course.passed(window.PYB_LESSONS.length)) start.textContent = 'Corso completato ✓ · Rivedi le lezioni';
+  }
+  render();
+  window.addEventListener('pageshow', render);
+  const st = document.getElementById('transferStatus');
+  document.getElementById('exportBtn').onclick = () => { st.textContent = course.transfer.download().msg; };
+  document.getElementById('importFile').addEventListener('change', async e => {
+    const f = e.target.files[0]; if (!f) return;
+    try { st.textContent = (await course.transfer.load(f)).msg; render(); } catch (err) { st.textContent = 'Caricamento non riuscito: ' + err.message; } finally { e.target.value = ''; }
+  });
+})();
+</script>
+</body>
+</html>

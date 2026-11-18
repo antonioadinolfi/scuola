@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="it" data-lesson="3" class="course-pending">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Lezione 3: operatori aritmetici (/, //, %, **), precedenza, concatenamento e ripetizione di stringhe, formattazione dell'output con tripli apici, sep, end, caratteri di escape, format() e f-string.">
+<title>Lezione 3 · Operatori e output formattato | Introduzione a Python</title>
+<link rel="stylesheet" href="./pyb.css?v=1">
+<script src="./pyb-config.js?v=1"></script>
+<script src="./pyb-data.js?v=1"></script>
+<script src="./pyb-progress.js?v=1"></script>
+</head>
+<body>
+<noscript><style>html.course-pending body{visibility:visible}</style><p>Attiva JavaScript per usare l’editor Python e svolgere il test.</p></noscript>
+<a class="skip" href="#contenuti">Vai ai contenuti</a>
+
+<header><div class="wrap">
+  <div class="topbar"><a href="./">← Introduzione a Python · Guida al corso</a><span>Classi seconde</span></div>
+  <div class="hero">
+    <div class="kicker">Lezione 3 di 4 · 1 ora · Capitolo 1.2</div>
+    <h1>Operatori e output formattato</h1>
+    <p>Fare i conti con Python, anche quelli che la calcolatrice non sa fare (quoziente e resto), e presentare i risultati in modo ordinato. Dividerai caramelle, smonterai espressioni passo passo e costruirai i tuoi <code>print()</code>.</p>
+    <div class="actions">
+      <a class="button primary" href="#operatori">Inizia ↓</a>
+      <a class="button ghost" href="#slide">Slide ↓</a>
+      <a class="button ghost" href="#esercizi">Esercizi ↓</a>
+      <a class="button ghost" href="#test-finale">Test finale ↓</a>
+      <button class="button ghost" id="projection" aria-pressed="false">Testo ingrandito</button>
+      <button class="button ghost" onclick="window.print()">Stampa / PDF</button>
+    </div>
+  </div>
+</div></header>
+
+<main class="wrap" id="contenuti">
+<nav class="lesson-nav" aria-label="Percorso delle lezioni">
+  <a class="button" data-lesson-link="1" href="./lezione-1.html">Lezione 1<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="2" href="./lezione-2.html">Lezione 2<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="3" href="./lezione-3.html" aria-current="page">Lezione 3<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="4" href="./lezione-4.html">Lezione 4<span class="nav-state"></span></a>
+</nav>
+
+<section class="section" id="obiettivi">
+  <div class="kicker">Obiettivi della lezione</div>
+  <h2>Al termine saprai…</h2>
+  <div class="panel">
+    <ul>
+      <li>usare gli operatori aritmetici <code>+ - * / // % **</code> e prevedere il <strong>tipo</strong> del risultato;</li>
+      <li>applicare le regole di <strong>precedenza</strong> e usare le parentesi;</li>
+      <li>usare <code>+</code> (concatenamento) e <code>*</code> (ripetizione) con le stringhe;</li>
+      <li>formattare l’output con tripli apici, <code>sep</code>, <code>end</code>, caratteri di escape, <code>format()</code> e f-string.</li>
+    </ul>
+    <div class="timeline" aria-label="Organizzazione dell’ora">
+      <div><b>5′</b>Slide</div>
+      <div><b>15′</b>Operatori e precedenza</div>
+      <div><b>15′</b>Formattare l’output</div>
+      <div><b>15′</b>Esercizi</div>
+      <div><b>10′</b>Test finale</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="slide">
+  <div class="kicker">Le slide del capitolo 1.2</div>
+  <h2>Le slide della lezione</h2>
+  <p>Le slide del libro di testo, da usare in classe alla LIM o per ripassare. Scorri con le frecce (anche da tastiera ← →), scegli una miniatura o passa a schermo intero; «Vai all’argomento» porta alla parte della lezione corrispondente.</p>
+  <div class="slide-viewer" data-from="6" data-to="8"></div>
+  <p class="slide-credit">Slide: A. Tibone, <em>Progettare e programmare</em> © Zanichelli editore 2020, materiale didattico per le classi che adottano il testo. Le slide sono escluse dalla licenza Creative Commons del corso.</p>
+</section>
+
+<section class="section" id="operatori">
+  <div class="kicker">1 · Gli operatori aritmetici</div>
+  <h2>Sette operatori per fare i conti</h2>
+  <div class="panel table-wrap">
+    <table>
+      <thead><tr><th>Simbolo</th><th>Operazione</th><th>Esempio</th><th>Risultato</th></tr></thead>
+      <tbody>
+        <tr><th><code>+</code></th><td>addizione</td><td><code>7 + 2</code></td><td><code>9</code></td></tr>
+        <tr><th><code>-</code></th><td>sottrazione</td><td><code>7 - 2</code></td><td><code>5</code></td></tr>
+        <tr><th><code>*</code></th><td>moltiplicazione</td><td><code>7 * 2</code></td><td><code>14</code></td></tr>
+        <tr><th><code>/</code></th><td>divisione</td><td><code>7 / 2</code></td><td><code>3.5</code></td></tr>
+        <tr><th><code>//</code></th><td>divisione intera (quoziente)</td><td><code>7 // 2</code></td><td><code>3</code></td></tr>
+        <tr><th><code>%</code></th><td>modulo (resto)</td><td><code>7 % 2</code></td><td><code>1</code></td></tr>
+        <tr><th><code>**</code></th><td>elevamento a potenza</td><td><code>7 ** 2</code></td><td><code>49</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>E il tipo del risultato? <mark class="key">Un’operazione tra interi ha come risultato un intero, tra decimali un decimale; un’operazione tra un intero e un decimale restituisce un decimale</mark>. C’è però un’eccezione importante, che il libro non dice esplicitamente: scoprila con la calcolatrice.</p>
+  <div class="sim" id="opCalc">
+    <div class="sim-head"><b>La calcolatrice degli operatori · regole di Python</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body">
+      <div class="btn-row" style="align-items:center"><label style="font-weight:700" for="opA">a =</label><input id="opA" value="7" style="width:110px;font-family:ui-monospace,Consolas,monospace"><label style="font-weight:700" for="opB">b =</label><input id="opB" value="2" style="width:110px;font-family:ui-monospace,Consolas,monospace"></div>
+      <div class="cmd-chips" style="margin-top:8px"><button type="button" data-a="7" data-b="2">7 e 2</button><button type="button" data-a="6" data-b="3">6 e 3</button><button type="button" data-a="7.0" data-b="2">7.0 e 2</button><button type="button" data-a="-7" data-b="2">-7 e 2</button><button type="button" data-a="2" data-b="100">2 e 100</button><button type="button" data-a="5" data-b="0">5 e 0</button></div>
+      <div class="table-wrap" style="margin-top:12px"><table class="conv-table"><thead><tr><th>Espressione</th><th>Operazione</th><th>Risultato</th><th>Tipo</th></tr></thead><tbody aria-live="polite"></tbody></table></div>
+    </div>
+  </div>
+  <div class="check"><strong>L’eccezione: la divisione <code>/</code>.</strong> <mark class="warn">In Python 3 l’operatore <code>/</code> restituisce sempre un <code>float</code>, anche tra due interi e anche quando la divisione è esatta</mark>: <code>6 / 3</code> vale <code>2.0</code>. Se ti serve un intero usa <code>//</code>. Con i numeri negativi, <code>//</code> arrotonda verso il basso: <code>-7 // 2</code> vale <code>-4</code>, non -3.</div>
+
+  <h3 id="quoziente">Quoziente e resto: dividiamo le caramelle</h3>
+  <p><code>//</code> e <code>%</code> sono la divisione con il resto delle elementari: <strong>quante caramelle a testa</strong> e <strong>quante ne avanzano</strong>. Sono utilissime: convertire secondi in minuti, sapere se un numero è pari (<code>n % 2 == 0</code>), prendere l’ultima cifra di un numero (<code>n % 10</code>).</p>
+  <div class="sim" id="candy">
+    <div class="sim-head"><b>Divisione intera e modulo</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body sim-grid">
+      <div><div class="candy-box" aria-hidden="true"></div><p class="sim-note" id="cdCheck"></p></div>
+      <div class="sim-controls">
+        <label>Caramelle: <span class="v" id="cdNV"></span><input type="range" id="cdN" min="0" max="40" value="17"></label>
+        <label>Amici: <span class="v" id="cdKV"></span><input type="range" id="cdK" min="1" max="8" value="5"></label>
+        <div class="stat-row candy-res" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 id="precedenza">Chi si calcola prima?</h3>
+  <p>Come in matematica, le operazioni hanno una <strong>precedenza</strong>: prima le parentesi, poi le potenze <code>**</code>, poi <code>* / // %</code>, infine <code>+ -</code>; a parità di livello si procede da sinistra a destra (tranne <code>**</code>, che va da destra a sinistra). Scrivi un’espressione e guarda come la calcola Python, un passo alla volta.</p>
+  <div class="sim" id="prec">
+    <div class="sim-head"><b>Precedenza degli operatori, passo passo</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body">
+      <div class="btn-row"><input id="prIn" value="2 + 3 * 4 ** 2 // 5 - 1" aria-label="Espressione" spellcheck="false" style="flex:1;min-width:220px;font-family:ui-monospace,Consolas,monospace;font-size:1.05rem"><button type="button" class="sb main" id="prGo">Calcola passo passo</button></div>
+      <div class="cmd-chips"><button type="button" data-expr="2 + 3 * 4">2 + 3 * 4</button><button type="button" data-expr="(2 + 3) * 4">(2 + 3) * 4</button><button type="button" data-expr="10 - 4 - 3">10 - 4 - 3</button><button type="button" data-expr="2 ** 3 ** 2">2 ** 3 ** 2</button><button type="button" data-expr="-2 ** 2">-2 ** 2</button><button type="button" data-expr="(5 + 7) / 2">media di 5 e 7</button><button type="button" data-expr="5 + 7 / 2">5 + 7 / 2</button></div>
+      <ol class="prec-steps" aria-live="polite"></ol>
+      <p class="sim-note" id="prMsg" style="font-weight:700"></p>
+    </div>
+  </div>
+  <div class="task"><strong>Errore classico.</strong> Per la media di due voti <code>5 + 7 / 2</code> dà <code>8.5</code>, non 6! Divide solo il 7. Servono le parentesi: <code>(5 + 7) / 2</code>. Nel dubbio, metti le parentesi: rendono anche il codice più leggibile.</div>
+
+  <h3 id="stringhe">Operatori con le stringhe</h3>
+  <p>Con le stringhe, <mark class="key"><code>+</code> è l’operatore di concatenamento e <code>*</code> è l’operatore di ripetizione</mark>. Esegui il programma della slide e poi prova a modificarlo.</p>
+  <div class="py-box" data-py="l3-x1" data-title="Esempio 1 · Concatenamento e ripetizione (slide 6)"><textarea class="py-src">
+# usiamo l'operatore di concatenamento
+pre = 'meta'
+post = 'linguaggio'
+print(pre + post)
+# usiamo l'operatore di ripetizione
+print(pre * 3)
+print("-" * 30)
+print("ah" * 2 + "!")
+</textarea></div>
+</section>
+
+<section class="section" id="output">
+  <div class="kicker">2 · Formattare l’output</div>
+  <h2>Presentare bene i risultati</h2>
+  <p><mark class="key">In Python si può formattare l’output in vari modi</mark>. Il primo: <mark class="key">il testo contenuto tra tripli apici viene visualizzato esattamente come è scritto nel codice, a capo compresi</mark>.</p>
+  <div class="py-box" data-py="l3-x2" data-title="Esempio 2 · I tripli apici (slide 7)"><textarea class="py-src">
+# i tripli apici permettono di stampare
+# un testo su più righe impostando gli a capo
+print('''Sempre caro mi fu quest'ermo colle
+e questa siepe, che da tanta parte
+dell'ultimo orizzonte il guardo esclude''')
+</textarea></div>
+
+  <h3>sep ed end: che cosa mette print tra un valore e l’altro</h3>
+  <p><code>print</code> ha due parametri nascosti: <code>sep</code> (separatore tra gli argomenti, normalmente uno spazio) ed <code>end</code> (che cosa scrivere alla fine, normalmente un a capo <code>\n</code>). Cambiali e guarda il codice e l’output. Con «mostra spazi» vedi i caratteri invisibili.</p>
+  <div class="sim" id="printBuilder">
+    <div class="sim-head"><b>Costruisci il tuo print()</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body sim-grid">
+      <div class="sim-controls">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+          <label>1° valore<input id="pbA" value="19"></label><label>2° valore<input id="pbB" value="5"></label><label>3° valore<input id="pbC" value="2021"></label>
+        </div>
+        <label>sep <select id="pbSep"><option value=" ">" " (spazio, predefinito)</option><option value="/">"/"</option><option value="-">"-"</option><option value="">"" (niente)</option><option value=", ">", "</option><option value="\t">"\t" (tabulazione)</option><option value="\n">"\n" (a capo)</option></select></label>
+        <label>end <select id="pbEnd"><option value="\n">"\n" (a capo, predefinito)</option><option value=" ">" " (spazio)</option><option value="">"" (niente)</option><option value="!\n">"!\n"</option></select></label>
+        <label style="display:flex;gap:8px;align-items:center;font-weight:600"><input type="checkbox" id="pbVis" checked> mostra spazi (·), tabulazioni (→) e a capo (↵)</label>
+      </div>
+      <div><p style="margin:0 0 4px;font-weight:700">Codice</p><pre class="sim-out" id="pbCode"></pre><p style="margin:10px 0 4px;font-weight:700">Output</p><div class="code-inline-out" id="pbOut" aria-live="polite"></div></div>
+    </div>
+  </div>
+  <div class="split">
+    <div class="panel"><h3>Caratteri di escape</h3><p>Dentro una stringa la barra rovesciata <code>\</code> introduce un carattere speciale:</p>
+      <ul><li><code>\n</code> a capo (<em>new line</em>)</li><li><code>\t</code> tabulazione, per incolonnare</li><li><code>\'</code> e <code>\"</code> un apice o una virgoletta</li><li><code>\\</code> la barra rovesciata stessa</li></ul></div>
+    <div class="py-box" data-py="l3-x3" data-title="Esempio 3 · Separatori ed escape (slide 8)"><textarea class="py-src">
+a = 19
+b = 5
+c = 2021
+# con sep si possono inserire separatori tra gli argomenti
+print(a, b, c, sep='/')
+print(a, b, c, sep='-')
+print(a, b, c, sep='\t')
+print("Riga 1\nRiga 2")
+print("Nome\tVoto\nAnna\t8\nLuca\t7")
+</textarea></div>
+  </div>
+
+  <h3 id="format">format() e le f-string: numeri in ordine</h3>
+  <p>Per controllare quante cifre decimali mostrare, l’allineamento e la larghezza si usa la funzione <code>format(valore, "specifica")</code>. Oggi si usano molto anche le <strong>f-string</strong>, stringhe precedute da <code>f</code> in cui si scrivono le variabili tra graffe: <code>f"{x:.2f}"</code> dà lo stesso risultato di <code>format(x, ".2f")</code>. Prova le specifiche: risponde Python.</p>
+  <div class="sim" id="fmtExp">
+    <div class="sim-head"><b>Esploratore di format()</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body">
+      <div class="btn-row" style="align-items:center"><label style="font-weight:700" for="fxV">numero</label><input id="fxV" value="1234.5678" style="width:140px;font-family:ui-monospace,Consolas,monospace"><label style="font-weight:700" for="fxS">specifica</label><select id="fxS"><option>.2f</option><option>8.2f</option><option>08.2f</option><option>,.2f</option><option>.1%</option><option>.3e</option><option>&gt;10</option><option>&lt;10</option><option>^10</option><option>d</option><option>b</option></select><button type="button" class="sb main" id="fxGo">format( )</button></div>
+      <pre class="sim-out" id="fxOut" aria-live="polite" style="margin-top:10px">Scegli una specifica e premi format( ).</pre>
+      <p class="sim-note" id="fxNote"></p>
+    </div>
+  </div>
+  <div class="py-box" data-py="l3-x4" data-title="Esempio 4 · L’area della Lezione 2, finalmente in ordine" data-stdin="1.1\n1.1"><textarea class="py-src">
+base = float(input("base: "))
+altezza = float(input("altezza: "))
+area = base * altezza
+print("Area senza formattazione:", area)
+print("Area con format():", format(area, ".2f"))
+print(f"Area con una f-string: {area:.2f} cm²")
+</textarea></div>
+</section>
+
+<section class="section" id="esercizi">
+  <div class="kicker">3 · Esercizi · circa 15 minuti</div>
+  <h2>Ora tocca a te</h2>
+  <div class="panel">
+    <p><strong>Come funzionano.</strong> Negli esercizi a risposta scrivi il risultato e premi <strong>✓ Verifica</strong>. Negli esercizi di codice prova con <strong>▶ Esegui</strong> e controlla con <strong>✓ Verifica</strong>.</p>
+    <p id="exProgress" class="ex-badge" role="status"></p>
+  </div>
+
+  <article class="panel exercise" id="es-1">
+    <div class="ex-head"><h3>Esercizio 1 · Calcola come Python</h3><span><span class="ex-level">★ Guidato</span> <span class="ex-badge"></span></span></div>
+    <p>Scrivi il risultato esatto, con il punto per i decimali (ad esempio <code>2.0</code> se è un float). Usa la calcolatrice solo alla fine.</p>
+    <div class="ia-ex" data-ex="l3-e1" data-hint="/ dà sempre un float; // è il quoziente intero, arrotondato verso il basso; % è il resto; ** precede *.">
+      <div class="calc-line"><code>17 // 5</code> = <input data-text="3" aria-label="17 // 5"></div>
+      <div class="calc-line"><code>17 % 5</code> = <input data-text="2" aria-label="17 % 5"></div>
+      <div class="calc-line"><code>8 / 4</code> = <input data-text="2.0" aria-label="8 / 4"></div>
+      <div class="calc-line"><code>2 ** 10</code> = <input data-text="1024" aria-label="2 ** 10"></div>
+      <div class="calc-line"><code>3 + 2 * 5</code> = <input data-text="13" aria-label="3 + 2 * 5"></div>
+      <div class="calc-line"><code>(3 + 2) * 5</code> = <input data-text="25" aria-label="(3 + 2) * 5"></div>
+      <div class="calc-line"><code>7.0 // 2</code> = <input data-text="3.0" aria-label="7.0 // 2"></div>
+      <div class="calc-line"><code>2026 % 10</code> = <input data-text="6" aria-label="2026 % 10"></div>
+    </div>
+  </article>
+
+  <article class="panel exercise" id="es-2">
+    <div class="ex-head"><h3>Esercizio 2 · Ore, minuti, secondi</h3><span><span class="ex-level">★★ Codice</span> <span class="ex-badge"></span></span></div>
+    <p>Leggi un numero intero di <strong>secondi</strong> e visualizza quante <strong>ore</strong>, <strong>minuti</strong> e <strong>secondi</strong> sono, usando <code>//</code> e <code>%</code>. Esempio: con 3725 l’output è <code>1 ore, 2 minuti, 5 secondi</code>.</p>
+    <div class="py-box" data-py="l3-e2" data-ex="l3-e2" data-stdin="3725"><textarea class="py-src">
+totale = int(input("Secondi: "))
+</textarea></div>
+  </article>
+
+  <article class="panel exercise" id="es-3">
+    <div class="ex-head"><h3>Esercizio 3 · Lo scontrino</h3><span><span class="ex-level">★★ Codice</span> <span class="ex-badge"></span></span></div>
+    <p>Leggi il <strong>prezzo</strong> unitario (decimale) e la <strong>quantità</strong> (intera) di un prodotto e visualizza il totale <strong>con due cifre decimali</strong> e il simbolo dell’euro. Esempio: con 2.5 e 5 → <code>Totale: 12.50 €</code>.</p>
+    <div class="py-box" data-py="l3-e3" data-ex="l3-e3" data-stdin="2.5\n5"><textarea class="py-src">
+</textarea></div>
+  </article>
+
+  <article class="panel exercise" id="es-4">
+    <div class="ex-head"><h3>Esercizio 4 · Stringhe e print</h3><span><span class="ex-level">★★★ Ragionamento</span> <span class="ex-badge"></span></span></div>
+    <p>Scrivi esattamente che cosa compare a schermo (una sola riga ciascuno).</p>
+    <div class="ia-ex" data-ex="l3-e4" data-hint="+ attacca le stringhe senza spazi; * le ripete; sep sostituisce lo spazio tra gli argomenti.">
+      <div class="calc-line"><code>print("ciao" + "ne")</code> → <input data-text="ciaone" aria-label="Output 1"></div>
+      <div class="calc-line"><code>print("ab" * 3)</code> → <input data-text="ababab" aria-label="Output 2"></div>
+      <div class="calc-line"><code>print("3" + "4", 3 + 4)</code> → <input data-text="34 7" aria-label="Output 3"></div>
+      <div class="calc-line"><code>print("A", "B", "C", sep="")</code> → <input data-text="ABC" aria-label="Output 4"></div>
+      <div class="calc-line"><code>print(1, 2, 3, sep=" + ")</code> → <input data-text="1 + 2 + 3" aria-label="Output 5"></div>
+      <div class="calc-line"><code>print(format(2/3, ".2f"))</code> → <input data-text="0.67" aria-label="Output 6"></div>
+    </div>
+  </article>
+</section>
+
+<section class="section" id="sintesi">
+  <div class="kicker">In sintesi</div>
+  <h2>Che cosa porti a casa</h2>
+  <div class="panel">
+    <ul>
+      <li>Operatori aritmetici: <code>+ - * / // % **</code>. <code>//</code> dà il quoziente intero, <code>%</code> il resto.</li>
+      <li>Tra interi il risultato è intero, con un float è float; <strong>eccezione: <code>/</code> dà sempre un float</strong>.</li>
+      <li>Precedenza: parentesi, <code>**</code>, poi <code>* / // %</code>, poi <code>+ -</code>, da sinistra a destra.</li>
+      <li>Con le stringhe <code>+</code> concatena e <code>*</code> ripete.</li>
+      <li>Output: tripli apici per testi su più righe, <code>sep</code> ed <code>end</code>, escape <code>\n</code> e <code>\t</code>, <code>format(x, ".2f")</code> o <code>f"{x:.2f}"</code> per i decimali.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="test-finale">
+  <div class="kicker">Test di fine lezione · 10 domande</div>
+  <h2>Verifica che cosa hai imparato</h2>
+  <p>Rispondi a tutte le domande e invia. Per sbloccare la Lezione 4 servono almeno <strong>7 risposte esatte su 10 (70%)</strong>. Dopo l’invio vedrai quali risposte sono esatte e un suggerimento per le altre: ripassa e riprova, i tentativi sono illimitati. Alla fine invia l’esito al docente.</p>
+  <form id="finalQuiz">
+    <div id="quizQuestions"></div>
+    <p id="quizCount" role="status" aria-live="polite"></p>
+    <button class="button primary" id="submitQuiz" disabled>Invia e verifica il risultato</button>
+  </form>
+  <p id="quizMessage" role="status" aria-live="polite"></p>
+  <div class="panel" id="quizResult" tabindex="-1" hidden>
+    <h3 id="quizScore"></h3>
+    <p id="attemptCount" class="muted"></p>
+    <div class="actions">
+      <button class="button" id="retryQuiz">Ripassa e riprova</button>
+      <button class="button" id="downloadQuiz">Scarica l’esito</button>
+      <a class="button primary" id="continueLink" data-lesson-link="4" href="./lezione-4.html" hidden>Prosegui alla Lezione 4 →</a>
+    </div>
+  </div>
+  <div class="panel builder consegna" id="consegnaBox" hidden>
+    <h3>Consegna al docente</h3>
+    <p>Invia l’esito di questo tentativo: il docente riceverà un PDF con risposte, punteggio ed esercizi completati. Puoi consegnare di nuovo dopo un nuovo tentativo.</p>
+    <form id="consegnaForm">
+      <div class="row">
+        <div><label for="stNome">Nome e cognome</label><input id="stNome" maxlength="80" autocomplete="name" required></div>
+        <div><label for="stClasse">Classe</label><input id="stClasse" maxlength="6" placeholder="es. 2B" required></div>
+      </div>
+      <div class="actions" style="margin-top:14px"><button class="button primary" id="consegnaBtn">Consegna l’esito</button></div>
+    </form>
+    <p id="consegnaStatus" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="section" id="fonti">
+  <h2>Fonti e approfondimenti</h2>
+  <ol>
+    <li>A. Tibone, <em>Progettare e programmare</em>, Zanichelli 2020, cap. 1.2.</li>
+    <li><a href="https://docs.python.org/3/reference/expressions.html#operator-precedence" target="_blank" rel="noopener noreferrer">Python Language Reference, «Operator precedence»</a> — la tabella ufficiale delle precedenze.</li>
+    <li><a href="https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex" target="_blank" rel="noopener noreferrer">«Numeric Types»</a> — divisione, divisione intera e modulo, anche con i numeri negativi.</li>
+    <li><a href="https://docs.python.org/3/library/string.html#format-specification-mini-language" target="_blank" rel="noopener noreferrer">«Format Specification Mini-Language»</a> — tutte le specifiche di <code>format()</code> e delle f-string.</li>
+    <li><a href="https://docs.python.org/3/library/functions.html#print" target="_blank" rel="noopener noreferrer">Documentazione di <code>print()</code></a> — i parametri <code>sep</code> ed <code>end</code>.</li>
+  </ol>
+</section>
+</main>
+
+<footer><div class="wrap">Introduzione a Python · Lezione 3 di 4 · <a href="./">Guida al corso</a> · Liceo Scientifico «N. Cortese»<p class="license"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer"><span class="cc-badge" aria-label="Licenza Creative Commons BY-NC-SA 4.0"><b>cc</b>BY-NC-SA 4.0</span></a><span>© 2026 <span property="cc:attributionName">Prof. Antonio Adinolfi</span> · «Introduzione a Python» è distribuito con licenza <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer">Creative Commons Attribuzione – Non commerciale – Condividi allo stesso modo 4.0 Internazionale</a>. Fanno eccezione le slide del libro e gli altri materiali di terzi indicati come tali.</span></p></div></footer>
+
+<script src="./pyb-slides.js?v=1"></script>
+<script src="./pyb-runner.js?v=1"></script>
+<script src="./pyb-ex.js?v=1"></script>
+<script src="./pyb-sim-3.js?v=1"></script>
+<script src="./pyb-lesson.js?v=1"></script>
+<script src="./pyb-tools.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="it" data-lesson="1" class="course-pending">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Lezione 1: Python, un linguaggio di programmazione per tutti. Interpretato, di alto livello, multipiattaforma, open source; shell ed editor di IDLE; la funzione print().">
+<title>Lezione 1 · Python, un linguaggio per tutti | Introduzione a Python</title>
+<link rel="stylesheet" href="./pyb.css?v=1">
+<script src="./pyb-config.js?v=1"></script>
+<script src="./pyb-data.js?v=1"></script>
+<script src="./pyb-progress.js?v=1"></script>
+</head>
+<body>
+<noscript><style>html.course-pending body{visibility:visible}</style><p>Attiva JavaScript per usare l’editor Python e svolgere il test.</p></noscript>
+<a class="skip" href="#contenuti">Vai ai contenuti</a>
+
+<header><div class="wrap">
+  <div class="topbar"><a href="./">← Introduzione a Python · Guida al corso</a><span>Classi seconde</span></div>
+  <div class="hero">
+    <div class="kicker">Lezione 1 di 4 · 1 ora · Capitolo 1.1</div>
+    <h1>Python, un linguaggio per tutti</h1>
+    <p>Che cosa rende Python così diffuso, come lavora l’interprete e come si scrivono i primi programmi. Proverai la shell di Python e scriverai il tuo primo codice, direttamente in questa pagina.</p>
+    <div class="actions">
+      <a class="button primary" href="#python">Inizia ↓</a>
+      <a class="button ghost" href="#slide">Slide ↓</a>
+      <a class="button ghost" href="#esercizi">Esercizi ↓</a>
+      <a class="button ghost" href="#test-finale">Test finale ↓</a>
+      <button class="button ghost" id="projection" aria-pressed="false">Testo ingrandito</button>
+      <button class="button ghost" onclick="window.print()">Stampa / PDF</button>
+    </div>
+  </div>
+</div></header>
+
+<main class="wrap" id="contenuti">
+<nav class="lesson-nav" aria-label="Percorso delle lezioni">
+  <a class="button" data-lesson-link="1" href="./lezione-1.html" aria-current="page">Lezione 1<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="2" href="./lezione-2.html">Lezione 2<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="3" href="./lezione-3.html">Lezione 3<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="4" href="./lezione-4.html">Lezione 4<span class="nav-state"></span></a>
+</nav>
+
+<section class="section" id="obiettivi">
+  <div class="kicker">Obiettivi della lezione</div>
+  <h2>Al termine saprai…</h2>
+  <div class="panel">
+    <ul>
+      <li>spiegare che cosa significa che Python è un linguaggio di <strong>scripting</strong>, <strong>interpretato</strong>, di <strong>alto livello</strong>, <strong>multipiattaforma</strong>, <strong>multi-paradigma</strong> e <strong>open source</strong>;</li>
+      <li>distinguere un <strong>interprete</strong> da un <strong>compilatore</strong>;</li>
+      <li>usare la <strong>shell</strong> per provare un comando alla volta e l’<strong>editor</strong> per scrivere un programma;</li>
+      <li>visualizzare testi e risultati con la funzione <code>print()</code>.</li>
+    </ul>
+    <div class="timeline" aria-label="Organizzazione dell’ora">
+      <div><b>5′</b>Slide</div>
+      <div><b>15′</b>Che cos’è Python</div>
+      <div><b>15′</b>Shell, editor e print()</div>
+      <div><b>15′</b>Esercizi</div>
+      <div><b>10′</b>Test finale</div>
+    </div>
+    <p class="muted">Python funziona direttamente nella pagina: la prima volta che premi ▶ Esegui servono alcuni secondi per avviarlo. Il codice che scrivi e gli esercizi completati restano salvati in questo browser.</p>
+  </div>
+</section>
+
+<section class="section" id="slide">
+  <div class="kicker">Le slide del capitolo 1.1</div>
+  <h2>Le slide della lezione</h2>
+  <p>Le slide del libro di testo, da usare in classe alla LIM o per ripassare. Scorri con le frecce (anche da tastiera ← →), scegli una miniatura o passa a schermo intero; «Vai all’argomento» porta alla parte della lezione con spiegazioni, simulazioni ed esercizi.</p>
+  <div class="slide-viewer" data-from="1" data-to="2"></div>
+  <p class="slide-credit">Slide: A. Tibone, <em>Progettare e programmare</em> © Zanichelli editore 2020, materiale didattico per le classi che adottano il testo. Le slide sono escluse dalla licenza Creative Commons del corso.</p>
+</section>
+
+<section class="section" id="python">
+  <div class="kicker">1 · Che cos’è Python</div>
+  <h2>Un linguaggio intuitivo, facile da imparare e open source</h2>
+  <p>Python è uno dei linguaggi di programmazione più usati al mondo: lo trovi nell’analisi dei dati, nell’intelligenza artificiale, nei siti web, nella robotica e nella didattica. <mark class="key">Python è un linguaggio di scripting interpretato di alto livello, multipiattaforma e multi-paradigma</mark>. Seleziona ogni caratteristica per leggerne il significato.</p>
+  <div class="sim" id="identity">
+    <div class="sim-head"><b>La carta d’identità di Python</b><span class="sim-tag">Infografica</span></div>
+    <div class="sim-body">
+      <div class="v-grid id-grid" role="group" aria-label="Caratteristiche di Python">
+        <button type="button" class="v-card" data-k="scripting" aria-pressed="false"><span class="big" aria-hidden="true">📜</span>Scripting</button>
+        <button type="button" class="v-card" data-k="interpretato" aria-pressed="true"><span class="big" aria-hidden="true">⚙️</span>Interpretato</button>
+        <button type="button" class="v-card" data-k="alto" aria-pressed="false"><span class="big" aria-hidden="true">🧑‍💻</span>Alto livello</button>
+        <button type="button" class="v-card" data-k="multipiatt" aria-pressed="false"><span class="big" aria-hidden="true">💻</span>Multipiattaforma</button>
+        <button type="button" class="v-card" data-k="multipar" aria-pressed="false"><span class="big" aria-hidden="true">🧩</span>Multi-paradigma</button>
+        <button type="button" class="v-card" data-k="open" aria-pressed="false"><span class="big" aria-hidden="true">🔓</span>Open source</button>
+      </div>
+      <div class="tl-detail" style="margin-top:14px" aria-live="polite"></div>
+    </div>
+  </div>
+  <div class="split">
+    <div class="task"><strong>Chi l’ha inventato.</strong> <mark class="key">L’interprete di Python è stato scritto da Guido van Rossum</mark>, programmatore olandese, che cominciò a lavorarci alla fine del 1989; la prima versione pubblica uscì nel 1991. Il nome non viene dal serpente ma dal gruppo comico britannico dei Monty Python.</div>
+    <div class="task"><strong>Dove si scrive il codice.</strong> <mark class="key">Si può usare un normale editor di testo non formattato oppure un ambiente di sviluppo come IDLE</mark>, che si installa insieme a Python. Non si usa Word: aggiunge formattazione e virgolette «curve» che Python non capisce.</div>
+  </div>
+</section>
+
+<section class="section" id="interprete">
+  <div class="kicker">1 · Interprete e compilatore</div>
+  <h2>Chi traduce il codice per il computer?</h2>
+  <p>Il processore capisce solo il <strong>linguaggio macchina</strong>, fatto di 0 e 1. Un programma scritto in un linguaggio di alto livello va quindi tradotto. Ci sono due strategie:</p>
+  <div class="split">
+    <div class="panel"><h3>Compilatore</h3><p>Traduce <strong>tutto il programma</strong> in linguaggio macchina e produce un file eseguibile (ad esempio un <code>.exe</code>). Solo dopo il programma può essere eseguito. Esempi: C, C++.</p></div>
+    <div class="panel"><h3>Interprete</h3><p>Legge il programma ed <strong>esegue un’istruzione dopo l’altra</strong>, senza produrre un eseguibile. Si scrive, si esegue, si corregge in un attimo. Esempio: Python.</p></div>
+  </div>
+  <p>Il programma qui sotto contiene un errore alla riga 4: la variabile <code>perimetro</code> non esiste. Guarda come si comportano i due approcci.</p>
+  <div class="sim" id="compint">
+    <div class="sim-head"><b>Compilatore o interprete?</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body sim-grid">
+      <div><ol class="ci-code" aria-label="Programma di esempio"></ol><p class="ci-msg" aria-live="polite"></p></div>
+      <div class="sim-controls">
+        <div class="btn-row"><button type="button" class="sb dark" id="ciComp">Esegui con un compilatore</button><button type="button" class="sb main" id="ciInt">Esegui con l’interprete</button></div>
+        <p style="margin:0;font-weight:700">Output</p>
+        <div class="code-inline-out" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+  <details class="ricorda"><summary>un dettaglio per i più curiosi</summary>
+    <p>In realtà Python, prima di eseguire un file, lo traduce velocemente in un codice intermedio (<em>bytecode</em>). Per questo gli <strong>errori di sintassi</strong> (una parentesi non chiusa, due punti mancanti) vengono segnalati subito, prima di eseguire qualsiasi riga. Gli errori come un nome sbagliato, invece, emergono solo quando l’esecuzione arriva a quella riga: è ciò che hai visto nella simulazione.</p>
+  </details>
+</section>
+
+<section class="section" id="shell">
+  <div class="kicker">2 · La shell e l’editor</div>
+  <h2>Un comando alla volta: la shell</h2>
+  <p>In IDLE, la finestra <strong>Shell</strong> mostra il prompt <code>&gt;&gt;&gt;</code>: scrivi un’istruzione, premi Invio e Python risponde subito. È perfetta per provare. Ecco una shell vera, che funziona nella pagina: prova i comandi della slide o premi i pulsanti.</p>
+  <div class="py-shell" id="shell1"></div>
+  <div class="cmd-chips" data-shell="shell1" aria-label="Comandi di esempio">
+    <button type="button" data-shell-cmd='print("Hello world!")'>print("Hello world!")</button>
+    <button type="button" data-shell-cmd="5*7">5*7</button>
+    <button type="button" data-shell-cmd="valoreA = 5">valoreA = 5</button>
+    <button type="button" data-shell-cmd="valoreB = 7">valoreB = 7</button>
+    <button type="button" data-shell-cmd="print(valoreA * valoreB)">print(valoreA * valoreB)</button>
+    <button type="button" data-shell-cmd="2 ** 100">2 ** 100</button>
+    <button type="button" data-shell-cmd="Print(5)">Print(5)</button>
+  </div>
+  <p class="muted">Nella shell, se scrivi solo un’espressione (come <code>5*7</code>), Python ne mostra il valore anche senza <code>print</code>. In un programma salvato su file, invece, senza <code>print</code> non compare nulla. L’ultimo comando contiene un errore voluto: leggi il messaggio.</p>
+
+  <h2 id="editor">Un programma intero: l’editor e print()</h2>
+  <p>Per scrivere un programma vero si apre l’<strong>editor</strong> (in IDLE: <em>File → New File</em>), si scrivono più istruzioni, si salva il file con estensione <code>.py</code> e lo si esegue (<em>Run → Run Module</em>, tasto F5). Qui l’editor è già pronto: modifica il codice e premi <strong>▶ Esegui</strong> (oppure Ctrl+Invio).</p>
+  <div class="py-box" data-py="l1-x1" data-title="Esempio 1 · Il primo programma"><textarea class="py-src">
+# Le righe che iniziano con # sono commenti: Python le ignora
+print("Hello world!")
+print("Sto imparando Python")
+print("Quanto fa 5 per 7?", 5 * 7)
+</textarea></div>
+  <p><mark class="key"><code>print()</code> è una funzione built-in, cioè già pronta in Python, che visualizza a schermo i suoi argomenti</mark>. Alcune regole da osservare nell’esempio:</p>
+  <ul>
+    <li>il testo va tra virgolette, doppie <code>"…"</code> o singole <code>'…'</code>: si chiama <strong>stringa</strong>;</li>
+    <li>senza virgolette, Python <strong>calcola</strong> l’espressione: <code>5 * 7</code> diventa 35, mentre <code>"5 * 7"</code> resta un testo;</li>
+    <li>più argomenti separati da virgole vengono stampati separati da uno spazio;</li>
+    <li>ogni <code>print()</code> va a capo alla fine.</li>
+  </ul>
+  <div class="py-box" data-py="l1-x2" data-title="Esempio 2 · Con o senza virgolette?"><textarea class="py-src">
+print("5 * 7")
+print(5 * 7)
+print("5" + "7")
+print(5 + 7)
+print("Il risultato è", 5 + 7, "!")
+</textarea></div>
+  <div class="check"><strong>Attenzione agli errori.</strong> <mark class="warn">Python distingue maiuscole e minuscole: <code>Print</code> non è <code>print</code></mark>. Se manca una virgoletta o una parentesi compare un <em>SyntaxError</em>: leggi la riga indicata, è quasi sempre lì il problema. Prova a togliere una parentesi nell’esempio 2 e premi Esegui.</div>
+</section>
+
+<section class="section" id="esercizi">
+  <div class="kicker">3 · Esercizi · circa 15 minuti</div>
+  <h2>Ora tocca a te</h2>
+  <div class="panel">
+    <p><strong>Come funzionano.</strong> Negli esercizi a scelta premi <strong>✓ Verifica</strong>: le risposte esatte diventano verdi, quelle da rivedere arancioni. Negli esercizi di codice scrivi il programma, provalo con <strong>▶ Esegui</strong> e poi premi <strong>✓ Verifica</strong>: i controlli automatici ti dicono che cosa va e che cosa no. Hai a disposizione suggerimenti; la soluzione si sblocca dopo tre tentativi.</p>
+    <p id="exProgress" class="ex-badge" role="status"></p>
+  </div>
+
+  <article class="panel exercise" id="es-1">
+    <div class="ex-head"><h3>Esercizio 1 · Vero o falso?</h3><span><span class="ex-level">★ Guidato</span> <span class="ex-badge"></span></span></div>
+    <div class="ia-ex" data-ex="l1-e1" data-hint="rileggi la carta d’identità di Python e la simulazione compilatore/interprete.">
+      <ul class="ex-items">
+        <li><span>Un programma Python va compilato in un file .exe prima di poter essere eseguito.</span><select data-answer="f"><option value="">— scegli —</option><option value="v">Vero</option><option value="f">Falso</option></select></li>
+        <li><span>Lo stesso programma Python può funzionare su Windows e su Linux.</span><select data-answer="v"><option value="">— scegli —</option><option value="v">Vero</option><option value="f">Falso</option></select></li>
+        <li><span>Python è un software a pagamento della Microsoft.</span><select data-answer="f"><option value="">— scegli —</option><option value="v">Vero</option><option value="f">Falso</option></select></li>
+        <li><span>Con un interprete, le righe che precedono un errore di esecuzione vengono eseguite.</span><select data-answer="v"><option value="">— scegli —</option><option value="v">Vero</option><option value="f">Falso</option></select></li>
+        <li><span>Nella shell di IDLE si esegue un comando alla volta.</span><select data-answer="v"><option value="">— scegli —</option><option value="v">Vero</option><option value="f">Falso</option></select></li>
+        <li><span>Print("Ciao") e print("Ciao") sono equivalenti.</span><select data-answer="f"><option value="">— scegli —</option><option value="v">Vero</option><option value="f">Falso</option></select></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="panel exercise" id="es-2">
+    <div class="ex-head"><h3>Esercizio 2 · Il tuo primo programma</h3><span><span class="ex-level">★ Codice</span> <span class="ex-badge"></span></span></div>
+    <p>Scrivi un programma che visualizzi esattamente queste tre righe. Il 35 deve essere <strong>calcolato da Python</strong>, non scritto a mano.</p>
+    <pre><code>Ciao, mondo!
+Sto imparando Python.
+5 * 7 = 35</code></pre>
+    <div class="py-box" data-py="l1-e2" data-ex="l1-e2"><textarea class="py-src">
+# Scrivi qui il tuo programma
+</textarea></div>
+  </article>
+
+  <article class="panel exercise" id="es-3">
+    <div class="ex-head"><h3>Esercizio 3 · Quanti secondi?</h3><span><span class="ex-level">★★ Codice</span> <span class="ex-badge"></span></span></div>
+    <p>Fai calcolare a Python quanti secondi ci sono in <strong>un giorno</strong> e in <strong>una settimana</strong>, e visualizza i due risultati con una breve descrizione. Non scrivere i risultati a mano: scrivi le moltiplicazioni.</p>
+    <div class="py-box" data-py="l1-e3" data-ex="l1-e3"><textarea class="py-src">
+print("Secondi in un giorno:", )
+</textarea></div>
+  </article>
+
+  <article class="panel exercise" id="es-4">
+    <div class="ex-head"><h3>Esercizio 4 · Prevedi l’output</h3><span><span class="ex-level">★★ Ragionamento</span> <span class="ex-badge"></span></span></div>
+    <p>Scrivi esattamente che cosa compare a schermo. Ragiona prima di provare nella shell: è lì che si impara.</p>
+    <div class="ia-ex" data-ex="l1-e4" data-hint="le virgolette fanno di tutto un testo; la virgola tra gli argomenti diventa uno spazio; + tra due stringhe le attacca.">
+      <div class="calc-line"><code>print("Ciao", "mondo")</code> → <input data-text="Ciao mondo" aria-label="Output 1"></div>
+      <div class="calc-line"><code>print(2 + 3)</code> → <input data-text="5" aria-label="Output 2"></div>
+      <div class="calc-line"><code>print("2 + 3")</code> → <input data-text="2 + 3" aria-label="Output 3"></div>
+      <div class="calc-line"><code>print("5" + "7")</code> → <input data-text="57" aria-label="Output 4"></div>
+      <div class="calc-line"><code>print("Lati:", 2 * 2)</code> → <input data-text="Lati: 4" aria-label="Output 5"></div>
+    </div>
+  </article>
+</section>
+
+<section class="section" id="sintesi">
+  <div class="kicker">In sintesi</div>
+  <h2>Che cosa porti a casa</h2>
+  <div class="panel">
+    <ul>
+      <li>Python è un linguaggio di <strong>scripting</strong>, <strong>interpretato</strong>, di <strong>alto livello</strong>, <strong>multipiattaforma</strong>, <strong>multi-paradigma</strong> e <strong>open source</strong>; il suo interprete è stato scritto da Guido van Rossum a partire dal 1989.</li>
+      <li>Un <strong>compilatore</strong> traduce tutto il programma prima di eseguirlo; un <strong>interprete</strong> esegue un’istruzione alla volta.</li>
+      <li>La <strong>shell</strong> (<code>&gt;&gt;&gt;</code>) esegue un comando alla volta; l’<strong>editor</strong> serve per scrivere e salvare programmi <code>.py</code>.</li>
+      <li><code>print()</code> visualizza i suoi argomenti: il testo va tra virgolette, le espressioni senza virgolette vengono calcolate.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="test-finale">
+  <div class="kicker">Test di fine lezione · 10 domande</div>
+  <h2>Verifica che cosa hai imparato</h2>
+  <p>Rispondi a tutte le domande e invia. Per sbloccare la Lezione 2 servono almeno <strong>7 risposte esatte su 10 (70%)</strong>. Dopo l’invio vedrai quali risposte sono esatte e un suggerimento per le altre, senza la soluzione: ripassa e riprova, i tentativi sono illimitati. Alla fine invia l’esito al docente.</p>
+  <form id="finalQuiz">
+    <div id="quizQuestions"></div>
+    <p id="quizCount" role="status" aria-live="polite"></p>
+    <button class="button primary" id="submitQuiz" disabled>Invia e verifica il risultato</button>
+  </form>
+  <p id="quizMessage" role="status" aria-live="polite"></p>
+  <div class="panel" id="quizResult" tabindex="-1" hidden>
+    <h3 id="quizScore"></h3>
+    <p id="attemptCount" class="muted"></p>
+    <div class="actions">
+      <button class="button" id="retryQuiz">Ripassa e riprova</button>
+      <button class="button" id="downloadQuiz">Scarica l’esito</button>
+      <a class="button primary" id="continueLink" data-lesson-link="2" href="./lezione-2.html" hidden>Prosegui alla Lezione 2 →</a>
+    </div>
+  </div>
+  <div class="panel builder consegna" id="consegnaBox" hidden>
+    <h3>Consegna al docente</h3>
+    <p>Invia l’esito di questo tentativo: il docente riceverà un PDF con risposte, punteggio ed esercizi completati. Puoi consegnare di nuovo dopo un nuovo tentativo.</p>
+    <form id="consegnaForm">
+      <div class="row">
+        <div><label for="stNome">Nome e cognome</label><input id="stNome" maxlength="80" autocomplete="name" required></div>
+        <div><label for="stClasse">Classe</label><input id="stClasse" maxlength="6" placeholder="es. 2B" required></div>
+      </div>
+      <div class="actions" style="margin-top:14px"><button class="button primary" id="consegnaBtn">Consegna l’esito</button></div>
+    </form>
+    <p id="consegnaStatus" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="section" id="fonti">
+  <h2>Fonti e approfondimenti</h2>
+  <ol>
+    <li>A. Tibone, <em>Progettare e programmare</em>, Zanichelli 2020, cap. 1.1 — il libro di testo e le slide della lezione.</li>
+    <li><a href="https://www.python.org/doc/essays/foreword/" target="_blank" rel="noopener noreferrer">G. van Rossum, «Foreword for Programming Python»</a> — l’inventore racconta come è nato Python, a fine 1989.</li>
+    <li><a href="https://docs.python.org/3/faq/general.html" target="_blank" rel="noopener noreferrer">Python Software Foundation, «General Python FAQ»</a> — che cos’è Python, licenza, origine del nome.</li>
+    <li><a href="https://docs.python.org/3/library/idle.html" target="_blank" rel="noopener noreferrer">Documentazione di IDLE</a> — shell ed editor dell’ambiente di sviluppo di Python.</li>
+    <li><a href="https://pyodide.org" target="_blank" rel="noopener noreferrer">Pyodide</a> — il progetto che permette di eseguire Python nel browser, usato in questa pagina.</li>
+  </ol>
+</section>
+</main>
+
+<footer><div class="wrap">Introduzione a Python · Lezione 1 di 4 · <a href="./">Guida al corso</a> · Liceo Scientifico «N. Cortese»<p class="license"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer"><span class="cc-badge" aria-label="Licenza Creative Commons BY-NC-SA 4.0"><b>cc</b>BY-NC-SA 4.0</span></a><span>© 2026 <span property="cc:attributionName">Prof. Antonio Adinolfi</span> · «Introduzione a Python» è distribuito con licenza <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer">Creative Commons Attribuzione – Non commerciale – Condividi allo stesso modo 4.0 Internazionale</a>. Fanno eccezione le slide del libro e gli altri materiali di terzi indicati come tali.</span></p></div></footer>
+
+<script src="./pyb-slides.js?v=1"></script>
+<script src="./pyb-runner.js?v=1"></script>
+<script src="./pyb-ex.js?v=1"></script>
+<script src="./pyb-sim-1.js?v=1"></script>
+<script src="./pyb-lesson.js?v=1"></script>
+<script src="./pyb-tools.js?v=1"></script>
+</body>
+</html>

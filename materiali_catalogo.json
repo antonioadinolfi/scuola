@@ -471,5 +471,16 @@
     "ordine": 3,
     "attivo": true,
     "categoria": "Laboratorio Interattivo"
+  },
+  {
+    "classe": "Seconda",
+    "titolo": "Introduzione a Python",
+    "descrizione": "Corso interattivo sul cap. 1 (slide 1-11): slide del libro, Python eseguibile nel browser con input(), visualizzatore passo passo, simulazioni su tipi, operatori e condizioni, esercizi di codice con verifica automatica e test di fine lezione.",
+    "tipo": "lezione",
+    "file_path": "corso-python-base/index.html",
+    "target_page": "",
+    "ordine": 5,
+    "attivo": true,
+    "categoria": "Laboratorio Interattivo"
   }
 ]

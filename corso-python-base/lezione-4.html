@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="it" data-lesson="4" class="course-pending">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Lezione 4: le strutture condizionali in Python. if…else e indentazione, operatori relazionali e logici, condizioni annidate ed elif.">
+<title>Lezione 4 · Le strutture condizionali | Introduzione a Python</title>
+<link rel="stylesheet" href="./pyb.css?v=1">
+<script src="./pyb-config.js?v=1"></script>
+<script src="./pyb-data.js?v=1"></script>
+<script src="./pyb-progress.js?v=1"></script>
+</head>
+<body>
+<noscript><style>html.course-pending body{visibility:visible}</style><p>Attiva JavaScript per usare l’editor Python e svolgere il test.</p></noscript>
+<a class="skip" href="#contenuti">Vai ai contenuti</a>
+
+<header><div class="wrap">
+  <div class="topbar"><a href="./">← Introduzione a Python · Guida al corso</a><span>Classi seconde</span></div>
+  <div class="hero">
+    <div class="kicker">Lezione 4 di 4 · 1 ora · Capitolo 1.3</div>
+    <h1>Le strutture condizionali</h1>
+    <p>Finora i programmi eseguivano tutte le righe, sempre. Con <code>if</code> un programma prende decisioni: controlla i dati, sceglie una strada, reagisce agli errori dell’utente.</p>
+    <div class="actions">
+      <a class="button primary" href="#if-else">Inizia ↓</a>
+      <a class="button ghost" href="#slide">Slide ↓</a>
+      <a class="button ghost" href="#esercizi">Esercizi ↓</a>
+      <a class="button ghost" href="#test-finale">Test finale ↓</a>
+      <button class="button ghost" id="projection" aria-pressed="false">Testo ingrandito</button>
+      <button class="button ghost" onclick="window.print()">Stampa / PDF</button>
+    </div>
+  </div>
+</div></header>
+
+<main class="wrap" id="contenuti">
+<nav class="lesson-nav" aria-label="Percorso delle lezioni">
+  <a class="button" data-lesson-link="1" href="./lezione-1.html">Lezione 1<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="2" href="./lezione-2.html">Lezione 2<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="3" href="./lezione-3.html">Lezione 3<span class="nav-state"></span></a>
+  <a class="button" data-lesson-link="4" href="./lezione-4.html" aria-current="page">Lezione 4<span class="nav-state"></span></a>
+</nav>
+
+<section class="section" id="obiettivi">
+  <div class="kicker">Obiettivi della lezione</div>
+  <h2>Al termine saprai…</h2>
+  <div class="panel">
+    <ul>
+      <li>scrivere strutture <code>if…else</code> rispettando l’<strong>indentazione</strong>;</li>
+      <li>costruire condizioni con gli operatori <strong>relazionali</strong> (<code>== != &lt; &gt; &lt;= &gt;=</code>) e <strong>logici</strong> (<code>and or not</code>);</li>
+      <li>scegliere tra condizioni <strong>annidate</strong> ed <code>elif</code>;</li>
+      <li>usare <code>if</code> per controllare i dati inseriti dall’utente.</li>
+    </ul>
+    <div class="timeline" aria-label="Organizzazione dell’ora">
+      <div><b>5′</b>Slide</div>
+      <div><b>10′</b>if…else</div>
+      <div><b>20′</b>Condizioni ed elif</div>
+      <div><b>15′</b>Esercizi</div>
+      <div><b>10′</b>Test finale</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="slide">
+  <div class="kicker">Le slide del capitolo 1.3</div>
+  <h2>Le slide della lezione</h2>
+  <p>Le slide del libro di testo, da usare in classe alla LIM o per ripassare. Scorri con le frecce (anche da tastiera ← →), scegli una miniatura o passa a schermo intero; «Vai all’argomento» porta alla parte della lezione corrispondente.</p>
+  <div class="slide-viewer" data-from="9" data-to="11"></div>
+  <p class="slide-credit">Slide: A. Tibone, <em>Progettare e programmare</em> © Zanichelli editore 2020, materiale didattico per le classi che adottano il testo. Le slide sono escluse dalla licenza Creative Commons del corso.</p>
+</section>
+
+<section class="section" id="if-else">
+  <div class="kicker">1 · if…else</div>
+  <h2>Se… altrimenti…</h2>
+  <p><mark class="key">La struttura condizionale più usata è <code>if…else</code></mark>: se la condizione è vera si esegue il primo blocco, altrimenti il secondo. Il programma della slide 9 divide due numeri, ma prima controlla che il divisore non sia zero. Cambia i valori e segui il percorso nel diagramma di flusso e nel codice.</p>
+  <div class="sim" id="flow">
+    <div class="sim-head"><b>Diagramma di flusso e codice · slide 9</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body">
+      <div class="btn-row" style="align-items:center;margin-bottom:12px"><label style="font-weight:700" for="fcDiv">dividendo</label><input id="fcDiv" value="10" style="width:90px;font-family:ui-monospace,Consolas,monospace"><label style="font-weight:700" for="fcDis">divisore</label><input id="fcDis" value="4" style="width:90px;font-family:ui-monospace,Consolas,monospace"><span class="flow-cond-val" aria-live="polite"></span></div>
+      <div class="sim-grid">
+        <svg class="flow-svg" viewBox="0 0 440 400" role="img" aria-label="Diagramma di flusso: lettura dei dati, controllo divisore diverso da zero, ramo vero con il quoziente, ramo falso con il messaggio di errore, fine">
+          <defs><marker id="arF" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L10 5L0 10z" fill="#52657a"/></marker></defs>
+          <rect class="fn on" data-path="both" x="150" y="8" width="140" height="34" rx="17"/><text class="ig-t" x="220" y="30" text-anchor="middle">inizio</text>
+          <path class="fe on" data-path="both" d="M220 42V62" marker-end="url(#arF)"/>
+          <path class="fn on" data-path="both" d="M140 66H320L300 106H120Z"/><text class="ig-s" x="220" y="91" text-anchor="middle" style="font-weight:700">leggi dividendo, divisore</text>
+          <path class="fe on" data-path="both" d="M220 106V128" marker-end="url(#arF)"/>
+          <path class="fn on" data-path="both" d="M220 132L310 172L220 212L130 172Z"/><text class="ig-t" x="220" y="177" text-anchor="middle">divisore != 0 ?</text>
+          <path class="fe" data-path="si" d="M130 172H70V238" marker-end="url(#arF)"/><text class="tree-lbl" x="95" y="164">True</text>
+          <path class="fe" data-path="no" d="M310 172H370V238" marker-end="url(#arF)"/><text class="tree-lbl" x="320" y="164">False</text>
+          <rect class="fn" data-path="si" x="10" y="242" width="120" height="50" rx="6"/><text class="ig-s" x="70" y="263" text-anchor="middle" style="font-weight:700">stampa</text><text class="ig-s" x="70" y="281" text-anchor="middle">il quoziente</text>
+          <rect class="fn" data-path="no" x="300" y="242" width="130" height="50" rx="6"/><text class="ig-s" x="365" y="263" text-anchor="middle" style="font-weight:700">stampa</text><text class="ig-s" x="365" y="281" text-anchor="middle">messaggio di errore</text>
+          <path class="fe" data-path="si" d="M70 292V320H210" marker-end="url(#arF)"/><path class="fe" data-path="no" d="M365 292V320H230" marker-end="url(#arF)"/>
+          <rect class="fn on" data-path="both" x="120" y="326" width="200" height="34" rx="6"/><text class="ig-s" x="220" y="348" text-anchor="middle" style="font-weight:700">stampa [fine del programma]</text>
+          <path class="fe on" data-path="both" d="M220 360V372" marker-end="url(#arF)"/>
+          <rect class="fn on" data-path="both" x="150" y="376" width="140" height="22" rx="11"/><text class="ig-s" x="220" y="392" text-anchor="middle">fine</text>
+        </svg>
+        <div>
+          <ol class="flow-code" aria-label="Codice della slide 9">
+            <li data-b="both">dividendo=float(input('inserisci il dividendo: '))</li>
+            <li data-b="both">divisore=float(input('inserisci il divisore: '))</li>
+            <li data-b="both">#codice eseguito se il divisore è diverso da zero</li>
+            <li data-b="both">if divisore!=0:</li>
+            <li data-b="si">    print('il quoziente è',dividendo/divisore)</li>
+            <li data-b="both">#codice eseguito se il divisore è zero</li>
+            <li data-b="both">else:</li>
+            <li data-b="no">    print('errore! il divisore non può essere 0')</li>
+            <li data-b="no">    print('cambia il valore del divisore e riprova')</li>
+            <li data-b="both">print('[fine del programma]')</li>
+          </ol>
+          <p style="margin:12px 0 4px;font-weight:700">Output</p>
+          <div class="code-inline-out" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p><mark class="key">Python riconosce i blocchi di codice in base alla loro indentazione</mark>: <code>if</code> ed <code>else</code> devono avere lo stesso allineamento e i blocchi di codice contenuti devono avere lo stesso rientro (di solito 4 spazi). Le righe di <code>if</code> ed <code>else</code> finiscono con i <strong>due punti</strong>. L’ultima riga, non rientrata, è fuori dalla struttura: viene eseguita in ogni caso.</p>
+  <div class="py-box" data-py="l4-x1" data-title="Esempio 1 · Trova i due errori" data-stdin="10\n0"><textarea class="py-src">
+dividendo = float(input('inserisci il dividendo: '))
+divisore = float(input('inserisci il divisore: '))
+if divisore != 0
+    print('il quoziente è', dividendo / divisore)
+else:
+    print('errore! il divisore non può essere 0')
+  print('cambia il valore del divisore e riprova')
+print('[fine del programma]')
+</textarea></div>
+  <p class="muted">Esegui, leggi il messaggio, correggi la riga indicata e ripeti finché il programma funziona. Poi prova con un divisore diverso da zero.</p>
+</section>
+
+<section class="section" id="condizioni">
+  <div class="kicker">2 · Le condizioni</div>
+  <h2>Operatori relazionali e logici</h2>
+  <p><mark class="key">Le condizioni si scrivono usando gli operatori relazionali e logici</mark>. Il risultato di una condizione è sempre un valore <code>bool</code>: <code>True</code> o <code>False</code>.</p>
+  <div class="split">
+    <div class="panel table-wrap"><h3>Operatori relazionali</h3>
+      <table style="min-width:0"><tbody>
+        <tr><th><code>==</code></th><td>uguale a</td><th><code>!=</code></th><td>diverso da</td></tr>
+        <tr><th><code>&gt;</code></th><td>maggiore di</td><th><code>&gt;=</code></th><td>maggiore o uguale a</td></tr>
+        <tr><th><code>&lt;</code></th><td>minore di</td><th><code>&lt;=</code></th><td>minore o uguale a</td></tr>
+      </tbody></table>
+      <p class="muted" style="margin-bottom:0"><mark class="warn"><code>=</code> assegna, <code>==</code> confronta</mark>: <code>if x = 5:</code> è un errore di sintassi.</p>
+    </div>
+    <div class="panel"><h3>Operatori logici</h3>
+      <ul style="margin:0"><li><code>A and B</code> è vera se <strong>entrambe</strong> sono vere;</li><li><code>A or B</code> è vera se <strong>almeno una</strong> è vera;</li><li><code>not A</code> <strong>inverte</strong>: vera se A è falsa.</li></ul>
+      <div class="btn-row" style="margin-top:10px" id="truth"><button type="button" class="sb" id="ttA" aria-pressed="true">A = True</button><button type="button" class="sb" id="ttB" aria-pressed="false">B = False</button>
+        <div class="table-wrap" style="width:100%;margin-top:8px"><table class="truth-table"><thead><tr><th>A</th><th>B</th><th>A and B</th><th>A or B</th><th>not A</th></tr></thead><tbody></tbody></table></div>
+      </div>
+    </div>
+  </div>
+  <p>Una condizione divide i numeri in due gruppi: quelli per cui è vera e quelli per cui è falsa. Scegli una condizione e muovi x: i pallini verdi sono i valori per cui la condizione è <code>True</code>.</p>
+  <div class="sim" id="numline">
+    <div class="sim-head"><b>Le condizioni sulla retta dei numeri</b><span class="sim-tag">Simulazione</span></div>
+    <div class="sim-body">
+      <div class="btn-row" style="align-items:end">
+        <label style="font-weight:700;display:grid;gap:4px">Condizione <select id="nlCond" style="font-family:ui-monospace,Consolas,monospace"></select></label>
+        <label style="font-weight:700;display:grid;gap:4px;flex:1;min-width:200px">x = <span class="v" id="nlXV"></span><input type="range" id="nlX" min="-12" max="22" value="7" style="accent-color:#176b87"></label>
+      </div>
+      <svg viewBox="0 0 720 100" role="img" aria-label="Retta dei numeri da -12 a 22 con evidenziati i valori che rendono vera la condizione" style="margin-top:8px"></svg>
+      <div class="stat-row" id="nlRes" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="elif">
+  <div class="kicker">3 · Più di due strade</div>
+  <h2>Condizioni annidate ed elif</h2>
+  <p>Quando le possibilità sono più di due <mark class="key">si possono annidare le strutture condizionali, cioè mettere un if dentro un altro, oppure si può usare <code>elif</code></mark> (contrazione di <em>else if</em>). Confronta le due versioni dello stesso programma: fanno la stessa cosa, ma la seconda è molto più leggibile.</p>
+  <div class="split">
+    <div class="py-box" data-py="l4-x2" data-title="Versione annidata" data-stdin="7"><textarea class="py-src">
+voto = int(input("voto: "))
+if voto < 6:
+    print("insufficiente")
+else:
+    if voto == 6:
+        print("sufficiente")
+    else:
+        if voto <= 8:
+            print("buono")
+        else:
+            print("ottimo")
+</textarea></div>
+    <div class="py-box" data-py="l4-x3" data-title="Versione con elif" data-stdin="7"><textarea class="py-src">
+voto = int(input("voto: "))
+if voto < 6:
+    print("insufficiente")
+elif voto == 6:
+    print("sufficiente")
+elif voto <= 8:
+    print("buono")
+else:
+    print("ottimo")
+</textarea></div>
+  </div>
+  <figure class="infografica">
+    <svg viewBox="0 0 760 170" role="img" aria-labelledby="stT">
+      <title id="stT">Catena if-elif-else: Python controlla le condizioni dall’alto in basso ed esegue solo il blocco della prima condizione vera; else scatta se nessuna è vera</title>
+      <defs><marker id="arS" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#52657a"/></marker></defs>
+      <g text-anchor="middle">
+        <rect x="10" y="20" width="150" height="44" rx="10" fill="#e5f2f7" stroke="#176b87"/><text class="ig-t" x="85" y="47">if voto &lt; 6</text>
+        <rect x="200" y="20" width="150" height="44" rx="10" fill="#e5f2f7" stroke="#176b87"/><text class="ig-t" x="275" y="47">elif voto == 6</text>
+        <rect x="390" y="20" width="150" height="44" rx="10" fill="#e5f2f7" stroke="#176b87"/><text class="ig-t" x="465" y="47">elif voto &lt;= 8</text>
+        <rect x="580" y="20" width="170" height="44" rx="10" fill="#fff9e9" stroke="#d9a227"/><text class="ig-t" x="665" y="47">else</text>
+        <rect x="20" y="110" width="130" height="40" rx="8" fill="#fff"/><text class="ig-s" x="85" y="135">insufficiente</text>
+        <rect x="210" y="110" width="130" height="40" rx="8" fill="#fff"/><text class="ig-s" x="275" y="135">sufficiente</text>
+        <rect x="400" y="110" width="130" height="40" rx="8" fill="#fff"/><text class="ig-s" x="465" y="135">buono</text>
+        <rect x="600" y="110" width="130" height="40" rx="8" fill="#fff"/><text class="ig-s" x="665" y="135">ottimo</text>
+      </g>
+      <g stroke="#c0562b" stroke-width="2" fill="none" marker-end="url(#arS)"><path d="M161 42H196"/><path d="M351 42H386"/><path d="M541 42H576"/></g>
+      <g stroke="#2a9d8f" stroke-width="2" fill="none" marker-end="url(#arS)"><path d="M85 65V106"/><path d="M275 65V106"/><path d="M465 65V106"/><path d="M665 65V106"/></g>
+      <g class="tree-lbl"><text x="168" y="34">False</text><text x="358" y="34">False</text><text x="548" y="34">False</text><text x="92" y="92">True</text><text x="282" y="92">True</text><text x="472" y="92">True</text></g>
+    </svg>
+    <figcaption>Python controlla le condizioni dall’alto in basso ed esegue <strong>solo</strong> il blocco della prima condizione vera; <code>else</code> scatta se nessuna è vera. Per questo elif funziona bene quando le condizioni sono <strong>mutuamente esclusive</strong>.</figcaption>
+  </figure>
+  <p><mark class="key">Per poter usare elif le condizioni devono essere mutuamente esclusive</mark>: al più una può essere vera, oppure l’ordine deve essere scelto con cura. Ecco il programma della slide 11. Esegui passo passo con scelte diverse (cambia la prima riga della casella gialla) e osserva quali righe salta Python.</p>
+  <div class="py-trace" data-title="Visualizzatore · la calcolatrice della slide 11" data-stdin="6\n3\n3"><textarea class="py-src">
+num1 = float(input('inserisci il primo numero: '))
+num2 = float(input('inserisci il secondo numero: '))
+scelta = int(input('''quale operazione vuoi effettuare?
+1 - somma
+2 - sottrai
+3 - dividi
+4 - moltiplica
+\tla tua scelta: '''))
+if scelta == 1:
+    print('la somma dei due numeri è', num1 + num2)
+elif scelta == 2:
+    print('la differenza tra i due numeri è', num1 - num2)
+elif scelta == 3:
+    print('il quoziente dei due numeri è', num1 / num2)
+elif scelta == 4:
+    print('il prodotto dei due numeri è', num1 * num2)
+else:
+    print('Attenzione: scelta non valida!')
+</textarea></div>
+  <div class="check"><strong>L’ordine conta.</strong> <mark class="warn">Se scrivi prima <code>if voto &gt;= 6</code> e poi <code>elif voto &gt;= 9</code>, un 9 diventa «sufficiente»</mark>: la prima condizione è già vera e le altre non vengono nemmeno controllate. Metti prima i casi più restrittivi. E nella calcolatrice qui sopra, che cosa succede con la scelta 3 e il secondo numero 0? Come lo correggeresti?</div>
+</section>
+
+<section class="section" id="esercizi">
+  <div class="kicker">4 · Esercizi · circa 15 minuti</div>
+  <h2>Ora tocca a te</h2>
+  <div class="panel">
+    <p><strong>Come funzionano.</strong> Negli esercizi di codice prova il programma con diversi valori nella casella gialla, poi premi <strong>✓ Verifica</strong>: i controlli lo eseguono con molti input diversi, compresi i casi limite.</p>
+    <p id="exProgress" class="ex-badge" role="status"></p>
+  </div>
+
+  <article class="panel exercise" id="es-1">
+    <div class="ex-head"><h3>Esercizio 1 · True o False?</h3><span><span class="ex-level">★ Guidato</span> <span class="ex-badge"></span></span></div>
+    <p>Con <code>x = 7</code> e <code>y = 3</code>, quanto vale ogni condizione?</p>
+    <div class="ia-ex" data-ex="l4-e1" data-hint="valuta prima ogni confronto, poi applica and (entrambe), or (almeno una), not (inverte).">
+      <ul class="ex-items">
+        <li><span><code>x &gt; y</code></span><select data-answer="T"><option value="">— scegli —</option><option value="T">True</option><option value="F">False</option></select></li>
+        <li><span><code>x == 7 and y == 7</code></span><select data-answer="F"><option value="">— scegli —</option><option value="T">True</option><option value="F">False</option></select></li>
+        <li><span><code>x &lt; 5 or y &lt; 5</code></span><select data-answer="T"><option value="">— scegli —</option><option value="T">True</option><option value="F">False</option></select></li>
+        <li><span><code>not (x &gt; y)</code></span><select data-answer="F"><option value="">— scegli —</option><option value="T">True</option><option value="F">False</option></select></li>
+        <li><span><code>x % 2 == 1</code></span><select data-answer="T"><option value="">— scegli —</option><option value="T">True</option><option value="F">False</option></select></li>
+        <li><span><code>x != 7 or y &gt;= 3</code></span><select data-answer="T"><option value="">— scegli —</option><option value="T">True</option><option value="F">False</option></select></li>
+        <li><span><code>x &gt; 0 and x &lt; 5</code></span><select data-answer="F"><option value="">— scegli —</option><option value="T">True</option><option value="F">False</option></select></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="panel exercise" id="es-2">
+    <div class="ex-head"><h3>Esercizio 2 · Pari o dispari?</h3><span><span class="ex-level">★ Codice</span> <span class="ex-badge"></span></span></div>
+    <p>Leggi un numero intero e visualizza se è <strong>pari</strong> o <strong>dispari</strong>. L’ultima riga dell’output deve finire con la parola <code>pari</code> oppure <code>dispari</code>.</p>
+    <div class="py-box" data-py="l4-e2" data-ex="l4-e2" data-stdin="7"><textarea class="py-src">
+n = int(input("Numero: "))
+</textarea></div>
+  </article>
+
+  <article class="panel exercise" id="es-3">
+    <div class="ex-head"><h3>Esercizio 3 · Dal voto al giudizio</h3><span><span class="ex-level">★★ Codice</span> <span class="ex-badge"></span></span></div>
+    <p>Leggi un voto intero e visualizza il giudizio usando <code>elif</code>: da 1 a 5 <code>insufficiente</code>, 6 <code>sufficiente</code>, 7 e 8 <code>buono</code>, 9 e 10 <code>ottimo</code>. Se il voto non è tra 1 e 10 visualizza <code>voto non valido</code>. L’ultima riga deve finire con il giudizio.</p>
+    <div class="py-box" data-py="l4-e3" data-ex="l4-e3" data-stdin="8"><textarea class="py-src">
+voto = int(input("Voto (1-10): "))
+</textarea></div>
+  </article>
+
+  <article class="panel exercise" id="es-4">
+    <div class="ex-head"><h3>Esercizio 4 · L’anno bisestile</h3><span><span class="ex-level">★★★ Sfida</span> <span class="ex-badge"></span></span></div>
+    <p>Un anno è <strong>bisestile</strong> se è divisibile per 4 ma non per 100, <strong>oppure</strong> se è divisibile per 400. Leggi un anno e visualizza <code>bisestile</code> o <code>non bisestile</code>, usando gli operatori logici. Prova con 2024, 2023, 1900 e 2000.</p>
+    <div class="py-box" data-py="l4-e4" data-ex="l4-e4" data-stdin="2024"><textarea class="py-src">
+anno = int(input("Anno: "))
+</textarea></div>
+  </article>
+</section>
+
+<section class="section" id="sintesi">
+  <div class="kicker">In sintesi</div>
+  <h2>Che cosa porti a casa</h2>
+  <div class="panel">
+    <ul>
+      <li><code>if condizione:</code> … <code>else:</code> … sceglie tra due blocchi; la riga termina con i <strong>due punti</strong>.</li>
+      <li>I blocchi sono definiti dall’<strong>indentazione</strong>: <code>if</code> ed <code>else</code> allineati, il contenuto rientrato di 4 spazi.</li>
+      <li>Operatori relazionali: <code>== != &lt; &gt; &lt;= &gt;=</code> (attenzione: <code>=</code> assegna, <code>==</code> confronta). Operatori logici: <code>and or not</code>.</li>
+      <li>Con più casi si annidano gli <code>if</code> o si usa <code>elif</code>, con condizioni <strong>mutuamente esclusive</strong>: viene eseguito solo il primo blocco con condizione vera.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="test-finale">
+  <div class="kicker">Test di fine lezione · 10 domande</div>
+  <h2>Verifica che cosa hai imparato</h2>
+  <p>Rispondi a tutte le domande e invia. Per completare il corso servono almeno <strong>7 risposte esatte su 10 (70%)</strong>. Dopo l’invio vedrai quali risposte sono esatte e un suggerimento per le altre: ripassa e riprova, i tentativi sono illimitati. Alla fine invia l’esito al docente.</p>
+  <form id="finalQuiz">
+    <div id="quizQuestions"></div>
+    <p id="quizCount" role="status" aria-live="polite"></p>
+    <button class="button primary" id="submitQuiz" disabled>Invia e verifica il risultato</button>
+  </form>
+  <p id="quizMessage" role="status" aria-live="polite"></p>
+  <div class="panel" id="quizResult" tabindex="-1" hidden>
+    <h3 id="quizScore"></h3>
+    <p id="attemptCount" class="muted"></p>
+    <div class="actions">
+      <button class="button" id="retryQuiz">Ripassa e riprova</button>
+      <button class="button" id="downloadQuiz">Scarica l’esito</button>
+      <a class="button primary" id="continueLink" href="./" hidden>Torna alla guida del corso →</a>
+    </div>
+  </div>
+  <div class="panel builder consegna" id="consegnaBox" hidden>
+    <h3>Consegna al docente</h3>
+    <p>Invia l’esito di questo tentativo: il docente riceverà un PDF con risposte, punteggio ed esercizi completati. Puoi consegnare di nuovo dopo un nuovo tentativo.</p>
+    <form id="consegnaForm">
+      <div class="row">
+        <div><label for="stNome">Nome e cognome</label><input id="stNome" maxlength="80" autocomplete="name" required></div>
+        <div><label for="stClasse">Classe</label><input id="stClasse" maxlength="6" placeholder="es. 2B" required></div>
+      </div>
+      <div class="actions" style="margin-top:14px"><button class="button primary" id="consegnaBtn">Consegna l’esito</button></div>
+    </form>
+    <p id="consegnaStatus" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="section" id="fonti">
+  <h2>Fonti e approfondimenti</h2>
+  <ol>
+    <li>A. Tibone, <em>Progettare e programmare</em>, Zanichelli 2020, cap. 1.3.</li>
+    <li><a href="https://docs.python.org/3/tutorial/controlflow.html#if-statements" target="_blank" rel="noopener noreferrer">Tutorial di Python, «if Statements»</a> — la struttura if, elif, else.</li>
+    <li><a href="https://docs.python.org/3/reference/expressions.html#comparisons" target="_blank" rel="noopener noreferrer">Python Language Reference, «Comparisons» e «Boolean operations»</a> — operatori relazionali e logici.</li>
+    <li><a href="https://peps.python.org/pep-0008/#indentation" target="_blank" rel="noopener noreferrer">PEP 8, «Indentation»</a> — la convenzione dei 4 spazi.</li>
+  </ol>
+</section>
+</main>
+
+<footer><div class="wrap">Introduzione a Python · Lezione 4 di 4 · <a href="./">Guida al corso</a> · Liceo Scientifico «N. Cortese»<p class="license"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer"><span class="cc-badge" aria-label="Licenza Creative Commons BY-NC-SA 4.0"><b>cc</b>BY-NC-SA 4.0</span></a><span>© 2026 <span property="cc:attributionName">Prof. Antonio Adinolfi</span> · «Introduzione a Python» è distribuito con licenza <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer">Creative Commons Attribuzione – Non commerciale – Condividi allo stesso modo 4.0 Internazionale</a>. Fanno eccezione le slide del libro e gli altri materiali di terzi indicati come tali.</span></p></div></footer>
+
+<script src="./pyb-slides.js?v=1"></script>
+<script src="./pyb-runner.js?v=1"></script>
+<script src="./pyb-ex.js?v=1"></script>
+<script src="./pyb-sim-4.js?v=1"></script>
+<script src="./pyb-lesson.js?v=1"></script>
+<script src="./pyb-tools.js?v=1"></script>
+</body>
+</html>
