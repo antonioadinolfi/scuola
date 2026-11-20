@@ -1,9 +1,15 @@
 {
-  "updatedAt": "2026-11-20T06:30:04+00:00",
+  "updatedAt": "2026-11-20T16:49:54+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
       "items": [
+        {
+          "title": "Un rumore che rompe il silenzio: le classi terze alla visione di “Se domani non torno”",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/11/20/un-rumore-che-rompe-il-silenzio-le-classi-terze-alla-visione-di-se-domani-non-torno/",
+          "pubDate": "Fri, 20 Nov 2026 16:00:05 +0000",
+          "description": "Ci sono film che non si limitano a raccontare una storia, ma chiedono a chi guarda di prendere posizione. È ciò che è accaduto durante la proiezione di “Se doma…"
+        },
         {
           "title": "GIORNATA ORIENTATIVA – BORSE DI STUDIO ERASMUS+",
           "link": "https://www.liceoscientificocortese.edu.it/2026/11/16/giornata-orientativa-borse-di-studio-erasmus/",
@@ -33,12 +39,6 @@
           "link": "https://www.liceoscientificocortese.edu.it/2026/11/09/la-realta-virtuale-entra-nellora-di-informatica-gli-studenti-di-scienze-appliate-esplorano-il-futuro-con-oculus-2/",
           "pubDate": "Mon, 09 Nov 2026 07:32:40 +0000",
           "description": "Un salto nel futuro senza muoversi dall&#8217;aula. Durante l&#8217;ora di Informatica, la classe IV ESA del Liceo Scientifico &#8220;Nino Cortese&#8221; ha vis…"
-        },
-        {
-          "title": "SE DOMANI NON TORNO”: LE NOSTRE CLASSI DICONO NO ALLA VIOLENZA CONTRO LE DONNE",
-          "link": "https://www.liceoscientificocortese.edu.it/2026/11/06/se-domani-non-torno-le-nostre-classi-dicono-no-alla-violenza-contro-le-donne/",
-          "pubDate": "Fri, 06 Nov 2026 16:00:15 +0000",
-          "description": "Una mattinata di cinema e di riflessione sulla parità di genere e sul contrasto ai femminicidi per gli studenti del Liceo Scientifico N. Cortese, diretto da Dir…"
         }
       ]
     },
@@ -46,40 +46,40 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
-          "title": "Manovra, Salvini: “La scuola è la palestra mentale dei nostri figli, quindi bisogna investire più che fare altre scelte”. Si cercano le coperture",
-          "link": "https://www.orizzontescuola.it/manovra-salvini-la-scuola-e-la-palestra-mentale-dei-nostri-figli-quindi-bisogna-investire-piu-che-fare-altre-scelte-si-cercano-le-coperture/",
-          "pubDate": "Thu, 19 Nov 2026 20:38:19 +0000",
-          "description": "Gli studenti calano, ma per Matteo Salvini questo non è un buon motivo per spendere meno sulla scuola: “bisogna investire più che fare altre scelte”. La scuola,…"
+          "title": "La Newsletter di “Gestire la scuola”: ore 8 e 30 del mattino nella tua e-mail le notizie utili a Dirigenti, collaboratori del DS, DSGA e segreterie",
+          "link": "https://www.orizzontescuola.it/la-newsletter-plus-ore-8-del-mattino-nella-tua-e-mail-lo-strumento-di-lavoro-per-chi-gestisce-la-scuola/",
+          "pubDate": "Fri, 20 Nov 2026 16:28:42 +0000",
+          "description": "Dal lunedì al venerdì (possibili edizioni straordinarie il sabato e la domenica), ricevi nella tua casella di posta elettronica gli aggiornamenti quotidiani. Di…"
         },
         {
-          "title": "Supplenze brevi, stipendi in ritardo e poche tutele per la malattia “Cominciamo facendo funzionare le cose più piccole e importanti”",
-          "link": "https://www.orizzontescuola.it/supplenze-brevi-stipendi-in-ritardo-e-poche-tutele-per-la-malattia-cominciamo-facendo-funzionare-le-cose-piu-piccole-e-importanti/",
-          "pubDate": "Thu, 19 Nov 2026 20:15:13 +0000",
-          "description": "Il mondo delle supplenze brevi e saltuarie nella scuola statale italiana nasconde criticità strutturali che, pur essendo normate, finiscono per penalizzare pesa…"
+          "title": "Supplenze docenti 2026/27: i bollettini del 20 novembre [AGGIORNATO]",
+          "link": "https://www.orizzontescuola.it/supplenze-docenti-ecco-i-bollettini-nomine-al-31-agosto-o-30-giugno-2027-in-aggiornamento/",
+          "pubDate": "Fri, 20 Nov 2026 16:08:36 +0000",
+          "description": "Supplenze docenti a.s. 2026/27: proseguono i bollettini dalle GPS, anche se i turni sono sempre meno numerosi. L'articolo Supplenze docenti 2026/27: i bollettin…"
         },
         {
-          "title": "Studente di 14 anni investito da un’auto mentre attraversa la strada vicino scuola: è grave, ma non in pericolo di vita",
-          "link": "https://www.orizzontescuola.it/studente-di-14-anni-investito-da-unauto-mentre-attraversa-la-strada-vicino-scuola-e-grave-ma-non-in-pericolo-di-vita/",
-          "pubDate": "Thu, 19 Nov 2026 20:06:13 +0000",
-          "description": "Stava attraversando la strada a Udine, nei pressi di un istituto tecnico, quando un’auto lo ha colpito e sbalzato a diversi metri di distanza. L'articolo Studen…"
+          "title": "Doppio canale, arriva la svolta: c’è ok per assumere da GPS prima fascia su posti residui. SPECIALE con Bucalo (FDI) e Pacifico (ANIEF) LIVE Venerdì 20 novembre alle 17:00",
+          "link": "https://www.orizzontescuola.it/doppio-canale-arriva-la-svolta-ce-ok-per-assumere-da-gps-prima-fascia-su-posti-residui-speciale-con-bucalo-fdi-e-pacifico-anief-live-venerdi-20-novembre-alle-1700/",
+          "pubDate": "Fri, 20 Nov 2026 15:42:49 +0000",
+          "description": "Arriva il via libera all’emendamento al Decreto Scuola (n. 170/2026) che introduce una prima, significativa apertura all’utilizzo delle Graduatorie Provinciali…"
         },
         {
-          "title": "Famiglia, i nuclei con un solo genitore passano dal 5,5 al 20,2% in oltre quarant’anni. E le famiglie con un figlio solo salgono al 55,9%: il rapporto Istat-Unicef",
-          "link": "https://www.orizzontescuola.it/famiglia-i-nuclei-con-un-solo-genitore-passano-dal-55-al-202-in-oltre-quarantanni-e-le-famiglie-con-un-figlio-solo-salgono-al-559-il-rapporto-istat-unicef/",
-          "pubDate": "Thu, 19 Nov 2026 19:30:11 +0000",
-          "description": "In Italia ci sono sempre meno bambini, e una parte crescente di loro vive in difficoltà. Nel 2025 il 12,5% delle persone con meno di 18 anni, oltre un milione d…"
+          "title": "Google, scuole senza motore di ricerca se disattivano l’IA: oltre 500 dipendenti contro la decisione",
+          "link": "https://www.orizzontescuola.it/google-scuole-senza-motore-di-ricerca-se-disattivano-lia-oltre-500-dipendenti-contro-la-decisione/",
+          "pubDate": "Fri, 20 Nov 2026 15:31:56 +0000",
+          "description": "Oltre 500 dipendenti di Google chiedono all'azienda di rivedere la decisione di impedire l'accesso al motore di ricerca agli studenti dei distretti scolastici s…"
         },
         {
-          "title": "Tesi di laurea conclusa nella lingua dei segni per i genitori sordi: “A mamma e papà, che mi hanno dato una lingua fatta di mani prima ancora che di parole”",
-          "link": "https://www.orizzontescuola.it/tesi-di-laurea-conclusa-nella-lingua-dei-segni-per-i-genitori-sordi-a-mamma-e-papa-che-mi-hanno-dato-una-lingua-fatta-di-mani-prima-ancora-che-di-parole/",
-          "pubDate": "Thu, 19 Nov 2026 19:18:07 +0000",
-          "description": "Davanti alla commissione, le ultime parole della sua tesi le ha “dette” nella lingua dei segni, perché mamma e papà, che non sentono, potessero capirle tutte. L…"
+          "title": "PDP o PEI: cosa deve fare il docente che subentra durante l’anno scolastico, a documenti approvati?",
+          "link": "https://www.orizzontescuola.it/pdp-o-pei-cosa-deve-fare-il-docente-che-subentra-durante-lanno-scolastico-a-documenti-approvati/",
+          "pubDate": "Fri, 20 Nov 2026 15:30:26 +0000",
+          "description": "Le nomine, a scuola, non finiscono a settembre. Tra le assegnazioni da GPS, le convocazioni dalle graduatorie di istituto e gli interpelli, si continua a prende…"
         },
         {
-          "title": "Decreto Scuola, lo scontro sugli e-book approda alla Camera: Forza Italia resta sul “no”, Futuro Nazionale può diventare determinante",
-          "link": "https://www.orizzontescuola.it/decreto-scuola-lo-scontro-sugli-e-book-approda-alla-camera-forza-italia-resta-sul-no-futuro-nazionale-puo-diventare-determinante/",
-          "pubDate": "Thu, 19 Nov 2026 19:02:12 +0000",
-          "description": "Dopo il via libera del Senato, la partita sul Decreto Scuola si sposta alla Camera con una maggioranza ancora divisa sul nodo dei libri di testo digitali e la s…"
+          "title": "Sciopero 20 novembre, 1 milione in piazza e adesione al 60% per la CGIL. Landini: “Presidio in Parlamento se la manovra non cambia”. Scontri al Ministero, Valditara: “Grave”",
+          "link": "https://www.orizzontescuola.it/sciopero-20-novembre-oggi-litalia-si-ferma-a-rischio-scuola-sanita-e-trasporto-pubblico-salvi-treni-e-aerei-flc-cgil-gilda-usb-e-cobas-in-piazza/",
+          "pubDate": "Fri, 20 Nov 2026 15:25:18 +0000",
+          "description": "L’Italia si è fermata per lo sciopero generale di 24 ore proclamato dalla Cgil contro il Disegno di Legge di Bilancio 2027, accompagnato dalle agitazioni parall…"
         }
       ]
     },
@@ -87,40 +87,40 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Nervi tesi sulle Borse europee, Piazza Affari (-0,5%) perde quota 50mila. A Wall Street DJ -2,19%, Nasdaq -2,25%",
-          "link": "https://www.ilsole24ore.com/art/borsa-ultime-notizie-indici-giovedi-19-novembre-2026-AJ6krYLC",
-          "pubDate": "Thu, 19 Nov 2026 06:35:00 GMT",
-          "description": "L’entusiasmo lascia spazio alla tensione sui listini del Vecchio Continente, che rallentano sul finale nel giorno della più grande Ipo della storia (con Anthrop…"
+          "title": "Imu, da dicembre 2027 nuova piattaforma per il calcolo dell’imposta. Cosa cambia",
+          "link": "https://www.ilsole24ore.com/art/imu-dicembre-2027-nuova-piattaforma-il-calcolo-dell-imposta-cosa-cambia-AJ9MgZNC",
+          "pubDate": "Fri, 20 Nov 2026 16:37:00 GMT",
+          "description": "Il sistema consentirà ai proprietari di immobili soggetti all’imposta di calcolare autonomamente l’importo da versare. Previsto anche un sistema di alert per le…"
         },
         {
-          "title": "Anthropic vola al debutto (+34%) poi rallenta la corsa (e chiude a +17%). Wall Street cade",
-          "link": "https://www.ilsole24ore.com/art/anthropic-debutta-nasdaq-e-indicazioni-puntano-subito-un-forte-rialzo-AJ3XSjLC",
-          "pubDate": "Thu, 19 Nov 2026 09:26:00 GMT",
-          "description": "L’attesa è finita. Anthropic ha debuttato al Nasdaq in forte rialzo, ma ha progressivamente ridotto i guadagni nel corso della seduta. Il titolo del colosso del…"
+          "title": "Borse, venerdì nero per i tech. Anche Anthropic in caduta, Milano (-2,5%) scivola sotto 49mila",
+          "link": "https://www.ilsole24ore.com/art/borse-asiatiche-calo-anthropic-cauta-il-debutto-record-AJpG3xMC",
+          "pubDate": "Fri, 20 Nov 2026 06:58:00 GMT",
+          "description": "Il Nasdaq vira in territorio negativo per il 2026 con il ritorno dei timori sulla tenuta del comparto, nonostante il debutto record del gigante dell'Ai. Sul fro…"
         },
         {
-          "title": "Manovra, accordo nel governo sui fondi extra per la sanità",
-          "link": "https://www.ilsole24ore.com/art/manovra-accordo-governo-fondi-extra-la-sanita-AJ8DygMC",
-          "pubDate": "Thu, 19 Nov 2026 21:15:20 GMT",
-          "description": "Apertura sui maggiori fondi per la sanità. Ma stop a ulteriori risorse da destinare al fondo da 850 milioni l’anno per l’uscita anticipata dal lavoro, che la Le…"
+          "title": "Lufthansa, il risanamento non basta: allo studio nuovi tagli e flotta più snella",
+          "link": "https://www.ilsole24ore.com/art/lufthansa-risanamento-non-basta-studio-nuovi-tagli-e-flotta-piu-snella-AJAbkZNC",
+          "pubDate": "Fri, 20 Nov 2026 16:37:53 GMT",
+          "description": "Lufthansa Airlines, la principale compagnia aerea del gruppo tedesco, fatica a migliorare i propri risultati economici, penalizzata soprattutto dagli elevati co…"
         },
         {
-          "title": "Panetta: «L’inflazione torna a salire, evitare la tentazione di agire con tagli di tasse»",
-          "link": "https://www.ilsole24ore.com/art/panetta-l-inflazione-torna-salire-evitare-tentazione-agire-tagli-tasse-AJgQzPMC",
-          "pubDate": "Thu, 19 Nov 2026 18:49:00 GMT",
-          "description": "Il governatore della Banca d’Italia avverte: «la finanza pubblica ha dei limiti. Bisogna agire sulla crescita e far aumentare i salari»"
+          "title": "Guida autonoma, il Mit autorizza il sistema di Tesla. Musk: «Apprezzo molto»",
+          "link": "https://www.ilsole24ore.com/art/guida-autonoma-mit-autorizza-sistema-tesla-AJuwvJNC",
+          "pubDate": "Fri, 20 Nov 2026 13:40:00 GMT",
+          "description": "«Il ministero dei Trasporti, dopo puntuale verifica tecnica di fattibilità, ha dato il via libera all’omologazione provvisoria del sistema di guida assistita Te…"
         },
         {
-          "title": "Sciopero generale Cgil: bus e metro a rischio. Come muoversi e quali servizi sono garantiti",
-          "link": "https://www.ilsole24ore.com/art/sciopero-generale-cgil-bus-e-metro-rischio-come-muoversi-e-quali-servizi-sono-garantiti-AJdTAOMC",
-          "pubDate": "Thu, 19 Nov 2026 18:56:09 GMT",
-          "description": "Contro la manovra del governo Meloni oggi- venerdì 20 novembre - in un centinaio di città sfileranno i cortei, in occasione dello sciopero generale indetto dall…"
+          "title": "Brexit, Regno Unito e Ue trovano un’intesa (a metà) su commercio e mobilità dei giovani",
+          "link": "https://www.ilsole24ore.com/art/brexit-regno-unito-e-ue-trovano-l-intesa-commercio-e-mobilita-giovani-AJ6wYHNC",
+          "pubDate": "Fri, 20 Nov 2026 12:27:00 GMT",
+          "description": "BRUXELLES – È un accordo a metà quello firmato oggi, venerdì 20 novembre, dall’Unione europea e dal governo britannico a dieci anni dal referendum che portò all…"
         },
         {
-          "title": "Contratto bancari, Abi sposta il rinnovo al 2027 per un accordo migliore",
-          "link": "https://www.ilsole24ore.com/art/contratto-bancari-abi-sposta-rinnovo-2027-un-accordo-migliore-AJR5wPMC",
-          "pubDate": "Fri, 20 Nov 2026 06:00:00 GMT",
-          "description": "Troppa incertezza tra opas e manovra. Il negoziato prosegue in un rinnovato clima positivo, i sindacati chiedono gli arretrati: i prossimi incontri l’11 e il 21…"
+          "title": "Redditi del Governo, per Meloni 185mila euro nel 2025",
+          "link": "https://www.ilsole24ore.com/art/redditi-governo-meloni-185mila-euro-2025-AJUgwVNC",
+          "pubDate": "Fri, 20 Nov 2026 15:49:53 GMT",
+          "description": "Il reddito complessivo nel 2025 da Giorgia Meloni è di quasi 185mila euro , poco inferiore rispetto ai 180mila dell’ anno precedente , quando la presidente del…"
         }
       ]
     }
