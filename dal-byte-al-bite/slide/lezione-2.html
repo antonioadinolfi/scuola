@@ -47,6 +47,13 @@
   <aside class="notes">1 MET = 3,5 mL O2/kg/min. kcal/min = MET × 3,5 × kg / 200. Valori del 2024 Adult Compendium (adulti 19–59 anni, valori lordi). Per i ragazzi: Youth Compendium. Ricordare la risposta alla scena della lezione 1: circa 14 minuti, non due ore.</aside>
 </section>
 
+<section class="slide">
+  <div class="kicker">Provate voi · FoodLab dal vivo</div><h2>Una barretta da 40 g: quanta energia, quanto movimento?</h2>
+  <div class="minilab" data-mode="ue" data-preset="7.2,12,6,4,8" data-move></div>
+  <p style="margin-top:12px;font-size:20px">Valori dell'etichetta B per una barretta (40 g): carboidrati esclusi polioli 7,2 g · proteine 12 g · grassi 6 g · fibre 4 g · polioli 8 g. Cambiate attività e passate al modello 4–4–9: che cosa cambia?</p>
+  <aside class="notes">Atteso: 158 kcal con l'allegato XIV; ≈ 14 min di corsa a 10 km/h, ≈ 27 min di camminata svelta, ≈ 17 min di pallacanestro (adulto di 70 kg). Con il 4–4–9 (mettendo 15,2 g di carboidrati totali) si ottengono circa 163 kcal: discutere perché.</aside>
+</section>
+
 <section class="slide full">
   <h2>La risposta alla domanda della palestra</h2>
   <div class="figure"><img src="../img/vignetta-personal-trainer.svg" alt="Vignetta: il personal trainer artificiale sbaglia i conti"></div>
@@ -74,6 +81,7 @@
     <tr><td>Comandi</td><td>Reset, uso da tastiera, schermo piccolo</td></tr>
     <tr><td>Limiti</td><td>Cosa il modello trascura; nessuna indicazione individuale</td></tr>
   </table>
+  <div class="ops"><div class="timer" data-min="30"></div><a class="btn alt ext" href="../#simulatore" target="_blank" rel="noopener">Spazio per i requisiti</a></div>
 </section>
 
 <section class="slide">
@@ -86,6 +94,7 @@
     <div class="step" style="border-color:var(--gold)"><b>Qualità</b><span>HTML semantico, layout responsive, accessibile</span></div>
     <div class="step" style="border-color:var(--gold)"><b>Verifica</b><span>«Dopo il codice indica almeno cinque test numerici»</span></div>
   </div>
+  <div class="ops"><button class="btn" type="button" data-copy="prompt4">Copia prompt 4</button><a class="btn alt ext" href="../#simulatore" target="_blank" rel="noopener">Prompt 4 nella pagina</a></div><pre class="src" id="prompt4">Agisci come sviluppatore web e docente di Scienze naturali. Genera UN SOLO file HTML completo con CSS e JavaScript incorporati, senza dipendenze esterne. Costruisci un simulatore denominato FoodLab per calcolare l'energia teorica di una porzione dalla massa in grammi di carboidrati disponibili, proteine e grassi: E(kcal)=4*C+4*P+9*G. Crea tre cursori da 0 a 100 grammi, il valore energetico aggiornato in tempo reale, la percentuale rispetto all'assunzione di riferimento di un adulto medio (2000 kcal), un grafico a barre di ripartizione energetica, unità esplicite, pulsante reset e una sezione «Limiti del modello». Estensione facoltativa: una modalità «coefficienti UE» che aggiunge fibre (2 kcal/g, 8 kJ/g) e polioli (2,4 kcal/g, 10 kJ/g) e mostra l'energia anche in kJ calcolata con i coefficienti in kJ (17, 17, 37). Seconda estensione facoltativa: un pannello «energia in movimento» che, scelta un'attività con il suo valore MET (2024 Adult Compendium of Physical Activities) e una massa di riferimento di 70 kg modificabile, calcola i minuti equivalenti con kcal/min = MET × 3,5 × massa / 200, con una nota che spieghi che il cibo non va «compensato» con l'esercizio. Non chiamare il calcolo «intelligenza artificiale». Non fornire indicazioni sanitarie individuali. Usa HTML semantico e un layout responsive. Dopo il codice indica almeno cinque test numerici da eseguire.</pre>
 </section>
 
 <section class="slide">
@@ -100,6 +109,7 @@
     </ol>
     <div class="box coral"><p class="big">Regola dei 60 minuti</p><p>Se alle 15:50 il prototipo non funziona, si passa al FoodLab dimostrativo: test e progettazione didattica non si saltano.</p></div>
   </div>
+  <div class="ops"><div class="timer" data-min="60"></div><a class="btn alt ext" href="../#foodlab" target="_blank" rel="noopener">FoodLab dimostrativo</a></div>
 </section>
 
 <section class="slide break">
@@ -121,6 +131,13 @@
   <aside class="notes">Matrice completa (nove casi) nella Scheda 3 della pagina. Il caso a zero verifica la gestione dei valori nulli; i casi con un solo nutriente isolano i coefficienti.</aside>
 </section>
 
+<section class="slide">
+  <div class="kicker">Test dal vivo · Scheda 3</div><h2>Proviamo insieme i primi casi</h2>
+  <div class="minilab" data-mode="simple" data-preset="45,12,8,0,0"></div>
+  <div class="ops"><div class="timer" data-min="35"></div><a class="btn alt ext" href="../#test" target="_blank" rel="noopener">Apri la Scheda 3</a></div>
+  <aside class="notes">Far eseguire sul FoodLab di riferimento: 0/0/0 → 0; G = 10 → 90; 45/12/8 → 300; in modalità UE con fibre 6 → 312 kcal / 1313 kJ. Poi ogni coppia ripete gli stessi casi sul proprio prototipo.</aside>
+</section>
+
 <section class="slide full">
   <h2>Perché i test sono obbligatori</h2>
   <div class="figure"><img src="../img/vignetta-test.svg" alt="Vignetta: il test trova un errore nel coefficiente dei grassi"></div>
@@ -128,16 +145,17 @@
 </section>
 
 <section class="slide">
-  <div class="kicker">La trappola dei kJ</div><h2>300 kcal sono 1255 kJ o 1265 kJ?</h2>
-  <div class="cols">
-    <div>
-      <div class="eq">300 × 4,184 = 1255 kJ</div>
-      <div class="eq">45×17 + 12×17 + 8×37 = <b>1265 kJ</b></div>
-      <p>Per le etichette vale la seconda: l'allegato XIV fornisce coefficienti propri in kJ.</p>
-    </div>
-    <div class="box warm"><p class="big">Test da aggiungere</p><p>Il simulatore calcola i kJ con 17, 17, 37 o converte semplicemente le kcal? Il prompt 5 lo chiede esplicitamente.</p></div>
-  </div>
-  <aside class="notes">Differenza di 10 kJ: piccola, ma è proprio il tipo di dettaglio che distingue un modello «plausibile» da uno conforme alla norma.</aside>
+  <div class="kicker">Domanda lampo · alzata di mano</div><h2>Il simulatore moltiplica i grassi per 4. Quale caso lo scopre per primo?</h2>
+  <div class="poll" data-answer="1"><button class="opt" type="button">C 45 · P 12 · G 8 (caso completo)</button><button class="opt" type="button">Solo G = 10 g, tutto il resto a zero</button><button class="opt" type="button">Tutti i valori a zero</button></div>
+  <div class="ops"><button class="btn gold" type="button" data-poll-show>Mostra la risposta</button></div>
+  <p class="sol" style="margin-top:12px">Un caso «isolato» dà 40 invece di 90 e indica subito quale coefficiente è sbagliato. Il caso completo segnala un errore, ma non dice dove.</p>
+</section>
+
+<section class="slide">
+  <div class="kicker">Domanda lampo · la trappola dei kJ</div><h2>C 45 · P 12 · G 8: quanti kJ secondo l'allegato XIV?</h2>
+  <div class="poll" data-answer="1"><button class="opt" type="button">1255 kJ (300 kcal × 4,184)</button><button class="opt" type="button">1265 kJ (45×17 + 12×17 + 8×37)</button><button class="opt" type="button">300 kJ</button></div>
+  <div class="ops"><button class="btn gold" type="button" data-poll-show>Mostra la risposta</button></div>
+  <p class="sol" style="margin-top:12px">Per le etichette valgono i coefficienti propri in kJ dell'allegato XIV. Test da aggiungere: il simulatore usa 17, 17, 37 o converte le kcal? Il prompt 5 lo chiede.</p>
 </section>
 
 <section class="slide">
@@ -147,6 +165,7 @@
     <div class="box"><ul><li>Uso da tastiera</li><li>Leggibilità su smartphone</li><li>Coerenza scientifica</li><li>Nessuna indicazione sanitaria individuale</li></ul></div>
   </div>
   <p style="margin-top:20px">Dopo <b>ogni</b> modifica si ripetono <b>tutti</b> i test e si annota che cosa è cambiato.</p>
+  <div class="ops"><div class="timer" data-min="35"></div><button class="btn" type="button" data-copy="prompt5">Copia prompt 5</button><a class="btn alt ext" href="../#test" target="_blank" rel="noopener">Scheda 3</a></div><pre class="src" id="prompt5">Esamina il codice HTML del simulatore FoodLab che ti fornirò. Controlla accuratezza del calcolo, gestione dei valori zero, unità di misura, calcolo dei kJ con i coefficienti in kJ dell'allegato XIV del Regolamento (UE) 1169/2011 (e non con la semplice conversione delle kcal), accessibilità da tastiera, leggibilità su smartphone, coerenza scientifica e assenza di indicazioni sanitarie individuali. Proponi una matrice di test con input, output atteso e risultato. Restituisci il codice completo corretto e descrivi precisamente ogni modifica. Non aggiungere API, connessioni esterne né funzionalità non richieste.</pre>
 </section>
 
 <section class="slide">
@@ -157,13 +176,14 @@
     <div class="step" style="border-color:var(--coral)"><b>Spiega</b><span>Che cosa misura il MET? Perché il calcolo non vale uguale per tutti? Che cosa trascura il modello?</span></div>
   </div>
   <div class="box warm" style="margin-top:22px"><p>Aggancio alla salute: lettura consapevole delle etichette con <b>valori di popolazione</b> (linee guida CREA, LARN). Nessun calcolo di fabbisogni personali.</p></div>
+  <div class="ops"><div class="timer" data-min="25"></div><button class="btn" type="button" data-copy="prompt6">Copia prompt 6</button><a class="btn alt ext" href="../#microattivita" target="_blank" rel="noopener">Consegna finale</a></div><pre class="src" id="prompt6">Sei un co-progettista di didattica delle Scienze naturali. A partire da un simulatore che calcola l'energia di una porzione dai grammi di carboidrati, proteine, grassi e fibre, progetta una microattività di 20 minuti di educazione alla salute per una classe del liceo scientifico, adatta a una lezione di scienze motorie, con struttura prevedi-osserva-spiega. Puoi collegare l'energia della porzione all'intensità delle attività (valori MET del 2024 Adult Compendium of Physical Activities), evitando la logica del «compensare» il cibo con l'esercizio. Prevedi: una previsione da formulare, un input da variare, che cosa osservare, tre domande di spiegazione graduate e un limite del modello da discutere. Usa soltanto valori di riferimento generali di popolazione e non formulare indicazioni dietetiche individuali. Indica le fonti istituzionali da consultare.</pre>
   <aside class="notes">Chiedere a ciascuna coppia una seconda variante, ad esempio con le fibre in modalità UE.</aside>
 </section>
 
 <section class="slide">
   <div class="kicker">Valutazione · 17:35</div><h2>Autovalutazione e rubrica</h2>
   <div class="cols">
-    <div class="box"><p class="big">13 quesiti</p><p>Nella sezione «Verifica» della pagina. Suggerimenti senza soluzioni. Obiettivo: almeno il <b>70%</b>.</p></div>
+    <div class="box"><p class="big">13 quesiti</p><p>Nella sezione «Verifica» della pagina. Suggerimenti senza soluzioni. Obiettivo: almeno il <b>70%</b>.</p><div class="ops"><a class="btn alt ext" href="../#verifica" target="_blank" rel="noopener">Apri l'autovalutazione</a></div></div>
     <div><table class="t">
       <tr><th>Criterio (0–2)</th></tr>
       <tr><td>Correttezza scientifica</td></tr><tr><td>Tracciabilità</td></tr><tr><td>Verifica dei risultati</td></tr>
@@ -189,7 +209,7 @@
   <button id="prev" aria-label="Slide precedente">←</button><button id="next" aria-label="Slide successiva">→</button>
   <button id="btnNotes" title="Note del relatore (N)">Note</button><button id="btnGrid" title="Panoramica (O)">Panoramica</button>
   <button id="btnFull" title="Schermo intero (F)">Schermo intero</button><button id="btnPrint" title="Stampa o salva in PDF">PDF</button>
-  <a href="../#lezione2">Torna al corso</a></div>
+  <a href="../#lavoro">Pagina del corso</a></div>
 <div id="help"><div><p><kbd>→</kbd> <kbd>Spazio</kbd> avanti · <kbd>←</kbd> indietro · <kbd>F</kbd> schermo intero · <kbd>N</kbd> note · <kbd>O</kbd> panoramica · <kbd>?</kbd> aiuto</p></div></div>
 <script src="slides.js"></script>
 </body></html>

@@ -86,3 +86,42 @@ body.overview .slide.active{outline-color:var(--gold)}
 .pc3 b{display:block;font-size:24px;color:var(--navy);padding:14px 18px 4px}
 .pc3 span{display:block;font-size:18px;line-height:1.4;padding:0 18px 16px}
 .credit{position:absolute;right:72px;top:20px;font-size:11px;color:#9ab}
+/* ---------- componenti operativi ---------- */
+.ops{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}
+.btn{background:var(--teal);color:#fff;border:0;border-radius:10px;padding:10px 16px;font-family:inherit;font-size:18px;font-weight:700;line-height:1.2;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.alt{background:#fff;color:var(--teal);outline:2px solid var(--teal);outline-offset:-2px}
+.btn.gold{background:var(--gold);color:var(--navy)}
+.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.src{display:none}
+.timer{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border-radius:14px;padding:6px 8px 6px 16px}
+.timer output{font:800 30px/1 ui-monospace,Consolas,monospace;min-width:96px;color:#a2f1df}
+.timer button{background:#1f4b66;color:#fff;border:0;border-radius:8px;width:40px;height:38px;font-size:18px;cursor:pointer}
+.timer.done{animation:pulse 1s infinite}.timer.done output{color:var(--gold)}
+@keyframes pulse{50%{background:var(--coral)}}
+.sol{visibility:hidden}.sol.on{visibility:visible;animation:in .3s ease}
+.hunt{font:17px/1.75 ui-monospace,Consolas,'DejaVu Sans Mono',monospace;background:var(--navy);color:#dfe9ee;border-radius:12px;padding:14px 18px;white-space:pre}
+.hunt .err{cursor:pointer;border-bottom:2px dashed #f2a33d88;border-radius:4px}
+.hunt .err:hover{background:#ffffff1a}
+.hunt .err.found{background:var(--coral);color:#fff;border-bottom-color:transparent}
+.why{font-size:18px;line-height:1.4;margin:0;padding:0;list-style:none}
+.why li{font-size:18px;margin:0 0 6px;padding:6px 10px;border-radius:8px;background:#fdeee9}
+.count{font-weight:800;color:var(--coral);font-size:22px}
+.poll{display:grid;gap:12px;margin-top:6px}
+.poll button.opt{font-family:inherit;font-size:22px;font-weight:600;line-height:1.35;text-align:left;background:var(--light);border:2px solid #cfe3e0;border-radius:14px;padding:14px 18px;cursor:pointer;color:var(--ink)}
+.poll button.opt[aria-pressed=true]{border-color:var(--navy);background:#e5f0f8}
+.poll.shown button.ok{background:#dff4ea;border-color:#155b46}
+.poll.shown button.wrong[aria-pressed=true]{background:#fdeee9;border-color:#a33b1d}
+.poll .letter{display:inline-block;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;text-align:center;line-height:34px;margin-right:12px;font-weight:800}
+.minilab{display:grid;grid-template-columns:1.1fr 1fr;gap:26px;background:var(--light);border-radius:16px;padding:18px 22px}
+.minilab label{display:grid;grid-template-columns:200px 1fr 80px;align-items:center;gap:10px;font-size:18px;margin:4px 0}
+.minilab input[type=range]{width:100%;accent-color:var(--teal)}
+.minilab output{font-weight:800;text-align:right}
+.minilab .modes{display:flex;gap:16px;font-size:17px;margin-bottom:6px}
+.minilab .modes label{display:flex;grid-template-columns:none;gap:6px}
+.minilab .res{font-size:44px;font-weight:800;color:var(--navy);line-height:1.1}
+.minilab .sub{font-size:18px;color:var(--muted);margin-top:4px}
+.minilab select{font:inherit;font-size:17px;padding:6px;border-radius:8px;border:1px solid #b7cdcf;width:100%}
+.minilab .mv{margin-top:14px;padding-top:12px;border-top:1px dashed #9fc9c4}
+.minilab .mv b{font-size:30px;color:var(--coral)}
+a.ext::after{content:" ↗"}
+@media print{.ops,.timer{display:none!important}.sol{visibility:visible}}

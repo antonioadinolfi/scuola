@@ -14,7 +14,7 @@
       <p>Come l'intelligenza artificiale può aiutarci a insegnare alimentazione, energia e movimento, senza smettere di verificare.</p></div>
     <img src="../img/mascotte.svg" alt="Bitto, il robot assistente IA, e la Prof, docente di scienze" style="width:100%;border-radius:18px">
   </div>
-  <aside class="notes">Presentare i due personaggi: Bitto (l'assistente IA, volenteroso ma sbadato) e la Prof (che verifica). Accompagneranno le due lezioni con brevi vignette sugli errori tipici.</aside>
+  <aside class="notes">Prima di iniziare: assistente IA accessibile con l'account istituzionale sui PC; possibilità di salvare e aprire file .html; etichette A e B stampate; cartella di consegna comunicata; versione di riserva del corso su /dal-byte-al-bite/completa.html. Presentare i due personaggi: Bitto (l'assistente IA, volenteroso ma sbadato) e la Prof (che verifica). Accompagneranno le due lezioni con brevi vignette sugli errori tipici.</aside>
 </section>
 
 <section class="slide">
@@ -58,6 +58,7 @@
   <div class="kicker">Domanda guida</div>
   <h2 style="font-size:54px;margin-top:40px">Possiamo fidarci dell'IA che legge<br>l'etichetta di una barretta sportiva?</h2>
   <div class="box" style="margin-top:20px"><p class="big">Attività (10 min)</p><p>A coppie: scrivete <b>tre criteri</b> per riconoscere una risposta verificabile. Poi li confrontiamo e ne scegliamo tre condivisi.</p></div>
+  <div class="ops"><div class="timer" data-min="10"></div></div>
   <aside class="notes">Raccogliere i criteri alla lavagna. Attesi: indica la fonte di ogni dato; distingue dato letto, calcolato, generato; dichiara i dati mancanti; mostra i passaggi del calcolo. Raccordarsi con quanto già visto nelle 16 ore precedenti.</aside>
 </section>
 
@@ -80,22 +81,29 @@
 </section>
 
 <section class="slide">
-  <div class="kicker">Dimostrazione guidata · 14:20</div><h2>Caccia all'errore: sei errori in una risposta</h2>
-  <div class="cols">
-    <div class="eq" style="font-size:17px;line-height:1.5;white-space:pre">| Voce        | Valore     | a 100 g  |
-| Energia     | 130 kcal   | 130 kcal |
-| Grassi      | 12 g       | 12 g     |
-| Carboidrati | 66 g       | 66 g     |
-| Fibre       | non indic. | 0 g      |
-| Proteine    | 11 g       | 11 g     |
-| Sodio       | 1,6 g      | 1,6 g    |
-416 kcal → «l'etichetta è errata».
-«Adatto a chi soffre di diabete».</div>
-    <div><p>Risposta IA di esempio sull'<b>etichetta A</b> (cracker integrali).</p>
-      <p>Confrontatela con l'etichetta originale e trovate gli errori.</p>
-      <div class="chips"><span class="chip">base di riferimento</span><span class="chip">dato mancante</span><span class="chip">sale / sodio</span><span class="chip">ricalcolo</span><span class="chip">consiglio sanitario</span><span class="chip">provenienza</span></div></div>
+  <div class="kicker">Dimostrazione guidata · 14:20 · cliccate sugli errori</div><h2>Caccia all'errore: sei errori in una risposta</h2>
+  <div class="cols w60">
+    <div class="hunt">| Voce        | Valore       | a 100 g      |
+| Energia     | <span class="err" data-why="1. 130 kcal è il valore per PORZIONE (30 g): per 100 g sono 432 kcal.">130 kcal</span>     | 130 kcal     |
+| Grassi      | 12 g         | 12 g         |
+| Carboidrati | 66 g         | 66 g         |
+| Fibre       | non indicato | <span class="err" data-why="2. Le fibre ci sono (8,0 g). E comunque un dato assente non diventa mai zero.">0 g</span>          |
+| Proteine    | 11 g         | 11 g         |
+| <span class="err" data-why="3. 1,6 g è il SALE, non il sodio: sodio = sale / 2,5 = 0,64 g.">Sodio</span>       | 1,6 g        | 1,6 g        |
+<span class="err" data-why="4. Il ricalcolo ignora le fibre (2 kcal/g, allegato XIV): 416 + 16 = 432, l'etichetta è coerente.">416 kcal → «l'etichetta è errata»</span>
+<span class="err" data-why="5. Consiglio sanitario non richiesto e non sostenuto dai dati.">«Adatto a chi soffre di diabete»</span>
+<span class="err" data-why="6. Manca la colonna PROVENIENZA: non si distingue il dato letto da quello calcolato.">[nessuna colonna «provenienza»]</span></div>
+    <div><p>Risposta IA di esempio sull'<b>etichetta A</b> (cracker integrali). Trovati: <span class="count"></span></p><ul class="why"></ul>
+      <div class="ops"><button class="btn alt" type="button" data-hunt-all>Mostra tutti</button><a class="btn alt ext" href="../#etichette" target="_blank" rel="noopener">Etichette A e B</a></div></div>
   </div>
-  <aside class="notes">Soluzioni: 1) 130 kcal è per porzione (432 per 100 g); 2) le fibre ci sono (8,0 g) e comunque mai zero; 3) 1,6 g è il sale, il sodio è 0,64 g; 4) il ricalcolo ignora le fibre: l'etichetta è coerente; 5) consiglio sanitario non richiesto; 6) manca la colonna di provenienza. Materiale nella sezione «Materiali e schede» della pagina.</aside>
+  <aside class="notes">Proiettare e far indicare gli errori ai corsisti: cliccando su ogni parte sottolineata compare la spiegazione. Etichetta A nella pagina del corso, sezione «Prompt e schede».</aside>
+</section>
+
+<section class="slide">
+  <div class="kicker">Domanda lampo · alzata di mano</div><h2>Etichetta: «Sale 1,6 g». Quanto sodio contiene?</h2>
+  <div class="poll" data-answer="1"><button class="opt" type="button">1,6 g: sale e sodio sono la stessa cosa</button><button class="opt" type="button">0,64 g: il sale dichiarato è sodio × 2,5</button><button class="opt" type="button">4 g: il sodio è sale × 2,5</button></div>
+  <div class="ops"><button class="btn gold" type="button" data-poll-show>Mostra la risposta</button></div>
+  <p class="sol" style="margin-top:12px">Reg. (UE) 1169/2011, allegato I: sale = sodio × 2,5, quindi sodio = 1,6 / 2,5 = 0,64 g.</p>
 </section>
 
 <section class="slide">
@@ -116,15 +124,23 @@
 </section>
 
 <section class="slide">
+  <div class="kicker">Domanda lampo · alzata di mano</div><h2>L'etichetta A dichiara 432 kcal. Il 4–4–9 dà 416. Perché?</h2>
+  <div class="poll" data-answer="1"><button class="opt" type="button">L'etichetta è sbagliata</button><button class="opt" type="button">Il Regolamento UE conta anche le fibre: 2 kcal/g</button><button class="opt" type="button">Sono arrotondamenti</button></div>
+  <div class="ops"><button class="btn gold" type="button" data-poll-show>Mostra la risposta</button></div>
+  <p class="sol" style="margin-top:12px">8 g di fibre × 2 kcal/g = 16 kcal: 416 + 16 = 432. Lo scarto è un limite del modello, non un errore dell'etichetta.</p>
+</section>
+
+<section class="slide">
   <div class="kicker">Esempio svolto insieme</div><h2>Etichetta A, per 100 g</h2>
   <div class="cols">
     <div>
       <p>C 66 g · P 11 g · G 12 g · fibre 8 g</p>
-      <div class="eq">4–4–9: 264 + 44 + 108 = 416 kcal</div>
-      <div class="eq">All. XIV: 416 + 8×2 = <b>432 kcal</b></div>
-      <div class="eq">kJ: 1122 + 187 + 444 + 64 = <b>1817 kJ</b></div>
+      <div class="eq sol">4–4–9: 264 + 44 + 108 = 416 kcal</div>
+      <div class="eq sol">All. XIV: 416 + 8×2 = <b>432 kcal</b></div>
+      <div class="eq sol">kJ: 1122 + 187 + 444 + 64 = <b>1817 kJ</b></div>
+      <div class="ops"><button class="btn gold" type="button" data-reveal="step">Passaggio successivo</button></div>
     </div>
-    <div class="box warm">
+    <div class="box warm sol">
       <p class="big">Scarto: 16 kcal</p>
       <p>Tutto dovuto alle <b>fibre</b>. L'etichetta è coerente: è il modello semplificato a non contarle.</p>
       <p>Per porzione (30 g): 432 × 0,3 ≈ <b>130 kcal</b>.</p>
@@ -150,6 +166,7 @@
     </ol></div>
     <div class="box coral"><p class="big">Regola d'oro</p><p>Non sostituire un dato assente con zero. Ogni numero ha una provenienza.</p></div>
   </div>
+  <div class="ops"><div class="timer" data-min="40"></div><button class="btn" type="button" data-copy="prompt1">Copia prompt 1</button><a class="btn alt ext" href="../#lab1" target="_blank" rel="noopener">Scheda 1 ed etichette</a></div><pre class="src" id="prompt1">Agisci come assistente scientifico per docenti di Scienze naturali del liceo scientifico. Analizza SOLTANTO i dati dell'etichetta che ti fornirò. Estrai ingredienti, allergeni dichiarati e valori nutrizionali, indicando per ciascun valore se è riferito a 100 g o alla porzione. Normalizza i valori a 100 g soltanto se porzione e quantità sono esplicite. Se mancano dati, scrivi «dato non disponibile» e non sostituirli con zero. Ricalcola l'energia in kcal e in kJ con i coefficienti dell'allegato XIV del Regolamento (UE) 1169/2011 (carboidrati esclusi i polioli 4 kcal/g e 17 kJ/g; proteine 4 kcal/g e 17 kJ/g; grassi 9 kcal/g e 37 kJ/g; fibre 2 kcal/g e 8 kJ/g; polioli 2,4 kcal/g e 10 kJ/g), mostrando i passaggi, e confrontala con l'energia dichiarata. Restituisci una tabella con dato originale, unità, base di riferimento, dato normalizzato e provenienza (letto o calcolato). Individua tre punti da verificare manualmente. Non formulare diagnosi, giudizi di salubrità o consigli sanitari.</pre>
   <aside class="notes">L'etichetta B è una barretta proteica: la più vicina al mondo dello sport, proporla per prima a questo gruppo. Etichetta B: carboidrati 38 g di cui polioli 20 g. All. XIV = 395 kcal / 1651 kJ; 4–4–9 sui 38 g = 407 kcal: sovrastima i polioli (−32) e ignora le fibre (+20). Soluzioni nella sezione per il formatore.</aside>
 </section>
 
@@ -173,12 +190,13 @@
   <div class="kicker">Revisione critica · prompt 2</div><h2>Corretta, imprecisa o errata?</h2>
   <table class="t">
     <tr><th>Affermazione generata (esempi)</th><th>Verdetto</th></tr>
-    <tr><td>L'α-amilasi salivare inizia l'idrolisi dell'amido in bocca.</td><td class="ok">✓ corretta</td></tr>
-    <tr><td>Nello stomaco l'amilasi salivare completa la digestione dell'amido.</td><td class="ko">✗ errata</td></tr>
-    <tr><td>L'amilasi pancreatica trasforma l'amido direttamente in glucosio.</td><td class="mid">~ imprecisa</td></tr>
-    <tr><td>Il glucosio entra negli enterociti tramite SGLT1 insieme al sodio.</td><td class="ok">✓ corretta</td></tr>
+    <tr><td>L'α-amilasi salivare inizia l'idrolisi dell'amido in bocca.</td><td class="sol ok">✓ corretta</td></tr>
+    <tr><td>Nello stomaco l'amilasi salivare completa la digestione dell'amido.</td><td class="sol ko">✗ errata</td></tr>
+    <tr><td>L'amilasi pancreatica trasforma l'amido direttamente in glucosio.</td><td class="sol mid">~ imprecisa</td></tr>
+    <tr><td>Il glucosio entra negli enterociti tramite SGLT1 insieme al sodio.</td><td class="sol ok">✓ corretta</td></tr>
   </table>
   <p style="margin-top:16px">Per ogni affermazione: verdetto, <b>fonte consultata</b> e riscrittura se necessario.</p>
+  <div class="ops"><button class="btn gold" type="button" data-reveal="step">Verdetto successivo</button><div class="timer" data-min="20"></div><button class="btn" type="button" data-copy="prompt2">Copia prompt 2</button><a class="btn alt ext" href="../#biochimica" target="_blank" rel="noopener">Spazio appunti</a></div><pre class="src" id="prompt2">Sei un docente di biologia del liceo scientifico. Spiega in non più di 250 parole, per una classe quarta, come l'organismo umano digerisce l'amido: enzimi coinvolti e loro sede d'azione, prodotti di ciascuna tappa, assorbimento intestinale del glucosio e collegamento con la glicemia. Dopo la spiegazione elenca tutte le affermazioni scientifiche in forma numerata, una per riga, e per ciascuna indica quale tipo di fonte potrebbe confermarla (libro di testo universitario, documento EFSA, linee guida CREA). Non fornire consigli alimentari o sanitari personali.</pre>
   <aside class="notes">Esempi preparati per avviare la discussione; poi ogni coppia lavora sulla propria risposta. Errata: l'acidità gastrica inattiva l'amilasi salivare. Imprecisa: l'amilasi pancreatica produce maltosio, maltotriosio e destrine limite; il glucosio si libera all'orletto a spazzola.</aside>
 </section>
 
@@ -193,6 +211,7 @@
     <div class="step" style="border-color:var(--coral)"><b>6 · Salute</b><span>Discussione finale con fonti istituzionali, senza indicazioni individuali.</span></div>
   </div>
   <div class="box warm" style="margin-top:18px"><p><b>Variante per scienze motorie (prompt 3-bis):</b> intensità dell'esercizio, frequenza cardiaca e scala di Borg, da svolgere davvero in palestra.</p></div>
+  <div class="ops"><div class="timer" data-min="35"></div><button class="btn" type="button" data-copy="prompt3">Copia prompt 3</button><button class="btn" type="button" data-copy="prompt3b">Copia prompt 3-bis</button><a class="btn alt ext" href="../#lab2" target="_blank" rel="noopener">Scheda 2</a></div><pre class="src" id="prompt3">Sei un co-progettista di didattica delle Scienze naturali. Prepara per una classe quarta o quinta liceo scientifico un'attività investigativa di 40 minuti sul ruolo degli enzimi nella digestione degli amidi. Indica prerequisiti, una domanda scientifica, tre ipotesi degli studenti, variabili e controlli, una tabella di dati simulati ESPLICITAMENTE dichiarati come tali, cinque domande graduate e una rubrica di verifica. Collega la discussione finale a un tema di educazione alla salute (alimentazione equilibrata, lettura dell'etichetta) con rimandi a fonti istituzionali, senza indicazioni cliniche o individuali. Evidenzia gli aspetti da controllare su fonti scientifiche. Non presentare dati simulati come misure reali.</pre><pre class="src" id="prompt3b">Sei un co-progettista di didattica delle Scienze motorie e sportive. Prepara per una classe del liceo scientifico un'attività investigativa di 40 minuti, da svolgere in palestra, sulla relazione tra intensità dell'esercizio (camminata, corsa lenta, corsa a ritmo sostenuto), frequenza cardiaca e percezione dello sforzo (scala RPE di Borg). Indica prerequisiti, una domanda scientifica, tre ipotesi degli studenti, variabili e controlli, la procedura di misura della frequenza cardiaca al polso o con cardiofrequenzimetro, una tabella di dati simulati ESPLICITAMENTE dichiarati come tali, cinque domande graduate e una rubrica. Collega la discussione ai MET del Compendium of Physical Activities e alle raccomandazioni OMS sull'attività fisica per gli adolescenti. Prevedi indicazioni di sicurezza e adattamenti per studenti esonerati o con limitazioni. Non registrare dati sanitari individuali con il nome degli studenti, non formulare indicazioni cliniche o individuali, non presentare dati simulati come misure reali.</pre>
   <aside class="notes">Chi ha già un laboratorio di scienze può affiancare l'esperienza reale (amido + saliva/amilasi + Lugol) ai dati simulati: è il confronto migliore.</aside>
 </section>
 
@@ -215,6 +234,7 @@
     </ol>
     <div class="box"><p class="big">0 · 1 · 2</p><p>assente · parziale · pienamente soddisfatto</p><p>Totale su 12. Ogni punteggio basso va accompagnato da una <b>proposta di miglioramento</b>.</p></div>
   </div>
+  <div class="ops"><div class="timer" data-min="20"></div><a class="btn alt ext" href="../#lab2" target="_blank" rel="noopener">Apri la Scheda 2</a></div>
 </section>
 
 <section class="slide full">
@@ -231,6 +251,7 @@
     <div class="step" style="border-color:var(--coral)"><b>Un limite</b><span>dell'IA da spiegare ai miei studenti</span></div>
   </div>
   <div class="box warm" style="margin-top:24px"><p>Prima di uscire: <b>«Esporta tutti i miei elaborati»</b> nella pagina del corso e caricate il file nella cartella di consegna.</p></div>
+  <div class="ops"><div class="timer" data-min="10"></div><a class="btn alt ext" href="../#lavoro" target="_blank" rel="noopener">Esporta gli elaborati</a></div>
   <aside class="notes">Anticipare la lezione 2: porteremo il calcolo dell'energia in un simulatore costruito con l'IA.</aside>
 </section>
 
@@ -241,7 +262,7 @@
   <button id="prev" aria-label="Slide precedente">←</button><button id="next" aria-label="Slide successiva">→</button>
   <button id="btnNotes" title="Note del relatore (N)">Note</button><button id="btnGrid" title="Panoramica (O)">Panoramica</button>
   <button id="btnFull" title="Schermo intero (F)">Schermo intero</button><button id="btnPrint" title="Stampa o salva in PDF">PDF</button>
-  <a href="../#lezione1">Torna al corso</a></div>
+  <a href="../#lavoro">Pagina del corso</a></div>
 <div id="help"><div><p><kbd>→</kbd> <kbd>Spazio</kbd> avanti · <kbd>←</kbd> indietro · <kbd>F</kbd> schermo intero · <kbd>N</kbd> note · <kbd>O</kbd> panoramica · <kbd>?</kbd> aiuto</p></div></div>
 <script src="slides.js"></script>
 </body></html>
