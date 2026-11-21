@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T15:58:39+00:00",
+  "updatedAt": "2026-11-21T21:35:21+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,46 +46,52 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
-          "title": "Giovani e social: oltre 4 ore al giorno per il 27,4% degli studenti, 200mila a rischio dipendenza. I dati Cnr-Ifc",
-          "link": "https://www.orizzontescuola.it/giovani-e-social-oltre-4-ore-al-giorno-per-il-274-degli-studenti-200mila-a-rischio-dipendenza-i-dati-cnr-ifc/",
-          "pubDate": "Sat, 21 Nov 2026 15:45:14 +0000",
-          "description": "Mentre sul piano normativo l'Italia valuta una stretta per vietare l'accesso a Instagram, TikTok e Facebook agli under 13 attraverso un emendamento della maggio…"
+          "title": "La misura dell’unicità: l’inclusione si progetta. Agli Stati Generali della Scuola Digitale l’UDL incontra l’intelligenza artificiale e i prompt del docente",
+          "link": "https://www.orizzontescuola.it/la-misura-dellunicita-linclusione-si-progetta-agli-stati-generali-della-scuola-digitale-ludl-incontra-lintelligenza-artificiale-e-i-prompt-del-docente/",
+          "pubDate": "Sat, 21 Nov 2026 20:00:00 +0000",
+          "description": "L’inclusione non comincia quando un alunno incontra una difficoltà e l’insegnante cerca, in emergenza, una soluzione individuale. Comincia prima: nel modo in cu…"
         },
         {
-          "title": "Libri di testo digitali, maggioranza appesa a un filo in commissione: tre scenari per disinnescare lo scontro tra FDI e FI",
-          "link": "https://www.orizzontescuola.it/libri-di-testo-digitali-maggioranza-appesa-a-un-filo-in-commissione-tre-scenari-per-disinnescare-lo-scontro-tra-fdi-e-forza-italia/",
-          "pubDate": "Sat, 21 Nov 2026 15:31:43 +0000",
-          "description": "Il passaggio alla Camera del Decreto Scuola si apre sotto il segno della tensione all’interno del centrodestra, ma con i primi segnali di una possibile mediazio…"
+          "title": "Dodici insufficienze e oltre il 40% di assenze, per il TAR la diagnosi di fine anno non basta per l’esame: PDP non dà promozione automatica, bocciatura confermata",
+          "link": "https://www.orizzontescuola.it/dodici-insufficienze-e-oltre-il-40-di-assenze-per-il-tar-la-diagnosi-di-fine-anno-non-basta-per-lesame-pdp-non-da-promozione-automatica-bocciatura-confermata/",
+          "pubDate": "Sat, 21 Nov 2026 19:12:40 +0000",
+          "description": "Resta confermata la non ammissione all’esame di Stato conclusivo del primo ciclo per una studentessa della scuola secondaria di primo grado di Terni, fermata al…"
         },
         {
-          "title": "Pensioni, alla Consulta il nodo del cumulo contributivo: al vaglio lo stop alla neutralizzazione degli anni sfavorevoli",
-          "link": "https://www.orizzontescuola.it/pensioni-alla-consulta-il-nodo-del-cumulo-contributivo-al-vaglio-lo-stop-alla-neutralizzazione-degli-anni-sfavorevoli/",
-          "pubDate": "Sat, 21 Nov 2026 15:19:00 +0000",
-          "description": "Torna davanti alla Corte costituzionale il braccio di ferro previdenziale sul rapporto tra il cumulo contributivo gratuito e la \"neutralizzazione\" dei periodi l…"
+          "title": "Sovrappeso infantile, l’allarme degli esperti: in eccesso di peso il 32,3% dei bambini tra i 3 e i 10 anni",
+          "link": "https://www.orizzontescuola.it/sovrappeso-infantile-lallarme-degli-esperti-in-eccesso-di-peso-il-323-dei-bambini-tra-i-3-e-i-10-anni/",
+          "pubDate": "Sat, 21 Nov 2026 18:44:16 +0000",
+          "description": "L’ipoteca sulla salute degli adulti di domani si accende già sui banchi delle scuole primarie, se non addirittura all’asilo. È questa la fotografia scattata dai…"
         },
         {
-          "title": "Medici nelle scuole contro l’antibiotico-resistenza: al via il progetto nazionale dei Dirigenti Ospedalieri Internisti",
-          "link": "https://www.orizzontescuola.it/sanita-medici-nelle-scuole-contro-lantibiotico-resistenza-al-via-il-progetto-nazionale-dei-dirigenti-ospedalieri-internisti/",
-          "pubDate": "Sat, 21 Nov 2026 14:51:31 +0000",
-          "description": "Portare la prevenzione fuori dai reparti ospedalieri ed entrare direttamente nelle aule scolastiche per arginare una delle emergenze sanitarie più silenziose e…"
+          "title": "Tutela dei minori, l’Europa cerca una linea comune. E il tech chiama in causa Apple e Google",
+          "link": "https://www.orizzontescuola.it/tutela-dei-minori-leuropa-cerca-una-linea-comune-e-il-tech-chiama-in-causa-apple-e-google/",
+          "pubDate": "Sat, 21 Nov 2026 18:05:53 +0000",
+          "description": "Chiedere cinquanta volte la carta d’identità a un ragazzo per farlo entrare in cinquanta app diverse non è solo un’assurdità tecnologica: è un rischio per la pr…"
         },
         {
-          "title": "Aria viziata in classe: perché la ventilazione scolastica è la vera emergenza invisibile. Ecco la proposta di legge “Scuole sane e sicure”",
-          "link": "https://www.orizzontescuola.it/aria-viziata-in-classe-perche-la-ventilazione-scolastica-e-la-vera-emergenza-invisibile/",
-          "pubDate": "Sat, 21 Nov 2026 14:32:31 +0000",
-          "description": "Quando si valuta il benessere a scuola, l’attenzione si concentra quasi sempre su programmi didattici, edilizia sicura o strumenti digitali. Eppure esiste un el…"
+          "title": "Contare gli iscritti non basta: la Corte dei conti UE richiama la Commissione sull’efficacia degli aiuti scolastici nei paesi più poveri",
+          "link": "https://www.orizzontescuola.it/contare-gli-iscritti-non-basta-la-corte-dei-conti-ue-richiama-la-commissione-sullefficacia-degli-aiuti-scolastici-nei-paesi-piu-poveri/",
+          "pubDate": "Sat, 21 Nov 2026 17:15:06 +0000",
+          "description": "Quando si parla di cooperazione internazionale e lotta alla povertà, l’istruzione occupa quasi sempre il primo posto: garantire ai giovani il diritto allo studi…"
         },
         {
-          "title": "Revisione del Piano di Miglioramento (PdM): scarica una bozza di regolamento",
-          "link": "https://www.orizzontescuola.it/revisione-del-piano-di-miglioramento-pdm-scarica-una-bozza-di-regolamento/",
-          "pubDate": "Sat, 21 Nov 2026 14:15:24 +0000",
-          "description": "Il presente documento definisce il Regolamento per la revisione del Piano di Miglioramento (PdM), parte integrante del ciclo di valutazione previsto dal Sistema…"
+          "title": "L’IA rischia il “collasso” se copia sé stessa: come per gli studenti, l’antidoto è la sorpresa. La scoperta tutta italiana contro il collasso dei modelli generativi",
+          "link": "https://www.orizzontescuola.it/lia-rischia-il-collasso-se-copia-se-stessa-come-per-gli-studenti-lantidoto-e-la-sorpresa-la-scoperta-tutta-italiana-contro-il-collasso-dei-modelli-generativi/",
+          "pubDate": "Sat, 21 Nov 2026 16:59:02 +0000",
+          "description": "C’è un paradosso che minaccia il futuro dell’intelligenza artificiale generativa: più questi sistemi producono testi, immagini e codice che finiscono online, pi…"
         }
       ]
     },
     {
       "source": "Il Sole 24 Ore",
       "items": [
+        {
+          "title": "Data center, ecco la strategia del governo: una mappatura e un catasto",
+          "link": "https://www.ilsole24ore.com/art/data-center-ecco-strategia-governo-mappatura-e-catasto-AJTLmCNC",
+          "pubDate": "Sat, 21 Nov 2026 08:30:00 GMT",
+          "description": "Attesa al Comitato interministeriale una strategia nazionale"
+        },
         {
           "title": "Suicidio Gianni De Gennaro, chi era l’ex capo della Polizia: dalla lotta alla mafia ai vertici dei servizi segreti",
           "link": "https://www.ilsole24ore.com/art/de-gennaro-dall-antimafia-vertici-polizia-e-servizi-segreti-AJxV7LOC",
@@ -99,28 +105,22 @@
           "description": "Passera, in dissenso, si dimette dal cda prima del voto. I nove punti critici segnalati: «Gli azionisti valutino le prospettive stand-alone» Martedì parte l’Opa…"
         },
         {
-          "title": "Nvidia: Sec indaga su pratiche contabili e potenziali irregolarità",
-          "link": "https://www.ilsole24ore.com/art/nvidia-sec-indaga-pratiche-contabili-e-potenziali-irregolarita-AJunMROC",
-          "pubDate": "Sat, 21 Nov 2026 11:54:40 GMT",
-          "description": "Il personale dell’Autorità di controllo dei mercati americani starebbe esaminando potenziali irregolarità contabili all’interno dell’azienda"
-        },
-        {
-          "title": "Costa propone tassa digitale del 3% per il nuovo bilancio Ue",
-          "link": "https://www.ilsole24ore.com/art/costa-propone-tassa-digitale-3percento-il-nuovo-bilancio-ue-AJdtdMOC",
-          "pubDate": "Sat, 21 Nov 2026 10:27:00 GMT",
-          "description": "La proposta del presidente del Consiglio europeo Antonio Costa per il bilancio Ue 2028-2034 prevede anche una “digital tax” come nuova risorsa propria, come chi…"
-        },
-        {
           "title": "L’Iraq riapre la rotta mediterranea del greggio: l’oleodotto di Kirkuk aggira Hormuz",
           "link": "https://www.ilsole24ore.com/art/l-iraq-riapre-rotta-petrolio-il-mediterraneo-l-oleodotto-kirkuk-ceyhan-aggira-hormuz-AJj3irNC",
           "pubDate": "Fri, 20 Nov 2026 22:40:00 GMT",
           "description": "Dopo dodici anni di inattività, Baghdad riattiva il collegamento con la Turchia"
         },
         {
-          "title": "Banche, prestiti in corsa (+3,8%) e depositi record: salgono anche i tassi sui mutui",
-          "link": "https://www.ilsole24ore.com/art/banche-prestiti-corsa-38percento-e-depositi-record-salgono-anche-tassi-mutui-AJwCrFOC",
-          "pubDate": "Sat, 21 Nov 2026 09:35:15 GMT",
-          "description": "I depositi aumento di nuovo e tornano su valori record di 1.982 miliardi"
+          "title": "Codice della strada, scompare la tariffa massima per chi perde il biglietto in autostrada",
+          "link": "https://www.ilsole24ore.com/art/codice-strada-scompare-tariffa-massima-chi-perde-biglietto-autostrada-AJ7exTMC",
+          "pubDate": "Sat, 21 Nov 2026 12:49:33 GMT",
+          "description": "È la preoccupazione che assale l’automobilista quando si avvicina al casello di uscita dell’autostrada: dove è finito il biglietto per il pedaggio? Perché la re…"
+        },
+        {
+          "title": "La Sardegna scommette sui nomadi digitali: la Regione investe 10 milioni di euro",
+          "link": "https://www.ilsole24ore.com/art/la-sardegna-scommette-nomadi-digitali-regione-investe-10-milioni-euro-AJif6pNC",
+          "pubDate": "Sat, 21 Nov 2026 17:24:41 GMT",
+          "description": "Lo stanziamento delle risorse suona come il primo passo di una scommessa contro lo spopolamento"
         }
       ]
     }
