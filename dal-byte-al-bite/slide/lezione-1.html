@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Lezione 1 · Il cibo diventa dato – slide</title>
+<link rel="stylesheet" href="slides.css"></head>
+<body data-title="Dal Byte al Bite · Lezione 1 · Il cibo diventa dato">
+<div class="deck"><div class="stage">
+
+<section class="slide title">
+  <div class="cols w60" style="align-items:center">
+    <div><div class="kicker">Byte to Bite: AI for Health · componente docenti</div>
+      <h1>Il cibo diventa dato</h1>
+      <p style="font-size:28px">Lezione 1 · 30 novembre 2026 · 14:00–18:00</p>
+      <p>Come l'intelligenza artificiale può aiutarci a insegnare le scienze applicate alla salute, senza smettere di verificare.</p></div>
+    <img src="../img/mascotte.svg" alt="Bitto, il robot assistente IA, e la Prof, docente di scienze" style="width:100%;border-radius:18px">
+  </div>
+  <aside class="notes">Presentare i due personaggi: Bitto (l'assistente IA, volenteroso ma sbadato) e la Prof (che verifica). Accompagneranno le due lezioni con brevi vignette sugli errori tipici.</aside>
+</section>
+
+<section class="slide">
+  <div class="kicker">Mappa dell'incontro</div><h2>Quattro ore, due laboratori</h2>
+  <div class="timeline">
+    <div><b>14:00–14:20</b>Apertura e domanda guida</div>
+    <div><b>14:20–14:50</b>Dimostrazione: l'IA legge un'etichetta</div>
+    <div><b>14:50–15:20</b>Chimica nel piatto: unità, basi, allegato XIV</div>
+    <div><b>15:20–16:00</b>Laboratorio 1 a coppie: due etichette</div>
+    <div class="p"><b>16:00–16:10</b>Pausa</div>
+    <div><b>16:10–16:30</b>Revisione collettiva</div>
+    <div><b>16:30–16:50</b>Biologia e metabolismo: revisione critica</div>
+    <div><b>16:50–17:25</b>Laboratorio 2: attività investigativa</div>
+    <div><b>17:25–18:00</b>Revisione tra pari e restituzione</div>
+  </div>
+  <aside class="notes">230 minuti di attività e 10 di pausa. Annunciare subito che tutti gli elaborati si esportano dalla pagina del corso (sezione Materiali e schede).</aside>
+</section>
+
+<section class="slide">
+  <div class="kicker">Domanda guida</div>
+  <h2 style="font-size:54px;margin-top:40px">Possiamo fidarci dell'IA<br>che legge un'etichetta?</h2>
+  <div class="box" style="margin-top:20px"><p class="big">Attività (10 min)</p><p>A coppie: scrivete <b>tre criteri</b> per riconoscere una risposta verificabile. Poi li confrontiamo e ne scegliamo tre condivisi.</p></div>
+  <aside class="notes">Raccogliere i criteri alla lavagna. Attesi: indica la fonte di ogni dato; distingue dato letto, calcolato, generato; dichiara i dati mancanti; mostra i passaggi del calcolo. Raccordarsi con quanto già visto nelle 16 ore precedenti.</aside>
+</section>
+
+<section class="slide full">
+  <div class="kicker">Perché siamo qui</div><h2>Quattro modi in cui l'IA aiuta il docente</h2>
+  <div class="figure"><img src="../img/info-quattro-usi.svg" alt="Infografica: quattro usi didattici dell'IA"></div>
+  <aside class="notes">Oggi sperimentiamo i primi tre usi; il quarto (simulatori) è il cuore della lezione 2. Sottolineare la colonna «tu»: il controllo resta al docente.</aside>
+</section>
+
+<section class="slide full">
+  <h2>Prima di cominciare… una vignetta</h2>
+  <div class="figure"><img src="../img/vignetta-porzione.svg" alt="Vignetta: Bitto legge 130 kcal ma era il valore per porzione"></div>
+  <aside class="notes">Domanda alla classe: «Quante volte i nostri studenti fanno lo stesso errore?». La base di riferimento (100 g o porzione) è la prima cosa da controllare.</aside>
+</section>
+
+<section class="slide full">
+  <h2>Da dove viene questo numero?</h2>
+  <div class="figure"><img src="../img/info-tipi-di-dato.svg" alt="Infografica: dato letto, calcolato, generato, non disponibile"></div>
+  <aside class="notes">È il nucleo concettuale del corso. Ogni scheda avrà una colonna «provenienza». Insistere sulla quarta categoria: «non disponibile» non è zero.</aside>
+</section>
+
+<section class="slide">
+  <div class="kicker">Dimostrazione guidata · 14:20</div><h2>Caccia all'errore: sei errori in una risposta</h2>
+  <div class="cols">
+    <div class="eq" style="font-size:17px;line-height:1.5;white-space:pre">| Voce        | Valore     | a 100 g  |
+| Energia     | 130 kcal   | 130 kcal |
+| Grassi      | 12 g       | 12 g     |
+| Carboidrati | 66 g       | 66 g     |
+| Fibre       | non indic. | 0 g      |
+| Proteine    | 11 g       | 11 g     |
+| Sodio       | 1,6 g      | 1,6 g    |
+416 kcal → «l'etichetta è errata».
+«Adatto a chi soffre di diabete».</div>
+    <div><p>Risposta IA di esempio sull'<b>etichetta A</b> (cracker integrali).</p>
+      <p>Confrontatela con l'etichetta originale e trovate gli errori.</p>
+      <div class="chips"><span class="chip">base di riferimento</span><span class="chip">dato mancante</span><span class="chip">sale / sodio</span><span class="chip">ricalcolo</span><span class="chip">consiglio sanitario</span><span class="chip">provenienza</span></div></div>
+  </div>
+  <aside class="notes">Soluzioni: 1) 130 kcal è per porzione (432 per 100 g); 2) le fibre ci sono (8,0 g) e comunque mai zero; 3) 1,6 g è il sale, il sodio è 0,64 g; 4) il ricalcolo ignora le fibre: l'etichetta è coerente; 5) consiglio sanitario non richiesto; 6) manca la colonna di provenienza. Materiale nella sezione «Materiali e schede» della pagina.</aside>
+</section>
+
+<section class="slide">
+  <div class="kicker">Chimica nel piatto · 14:50</div><h2>Quattro trappole dell'etichetta</h2>
+  <div class="grid2">
+    <div class="step"><b>100 g o porzione?</b><span>Si confrontano gli alimenti a 100 g; la porzione la decide il produttore.</span></div>
+    <div class="step" style="border-color:var(--gold)"><b>Sale ≠ sodio</b><span>Sale = sodio × 2,5. 1,6 g di sale corrispondono a 0,64 g di sodio.</span></div>
+    <div class="step" style="border-color:var(--coral)"><b>I carboidrati includono i polioli</b><span>Per l'energia si sottraggono e si contano a 2,4 kcal/g.</span></div>
+    <div class="step" style="border-color:#347ca9"><b>Assunzione di riferimento</b><span>Adulto medio: 8400 kJ / 2000 kcal. È un valore di popolazione, non un fabbisogno personale.</span></div>
+  </div>
+  <aside class="notes">Riferimenti: Reg. (UE) 1169/2011, allegato I (definizioni di sale, carboidrati, fibre) e allegato XIII parte B (assunzioni di riferimento).</aside>
+</section>
+
+<section class="slide full">
+  <h2>La regola ufficiale: allegato XIV</h2>
+  <div class="figure"><img src="../img/info-allegato-xiv.svg" alt="Infografica dei coefficienti di conversione dell'allegato XIV"></div>
+  <aside class="notes">Il modello 4–4–9 usa solo le barre verdi. Le barre arancioni spiegano gli scarti con l'etichetta. Far notare che i kJ non sono kcal × 4,184.</aside>
+</section>
+
+<section class="slide">
+  <div class="kicker">Esempio svolto insieme</div><h2>Etichetta A, per 100 g</h2>
+  <div class="cols">
+    <div>
+      <p>C 66 g · P 11 g · G 12 g · fibre 8 g</p>
+      <div class="eq">4–4–9: 264 + 44 + 108 = 416 kcal</div>
+      <div class="eq">All. XIV: 416 + 8×2 = <b>432 kcal</b></div>
+      <div class="eq">kJ: 1122 + 187 + 444 + 64 = <b>1817 kJ</b></div>
+    </div>
+    <div class="box warm">
+      <p class="big">Scarto: 16 kcal</p>
+      <p>Tutto dovuto alle <b>fibre</b>. L'etichetta è coerente: è il modello semplificato a non contarle.</p>
+      <p>Per porzione (30 g): 432 × 0,3 ≈ <b>130 kcal</b>.</p>
+    </div>
+  </div>
+  <aside class="notes">Svolgere alla lavagna prima di mostrare la soluzione. Rapporto kJ/kcal = 1817/432 ≈ 4,21: utile per discutere la nota sui kJ.</aside>
+</section>
+
+<section class="slide full">
+  <h2>Intanto, Bitto…</h2>
+  <div class="figure"><img src="../img/vignetta-scarto.svg" alt="Vignetta: Bitto accusa l'etichetta, poi scopre le fibre"></div>
+  <aside class="notes">Morale: prima di dichiarare «sbagliato» un dato, controllare il modello che si sta usando. Vale per l'IA e per gli studenti.</aside>
+</section>
+
+<section class="slide">
+  <div class="kicker">Laboratorio 1 · 15:20–16:00 · a coppie</div><h2>L'IA legge davvero l'etichetta?</h2>
+  <div class="cols w60">
+    <div><ol>
+      <li>Usate il <b>prompt 1</b> sull'etichetta A o B (o una reale).</li>
+      <li>Compilate la <b>Scheda 1</b>: dato, base, valore a 100 g, provenienza.</li>
+      <li>Ricalcolate l'energia con 4–4–9 <b>e</b> con l'allegato XIV.</li>
+      <li>Spiegate lo scarto e quale componente lo produce.</li>
+    </ol></div>
+    <div class="box coral"><p class="big">Regola d'oro</p><p>Non sostituire un dato assente con zero. Ogni numero ha una provenienza.</p></div>
+  </div>
+  <aside class="notes">Etichetta B (barretta): carboidrati 38 g di cui polioli 20 g. All. XIV = 395 kcal / 1651 kJ; 4–4–9 sui 38 g = 407 kcal: sovrastima i polioli (−32) e ignora le fibre (+20). Soluzioni nella sezione per il formatore.</aside>
+</section>
+
+<section class="slide full">
+  <h2>Revisione collettiva: la trappola dello zero</h2>
+  <div class="figure"><img src="../img/vignetta-zero.svg" alt="Vignetta: un dato assente non è zero"></div>
+  <aside class="notes">16:10–16:30. Raccogliere gli errori trovati dalle coppie: porzione/100 g, sale/sodio, fibre ignorate, polioli non sottratti, dati inventati.</aside>
+</section>
+
+<section class="slide break">
+  <div class="huge">☕</div><h2 style="margin-top:20px">Pausa · 10 minuti</h2><p>Si riparte con la biochimica: il viaggio dell'amido.</p>
+</section>
+
+<section class="slide full">
+  <div class="kicker">Biologia e metabolismo · 16:30</div><h2>Il viaggio dell'amido</h2>
+  <div class="figure"><img src="../img/info-amido.svg" alt="Infografica: digestione dell'amido in cinque tappe"></div>
+  <aside class="notes">Usare l'infografica come «tabella di controllo» per la revisione della spiegazione generata dall'IA. Collegamento con l'allegato XIV: le fibre fermentate nel colon giustificano le 2 kcal/g.</aside>
+</section>
+
+<section class="slide">
+  <div class="kicker">Revisione critica · prompt 2</div><h2>Corretta, imprecisa o errata?</h2>
+  <table class="t">
+    <tr><th>Affermazione generata (esempi)</th><th>Verdetto</th></tr>
+    <tr><td>L'α-amilasi salivare inizia l'idrolisi dell'amido in bocca.</td><td class="ok">✓ corretta</td></tr>
+    <tr><td>Nello stomaco l'amilasi salivare completa la digestione dell'amido.</td><td class="ko">✗ errata</td></tr>
+    <tr><td>L'amilasi pancreatica trasforma l'amido direttamente in glucosio.</td><td class="mid">~ imprecisa</td></tr>
+    <tr><td>Il glucosio entra negli enterociti tramite SGLT1 insieme al sodio.</td><td class="ok">✓ corretta</td></tr>
+  </table>
+  <p style="margin-top:16px">Per ogni affermazione: verdetto, <b>fonte consultata</b> e riscrittura se necessario.</p>
+  <aside class="notes">Esempi preparati per avviare la discussione; poi ogni coppia lavora sulla propria risposta. Errata: l'acidità gastrica inattiva l'amilasi salivare. Imprecisa: l'amilasi pancreatica produce maltosio, maltotriosio e destrine limite; il glucosio si libera all'orletto a spazzola.</aside>
+</section>
+
+<section class="slide">
+  <div class="kicker">Laboratorio 2 · 16:50–17:25 · prompt 3</div><h2>Progettare un'attività investigativa di 40 minuti</h2>
+  <div class="grid3">
+    <div class="step"><b>1 · Domanda</b><span>Che cosa influenza l'attività dell'amilasi sull'amido?</span></div>
+    <div class="step"><b>2 · Ipotesi</b><span>Tre ipotesi degli studenti, verificabili.</span></div>
+    <div class="step"><b>3 · Variabili</b><span>Indipendente, dipendente, controllate; controlli.</span></div>
+    <div class="step" style="border-color:var(--gold)"><b>4 · Dati simulati</b><span>Dichiarati come tali, mai presentati come misure.</span></div>
+    <div class="step" style="border-color:var(--gold)"><b>5 · Domande</b><span>Cinque domande graduate e rubrica.</span></div>
+    <div class="step" style="border-color:var(--coral)"><b>6 · Salute</b><span>Discussione finale con fonti istituzionali, senza indicazioni individuali.</span></div>
+  </div>
+  <aside class="notes">Chi ha già un laboratorio di scienze può affiancare l'esperienza reale (amido + saliva/amilasi + Lugol) ai dati simulati: è il confronto migliore.</aside>
+</section>
+
+<section class="slide full">
+  <h2>Dati simulati: dichiararli sempre</h2>
+  <div class="figure"><img src="../img/vignetta-simulati.svg" alt="Vignetta: Bitto dice di aver misurato dati, poi li etichetta come simulati"></div>
+  <aside class="notes">Domanda: come rendereste visibile agli studenti che un dato è simulato? (etichetta, colore, nota nella tabella).</aside>
+</section>
+
+<section class="slide">
+  <div class="kicker">Revisione tra pari · 17:25 · Scheda 2</div><h2>Sei criteri, punteggio 0–2</h2>
+  <div class="cols">
+    <ol>
+      <li>Chiarezza della domanda scientifica</li>
+      <li>Fattibilità in 40 minuti</li>
+      <li>Coerenza scientifica</li>
+      <li>Dati simulati dichiarati</li>
+      <li>Variabili e controlli corretti</li>
+      <li>Aggancio alla salute senza indicazioni individuali</li>
+    </ol>
+    <div class="box"><p class="big">0 · 1 · 2</p><p>assente · parziale · pienamente soddisfatto</p><p>Totale su 12. Ogni punteggio basso va accompagnato da una <b>proposta di miglioramento</b>.</p></div>
+  </div>
+</section>
+
+<section class="slide full">
+  <h2>Il confine da non superare</h2>
+  <div class="figure"><img src="../img/vignetta-medico.svg" alt="Vignetta: Bitto dà consigli sanitari e la Prof lo ferma"></div>
+  <aside class="notes">Educazione alla salute: messaggi di popolazione (linee guida CREA, LARN). Consulenza individuale: professionisti sanitari. Nessun dato sanitario degli studenti nei prompt.</aside>
+</section>
+
+<section class="slide">
+  <div class="kicker">Restituzione · 17:45</div><h2>Biglietto d'uscita</h2>
+  <div class="grid3">
+    <div class="step"><b>Un errore</b><span>che ho trovato in una risposta dell'IA</span></div>
+    <div class="step" style="border-color:var(--gold)"><b>Una correzione</b><span>e la fonte che l'ha resa possibile</span></div>
+    <div class="step" style="border-color:var(--coral)"><b>Un limite</b><span>dell'IA da spiegare ai miei studenti</span></div>
+  </div>
+  <div class="box warm" style="margin-top:24px"><p>Prima di uscire: <b>«Esporta tutti i miei elaborati»</b> nella pagina del corso e caricate il file nella cartella di consegna.</p></div>
+  <aside class="notes">Anticipare la lezione 2: porteremo il calcolo dell'energia in un simulatore costruito con l'IA.</aside>
+</section>
+
+</div></div>
+<div class="bar"></div>
+<div id="notesPane" aria-live="polite"></div>
+<div class="ui"><span id="counter"></span>
+  <button id="prev" aria-label="Slide precedente">←</button><button id="next" aria-label="Slide successiva">→</button>
+  <button id="btnNotes" title="Note del relatore (N)">Note</button><button id="btnGrid" title="Panoramica (O)">Panoramica</button>
+  <button id="btnFull" title="Schermo intero (F)">Schermo intero</button><button id="btnPrint" title="Stampa o salva in PDF">PDF</button>
+  <a href="../#lezione1">Torna al corso</a></div>
+<div id="help"><div><p><kbd>→</kbd> <kbd>Spazio</kbd> avanti · <kbd>←</kbd> indietro · <kbd>F</kbd> schermo intero · <kbd>N</kbd> note · <kbd>O</kbd> panoramica · <kbd>?</kbd> aiuto</p></div></div>
+<script src="slides.js"></script>
+</body></html>

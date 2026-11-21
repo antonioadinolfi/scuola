@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Lezione 2 · Dal prompt all'app – slide</title>
+<link rel="stylesheet" href="slides.css"></head>
+<body data-title="Dal Byte al Bite · Lezione 2 · Dal prompt all'app">
+<div class="deck"><div class="stage">
+
+<section class="slide title">
+  <div class="cols w60" style="align-items:center">
+    <div><div class="kicker">Byte to Bite: AI for Health · componente docenti</div>
+      <h1>Dal prompt all'app</h1>
+      <p style="font-size:28px">Lezione 2 · 7 dicembre 2026 · 14:00–18:00</p>
+      <p>Costruire con l'IA un simulatore per l'educazione alla salute, e dimostrare con i test che funziona.</p></div>
+    <img src="../img/mascotte.svg" alt="Bitto, il robot assistente IA, e la Prof, docente di scienze" style="width:100%;border-radius:18px">
+  </div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Mappa dell'incontro</div><h2>Dal problema didattico al prototipo validato</h2>
+  <div class="timeline">
+    <div><b>14:00–14:20</b>Ripresa e dimostrazione di FoodLab</div>
+    <div><b>14:20–14:50</b>Requisiti: che cosa deve fare il simulatore</div>
+    <div><b>14:50–15:50</b>Costruzione assistita dall'IA</div>
+    <div class="p"><b>15:50–16:00</b>Pausa</div>
+    <div><b>16:00–16:35</b>Validazione con la matrice dei test</div>
+    <div><b>16:35–17:10</b>Correzione e nuovi test</div>
+    <div><b>17:10–17:35</b>Microattività di educazione alla salute</div>
+    <div><b>17:35–18:00</b>Autovalutazione, rubrica, consegna finale</div>
+  </div>
+</section>
+
+<section class="slide full">
+  <div class="kicker">Ripresa</div><h2>Il metodo della lezione 1, in un'immagine</h2>
+  <div class="figure"><img src="../img/info-ciclo-verifica.svg" alt="Infografica: il ciclo della verifica in cinque passi"></div>
+  <aside class="notes">Chiedere a due coppie di mostrare un errore trovato la volta scorsa. Oggi applichiamo lo stesso ciclo al codice: l'output dell'IA è un programma, la «fonte» sono i test.</aside>
+</section>
+
+<section class="slide full">
+  <h2>Il flusso di oggi</h2>
+  <div class="figure"><img src="../img/info-prompt-app.svg" alt="Infografica: requisiti, generazione, test, correzione, microattività"></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Domanda guida · demo FoodLab</div>
+  <h2 style="font-size:50px;margin-top:30px">Che cosa deve poter esplorare<br>lo studente su un tema di salute?</h2>
+  <div class="cols" style="margin-top:20px">
+    <div class="box"><p>Esempio: <b>come cambia l'energia</b> di una porzione al variare dei macronutrienti, e perché l'etichetta conta anche fibre e polioli.</p></div>
+    <div class="box warm"><p>Prima i <b>requisiti</b>, poi il codice. Un simulatore senza domanda didattica è solo un giocattolo.</p></div>
+  </div>
+  <aside class="notes">Mostrare FoodLab dalla pagina del corso: modalità 4–4–9 e modalità UE, percentuale sull'assunzione di riferimento, esportazione CSV.</aside>
+</section>
+
+<section class="slide">
+  <div class="kicker">Requisiti · 14:20</div><h2>Una specifica in una pagina</h2>
+  <table class="t">
+    <tr><th>Voce</th><th>Esempio per FoodLab</th></tr>
+    <tr><td>Input</td><td>C, P, G in grammi (0–100); opzionale: fibre, polioli</td></tr>
+    <tr><td>Formula</td><td>E = 4C + 4P + 9G (kcal); modalità UE con allegato XIV</td></tr>
+    <tr><td>Unità</td><td>g in ingresso; kcal e kJ in uscita, sempre esplicite</td></tr>
+    <tr><td>Output</td><td>Energia, % su 2000 kcal, ripartizione a barre</td></tr>
+    <tr><td>Comandi</td><td>Reset, uso da tastiera, schermo piccolo</td></tr>
+    <tr><td>Limiti</td><td>Cosa il modello trascura; nessuna indicazione individuale</td></tr>
+  </table>
+</section>
+
+<section class="slide">
+  <div class="kicker">Anatomia del prompt 4</div><h2>Un buon prompt per generare codice</h2>
+  <div class="grid3">
+    <div class="step"><b>Ruolo</b><span>«Agisci come sviluppatore web e docente di Scienze naturali»</span></div>
+    <div class="step"><b>Formato</b><span>Un solo file HTML con CSS e JS, senza dipendenze esterne</span></div>
+    <div class="step"><b>Specifica</b><span>Input, formula, unità, output, reset, limiti</span></div>
+    <div class="step" style="border-color:var(--coral)"><b>Divieti</b><span>Non chiamare il calcolo «IA»; niente indicazioni sanitarie individuali</span></div>
+    <div class="step" style="border-color:var(--gold)"><b>Qualità</b><span>HTML semantico, layout responsive, accessibile</span></div>
+    <div class="step" style="border-color:var(--gold)"><b>Verifica</b><span>«Dopo il codice indica almeno cinque test numerici»</span></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Costruzione · 14:50–15:50</div><h2>Cinque consigli per non perdersi</h2>
+  <div class="cols w60">
+    <ol>
+      <li>Salvate il codice come <b>file .html</b> e apritelo nel browser.</li>
+      <li><b>Una modifica per volta</b>: chiedete un miglioramento, provate, poi il successivo.</li>
+      <li>Tenete le <b>versioni</b> (v1, v2, v3…) e annotate che cosa cambia.</li>
+      <li>Chiedete all'IA di <b>spiegare</b> le righe del calcolo.</li>
+      <li>Se qualcosa si rompe, incollate l'errore e tornate all'ultima versione funzionante.</li>
+    </ol>
+    <div class="box coral"><p class="big">Regola dei 60 minuti</p><p>Se alle 15:50 il prototipo non funziona, si passa al FoodLab dimostrativo: test e progettazione didattica non si saltano.</p></div>
+  </div>
+</section>
+
+<section class="slide break">
+  <div class="huge">☕</div><h2 style="margin-top:20px">Pausa · 10 minuti</h2><p>Al rientro: la prova dei test.</p>
+</section>
+
+<section class="slide">
+  <div class="kicker">Validazione · 16:00 · Scheda 3</div><h2>La matrice dei test</h2>
+  <table class="t">
+    <tr><th>Modello</th><th class="n">C</th><th class="n">P</th><th class="n">G</th><th class="n">Fibre</th><th class="n">Polioli</th><th class="n">Atteso</th></tr>
+    <tr><td>4–4–9</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">0 kcal</td></tr>
+    <tr><td>4–4–9</td><td class="n">10</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">40 kcal</td></tr>
+    <tr><td>4–4–9</td><td class="n">0</td><td class="n">0</td><td class="n">10</td><td class="n">0</td><td class="n">0</td><td class="n">90 kcal</td></tr>
+    <tr><td>4–4–9</td><td class="n">45</td><td class="n">12</td><td class="n">8</td><td class="n">0</td><td class="n">0</td><td class="n">300 kcal</td></tr>
+    <tr><td>UE</td><td class="n">45</td><td class="n">12</td><td class="n">8</td><td class="n">6</td><td class="n">0</td><td class="n">312 kcal / 1313 kJ</td></tr>
+    <tr><td>UE</td><td class="n">66</td><td class="n">11</td><td class="n">12</td><td class="n">8</td><td class="n">0</td><td class="n">432 kcal / 1817 kJ</td></tr>
+    <tr><td>UE</td><td class="n">18</td><td class="n">30</td><td class="n">15</td><td class="n">10</td><td class="n">20</td><td class="n">395 kcal / 1651 kJ</td></tr>
+  </table>
+  <aside class="notes">Matrice completa (nove casi) nella Scheda 3 della pagina. Il caso a zero verifica la gestione dei valori nulli; i casi con un solo nutriente isolano i coefficienti.</aside>
+</section>
+
+<section class="slide full">
+  <h2>Perché i test sono obbligatori</h2>
+  <div class="figure"><img src="../img/vignetta-test.svg" alt="Vignetta: il test trova un errore nel coefficiente dei grassi"></div>
+  <aside class="notes">Un singolo caso con un solo nutriente (G = 10 → 90 kcal) avrebbe trovato subito l'errore. Ecco perché i casi «isolati» vengono prima.</aside>
+</section>
+
+<section class="slide">
+  <div class="kicker">La trappola dei kJ</div><h2>300 kcal sono 1255 kJ o 1265 kJ?</h2>
+  <div class="cols">
+    <div>
+      <div class="eq">300 × 4,184 = 1255 kJ</div>
+      <div class="eq">45×17 + 12×17 + 8×37 = <b>1265 kJ</b></div>
+      <p>Per le etichette vale la seconda: l'allegato XIV fornisce coefficienti propri in kJ.</p>
+    </div>
+    <div class="box warm"><p class="big">Test da aggiungere</p><p>Il simulatore calcola i kJ con 17, 17, 37 o converte semplicemente le kcal? Il prompt 5 lo chiede esplicitamente.</p></div>
+  </div>
+  <aside class="notes">Differenza di 10 kJ: piccola, ma è proprio il tipo di dettaglio che distingue un modello «plausibile» da uno conforme alla norma.</aside>
+</section>
+
+<section class="slide">
+  <div class="kicker">Correzione · 16:35 · prompt 5</div><h2>Checklist di verifica del codice</h2>
+  <div class="grid2">
+    <div class="box"><ul><li>Accuratezza del calcolo</li><li>Gestione dei valori zero</li><li>Unità di misura esplicite</li><li>kJ con coefficienti in kJ</li></ul></div>
+    <div class="box"><ul><li>Uso da tastiera</li><li>Leggibilità su smartphone</li><li>Coerenza scientifica</li><li>Nessuna indicazione sanitaria individuale</li></ul></div>
+  </div>
+  <p style="margin-top:20px">Dopo <b>ogni</b> modifica si ripetono <b>tutti</b> i test e si annota che cosa è cambiato.</p>
+</section>
+
+<section class="slide">
+  <div class="kicker">Microattività · 17:10 · prompt 6</div><h2>Prevedi · Osserva · Spiega</h2>
+  <div class="grid3">
+    <div class="step"><b>Prevedi</b><span>Se sostituisco 10 g di carboidrati con 10 g di grassi, l'energia aumenta di quanto?</span></div>
+    <div class="step" style="border-color:var(--gold)"><b>Osserva</b><span>Muovi i cursori nel simulatore: +50 kcal (−40 + 90).</span></div>
+    <div class="step" style="border-color:var(--coral)"><b>Spiega</b><span>Perché i lipidi hanno più energia per grammo? Che cosa trascura il modello?</span></div>
+  </div>
+  <div class="box warm" style="margin-top:22px"><p>Aggancio alla salute: lettura consapevole delle etichette con <b>valori di popolazione</b> (linee guida CREA, LARN). Nessun calcolo di fabbisogni personali.</p></div>
+  <aside class="notes">Chiedere a ciascuna coppia una seconda variante, ad esempio con le fibre in modalità UE.</aside>
+</section>
+
+<section class="slide">
+  <div class="kicker">Valutazione · 17:35</div><h2>Autovalutazione e rubrica</h2>
+  <div class="cols">
+    <div class="box"><p class="big">12 quesiti</p><p>Nella sezione «Verifica» della pagina. Suggerimenti senza soluzioni. Obiettivo: almeno il <b>70%</b>.</p></div>
+    <div><table class="t">
+      <tr><th>Criterio (0–2)</th></tr>
+      <tr><td>Correttezza scientifica</td></tr><tr><td>Tracciabilità</td></tr><tr><td>Verifica dei risultati</td></tr>
+      <tr><td>Utilizzabilità didattica</td></tr><tr><td>Uso responsabile per la salute</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<section class="slide title">
+  <div class="cols w60" style="align-items:center">
+    <div><div class="kicker">Consegna finale · 17:50</div>
+      <h1 style="font-size:58px">Che cosa porto in classe</h1>
+      <ul style="color:#fff"><li>Simulatore HTML validato</li><li>Matrice dei test compilata</li><li>Microattività prevedi-osserva-spiega</li><li>Il ciclo della verifica, per ogni uso dell'IA</li></ul>
+      <p style="margin-top:16px">Grazie! Esportate gli elaborati e caricateli nella cartella di consegna.</p></div>
+    <img src="../img/mascotte.svg" alt="Bitto e la Prof salutano" style="width:100%;border-radius:18px">
+  </div>
+</section>
+
+</div></div>
+<div class="bar"></div>
+<div id="notesPane" aria-live="polite"></div>
+<div class="ui"><span id="counter"></span>
+  <button id="prev" aria-label="Slide precedente">←</button><button id="next" aria-label="Slide successiva">→</button>
+  <button id="btnNotes" title="Note del relatore (N)">Note</button><button id="btnGrid" title="Panoramica (O)">Panoramica</button>
+  <button id="btnFull" title="Schermo intero (F)">Schermo intero</button><button id="btnPrint" title="Stampa o salva in PDF">PDF</button>
+  <a href="../#lezione2">Torna al corso</a></div>
+<div id="help"><div><p><kbd>→</kbd> <kbd>Spazio</kbd> avanti · <kbd>←</kbd> indietro · <kbd>F</kbd> schermo intero · <kbd>N</kbd> note · <kbd>O</kbd> panoramica · <kbd>?</kbd> aiuto</p></div></div>
+<script src="slides.js"></script>
+</body></html>
