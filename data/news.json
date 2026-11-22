@@ -1,9 +1,15 @@
 {
-  "updatedAt": "2026-11-22T09:39:09+00:00",
+  "updatedAt": "2026-11-22T17:41:14+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
       "items": [
+        {
+          "title": "Diritto di crescere. Infanzia, adolescenza e tutela dei minori tra diritti, violenza e responsabilità",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/11/22/diritto-di-crescere-infanzia-adolescenza-e-tutela-dei-minori-tra-diritti-violenza-e-responsabilita/",
+          "pubDate": "Sun, 22 Nov 2026 09:41:28 +0000",
+          "description": "Il 20 novembre, nella giornata internazionale per i diritti dell&#8217;infanzia e dell&#8217;adolescenza, si è svolto il Convegno &#8220;Il diritto di crescere&…"
+        },
         {
           "title": "Un rumore che rompe il silenzio: le classi terze alla visione di “Se domani non torno”",
           "link": "https://www.liceoscientificocortese.edu.it/2026/11/20/un-rumore-che-rompe-il-silenzio-le-classi-terze-alla-visione-di-se-domani-non-torno/",
@@ -33,12 +39,6 @@
           "link": "https://www.liceoscientificocortese.edu.it/2026/11/09/il-liceo-nino-cortese-di-nuovo-in-gara-per-la-xvii-edizione-dei-giochi-matematici-del-mediterraneo/",
           "pubDate": "Mon, 09 Nov 2026 16:00:30 +0000",
           "description": "Anche per questo anno scolastico, il Liceo Scientifico &#8220;Nino Cortese&#8221; riconferma la propria adesione ai Giochi Matematici del Mediterraneo (GMM), la…"
-        },
-        {
-          "title": "La Realtà Virtuale entra nell’ora di Informatica: gli studenti di Scienze Appliate esplorano il futuro con Oculus 2",
-          "link": "https://www.liceoscientificocortese.edu.it/2026/11/09/la-realta-virtuale-entra-nellora-di-informatica-gli-studenti-di-scienze-appliate-esplorano-il-futuro-con-oculus-2/",
-          "pubDate": "Mon, 09 Nov 2026 07:32:40 +0000",
-          "description": "Un salto nel futuro senza muoversi dall&#8217;aula. Durante l&#8217;ora di Informatica, la classe IV ESA del Liceo Scientifico &#8220;Nino Cortese&#8221; ha vis…"
         }
       ]
     },
@@ -46,40 +46,40 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
-          "title": "Valditara: “Sicurezza priorità del Ministero, interventi su oltre il 25% degli edifici scolastici”",
-          "link": "https://www.orizzontescuola.it/valditara-sicurezza-priorita-del-ministero-interventi-su-oltre-il-25-degli-edifici-scolastici/",
-          "pubDate": "Sun, 22 Nov 2026 09:14:52 +0000",
-          "description": "La sicurezza di chi studia e lavora all’interno degli istituti resta al centro dell'agenda governativa. In occasione della Giornata nazionale per la sicurezza n…"
+          "title": "Legge di Bilancio, 14 emendamenti per la scuola: buoni pasto, Carta servizi e aumenti UE nel segno delle richieste ANIEF",
+          "link": "https://www.orizzontescuola.it/legge-di-bilancio-14-emendamenti-per-la-scuola-buoni-pasto-carta-servizi-e-aumenti-ue-nel-segno-delle-richieste-anief/",
+          "pubDate": "Sun, 22 Nov 2026 16:34:18 +0000",
+          "description": "Buoni pasto per docenti e personale ATA, estensione della Carta dei servizi a tutti i lavoratori del comparto e aumenti retributivi per avvicinare gli stipendi…"
         },
         {
-          "title": "Studente con PEI o PDP rifiuta interrogazione o attività: sanziono? Il consiglio di De Martino",
-          "link": "https://www.orizzontescuola.it/studente-con-pei-o-pdp-rifiuta-interrogazione-o-attivita-sanziono-il-consiglio-di-de-martino/",
-          "pubDate": "Sun, 22 Nov 2026 09:04:24 +0000",
-          "description": "Il rifiuto di partecipare a una verifica o a un’attività assume lo stesso significato quando riguarda uno studente con PEI o PDP? L'articolo Studente con PEI o…"
+          "title": "Libri digitali scontati al 50%: l’Italia accelera, mentre in Europa si viaggia a due velocità tra digitalizzazione spinta e riscoperta della carta",
+          "link": "https://www.orizzontescuola.it/libri-digitali-scontati-al-50-litalia-accelera-mentre-in-europa-si-viaggia-a-due-velocita-tra-digitalizzazione-spinta-e-riscoperta-della-carta/",
+          "pubDate": "Sun, 22 Nov 2026 16:22:58 +0000",
+          "description": "Il via libera dell'Aula del Senato all'emendamento al decreto scuola che obbliga gli editori a fornire i manuali scolastici e universitari in formato digitale c…"
         },
         {
-          "title": "L’IIS Galilei-Luxemburg di Milano porta la meccanica e la stampa 3D a Expo Training (VIDEO)",
-          "link": "https://www.orizzontescuola.it/liis-galilei-luxemburg-di-milano-porta-la-meccanica-e-la-stampa-3d-a-expo-training-video/",
-          "pubDate": "Sun, 22 Nov 2026 08:59:12 +0000",
-          "description": "Progetti tecnici, innovazione sostenibile e orientamento tra pari caratterizzano la presenza dell'Istituto di Istruzione Superiore \"Galilei-Luxemburg\" di Milano…"
+          "title": "Sostegno, ANIEF chiede lo sblocco delle assunzioni in ruolo: tre emendamenti alla Legge di Bilancio",
+          "link": "https://www.orizzontescuola.it/sostegno-anief-chiede-lo-sblocco-delle-assunzioni-in-ruolo-tre-emendamenti-alla-legge-di-bilancio/",
+          "pubDate": "Sun, 22 Nov 2026 15:31:31 +0000",
+          "description": "Sbloccare le assunzioni in ruolo dei docenti di sostegno sui posti in deroga per garantire finalmente la continuità didattica agli alunni con disabilità. È ques…"
         },
         {
-          "title": "Corteo in orario di scuola? Cosa rischi tra assenze, fermi e nuove regole per i minorenni. La guida di Cittadinanzattiva",
-          "link": "https://www.orizzontescuola.it/corteo-in-orario-di-scuola-cosa-rischi-tra-assenze-fermi-e-nuove-regole-per-i-minorenni-la-guida-di-cittadinanzattiva/",
-          "pubDate": "Sun, 22 Nov 2026 08:54:41 +0000",
-          "description": "Il 20 novembre scorso, migliaia di ragazze e ragazzi sono scesi in piazza in tutta Italia per far sentire la propria voce su temi sociali, ambientali e studente…"
+          "title": "Quattro coltellate alla schiena all’ora dell’uscita da scuola: un 18enne aggredito da otto-dieci giovani. Prognosi di trenta giorni, indaga la Squadra mobile",
+          "link": "https://www.orizzontescuola.it/quattro-coltellate-alla-schiena-allora-delluscita-da-scuola-un-18enne-aggredito-da-otto-dieci-giovani-prognosi-di-trenta-giorni-indaga-la-squadra-mobile/",
+          "pubDate": "Sun, 22 Nov 2026 15:26:08 +0000",
+          "description": "Un gruppo di otto o dieci giovani, armati di coltelli, ha accerchiato un ragazzo di 18 anni e lo ha colpito quattro volte alla schiena e due alla testa. Poi son…"
         },
         {
-          "title": "Istruzione parentale, legittima non ammissione per insufficienze. Il TAR respinge ricorso di una famiglia: sufficienza obbligatoria in ogni materia",
-          "link": "https://www.orizzontescuola.it/istruzione-parentale-legittima-non-ammissione-per-insufficienze-il-tar-respinge-ricorso-di-una-famiglia-sufficienza-obbligatoria-in-ogni-materia/",
-          "pubDate": "Sun, 22 Nov 2026 08:49:56 +0000",
-          "description": "Il TAR della Puglia ha respinto il ricorso presentato dai genitori di uno studente minorenne contro il giudizio di non ammissione alla classe superiore espresso…"
+          "title": "Italia fanalino di coda nelle discipline STEM: laurea per il 4,4% degli italiani, dietro Romania e Repubblica Ceca. In testa Irlanda e Svezia",
+          "link": "https://www.orizzontescuola.it/italia-fanalino-di-coda-nelle-discipline-stem-laurea-per-il-44-degli-italiani-dietro-romania-e-repubblica-ceca-in-testa-irlanda-e-svezia/",
+          "pubDate": "Sun, 22 Nov 2026 15:24:40 +0000",
+          "description": "Scienze, informatica, ingegneria: in Europa più di un universitario su quattro studia una di queste materie. In Italia la quota è appena più bassa, ma ad avere…"
         },
         {
-          "title": "Graduatorie ATA 24 mesi, congedo parentale valutato e congedo straordinario no: ANIEF contesta la disparità. Pillole di Question Time",
-          "link": "https://www.orizzontescuola.it/graduatorie-ata-24-mesi-congedo-parentale-valutato-e-congedo-straordinario-no-anief-contesta-la-disparita-pillole-di-question-time/",
-          "pubDate": "Sun, 22 Nov 2026 08:35:36 +0000",
-          "description": "Nel Question Time del 4 novembre 2026 su Orizzonte Scuola, condotto da Andrea Carlino con la partecipazione di Cristina Dal Pino (ANIEF), è stato affrontato anc…"
+          "title": "Giorno del Ricordo, corso di formazione per docenti sulla Frontiera Adriatica, le foibe e l’esodo: tre webinar dal 27 novembre",
+          "link": "https://www.orizzontescuola.it/giorno-del-ricordo-corso-di-formazione-per-docenti-sulla-frontiera-adriatica-le-foibe-e-lesodo-tre-webinar-dal-27-novembre/",
+          "pubDate": "Sun, 22 Nov 2026 14:48:00 +0000",
+          "description": "Il percorso formativo, intitolato “Il Giorno del Ricordo. In Rete per la memoria. Dalla Frontiera Adriatica alla responsabilità educativa”, propone un approfond…"
         }
       ]
     },
@@ -87,40 +87,40 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Cop31, si tratta ancora. Bruxelles delusa dal mancato riferimento a oil&amp;gas: possibile il fallimento dei colloqui",
-          "link": "https://www.ilsole24ore.com/art/cop31-slitta-ancora-chiusura-bruxelles-avverte-possibile-fallimento-colloqui-AJYuWoOC",
-          "pubDate": "Sat, 21 Nov 2026 20:56:00 GMT",
-          "description": "Non è bastato un giorno in più, rispetto al programma, per raggiungere un accordo alla Cop31, ancora in corso in Turchia. La conferenza è cominciata il 9 e dove…"
-        },
-        {
-          "title": "Venezia, il ticket d’accesso potrebbe raddoppiare: da 10 a 20 euro",
-          "link": "https://www.ilsole24ore.com/art/venezia-ticket-d-accesso-potrebbe-raddoppiare-10-20-euro-AJlijeOC",
-          "pubDate": "Sun, 22 Nov 2026 07:50:00 GMT",
-          "description": "La novità in un emendamento firmato da Caramanna (Fdi). Intanto il Comune ha portato da 5 a 9,50 la tassa di soggiorno"
-        },
-        {
-          "title": "Germania, sciopero nell’industria: coinvolti oltre 23mila lavoratori",
-          "link": "https://www.ilsole24ore.com/art/germania-sciopero-nell-industria-coinvolti-oltre-23mila-lavoratori-AJbNB6OC",
-          "pubDate": "Sun, 22 Nov 2026 08:05:31 GMT",
-          "description": "Nuova ondata di scioperi nell’industria tedesca. Il sindacato IG Metall ha annunciato un’estensione delle proteste nel nord della Germania, chiamando oltre 23mi…"
-        },
-        {
-          "title": "Nvidia, un imprenditore cinese dietro la presunta rete di traffico dei chip verso Pechino",
-          "link": "https://www.ilsole24ore.com/art/nvidia-imprenditore-cinese-dietro-presunta-rete-traffico-chip-pechino-AJBLH9OC",
-          "pubDate": "Sun, 22 Nov 2026 09:01:57 GMT",
-          "description": "Emergono nuovi dettagli sul presunto traffico di semiconduttori Nvidia verso la Cina. Secondo un’inchiesta del Wall Street Journal pubblicata oggi 22 novembre,…"
-        },
-        {
-          "title": "Ferrari 296 Challenge Stradale e Challenge Evo: la pista arriva su strada, senza ibrido",
-          "link": "https://www.ilsole24ore.com/art/ferrari-296-challenge-stradale-e-challenge-evo-pista-arriva-strada-senza-ibrido-AJSp6dOC",
-          "pubDate": "Sat, 21 Nov 2026 22:04:16 GMT",
-          "description": "Ferrari accorcia ulteriormente le distanze tra le proprie vetture da competizione e quelle omologate per la circolazione stradale. Lo fa con due nuove interpret…"
+          "title": "La Cop31 deraglia sui combustibili fossili. La Ue alla guida del fronte per l’«uscita», contro Arabia, Russia e India",
+          "link": "https://www.ilsole24ore.com/art/cop31-ue-si-oppone-decisione-quadro-AJqJC4OC",
+          "pubDate": "Sun, 22 Nov 2026 10:56:00 GMT",
+          "description": "Niente accordo politico alla Cop31 di Antalya. L’Unione Europea ha rigettato la proposta di decisione quadro, che nemmeno menzionava i combustibili fossili, pri…"
         },
         {
           "title": "Infarto, ictus e aterosclerosi: i rischi se reni e fegato non funzionano, ecco 5 consigli per ridurli",
           "link": "https://www.ilsole24ore.com/art/infarto-ictus-e-aterosclerosi-rischi-se-reni-e-fegato-non-funzionano-ecco-5-consigli-ridurli-AJNVO8OC",
           "pubDate": "Sun, 22 Nov 2026 08:58:54 GMT",
-          "description": "C'è un filo rosso che lega cuore, arterie, fegato, reni e metabolismo. Alla fine di questo percorso combinato che sta tra fisiologia e patologia, crescono i ris…"
+          "description": "Prima dei farmaci, puntiamo sulle buone abitudini. E poi, seguiamo le indicazioni del medico. I consigli degli specialisti per evitare brutte sorprese"
+        },
+        {
+          "title": "Superbonus, sul tavolo lo stralcio dello spalmacrediti in 10 anni",
+          "link": "https://www.ilsole24ore.com/art/superbonus-tavolo-stralcio-spalmacrediti-10-anni-AJCAitNC",
+          "pubDate": "Sun, 22 Nov 2026 10:08:03 GMT",
+          "description": "Tra le opzioni l’addio alla norma contestata da banche, imprese e professionisti. Costo da circa 550 milioni per coprire le emissioni dei titoli di Stato necess…"
+        },
+        {
+          "title": "Dario Amodei sceglie la Puglia: il ceo di Anthropic avrebbe acquistato una masseria",
+          "link": "https://www.ilsole24ore.com/art/dario-amodei-sceglie-puglia-ceo-anthropic-avrebbe-acquistato-masseria-AJzwfGPC",
+          "pubDate": "Sun, 22 Nov 2026 12:54:24 GMT",
+          "description": "Giovedì ha suonato la campanella dell’avvio degli scambi al Nasdaq per la quotazione record di Anthropic , il colosso dell’intelligenza artificiale di cui è co-…"
+        },
+        {
+          "title": "Nvidia, la rete dei chip verso la Cina: importazioni per 4,6 miliardi di dollari",
+          "link": "https://www.ilsole24ore.com/art/nvidia-rete-chip-la-cina-importazioni-46-miliardi-dollari-AJ1iGFPC",
+          "pubDate": "Sun, 22 Nov 2026 12:01:00 GMT",
+          "description": "Una rete di società attive tra Stati Uniti e Sud-est asiatico, attraverso la quale sarebbero arrivati in Cina chip Nvidia soggetti alle restrizioni americane su…"
+        },
+        {
+          "title": "Le Atp Finals reggono lo stress-test dell’assenza di Sinner, 233mila presenze e 721 milioni di impatto",
+          "link": "https://www.ilsole24ore.com/art/le-atp-finals-reggono-stress-test-dell-assenza-sinner-233-presenze-e-721-milioni-impatto-AJixSNPC",
+          "pubDate": "Sun, 22 Nov 2026 15:31:00 GMT",
+          "description": "Le Atp Finals 2026 reggono lo stress-test dell’assenza di Jannik Sinner con 721 milioni di euro di impatto economico complessivo, oltre 233mila presenze, frutto…"
         }
       ]
     }
