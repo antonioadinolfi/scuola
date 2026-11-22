@@ -370,12 +370,13 @@
 
     /* ── Dark theme ─────────────────────────────────────────── */
     html.dark{
-      --bg:#142f53;
-      --panel-bg:#18385d;
-      --header-bg:#204369;
-      --toolbar-bg:#204369;
-      --border:#365a80;
-      --border-light:#31557c;
+      --bg:#142034;
+      --slate-gradient:radial-gradient(ellipse at top right,#275678 0%,#182b44 56%,#131e32 100%);
+      --panel-bg:#182b44;
+      --header-bg:#1c334b;
+      --toolbar-bg:#1c334b;
+      --border:#304b64;
+      --border-light:#29465f;
       --text:#e8e8e8;
       --muted:#b5cae1;
       --accent:#4da3ff;
@@ -383,61 +384,61 @@
       --sel-bg:#1e3a5a;
       --sel-bg-focus:#1a5fa8;
       --sel-text-focus:#fff;
-      --col-header:#24496f;
-      --statusbar-bg:#19395e;
+      --col-header:#22415c;
+      --statusbar-bg:#192e46;
     }
-    html.dark .titlebar{background:#193f6a;border-bottom-color:var(--color-accent,#c8963e);color:#f0ece2}
+    html.dark .titlebar{background:var(--slate-gradient);border-bottom-color:var(--color-accent,#c8963e);color:#f0ece2}
     html.dark .titlebar-btn{color:#cbd0d8}
-    html.dark .titlebar-btn:hover{background:#365a80}
+    html.dark .titlebar-btn:hover{background:#304b64}
     html.dark .titlebar-btn.close:hover{background:#c42b1c;color:#fff}
-    html.dark .menubar{background:#204369;border-color:#365a80}
+    html.dark .menubar{background:#1c334b;border-color:#304b64}
     html.dark .menu-item{color:#d4e2f2}
-    html.dark .menu-item:hover{background:#365a80}
-    html.dark .toolbar-bar{background:linear-gradient(180deg,#24496f,#1b3d63);border-color:#365a80}
+    html.dark .menu-item:hover{background:#304b64}
+    html.dark .toolbar-bar{background:linear-gradient(180deg,#22415c,#192e46);border-color:#304b64}
     html.dark .tb-btn{color:#d4e2f2}
     html.dark .tb-btn:hover{background:#1e3a5a;border-color:#2a5a8a}
     html.dark .tb-btn.ok{background:linear-gradient(180deg,#1a3a2a,#163020);border-color:#2a5a3a;color:#8fd4a0}
-    html.dark .tb-sep{background:#365a80}
-    html.dark .tb-search{background:#173659;border-color:#44698e;color:#e0e0e0}
+    html.dark .tb-sep{background:#304b64}
+    html.dark .tb-search{background:#17263d;border-color:#3c5872;color:#e0e0e0}
     html.dark .tb-search:focus{border-color:#4da3ff}
-    html.dark .addressbar{background:#173659;border-color:#365a80}
+    html.dark .addressbar{background:#17263d;border-color:#304b64}
     html.dark .addr-label{color:#b2c6df}
-    html.dark .addr-path{background:#142f53;border-color:#365a80;color:#d4e2f2}
+    html.dark .addr-path{background:#142034;border-color:#304b64;color:#d4e2f2}
     html.dark #viewerDescription{color:#b2c6df!important}
     html.dark .col-cell{color:#bed0e5}
-    html.dark .col-cell:hover{background:#31557c}
+    html.dark .col-cell:hover{background:#29465f}
     html.dark .file-row:hover .fc{background:#1e3a5a}
-    html.dark .fc{color:#d0d0d0;border-color:#24496f}
+    html.dark .fc{color:#d0d0d0;border-color:#22415c}
     html.dark .file-name-text{color:#e0e0e0}
-    html.dark .file-ext-tag{background:#31557c;border-color:#44698e;color:#bed0e5}
+    html.dark .file-ext-tag{background:#29465f;border-color:#3c5872;color:#bed0e5}
     html.dark .file-icon-sm{background:#1e3055;color:#6ab0ff;border-color:#2a5080}
     html.dark .file-icon-sm.ext-pdf{background:#3a1820;color:#f06080;border-color:#5a2030}
     html.dark .file-icon-sm.ext-pptx,html.dark .file-icon-sm.ext-ppt{background:#3a2010;color:#f09040;border-color:#5a3010}
     html.dark .file-icon-sm.ext-html,html.dark .file-icon-sm.ext-htm{background:#1a3a1a;color:#60c060;border-color:#2a5a2a}
     html.dark .file-icon-sm.ext-py{background:#2a1a40;color:#a060f0;border-color:#4a2a60}
-    html.dark .file-icon-sm.ext-txt{background:#204369;color:#bed0e5;border-color:#365a80}
+    html.dark .file-icon-sm.ext-txt{background:#1c334b;color:#bed0e5;border-color:#304b64}
     html.dark .panel-colhead{color:#bed0e5}
     html.dark .class-btn{color:#d0d0d0}
     html.dark .class-btn:hover{background:#1e3050}
     html.dark .class-count{background:#2a3a4a;color:#8ab8e8}
-    html.dark .viewer-topbar{background:#24496f;border-color:#365a80;color:#bed0e5}
-    html.dark .viewer-body{background:#142f53}
-    html.dark .viewer-frame{border-color:#44698e}
-    html.dark .vbtn{background:linear-gradient(180deg,#24496f,#1b3d63);border-color:#44698e;color:#d4e2f2}
+    html.dark .viewer-topbar{background:#22415c;border-color:#304b64;color:#bed0e5}
+    html.dark .viewer-body{background:var(--slate-gradient)}
+    html.dark .viewer-frame{border-color:#3c5872}
+    html.dark .vbtn{background:linear-gradient(180deg,#22415c,#192e46);border-color:#3c5872;color:#d4e2f2}
     html.dark .vbtn:hover{background:linear-gradient(180deg,#1e3a5a,#162e4a);border-color:#2a5a8a}
     html.dark .vbtn.ok{background:linear-gradient(180deg,#1a3a2a,#132a1e);border-color:#2a5a3a;color:#6ad090}
     html.dark .vbtn.warn{background:linear-gradient(180deg,#3a2010,#2a1808);border-color:#6a3818;color:#e09040}
-    html.dark .notes-topbar{background:#24496f;border-color:#365a80;color:#d4e2f2}
-    html.dark .notes-title{background:#142f53;border-color:#44698e;color:#e0e0e0}
-    html.dark .notes-area{background:#142f53;border-color:#365a80;color:#d8d8d8}
-    html.dark .notes-footer{border-color:#365a80;color:#b2c6df}
-    html.dark .statusbar{background:linear-gradient(180deg,#19395e,#142f53);border-color:#365a80;color:#b2c6df}
-    html.dark .splitter{background:linear-gradient(180deg,#31557c,#204369,#31557c);border-color:#44698e}
-    html.dark .splitter.horizontal{background:linear-gradient(90deg,#31557c,#204369,#31557c)}
+    html.dark .notes-topbar{background:#22415c;border-color:#304b64;color:#d4e2f2}
+    html.dark .notes-title{background:#142034;border-color:#3c5872;color:#e0e0e0}
+    html.dark .notes-area{background:#142034;border-color:#304b64;color:#d8d8d8}
+    html.dark .notes-footer{border-color:#304b64;color:#b2c6df}
+    html.dark .statusbar{background:linear-gradient(180deg,#192e46,#142034);border-color:#304b64;color:#b2c6df}
+    html.dark .splitter{background:linear-gradient(180deg,#29465f,#1c334b,#29465f);border-color:#3c5872}
+    html.dark .splitter.horizontal{background:linear-gradient(90deg,#29465f,#1c334b,#29465f)}
     html.dark .splitter:hover,.splitter.dragging{background:linear-gradient(180deg,#1e3a5a,#2a5a8a,#1e3a5a)}
     html.dark .splitter.horizontal:hover,.splitter.horizontal.dragging{background:linear-gradient(90deg,#1e3a5a,#2a5a8a,#1e3a5a)}
-    html.dark #qrOverlay{background:#19395e;border-color:#44698e}
-    html.dark #qrOverlay .qr-title{color:#d4e2f2;border-color:#365a80}
+    html.dark #qrOverlay{background:#192e46;border-color:#3c5872}
+    html.dark #qrOverlay .qr-title{color:#d4e2f2;border-color:#304b64}
     html.dark .empty,html.dark .empty-list{color:#a8bfd9}
     html.dark .empty strong{color:#bed0e5}
 
@@ -460,7 +461,7 @@
       background:#f0f0f0;border:1px solid #d0d0d0;border-radius:8px;
       padding:0 5px;line-height:16px;user-select:none;white-space:nowrap;
     }
-    html.dark .zoom-hint-pill{background:#204369;border-color:#44698e;color:#a8bfd9}
+    html.dark .zoom-hint-pill{background:#1c334b;border-color:#3c5872;color:#a8bfd9}
 
     /* ── Zoom toast ───────────────────────────────────────── */
     #zoomToast{
@@ -506,14 +507,14 @@
       width:100%;display:flex;gap:4px;justify-content:flex-end;
       padding:6px 14px 10px;border-top:1px solid #e8e8e8;
     }
-    html.dark #qrOverlay{background:#18385d;border-color:#44698e;box-shadow:4px 4px 24px rgba(0,0,0,.6);}
-    html.dark #qrOverlay .qr-titlebar{background:linear-gradient(180deg,#24496f,#1b3d63);border-color:#365a80;color:#d4e2f2;}
-    html.dark #qrOverlay .qr-url-input{background:#142f53;border-color:#44698e;color:#d4e2f2;}
+    html.dark #qrOverlay{background:#182b44;border-color:#3c5872;box-shadow:4px 4px 24px rgba(0,0,0,.6);}
+    html.dark #qrOverlay .qr-titlebar{background:linear-gradient(180deg,#22415c,#192e46);border-color:#304b64;color:#d4e2f2;}
+    html.dark #qrOverlay .qr-url-input{background:#142034;border-color:#3c5872;color:#d4e2f2;}
     html.dark #qrOverlay .qr-opts{color:#bed0e5;}
     html.dark #qrOverlay .qr-file-label{color:#a8bfd9;}
-    html.dark #qrOverlay .qr-footer{border-color:#365a80;}
-    html.dark #qrOverlay .qr-canvas-wrap{border-color:#365a80;}
-    html.dark #zoomToast{background:rgba(25,57,94,.96);}
+    html.dark #qrOverlay .qr-footer{border-color:#304b64;}
+    html.dark #qrOverlay .qr-canvas-wrap{border-color:#304b64;}
+    html.dark #zoomToast{background:rgba(25,46,70,.96);}
   </style>
   <script>document.documentElement.classList.add("auth-checking");</script>
   <link href="enterprise-auth.css" rel="stylesheet">
