@@ -453,10 +453,10 @@
   {
     "classe": "Quarta",
     "titolo": "Verifica_OOP_Novembre",
-    "descrizione": "Download configurazione SEB cifrata della verifica OOP quarta: 4 esercizi casuali estratti da 30, con consegna PDF. L'URL iniziale della configurazione deve essere verificato dal docente.",
+    "descrizione": "Apri la verifica OOP nel browser: 4 esercizi casuali estratti da 30, con 40 minuti a disposizione e consegna in PDF.",
     "tipo": "esercizio",
-    "file_path": "tracce/Quarte/scarica_verifica_oop_seb.html",
-    "target_page": "tracce/Quarte/scarica_verifica_oop_seb.html",
+    "file_path": "tracce/Quarte/laboratorio_oop_random.html",
+    "target_page": "tracce/Quarte/laboratorio_oop_random.html",
     "ordine": 12,
     "attivo": true,
     "categoria": "Laboratorio Interattivo"
