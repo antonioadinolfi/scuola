@@ -254,6 +254,17 @@
   },
   {
     "classe": "Quarta",
+    "titolo": "Infografica: l’incapsulamento in Python",
+    "descrizione": "Stato interno, interfaccia pubblica, proprietà in sola lettura e validazione. Esempio Python con output e mini-esercizio.",
+    "tipo": "slide",
+    "file_path": "materiali/infografica/Infografica_incapsulamento_Python_A4.pdf",
+    "target_page": "",
+    "ordine": 2,
+    "attivo": true,
+    "categoria": "Infografiche"
+  },
+  {
+    "classe": "Quarta",
     "titolo": "Introduzione ai database",
     "descrizione": "Normalizzazione e progettazione concettuale.",
     "tipo": "slide",
