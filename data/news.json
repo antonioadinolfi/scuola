@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T17:41:14+00:00",
+  "updatedAt": "2026-11-22T23:25:30+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,30 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "“Tutti elogiano i maestri, ma lo Stato li paga meno”, una petizione chiede equiparazione salariale con i docenti delle medie e delle superiori",
+          "link": "https://www.orizzontescuola.it/tutti-elogiano-i-maestri-italiani-ma-lo-stato-li-paga-meno-una-petizione-chiede-lequiparazione-salariale-con-i-docenti-delle-medie-e-delle-superiori/",
+          "pubDate": "Sun, 22 Nov 2026 20:32:27 +0000",
+          "description": "Nel dibattito pubblico sulla scuola c’è un punto su cui quasi tutti concordano: il ruolo fondamentale degli insegnanti della scuola dell’infanzia e della primar…"
+        },
+        {
+          "title": "Stipendio docenti e ATA, lunedì 23 la mensilità di novembre. A dicembre la tredicesima, si punta alla data del 15",
+          "link": "https://www.orizzontescuola.it/stipendio-docenti-e-ata-lunedi-23-la-mensilita-di-novembre-a-dicembre-la-tredicesima-si-punta-alla-data-del-15/",
+          "pubDate": "Sun, 22 Nov 2026 19:32:38 +0000",
+          "description": "Stipendio docenti e ATA, lunedì 23 è la data di accredito per la mensilità di novembre per il personale con contratto a tempo indeterminato o supplenza fino al…"
+        },
+        {
+          "title": "Strumenti compensativi e verifiche scritte, per il TAR gli schemi previsti per i DSA non possono sostituire lo studio. Confermata la bocciatura di un alunno",
+          "link": "https://www.orizzontescuola.it/strumenti-compensativi-e-verifiche-scritte-per-il-tar-gli-schemi-previsti-per-i-dsa-non-possono-sostituire-lo-studio-confermata-la-bocciatura-di-un-alunno/",
+          "pubDate": "Sun, 22 Nov 2026 19:11:38 +0000",
+          "description": "Resta confermata la non ammissione all’ultimo anno delle superiori per uno studente di quarta dell’indirizzo Manutenzione e assistenza tecnica, bocciato dopo la…"
+        },
+        {
+          "title": "Scuola e aziende, nella primaria 7 docenti su 10 segnalano progetti che coinvolgono anche le famiglie",
+          "link": "https://www.orizzontescuola.it/scuola-e-aziende-nella-primaria-7-docenti-su-10-segnalano-progetti-che-coinvolgono-anche-le-famiglie/",
+          "pubDate": "Sun, 22 Nov 2026 18:29:11 +0000",
+          "description": "Le collaborazioni tra scuole e aziende non si fermano alle attività in classe, ma coinvolgono anche le famiglie. L'articolo Scuola e aziende, nella primaria 7 d…"
+        },
+        {
           "title": "Legge di Bilancio, 14 emendamenti per la scuola: buoni pasto, Carta servizi e aumenti UE nel segno delle richieste ANIEF",
           "link": "https://www.orizzontescuola.it/legge-di-bilancio-14-emendamenti-per-la-scuola-buoni-pasto-carta-servizi-e-aumenti-ue-nel-segno-delle-richieste-anief/",
           "pubDate": "Sun, 22 Nov 2026 16:34:18 +0000",
@@ -56,36 +80,18 @@
           "link": "https://www.orizzontescuola.it/libri-digitali-scontati-al-50-litalia-accelera-mentre-in-europa-si-viaggia-a-due-velocita-tra-digitalizzazione-spinta-e-riscoperta-della-carta/",
           "pubDate": "Sun, 22 Nov 2026 16:22:58 +0000",
           "description": "Il via libera dell'Aula del Senato all'emendamento al decreto scuola che obbliga gli editori a fornire i manuali scolastici e universitari in formato digitale c…"
-        },
-        {
-          "title": "Sostegno, ANIEF chiede lo sblocco delle assunzioni in ruolo: tre emendamenti alla Legge di Bilancio",
-          "link": "https://www.orizzontescuola.it/sostegno-anief-chiede-lo-sblocco-delle-assunzioni-in-ruolo-tre-emendamenti-alla-legge-di-bilancio/",
-          "pubDate": "Sun, 22 Nov 2026 15:31:31 +0000",
-          "description": "Sbloccare le assunzioni in ruolo dei docenti di sostegno sui posti in deroga per garantire finalmente la continuità didattica agli alunni con disabilità. È ques…"
-        },
-        {
-          "title": "Quattro coltellate alla schiena all’ora dell’uscita da scuola: un 18enne aggredito da otto-dieci giovani. Prognosi di trenta giorni, indaga la Squadra mobile",
-          "link": "https://www.orizzontescuola.it/quattro-coltellate-alla-schiena-allora-delluscita-da-scuola-un-18enne-aggredito-da-otto-dieci-giovani-prognosi-di-trenta-giorni-indaga-la-squadra-mobile/",
-          "pubDate": "Sun, 22 Nov 2026 15:26:08 +0000",
-          "description": "Un gruppo di otto o dieci giovani, armati di coltelli, ha accerchiato un ragazzo di 18 anni e lo ha colpito quattro volte alla schiena e due alla testa. Poi son…"
-        },
-        {
-          "title": "Italia fanalino di coda nelle discipline STEM: laurea per il 4,4% degli italiani, dietro Romania e Repubblica Ceca. In testa Irlanda e Svezia",
-          "link": "https://www.orizzontescuola.it/italia-fanalino-di-coda-nelle-discipline-stem-laurea-per-il-44-degli-italiani-dietro-romania-e-repubblica-ceca-in-testa-irlanda-e-svezia/",
-          "pubDate": "Sun, 22 Nov 2026 15:24:40 +0000",
-          "description": "Scienze, informatica, ingegneria: in Europa più di un universitario su quattro studia una di queste materie. In Italia la quota è appena più bassa, ma ad avere…"
-        },
-        {
-          "title": "Giorno del Ricordo, corso di formazione per docenti sulla Frontiera Adriatica, le foibe e l’esodo: tre webinar dal 27 novembre",
-          "link": "https://www.orizzontescuola.it/giorno-del-ricordo-corso-di-formazione-per-docenti-sulla-frontiera-adriatica-le-foibe-e-lesodo-tre-webinar-dal-27-novembre/",
-          "pubDate": "Sun, 22 Nov 2026 14:48:00 +0000",
-          "description": "Il percorso formativo, intitolato “Il Giorno del Ricordo. In Rete per la memoria. Dalla Frontiera Adriatica alla responsabilità educativa”, propone un approfond…"
         }
       ]
     },
     {
       "source": "Il Sole 24 Ore",
       "items": [
+        {
+          "title": "Borse verso una settimana calda dopo il crollo del Nasdaq per l’alta tensione sull’Ai",
+          "link": "https://www.ilsole24ore.com/art/borse-alta-tensione-sull-ai-settimana-calda-crollo-nasdaq-AJ3IwLPC",
+          "pubDate": "Sun, 22 Nov 2026 14:28:00 GMT",
+          "description": "&nbsp;Dopo una settimana da incubo, in cui il Nasdaq ha ceduto il 10% entrando in territorio Orso mentre le vendite si abbattevano sul comparto dell’intelligenz…"
+        },
         {
           "title": "La Cop31 deraglia sui combustibili fossili. La Ue alla guida del fronte per l’«uscita», contro Arabia, Russia e India",
           "link": "https://www.ilsole24ore.com/art/cop31-ue-si-oppone-decisione-quadro-AJqJC4OC",
@@ -105,22 +111,16 @@
           "description": "Tra le opzioni l’addio alla norma contestata da banche, imprese e professionisti. Costo da circa 550 milioni per coprire le emissioni dei titoli di Stato necess…"
         },
         {
+          "title": "Sciopero dei controllori di volo blocca tutti i voli a Bruxelles e Charleroi il 23 novembre",
+          "link": "https://www.ilsole24ore.com/art/sciopero-controllori-volo-blocca-tutti-voli-bruxelles-e-charleroi-23-novembre-AJ1o0WPC",
+          "pubDate": "Sun, 22 Nov 2026 19:22:00 GMT",
+          "description": "Tutti i voli in arrivo e in partenza dagli aeroporti di Bruxelles e Charleroi saranno cancellati domani 23 novembre, dalle 7 alle 21, per l’adesione dei control…"
+        },
+        {
           "title": "Dario Amodei sceglie la Puglia: il ceo di Anthropic avrebbe acquistato una masseria",
           "link": "https://www.ilsole24ore.com/art/dario-amodei-sceglie-puglia-ceo-anthropic-avrebbe-acquistato-masseria-AJzwfGPC",
           "pubDate": "Sun, 22 Nov 2026 12:54:24 GMT",
           "description": "Giovedì ha suonato la campanella dell’avvio degli scambi al Nasdaq per la quotazione record di Anthropic , il colosso dell’intelligenza artificiale di cui è co-…"
-        },
-        {
-          "title": "Nvidia, la rete dei chip verso la Cina: importazioni per 4,6 miliardi di dollari",
-          "link": "https://www.ilsole24ore.com/art/nvidia-rete-chip-la-cina-importazioni-46-miliardi-dollari-AJ1iGFPC",
-          "pubDate": "Sun, 22 Nov 2026 12:01:00 GMT",
-          "description": "Una rete di società attive tra Stati Uniti e Sud-est asiatico, attraverso la quale sarebbero arrivati in Cina chip Nvidia soggetti alle restrizioni americane su…"
-        },
-        {
-          "title": "Le Atp Finals reggono lo stress-test dell’assenza di Sinner, 233mila presenze e 721 milioni di impatto",
-          "link": "https://www.ilsole24ore.com/art/le-atp-finals-reggono-stress-test-dell-assenza-sinner-233-presenze-e-721-milioni-impatto-AJixSNPC",
-          "pubDate": "Sun, 22 Nov 2026 15:31:00 GMT",
-          "description": "Le Atp Finals 2026 reggono lo stress-test dell’assenza di Jannik Sinner con 721 milioni di euro di impatto economico complessivo, oltre 233mila presenze, frutto…"
         }
       ]
     }
