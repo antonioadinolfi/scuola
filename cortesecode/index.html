@@ -32,11 +32,15 @@ progress{width:100%;accent-color:var(--lime);margin:8px 0;display:block}
 #replaceWrap{display:block;margin-top:9px}#replaceWrap[hidden]{display:none}
 select{max-width:100%;font:inherit;background:#253f37;color:var(--ink);border:1px solid #466659;border-radius:8px;padding:8px}
 @media(prefers-reduced-motion:reduce){.bot{transition:none;animation:none!important}}
+#sampleShortcuts{margin-top:12px}
+#sampleShortcuts button[aria-current="true"]{outline:2px solid var(--lime);outline-offset:1px}
+#map{cursor:pointer}
+#sampleHelp{margin-top:7px}
 </style>
 </head>
 <body>
 <main>
-<header><div><div class="brand">CorteseCode</div><h1>Missione Bonifica</h1><p>Raccogli i rifiuti e salva la natura lungo il canale.</p></div><button id="reset">Ricomincia</button></header>
+<header><div><div class="brand">CorteseCode</div><h1>Missione Bonifica</h1><p>Addestra Virid con tre campioni e sfida Ruggine in una gara di 45 secondi.</p></div><button id="reset">Ricomincia</button></header>
 <section class="panel" id="race" aria-labelledby="raceTitle" hidden>
 <div class="race-head"><h2 id="raceTitle" tabindex="-1">Gara del Canale</h2><span id="clock" aria-label="Tempo rimanente"></span></div>
 <progress id="progress" max="45" value="0" aria-label="Tempo trascorso"></progress>
@@ -48,11 +52,14 @@ select{max-width:100%;font:inherit;background:#253f37;color:var(--ink);border:1p
 <section class="panel" aria-labelledby="map-title">
 <div class="bar"><h2 id="map-title">Parco del Canale</h2><small id="position"></small></div>
 <canvas id="map" width="576" height="384" role="img" aria-label="Mappa del parco con campioni numerati sulla riva sinistra e zona di prova sulla destra"></canvas>
+<div class="actions" id="sampleShortcuts" role="group" aria-label="Vai a un campione">
+<button data-sample="0">Campione 1</button><button data-sample="1">Campione 2</button><button data-sample="2">Campione 3</button><button data-sample="3" hidden>Campione 4</button><button data-sample="4" hidden>Campione 5</button>
+</div>
 <div class="controls pad" aria-label="Comandi di movimento"><button data-move="up" aria-label="Su">↑</button><button data-move="left" aria-label="Sinistra">←</button><button data-move="down" aria-label="Giù">↓</button><button data-move="right" aria-label="Destra">→</button><small>Puoi usare anche frecce o WASD.</small></div>
 </section>
 <div class="sidebar">
-<section class="panel"><div class="eyebrow">Missione</div><p id="objective" role="status"></p><div class="actions"><button id="run" class="primary">Avvia gara</button></div></section>
-<section class="panel"><div class="bar"><h2>Campione sul terreno</h2><small id="count"></small></div><div id="sample"><p id="sampleName"></p><p class="features" id="features"></p><p class="muted" id="labelStatus" role="status"></p><label id="replaceWrap" hidden>Sostituisci un campione <select id="replace"></select></label><div class="actions" id="labels"><button data-label="Plastica">Plastica</button><button data-label="Metallo">Metallo</button><button data-label="Naturale">Naturale</button></div></div></section>
+<section class="panel"><div class="eyebrow">Missione</div><p id="objective" role="status"></p><p id="sampleHelp" class="muted"></p><div class="actions"><button id="run" class="primary">Avvia gara</button></div></section>
+<section class="panel"><div class="bar"><h2 id="sampleTitle" tabindex="-1">Campione sul terreno</h2><small id="count"></small></div><div id="sample"><p id="sampleName"></p><p class="features" id="features"></p><p class="muted" id="labelStatus" role="status"></p><label id="replaceWrap" hidden>Sostituisci un campione <select id="replace"></select></label><div class="actions" id="labels"><button data-label="Plastica">Plastica</button><button data-label="Metallo">Metallo</button><button data-label="Naturale">Naturale</button></div></div></section>
 </div></div>
 <section class="panel" id="results" hidden tabindex="-1"><h2>Esito della bonifica</h2><p id="score" role="status"></p><p id="impact" class="muted"></p><p id="replayHint"></p><details><summary>Tutte le decisioni di Virid</summary><ol id="details"></ol></details></section>
 <footer>Il robot usa il vicino più prossimo (1-NN). Confronta tre valori da 0 a 10 e copia l’etichetta del campione più simile.</footer>
@@ -86,6 +93,7 @@ const laneIds=['player','rival'];
 let x,y,labels,attempt,results,rivalResults,timer,started,lastStage;
 const labelButtons = [...document.querySelectorAll('[data-label]')];
 const moveButtons = [...document.querySelectorAll('[data-move]')];
+const sampleButtons = [...document.querySelectorAll('[data-sample]')];
 function tile(x,y,color){
   ctx.fillStyle=color;
   ctx.fillRect(x*48,y*48,48,48);
@@ -142,13 +150,20 @@ function render(){
   const won=results.length===targets.length&&results.every(r=>r.correct);
   get('position').textContent='Colonna '+(x+1)+' · Riga '+(y+1);
   get('count').textContent=labels.filter(Boolean).length+'/3 in memoria';
-  let objective='Raggiungi le caselle 1, 2 e 3 con il robot e assegna un’etichetta a ciascun campione.';
+  let objective='Seleziona Campione 1 per iniziare. Scegli il materiale, poi passa ai campioni 2 e 3.';
   if(ready) objective='Sfida Ruggine. Avete 45 secondi e quattro oggetti identici per corsia.';
   if(attempt) objective='Esplora i campioni 4 e 5. Puoi sostituire uno dei tre esempi prima della rivincita.';
   if(won) objective='Missione riuscita: rifiuti rimossi e natura protetta.';
   if(timer) objective='Il robot sta percorrendo la zona di prova.';
   get('objective').textContent=objective;
+  const missing=3-labels.filter(Boolean).length;
+  get('sampleHelp').textContent=missing?'Per avviare la gara '+(missing===1?'manca 1 campione.':'mancano '+missing+' campioni.'):'Virid è pronto a gareggiare.';
   get('run').disabled=!ready||Boolean(timer);
+  sampleButtons.forEach((button,index)=>{
+    button.hidden=index>=3&&!attempt;
+    button.setAttribute('aria-current',String(index===i));
+    button.textContent='Campione '+(index+1)+(labels[index]?' ✓':'');
+  });
   get('run').textContent=attempt?'Chiedi la rivincita':'Avvia gara';
   get('sampleName').textContent=sample?sample.name:'Spostati su una casella numerata.';
   get('features').textContent=sample?'Lucentezza '+sample.values[0]+' · Magnetismo '+sample.values[1]+' · Levigatezza '+sample.values[2]:'';
@@ -328,6 +343,20 @@ labelButtons.forEach(button=>button.addEventListener('click',()=>{
   labels[i]=button.dataset.label;
   render();
 }));
+function goToSample(index){
+  if(timer||index<0||(index>=3&&!attempt)) return;
+  x=samples[index].x;
+  y=samples[index].y;
+  render();
+  get('sampleTitle').focus();
+}
+sampleButtons.forEach(button=>button.addEventListener('click',()=>goToSample(Number(button.dataset.sample))));
+canvas.addEventListener('click',event=>{
+  const bounds=canvas.getBoundingClientRect();
+  const col=Math.floor((event.clientX-bounds.left)*12/bounds.width);
+  const row=Math.floor((event.clientY-bounds.top)*8/bounds.height);
+  goToSample(samples.findIndex(sample=>sample.x===col&&sample.y===row));
+});
 moveButtons.forEach(button=>button.addEventListener('click',()=>move(button.dataset.move)));
 document.addEventListener('keydown',event=>{
   if(event.target.closest('select, input, textarea, [contenteditable]')) return;
