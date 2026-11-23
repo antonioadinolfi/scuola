@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CorteseCode · Missione Bonifica</title>
+<style>
+:root{color-scheme:dark;--ink:#ecf8eb;--muted:#aec5ba;--line:#34544a;--lime:#d7f887;--panel:#142b26}
+*{box-sizing:border-box}body{margin:0;background:#0d1e1a;color:var(--ink);font:16px/1.5 system-ui,sans-serif}main{width:min(1120px,94%);margin:36px auto}header{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:25px}h1,h2,p{margin:0}h1{font-size:clamp(2.4rem,6vw,4.8rem);letter-spacing:-.075em;line-height:1.05}h2{font-size:1.25rem}small,.muted{color:var(--muted)}.brand,.eyebrow{font:700 .78rem ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--lime)}header p{margin-top:10px;color:var(--muted)}.layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:16px;align-items:start}.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px}.bar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px}canvas{width:100%;height:auto;display:block;border-radius:9px;background:#537048}.controls,.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center}button{font:inherit;font-weight:650;background:#253f37;color:var(--ink);border:1px solid #466659;border-radius:8px;padding:7px 12px;cursor:pointer;min-height:44px}button:hover:not(:disabled){border-color:var(--lime)}button:focus-visible{outline:3px solid #fff;outline-offset:3px}button:disabled{opacity:.5;cursor:default}.primary{background:var(--lime);color:#1b2c20;border-color:transparent}.pad button{min-width:44px;padding:5px}.sidebar{display:grid;gap:12px}#sample p,#objective{margin-top:8px}.features{font: .82rem/1.6 ui-monospace,monospace;color:var(--muted)}#results{margin-top:16px}#results ol{margin:10px 0 0;padding-left:24px}#results li{padding:5px 0}.error{color:#ffc49c}footer{padding:18px 0;color:var(--muted);font-size:.85rem}@media(max-width:760px){main{margin-top:20px}.layout{grid-template-columns:1fr}header{align-items:start}.panel{padding:12px}}
+</style>
+</head>
+<body>
+<main>
+<header><div><div class="brand">CorteseCode</div><h1>Missione Bonifica</h1><p>Insegna al robot cosa raccogliere lungo il canale.</p></div><button id="reset">Ricomincia</button></header>
+<div class="layout">
+<section class="panel" aria-labelledby="map-title">
+<div class="bar"><h2 id="map-title">Parco del Canale</h2><small id="position"></small></div>
+<canvas id="map" width="576" height="384" role="img" aria-label="Mappa del parco con campioni numerati sulla riva sinistra e zona di prova sulla destra"></canvas>
+<div class="controls pad" aria-label="Comandi di movimento"><button data-move="up" aria-label="Su">↑</button><button data-move="left" aria-label="Sinistra">←</button><button data-move="down" aria-label="Giù">↓</button><button data-move="right" aria-label="Destra">→</button><small>Puoi usare anche frecce o WASD.</small></div>
+</section>
+<div class="sidebar">
+<section class="panel"><div class="eyebrow">Missione</div><p id="objective" role="status"></p><div class="actions"><button id="run" class="primary">Avvia bonifica</button></div></section>
+<section class="panel"><div class="bar"><h2>Campione sul terreno</h2><small id="count"></small></div><div id="sample"><p id="sampleName"></p><p class="features" id="features"></p><p class="muted" id="labelStatus" role="status"></p><div class="actions" id="labels"><button data-label="Plastica">Plastica</button><button data-label="Metallo">Metallo</button><button data-label="Naturale">Naturale</button></div></div></section>
+</div></div>
+<section class="panel" id="results" hidden tabindex="-1"><h2>Esito della bonifica</h2><p id="score" role="status"></p><ol id="details"></ol></section>
+<footer>Il robot usa il vicino più prossimo (1-NN). Confronta tre valori da 0 a 10 e copia l’etichetta del campione più simile.</footer>
+</main>
+<script>
+'use strict';
+const get = id => document.getElementById(id);
+const canvas = get('map');
+const ctx = canvas.getContext('2d');
+const samples = [
+  {x:2,y:1,name:'Bottiglia di plastica',values:[9,0,8]},
+  {x:5,y:2,name:'Lattina di acciaio',values:[8,9,5]},
+  {x:2,y:5,name:'Ramo secco',values:[1,0,2]},
+  {x:5,y:6,name:'Rametto bagnato',values:[8,0,6]}
+];
+const targets = [
+  {x:9,y:1,name:'Flacone',values:[10,0,9],truth:'Plastica'},
+  {x:10,y:3,name:'Barattolo di acciaio',values:[7,10,5],truth:'Metallo'},
+  {x:9,y:5,name:'Foglia secca',values:[1,0,3],truth:'Naturale'},
+  {x:10,y:6,name:'Rametto lucido',values:[8,0,7],truth:'Naturale'}
+];
+const directions = {up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]};
+const keys = {arrowup:'up',w:'up',arrowdown:'down',s:'down',arrowleft:'left',a:'left',arrowright:'right',d:'right'};
+let x,y,labels,attempt,results,timer,best;
+const labelButtons = [...document.querySelectorAll('[data-label]')];
+const moveButtons = [...document.querySelectorAll('[data-move]')];
+function tile(x,y,color){
+  ctx.fillStyle=color;
+  ctx.fillRect(x*48,y*48,48,48);
+}
+function marker(x,y,color,symbol){
+  const cx=x*48+24, cy=y*48+24;
+  ctx.fillStyle=color;
+  ctx.beginPath();
+  ctx.arc(cx,cy,15,0,Math.PI*2);
+  ctx.fill();
+  ctx.fillStyle='#13251f';
+  ctx.font='bold 15px system-ui';
+  ctx.textAlign='center';
+  ctx.textBaseline='middle';
+  ctx.fillText(symbol,cx,cy);
+}
+function draw(){
+  for(let row=0;row<8;row++){
+    for(let col=0;col<12;col++){
+      const water=col===7||col===8;
+      const bridge=water&&row===4;
+      const path=col===3||row===4;
+      let ground=['#4e7149','#54794c','#587e50'][(col*17+row*13)%3];
+      if(path) ground='#92916a';
+      if(water) ground=bridge?'#a78659':'#317e82';
+      tile(col,row,ground);
+      ctx.fillStyle=water&&!bridge?'#6cada5':'#ffffff18';
+      ctx.fillRect(col*48+7+(row*7+col*3)%12,row*48+14,water?22:6,2);
+      ctx.fillRect(col*48+25,row*48+34,water?14:4,2);
+    }
+  }
+  samples.forEach((s,i)=>{
+    if(i<3||attempt>0) marker(s.x,s.y,labels[i]?'#d7f887':'#fff1ab',i+1);
+  });
+  targets.forEach((t,i)=>marker(t.x,t.y,results[i]?.correct?'#d7f887':results[i]?'#ffc49c':'#c6e9e7',results[i]?(results[i].correct?'✓':'×'):'?'));
+  const stop=timer&&results.length?targets[results.length-1]:null;
+  const rx=(stop?.x??x)*48+24, ry=(stop?.y??y)*48+24;
+  ctx.fillStyle='#182d27';
+  ctx.fillRect(rx-14,ry-13,28,26);
+  ctx.fillStyle='#eaf8ef';
+  ctx.fillRect(rx-11,ry-10,22,15);
+  ctx.fillStyle='#255950';
+  ctx.fillRect(rx-7,ry-5,4,5);
+  ctx.fillRect(rx+3,ry-5,4,5);
+  ctx.fillStyle='#d7f887';
+  ctx.fillRect(rx-4,ry+7,8,3);
+}
+function currentSample(){
+  return samples.findIndex((s,i)=>s.x===x&&s.y===y&&(i<3||attempt>0));
+}
+function render(){
+  const i=currentSample();
+  const sample=samples[i];
+  const ready=[0,1,2].every(index=>labels[index]);
+  const won=results.length===targets.length&&results.every(r=>r.correct);
+  get('position').textContent='Colonna '+(x+1)+' · Riga '+(y+1);
+  get('count').textContent=labels.filter(Boolean).length+' etichettati';
+  let objective='Raggiungi le caselle 1, 2 e 3 con il robot e assegna un’etichetta a ciascun campione.';
+  if(ready) objective='Esegui una prova con quattro oggetti mai visti.';
+  if(attempt) objective='Esamina gli errori, verifica le etichette e cerca il campione 4 prima di riprovare.';
+  if(won) objective='Bonifica completata. Tutti gli oggetti sono stati riconosciuti correttamente.';
+  if(timer) objective='Il robot sta percorrendo la zona di prova.';
+  get('objective').textContent=objective;
+  get('run').disabled=!ready||Boolean(timer);
+  get('run').textContent=attempt?'Ripeti la bonifica':'Avvia bonifica';
+  get('sampleName').textContent=sample?sample.name:'Spostati su una casella numerata.';
+  get('features').textContent=sample?'Lucentezza '+sample.values[0]+' · Magnetismo '+sample.values[1]+' · Levigatezza '+sample.values[2]:'';
+  get('labelStatus').textContent=labels[i]?'Etichetta assegnata: '+labels[i]:'';
+  get('labels').hidden=!sample;
+  get('labels').style.display=sample?'flex':'none';
+  labelButtons.forEach(button=>{
+    button.disabled=!sample||Boolean(timer);
+    button.classList.toggle('primary',button.dataset.label===labels[i]);
+    button.setAttribute('aria-pressed',String(button.dataset.label===labels[i]));
+  });
+  moveButtons.forEach(button=>{button.disabled=Boolean(timer);});
+  draw();
+}
+function move(direction){
+  if(timer) return;
+  const [dx,dy]=directions[direction];
+  const nextX=x+dx,nextY=y+dy;
+  if(nextX<0||nextX>=12||nextY<0||nextY>=8) return;
+  if((nextX===7||nextX===8)&&nextY!==4) return;
+  x=nextX;
+  y=nextY;
+  render();
+}
+function predict(target){
+  let chosen;
+  let distance=Infinity;
+  samples.forEach((sample,i)=>{
+    if(!labels[i]) return;
+    const delta=sample.values.reduce((sum,value,j)=>sum+(value-target.values[j])**2,0);
+    if(delta<distance){
+      distance=delta;
+      chosen={label:labels[i],example:sample.name,correct:labels[i]===target.truth};
+    }
+  });
+  return chosen;
+}
+function run(){
+  results=[];
+  get('results').hidden=true;
+  timer=setInterval(()=>{
+    const target=targets[results.length];
+    results.push(predict(target));
+    if(results.length===targets.length){
+      clearInterval(timer);
+      timer=null;
+      showResults();
+    }
+    render();
+  },480);
+  render();
+}
+function showResults(){
+  const correct=results.filter(r=>r.correct).length;
+  const previous=best;
+  best=Math.max(best,correct);
+  attempt++;
+  get('score').textContent='Prova '+attempt+' · '+correct+' su '+targets.length+' classificati correttamente'+(attempt>1?' · Miglior esito precedente: '+previous+'/'+targets.length:'')+'.';
+  get('details').replaceChildren(...results.map((result,i)=>{
+    const item=document.createElement('li');
+    item.className=result.correct?'':'error';
+    item.textContent=targets[i].name+' → '+result.label+' (esempio: '+result.example+'). '+(result.correct?'Corretto.':'Atteso: '+targets[i].truth+'.');
+    return item;
+  }));
+  get('results').hidden=false;
+  if(document.activeElement===document.body||document.activeElement===get('run')) get('results').focus();
+}
+function reset(){
+  clearInterval(timer);
+  timer=null;
+  x=3;
+  y=4;
+  labels=[];
+  results=[];
+  attempt=0;
+  best=0;
+  get('results').hidden=true;
+  render();
+}
+labelButtons.forEach(button=>button.addEventListener('click',()=>{
+  const i=currentSample();
+  if(i<0||timer) return;
+  labels[i]=button.dataset.label;
+  render();
+}));
+moveButtons.forEach(button=>button.addEventListener('click',()=>move(button.dataset.move)));
+document.addEventListener('keydown',event=>{
+  const direction=keys[event.key.toLowerCase()];
+  if(!direction||event.altKey||event.ctrlKey||event.metaKey) return;
+  event.preventDefault();
+  move(direction);
+});
+get('run').addEventListener('click',run);
+get('reset').addEventListener('click',reset);
+reset();
+</script>
+</body>
+</html>
