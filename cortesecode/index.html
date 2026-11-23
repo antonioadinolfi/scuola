@@ -11,7 +11,7 @@
 </head>
 <body>
 <main>
-<header><div><div class="brand">CorteseCode</div><h1>Missione Bonifica</h1><p>Insegna al robot cosa raccogliere lungo il canale.</p></div><button id="reset">Ricomincia</button></header>
+<header><div><div class="brand">CorteseCode</div><h1>Missione Bonifica</h1><p>Raccogli i rifiuti e salva la natura lungo il canale.</p></div><button id="reset">Ricomincia</button></header>
 <div class="layout">
 <section class="panel" aria-labelledby="map-title">
 <div class="bar"><h2 id="map-title">Parco del Canale</h2><small id="position"></small></div>
@@ -22,7 +22,7 @@
 <section class="panel"><div class="eyebrow">Missione</div><p id="objective" role="status"></p><div class="actions"><button id="run" class="primary">Avvia bonifica</button></div></section>
 <section class="panel"><div class="bar"><h2>Campione sul terreno</h2><small id="count"></small></div><div id="sample"><p id="sampleName"></p><p class="features" id="features"></p><p class="muted" id="labelStatus" role="status"></p><div class="actions" id="labels"><button data-label="Plastica">Plastica</button><button data-label="Metallo">Metallo</button><button data-label="Naturale">Naturale</button></div></div></section>
 </div></div>
-<section class="panel" id="results" hidden tabindex="-1"><h2>Esito della bonifica</h2><p id="score" role="status"></p><ol id="details"></ol></section>
+<section class="panel" id="results" hidden tabindex="-1"><h2>Esito della bonifica</h2><p id="score" role="status"></p><p id="impact" class="muted"></p><ol id="details"></ol></section>
 <footer>Il robot usa il vicino più prossimo (1-NN). Confronta tre valori da 0 a 10 e copia l’etichetta del campione più simile.</footer>
 </main>
 <script>
@@ -34,7 +34,8 @@ const samples = [
   {x:2,y:1,name:'Bottiglia di plastica',values:[9,0,8]},
   {x:5,y:2,name:'Lattina di acciaio',values:[8,9,5]},
   {x:2,y:5,name:'Ramo secco',values:[1,0,2]},
-  {x:5,y:6,name:'Rametto bagnato',values:[8,0,6]}
+  {x:5,y:6,name:'Rametto bagnato',values:[8,0,6]},
+  {x:1,y:3,name:'Pigna',values:[3,0,3]}
 ];
 const targets = [
   {x:9,y:1,name:'Flacone',values:[10,0,9],truth:'Plastica'},
@@ -106,15 +107,16 @@ function render(){
   get('count').textContent=labels.filter(Boolean).length+' etichettati';
   let objective='Raggiungi le caselle 1, 2 e 3 con il robot e assegna un’etichetta a ciascun campione.';
   if(ready) objective='Esegui una prova con quattro oggetti mai visti.';
-  if(attempt) objective='Esamina gli errori, verifica le etichette e cerca il campione 4 prima di riprovare.';
-  if(won) objective='Bonifica completata. Tutti gli oggetti sono stati riconosciuti correttamente.';
+  if(attempt) objective='Hai un solo posto per un nuovo esempio. Esplora i campioni 4 e 5, scegline uno e riprova.';
+  if(won) objective='Missione riuscita: rifiuti rimossi e natura protetta.';
   if(timer) objective='Il robot sta percorrendo la zona di prova.';
   get('objective').textContent=objective;
   get('run').disabled=!ready||Boolean(timer);
   get('run').textContent=attempt?'Ripeti la bonifica':'Avvia bonifica';
   get('sampleName').textContent=sample?sample.name:'Spostati su una casella numerata.';
   get('features').textContent=sample?'Lucentezza '+sample.values[0]+' · Magnetismo '+sample.values[1]+' · Levigatezza '+sample.values[2]:'';
-  get('labelStatus').textContent=labels[i]?'Etichetta assegnata: '+labels[i]:'';
+  get('labelStatus').textContent=labels[i]?'Etichetta assegnata: '+labels[i]:
+    i>=3?'Posto extra: '+(labels[3]||labels[4]?'questo campione sostituirà quello scelto.':'disponibile.') : '';
   get('labels').hidden=!sample;
   get('labels').style.display=sample?'flex':'none';
   labelButtons.forEach(button=>{
@@ -169,6 +171,9 @@ function showResults(){
   best=Math.max(best,correct);
   attempt++;
   get('score').textContent='Prova '+attempt+' · '+correct+' su '+targets.length+' classificati correttamente'+(attempt>1?' · Miglior esito precedente: '+previous+'/'+targets.length:'')+'.';
+  const collected=targets.filter((target,i)=>target.truth!=='Naturale'&&results[i].label!=='Naturale').length;
+  const protectedCount=targets.filter((target,i)=>target.truth==='Naturale'&&results[i].label==='Naturale').length;
+  get('impact').textContent='Rifiuti raccolti: '+collected+'/2 · Elementi naturali protetti: '+protectedCount+'/2';
   get('details').replaceChildren(...results.map((result,i)=>{
     const item=document.createElement('li');
     item.className=result.correct?'':'error';
@@ -193,6 +198,7 @@ function reset(){
 labelButtons.forEach(button=>button.addEventListener('click',()=>{
   const i=currentSample();
   if(i<0||timer) return;
+  if(i>=3) labels[i===3?4:3]=undefined;
   labels[i]=button.dataset.label;
   render();
 }));
