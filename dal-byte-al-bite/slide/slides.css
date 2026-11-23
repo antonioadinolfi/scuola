@@ -129,10 +129,14 @@ a.ext::after{content:" ↗"}
 /* ---------- smartphone ---------- */
 #rotate{position:fixed;left:12px;right:12px;top:12px;z-index:8;background:#fff8e8;color:#3b2a10;border-radius:12px;padding:12px 16px;font-size:15px;line-height:1.4;box-shadow:0 8px 30px #0006;display:none}
 #rotate.on{display:block}
-#rotate button{float:right;margin-left:10px;background:#1f4b66;color:#fff;border:0;border-radius:8px;padding:6px 10px;font:inherit}
+#rotate button{float:right;margin:0 0 6px 10px;background:#1f4b66;color:#fff;border:0;border-radius:8px;padding:6px 10px;font:inherit}
 @media (max-width:900px),(max-height:500px){
   .ui{gap:4px;padding:4px 6px;right:8px;bottom:8px;font-size:12px}
   .ui button{padding:6px 9px}
   #btnGrid,#btnPrint,.ui a{display:none}
   #notesPane{bottom:48px;font-size:14px}
 }
+
+#rotTurn{float:none!important;margin:8px 0 0!important;background:var(--teal)!important}
+body.turned .ui{right:auto;left:8px;bottom:8px}
+body.turned #notesPane{display:none!important}

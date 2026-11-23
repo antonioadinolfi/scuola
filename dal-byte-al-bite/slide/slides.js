@@ -26,9 +26,12 @@
   function fit() {
     if (document.body.classList.contains('overview')) return;
     const vw = window.visualViewport ? visualViewport.width : innerWidth, vh = window.visualViewport ? visualViewport.height : innerHeight;
-    const sc = Math.min(vw / 1280, vh / 720) * (vw < 900 ? 1 : 0.98);
-    const rot = document.getElementById('rotate'); if (rot && !rot.dataset.closed) rot.classList.toggle('on', vw < vh && vw < 700);
-    stage.style.transform = 'translate(-50%,-50%) scale(' + sc + ')';
+    const turned = document.body.classList.contains('turned');
+    const sc = turned ? Math.min(vh / 1280, vw / 720) : Math.min(vw / 1280, vh / 720) * (vw < 900 ? 1 : 0.98);
+    const rot = document.getElementById('rotate'); if (rot && !rot.dataset.closed) rot.classList.toggle('on', vw < vh && vw < 700 && !turned);
+    stage.style.transform = 'translate(-50%,-50%)' + (turned ? ' rotate(90deg)' : '') + ' scale(' + sc + ')';
+    const tb = document.getElementById('btnTurn'); if (tb) tb.style.display = (vw < vh && vw < 700) || turned ? '' : 'none';
+    if (turned && vw > vh) { document.body.classList.remove('turned'); fit(); }
   }
   function go(n) {
     i = Math.max(0, Math.min(slides.length - 1, n));
@@ -44,7 +47,7 @@
     if (!document.body.classList.contains('overview')) fit(); else slides[i].scrollIntoView({ block: 'center' });
   }
   function fullscreen() {
-    if (!document.fullscreenElement) document.documentElement.requestFullscreen?.(); else document.exitFullscreen?.();
+    if (!document.fullscreenElement) { const p = document.documentElement.requestFullscreen?.(); if (p && p.then) p.then(() => screen.orientation?.lock?.('landscape').catch(() => {})).catch(() => {}); } else document.exitFullscreen?.();
   }
   addEventListener('resize', fit);
   addEventListener('orientationchange', () => setTimeout(fit, 250));
@@ -65,15 +68,20 @@
     else if (k === 'Escape') document.getElementById('help').classList.remove('on');
   });
   let x0 = null;
-  addEventListener('touchstart', e => { x0 = e.target.closest('input,select,textarea,button,a,.hunt,.minilab,#notesPane') ? null : e.touches[0].clientX; }, { passive: true });
-  addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) go(i + (dx < 0 ? 1 : -1)); x0 = null; });
+  let y0 = null;
+  addEventListener('touchstart', e => { const skip = e.target.closest('input,select,textarea,button,a,.hunt,.minilab,#notesPane'); x0 = skip ? null : e.touches[0].clientX; y0 = skip ? null : e.touches[0].clientY; }, { passive: true });
+  addEventListener('touchend', e => { if (x0 === null) return; const t = e.changedTouches[0]; const turned = document.body.classList.contains('turned'); const d = turned ? t.clientY - y0 : t.clientX - x0; if (Math.abs(d) > 50) go(i + (d < 0 ? 1 : -1)); x0 = y0 = null; });
   document.getElementById('prev').onclick = () => go(i - 1);
   document.getElementById('next').onclick = () => go(i + 1);
   document.getElementById('btnNotes').onclick = () => notesPane.classList.toggle('on');
   document.getElementById('btnFull').onclick = fullscreen;
   if (!(document.fullscreenEnabled || document.webkitFullscreenEnabled)) document.getElementById('btnFull').style.display = 'none';
-  const rot = document.createElement('div'); rot.id = 'rotate'; rot.innerHTML = '<button type="button">OK</button>Ruota il telefono in orizzontale per vedere le slide a tutto schermo. Scorri con il dito per cambiare slide.'; document.body.append(rot);
+  const rot = document.createElement('div'); rot.id = 'rotate'; rot.innerHTML = '<button type="button">OK</button>Ruota il telefono in orizzontale per vedere le slide a tutto schermo. Se lo schermo non si gira, è attivo il blocco della rotazione: tocca «Ruota le slide».'; document.body.append(rot);
   rot.querySelector('button').onclick = () => { rot.dataset.closed = '1'; rot.classList.remove('on'); };
+  const tbtn = document.createElement('button'); tbtn.id = 'btnTurn'; tbtn.type = 'button'; tbtn.textContent = '⟳ Ruota slide'; tbtn.title = 'Ruota le slide di 90 gradi'; document.querySelector('.ui').insertBefore(tbtn, document.getElementById('btnNotes'));
+  tbtn.onclick = () => { document.body.classList.toggle('turned'); rot.classList.remove('on'); fit(); };
+  rot.insertAdjacentHTML('beforeend', ' <button type="button" id="rotTurn">Ruota le slide</button>');
+  rot.querySelector('#rotTurn').onclick = () => { rot.dataset.closed = '1'; document.body.classList.add('turned'); rot.classList.remove('on'); fit(); };
   document.getElementById('btnGrid').onclick = toggleOverview;
   document.getElementById('btnPrint').onclick = () => window.print();
   document.getElementById('help').onclick = () => document.getElementById('help').classList.remove('on');
