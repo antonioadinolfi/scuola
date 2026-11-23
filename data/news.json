@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T23:25:30+00:00",
+  "updatedAt": "2026-11-23T06:41:24+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Film, libri, giornali o esercizi. Ecco le tante offerte digitali gratuite da portare in classe con il Goethe-Institut",
+          "link": "https://www.orizzontescuola.it/film-libri-giornali-o-esercizi-ecco-le-tante-offerte-digitali-gratuite-da-portare-in-classe-con-il-goethe-institut/",
+          "pubDate": "Mon, 23 Nov 2026 06:30:54 +0000",
+          "description": "Che tu insegni tedesco oppure no, il Goethe-Institut mette gratuitamente a disposizione una serie di contenuti digitali gratuiti che possono essere utili a lezi…"
+        },
+        {
+          "title": "Cyberbullismo e intelligenza artificiale, le idee dei bambini da tutta Italia: scuola e famiglie insieme per un digitale più sicuro",
+          "link": "https://www.orizzontescuola.it/cyberbullismo-e-intelligenza-artificiale-le-idee-dei-bambini-da-tutta-italia-scuola-e-famiglie-insieme-per-un-digitale-piu-sicuro/",
+          "pubDate": "Mon, 23 Nov 2026 06:30:12 +0000",
+          "description": "Key Takeaways Centinaia di classi da tutta Italia hanno lavorato per trasformare il contrasto al cyberbullismo in comportamenti, regole e strumenti da utilizzar…"
+        },
+        {
           "title": "“Tutti elogiano i maestri, ma lo Stato li paga meno”, una petizione chiede equiparazione salariale con i docenti delle medie e delle superiori",
           "link": "https://www.orizzontescuola.it/tutti-elogiano-i-maestri-italiani-ma-lo-stato-li-paga-meno-una-petizione-chiede-lequiparazione-salariale-con-i-docenti-delle-medie-e-delle-superiori/",
           "pubDate": "Sun, 22 Nov 2026 20:32:27 +0000",
@@ -68,18 +80,6 @@
           "link": "https://www.orizzontescuola.it/scuola-e-aziende-nella-primaria-7-docenti-su-10-segnalano-progetti-che-coinvolgono-anche-le-famiglie/",
           "pubDate": "Sun, 22 Nov 2026 18:29:11 +0000",
           "description": "Le collaborazioni tra scuole e aziende non si fermano alle attività in classe, ma coinvolgono anche le famiglie. L'articolo Scuola e aziende, nella primaria 7 d…"
-        },
-        {
-          "title": "Legge di Bilancio, 14 emendamenti per la scuola: buoni pasto, Carta servizi e aumenti UE nel segno delle richieste ANIEF",
-          "link": "https://www.orizzontescuola.it/legge-di-bilancio-14-emendamenti-per-la-scuola-buoni-pasto-carta-servizi-e-aumenti-ue-nel-segno-delle-richieste-anief/",
-          "pubDate": "Sun, 22 Nov 2026 16:34:18 +0000",
-          "description": "Buoni pasto per docenti e personale ATA, estensione della Carta dei servizi a tutti i lavoratori del comparto e aumenti retributivi per avvicinare gli stipendi…"
-        },
-        {
-          "title": "Libri digitali scontati al 50%: l’Italia accelera, mentre in Europa si viaggia a due velocità tra digitalizzazione spinta e riscoperta della carta",
-          "link": "https://www.orizzontescuola.it/libri-digitali-scontati-al-50-litalia-accelera-mentre-in-europa-si-viaggia-a-due-velocita-tra-digitalizzazione-spinta-e-riscoperta-della-carta/",
-          "pubDate": "Sun, 22 Nov 2026 16:22:58 +0000",
-          "description": "Il via libera dell'Aula del Senato all'emendamento al decreto scuola che obbliga gli editori a fornire i manuali scolastici e universitari in formato digitale c…"
         }
       ]
     },
@@ -87,22 +87,22 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Borse verso una settimana calda dopo il crollo del Nasdaq per l’alta tensione sull’Ai",
-          "link": "https://www.ilsole24ore.com/art/borse-alta-tensione-sull-ai-settimana-calda-crollo-nasdaq-AJ3IwLPC",
-          "pubDate": "Sun, 22 Nov 2026 14:28:00 GMT",
-          "description": "&nbsp;Dopo una settimana da incubo, in cui il Nasdaq ha ceduto il 10% entrando in territorio Orso mentre le vendite si abbattevano sul comparto dell’intelligenz…"
+          "title": "Borse asiatiche contrastate: bene Shenzhen +2,2% male Seul -3,1%",
+          "link": "https://www.ilsole24ore.com/art/borse-asiatiche-prudenti-bene-shenzhen-22percento-AJa09lPC",
+          "pubDate": "Mon, 23 Nov 2026 06:18:00 GMT",
+          "description": "Alle 7:20 italiane ecco la situazione delle principali borse asiatiche: Shanghai +0,09%; Shenzhen +2,27%; Tokyo chiusa; Hong Kong -0,08% mentre Mumbai segna -0,…"
         },
         {
           "title": "La Cop31 deraglia sui combustibili fossili. La Ue alla guida del fronte per l’«uscita», contro Arabia, Russia e India",
           "link": "https://www.ilsole24ore.com/art/cop31-ue-si-oppone-decisione-quadro-AJqJC4OC",
           "pubDate": "Sun, 22 Nov 2026 10:56:00 GMT",
-          "description": "Niente accordo politico alla Cop31 di Antalya. L’Unione Europea ha rigettato la proposta di decisione quadro, che nemmeno menzionava i combustibili fossili, pri…"
+          "description": "Salta l’accordo politico dopo due giorni di negoziati extra. Per l’Europa le linee rosse erano il progresso sulla graduale rinuncia a petrolio, gas e carbone e…"
         },
         {
-          "title": "Infarto, ictus e aterosclerosi: i rischi se reni e fegato non funzionano, ecco 5 consigli per ridurli",
-          "link": "https://www.ilsole24ore.com/art/infarto-ictus-e-aterosclerosi-rischi-se-reni-e-fegato-non-funzionano-ecco-5-consigli-ridurli-AJNVO8OC",
-          "pubDate": "Sun, 22 Nov 2026 08:58:54 GMT",
-          "description": "Prima dei farmaci, puntiamo sulle buone abitudini. E poi, seguiamo le indicazioni del medico. I consigli degli specialisti per evitare brutte sorprese"
+          "title": "Nyt: «Alice Huang contattava gli 007 cinesi durante la relazione con Jensen»",
+          "link": "https://www.ilsole24ore.com/art/nyt-alice-huang-contattava-007-cinesi-la-relazione-jensen-AJxlkmPC",
+          "pubDate": "Mon, 23 Nov 2026 06:34:20 GMT",
+          "description": "Gli Stati Uniti hanno monitorato i contatti di Alice Huang con l’agenzia di spionaggio cinese durante lo scandalo Nvidia. Lo scrive il New York Times. Secondo a…"
         },
         {
           "title": "Superbonus, sul tavolo lo stralcio dello spalmacrediti in 10 anni",
@@ -117,10 +117,10 @@
           "description": "Tutti i voli in arrivo e in partenza dagli aeroporti di Bruxelles e Charleroi saranno cancellati domani 23 novembre, dalle 7 alle 21, per l’adesione dei control…"
         },
         {
-          "title": "Dario Amodei sceglie la Puglia: il ceo di Anthropic avrebbe acquistato una masseria",
-          "link": "https://www.ilsole24ore.com/art/dario-amodei-sceglie-puglia-ceo-anthropic-avrebbe-acquistato-masseria-AJzwfGPC",
-          "pubDate": "Sun, 22 Nov 2026 12:54:24 GMT",
-          "description": "Giovedì ha suonato la campanella dell’avvio degli scambi al Nasdaq per la quotazione record di Anthropic , il colosso dell’intelligenza artificiale di cui è co-…"
+          "title": "Infarto, ictus e aterosclerosi: i rischi se reni e fegato non funzionano, ecco 5 consigli per ridurli",
+          "link": "https://www.ilsole24ore.com/art/infarto-ictus-e-aterosclerosi-rischi-se-reni-e-fegato-non-funzionano-ecco-5-consigli-ridurli-AJNVO8OC",
+          "pubDate": "Sun, 22 Nov 2026 08:58:54 GMT",
+          "description": "Prima dei farmaci, puntiamo sulle buone abitudini. E poi, seguiamo le indicazioni del medico. I consigli degli specialisti per evitare brutte sorprese"
         }
       ]
     }
