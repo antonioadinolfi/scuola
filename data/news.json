@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-23T19:58:25+00:00",
+  "updatedAt": "2026-11-24T04:41:34+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
@@ -46,6 +46,18 @@
       "source": "Orizzonte Scuola",
       "items": [
         {
+          "title": "Prima e terza fascia ATA, come funzionano le graduatorie? Tutte le info utili. QUESTION TIME con Cozzolino. LIVE Martedì 24 novembre alle 15:00",
+          "link": "https://www.orizzontescuola.it/prima-e-terza-fascia-ata-come-funzionano-le-graduatorie-tutte-le-info-utili-question-time-con-cozzolino-live-martedi-24-novembre-alle-1500/",
+          "pubDate": "Mon, 23 Nov 2026 20:08:54 +0000",
+          "description": "Nuovo appuntamento con Question Time, la diretta di Orizzonte Scuola dedicata ai quesiti del personale scolastico. Nella puntata, in onda martedì 24 novembre al…"
+        },
+        {
+          "title": "Dl Scuola, intesa nella maggioranza sulle nuove tecnologie. Costa (FI): “Coalizione solida, rispettate le nostre idee”",
+          "link": "https://www.orizzontescuola.it/dl-scuola-intesa-nella-maggioranza-sulle-nuove-tecnologie-costa-fi-coalizione-solida-rispettate-le-nostre-idee/",
+          "pubDate": "Mon, 23 Nov 2026 20:00:12 +0000",
+          "description": "La maggioranza si ricompatta sul Decreto Scuola e trova un punto d'incontro sul tema delicato dell'introduzione delle nuove tecnologie in classe. A suggellare l…"
+        },
+        {
           "title": "Elenchi aggiuntivi prima fascia GPS: anche chi è inserito in prima fascia può inserire riserva per assunzioni ex lege 68/1999. NOVITA’",
           "link": "https://www.orizzontescuola.it/elenchi-aggiuntivi-prima-fascia-gps-anche-chi-e-inserito-in-prima-fascia-puo-inserire-riserva-per-assunzioni-ex-lege-68-1999-novita/",
           "pubDate": "Mon, 23 Nov 2026 18:57:25 +0000",
@@ -68,18 +80,6 @@
           "link": "https://www.orizzontescuola.it/il-burnout-e-il-ruolo-del-dirigente-scolastico-una-guida-normativa-sul-come-intervenire/",
           "pubDate": "Mon, 23 Nov 2026 17:44:58 +0000",
           "description": "Abbiamo già fatto cenno, in una precedete guida, al fatto che relativamente ai rischi da stress il D.lgs. 81 introdotto ad Aprile 2008, introduca l’obbligo per…"
-        },
-        {
-          "title": "Cucina e pasticceria italiana nelle scuole armene: tre istituti ospitano le lezioni dell’XI Settimana della Cucina Italiana nel Mondo",
-          "link": "https://www.orizzontescuola.it/cucina-e-pasticceria-italiana-nelle-scuole-armene-tre-istituti-ospitano-le-lezioni-dellxi-settimana-della-cucina-italiana-nel-mondo/",
-          "pubDate": "Mon, 23 Nov 2026 17:38:57 +0000",
-          "description": "Fra il 16 e il 21 novembre, in tre scuole dell'Armenia, si è cucinato all'italiana: a Jerevan, Dilijan e Gyumri uno chef e un pasticciere arrivati dall'Italia h…"
-        },
-        {
-          "title": "Reclutamento docenti, Cisl Scuola frena sul nuovo concorso: “Prima spazio alle assunzioni da GPS”",
-          "link": "https://www.orizzontescuola.it/reclutamento-docenti-cisl-scuola-frena-sul-nuovo-concorso-prima-spazio-alle-assunzioni-da-gps/",
-          "pubDate": "Mon, 23 Nov 2026 17:36:05 +0000",
-          "description": "Stop alla pubblicazione del nuovo bando di concorso per lasciare spazio alle immissioni in ruolo dalle Graduatorie provinciali per le supplenze. È la richiesta…"
         }
       ]
     },
@@ -87,16 +87,16 @@
       "source": "Il Sole 24 Ore",
       "items": [
         {
-          "title": "Huang torna a capo di Nvidia, reintegrato dal board",
-          "link": "https://www.ilsole24ore.com/art/nvidia-huang-torna-capo-colosso-tech-AJRmT8PC",
-          "pubDate": "Mon, 23 Nov 2026 14:04:00 GMT",
-          "description": "Undici giorni dopo averlo perso, Nvidia si riprende il suo fondatore. E sembra quasi un richiamo disperato. Il consiglio di amministrazione ha reintegrato Jense…"
-        },
-        {
           "title": "Wall Street festeggia il ritorno di Huang, dal venerdì nero al lunedì del riscatto",
           "link": "https://www.ilsole24ore.com/art/borse-asiatiche-prudenti-bene-shenzhen-22percento-AJa09lPC",
           "pubDate": "Mon, 23 Nov 2026 06:18:00 GMT",
           "description": "Maxi rimbalzo per gli indici Usa dopo la pioggia di vendite dell'ultima seduta. Giornata stellare per Nvidia, che cancella le perdite dall'allontanamento di Hua…"
+        },
+        {
+          "title": "Nvidia, Huang torna a capo del colosso tech. Megaspeed nella lista nera Usa",
+          "link": "https://www.ilsole24ore.com/art/nvidia-huang-torna-capo-colosso-tech-AJRmT8PC",
+          "pubDate": "Mon, 23 Nov 2026 14:04:00 GMT",
+          "description": "Undici giorni dopo averlo perso, Nvidia si riprende il suo fondatore. E sembra quasi un richiamo disperato. Il consiglio di amministrazione ha reintegrato Jense…"
         },
         {
           "title": "Digitale, mercato Ict in crescita a 68,4 miliardi ma resta il nodo competenze",
