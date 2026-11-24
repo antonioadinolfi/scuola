@@ -70,7 +70,7 @@
   let x0 = null;
   let y0 = null;
   addEventListener('touchstart', e => { const skip = e.target.closest('input,select,textarea,button,a,.hunt,.minilab,#notesPane'); x0 = skip ? null : e.touches[0].clientX; y0 = skip ? null : e.touches[0].clientY; }, { passive: true });
-  addEventListener('touchend', e => { if (x0 === null) return; const t = e.changedTouches[0]; const turned = document.body.classList.contains('turned'); const d = turned ? t.clientY - y0 : t.clientX - x0; if (Math.abs(d) > 50) go(i + (d < 0 ? 1 : -1)); x0 = y0 = null; });
+  addEventListener('touchend', e => { if (x0 === null || document.body.classList.contains('laser')) return; const t = e.changedTouches[0]; const turned = document.body.classList.contains('turned'); const d = turned ? t.clientY - y0 : t.clientX - x0; if (Math.abs(d) > 50) go(i + (d < 0 ? 1 : -1)); x0 = y0 = null; });
   document.getElementById('prev').onclick = () => go(i - 1);
   document.getElementById('next').onclick = () => go(i + 1);
   document.getElementById('btnNotes').onclick = () => notesPane.classList.toggle('on');
@@ -90,6 +90,20 @@
   addEventListener('mousemove', showUi);
   addEventListener('touchstart', showUi, { passive: true });
   showUi();
+  // ---------- puntatore laser ----------
+  const dot = document.createElement('div'); dot.id = 'laser'; document.body.append(dot);
+  const lbtn = document.createElement('button'); lbtn.id = 'btnLaser'; lbtn.type = 'button'; lbtn.textContent = '● Laser'; lbtn.title = 'Puntatore laser (L)';
+  document.querySelector('.ui').insertBefore(lbtn, document.getElementById('btnNotes'));
+  const laserOn = () => document.body.classList.contains('laser');
+  const moveDot = (x, y) => { dot.style.transform = 'translate(' + (x - 13) + 'px,' + (y - 13) + 'px)'; dot.classList.add('show'); };
+  function toggleLaser() { document.body.classList.toggle('laser'); lbtn.setAttribute('aria-pressed', String(laserOn())); if (!laserOn()) dot.classList.remove('show'); }
+  lbtn.onclick = toggleLaser;
+  addEventListener('keydown', e => { if ((e.key === 'l' || e.key === 'L') && !e.target.closest('input,textarea,select')) toggleLaser(); });
+  addEventListener('mousemove', e => { if (laserOn()) moveDot(e.clientX, e.clientY); });
+  document.documentElement.addEventListener('mouseleave', () => dot.classList.remove('show'));
+  addEventListener('touchstart', e => { if (laserOn() && !e.target.closest('.ui')) moveDot(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+  addEventListener('touchmove', e => { if (laserOn() && !e.target.closest('.ui')) moveDot(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+  addEventListener('touchend', () => { if (laserOn()) dot.classList.remove('show'); }, { passive: true });
   initOps(slides);
   fit();
   go((parseInt(location.hash.slice(1), 10) || 1) - 1);

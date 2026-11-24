@@ -140,3 +140,10 @@ a.ext::after{content:" ↗"}
 #rotTurn{float:none!important;margin:8px 0 0!important;background:var(--teal)!important}
 body.turned .ui{right:auto;left:8px;bottom:8px}
 body.turned #notesPane{display:none!important}
+
+/* ---------- puntatore laser ---------- */
+#laser{position:fixed;left:0;top:0;width:26px;height:26px;border-radius:50%;background:radial-gradient(circle,#ff4d4d 0 35%,#ff1a1a 45%,rgba(255,0,0,.35) 70%,rgba(255,0,0,0) 72%);box-shadow:0 0 14px 6px rgba(255,30,30,.55);pointer-events:none;z-index:20;display:none}
+body.laser #laser.show{display:block}
+body.laser .deck,body.laser .deck *{cursor:none!important}
+#btnLaser[aria-pressed=true]{background:#c62828}
+@media print{#laser{display:none!important}}
