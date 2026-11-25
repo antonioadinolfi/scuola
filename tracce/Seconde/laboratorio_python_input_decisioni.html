@@ -6,12 +6,12 @@
 <title>Python Lab · Classe seconda</title>
 <style>
 :root{color-scheme:light;--ink:#142c4c;--blue:#185bc0;--line:#d2dfef;--soft:#f2f7fe;font:16px/1.55 system-ui,sans-serif}
-*{box-sizing:border-box}body{margin:0;background:#eef4fb;color:var(--ink)}header{background:linear-gradient(110deg,#102957,#165bb7);color:white;padding:32px max(24px,calc((100vw - 1180px)/2));}header p{margin:5px 0}.school{display:inline-block;padding:9px 15px;border-radius:10px;background:white;color:#154a93;font-weight:750}.eyebrow{margin-top:16px;color:#b9dcff;font-size:.85rem;font-weight:750;letter-spacing:.08em}h1{margin:2px 0;font-size:clamp(1.8rem,4vw,2.7rem)}h2{margin:.35rem 0 .85rem}main{max-width:1228px;margin:24px auto;padding:0 24px;display:grid;grid-template-columns:minmax(230px,310px) minmax(0,1fr);gap:22px;align-items:start}article,aside{background:white;border:1px solid var(--line);border-radius:16px;padding:22px;min-width:0}.identity{display:grid;grid-template-columns:1fr 1fr;gap:8px}.identity label:first-child{grid-column:1/-1}label{display:block;font-weight:650}input,textarea{width:100%;border:1px solid #a8bfdc;border-radius:8px;padding:8px;font:inherit;color:inherit}progress{width:100%;accent-color:var(--blue)}nav h3{margin:14px 0 4px;font-size:.92rem}button{cursor:pointer;border:1px solid #a8bfdc;border-radius:8px;background:white;color:#114887;padding:8px 12px;font:inherit;font-weight:650}button:hover,button[aria-current=true]{background:#e4efff}button:disabled{opacity:.45;cursor:default}button.primary{background:#185bc0;color:white;border-color:#185bc0}nav button{display:block;width:100%;text-align:left;margin:4px 0;padding:5px 8px;font-size:.9rem}button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #397ceb;outline-offset:2px}.pills{display:flex;gap:8px;flex-wrap:wrap;font-size:.85rem}.pill{background:#eaf2ff;border-radius:20px;padding:3px 9px;font-weight:700}.brief{background:var(--soft);border-left:4px solid var(--blue);padding:12px 16px;border-radius:8px}.brief p{margin:5px 0}summary{cursor:pointer;font-weight:700;color:#185098}details{margin:12px 0}textarea{font:15px/1.55 ui-monospace,monospace;resize:vertical;tab-size:4}#code{min-height:240px;background:#f9fbff}#inputs{min-height:64px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eef5ff;border-radius:8px;padding:10px;margin:6px 0 12px;font-size:.91rem}#output{background:#132746;color:#f2f7ff;min-height:55px}.small{font-size:.88rem}.progressline{margin-top:14px;font-weight:650}#report{display:none}footer{max-width:1180px;margin:0 auto 25px;padding:0 24px}a{color:#1255ad}@media(max-width:760px){main{grid-template-columns:1fr;padding:0 12px}header{padding:22px}article,aside{padding:16px}}@media print{body{background:white;color:black}header,main,footer{display:none}#report{display:block}#report section{break-inside:avoid}pre{background:white;border:1px solid #ccc}}
+*{box-sizing:border-box}body{margin:0;background:#eef4fb;color:var(--ink)}header{background:linear-gradient(110deg,#102957,#165bb7);color:white;padding:32px max(24px,calc((100vw - 1180px)/2));}header p{margin:5px 0}.school-logo{display:block;width:min(100%,484px);height:auto;border-radius:12px;background:white}.work-identity{margin-top:12px;padding:10px 12px;background:#ecf4ff;border:1px solid #bfd6f7;border-radius:9px;font-size:.88rem}.work-identity strong{display:block;color:#174b97;overflow-wrap:anywhere}.report-logo{display:block;width:65mm;max-width:100%;height:auto;margin-bottom:4mm}.eyebrow{margin-top:16px;color:#b9dcff;font-size:.85rem;font-weight:750;letter-spacing:.08em}h1{margin:2px 0;font-size:clamp(1.8rem,4vw,2.7rem)}h2{margin:.35rem 0 .85rem}main{max-width:1228px;margin:24px auto;padding:0 24px;display:grid;grid-template-columns:minmax(230px,310px) minmax(0,1fr);gap:22px;align-items:start}article,aside{background:white;border:1px solid var(--line);border-radius:16px;padding:22px;min-width:0}.identity{display:grid;grid-template-columns:1fr 1fr;gap:8px}.identity label:first-child{grid-column:1/-1}label{display:block;font-weight:650}input,textarea{width:100%;border:1px solid #a8bfdc;border-radius:8px;padding:8px;font:inherit;color:inherit}progress{width:100%;accent-color:var(--blue)}nav h3{margin:14px 0 4px;font-size:.92rem}button{cursor:pointer;border:1px solid #a8bfdc;border-radius:8px;background:white;color:#114887;padding:8px 12px;font:inherit;font-weight:650}button:hover,button[aria-current=true]{background:#e4efff}button:disabled{opacity:.45;cursor:default}button.primary{background:#185bc0;color:white;border-color:#185bc0}nav button{display:block;width:100%;text-align:left;margin:4px 0;padding:5px 8px;font-size:.9rem}button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #397ceb;outline-offset:2px}.pills{display:flex;gap:8px;flex-wrap:wrap;font-size:.85rem}.pill{background:#eaf2ff;border-radius:20px;padding:3px 9px;font-weight:700}.brief{background:var(--soft);border-left:4px solid var(--blue);padding:12px 16px;border-radius:8px}.brief p{margin:5px 0}summary{cursor:pointer;font-weight:700;color:#185098}details{margin:12px 0}textarea{font:15px/1.55 ui-monospace,monospace;resize:vertical;tab-size:4}#code{min-height:240px;background:#f9fbff}#inputs{min-height:64px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eef5ff;border-radius:8px;padding:10px;margin:6px 0 12px;font-size:.91rem}#output{background:#132746;color:#f2f7ff;min-height:55px}.small{font-size:.88rem}.progressline{margin-top:14px;font-weight:650}#report{display:none}footer{max-width:1180px;margin:0 auto 25px;padding:0 24px}a{color:#1255ad}@media(max-width:760px){main{grid-template-columns:1fr;padding:0 12px}header{padding:22px}article,aside{padding:16px}}@media print{body{background:white;color:black}header,main,footer{display:none}#report{display:block}#report section{break-inside:avoid}pre{background:white;border:1px solid #ccc}}
 </style>
 </head>
 <body>
 <header>
-<p><span class="school">Liceo Scientifico Statale “Nino Cortese”</span></p>
+<img id="schoolLogo" alt="Logo Liceo Scientifico Nino Cortese" src="data:image/webp;base64,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" class="school-logo">
 <div class="eyebrow">LABORATORIO INTERATTIVO · INFORMATICA · CLASSE SECONDA</div>
 <h1>Python Lab – Input e decisioni</h1>
 <p>Leggi i dati, scrivi le condizioni e verifica il tuo programma con casi di prova.</p>
@@ -22,10 +22,16 @@
 <label>Nome e cognome <input id="student" autocomplete="name" maxlength="100"></label>
 <label>Classe <input id="classroom" maxlength="20" placeholder="Es. 2Asa"></label>
 </div>
+<div class="work-identity">
+<div>ID univoco del lavoro</div>
+<strong id="workId"></strong>
+<div id="revision"></div>
+</div>
 <div class="progressline" id="count"></div>
 <progress id="progress" aria-label="Avanzamento"></progress>
 <p class="small" id="storage">Il lavoro si salva in questo browser.</p>
-<button id="print">Stampa o salva in PDF</button>
+<button id="print" type="button">Stampa o salva in PDF</button>
+<p id="printStatus" class="small" role="status" hidden></p>
 <details id="menu" open><summary>Indice degli esercizi</summary><nav id="nav" aria-label="Esercizi"></nav></details>
 </aside>
 <article>
@@ -1217,12 +1223,26 @@ const exercises = groups.flatMap(([group, level, entries]) =>
 );
 const key = "python-lab-cortese-seconda-v1";
 const starter = "# Scrivi qui il tuo programma Python\n";
-let state = {index:0, student:"", classroom:"", work:{}};
+let state = {index:0, student:"", classroom:"", work:{}, revision:0, workId:""};
 try {
   const saved = JSON.parse(localStorage.getItem(key));
   if (saved && Number.isInteger(saved.index) && exercises[saved.index] && saved.work)
-    state = saved;
+    state = {...state, ...saved};
 } catch {}
+function createWorkId() {
+  const bytes = new Uint8Array(12);
+  crypto.getRandomValues(bytes);
+  return "PYLAB-" + Array.from(bytes, byte => byte.toString(16).padStart(2, "0")).join("").toUpperCase();
+}
+
+if (!/^PYLAB-[0-9A-F]{24}$/.test(state.workId)) state.workId = createWorkId();
+if (!Number.isSafeInteger(state.revision) || state.revision < 0) state.revision = 0;
+
+function renderIdentity() {
+  byId("workId").textContent = state.workId;
+  byId("revision").textContent = "Revisione consegna: " + state.revision;
+}
+
 const code = byId("code");
 const inputs = byId("inputs");
 const consoleView = byId("output");
@@ -1302,7 +1322,11 @@ for (const [group,, entries] of groups) {
 }
 for (const id of ["student","classroom"]) {
   byId(id).value = state[id];
-  byId(id).addEventListener("input", event => {state[id] = event.target.value; save();});
+  byId(id).addEventListener("input", event => {
+    state[id] = event.target.value;
+    byId("printStatus").hidden = true;
+    save();
+  });
 }
 code.addEventListener("input", () => {
   if (activeWorker) {stop(); consoleView.textContent = "Codice modificato. Avvia una nuova verifica.";}
@@ -1388,9 +1412,15 @@ function printReport() {
     parent.append(element);
     return element;
   }
-  append(report, "h1", "Python Lab – Classe seconda");
+  const logo = byId("schoolLogo").cloneNode();
+  logo.removeAttribute("id");
+  logo.className = "report-logo";
+  report.append(logo);
+  append(report, "h1", "Python Lab – Consegna classe seconda");
   append(report, "p", (state.student.trim() || "Nome e cognome __________________") + " · " +
     (state.classroom.trim() || "Classe ______"));
+  append(report, "p", "Codice identificativo: " + state.workId);
+  append(report, "p", "Revisione: " + state.revision + " · " + new Date().toLocaleString("it-IT"));
   append(report, "p", byId("count").textContent);
   exercises.forEach((exercise, index) => {
     const work = state.work[index];
@@ -1402,7 +1432,23 @@ function printReport() {
   });
 }
 window.addEventListener("beforeprint", printReport);
-byId("print").onclick = () => window.print();
+byId("print").onclick = () => {
+  const missingField = ["student", "classroom"].find(id => !byId(id).value.trim());
+  const status = byId("printStatus");
+  if (missingField) {
+    status.textContent = "Inserisci nome, cognome e classe prima di esportare il PDF.";
+    status.hidden = false;
+    byId(missingField).focus();
+    return;
+  }
+  status.hidden = true;
+  state.revision++;
+  renderIdentity();
+  save();
+  printReport();
+  window.print();
+};
+renderIdentity();
 select(state.index);
 </script>
 </body>
