@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Simulatore del moto uniforme · dimostrazione per la Lezione 3</title>
+<style>
+:root{--navy:#102a43;--teal:#2a9d8f;--gold:#f4b942;--red:#c0392b;--line:#d5dfe8;--muted:#52657a}
+*{box-sizing:border-box}
+body{margin:0;font:17px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;color:#172b4d;background:#f5f7fa}
+.wrap{max-width:980px;margin:0 auto;padding:24px}
+h1{margin:0 0 4px;font-size:1.7rem;color:var(--navy)}
+.sub{margin:0 0 18px;color:var(--muted)}
+.switch{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.switch button{font:inherit;font-weight:700;padding:9px 16px;border-radius:999px;border:2px solid var(--line);background:#fff;cursor:pointer}
+.switch button[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:#fff}
+.switch button.bug[aria-pressed=true]{background:var(--red);border-color:var(--red)}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 8px 24px rgba(16,42,67,.06)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+label{display:block;font-weight:700;margin:0 0 6px}
+.row{display:flex;gap:8px}
+input,select{font:inherit;padding:10px 12px;border:1px solid #a9bfce;border-radius:10px;background:#fff}
+input{width:100%}
+.err{color:var(--red);font-size:.9rem;min-height:1.3em;margin:4px 0 10px}
+.calc{font:inherit;font-weight:800;padding:11px 20px;border-radius:12px;border:0;background:var(--gold);color:var(--navy);cursor:pointer}
+.result{font-size:2rem;font-weight:800;color:var(--navy);margin:4px 0}
+.formula{font-family:ui-monospace,Menlo,Consolas,monospace;background:#f0f4f8;border-radius:10px;padding:10px 12px;margin:8px 0}
+.track{position:relative;height:78px;margin:20px 0 6px;border-radius:12px;background:linear-gradient(#dfe9f1,#dfe9f1) bottom/100% 18px no-repeat,linear-gradient(90deg,#fff 0 50%,transparent 0) bottom 8px left/40px 3px repeat-x;background-color:#eef5fa;overflow:hidden}
+.car{position:absolute;left:0;bottom:16px;font-size:44px;transition:left 1.6s cubic-bezier(.3,.7,.3,1);transform:scaleX(-1)}
+.scale{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted)}
+.limits{margin-top:16px;font-size:.92rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px}
+.tag{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+.tag.bug{background:#fdecea;color:var(--red)}.tag.ok{background:#e3f4f1;color:#0f5f56}
+.note{margin-top:18px;font-size:.88rem;color:var(--muted)}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.car{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <h1>Simulatore del moto uniforme</h1>
+ <p class="sub">Dimostrazione per la Lezione 3 del corso «Vibe Coding per docenti». Due versioni dello stesso simulatore: trova la differenza con un calcolo a mano.</p>
+ <div class="switch" role="group" aria-label="Versione del simulatore">
+  <button type="button" data-v="A" aria-pressed="true">Versione A</button>
+  <button type="button" data-v="B" aria-pressed="false">Versione B</button>
+  <button type="button" id="reveal" aria-pressed="false">Mostra quale versione ha l’errore</button>
+ </div>
+ <div class="card">
+  <p id="verTag"></p>
+  <div class="grid">
+   <form id="f" novalidate>
+    <label for="v">Velocità costante</label>
+    <div class="row"><input id="v" inputmode="decimal" value="36" aria-describedby="ev"><select id="u" aria-label="Unità della velocità"><option value="kmh">km/h</option><option value="ms">m/s</option></select></div>
+    <p class="err" id="ev" aria-live="polite"></p>
+    <label for="t">Tempo (s)</label>
+    <input id="t" inputmode="decimal" value="10" aria-describedby="et">
+    <p class="err" id="et" aria-live="polite"></p>
+    <button class="calc" type="submit">Calcola la distanza</button>
+   </form>
+   <div aria-live="polite">
+    <div>Distanza percorsa</div>
+    <div class="result" id="res">—</div>
+    <div class="formula" id="form">s = v × t</div>
+   </div>
+  </div>
+  <div class="track" aria-hidden="true"><span class="car" id="car">🚗</span></div>
+  <div class="scale" aria-hidden="true"><span>0 m</span><span>900 m</span><span>1800 m</span><span>2700 m</span><span>3600 m</span></div>
+  <p class="limits"><strong>Modello e limiti.</strong> Moto rettilineo uniforme, posizione iniziale zero, s = v × t. Velocità costante e non negativa, al massimo 30 m/s (108 km/h); tempo da 0 a 120 s. Il modello non descrive accelerazioni, attriti o frenate.</p>
+ </div>
+ <p class="note">Casi di prova suggeriti: 5 m/s per 12 s → 60 m · 0 m/s per 12 s → 0 m · 30 m/s per 120 s → 3600 m · 36 km/h per 10 s → 100 m · campo vuoto o −1 → messaggio di errore. © 2026 Prof. Antonio Adinolfi · CC BY-NC-SA 4.0</p>
+</div>
+<script>
+(()=>{
+ let ver='A';
+ const $=id=>document.getElementById(id);
+ const num=s=>{s=s.trim().replace(',','.');if(s==='')return {e:'Inserisci un valore: un campo vuoto non vale zero.'};if(!/^-?\d+(\.\d+)?$/.test(s))return {e:'Inserisci un numero.'};return {n:Number(s)}};
+ function calc(){
+  $('ev').textContent='';$('et').textContent='';
+  const a=num($('v').value),b=num($('t').value);let ok=true;
+  if(a.e){$('ev').textContent=a.e;ok=false}
+  if(b.e){$('et').textContent=b.e;ok=false}
+  if(!ok){$('res').textContent='—';return}
+  const kmh=$('u').value==='kmh';
+  // Versione A: dimentica la conversione da km/h a m/s. Versione B: converte.
+  const vms=kmh?(ver==='B'?a.n/3.6:a.n):a.n;
+  if(a.n<0){$('ev').textContent='La velocità non può essere negativa in questo modello.';ok=false}
+  else if(a.n>(kmh?108:30)){$('ev').textContent='Fuori intervallo: massimo 30 m/s (108 km/h).';ok=false}
+  if(b.n<0||b.n>120){$('et').textContent='Il tempo deve essere tra 0 e 120 s.';ok=false}
+  if(!ok){$('res').textContent='—';return}
+  const s=vms*b.n;const r=Math.round(s*100)/100;
+  $('res').textContent=r.toLocaleString('it-IT')+' m';
+  const vtxt=kmh?(ver==='B'?a.n.toLocaleString('it-IT')+' km/h = '+(Math.round(vms*100)/100).toLocaleString('it-IT')+' m/s':a.n.toLocaleString('it-IT')):a.n.toLocaleString('it-IT')+' m/s';
+  $('form').textContent='s = v × t = '+vtxt+' × '+b.n.toLocaleString('it-IT')+' s = '+r.toLocaleString('it-IT')+' m';
+  const car=$('car');car.style.left='0';requestAnimationFrame(()=>requestAnimationFrame(()=>{car.style.left='calc('+Math.min(s/3600,1)*100+'% - '+Math.min(s/3600,1)*52+'px)'}));
+ }
+ function tag(){const shown=$('reveal').getAttribute('aria-pressed')==='true';$('verTag').innerHTML=shown?(ver==='A'?'<span class="tag bug">Versione A · non converte i km/h in m/s</span>':'<span class="tag ok">Versione B · converte le unità prima di calcolare</span>'):'<span class="tag" style="background:#eef3f7;color:#334e68">Versione '+ver+'</span>'}
+ document.querySelectorAll('[data-v]').forEach(b=>b.addEventListener('click',()=>{ver=b.dataset.v;document.querySelectorAll('[data-v]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));tag();calc()}));
+ $('reveal').addEventListener('click',e=>{const p=e.currentTarget.getAttribute('aria-pressed')!=='true';e.currentTarget.setAttribute('aria-pressed',String(p));tag()});
+ $('f').addEventListener('submit',e=>{e.preventDefault();calc()});
+ tag();calc();
+})();
+</script>
+</body>
+</html>
