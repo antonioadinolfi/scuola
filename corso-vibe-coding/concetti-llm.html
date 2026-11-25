@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Lezione introduttiva: i concetti fondamentali dei modelli linguistici (LLM) spiegati ai docenti con vignette, diagrammi e simulazioni.">
+<title>Lezione introduttiva · Come scrive un’intelligenza artificiale | Vibe Coding</title>
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it">
+<link rel="stylesheet" href="./corso.css?v=15">
+<link rel="stylesheet" href="./corso-slides.css?v=1">
+</head>
+<body class="deck-page">
+<a class="skip" href="#contenuti">Vai ai contenuti</a>
+<header>
+ <div class="wrap">
+  <div class="topbar"><a href="./">← Vibe Coding · Guida al corso</a><a href="./lezione-1.html">Lezione 1 →</a></div>
+  <div class="hero">
+   <div class="kicker">Lezione introduttiva · facoltativa · 45-60 minuti · senza test obbligatorio</div>
+   <h1>Come scrive un’intelligenza artificiale</h1>
+   <p>I concetti fondamentali dei modelli linguistici (LLM), con vignette, diagrammi e piccole simulazioni. Ogni concetto spiega qualcosa che vedrai accadere nei laboratori del corso.</p>
+  </div>
+ </div>
+</header>
+
+<main class="wrap" id="contenuti">
+ <div class="deck-bar" aria-label="Opzioni della presentazione">
+  <div class="deck-mode" role="group" aria-label="Percorso da mostrare">
+   <span class="deck-mode-l">Percorso</span>
+   <button type="button" data-mode="aula"><span class="dot ess"></span>In aula · solo l’essenziale</button>
+   <button type="button" data-mode="completo"><span class="dot app"></span>Completo · con approfondimenti</button>
+  </div>
+  <div class="deck-tools">
+   <button type="button" class="deck-btn" id="notesToggle" aria-pressed="false">Mostra le note</button>
+   <button type="button" class="deck-btn" id="fullToggle">⛶ Schermo intero</button>
+   <button type="button" class="deck-btn" onclick="window.print()">Stampa / PDF</button>
+  </div>
+ </div>
+
+ <div class="deck" id="deck">
+
+  <!-- 1 · COPERTINA -->
+  <section class="slide cover" id="s1" data-level="essenziale" aria-labelledby="t1">
+   <div class="slide-body">
+    <div class="kicker">Vibe Coding per docenti · Lezione introduttiva</div>
+    <h2 id="t1">Come scrive un’intelligenza artificiale</h2>
+    <p class="lead">Prima di costruire app con l’IA conviene sapere che cosa fa davvero quando ci risponde. Non serve la matematica: bastano sei idee.</p>
+    <div class="cover-grid">
+     <div class="cover-card"><b>6</b><span>concetti chiave</span></div>
+     <div class="cover-card"><b>3</b><span>simulazioni da provare</span></div>
+     <div class="cover-card"><b>3</b><span>vignette per discutere</span></div>
+     <div class="cover-card"><b>1</b><span>attività per la classe</span></div>
+    </div>
+    <p class="muted">Usa le frecce ← → della tastiera o i pulsanti in basso. Le slide con il cerchio arancione sono approfondimenti per lo studio personale: con il percorso «In aula» vengono saltate.</p>
+   </div>
+   <details class="notes"><summary>Note per chi presenta</summary>
+    <p><strong>Tempi indicativi (55 minuti).</strong> 5 min sondaggio iniziale · 30 min concetti con le simulazioni (slide 3-13) · 5 min sintesi · 10 min attività per la classe · 5 min verifica formativa.</p>
+    <p>La lezione non ha un test obbligatorio e non blocca il percorso: può precedere la Lezione 1 oppure essere ripresa quando, nei laboratori, emerge un comportamento «strano» dell’IA.</p>
+   </details>
+  </section>
+
+  <!-- 2 · SONDAGGIO -->
+  <section class="slide" id="s2" data-level="essenziale" aria-labelledby="t2">
+   <div class="slide-body">
+    <div class="kicker">Per cominciare · rispondi d’istinto</div>
+    <h2 id="t2">Quando scrivi una domanda a un assistente IA, che cosa succede?</h2>
+    <div class="poll" id="poll">
+     <button type="button" data-k="a">Cerca la risposta in un archivio di risposte già pronte</button>
+     <button type="button" data-k="b">Cerca su internet e copia quello che trova</button>
+     <button type="button" data-k="c">Capisce la domanda e ragiona come una persona</button>
+     <button type="button" data-k="d">Compone il testo più plausibile, un pezzo alla volta</button>
+    </div>
+    <div class="reveal" id="pollAnswer" hidden>
+     <p><strong>La descrizione di base è l’ultima.</strong> Un modello linguistico non ha un archivio di risposte: compone ogni volta un testo nuovo, scegliendo un pezzo dopo l’altro ciò che è più plausibile dopo quanto è già scritto.</p>
+     <ul>
+      <li><strong>Archivio di risposte:</strong> no, il testo viene generato ogni volta. Per questo due richieste uguali possono dare risposte diverse.</li>
+      <li><strong>Ricerca su internet:</strong> alcuni assistenti possono fare anche una ricerca, come strumento aggiuntivo; ma la risposta la scrive comunque il modello, nello stesso modo.</li>
+      <li><strong>Come una persona:</strong> il testo <em>sembra</em> frutto di comprensione, e spesso è utile. Quanto il modello «capisca» è dibattuto; per il nostro lavoro conta che può sbagliare con grande sicurezza.</li>
+     </ul>
+    </div>
+   </div>
+   <details class="notes"><summary>Note per chi presenta</summary>
+    <p>Fai votare per alzata di mano prima di rivelare la risposta: le convinzioni iniziali dei corsisti sono il materiale della discussione. Di solito prevalgono la seconda e la terza.</p>
+   </details>
+  </section>
+
+  <!-- 3 · VIGNETTA COMPLETAMENTO -->
+  <section class="slide" id="s3" data-level="essenziale" aria-labelledby="t3">
+   <div class="slide-body">
+    <div class="kicker">Concetto 1 · Che cos’è un LLM</div>
+    <h2 id="t3">Il completamento automatico più grande del mondo</h2>
+    <figure class="slide-figure"><img src="./immagini/llm-completamento.jpg" width="1400" height="720" loading="lazy" alt="Vignetta in due riquadri. A sinistra un telefono: dopo «Ci vediamo…» suggerisce tre parole, domani, dopo, stasera; didascalia: guarda poche parole e propone quella successiva. A destra un robot seduto su una pila di libri completa «Nel mezzo del cammin di nostra…»; accanto un grafico a barre: vita 93 per cento, strada 3, età 2, casa 1. Didascalia: ha letto una quantità enorme di testi e tiene conto della conversazione, fino a un limite, ma il mestiere resta scegliere una parola dopo l’altra."></figure>
+    <p><strong>LLM</strong> sta per <em>Large Language Model</em>, modello linguistico di grandi dimensioni. «Grande» per la quantità di testi su cui è stato addestrato e per il numero di <strong>parametri</strong>, le regolazioni interne apprese durante l’addestramento: nei modelli più grandi sono centinaia di miliardi.</p>
+   </div>
+   <details class="notes"><summary>Per approfondire</summary>
+    <p>Le percentuali della vignetta sono un esempio, non il calcolo di un modello reale. Il paragone con la tastiera del telefono è utile ma ha un limite: il telefono guarda poche parole, un LLM tiene conto di tutto il testo che ha davanti e ha appreso schemi molto più complessi, compresi quelli del codice. Il video «Large Language Models explained briefly» di 3Blue1Brown [2] è un’introduzione di otto minuti adatta anche agli studenti.</p>
+   </details>
+  </section>
+
+  <!-- 4 · UNA PAROLA ALLA VOLTA -->
+  <section class="slide" id="s4" data-level="essenziale" aria-labelledby="t4">
+   <div class="slide-body">
+    <div class="kicker">Concetto 1 · Come nasce una risposta</div>
+    <h2 id="t4">Una parola alla volta</h2>
+    <figure class="slide-figure diagram-fig">
+     <svg viewBox="0 0 860 330" role="img" aria-labelledby="d4t d4d">
+      <title id="d4t">Il ciclo di generazione del testo</title>
+      <desc id="d4d">Quattro passaggi in cerchio: il testo scritto finora; il modello calcola la probabilità di ogni possibile parola successiva; ne sceglie una, non sempre la più probabile; la aggiunge al testo e ricomincia. Il ciclo si ripete migliaia di volte per una risposta.</desc>
+      <defs><marker id="sar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#176b87"/></marker></defs>
+      <g class="cyc">
+       <rect x="20" y="24" width="300" height="104" rx="16" class="cb1"/>
+       <text x="40" y="54" class="dg-k">1 · IL TESTO FINORA</text>
+       <text x="40" y="82" class="dg-t">«Oggi in classe abbiamo»</text>
+       <text x="40" y="108" class="dg-s">prompt + quanto già generato</text>
+
+       <rect x="540" y="24" width="300" height="104" rx="16" class="cb2"/>
+       <text x="560" y="54" class="dg-k">2 · LE PROBABILITÀ</text>
+       <text x="560" y="80" class="dg-s">letto 40% · studiato 30%</text>
+       <text x="560" y="102" class="dg-s">fatto 18% · visto 9% · …</text>
+
+       <rect x="540" y="202" width="300" height="104" rx="16" class="cb3"/>
+       <text x="560" y="232" class="dg-k">3 · LA SCELTA</text>
+       <text x="560" y="260" class="dg-t">«studiato»</text>
+       <text x="560" y="284" class="dg-s">non sempre la più probabile</text>
+
+       <rect x="20" y="202" width="300" height="104" rx="16" class="cb4"/>
+       <text x="40" y="232" class="dg-k">4 · SI AGGIUNGE E SI RICOMINCIA</text>
+       <text x="40" y="260" class="dg-t">«Oggi in classe abbiamo studiato»</text>
+       <text x="40" y="284" class="dg-s">nuovo punto di partenza</text>
+      </g>
+      <path class="dg-a" d="M330 76 H528"/>
+      <path class="dg-a" d="M690 138 V192"/>
+      <path class="dg-a" d="M530 254 H332"/>
+      <path class="dg-a" d="M170 196 V140"/>
+      <text x="430" y="166" text-anchor="middle" class="dg-big">↻</text>
+      <text x="430" y="196" text-anchor="middle" class="dg-l">migliaia di volte</text>
+      <text x="430" y="214" text-anchor="middle" class="dg-l">per una sola risposta</text>
+     </svg>
+    </figure>
+    <p><mark class="key">Il modello non recupera una risposta già scritta: la compone ogni volta.</mark> Anche un intero file di codice nasce così, un pezzo dopo l’altro, ciascuno scelto in base a ciò che lo precede.</p>
+   </div>
+   <details class="notes"><summary>Per approfondire</summary>
+    <p>Stephen Wolfram riassume tutto il funzionamento in una domanda ripetuta: «given the text so far, what should the next word be?» [1]. In realtà il modello non lavora su parole intere ma su <em>token</em>, pezzi di parola (slide 6). La scelta è casuale «pesata»: le parole più probabili escono più spesso, ma non sempre.</p>
+   </details>
+  </section>
+
+  <!-- 5 · SIMULAZIONE PAROLA SUCCESSIVA -->
+  <section class="slide" id="s5" data-level="essenziale" aria-labelledby="t5">
+   <div class="slide-body">
+    <div class="kicker">Simulazione · prova tu</div>
+    <h2 id="t5">Il gioco della parola successiva</h2>
+    <div class="sim" id="simNext">
+     <p class="sim-sentence" aria-live="polite"><span class="sim-prompt">Oggi in classe abbiamo</span> <span id="nwOut"></span><span class="caret" aria-hidden="true">▌</span></p>
+     <div class="bars" id="nwBars" aria-label="Probabilità della parola successiva"></div>
+     <div class="sim-controls">
+      <label for="nwTemp">Temperatura: <strong id="nwTempV">1,0</strong> <span class="muted" id="nwTempH"></span></label>
+      <input type="range" id="nwTemp" min="0" max="1.6" step="0.1" value="1">
+      <div class="actions">
+       <button type="button" class="button" id="nwStep">Scegli la parola successiva</button>
+       <button type="button" class="button" id="nwTen">Genera 8 frasi</button>
+       <button type="button" class="button light" id="nwReset">Ricomincia</button>
+      </div>
+     </div>
+     <ol class="sim-list" id="nwList" aria-live="polite"></ol>
+    </div>
+    <div class="check"><strong>Che cosa abbiamo visto.</strong> Con la stessa frase di partenza escono continuazioni diverse: è il motivo per cui <mark class="warn">lo stesso prompt può produrre due quiz diversi</mark> (Lezione 1). La variabilità non si elimina: si gestisce con una specifica chiara e con i test decisi prima.</div>
+   </div>
+   <details class="notes"><summary>Note per chi presenta</summary>
+    <p>Fai generare le 8 frasi con temperatura 0, poi 1, poi 1,6. A 0 esce sempre la frase più probabile; alzando la temperatura compaiono scelte rare e talvolta comiche («abbiamo cucinato un vulcano»). Le probabilità della simulazione sono inventate a scopo didattico. Negli assistenti la temperatura di solito non si regola: la imposta il fornitore; nelle interfacce per sviluppatori invece è un parametro.</p>
+   </details>
+  </section>
+
+  <!-- 6 · TOKEN -->
+  <section class="slide" id="s6" data-level="approfondimento" aria-labelledby="t6">
+   <div class="slide-body">
+    <div class="kicker">Concetto 1 bis · Approfondimento</div>
+    <h2 id="t6">Il modello non legge lettere: legge token</h2>
+    <p>Il testo viene spezzato in <strong>token</strong>, pezzi che possono essere una parola intera, una sillaba, un suffisso o un segno di punteggiatura. Scrivi una frase e guarda come potrebbe essere divisa.</p>
+    <div class="sim" id="simTok">
+     <label for="tokIn" class="prompt-label">Il tuo testo</label>
+     <textarea id="tokIn" rows="2" maxlength="400">La fotosintesi clorofilliana trasforma l’energia luminosa in energia chimica.</textarea>
+     <div class="tok-out" id="tokOut" aria-live="polite"></div>
+     <p class="tok-stats" id="tokStats"></p>
+    </div>
+    <div class="two-col">
+     <div class="task"><strong>Perché ti interessa.</strong> I limiti di lunghezza delle conversazioni si misurano in token, non in pagine. In italiano una parola vale spesso più di un token.</div>
+     <div class="check"><strong>Una conseguenza curiosa.</strong> Compiti che riguardano le singole lettere, come contarle o scrivere al contrario una parola, sono stati a lungo difficili per i modelli: non «vedono» le lettere una per una.</div>
+    </div>
+   </div>
+   <details class="notes"><summary>Per approfondire</summary>
+    <p>La divisione mostrata è una <strong>simulazione semplificata</strong>: ogni modello ha un proprio vocabolario di token, appreso dai testi, e divide le parole in modo diverso. Lo scopo è far vedere che l’unità di lavoro non è la parola, non riprodurre un tokenizzatore reale.</p>
+   </details>
+  </section>
+
+  <!-- 7 · ADDESTRAMENTO -->
+  <section class="slide" id="s7" data-level="essenziale" aria-labelledby="t7">
+   <div class="slide-body">
+    <div class="kicker">Concetto 2 · Da dove viene ciò che «sa»</div>
+    <h2 id="t7">Prima legge, poi impara a conversare</h2>
+    <figure class="slide-figure diagram-fig">
+     <svg viewBox="0 0 1000 250" role="img" aria-labelledby="d7t d7d">
+      <title id="d7t">Le fasi di addestramento di un assistente</title>
+      <desc id="d7d">Cinque fasi da sinistra a destra: raccolta di enormi quantità di testi; pre-addestramento, in cui il modello indovina la parola successiva miliardi di volte regolando i parametri; modello di base, che completa testi ma non segue istruzioni; affinamento con esempi di risposte e valutazioni di persone; assistente, che segue istruzioni e dialoga. Sotto, una linea del tempo segna la data limite dei dati: ciò che è successo dopo non è nell’addestramento.</desc>
+      <defs><marker id="sar7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#176b87"/></marker></defs>
+      <g class="tr">
+       <rect x="8" y="10" width="176" height="150" rx="14" class="cb1"/>
+       <text x="96" y="40" text-anchor="middle" class="dg-k">1 · I TESTI</text>
+       <g transform="translate(60 54)"><rect width="22" height="40" rx="3" fill="#2a9d8f"/><rect x="26" y="6" width="22" height="34" rx="3" fill="#d9822b"/><rect x="52" y="2" width="22" height="38" rx="3" fill="#23407a"/></g>
+       <text x="96" y="122" text-anchor="middle" class="dg-s">libri, siti, articoli,</text>
+       <text x="96" y="140" text-anchor="middle" class="dg-s">codice: miliardi di parole</text>
+
+       <rect x="206" y="10" width="186" height="150" rx="14" class="cb2"/>
+       <text x="299" y="40" text-anchor="middle" class="dg-k">2 · PRE-ADDESTRAMENTO</text>
+       <text x="299" y="80" text-anchor="middle" class="dg-t">«Il gatto è salito sul ___»</text>
+       <text x="299" y="122" text-anchor="middle" class="dg-s">indovina, confronta, corregge</text>
+       <text x="299" y="140" text-anchor="middle" class="dg-s">i parametri: miliardi di volte</text>
+
+       <rect x="414" y="10" width="176" height="150" rx="14" class="cb3"/>
+       <text x="502" y="40" text-anchor="middle" class="dg-k">3 · MODELLO DI BASE</text>
+       <text x="502" y="80" text-anchor="middle" class="dg-t">completa testi</text>
+       <text x="502" y="122" text-anchor="middle" class="dg-s">ma non segue istruzioni:</text>
+       <text x="502" y="140" text-anchor="middle" class="dg-s">non è ancora un assistente</text>
+
+       <rect x="612" y="10" width="186" height="150" rx="14" class="cb2"/>
+       <text x="705" y="40" text-anchor="middle" class="dg-k">4 · AFFINAMENTO</text>
+       <text x="705" y="80" text-anchor="middle" class="dg-t">esempi e valutazioni</text>
+       <text x="705" y="122" text-anchor="middle" class="dg-s">persone mostrano e giudicano</text>
+       <text x="705" y="140" text-anchor="middle" class="dg-s">risposte utili e sicure</text>
+
+       <rect x="820" y="10" width="172" height="150" rx="14" class="cb4"/>
+       <text x="906" y="40" text-anchor="middle" class="dg-k">5 · ASSISTENTE</text>
+       <text x="906" y="80" text-anchor="middle" class="dg-t">segue istruzioni</text>
+       <text x="906" y="122" text-anchor="middle" class="dg-s">dialoga, scrive codice,</text>
+       <text x="906" y="140" text-anchor="middle" class="dg-s">può ancora sbagliare</text>
+      </g>
+      <path class="dg-a7" d="M186 85 H200"/><path class="dg-a7" d="M394 85 H408"/><path class="dg-a7" d="M592 85 H606"/><path class="dg-a7" d="M800 85 H814"/>
+      <line x1="20" y1="212" x2="980" y2="212" stroke="#9fb3c2" stroke-width="3"/>
+      <rect x="20" y="204" width="620" height="16" rx="8" fill="#cfe7e3"/>
+      <text x="330" y="244" text-anchor="middle" class="dg-s">testi usati per l’addestramento</text>
+      <line x1="640" y1="190" x2="640" y2="234" stroke="#d9822b" stroke-width="4"/>
+      <text x="650" y="196" class="dg-w">DATA LIMITE</text>
+      <text x="810" y="244" text-anchor="middle" class="dg-s">ciò che è successo dopo: sconosciuto</text>
+     </svg>
+    </figure>
+    <div class="two-col">
+     <p>Il modello non contiene un database di fatti: ciò che ha appreso è «sciolto» nei parametri, come schemi del linguaggio. Per questo le conoscenze <strong>riaffiorano in modo approssimativo</strong>: spesso giuste, a volte confuse o inventate.</p>
+     <p><mark class="warn">Dopo la data limite il modello non sa nulla</mark>, a meno che l’assistente non usi uno strumento di ricerca. Per programmi, norme e scadenze recenti controlla sempre la fonte ufficiale.</p>
+    </div>
+   </div>
+   <details class="notes"><summary>Per approfondire</summary>
+    <p>L’affinamento con valutazioni umane è descritto, per esempio, nel lavoro su InstructGPT [3]: un modello più piccolo ma addestrato a seguire istruzioni veniva preferito dalle persone a uno molto più grande non affinato. I dettagli variano da un fornitore all’altro e non sono sempre pubblici. L’architettura su cui si basano i modelli attuali, il <em>transformer</em>, è stata proposta nel 2017 [5].</p>
+   </details>
+  </section>
+
+  <!-- 8 · CONTESTO -->
+  <section class="slide" id="s8" data-level="essenziale" aria-labelledby="t8">
+   <div class="slide-body">
+    <div class="kicker">Concetto 3 · Il contesto orienta</div>
+    <h2 id="t8">Stessa frase, contesto diverso, previsione diversa</h2>
+    <p>Il prompt non è un ordine eseguito alla lettera: è il <strong>contesto</strong> da cui il modello parte per calcolare le probabilità. Cambia il contesto e osserva la parola successiva.</p>
+    <div class="sim" id="simCtx">
+     <div class="ctx-pick" role="group" aria-label="Scegli il contesto">
+      <button type="button" data-c="0" aria-pressed="true">Lezione di scienze sulla fotosintesi</button>
+      <button type="button" data-c="1" aria-pressed="false">Dal fioraio, una cliente chiede consigli</button>
+      <button type="button" data-c="2" aria-pressed="false">Ufficio del personale, si parla di organico</button>
+     </div>
+     <p class="sim-sentence"><span class="sim-ctx" id="ctxLabel"></span> <span class="sim-prompt">«La pianta ha bisogno di</span> <span class="caret" aria-hidden="true">___»</span></p>
+     <div class="bars" id="ctxBars" aria-live="polite"></div>
+    </div>
+    <div class="check"><strong>Che cosa abbiamo visto.</strong> «Pianta» è ambigua; il contesto la scioglie. Per questo <mark class="key">destinatari, obiettivo, esempi e vincoli cambiano davvero il risultato</mark>, mentre formule come «sii preciso» o «non sbagliare» aggiungono poco. Le tecniche di prompt del corso, come arricchire il contesto o assegnare un ruolo, lavorano proprio qui.</div>
+   </div>
+   <details class="notes"><summary>Note per chi presenta</summary>
+    <p>Il terzo contesto sfrutta il significato amministrativo di «pianta organica»: buono per chiedere ai colleghi di Lettere altri esempi di parole il cui senso dipende dal contesto. Le probabilità sono inventate a scopo didattico. Collegamenti: tecnica 1 «Arricchire il contesto» (Lezione 1), tecnica 3 «Assegnare ruolo e tono» (Lezione 2).</p>
+   </details>
+  </section>
+
+  <!-- 9 · FINESTRA DI CONTESTO -->
+  <section class="slide" id="s9" data-level="essenziale" aria-labelledby="t9">
+   <div class="slide-body">
+    <div class="kicker">Concetto 4 · Memoria e limiti</div>
+    <h2 id="t9">La finestra di contesto: che cosa il modello ha davanti</h2>
+    <p>A ogni risposta il modello rilegge la conversazione, ma solo fino a una certa lunghezza: la <strong>finestra di contesto</strong>. Aggiungi messaggi e guarda che cosa succede alla specifica iniziale.</p>
+    <div class="sim" id="simWin">
+     <div class="win-wrap">
+      <ol class="win-list" id="winList" aria-live="polite"></ol>
+     </div>
+     <div class="actions">
+      <button type="button" class="button" id="winAdd">Continua la conversazione</button>
+      <button type="button" class="button light" id="winReset">Ricomincia</button>
+     </div>
+     <p class="win-alert" id="winAlert" role="status" hidden></p>
+    </div>
+    <div class="two-col">
+     <div class="task"><strong>Nei laboratori.</strong> Lavora per passi brevi e, quando la conversazione si allunga, apri una nuova chat allegando la specifica e il codice corrente (Lezione 4).</div>
+     <div class="check"><strong>Tra una chat e l’altra.</strong> Di norma ogni nuova chat riparte da zero. Alcuni assistenti offrono una funzione di memoria: se c’è, conoscila e controllala nelle impostazioni.</div>
+    </div>
+   </div>
+   <details class="notes"><summary>Per approfondire</summary>
+    <p>Le finestre dei modelli attuali sono molto ampie, in alcuni casi centinaia di migliaia di token, ma non infinite: una conversazione con molto codice le riempie in fretta. Anche quando tutto è ancora dentro la finestra, le indicazioni date molto prima possono pesare meno di quelle recenti. Nella simulazione la finestra è volutamente minuscola, per vedere l’effetto in pochi clic.</p>
+   </details>
+  </section>
+
+  <!-- 10 · ALLUCINAZIONI -->
+  <section class="slide" id="s10" data-level="essenziale" aria-labelledby="t10">
+   <div class="slide-body">
+    <div class="kicker">Concetto 5 · Plausibile non vuol dire vero</div>
+    <h2 id="t10">Le «allucinazioni»</h2>
+    <figure class="slide-figure"><img src="./immagini/llm-allucinazione.jpg" width="1400" height="720" loading="lazy" alt="Vignetta in tre riquadri. Il docente chiede tre libri sulla didattica delle frazioni con autore, editore e anno. Il robot, sorridente, risponde con un elenco ordinato di tre titoli con autori, editori e anni. Nel terzo riquadro il catalogo della biblioteca mostra zero risultati per il primo titolo; il docente è preoccupato e il robot commenta «Però suonava benissimo…». Didascalia: plausibile non vuol dire vero, titoli, date e fonti si controllano sempre. I titoli della vignetta sono inventati."></figure>
+    <div class="three-col">
+     <p><strong>Che cosa sono.</strong> Testi scorrevoli e sicuri ma falsi o inventati: un titolo, una data, una citazione, un numero.</p>
+     <p><strong>Perché accadono.</strong> Il modello sceglie ciò che è plausibile in quel punto del testo; nessun passaggio controlla automaticamente che sia vero.</p>
+     <p><strong>Che cosa fai.</strong> <mark class="warn">Verifichi su fonti affidabili nomi, date, numeri e riferimenti</mark> prima di metterli davanti alla classe.</p>
+    </div>
+   </div>
+   <details class="notes"><summary>Per approfondire</summary>
+    <p>Il termine «allucinazione» è entrato nell’uso tecnico per indicare contenuti generati non fedeli alla fonte o ai fatti; una rassegna ampia è quella di Ji e colleghi [4]. Chiedere all’IA «sei sicura?» non è una verifica: la risposta è anch’essa testo generato. Collegamento: nella Lezione 1 il quiz supera i test tecnici ma contiene una data sbagliata.</p>
+   </details>
+  </section>
+
+  <!-- 11 · HO TESTATO -->
+  <section class="slide" id="s11" data-level="essenziale" aria-labelledby="t11">
+   <div class="slide-body">
+    <div class="kicker">Concetto 6 · Scrive, non esegue</div>
+    <h2 id="t11">«Ho testato tutto!»</h2>
+    <figure class="slide-figure"><img src="./immagini/llm-ho-testato.jpg" width="1400" height="720" loading="lazy" alt="Vignetta in due riquadri. Il robot, felice, dichiara: ho testato il quiz, punteggio, feedback e riavvio funzionano perfettamente. Nel secondo riquadro il docente prova il quiz: dopo aver premuto Riavvia compare Domanda 1 di 3 ma il punteggio è ancora 3 su 3. Il docente si chiede come sia possibile. Didascalia: il riavvio non azzera il punteggio, lo scopre solo chi prova davvero; il modello genera codice e parole, non osserva il programma funzionare."></figure>
+    <p>Anche la frase «ho testato» è testo generato: è la continuazione plausibile di una conversazione sul codice. <mark class="key">Le prove le esegui tu</mark>, annotando risultato atteso, osservato ed esito. Alcuni assistenti dispongono di strumenti per eseguire codice: anche in quel caso la verifica didattica resta tua.</p>
+   </div>
+   <details class="notes"><summary>Note per chi presenta</summary>
+    <p>Il difetto della vignetta è lo stesso del quesito 7 del test della Lezione 1: la funzione di riavvio riporta alla prima domanda ma non azzera il punteggio. Chiedi ai corsisti quale test lo avrebbe scoperto.</p>
+   </details>
+  </section>
+
+  <!-- 12 · DATI -->
+  <section class="slide" id="s12" data-level="essenziale" aria-labelledby="t12">
+   <div class="slide-body">
+    <div class="kicker">Concetto 6 bis · Dove vanno i dati</div>
+    <h2 id="t12">Il prompt esce dalla scuola, il quiz no</h2>
+    <figure class="slide-figure diagram-fig">
+     <svg viewBox="0 0 1000 270" role="img" aria-labelledby="d12t d12d">
+      <title id="d12t">Il percorso dei dati nei due momenti</title>
+      <desc id="d12d">Momento 1, costruzione: il docente scrive il prompt, che viaggia su internet fino ai server del fornitore dove lavora il modello; la risposta, testo e codice, torna al docente. Momento 2, uso in classe: lo studente apre nel browser il file HTML verificato; l’IA non interviene e, se il codice non lo prevede, nessun dato esce dal dispositivo.</desc>
+      <defs><marker id="sar12" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#176b87"/></marker><marker id="sar12o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#c4661b"/></marker></defs>
+      <rect x="6" y="6" width="640" height="258" rx="18" fill="#eef6f9" stroke="#b9d4df"/>
+      <text x="26" y="36" class="dg-k">MOMENTO 1 · COSTRUZIONE</text>
+      <rect x="26" y="64" width="160" height="96" rx="14" class="cb1"/><text x="106" y="98" text-anchor="middle" class="dg-t">Docente</text><text x="106" y="122" text-anchor="middle" class="dg-s">scrive il prompt</text><text x="106" y="142" text-anchor="middle" class="dg-s">nel browser</text>
+      <g transform="translate(0 14)"><path d="M262 98 q-4 -26 22 -30 q10 -22 36 -12 q22 -14 38 6 q26 2 22 30 q4 22 -22 24 h-80 q-24 -2 -16 -18z" fill="#fff" stroke="#9fb3c2" stroke-width="2"/><text x="320" y="104" text-anchor="middle" class="dg-s">internet</text></g>
+      <rect x="440" y="64" width="186" height="96" rx="14" class="cb3"/><text x="533" y="98" text-anchor="middle" class="dg-t">Server del fornitore</text><text x="533" y="122" text-anchor="middle" class="dg-s">qui lavora il modello</text><text x="533" y="142" text-anchor="middle" class="dg-s">e arriva il tuo prompt</text>
+      <path d="M190 88 H250" class="dg-a12o"/><path d="M386 88 H432" class="dg-a12o"/>
+      <path d="M436 146 C360 200 260 200 190 146" class="dg-a12"/>
+      <text x="314" y="214" text-anchor="middle" class="dg-l">risposta: testo e codice</text>
+      <text x="318" y="58" text-anchor="middle" class="dg-w">ciò che scrivi esce dalla scuola</text>
+      <text x="26" y="248" class="dg-s">Niente nomi, voti o dati degli studenti nel prompt · account istituzionale</text>
+      <rect x="664" y="6" width="330" height="258" rx="18" class="dg-m2"/>
+      <text x="684" y="36" class="dg-k">MOMENTO 2 · USO IN CLASSE</text>
+      <rect x="684" y="64" width="130" height="96" rx="14" class="cb4"/><text x="749" y="102" text-anchor="middle" class="dg-t">Studente</text><text x="749" y="126" text-anchor="middle" class="dg-s">usa il quiz</text>
+      <rect x="840" y="64" width="136" height="96" rx="14" class="cb1"/><text x="908" y="98" text-anchor="middle" class="dg-t">Browser</text><text x="908" y="122" text-anchor="middle" class="dg-s">esegue il file</text><text x="908" y="142" text-anchor="middle" class="dg-s">HTML verificato</text>
+      <path d="M816 112 H834" class="dg-a12"/>
+      <text x="829" y="200" text-anchor="middle" class="dg-t">nessuna IA coinvolta</text>
+      <text x="829" y="224" text-anchor="middle" class="dg-s">se il codice non invia dati,</text>
+      <text x="829" y="244" text-anchor="middle" class="dg-s">le risposte restano nel dispositivo</text>
+     </svg>
+    </figure>
+    <p><mark class="warn">I dati degli studenti non vanno mai nel prompt</mark>, nemmeno con le sole iniziali. A scuola usa l’assistente fornito dall’istituto con l’account istituzionale, e controlla che il codice generato non invii dati altrove.</p>
+   </div>
+   <details class="notes"><summary>Per approfondire</summary>
+    <p>Il riferimento nazionale sono le Linee guida del Ministero per l’introduzione dell’IA nelle istituzioni scolastiche, adottate con il DM n. 166 del 9 agosto 2025 [7], che richiamano la protezione dei dati personali e l’alfabetizzazione all’IA; a livello internazionale, la guida UNESCO sull’IA generativa in educazione [6]. Lo schema riprende quello della guida al corso, sezione «Come funziona davvero».</p>
+   </details>
+  </section>
+
+  <!-- 13 · BENE / ATTENZIONE -->
+  <section class="slide" id="s13" data-level="essenziale" aria-labelledby="t13">
+   <div class="slide-body">
+    <div class="kicker">Mettere insieme i concetti</div>
+    <h2 id="t13">Dove aiuta di più, dove sbaglia più spesso</h2>
+    <div class="two-col good-bad">
+     <div class="gb good">
+      <h3>Aiuta di più quando…</h3>
+      <ul>
+       <li>adatta un testo a un livello o a un destinatario</li>
+       <li>propone esempi, varianti ed esercizi <em>da rivedere</em></li>
+       <li>scrive codice per compiti comuni: un quiz, una pagina, un modulo</li>
+       <li>spiega lo stesso concetto in più modi</li>
+       <li>riassume, riformula e traduce testi che gli fornisci</li>
+      </ul>
+     </div>
+     <div class="gb bad">
+      <h3>Sbaglia più spesso con…</h3>
+      <ul>
+       <li>nomi, date, numeri, citazioni e bibliografie</li>
+       <li>calcoli lunghi fatti «a mente», senza strumenti</li>
+       <li>fatti successivi alla data limite</li>
+       <li>informazioni locali o di nicchia: il regolamento della tua scuola</li>
+       <li>giudicare da solo se la propria risposta è corretta</li>
+      </ul>
+     </div>
+    </div>
+    <p class="muted">Sono tendenze, non regole: i modelli migliorano rapidamente e cambiano da un fornitore all’altro. Quello che non cambia è il criterio: più una risposta contiene fatti verificabili, più va verificata.</p>
+   </div>
+   <details class="notes"><summary>Note per chi presenta</summary>
+    <p>Chiedi a ogni corsista di aggiungere un esempio della propria disciplina per ciascuna colonna. È un buon ponte verso «Parti dalla tua disciplina» della Lezione 1.</p>
+   </details>
+  </section>
+
+  <!-- 14 · SINTESI -->
+  <section class="slide" id="s14" data-level="essenziale" aria-labelledby="t14">
+   <div class="slide-body">
+    <div class="kicker">Sintesi</div>
+    <h2 id="t14">Sei idee da portare nei laboratori</h2>
+    <div class="table-wrap">
+     <table class="sum-table">
+      <thead><tr><th scope="col">Il concetto</th><th scope="col">Che cosa fai di conseguenza</th><th scope="col">Dove lo ritrovi</th></tr></thead>
+      <tbody>
+       <tr><th scope="row">Una parola alla volta, per probabilità</th><td>Decidi i test prima di generare: due versioni possono differire</td><td><a href="./lezione-1.html">Lezione 1</a></td></tr>
+       <tr><th scope="row">Plausibile non vuol dire vero</th><td>Verifichi i contenuti disciplinari su fonti affidabili</td><td><a href="./lezione-1.html">Lezioni 1</a> e <a href="./lezione-5.html">5</a></td></tr>
+       <tr><th scope="row">Il contesto orienta la risposta</th><td>Scrivi specifiche con destinatari, obiettivo, esempi e vincoli</td><td><a href="./#tecniche">Tecniche di prompt</a></td></tr>
+       <tr><th scope="row">La finestra di contesto è limitata</th><td>Lavori per passi e riallegi la specifica in una nuova chat</td><td><a href="./lezione-4.html">Lezione 4</a></td></tr>
+       <tr><th scope="row">Scrive, non esegue</th><td>Esegui tu i test e annoti atteso, osservato, esito</td><td><a href="./lezione-1.html">Lezioni 1</a> e <a href="./lezione-6.html">6</a></td></tr>
+       <tr><th scope="row">Il prompt esce dalla scuola</th><td>Niente dati degli studenti; account istituzionale</td><td>In tutte le lezioni</td></tr>
+      </tbody>
+     </table>
+    </div>
+   </div>
+   <details class="notes"><summary>Note per chi presenta</summary>
+    <p>È la slide da lasciare proiettata durante il primo laboratorio, o da stampare come promemoria.</p>
+   </details>
+  </section>
+
+  <!-- 15 · IN CLASSE -->
+  <section class="slide" id="s15" data-level="essenziale" aria-labelledby="t15">
+   <div class="slide-body">
+    <div class="kicker">Per la tua classe · senza dispositivi · 15 minuti</div>
+    <h2 id="t15">«Siamo un modello linguistico»</h2>
+    <p>Un’attività per spiegare agli studenti come scrive un’IA, usando la classe stessa come modello. Funziona in qualunque disciplina.</p>
+    <ol class="steps-plain">
+     <li><strong>3 min · Prevedi.</strong> Scrivi alla lavagna l’inizio di una frase della tua materia, per esempio «Nel 1492 Cristoforo Colombo…». Ognuno scrive su un foglietto la parola successiva.</li>
+     <li><strong>4 min · Conta.</strong> Raccogli i foglietti e disegna l’istogramma delle risposte: è una distribuzione di probabilità.</li>
+     <li><strong>4 min · Estrai.</strong> Pesca un foglietto a caso e continua la frase; ripeti due volte. La frase cambia: ecco la variabilità. Poi aggiungi un contesto, «In un romanzo di fantascienza…», e ripeti: le risposte si spostano.</li>
+     <li><strong>4 min · Discuti.</strong> La continuazione più votata è sempre quella vera? Che cosa serve, oltre alla previsione, per sapere se una frase è corretta?</li>
+    </ol>
+    <div class="check"><strong>Che cosa osservi.</strong> Gli studenti sanno spiegare con parole proprie perché due risposte dell’IA alla stessa domanda possono essere diverse, e perché una risposta convincente va comunque controllata.</div>
+   </div>
+   <details class="notes"><summary>Note per chi presenta</summary>
+    <p>È un’attività di Modalità A estesa: nessun account, nessun dato personale, nessuna IA in aula. Si presta a una ripresa nelle discipline linguistiche (collocazioni, registro) e scientifiche (differenza tra correlazione e verità).</p>
+   </details>
+  </section>
+
+  <!-- 16 · VERIFICA -->
+  <section class="slide" id="s16" data-level="essenziale" aria-labelledby="t16">
+   <div class="slide-body">
+    <div class="kicker">Verifica formativa · non obbligatoria · nessun dato salvato</div>
+    <h2 id="t16">Sei situazioni da laboratorio</h2>
+    <p class="muted">Per ogni situazione scegli la risposta: il riscontro compare subito. Il risultato non blocca nessuna lezione.</p>
+    <div class="fquiz" id="fquiz"></div>
+    <p class="fquiz-score" id="fquizScore" role="status" aria-live="polite"></p>
+   </div>
+   <details class="notes"><summary>Note per chi presenta</summary>
+    <p>In aula conviene proiettare una situazione alla volta e far votare prima di cliccare. Ogni domanda corrisponde a uno dei sei concetti della sintesi.</p>
+   </details>
+  </section>
+
+  <!-- 17 · FONTI -->
+  <section class="slide" id="s17" data-level="approfondimento" aria-labelledby="t17">
+   <div class="slide-body">
+    <div class="kicker">Per approfondire</div>
+    <h2 id="t17">Fonti e letture consigliate</h2>
+    <ol class="sources">
+     <li><a href="https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/" target="_blank" rel="noopener noreferrer">S. Wolfram, <em>What Is ChatGPT Doing … and Why Does It Work?</em> (2023)</a> — la spiegazione divulgativa più completa della generazione «una parola alla volta».</li>
+     <li><a href="https://www.3blue1brown.com/lessons/mini-llm" target="_blank" rel="noopener noreferrer">3Blue1Brown, <em>Large Language Models explained briefly</em> (2024)</a> — video animato di otto minuti, con trascrizione.</li>
+     <li><a href="https://arxiv.org/abs/2203.02155" target="_blank" rel="noopener noreferrer">L. Ouyang et al., <em>Training language models to follow instructions with human feedback</em> (2022)</a> — l’affinamento con valutazioni umane.</li>
+     <li><a href="https://doi.org/10.1145/3571730" target="_blank" rel="noopener noreferrer">Z. Ji et al., <em>Survey of Hallucination in Natural Language Generation</em>, ACM Computing Surveys (2023)</a> — che cosa sono le allucinazioni e come si studiano.</li>
+     <li><a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer">A. Vaswani et al., <em>Attention Is All You Need</em> (2017)</a> — l’articolo che ha introdotto l’architettura transformer.</li>
+     <li><a href="https://unesdoc.unesco.org/ark:/48223/pf0000386693" target="_blank" rel="noopener noreferrer">UNESCO, <em>Guidance for generative AI in education and research</em> (2023)</a> — orientamenti per un uso centrato sulla persona.</li>
+     <li><a href="https://www.mim.gov.it/web/guest/-/decreto-ministeriale-n-166-del-9-agosto-2025" target="_blank" rel="noopener noreferrer">Ministero dell’Istruzione e del Merito, DM n. 166 del 9 agosto 2025 e <em>Linee guida per l’introduzione dell’Intelligenza Artificiale nelle Istituzioni scolastiche</em></a>.</li>
+    </ol>
+    <p class="muted">Vignette, diagrammi e simulazioni sono originali di questo corso. Le probabilità delle simulazioni sono inventate a scopo didattico e la divisione in token è semplificata.</p>
+    <div class="actions"><a class="button" href="./#come-funziona">Torna alla guida: come funziona davvero</a><a class="button primary" href="./lezione-1.html">Inizia la Lezione 1 →</a></div>
+   </div>
+  </section>
+
+ </div>
+
+ <nav class="deck-nav" aria-label="Navigazione delle slide">
+  <button type="button" class="button" id="prevSlide" aria-label="Slide precedente">←<span class="nl"> Precedente</span></button>
+  <div class="deck-pos"><span id="slideCount" aria-live="polite"></span><div class="deck-dots" id="deckDots"></div></div>
+  <button type="button" class="button primary" id="nextSlide" aria-label="Slide successiva"><span class="nl">Successiva </span>→</button>
+ </nav>
+</main>
+
+<footer><div class="wrap">Vibe Coding · Lezione introduttiva · <a href="./">Guida al corso</a> · <a href="./#percorso">Mappa delle lezioni</a><p class="license"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer"><span class="cc-badge" aria-label="Licenza Creative Commons BY-NC-SA 4.0"><b>cc</b>BY-NC-SA 4.0</span></a><span>© 2026 <span property="cc:attributionName">Prof. Antonio Adinolfi</span> · «Vibe Coding per docenti» è distribuito con licenza <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it" target="_blank" rel="license noopener noreferrer">Creative Commons Attribuzione – Non commerciale – Condividi allo stesso modo 4.0 Internazionale</a>. Fanno eccezione i materiali di terzi indicati come tali.</span></p></div></footer>
+<script src="./corso-slides.js?v=1"></script>
+<script src="./corso-tools.js?v=1"></script>
+</body>
+</html>

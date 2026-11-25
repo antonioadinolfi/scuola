@@ -4,6 +4,7 @@ Sito didattico e progetto formativo per un corso di 24 ore articolato in sei lez
 
 ## Contenuti
 - `index.html` + `corso-home.js`: guida al corso. Che cos'è il vibe coding (origine, spettro puro/verificato/assistito), come funziona (diagramma costruzione vs uso, autoverifica), strumenti per famiglie, tre modalità d'uso in classe (A/B/C), quadro normativo (AI Act art. 4, D.M. 166/2025, L. 132/2025), mappa delle lezioni con stato, esportazione/importazione dell'avanzamento, glossario e fonti.
+- `concetti-llm.html` + `corso-slides.css` + `corso-slides.js`: lezione introduttiva facoltativa a slide sui modelli linguistici (vignette in `immagini/llm-*.jpg`). Nessun test obbligatorio, nessun dato inviato.
 - `lezione-1…6.html`: lezioni con test al 70%. Dalla v5: tempi specifici per lezione, attività in classe legata a una modalità, scelta dell'assistente (Gemini, ChatGPT, Claude, altro), opzioni dei test in ordine casuale.
 - `corso-data.js`: contenuti delle lezioni (campi `schedule` e `classroom` aggiunti in v5).
 - `programma.md`: programma formativo completo in formato Markdown.

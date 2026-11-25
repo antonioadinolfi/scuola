@@ -20,6 +20,10 @@ Al termine del percorso, il partecipante sarà in grado di:
 
 ## Articolazione
 
+### Lezione introduttiva — Come scrive un’intelligenza artificiale (45-60 minuti, facoltativa)
+
+Slide interattive (`concetti-llm.html`) sui concetti fondamentali dei modelli linguistici: previsione della parola successiva e temperatura, token, addestramento e data limite, contesto, finestra di contesto, allucinazioni, percorso dei dati. Tre vignette originali, tre diagrammi, simulazioni senza IA collegata, attività «Siamo un modello linguistico» per la classe e verifica formativa non bloccante.
+
 ### Lezione 1 — Dal linguaggio naturale al software (4 ore)
 - Fondamenti del vibe coding e ciclo di sviluppo iterativo.
 - Introduzione a interfaccia, applicazione web, HTML, CSS e JavaScript.
