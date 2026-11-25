@@ -440,6 +440,17 @@
     "categoria": "Laboratorio Interattivo"
   },
   {
+    "classe": "Seconda",
+    "titolo": "Laboratorio Python – Input e decisioni",
+    "descrizione": "18 esercizi interattivi su input, print, if / elif / else e operatori logici, con casi reali, test automatici e riepilogo PDF.",
+    "tipo": "esercizio",
+    "file_path": "tracce/Seconde/laboratorio_python_input_decisioni.html",
+    "target_page": "tracce/Seconde/laboratorio_python_input_decisioni.html",
+    "ordine": 8,
+    "attivo": true,
+    "categoria": "Laboratorio Interattivo"
+  },
+  {
     "classe": "Terza",
     "titolo": "Laboratorio Python – Liste, tuple, vettori e matrici",
     "descrizione": "20 esercizi interattivi Python con editor Skulpt, test automatici e consegna progressiva in PDF con identificativo univoco.",
