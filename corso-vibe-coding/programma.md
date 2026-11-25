@@ -77,6 +77,7 @@ Slide interattive (`concetti-llm.html`) sui concetti fondamentali dei modelli li
 
 ## Esempi interdisciplinari
 - Italiano: analisi guidata di un testo o quiz letterario.
+- Latino: riconoscimento di casi e funzioni, simulatore sul rapporto tra desinenze e ordine delle parole, generatore di declinazioni con forme validate, percorso di lettura con lessico.
 - Storia e filosofia: scenario decisionale o simulatore di dibattito.
 - Matematica: generatore di esercizi o grafico interattivo.
 - Fisica e scienze: laboratorio virtuale con variabili modificabili.

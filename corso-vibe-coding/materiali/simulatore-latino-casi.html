@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Chi fa che cosa? · Simulatore di latino · Lezione 3</title>
+<style>
+:root{--navy:#102a43;--teal:#2a9d8f;--gold:#f4b942;--orange:#d9822b;--red:#c0392b;--line:#d5dfe8;--muted:#52657a}
+*{box-sizing:border-box}
+body{margin:0;font:17px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;color:#172b4d;background:#f5f7fa}
+.wrap{max-width:1000px;margin:0 auto;padding:24px}
+h1{margin:0 0 4px;font-size:1.7rem;color:var(--navy)}
+h2{font-size:1.1rem;margin:0 0 10px;color:var(--navy)}
+.sub{margin:0 0 18px;color:var(--muted)}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 8px 24px rgba(16,42,67,.06);margin-bottom:18px}
+.tiles{display:flex;flex-wrap:wrap;gap:14px;align-items:stretch}
+.tile{flex:1 1 220px;border:2px solid var(--line);border-radius:14px;padding:12px;background:#fbfcfd}
+.tile.verb{background:#fff9e9;border-color:#f0d48a}
+.tile .pos{font-size:.75rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+.tile .word{font-size:1.9rem;font-weight:800;color:var(--navy);margin:6px 0;font-family:Georgia,"Times New Roman",serif}
+.tile .word b{color:var(--orange)}
+.tile select{font:inherit;width:100%;padding:7px 9px;border:1px solid #a9bfce;border-radius:9px;background:#fff;margin-top:4px}
+.cases{display:flex;gap:6px;margin-top:8px}
+.cases button{flex:1;font:inherit;font-size:.88rem;font-weight:700;padding:6px;border-radius:9px;border:1px solid var(--line);background:#fff;cursor:pointer}
+.cases button[aria-pressed=true]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.move{display:flex;gap:4px}
+.move button{font:inherit;font-size:.9rem;width:32px;height:28px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer}
+.move button:disabled{opacity:.35;cursor:default}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}
+.btn{font:inherit;font-weight:700;padding:9px 16px;border-radius:12px;border:1px solid var(--line);background:#fff;cursor:pointer}
+.btn.primary{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.sentence{font-family:Georgia,"Times New Roman",serif;font-size:1.6rem;color:var(--navy);margin:0 0 10px}
+.out{min-height:120px}
+.ok{background:#e3f4f1;border-left:5px solid var(--teal);padding:12px 16px;border-radius:0 12px 12px 0}
+.warn{background:#fff4ea;border-left:5px solid var(--orange);padding:12px 16px;border-radius:0 12px 12px 0}
+.err{background:#fdecea;border-left:5px solid var(--red);padding:12px 16px;border-radius:0 12px 12px 0}
+.tr{font-size:1.35rem;font-weight:800;color:var(--navy);margin:4px 0}
+table{width:100%;border-collapse:collapse;margin:10px 0 0;font-size:.95rem}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line)}
+th{font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.predict{background:#f3eefb;border:1px solid #c9b8e8;border-radius:14px;padding:14px 16px}
+.predict .opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.predict .opts button{font:inherit;font-weight:700;padding:8px 14px;border-radius:999px;border:1px solid #c9b8e8;background:#fff;cursor:pointer}
+.switch{display:flex;align-items:center;gap:8px;font-weight:700}
+.cases-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:8px}
+.cases-list button{font:inherit;text-align:left;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#fbfcfd;cursor:pointer}
+.cases-list button i{display:block;font-style:normal;font-family:Georgia,serif;font-size:1.05rem;color:var(--navy)}
+.cases-list button span{font-size:.85rem;color:var(--muted)}
+.limits{font-size:.93rem;color:#334e68}
+.limits li{margin:3px 0}
+.note{font-size:.85rem;color:var(--muted)}
+button:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.tablewrap{overflow-x:auto}
+@media(max-width:600px){.wrap{padding:14px}.card{padding:16px}table{font-size:.85rem}th,td{padding:6px}.tile .word{font-size:1.6rem}.sentence{font-size:1.35rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <h1>Chi fa che cosa?</h1>
+ <p class="sub">Simulatore per la Lezione 3 del corso «Vibe Coding per docenti». Componi una frase latina, cambia le desinenze o l’ordine delle parole e osserva chi compie l’azione.</p>
+
+ <div class="card">
+  <div class="tiles" id="tiles"></div>
+  <div class="bar">
+   <button type="button" class="btn" id="shuffle">Mescola l’ordine</button>
+   <label class="switch"><input type="checkbox" id="predictMode"> Modalità previsione: prima prevedi, poi guarda l’analisi</label>
+  </div>
+ </div>
+
+ <div class="card out" aria-live="polite">
+  <p class="sentence" id="sentence"></p>
+  <div id="predictBox" class="predict" hidden></div>
+  <div id="result"></div>
+ </div>
+
+ <div class="card">
+  <h2>Casi di prova</h2>
+  <p class="note">Ogni caso carica una frase. Prima di guardare l’analisi, prova a prevedere il risultato.</p>
+  <div class="cases-list" id="casesList"></div>
+ </div>
+
+ <div class="card limits">
+  <h2>Il modello e i suoi limiti</h2>
+  <ul>
+   <li><strong>Regole:</strong> il nominativo indica il soggetto, l’accusativo il complemento oggetto; il verbo è alla 3ª persona singolare.</li>
+   <li><strong>Vocabolario chiuso:</strong> sette nomi al singolare (I, II e III declinazione) e quattro verbi transitivi.</li>
+   <li><strong>Neutri:</strong> in <em>animal</em> e <em>monstrum</em> nominativo e accusativo hanno la stessa forma. Se l’altra parola chiarisce i ruoli, il simulatore lo spiega; se no, dichiara l’ambiguità.</li>
+   <li><strong>Lascia fuori:</strong> plurali, altri casi, soggetto sottinteso, frasi con «et», sfumature di enfasi e di stile date dall’ordine delle parole.</li>
+  </ul>
+  <p class="note">© 2026 Prof. Antonio Adinolfi · CC BY-NC-SA 4.0 · Forme e traduzioni vanno confrontate con la grammatica in adozione.</p>
+ </div>
+</div>
+<script>
+(()=>{
+ // Lessico: stem + desinenza per nominativo e accusativo singolare; n = neutro (nom = acc)
+ const NOUNS=[
+  {id:'paulus',it:'Paolo',art:'',stem:'Paul',nom:'us',acc:'um'},
+  {id:'marcus',it:'Marco',art:'',stem:'Marc',nom:'us',acc:'um'},
+  {id:'puella',it:'ragazza',art:'la ',stem:'puell',nom:'a',acc:'am'},
+  {id:'nauta',it:'marinaio',art:'il ',stem:'naut',nom:'a',acc:'am'},
+  {id:'dominus',it:'padrone',art:'il ',stem:'domin',nom:'us',acc:'um'},
+  {id:'animal',it:'animale',art:'l’',stem:'animal',nom:'',acc:'',n:true},
+  {id:'monstrum',it:'mostro',art:'il ',stem:'monstr',nom:'um',acc:'um',n:true}];
+ const VERBS=[{id:'videt',it:'vede'},{id:'amat',it:'ama'},{id:'salutat',it:'saluta'},{id:'timet',it:'teme'}];
+ const N=id=>NOUNS.find(x=>x.id===id),V=id=>VERBS.find(x=>x.id===id);
+ const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+ const ref=n=>n.art+n.it;
+ const form=(n,c)=>n.stem+(c==='acc'?n.acc:n.nom);
+ // stato: tre tessere in ordine
+ let tiles=[{t:'n',id:'paulus',c:'nom'},{t:'n',id:'marcus',c:'acc'},{t:'v',id:'videt'}];
+ let pending=null; // previsione in attesa
+
+ const $=id=>document.getElementById(id);
+ function word(tl){if(tl.t==='v')return tl.id;const n=N(tl.id);const s=form(n,tl.c);return s.charAt(0).toUpperCase()===s.charAt(0)?s:s}
+ function wordHTML(tl){if(tl.t==='v')return tl.id;const n=N(tl.id);const end=tl.c==='acc'?n.acc:n.nom;return n.stem+(end?'<b>'+end+'</b>':'')}
+
+ function analyse(){
+  const nouns=tiles.filter(x=>x.t==='n'),verb=V(tiles.find(x=>x.t==='v').id);
+  const [a,b]=nouns.map(x=>({n:N(x.id),c:x.c,form:form(N(x.id),x.c)}));
+  const role=x=>x.n.n?'na':x.c; // na = nominativo o accusativo
+  const ra=role(a),rb=role(b);
+  if(a.n.id===b.n.id)return {kind:'err',msg:'Scegli due nomi diversi: il modello non tratta frasi riflessive come «Paolo vede se stesso».',rows:[]};
+  const row=(x,c,f,why)=>({form:x.form,caso:c,fun:f,why});
+  let S,O,rows,note='';
+  if(ra==='na'&&rb==='na'){
+   return {kind:'warn',msg:'Frase ambigua: entrambi i nomi sono neutri e hanno la stessa forma al nominativo e all’accusativo. Il modello non può decidere chi compie l’azione: servono il contesto o il senso.',
+    alts:[cap(ref(a.n))+' '+verb.it+' '+ref(b.n),cap(ref(b.n))+' '+verb.it+' '+ref(a.n)],
+    rows:[row(a,'nominativo o accusativo','soggetto o oggetto','neutro: nom. = acc.'),row(b,'nominativo o accusativo','soggetto o oggetto','neutro: nom. = acc.')],who:'ambiguo'};
+  }
+  const isNom=r=>r==='nom',isAcc=r=>r==='acc';
+  if((isNom(ra)&&isNom(rb)))return {kind:'err',msg:'Due nominativi: manca il complemento oggetto. Con un verbo transitivo come «'+verb.id+'» serve un accusativo.',rows:[row(a,'nominativo','?','desinenza -'+(a.n.nom||'')),row(b,'nominativo','?','desinenza -'+(b.n.nom||''))],who:'nessuno'};
+  if((isAcc(ra)&&isAcc(rb)))return {kind:'err',msg:'Due accusativi: manca il soggetto, nessuna parola è al nominativo. In questo modello il soggetto deve essere espresso.',rows:[row(a,'accusativo','?','desinenza -'+a.n.acc),row(b,'accusativo','?','desinenza -'+b.n.acc)],who:'nessuno'};
+  // casi risolti
+  const pick=(x,r,other)=>{if(r==='nom')return 'S';if(r==='acc')return 'O';return other==='nom'?'O':'S'};
+  const pa=pick(a,ra,rb),pb=pick(b,rb,ra);
+  S=pa==='S'?a:b;O=pa==='S'?b:a;
+  const why=(x,r,p)=>r==='na'?'neutro: nom. = acc.; '+(p==='S'?'è il soggetto perché l’altro nome è all’accusativo':'è l’oggetto perché l’altro nome è al nominativo'):'desinenza -'+(r==='nom'?x.n.nom:x.n.acc);
+  rows=[row(a,pa==='S'?'nominativo':'accusativo',pa==='S'?'soggetto':'complemento oggetto',why(a,ra,pa)),row(b,pb==='S'?'nominativo':'accusativo',pb==='S'?'soggetto':'complemento oggetto',why(b,rb,pb))];
+  if(ra==='na'||rb==='na')note='Uno dei nomi è neutro e da solo sarebbe ambiguo: a sciogliere il dubbio è la desinenza dell’altro nome.';
+  return {kind:'ok',tr:cap(ref(S.n))+' '+verb.it+' '+ref(O.n)+'.',rows,note,who:S.n.id};
+ }
+
+ function renderTiles(){
+  const box=$('tiles');box.textContent='';
+  tiles.forEach((tl,i)=>{
+   const d=document.createElement('div');d.className='tile'+(tl.t==='v'?' verb':'');
+   const pos=document.createElement('div');pos.className='pos';pos.innerHTML='<span>Posizione '+(i+1)+' · '+(tl.t==='v'?'verbo':'nome')+'</span>';
+   const mv=document.createElement('span');mv.className='move';
+   const l=document.createElement('button');l.type='button';l.textContent='←';l.setAttribute('aria-label','Sposta a sinistra');l.disabled=i===0;l.onclick=()=>{[tiles[i-1],tiles[i]]=[tiles[i],tiles[i-1]];change()};
+   const r=document.createElement('button');r.type='button';r.textContent='→';r.setAttribute('aria-label','Sposta a destra');r.disabled=i===tiles.length-1;r.onclick=()=>{[tiles[i+1],tiles[i]]=[tiles[i],tiles[i+1]];change()};
+   mv.append(l,r);pos.append(mv);d.append(pos);
+   const w=document.createElement('div');w.className='word';w.innerHTML=wordHTML(tl);d.append(w);
+   const sel=document.createElement('select');sel.setAttribute('aria-label',tl.t==='v'?'Scegli il verbo':'Scegli il nome in posizione '+(i+1));
+   (tl.t==='v'?VERBS:NOUNS).forEach(x=>{const o=document.createElement('option');o.value=x.id;o.textContent=tl.t==='v'?x.id+' · '+x.it:x.stem+(x.nom)+' · '+x.art+x.it+(x.n?' (neutro)':'');if(x.id===tl.id)o.selected=true;sel.append(o)});
+   sel.onchange=()=>{tl.id=sel.value;change()};d.append(sel);
+   if(tl.t==='n'&&N(tl.id).n){const nt=document.createElement('p');nt.className='note';nt.style.margin='8px 0 0';nt.textContent='Neutro: nominativo e accusativo hanno la stessa forma.';d.append(nt)}
+   else if(tl.t==='n'){const cs=document.createElement('div');cs.className='cases';cs.setAttribute('role','group');cs.setAttribute('aria-label','Caso');
+    [['nom','Nominativo'],['acc','Accusativo']].forEach(([k,lab])=>{const b=document.createElement('button');b.type='button';b.textContent=lab;b.setAttribute('aria-pressed',String(tl.c===k));b.onclick=()=>{tl.c=k;change()};cs.append(b)});d.append(cs)}
+   box.append(d)});
+ }
+ function sentence(){const s=tiles.map(word).join(' ');return s.charAt(0).toUpperCase()+s.slice(1)+'.'}
+ function renderResult(){
+  const r=analyse(),out=$('result');
+  let h='';
+  if(r.kind==='ok')h='<div class="ok"><div class="tr">'+r.tr+'</div>'+(r.note?'<p>'+r.note+'</p>':'')+'</div>';
+  else if(r.kind==='warn')h='<div class="warn"><strong>'+r.msg+'</strong><p>Letture possibili: «'+r.alts.join('» oppure «')+'».</p></div>';
+  else h='<div class="err"><strong>'+r.msg+'</strong></div>';
+  if(r.rows.length)h+='<div class="tablewrap"><table><thead><tr><th scope="col">Parola</th><th scope="col">Caso</th><th scope="col">Funzione</th><th scope="col">Perché</th></tr></thead><tbody>'+r.rows.map(x=>'<tr><td><strong>'+x.form+'</strong></td><td>'+x.caso+'</td><td>'+x.fun+'</td><td>'+x.why+'</td></tr>').join('')+'</tbody></table></div>';
+  out.innerHTML=h;return r;
+ }
+ function change(){
+  renderTiles();$('sentence').textContent=sentence();
+  if($('predictMode').checked){
+   const r=analyse();pending=r;$('result').innerHTML='';const box=$('predictBox');box.hidden=false;
+   const nouns=tiles.filter(x=>x.t==='n').map(x=>N(x.id));
+   box.innerHTML='<strong>Prevedi: chi compie l’azione?</strong><div class="opts"></div>';
+   const opts=box.querySelector('.opts');
+   [...nouns.map(n=>[n.id,cap(ref(n))]),['nessuno','La frase non è ben formata'],['ambiguo','Non si può decidere']].forEach(([k,lab])=>{const b=document.createElement('button');b.type='button';b.textContent=lab;b.onclick=()=>{const ok=k===pending.who;box.innerHTML='<strong>'+(ok?'Previsione corretta.':'Previsione da rivedere.')+'</strong> '+(ok?'Ora spiega perché, usando le desinenze.':'Confronta con l’analisi qui sotto e spiega lo scarto.');renderResult()};opts.append(b)});
+  }else{$('predictBox').hidden=true;renderResult()}
+ }
+ const CASES=[
+  ['Paulus Marcum videt',[['paulus','nom'],['marcus','acc'],'videt'],'soggetto e oggetto chiari'],
+  ['Marcum Paulus videt',[['marcus','acc'],['paulus','nom'],'videt'],'cambia solo l’ordine'],
+  ['Paulum Marcus videt',[['paulus','acc'],['marcus','nom'],'videt'],'cambiano le desinenze'],
+  ['Puella nautam salutat',[['puella','nom'],['nauta','acc'],'salutat'],'I declinazione: -a e -am'],
+  ['Paulus Marcus videt',[['paulus','nom'],['marcus','nom'],'videt'],'due nominativi'],
+  ['Animal dominum timet',[['animal','nom'],['dominus','acc'],'timet'],'neutro chiarito dall’altro nome'],
+  ['Animal monstrum videt',[['animal','nom'],['monstrum','nom'],'videt'],'due neutri: il caso che il modello non risolve']];
+ CASES.forEach(([lat,cfg,lab])=>{const b=document.createElement('button');b.type='button';b.innerHTML='<i>'+lat+'</i><span>'+lab+'</span>';
+  b.onclick=()=>{tiles=cfg.map(x=>typeof x==='string'?{t:'v',id:x}:{t:'n',id:x[0],c:x[1]});change();window.scrollTo({top:0,behavior:'smooth'})};$('casesList').append(b)});
+ $('shuffle').onclick=()=>{const old=tiles.map(x=>x.id).join();for(let k=0;k<10&&tiles.map(x=>x.id).join()===old;k++)tiles.sort(()=>Math.random()-.5);change()};
+ $('predictMode').onchange=change;
+ change();
+})();
+</script>
+</body>
+</html>
