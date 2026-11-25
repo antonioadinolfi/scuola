@@ -395,17 +395,7 @@
     "attivo": true,
     "categoria": "Infografiche"
   },
-  {
-    "classe": "Seconda",
-    "titolo": "Verifica di Informatica — Python: correzioni e feedback generale",
-    "descrizione": "Correzione didattica generale della verifica del 13 ottobre 2026; senza voti o dati individuali.",
-    "tipo": "esercizio",
-    "file_path": "materiali/verifiche/correzione-python-2fsa-2026-10-13.html",
-    "target_page": "",
-    "ordine": 4,
-    "attivo": true,
-    "categoria": "Laboratorio Interattivo"
-  },
+  
   {
     "classe": "Test",
     "titolo": "Test d'ingresso",
