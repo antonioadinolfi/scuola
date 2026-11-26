@@ -360,6 +360,9 @@ table.cases td,table.cases th{font-size:14.5px;padding:6px 8px}td.okc{color:var(
 body.present .stage{position:relative;display:block;overflow:hidden;padding:0}
 body.present .slide.html{position:absolute;transform-origin:0 0;max-width:none;min-height:0;margin:0}
 body.present .cover.pc{min-height:600px}
+.fallcols{grid-template-columns:1fr 1.35fr}.fpre{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 8px}.fpre .chip{padding:4px 12px;font-size:14px}
+.flegend{display:flex;flex-direction:column;gap:3px;margin-top:8px;font-size:14px;color:#37474f}.flegend .ld{display:inline-block;width:11px;height:11px;border-radius:50%;background:#e53935;margin-right:6px}.flegend .ll{display:inline-block;width:26px;border-top:3px dashed #7b1fa2;margin-right:6px;vertical-align:middle}
+table.ftab{margin-top:12px}table.ftab td,table.ftab th{font-size:14px;padding:5px 8px}
 </style>
 </head>
 <body>
@@ -412,6 +415,7 @@ body.present .cover.pc{min-height:600px}
 <script src="pgfx.js"></script>
 <script src="contenuti.js"></script>
 <script src="ta.js"></script>
+<script src="fall.js"></script>
 <script>
 const $=id=>document.getElementById(id);
 const pad=n=>String(n).padStart(3,'0');
