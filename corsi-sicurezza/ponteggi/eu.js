@@ -28,19 +28,20 @@ const EU = {
    ${easy('Le regole italiane sui ponteggi non sono "un\'invenzione italiana": vengono da una direttiva europea valida in tutti i Paesi UE. Chi ha lavorato in Romania, Francia o Germania ha regole con la stessa base.')}`,
 
   norme: () => `<div class="kick">Norme tecniche europee</div><h2>Le norme EN dei ponteggi (situazione 2026)</h2>
-   <div class="cols"><div><table class="eutab"><tr><th>Norma</th><th>Di cosa parla</th><th>Edizione</th></tr>
+   <div class="cols" style="grid-template-columns:.85fr 1.35fr"><div><table class="eutab"><tr><th>Norma</th><th>Di cosa parla</th><th>Edizione</th></tr>
     <tr><td><b>EN 12810-1/-2</b></td><td>Ponteggi di facciata prefabbricati: prodotto e calcolo</td><td>2003 (UNI 2004)</td></tr>
-    <tr><td><b>EN 12811-1</b></td><td>Requisiti prestazionali e progettazione: classi di carico, larghezze, protezioni laterali</td><td>2003, confermata 2024</td></tr>
+    <tr><td><b>EN 12811-1</b></td><td>Requisiti prestazionali e progettazione: classi di carico, larghezze, protezioni laterali</td><td>2003<br><small>confermata 2024</small></td></tr>
     <tr><td><b>EN 12811-2/-3</b></td><td>Materiali · prove di carico</td><td>2004 · 2002</td></tr>
-    <tr><td><b>EN 74-1/-2/-3</b></td><td>Giunti, spinotti, basette</td><td>74-1:2022+A1:2025</td></tr>
-    <tr><td><b>EN 13374</b></td><td>Parapetti provvisori, classi A, B, C</td><td>UNI EN 13374:2025</td></tr>
-    <tr><td><b>EN 1004-1</b></td><td>Trabattelli (non sono ponteggi fissi)</td><td>UNI EN 1004-1:2021</td></tr></table>
+    <tr><td><b>EN 74-1/-2/-3</b></td><td>Giunti, spinotti, basette</td><td>74-1:2022<br>+A1:2025</td></tr>
+    <tr><td><b>EN 13374</b></td><td>Parapetti provvisori, classi A, B, C</td><td>2025</td></tr>
+    <tr><td><b>EN 1004-1</b></td><td>Trabattelli (non sono ponteggi fissi)</td><td>2021</td></tr></table>
     <p class="small">${ref('Le norme EN 12810/12811 sono il riferimento tecnico per l\'autorizzazione ministeriale (art. 131 c.3).')}</p></div>
     <div><h3>Italia e norme EN: dove sono diverse</h3>
-     <div class="vs"><div class="vs-r"><span>Parapetto</span><b>≥ 95 cm</b><i>art. 138 (ponteggi metallici)</i><b>≥ 1 m</b><i>EN 13374, EN 12811-1</i></div>
-     <div class="vs-r"><span>Classi di carico</span><b>2</b><i>1,5 kN/m² manutenzione · 3,0 kN/m² costruzione (circolari MLPS)</i><b>6</b><i>dalla classe 1 (0,75 kN/m²) alla 6</i></div>
-     <div class="vs-r"><span>Approvazione</span><b>autorizzazione ministeriale</b><i>art. 131, rinnovo ogni 10 anni</i><b>nessuna marcatura CE</b><i>ogni Paese ha il suo sistema</i></div>
-     <div class="vs-r"><span>Fermapiede</span><b>≥ 15 cm</b><i>All. XVIII</i><b>≥ 15 cm</b><i>EN 13374</i></div></div>
+     <table class="eutab cmp"><tr><th>Aspetto</th><th class="it">Legge italiana</th><th class="en">Norme tecniche EN</th><th>In cantiere</th></tr>
+      <tr><td><b>Altezza del parapetto</b></td><td class="it"><b>almeno 95 cm</b><br><small>art. 138 (ponteggi metallici)</small></td><td class="en"><b>almeno 1 m</b><br><small>EN 13374, EN 12811-1</small></td><td>quella del <b>libretto</b>, mai sotto 95 cm</td></tr>
+      <tr><td><b>Carico sugli impalcati</b></td><td class="it"><b>2 valori</b><br><small>1,5 kN/m² manutenzione · 3,0 kN/m² costruzione (circolari MLPS)</small></td><td class="en"><b>6 classi</b><br><small>dalla classe 1 (0,75 kN/m²) alla classe 6</small></td><td>il carico ammesso scritto nel <b>libretto/PiMUS</b></td></tr>
+      <tr><td><b>Chi approva il ponteggio</b></td><td class="it"><b>Ministero del Lavoro</b><br><small>autorizzazione, art. 131, rinnovo ogni 10 anni</small></td><td class="en"><b>nessuna marcatura CE</b><br><small>ogni Paese ha il proprio sistema</small></td><td>copia dell'<b>autorizzazione</b> in cantiere</td></tr>
+      <tr><td><b>Tavola fermapiede</b></td><td class="it"><b>almeno 15 cm</b><br><small>Allegato XVIII</small></td><td class="en"><b>almeno 15 cm</b><br><small>EN 13374</small></td><td>uguale: <b>15 cm</b></td></tr></table>
      <div class="warn" style="margin-top:8px">In cantiere vale la regola <b>più severa</b> tra legge e libretto: un ponteggio autorizzato con parapetto da 1 m va montato a 1 m.</div></div></div>`,
 
   classi: () => `<div class="kick">Simulazione · EN 13374</div><h2>Quale parapetto provvisorio serve? Classi A, B e C</h2>
