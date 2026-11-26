@@ -35,7 +35,7 @@ URL: `https://antonioadinolfiscuola.it/corso-intelligenza-artificiale/` (pagine 
 Una sfida è `<div class="ia-ex" data-ex="…" data-type="challenge"></div>`, completata da una simulazione con `IaEx.complete('…')`.
 
 ## Modalità docente
-Aprendo una pagina del corso con `#docente=<codice>` (lo stesso del corso Python a oggetti) tutte le lezioni si sbloccano su quel browser. Con `#docente-off` la modalità si disattiva.
+Aprendo una pagina del corso con `#docente=<codice>` tutte le lezioni si sbloccano su quel browser. Sono validi il codice del corso Python a oggetti e un codice specifico di questo corso (comunicato al docente, non scritto qui: nel codice c'è solo la sua impronta SHA-256). Con `#docente-off` la modalità si disattiva.
 
 ## Licenza
 © 2026 Prof. Antonio Adinolfi. Contenuti distribuiti con licenza Creative Commons BY-NC-SA 4.0: vedi `LICENSE.md`.

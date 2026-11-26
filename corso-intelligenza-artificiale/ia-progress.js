@@ -76,7 +76,7 @@ window.IaCourse = (() => {
     try {
       const d = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token));
       const hex = [...new Uint8Array(d)].map(x => x.toString(16).padStart(2, '0')).join('');
-      if (hex === 'ecc804b918257dafe93c95276fba19d91669bcdb32893975cbb9b74018f19933') { localStorage.setItem(TEACHER, '1'); location.reload(); }
+      if (['ecc804b918257dafe93c95276fba19d91669bcdb32893975cbb9b74018f19933', '0ef7379e6f56e17ae4937fe66f476cc3249e373c7661a9acc8bdc9ccf710820f'].includes(hex)) { localStorage.setItem(TEACHER, '1'); location.reload(); }
     } catch {}
   }
 
