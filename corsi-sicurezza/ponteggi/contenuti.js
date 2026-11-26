@@ -167,7 +167,7 @@ const S = {
     <div class="lmrow">
      <div class="lm">Titolo IV · Capo II<small>lavori in quota, artt. 105–138</small><ul><li>art. 111 scelta attrezzature, meteo</li><li>art. 115 sistemi anticaduta</li><li>artt. 122–130 ponteggi in generale</li><li><b>artt. 131–138 ponteggi fissi</b></li></ul></div>
      <div class="lm">Allegati<small>i dettagli tecnici</small><ul><li><b>XVIII</b> viabilità, ponteggi, parapetti</li><li><b>XIX</b> verifiche dei ponteggi</li><li><b>XXI</b> formazione addetti</li><li><b>XXII</b> contenuti del PiMUS</li></ul></div>
-     <div class="lm">Norme tecniche<small>come si costruisce e si prova</small><ul><li>UNI EN 12810 / 12811 ponteggi</li><li>UNI EN 74 giunti</li><li>UNI EN 13374 parapetti provvisori</li><li>EN 361, 354, 355, 360, 362, 795 anticaduta</li></ul></div>
+     <div class="lm">Norme tecniche<small>come si costruisce e si prova</small><ul><li>UNI EN 12810 / 12811 ponteggi</li><li>UNI EN 74-1:2022+A1:2025 giunti</li><li>UNI EN 13374:2025 parapetti provvisori</li><li>EN 361, 354, 355, 360, 362, 795 anticaduta</li></ul></div>
      <div class="lm">Documenti del fabbricante<small>valgono come legge in cantiere</small><ul><li>autorizzazione ministeriale (art. 131)</li><li>libretto con schemi tipo</li><li>istruzioni di montaggio</li></ul></div>
     </div></div>
    ${easy('C\'è una legge (81/2008), ci sono allegati con i numeri, e c\'è il <b>libretto</b> del ponteggio: se il libretto dice di fare così, si fa così.')}`,
@@ -200,6 +200,7 @@ const S = {
     <div class="tli new"><div class="y">2025</div><b>Protocollo caldo</b><p>2 luglio 2025: protocollo quadro per le emergenze climatiche; molte Regioni vietano il lavoro al sole nelle ore più calde (di solito 12:30–16:00) nei giorni di rischio alto.</p></div>
     <div class="tli next"><div class="y">2025</div><b>Badge di cantiere</b><p>Il D.L. 159/2025 introduce il badge di cantiere con codice univoco per chi lavora nei cantieri, accanto alla tessera di riconoscimento (art. 26 c.8).</p></div>
     <div class="tli old"><div class="y">sempre</div><b>Libretti rinnovati</b><p>L'autorizzazione ministeriale si rinnova ogni 10 anni (obbligo del fabbricante); l'impresa può continuare a usare il ponteggio acquistato.</p></div>
+    <div class="tli new"><div class="y">2025</div><b>Nuove norme EN</b><p>Pubblicate la UNI EN 13374:2025 (parapetti provvisori) e l'emendamento A1:2025 alla EN 74-1 (giunti). La EN 12811-1 è stata confermata dopo la revisione periodica del 2024.</p></div>
     <div class="tli old"><div class="y">sempre</div><b>Allegato XXI</b><p>Il corso ponteggi resta di 28 ore con aggiornamento ogni 4 anni.</p></div></div>
    <div class="legend"><span class="lg new"></span> in vigore <span class="lg next"></span> in attuazione <span class="lg old"></span> conferme</div>`,
 
@@ -276,7 +277,7 @@ const S = {
 
   numeri: () => `<div class="kick">I numeri da ricordare</div><h2>Dieci misure, dieci regole</h2>
    <div class="nums">
-    ${[['95 cm', 'altezza minima del parapetto nei ponteggi metallici', 'art. 138'], ['15 cm', 'altezza minima della tavola fermapiede', 'All. XVIII'], ['60 cm', 'luce massima tra correnti e tra fermapiede e corrente', 'All. XVIII'],
+    ${[['95 cm', 'altezza minima del parapetto nei ponteggi metallici (le norme EN chiedono 1 m)', 'art. 138 · EN 13374'], ['15 cm', 'altezza minima della tavola fermapiede', 'All. XVIII'], ['60 cm', 'luce massima tra correnti e tra fermapiede e corrente', 'All. XVIII'],
     ['20 cm', 'distanza massima tra impalcato e muro (misurata dalla tavola)', 'art. 138'], ['1 m', 'i montanti superano l\'ultimo impalcato (ponteggi metallici)', 'art. 138 / 125'], ['2,50 m', 'distanza massima del sottoponte di sicurezza', 'art. 128'],
     ['2 × 2', 'ancoraggi almeno ogni 2 piani e 2 montanti, a rombo (il libretto chiede spesso di più)', 'art. 125 c.6'], ['20 m', 'oltre questa altezza serve il progetto', 'art. 133'], ['12 m', 'mantovana parasassi al primo solaio e poi ogni 12 m', 'art. 129 c.3'], ['2 m', 'sopra questa altezza si è "in quota"', 'art. 107']]
       .map((n, i) => `<div class="num" style="animation-delay:${i * .07}s"><div class="v">${n[0]}</div><p>${n[1]}</p>${ref(n[2])}</div>`).join('')}</div>`,
@@ -430,7 +431,7 @@ const S = {
     <div><h3>Fonti normative</h3><ul class="small"><li>D.Lgs. 81/2008 e s.m.i., artt. 19, 20, 26, 27, 36, 37, 77, 84, 107–138, Allegati IX, XVIII, XIX, XXI, XXII</li>
     <li>Accordo Stato-Regioni 17/04/2025 (Rep. 59/CSR) e FAQ ministeriali</li><li>Circolari MLPS 85/1978, 44/1990, 132/1991, 46/2000, 25/2006, 29/2010; Interpello 16/2015</li>
     <li>Protocollo quadro emergenze climatiche, 2 luglio 2025</li><li>D.L. 159/2025 (badge di cantiere)</li><li>Regione Piemonte – schede ponteggi fissi e ancoraggi; Regione Emilia-Romagna – Ponteggi di facciata (2021)</li>
-    <li>UNI EN 12810, 12811, 74, 13374; EN 361, 354, 355, 360, 362, 365, 795</li></ul></div></div>`
+    <li>UNI EN 12810-1/2, 12811-1/2/3, 74-1:2022+A1:2025, 13374:2025, 1004-1; EN 361, 354, 355, 360, 362, 365, 795</li><li>Direttive 89/391/CEE, 2009/104/CE (ex 2001/45/CE), 92/57/CEE, 89/656/CEE, 92/58/CEE; Regolamento (UE) 2016/425; Quadro strategico UE SSL 2021-2027</li></ul></div></div>`
 };
 
 /* ---------------- DATI DEI GIOCHI ---------------- */
