@@ -363,6 +363,11 @@ body.present .cover.pc{min-height:600px}
 .fallcols{grid-template-columns:1fr 1.35fr}.fpre{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 8px}.fpre .chip{padding:4px 12px;font-size:14px}
 .flegend{display:flex;flex-direction:column;gap:3px;margin-top:8px;font-size:14px;color:#37474f}.flegend .ld{display:inline-block;width:11px;height:11px;border-radius:50%;background:#e53935;margin-right:6px}.flegend .ll{display:inline-block;width:26px;border-top:3px dashed #7b1fa2;margin-right:6px;vertical-align:middle}
 table.ftab{margin-top:12px}table.ftab td,table.ftab th{font-size:14px;padding:5px 8px}
+.sospcols{grid-template-columns:1fr 1.1fr;align-items:start}.bodysvg{width:100%;max-height:520px;display:block}
+.heart{animation:heartb 1s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 50%}@keyframes heartb{0%,100%{transform:scale(1)}30%{transform:scale(1.18)}60%{transform:scale(.95)}}
+.sosptypes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}.sosptypes div{background:#fcfbf9;border:1px solid var(--line);border-radius:8px;padding:8px 10px}.sosptypes p{font-size:14.5px!important;margin:3px 0 0;line-height:1.35!important}
+.sosp3 .sg ul{margin:6px 0 0;padding-left:18px}.sosp3 .sg li{font-size:15px!important;margin:3px 0!important}
+.tick{animation:spin 2s linear infinite;transform-origin:0 0}
 </style>
 </head>
 <body>
@@ -416,6 +421,7 @@ table.ftab{margin-top:12px}table.ftab td,table.ftab th{font-size:14px;padding:5p
 <script src="contenuti.js"></script>
 <script src="ta.js"></script>
 <script src="fall.js"></script>
+<script src="sosp.js"></script>
 <script>
 const $=id=>document.getElementById(id);
 const pad=n=>String(n).padStart(3,'0');
