@@ -104,7 +104,8 @@ function doPost(e) {
         durata: d.durataSecondi !== null ? minSec_(d.durataSecondi) : durata_(inizio, fine), browser: d.browser,
         scarto: isData_(fine) ? Math.round((ricevuto - fine) / 60000) : null,
         sorv: d.sorveglianza,
-        modalita: d.scaduto ? 'automatica (tempo scaduto)' : 'manuale'
+        modalita: (d.scaduto ? 'automatica (tempo scaduto)' : 'manuale') +
+          (d.riapertaDocente ? ' · riaperta dal docente alle ' + Utilities.formatDate(d.riapertaDocente, 'Europe/Rome', 'HH:mm') : '')
       };
 
       const stamp = Utilities.formatDate(ricevuto, FUSO, 'yyyy-MM-dd_HHmm');
@@ -186,6 +187,8 @@ function valida_(d) {
   }
   d.browser = String(d.browser || '').slice(0, 200);
   d.scaduto = d.scaduto === true;
+  // riapertura da parte del docente (sblocco-docente.js): solo informativa, indicata nella modalità di consegna
+  d.riapertaDocente = (typeof d.riapertaDocente === 'string' && /^\d{4}-\d\d-\d\dT[\d:.]+Z$/.test(d.riapertaDocente)) ? new Date(d.riapertaDocente) : null;
   d.sorveglianza = sorveglianza_(d.sorveglianza);
   // durata misurata dal browser con un orologio interno che non risente dell'ora del computer
   d.durataSecondi = (Number.isInteger(d.durataSecondi) && d.durataSecondi >= 0 && d.durataSecondi <= (TEMPO_MINUTI + 15) * 60) ? d.durataSecondi : null;

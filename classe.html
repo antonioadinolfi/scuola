@@ -545,7 +545,7 @@
     const themeKey    = 'classeTheme';
 
     let editor = null, initialCode = codeEditor.value;
-    let secondsLeft = 45*60, deliveredExpired = false, timerInterval = null, currentObjectUrl = null;
+    let secondsLeft = 45*60, deliveredExpired = false, timerInterval = null, currentObjectUrl = null, riapertaAlle = null;
     let isRunning = false, skulptAbortFlag = false, runCount = 0;
 
     const getEditorValue = () => editor ? editor.getValue() : codeEditor.value;
@@ -1075,7 +1075,7 @@
       timerValue.textContent=formatTime(Math.max(secondsLeft,0));
       const tb=document.getElementById('timerBox');
       if(tb) tb.classList.toggle('warning',secondsLeft<=300);
-      if(secondsLeft<=0){clearInterval(timerInterval);deliverBtn.disabled=true;deliveredExpired=true;expiredNote.style.display='inline';saveTimerState();return;}
+      if(secondsLeft<=0){clearInterval(timerInterval);if(riapertaAlle){deliverBtn.disabled=false;deliveredExpired=false;return;}deliverBtn.disabled=true;deliveredExpired=true;expiredNote.style.display='inline';saveTimerState();return;}
       deliverBtn.disabled=false;expiredNote.style.display='none';secondsLeft--;saveTimerState();
     }
     function startTimer(){
@@ -1145,7 +1145,7 @@
     deliverBtn.addEventListener('click',()=>{
       if(deliveredExpired)return;
       const student=studentNameInput.value.trim()||'Studente',fine=new Date().toISOString(),codice=getEditorValue(),risultato=output.textContent||'Nessun output.';
-      const report=`<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8"><title>Consegna Python</title><style>body{font-family:Segoe UI,Arial,sans-serif;margin:32px;color:#111;line-height:1.5}h1{margin-top:0}.meta{margin-bottom:18px;padding:14px;border:1px solid #d7dee8;border-radius:12px;background:#f7f9fc}pre{white-space:pre-wrap;background:#0b1020;color:#f4f8ff;padding:14px;border-radius:10px;overflow:auto}</style></head><body><h1>Consegna prova Python</h1><div class="meta"><p><strong>Studente:</strong> ${escapeHtml(student)}</p><p><strong>Classe:</strong> ${escapeHtml(className)}</p><p><strong>Data lezione:</strong> ${escapeHtml(lessonDate)}</p><p><strong>Timestamp:</strong> ${escapeHtml(fine)}</p><p><strong>Tempo residuo:</strong> ${escapeHtml(formatTime(Math.max(secondsLeft,0)))}</p></div><h2>Codice</h2><pre>${escapeHtml(codice)}</pre><h2>Output</h2><pre>${escapeHtml(risultato)}</pre></body></html>`;
+      const report=`<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8"><title>Consegna Python</title><style>body{font-family:Segoe UI,Arial,sans-serif;margin:32px;color:#111;line-height:1.5}h1{margin-top:0}.meta{margin-bottom:18px;padding:14px;border:1px solid #d7dee8;border-radius:12px;background:#f7f9fc}pre{white-space:pre-wrap;background:#0b1020;color:#f4f8ff;padding:14px;border-radius:10px;overflow:auto}</style></head><body><h1>Consegna prova Python</h1><div class="meta"><p><strong>Studente:</strong> ${escapeHtml(student)}</p><p><strong>Classe:</strong> ${escapeHtml(className)}</p><p><strong>Data lezione:</strong> ${escapeHtml(lessonDate)}</p><p><strong>Timestamp:</strong> ${escapeHtml(fine)}</p><p><strong>Tempo residuo:</strong> ${escapeHtml(formatTime(Math.max(secondsLeft,0)))}</p>${riapertaAlle?`<p><strong>Prova riaperta dal docente:</strong> ${escapeHtml(riapertaAlle.toLocaleString('it-IT'))} (tempo scaduto)</p>`:''}</div><h2>Codice</h2><pre>${escapeHtml(codice)}</pre><h2>Output</h2><pre>${escapeHtml(risultato)}</pre></body></html>`;
       const blob=new Blob([report],{type:'text/html'}),url=URL.createObjectURL(blob),a=document.createElement('a');
       a.href=url;a.download=`${student.replace(/\s+/g,'_')}_consegna.html`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
     });
@@ -1345,5 +1345,20 @@
       });
     });
   </script>
+<script src="sblocco-docente.js"></script>
+<script>
+(function(){
+  // Riapertura da parte del docente: la variabile riapertaAlle è nello script principale (stesso ambito globale).
+  if(!window.SbloccoDocente) return;
+  SbloccoDocente.init({
+    nome:'Laboratorio Python',
+    scaduta:()=>deliveredExpired,
+    riaperta:()=>riapertaAlle,
+    riapri:info=>{riapertaAlle=info.alle;deliveredExpired=false;deliverBtn.disabled=false;document.querySelectorAll('.expired-note').forEach(n=>{n.textContent='🔓 Riaperta dal docente';n.style.display='inline'});},
+    richiudi:()=>{riapertaAlle=null;deliveredExpired=true;deliverBtn.disabled=true;document.querySelectorAll('.expired-note').forEach(n=>{n.textContent='⚠ Tempo scaduto';n.style.display='inline'});},
+    notaRichiudi:'e la consegna non è più possibile'
+  });
+})();
+</script>
 </body>
 </html>

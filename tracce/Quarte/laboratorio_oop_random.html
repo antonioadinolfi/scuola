@@ -41,8 +41,8 @@ try{
   }
 }catch(e){}
 if(!state)state=fresh();
-function running(){return !!state.deadline&&!state.finishedAt&&Date.now()<state.deadline}
-function expired(){return !!state.deadline&&(!!state.finishedAt||Date.now()>=state.deadline)}
+function running(){return !!state.deadline&&!state.finishedAt&&(Date.now()<state.deadline||!!state.reopenedAt)}
+function expired(){return !!state.deadline&&(!!state.finishedAt||(Date.now()>=state.deadline&&!state.reopenedAt))}
 function save(){try{localStorage.setItem(STORE+state.id,JSON.stringify(state));localStorage.setItem(CURRENT,state.id)}catch(e){$('status').textContent='Attenzione: salvataggio locale non disponibile. Scarica il PDF per conservare il lavoro.'}}
 function task(i){return BANK.find(x=>x.id===state.ids[i])}
 function answer(id){if(!state.answers[id])state.answers[id]={strategy:'',code:''};return state.answers[id]}
@@ -63,7 +63,7 @@ for(let p=0;p<pages.length;p++){const commands=[];pages[p].forEach((line,j)=>com
 objects[catalog-1]='<< /Type /Catalog /Pages '+tree+' 0 R >>';objects[tree-1]='<< /Type /Pages /Kids ['+pageIds.map(n=>n+' 0 R').join(' ')+'] /Count '+pageIds.length+' >>';
 let pdf='%PDF-1.4\n';const offsets=[0];objects.forEach((body,i)=>{offsets.push(pdf.length);pdf+=(i+1)+' 0 obj\n'+body+'\nendobj\n'});const xrefAt=pdf.length;pdf+='xref\n0 '+(objects.length+1)+'\n0000000000 65535 f \n';for(let i=1;i<offsets.length;i++)pdf+=String(offsets[i]).padStart(10,'0')+' 00000 n \n';pdf+='trailer\n<< /Size '+(objects.length+1)+' /Root '+catalog+' 0 R >>\nstartxref\n'+xrefAt+'\n%%EOF\n';return new TextEncoder().encode(pdf)}
 function downloadPDF(auto=false){if(!state.name.trim()||!state.surname.trim()||!state.classe.trim()){if(!auto)alert('Inserisci nome, cognome e classe prima di consegnare.');return false}
-const lines=['LICEO SCIENTIFICO - LABORATORIO OOP CLASSE QUARTA','INCAPSULAMENTO / EREDITARIETA / POLIMORFISMO','--------------------------------------------------------------','Studente: '+state.name+' '+state.surname+'    Classe: '+state.classe,'ID: '+state.id+'   Revisione: '+(state.revision+1),'Creato: '+state.created+'   PDF: '+new Date().toLocaleString('it-IT'),'Esercizi selezionati: '+state.ids.join(', '),'Durata: 40 minuti   Stato: '+(expired()?'TEMPO SCADUTO':running()?'IN CORSO':'NON AVVIATA'),'Correzione manuale del docente',''];
+const lines=['LICEO SCIENTIFICO - LABORATORIO OOP CLASSE QUARTA','INCAPSULAMENTO / EREDITARIETA / POLIMORFISMO','--------------------------------------------------------------','Studente: '+state.name+' '+state.surname+'    Classe: '+state.classe,'ID: '+state.id+'   Revisione: '+(state.revision+1),'Creato: '+state.created+'   PDF: '+new Date().toLocaleString('it-IT'),'Esercizi selezionati: '+state.ids.join(', '),'Durata: 40 minuti   Stato: '+(expired()?'TEMPO SCADUTO':running()?'IN CORSO':'NON AVVIATA')+(state.reopenedAt?'   RIAPERTA DAL DOCENTE alle '+new Date(state.reopenedAt).toLocaleTimeString('it-IT'):''),'Correzione manuale del docente',''];
 state.ids.forEach((id,i)=>{const t=BANK.find(x=>x.id===id),a=answer(id);lines.push('==============================================================','ESERCIZIO '+(i+1)+' - '+names[t.cat]+' - N. '+id,t.title,t.task,'STRATEGIA:',a.strategy||'(non compilata)','CODICE PYTHON:',a.code||'(non compilato)','')});
 try{const blob=new Blob([buildPDF(lines)],{type:'application/pdf'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='OOP_'+safe(state.classe)+'_'+safe(state.surname)+'_'+state.id+'_R'+String(state.revision+1).padStart(2,'0')+'.pdf';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),15000);state.revision++;save();$('status').textContent='Download PDF richiesto. Controlla la cartella Download: il browser non può confermare il salvataggio.';return true}catch(e){$('status').textContent='Errore PDF: '+e.message;console.error(e);return false}}
 
@@ -73,7 +73,7 @@ function renderTimer(){
  $('timerClock').textContent=String(mm).padStart(2,'0')+':'+String(ss).padStart(2,'0');
  $('timerClock').style.color=ended?'#b42318':left<300000?'#bd5c00':'#155eef';
  $('startBtn').hidden=started;
- $('timerText').textContent=ended?'TEMPO SCADUTO - risposte bloccate.':'Prova in corso: ricaricare la pagina non azzera il timer.';
+ $('timerText').textContent=ended?'TEMPO SCADUTO - risposte bloccate.':state.reopenedAt?'TEMPO SCADUTO - prova riaperta dal docente: puoi continuare e scaricare il PDF.':'Prova in corso: ricaricare la pagina non azzera il timer.';
  if(!started)$('timerText').textContent='Inserisci nome, cognome e classe e premi Inizia prova.';
  const canEdit=running();
  for(const id of ['nome','cognome','classe'])$(id).disabled=started;
@@ -88,7 +88,7 @@ function startExam(){
  if(!state.name.trim()||!state.surname.trim()||!state.classe.trim()){alert('Inserisci nome, cognome e classe per iniziare.');return}
  state.startedAt=Date.now();state.deadline=state.startedAt+EXAM_TIME;save();renderTimer();nav();
 }
-let ending=false;
+let ending=false,quitTimer=null;
 function finishExam(){
  if(!state.deadline||Date.now()<state.deadline||ending)return;
  ending=true;state.finishedAt=state.finishedAt||Date.now();
@@ -96,9 +96,9 @@ function finishExam(){
  save();renderTimer();nav();
  if(attempt)downloadPDF(true);
  // SEB si chiude solo se QUIT_URL e' configurato come Quit URL nel file .seb.
- setTimeout(()=>window.location.assign(QUIT_URL),12000);
+ quitTimer=setTimeout(()=>window.location.assign(QUIT_URL),12000);
 }
-function tick(){if(state.deadline&&Date.now()>=state.deadline)finishExam();else renderTimer()}
+function tick(){if(state.deadline&&Date.now()>=state.deadline&&!state.reopenedAt&&!state.finishedAt)finishExam();else renderTimer()}
 function safe(s){return String(s||'').trim().replace(/[^a-zA-Z0-9_-]/g,'_').slice(0,40)}
 for(const [id,key] of [['nome','name'],['cognome','surname'],['classe','classe']]){$(id).value=state[key]||'';$(id).addEventListener('input',()=>{if(state.deadline)return;state[key]=$(id).value;save()})}
 $('startBtn').onclick=startExam;
@@ -106,4 +106,138 @@ $('strategy').addEventListener('input',update);$('code').addEventListener('input
 $('hintBtn').onclick=()=>{if(!running())return;$('hint').hidden=!$('hint').hidden;$('hintBtn').textContent=$('hint').hidden?'Mostra suggerimento logico':'Nascondi suggerimento'};
 $('prevBtn').onclick=()=>{if(running())load(state.active-1)};$('nextBtn').onclick=()=>{if(running())load(state.active+1)};
 $('pdfBtn').onclick=()=>downloadPDF(false);load(state.active);renderTimer();setInterval(tick,500);tick();
+
+</script>
+<script>/* Copia incorporata di /sblocco-docente.js (funziona anche se Safe Exam Browser blocca altri percorsi del sito). Se cambi il codice, aggiorna anche questa copia. */
+/*
+  sblocco-docente.js · Riapertura di una prova a tempo scaduto da parte del docente.
+
+  Uso in una pagina di verifica:
+    SbloccoDocente.init({
+      nome: 'Verifica OOP',
+      scaduta:  () => true/false,      // la prova è chiusa per tempo scaduto?
+      riaperta: () => data o null,      // quando è stata riaperta dal docente (null se non lo è)
+      riapri:   info => { ... },        // riapre la prova (info.alle: Date, info.modo: 'codice' | 'account')
+      richiudi: () => { ... }           // facoltativo: richiude la prova riaperta
+    });
+
+  Compare un pulsante «Sblocco docente» solo quando la prova è scaduta o riaperta. Il docente digita il
+  codice sul dispositivo dello studente; se nel browser è attiva la sessione del sito con l'account del
+  docente, il codice non serve. Nel codice c'è solo l'impronta SHA-256 del codice.
+  Il timer non viene modificato: la prova resta «a tempo scaduto», ma le risposte tornano modificabili
+  e la riapertura viene indicata nella consegna.
+  Controllo lato client: impedisce lo sblocco accidentale, non resiste a chi manomette il browser.
+*/
+(function () {
+  "use strict";
+  const HASHES = ["c4f2a18391aa8905942ecbb145b0a414b7057f055b997019bd5b051b38868025"];
+  const TEACHER_EMAIL = "antonioadinolfi@lscortese.com", SITE_SESSION = "lsc_auth_session_v1";
+
+  function teacherSession() {
+    for (const s of ["sessionStorage", "localStorage"]) {
+      try {
+        const v = JSON.parse(window[s].getItem(SITE_SESSION) || "null");
+        if (v && v.expiresAt > Date.now() && String(v.email || "").toLowerCase().trim() === TEACHER_EMAIL) return true;
+      } catch (e) { /* storage non disponibile */ }
+    }
+    return false;
+  }
+  async function sha256(t) {
+    const d = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t));
+    return [...new Uint8Array(d)].map(x => x.toString(16).padStart(2, "0")).join("");
+  }
+  const ora = d => new Date(d).toLocaleTimeString("it-IT", { hour: "2-digit", minute: "2-digit" });
+
+  const CSS = `
+  #sd-btn{position:fixed;right:16px;bottom:16px;z-index:2147483000;border:0;border-radius:999px;padding:10px 16px;font:700 14px system-ui,Segoe UI,Arial,sans-serif;background:#102a43;color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.3);cursor:pointer}
+  #sd-btn:focus-visible{outline:3px solid #f4b942;outline-offset:3px}
+  #sd-banner{position:fixed;left:50%;top:10px;transform:translateX(-50%);z-index:2147483000;background:#fff1b8;color:#5c3c00;border:2px solid #d9a227;border-radius:12px;padding:8px 16px;font:700 14px system-ui,Segoe UI,Arial,sans-serif;box-shadow:0 6px 20px rgba(0,0,0,.18);max-width:calc(100% - 24px);text-align:center}
+  #sd-dlg{border:0;border-radius:16px;padding:0;max-width:440px;width:calc(100% - 32px);font:15px/1.5 system-ui,Segoe UI,Arial,sans-serif;color:#172b4d;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+  #sd-dlg::backdrop{background:rgba(16,42,67,.55)}
+  #sd-dlg form{padding:22px}
+  #sd-dlg h2{margin:0 0 8px;font-size:1.25rem}
+  #sd-dlg p{margin:0 0 12px}
+  #sd-dlg input{width:100%;box-sizing:border-box;border:1px solid #a9bfce;border-radius:10px;padding:11px 12px;font:inherit}
+  #sd-dlg .sd-row{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:14px}
+  #sd-dlg button{border:1px solid #a9bfce;border-radius:10px;padding:9px 14px;font:700 14px system-ui,Segoe UI,Arial,sans-serif;background:#fff;color:#102a43;cursor:pointer}
+  #sd-dlg button.sd-main{background:#102a43;color:#fff;border-color:#102a43}
+  #sd-dlg button.sd-warn{background:#fde4d4;border-color:#d9822b;color:#7a2e0b}
+  #sd-dlg .sd-msg{min-height:1.4em;font-weight:700;color:#9a3b12;margin:10px 0 0}
+  #sd-dlg .sd-ok{color:#145d53}
+  @media print{#sd-btn,#sd-banner{display:none!important}}`;
+
+  function init(opts) {
+    if (!opts || typeof opts.scaduta !== "function" || typeof opts.riapri !== "function") return;
+    const st = document.createElement("style"); st.textContent = CSS; document.head.append(st);
+    const btn = document.createElement("button"); btn.type = "button"; btn.id = "sd-btn"; btn.hidden = true;
+    const banner = document.createElement("div"); banner.id = "sd-banner"; banner.hidden = true; banner.setAttribute("role", "status");
+    const dlg = document.createElement("dialog"); dlg.id = "sd-dlg"; dlg.setAttribute("aria-labelledby", "sd-tit");
+    document.body.append(btn, banner, dlg);
+    const riaperta = () => (typeof opts.riaperta === "function" ? opts.riaperta() : null);
+
+    function aggiorna() {
+      const r = riaperta(), sc = !r && opts.scaduta();
+      btn.hidden = !(r || sc);
+      btn.textContent = r ? "🔓 Prova riaperta · docente" : "🔒 Sblocco docente";
+      banner.hidden = !r;
+      if (r) banner.textContent = "🔓 Prova riaperta dal docente alle " + ora(r) + " · il tempo è scaduto, ma puoi continuare e consegnare";
+    }
+
+    function apri() {
+      const r = riaperta(), account = teacherSession();
+      if (r) {
+        dlg.innerHTML = `<form method="dialog"><h2 id="sd-tit">Prova riaperta</h2>
+          <p>La prova di questo studente è stata riaperta alle <strong>${ora(r)}</strong>.</p>
+          ${typeof opts.richiudi === "function" ? "<p>Puoi richiuderla: le risposte tornano bloccate" + (opts.notaRichiudi ? " " + opts.notaRichiudi : "") + ".</p>" : ""}
+          <div class="sd-row"><button value="annulla">Chiudi</button>${typeof opts.richiudi === "function" ? '<button class="sd-warn" value="richiudi" id="sd-richiudi">Richiudi la prova</button>' : ""}</div></form>`;
+        dlg.showModal();
+        const rb = dlg.querySelector("#sd-richiudi");
+        if (rb) rb.addEventListener("click", ev => { ev.preventDefault(); dlg.close(); opts.richiudi(); aggiorna(); });
+        return;
+      }
+      dlg.innerHTML = `<form><h2 id="sd-tit">Sblocco docente</h2>
+        <p>Il tempo della prova è scaduto. Il docente può <strong>riaprirla</strong>: le risposte tornano modificabili, il timer resta scaduto e la riapertura viene indicata nella consegna.</p>
+        ${account ? '<p class="sd-ok">✓ Accesso docente attivo su questo browser: il codice non serve.</p>' : '<label for="sd-code"><strong>Codice del docente</strong></label><input id="sd-code" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" required>'}
+        <p class="sd-msg" id="sd-msg" role="alert"></p>
+        <div class="sd-row"><button type="button" id="sd-annulla">Annulla</button><button class="sd-main" type="submit">Riapri la prova</button></div></form>`;
+      dlg.showModal();
+      const form = dlg.querySelector("form"), msg = dlg.querySelector("#sd-msg"), code = dlg.querySelector("#sd-code");
+      if (code) code.focus();
+      dlg.querySelector("#sd-annulla").onclick = () => dlg.close();
+      let tentativi = 0;
+      form.onsubmit = async ev => {
+        ev.preventDefault();
+        let ok = account, modo = "account";
+        if (!ok) {
+          modo = "codice";
+          try { ok = HASHES.includes(await sha256(code.value)); } catch (e) { msg.textContent = "Questo browser non permette la verifica del codice."; return; }
+        }
+        if (!ok) {
+          tentativi++; code.value = ""; code.focus();
+          msg.textContent = "Codice non valido." + (tentativi >= 3 ? " Il pulsante resta bloccato per alcuni secondi." : "");
+          if (tentativi >= 3) { const b = form.querySelector("button[type=submit]"); b.disabled = true; setTimeout(() => { b.disabled = false; }, 5000 * (tentativi - 2)); }
+          return;
+        }
+        dlg.close();
+        opts.riapri({ alle: new Date(), modo });
+        aggiorna();
+      };
+    }
+    btn.addEventListener("click", apri);
+    aggiorna();
+    setInterval(aggiorna, 1000);
+    return { aggiorna };
+  }
+  window.SbloccoDocente = { init, ora };
+})();
+</script>
+<script>
+if(window.SbloccoDocente)SbloccoDocente.init({
+  nome:'Verifica OOP',
+  scaduta:()=>expired(),
+  riaperta:()=>state.reopenedAt||null,
+  riapri:info=>{clearTimeout(quitTimer);ending=false;state.reopenedAt=info.alle.getTime();state.finishedAt=null;save();load(state.active);renderTimer();nav();},
+  richiudi:()=>{state.reopenedAt=null;state.finishedAt=Date.now();save();renderTimer();nav();},
+  notaRichiudi:'e resta disponibile solo «Scarica PDF»'
+});
 </script></body></html>

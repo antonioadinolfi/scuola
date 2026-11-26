@@ -261,6 +261,7 @@
     </main>
   </div>
 
+  <script src="sblocco-docente.js"></script>
   <script>
     const STORAGE_KEY = 'classe_shell_windows_pro_v1';
     const params = new URLSearchParams(location.search);
@@ -593,7 +594,7 @@
         if(state.timeLeft > 0 && !state.delivered){
           state.timeLeft -= 1;
           els.timer.textContent = formatTimer(state.timeLeft);
-          if(state.timeLeft <= 0){
+          if(state.timeLeft <= 0 && !state.riapertaAlle){
             state.timeLeft = 0;
             state.examFinishedAt = new Date().toISOString();
             els.systemNote.textContent = 'Tempo scaduto: consegna ancora possibile ma prova bloccata.';
@@ -612,7 +613,7 @@
     }
 
     function unlockActionsIfAllowed(){
-      const locked = state.delivered || state.timeLeft<=0;
+      const locked = state.delivered || (state.timeLeft<=0 && !state.riapertaAlle);
       els.btnRun.disabled = locked;
       els.btnCheck.disabled = locked;
       els.btnResetExercise.disabled = locked;
@@ -767,7 +768,7 @@
         studente:{ nome:state.student.name, cognome:state.student.surname, classe:state.student.className },
         piattaforma:{ classe:platformClass, data:platformDate, mode:state.verifyMode ? 'verify' : 'free', config: jsonConfigUrl || null },
         esercizio:{ id:ex.id, titolo:ex.title, puntiMassimi:ex.points, puntiOttenuti:state.scoreByExercise[ex.id] || 0 },
-        prova:{ inizio:state.examStartedAt, fine:state.examFinishedAt, tempoResiduo:state.timeLeft, consegnata:true },
+        prova:{ inizio:state.examStartedAt, fine:state.examFinishedAt, tempoResiduo:state.timeLeft, consegnata:true, riapertaDocente:state.riapertaAlle || null },
         ambiente:{ cwd:state.cwd, files:state.fs.files, dirs:Object.keys(state.fs.dirs), processes:state.processes },
         comandi:[...state.commandHistory],
         esito:state.feedbackByExercise[ex.id] || 'Nessuna correzione disponibile.'
@@ -938,6 +939,16 @@
       bindProtection();
       startInterfaceFocus();
     })();
+  
+    // ---------- riapertura da parte del docente (sblocco-docente.js) ----------
+    if(window.SbloccoDocente) SbloccoDocente.init({
+      nome:'Laboratorio CLI',
+      scaduta:()=>state.timeLeft<=0 && !state.delivered && !state.riapertaAlle,
+      riaperta:()=>state.riapertaAlle ? new Date(state.riapertaAlle) : null,
+      riapri:info=>{ state.riapertaAlle=info.alle.toISOString(); saveState(); unlockActionsIfAllowed(); els.systemNote.textContent='Tempo scaduto, ma la prova è stata riaperta dal docente alle '+SbloccoDocente.ora(info.alle)+'.'; },
+      richiudi:()=>{ state.riapertaAlle=null; saveState(); lockAllActionsExceptDelivery(); els.systemNote.textContent='Tempo scaduto: consegna ancora possibile ma prova bloccata.'; },
+      notaRichiudi:'(resta possibile solo la consegna)'
+    });
   </script>
 
   <script src="https://accounts.google.com/gsi/client" async defer></script>

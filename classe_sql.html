@@ -367,6 +367,7 @@ ORDER BY c.nome_classe;`
   }
 };
 </script>
+<script src="sblocco-docente.js"></script>
 <script>
 (function(){
   const params = new URLSearchParams(window.location.search);
@@ -401,7 +402,7 @@ ORDER BY c.nome_classe;`
   const layoutKey = `classeSqlLayout:${className}`;
   const focusKey = `classeSqlFocus:${className}`;
   const themeKey = 'classeSqlTheme';
-  let secondsLeft = 45*60, timerInterval = null, currentExerciseIndex = 0, lastResult = [], completionMap = {};
+  let secondsLeft = 45*60, timerInterval = null, currentExerciseIndex = 0, lastResult = [], completionMap = {}, riapertaAlle = null;
   els.datasetInfo.textContent = meta.datasetInfo || 'Dataset';
   els.dbFiddleBtn.href = meta.dbFiddleUrl || 'https://www.db-fiddle.com/';
   els.addrClass.textContent = className;
@@ -683,6 +684,7 @@ ORDER BY c.nome_classe;`
     $('timerBox').classList.toggle('warning', secondsLeft <= 300);
     if(secondsLeft <= 0){
       clearInterval(timerInterval);
+      if(riapertaAlle){ updateProgressUi(); return; }
       els.deliverBtn.disabled = true;
       $('lockState').textContent = 'Tempo scaduto';
       $('lockState').className = 'status-pill lock';
@@ -782,6 +784,7 @@ ORDER BY c.nome_classe;`
     <p><strong>Studente:</strong> ${escapeHtml(stud)}</p>
     <p><strong>Classe:</strong> ${escapeHtml(className)}</p>
     <p><strong>Data:</strong> ${escapeHtml(lessonDate)}</p>
+    ${riapertaAlle?`<p><strong>Prova riaperta dal docente:</strong> ${escapeHtml(riapertaAlle.toLocaleString('it-IT'))} (tempo scaduto)</p>`:''}
     <p><strong>Configurazione:</strong> ${escapeHtml(configName)}</p>
     </div>
     <h2>Esercizi completati</h2>
@@ -806,6 +809,15 @@ ORDER BY c.nome_classe;`
   setFocusMode(localStorage.getItem(focusKey) === '1');
   applyTheme(localStorage.getItem(themeKey) === 'dark');
   window.addEventListener('beforeunload', saveTimerState);
+  // ---------- riapertura da parte del docente (sblocco-docente.js) ----------
+  if(window.SbloccoDocente) SbloccoDocente.init({
+    nome:'Laboratorio SQL',
+    scaduta:()=>secondsLeft<=0 && !riapertaAlle,
+    riaperta:()=>riapertaAlle,
+    riapri:info=>{ riapertaAlle=info.alle; updateProgressUi(); $('lockState').textContent=els.deliverBtn.disabled?'Riaperta dal docente · consegna bloccata':'Riaperta dal docente · consegna sbloccata'; },
+    richiudi:()=>{ riapertaAlle=null; els.deliverBtn.disabled=true; $('lockState').textContent='Tempo scaduto'; $('lockState').className='status-pill lock'; },
+    notaRichiudi:'e la consegna non è più possibile'
+  });
 })();
 </script>
 
