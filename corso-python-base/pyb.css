@@ -492,3 +492,5 @@ footer .license>a:first-child{text-decoration:none}
 .table-wrap .truth-table,.table-wrap .conv-table{min-width:0}
 .trace-panel,.py-trace .py-editor{background:#fff}
 .py-trace{border:1px solid #a9bfce;border-radius:14px;overflow:hidden;background:#fff;margin:14px 0}
+.gate-teacher{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.gate-teacher #gateGoogle{min-height:44px}

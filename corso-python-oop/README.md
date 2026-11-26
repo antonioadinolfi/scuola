@@ -34,5 +34,7 @@ In `oop-data.js`, `OOP_EXERCISES['l2-e1'] = { checks: [{ t, c, h }], hints: [...
 ## Modalità docente
 Aprendo una pagina del corso con `#docente=<codice>` tutte le lezioni si sbloccano su quel browser. Con `#docente-off` la modalità si disattiva.
 
+**Accesso con l'account della scuola.** Se nel browser è attiva la sessione del sito (accesso con Google, `auth-enterprise.js`, chiave `lsc_auth_session_v1`) con l'account `antonioadinolfi@lscortese.com`, tutte le lezioni sono sbloccate, senza codice. Nelle pagine bloccate c'è anche il pulsante «Accedi con Google» per il docente. La sessione dura 8 ore; «Esci» nella barra della modalità docente la chiude. È un controllo lato client, come il codice: serve a non bloccare il docente, non a proteggere i contenuti.
+
 ## Licenza
 © 2026 Prof. Antonio Adinolfi. Contenuti distribuiti con licenza Creative Commons BY-NC-SA 4.0: vedi `LICENSE.md`.

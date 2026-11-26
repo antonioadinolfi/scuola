@@ -404,3 +404,5 @@ footer .license>a:first-child{text-decoration:none}
 .slide-credit{font-size:.82rem;color:#52657a;margin-top:4px}
 @media(max-width:600px){.sv-nav{width:34px;height:48px;font-size:1.5rem}.sv-thumbs button{width:70px}}
 @media print{.slide-viewer{display:none}}
+.gate-teacher{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.gate-teacher #gateGoogle{min-height:44px}

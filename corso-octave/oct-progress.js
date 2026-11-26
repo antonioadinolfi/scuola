@@ -14,7 +14,40 @@ window.OctCourse = (() => {
   function read(n) { const r = ls.get(PREFIX + n); return r && r.version === VERSION && r.last && validAnswers(n, r.last.answers) ? r : null; }
   function passed(n) { const r = read(n); return !!(r && r.best && score(n, r.best.answers) >= threshold(n)); }
   const TEACHER = 'octDocenteV1';
-  function teacher() { try { return localStorage.getItem(TEACHER) === '1'; } catch { return false; } }
+  function teacherCode() { try { return localStorage.getItem(TEACHER) === '1'; } catch { return false; } }
+  function teacher() { return teacherCode() || teacherAccount(); }
+  /* Accesso docente con l'account Google della scuola: riusa la sessione del sito (auth-enterprise.js, chiave lsc_auth_session_v1).
+     Controllo lato client, come il codice #docente: serve a non bloccare il docente, non è una protezione contro chi manomette il browser. */
+  const TEACHER_EMAIL = 'antonioadinolfi@lscortese.com', SITE_SESSION = 'lsc_auth_session_v1', GOOGLE_CLIENT_ID = '1011752872320-713mjtge9ofhtnclhjfvdoc2h2q2uelv.apps.googleusercontent.com';
+  function siteSession() {
+    for (const s of ['sessionStorage', 'localStorage']) {
+      try { const v = JSON.parse(window[s].getItem(SITE_SESSION) || 'null'); if (v && v.email && v.expiresAt > Date.now()) return v; } catch {}
+    }
+    return null;
+  }
+  function teacherAccount() { const s = siteSession(); return !!(s && String(s.email).toLowerCase().trim() === TEACHER_EMAIL); }
+  function decodeJwt(t) { try { const p = t.split('.')[1].replace(/-/g, '+').replace(/_/g, '/'); return JSON.parse(decodeURIComponent(atob(p).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''))); } catch { return null; } }
+  function teacherLogin(mount, status) {
+    const go = () => {
+      google.accounts.id.initialize({
+        client_id: GOOGLE_CLIENT_ID, auto_select: false, cancel_on_tap_outside: false,
+        callback: res => {
+          const p = decodeJwt(res && res.credential);
+          const email = p && String(p.email || '').toLowerCase().trim();
+          if (!p || p.email_verified === false || email !== TEACHER_EMAIL) { status.textContent = 'Questo account (' + (email || 'sconosciuto') + ') non è l’account del docente: le lezioni restano bloccate.'; return; }
+          const session = { email, name: p.name || email, picture: p.picture || '', hd: p.hd || '', createdAt: Date.now(), expiresAt: Date.now() + 480 * 60 * 1000 };
+          for (const s of ['sessionStorage', 'localStorage']) { try { window[s].setItem(SITE_SESSION, JSON.stringify(session)); } catch {} }
+          status.textContent = 'Accesso docente riuscito: sblocco le lezioni…'; setTimeout(() => location.reload(), 400);
+        }
+      });
+      google.accounts.id.renderButton(mount, { type: 'standard', theme: 'outline', size: 'large', text: 'signin_with', shape: 'rectangular' });
+    };
+    if (window.google && google.accounts && google.accounts.id) return go();
+    const sc = document.createElement('script'); sc.src = 'https://accounts.google.com/gsi/client'; sc.async = true; sc.onload = go;
+    sc.onerror = () => { status.textContent = 'Impossibile caricare l’accesso con Google: controlla la connessione.'; };
+    document.head.append(sc);
+  }
+
   function available(n) { return !!(lessons[n - 1] && lessons[n - 1].available); }
   function missing(n) { if (teacher()) return null; for (let i = 1; i < n; i++) if (!passed(i)) return i; return null; }
   function save(n, answers, meta) {
@@ -46,13 +79,14 @@ window.OctCourse = (() => {
       if (blocked) {
         if (!box) {
           box = document.createElement('section'); box.id = 'courseGate'; box.className = 'panel gate';
-          box.innerHTML = '<h1>Completa prima la lezione precedente</h1><p id="gateText"></p><a class="button primary" id="gateLink">Vai al test richiesto →</a><div><p><strong>Hai svolto i test su un altro dispositivo?</strong> Carica il file di avanzamento che hai scaricato.</p><label class="button file-button">Carica il mio avanzamento<input type="file" id="gateImport" accept="application/json,.json"></label><p id="gateStatus" role="status" aria-live="polite"></p></div>';
+          box.innerHTML = '<h1>Completa prima la lezione precedente</h1><p id="gateText"></p><a class="button primary" id="gateLink">Vai al test richiesto →</a><div><p><strong>Hai svolto i test su un altro dispositivo?</strong> Carica il file di avanzamento che hai scaricato.</p><label class="button file-button">Carica il mio avanzamento<input type="file" id="gateImport" accept="application/json,.json"></label><p id="gateStatus" role="status" aria-live="polite"></p></div><div class="gate-teacher"><p><strong>Sei il docente?</strong> Accedi con l’account della scuola per sbloccare tutte le lezioni.</p><div id="gateGoogle"></div><p id="gateTeacherStatus" role="status" aria-live="polite"></p></div>';
           box.querySelector('#gateImport').addEventListener('change', async e => {
             const f = e.target.files[0], st = box.querySelector('#gateStatus'); if (!f) return;
             try { const r = await transfer.load(f); st.textContent = r.msg; if (!missing(n)) setTimeout(() => location.reload(), 800); }
             catch (err) { st.textContent = 'Caricamento non riuscito: ' + err.message; } finally { e.target.value = ''; }
           });
           document.body.prepend(box);
+          teacherLogin(box.querySelector('#gateGoogle'), box.querySelector('#gateTeacherStatus'));
         }
         box.querySelector('#gateText').textContent = 'Per accedere alla Lezione ' + n + ' serve almeno il 70% nel test della Lezione ' + blocked + '.';
         box.querySelector('#gateLink').href = './lezione-' + blocked + '.html#test-finale';
@@ -65,8 +99,9 @@ window.OctCourse = (() => {
     if (!teacher()) { if (b) b.remove(); return; }
     if (b || !document.body) return;
     b = document.createElement('div'); b.id = 'teacherBadge'; b.className = 'trainer-badge'; b.setAttribute('role', 'status');
-    b.innerHTML = '<span><strong>Modalità docente</strong> · lezioni sbloccate su questo browser · <a href="./verifica.html" style="color:inherit">Verifica dei PDF</a></span> <button type="button">Disattiva</button>';
-    b.querySelector('button').onclick = () => { try { localStorage.removeItem(TEACHER); } catch {} location.reload(); };
+    const viaAccount = teacherAccount() && !teacherCode();
+    b.innerHTML = '<span><strong>Modalità docente</strong> · ' + (viaAccount ? 'accesso con ' + TEACHER_EMAIL : 'lezioni sbloccate su questo browser') + ' · <a href="./verifica.html" style="color:inherit">Verifica dei PDF</a></span> <button type="button">' + (viaAccount ? 'Esci' : 'Disattiva') + '</button>';
+    b.querySelector('button').onclick = () => { try { localStorage.removeItem(TEACHER); } catch {} if (viaAccount) for (const st of ['sessionStorage', 'localStorage']) { try { window[st].removeItem(SITE_SESSION); } catch {} } location.reload(); };
     document.body.append(b);
   }
   async function teacherLink() {
