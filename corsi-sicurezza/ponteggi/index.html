@@ -409,6 +409,27 @@ details.adv{background:#f5f7f8;border:1px solid var(--line);border-radius:8px;pa
 .nov4 p b,.tb p b,.steps10 p b,.pmcard p b{display:inline;font-size:inherit;margin:0;font-family:inherit}
 .pmtav{display:inline-block;max-width:100%;width:fit-content;justify-self:start;line-height:0}.ainfo p b{font-size:inherit}.pmtav img{width:auto;max-width:100%;height:min(64vh,620px)}body.present .pmtav img{height:620px}
 figure.ph img[src*="pimus_asso"]{object-fit:contain;background:#fff}
+.cols4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.cols4 figure.ph img{height:300px}
+.hfig{width:100%;max-height:520px;display:block}
+.hsteps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.hst{all:unset;cursor:pointer;display:flex;gap:8px;align-items:center;border:2px solid var(--line);border-radius:10px;padding:8px 10px;font-weight:700;font-size:16px}
+.hst b{background:#cfd8dc;border-radius:50%;width:28px;height:28px;line-height:28px;text-align:center;flex:0 0 28px}.hst.on{border-color:var(--acc);background:#fff8e6}.hst.on b{background:var(--acc)}.hst.done b{background:#66bb6a;color:#fff}
+.hdesc{margin:14px 0;background:#0d233a;color:#fff;border-radius:10px;padding:14px 18px;min-height:110px}.hdesc b{font-size:24px;color:#ffca28}.hdesc p{font-size:21px!important;line-height:1.4!important;margin:6px 0 0!important;color:#fff}
+.lres.big{font-size:18px}.lres.big li{font-size:17px!important}
+.sysg{display:grid;grid-template-columns:1fr 1fr;gap:12px}.sysc{border:2px solid var(--line);border-radius:10px;padding:12px;background:#fff}.sq{font-size:18px!important;font-weight:700;line-height:1.35!important;margin:0 0 8px!important}
+.sb{display:grid;grid-template-columns:1fr 1fr;gap:6px}.sb button{all:unset;cursor:pointer;text-align:center;font-size:16px;font-weight:600;border:1px solid #cfd8dc;border-radius:6px;padding:8px 4px}
+.sb button.sel-ok{background:#c8e6c9;border-color:#66bb6a}.sb button.sel-ko{background:#ffcdd2;border-color:#ef5350}.sx{display:none;font-size:15.5px!important;margin:8px 0 0!important}.sysc.done .sx{display:block}.sysc.right{border-color:#66bb6a}.sysc.wrong{border-color:#ef5350}
+.eg.eg2{grid-template-columns:1fr 1fr;gap:14px}.eg2 .egc{display:grid;grid-template-columns:240px 1fr;gap:12px;align-items:start;padding:10px}
+.eg2 .eq{font-size:19px!important;line-height:1.3!important;margin:0 0 6px!important}.eg2 .eo{font-size:16.5px;padding:7px 10px}.eg2 .ex2{font-size:15.5px!important}
+.post6{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.post6 div{background:#fcfbf9;border:1px solid var(--line);border-radius:12px;padding:12px 14px;position:relative}
+.post6 span{font-size:36px;display:block}.post6 b{font-size:19px;display:block;margin:4px 0}.post6 p{font-size:15.5px!important;line-height:1.35!important;margin:0!important}.post6 em{position:absolute;top:12px;right:12px;font-style:normal;background:#0d233a;color:#fff;border-radius:6px;padding:2px 8px;font-size:13px}
+.close6 div{text-align:center;padding:18px}.close6 b{font-size:21px}
+.obtabs{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.obc{border:2px solid var(--line);border-radius:10px;padding:12px 16px;background:#fff}.obc h3{margin:0 0 4px}
+.obr{display:flex;justify-content:space-between;gap:10px;align-items:center;border-top:1px solid var(--line);padding:8px 0;font-size:17px}.obr div{display:flex;gap:6px;flex:0 0 auto}
+.obr button{all:unset;cursor:pointer;font-size:14px;font-weight:600;border:1px solid #cfd8dc;border-radius:6px;padding:6px 10px}.obr button.sel-ok{background:#c8e6c9;border-color:#66bb6a}.obr button.sel-ko{background:#ffe0b2;border-color:#fb8c00}
+.swatch{font:700 96px "Barlow Condensed",sans-serif;color:#0d233a;text-align:center}
+@media (max-width:860px){.cols4,.sysg,.eg.eg2,.post6{grid-template-columns:1fr}.eg2 .egc{grid-template-columns:1fr}}
+.eg.eg3{grid-template-columns:1fr 1fr;gap:18px}.eg3 .egc{padding:12px}.eg3 .egc svg{max-height:250px}
+.eg3 .eq{font-size:22px!important;line-height:1.3!important;margin:10px 0 8px!important}.eg3 .eo{font-size:19px;padding:9px 12px;margin:6px 0}.eg3 .ex2{font-size:18px!important;line-height:1.4!important}
 </style>
 </head>
 <body>
@@ -458,14 +479,15 @@ figure.ph img[src*="pimus_asso"]{object-fit:contain;background:#fff}
  <p>Telecomandi per presentazioni: i tasti avanti/indietro funzionano come PagSu/PagGiù.</p></div>
 <div id="pBlackout"></div>
 <div id="pToast"></div>
-<script src="base.js?v=20261127a"></script>
-<script src="pgfx.js?v=20261127a"></script>
-<script src="contenuti.js?v=20261127a"></script>
-<script src="ta.js?v=20261127a"></script>
-<script src="fall.js?v=20261127a"></script>
-<script src="sosp.js?v=20261127a"></script>
-<script src="eu.js?v=20261127a"></script>
-<script src="revisione.js?v=20261127a"></script>
+<script src="base.js?v=20261127b"></script>
+<script src="pgfx.js?v=20261127b"></script>
+<script src="contenuti.js?v=20261127b"></script>
+<script src="ta.js?v=20261127b"></script>
+<script src="fall.js?v=20261127b"></script>
+<script src="sosp.js?v=20261127b"></script>
+<script src="eu.js?v=20261127b"></script>
+<script src="revisione.js?v=20261127b"></script>
+<script src="dpi2.js?v=20261127b"></script>
 <script>
 const $=id=>document.getElementById(id);
 const pad=n=>String(n).padStart(3,'0');
