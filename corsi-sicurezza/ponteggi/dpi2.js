@@ -194,16 +194,16 @@ const AGENDA2 = () => `<div class="kick">Come funziona</div><h2>Oggi: 2 ore di a
   const K2 = (fn, key, nota, extra = {}) => Object.assign({ fn, key, nota }, extra);
   const MOD = [
     { t: 'Benvenuto', s: [find(S.cover), Object.assign(find(S.agenda), { fn: AGENDA2, key: 'Dieci domande in aula, poi le prove pratiche in campo prova.' }), find(S.patto), find(S.gloss), find(COMICS.zio)] },
-    { t: 'Le regole, in breve', s: [find(S.regole3), find(S.ruoli), find(S.formazione), find(S.novita)] },
+    { t: 'Le regole, in breve', s: [find(S.regole3), K2(EU.direttive, 'Le regole sui ponteggi sono le stesse in tutta Europa: l\'Italia le ha scritte nel D.Lgs. 81/2008.', N('Dir. 2009/104/CE, All. II p. 4 (ex 2001/45/CE): piano di montaggio, persona competente, formazione specifica, ispezioni.', 'Per l\'aula basta lo schema in alto e la frase in parole semplici; la tabella serve per le domande.')), find(S.ruoli), find(S.formazione), find(S.novita)] },
     { t: 'La caduta', s: [find(S.perche), fall, find(S.cadute), find(COMICS.attimo)] },
-    { t: 'Il ponteggio pezzo per pezzo', s: [find(S.tipi), find(S.anat), find(S.numeri), find(S.foto)] },
+    { t: 'Il ponteggio e le norme tecniche', s: [find(S.tipi), find(S.anat), find(S.numeri), K2(EU.norme, 'Tra legge e norme tecniche vale la regola più sicura: il parapetto si monta come dice il libretto, mai sotto 95 cm.', N('EN 12810/12811 (riferimento per l\'autorizzazione, art. 131 c.3), EN 74-1:2022+A1:2025, UNI EN 13374:2025, EN 1004-1.', 'In aula far leggere solo la tabella "Italia e norme EN".')), K2(EU.classi, 'Sul tetto il parapetto provvisorio va scelto in base alla pendenza: classe A, B o C.', N('UNI EN 13374: A fino a 10°, B fino a 30° (60° con caduta ≤ 2 m), C fino a 45° (60° con caduta ≤ 5 m).', 'Utile per i tetti a falda dei cantieri romani.'), { after: 'classi' }), find(S.foto)] },
     { t: 'DPI: sceglierli e usarli', s: [find(S.dpi), K2(D2.kit, 'Imbracatura, cordino, retrattile, casco con sottogola: ognuno ha il suo compito.', N('Foto CC da Flickr/Openverse e Sketchfab, vedi crediti.')),
       K2(D2.indossa, 'Mano piatta sotto i cosciali, anello tra le scapole.', N('Far indossare un\'imbracatura vera a un volontario mentre si scorrono le 6 mosse.', 'Istruzioni del fabbricante (EN 361) e addestramento obbligatorio per DPI di III categoria (art. 77 c.5).'), { after: 'indossa' }),
       K2(D2.regola, 'Un\'imbracatura lenta in caduta ti fa male o ti fa sfilare.', N('Muovere i due cursori e chiedere all\'aula cosa succede in caduta.'), { after: 'regola' }),
       find(S.controllo),
       K2(D2.sistema, 'Prima il parapetto; se non c\'è, trattenuta; se non basta, arresto caduta.', N('Sistemi EN 363: trattenuta, posizionamento (EN 358, non arresta la caduta), arresto caduta. Gerarchia art. 111.'), { after: 'sistema' }),
       { fn: COMICS.casco, comic: true, nota: N('Casco EN 397 con sottogola, o EN 12492 per lavori in quota.') }] },
-    { t: 'Tirante d\'aria', s: [find(TA.concetto), find(TA.sim), find(TA.casi),
+    { t: 'Tirante d\'aria', s: [find(TA.concetto), K2(TA.norme, 'Legge e norme dicono la stessa cosa: prima i parapetti, poi DPI giusti e addestramento.', N('Artt. 111, 115, 77 c.4-5, 136 + All. XXII; EN 363, 354/355, 360, 361/362/795, 365; UNI 11158.')), find(TA.sim), find(TA.casi),
       K2(D2.err(0), 'Vicino a terra e con due cordini uniti non sei protetto.', N('Caso 1: Fc 1,75, servono 6,25 m. Caso 2: EN 354/355, max 2 m. Far votare l\'aula prima di cliccare.'), { after: 'taeg2' }),
       K2(D2.err(2), 'Spigoli vivi e spostamenti laterali sono pericolosi anche se sei agganciato.', N('Spigolo: istruzioni EN 355/360 (prodotti provati per il bordo). Pendolo: lavorare sotto l\'ancoraggio.'), { after: 'taeg2' }),
       K2(D2.err(4), 'Il connettore regge nel verso giusto e il cordino non si annoda.', N('EN 362: resistenza sull\'asse maggiore a leva chiusa. Nodi vietati dalle istruzioni dei fabbricanti.'), { after: 'taeg2' }),
@@ -221,11 +221,11 @@ const AGENDA2 = () => `<div class="kick">Come funziona</div><h2>Oggi: 2 ore di a
       K2(D2.pratica3, 'Ogni allievo viene osservato su tutte le postazioni.', N('La prova pratica finale verifica montaggio, smontaggio, trasformazione e ancoraggi. La scheda si può stampare e allegare al registro.'), { after: 'pratica3' }),
       K2(D2.pratica4, 'Il recupero si prova prima: il cronometro dice se il piano funziona.', N('Fissare il tempo obiettivo con il piano di emergenza del cantiere; discutere i ritardi.'), { after: 'pratica4' })] },
     { t: 'Chiusura', s: [K2(D2.chiusura, 'Si torna a casa tutti.', N('Raccogliere domande e gradimento. Consegnare/registrare gli esiti del test e delle prove.'))] },
-    MODULES[MODULES.length - 1]
+    { t: 'Appendice per il docente', s: [find(TA.errcalc), find(S.progetto), find(S.pimusdet), find(S.leggi), find(S.docente), find(S.crediti)] }
   ];
   MODULES.length = 0; MOD.forEach(m => MODULES.push(m));
   AGENDA.length = 0;
-  [['0', 'Benvenuto', 5], ['1', 'Le regole, in breve', 8], ['2', 'La caduta', 8], ['3', 'Il ponteggio pezzo per pezzo', 8], ['4', 'DPI: sceglierli e usarli', 14], ['5', 'Tirante d\'aria', 12], ['6', 'Il PiMUS', 14],
-   ['7', 'Montaggio e smontaggio', 14], ['8', 'Uso, verifiche, meteo', 10], ['9', 'Dopo la caduta: emergenza', 10], ['10', 'Caccia all\'errore', 5], ['11', 'Verifica', 8], ['12', 'Chiusura', 4]].forEach(a => AGENDA.push(a));
+  [['0', 'Benvenuto', 5], ['1', 'Le regole, in breve', 12], ['2', 'La caduta', 8], ['3', 'Il ponteggio e le norme tecniche', 12], ['4', 'DPI: sceglierli e usarli', 12], ['5', 'Tirante d\'aria', 14], ['6', 'Il PiMUS', 12],
+   ['7', 'Montaggio e smontaggio', 12], ['8', 'Uso, verifiche, meteo', 8], ['9', 'Dopo la caduta: emergenza', 10], ['10', 'Caccia all\'errore', 5], ['11', 'Verifica', 8], ['12', 'Chiusura', 2]].forEach(a => AGENDA.push(a));
 })();
 
