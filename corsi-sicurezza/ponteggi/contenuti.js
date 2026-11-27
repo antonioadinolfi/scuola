@@ -426,7 +426,7 @@ const S = {
    <tr><td>D10</td><td>mantovana "nella parte bassa"</td><td>parasassi: <b>art. 129 c.3</b>, al primo solaio e poi ogni 12 m</td></tr></table>`,
 
   crediti: () => `<div class="kick">Crediti e fonti</div><h2>Immagini e riferimenti</h2>
-   <div class="cols"><div><h3>Foto con licenza Creative Commons</h3><ul class="small">${CRED.map(c => `<li><a href="${c.url}" target="_blank" rel="noopener">"${c.title}"</a> di ${c.creator} – CC ${c.lic.toUpperCase()} ${c.ver}</li>`).join('')}</ul>
+   <div class="cols"><div><h3>Foto con licenza Creative Commons</h3><ul class="small">${CRED.map(c => c.lic ? `<li><a href="${c.url}" target="_blank" rel="noopener">"${c.title}"</a> di ${c.creator} – CC ${c.lic.toUpperCase()} ${c.ver}</li>` : `<li>${c.title} – ${c.creator}</li>`).join('')}</ul>
     <p class="small">Altre foto: materiale fotografico del corso ponteggi. Vignette, infografiche e simulazioni: disegni originali in SVG.</p></div>
     <div><h3>Fonti normative</h3><ul class="small"><li>D.Lgs. 81/2008 e s.m.i., artt. 19, 20, 26, 27, 36, 37, 77, 84, 107–138, Allegati IX, XVIII, XIX, XXI, XXII</li>
     <li>Accordo Stato-Regioni 17/04/2025 (Rep. 59/CSR) e FAQ ministeriali</li><li>Circolari MLPS 85/1978, 44/1990, 132/1991, 46/2000, 25/2006, 29/2010; Interpello 16/2015</li>

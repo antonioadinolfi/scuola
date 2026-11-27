@@ -117,7 +117,8 @@ D2.pratica4 = () => `<div class="kick">Addestramento pratico · 4</div><h2>Prova
 D2.chiusura = () => `<div class="kick">Chiusura</div><h2>Sei cose da portare in cantiere domani</h2>
   <div class="post6 close6">${[['📗', 'Prima di montare, leggi il PiMUS e il disegno'], ['🦺', 'Controlla e regola la tua imbracatura, ogni giorno'], ['🔗', 'Ti agganci sulla scala, prima di salire'], ['📏', 'Vicino a terra serve il retrattile: il tirante d\'aria conta'],
     ['🚫', 'Niente salite dai montanti, niente pezzi lanciati'], ['✋', 'Se qualcosa non va: STOP e chiama il preposto']].map(x => `<div><span>${x[0]}</span><b>${x[1]}</b></div>`).join('')}</div>
-  <div class="bigrule" style="text-align:center">Grazie e buon lavoro. <b>Si torna a casa tutti.</b></div>`;
+  <div class="bigrule" style="text-align:center">Grazie e buon lavoro. <b>Si torna a casa tutti.</b></div>
+  <details class="credits"><summary>Crediti delle immagini e fonti</summary>${S.crediti().replace(/<div class="kick">.*?<\/h2>/s, '')}</details>`;
 
 Object.assign(HOOKS, {
   indossa() {
@@ -221,7 +222,7 @@ const AGENDA2 = () => `<div class="kick">Come funziona</div><h2>Oggi: 2 ore di a
       K2(D2.pratica3, 'Ogni allievo viene osservato su tutte le postazioni.', N('La prova pratica finale verifica montaggio, smontaggio, trasformazione e ancoraggi. La scheda si può stampare e allegare al registro.'), { after: 'pratica3' }),
       K2(D2.pratica4, 'Il recupero si prova prima: il cronometro dice se il piano funziona.', N('Fissare il tempo obiettivo con il piano di emergenza del cantiere; discutere i ritardi.'), { after: 'pratica4' })] },
     { t: 'Chiusura', s: [K2(D2.chiusura, 'Si torna a casa tutti.', N('Raccogliere domande e gradimento. Consegnare/registrare gli esiti del test e delle prove.'))] },
-    { t: 'Appendice per il docente', s: [find(TA.errcalc), find(S.progetto), find(S.pimusdet), find(S.leggi), find(S.docente), find(S.crediti)] }
+    { t: 'Appendice per il docente', teacher: true, s: [find(TA.errcalc), find(S.progetto), find(S.pimusdet), find(S.leggi), find(S.docente)] }
   ];
   MODULES.length = 0; MOD.forEach(m => MODULES.push(m));
   AGENDA.length = 0;
