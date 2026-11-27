@@ -379,6 +379,36 @@ table.eutab td,table.eutab th{font-size:14.5px;padding:6px 9px}table.eutab td:fi
 table.cmp th.it,table.cmp td.it{background:#eef5ee}table.cmp th.en,table.cmp td.en{background:#eaf0fb}table.cmp th.it{border-top:4px solid #2e7d32}table.cmp th.en{border-top:4px solid #003399}table.cmp td{vertical-align:top}table.cmp td:first-child{white-space:normal}table.cmp small{color:var(--muted);font-size:12.5px}
 .csvg{width:100%;display:block;border-radius:8px;border:1px solid var(--line)}
 @media (max-width:860px){.eumap{grid-template-columns:1fr}.eu-arr{transform:rotate(90deg)}}
+.tbtn{all:unset;cursor:pointer;font-weight:700;font-size:14px;padding:7px 12px;border-radius:6px;border:2px solid #0d233a;color:#0d233a;margin-right:8px}.tbtn.on{background:#f2a300;border-color:#f2a300}
+.keymsg{display:flex;gap:12px;align-items:center;margin-top:18px;background:#0d233a;color:#fff;border-radius:10px;padding:12px 18px;border-left:8px solid #f2a300}
+.keymsg span{font-size:28px}.keymsg p{margin:0!important;font-size:21px!important;font-weight:700;line-height:1.3!important;color:#fff}
+.tnote{display:none;max-width:1100px;margin:12px auto 24px;background:#fffde7;border:2px dashed #f2a300;border-radius:10px;padding:10px 18px;font-size:15px}
+.tnote b{display:block;margin-bottom:4px}.tnote ul{margin:0;padding-left:20px}.tnote li{margin:3px 0}
+body.teacher .tnote{display:block}body.present .tnote{display:none!important}
+body:not(.teacher) .slide .ref{display:none}
+.steps10{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:8px 0}.steps10 div{background:#fcfbf9;border:1px solid var(--line);border-radius:10px;padding:10px;text-align:center}
+.steps10 span{font-size:30px;display:block}.steps10 b{display:inline-block;background:#0d233a;color:#fff;border-radius:50%;width:24px;height:24px;line-height:24px;font-size:13px}.steps10 p{font-size:15.5px!important;margin:6px 0 0!important;line-height:1.3!important;font-weight:600}
+.card.big1{text-align:center}.card.big1 span{font-size:44px;display:block}.card.big1 b{font-size:20px}.card.big1 p{font-size:17px!important}
+.three{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:stretch;margin:10px 0}.three .arr{align-self:center;font-size:30px;color:var(--acc)}
+.tb{background:#fcfbf9;border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}.tb.hl{border:3px solid var(--acc);background:#fff8e6}.tb .e{font-size:48px}.tb b{font-size:22px;display:block;margin:4px 0}.tb p{font-size:17px!important}.tb small{color:var(--muted);font-size:13px}
+.bigrule{font-size:20px;background:#e8f5e9;border-left:6px solid var(--ok);border-radius:8px;padding:12px 16px;margin-top:8px}
+.nov4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:8px}.nov4 div{background:#fcfbf9;border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}.nov4 span{font-size:40px;display:block}.nov4 b{font-size:19px;display:block;margin:4px 0}.nov4 p{font-size:15.5px!important;line-height:1.35!important;margin:0!important}
+.pmcard{display:grid;grid-template-columns:1fr 1fr;gap:8px}.pmcard div{background:#fcfbf9;border:1px solid var(--line);border-radius:8px;padding:8px 10px}.pmcard span{font-size:22px;float:left;margin-right:8px}.pmcard b{font-size:16px}.pmcard p{font-size:14px!important;margin:2px 0 0!important;line-height:1.3!important}
+.pmtav{position:relative;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}.pmtav img{width:100%;display:block}
+.pmhs{all:unset;position:absolute;transform:translate(-50%,-50%);width:32px;height:32px;border-radius:50%;background:#0d233a;color:#fff;font-weight:700;text-align:center;line-height:32px;cursor:pointer;box-shadow:0 0 0 3px #fff;animation:pmp 1.8s infinite}
+.pmhs.seen{background:#2e7d32;animation:none}.pmhs.on{background:#f2a300;color:#0d233a}@keyframes pmp{50%{box-shadow:0 0 0 7px rgba(242,163,0,.6)}}
+.pmtabs{display:flex;gap:8px;margin-bottom:10px}
+.pmfasi{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:start}.pmimg{position:relative}.pmimg img{width:100%;border-radius:10px;display:block}.pmnum{position:absolute;top:10px;left:10px;background:#0d233a;color:#fff;font-weight:700;border-radius:6px;padding:4px 10px}
+.pmm{font-weight:700;color:#0d233a;font-size:16px!important}.pmc{font-size:21px!important;line-height:1.4!important;min-height:120px}
+.pmdots{display:flex;gap:6px;margin-top:8px}.pmdots i{width:14px;height:14px;border-radius:50%;background:#cfd8dc;cursor:pointer}.pmdots i.on{background:#f2a300}
+.pmck{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pmcr{border:2px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff}.pmcr b{font-size:17px}.pmcr p{font-size:15px!important;margin:3px 0!important}
+.pmb{display:flex;gap:6px;margin-top:6px}.pmb button{all:unset;cursor:pointer;flex:1;text-align:center;font-size:13.5px;font-weight:600;border:1px solid #cfd8dc;border-radius:6px;padding:6px 4px}
+.pmb button.sel-ok{background:#c8e6c9;border-color:#66bb6a}.pmb button.sel-ko{background:#ffcdd2;border-color:#ef5350}.pmx{display:none;color:#37474f}.pmcr.done .pmx{display:block}.pmcr.right{border-color:#66bb6a}.pmcr.wrong{border-color:#ef5350}
+details.adv{background:#f5f7f8;border:1px solid var(--line);border-radius:8px;padding:6px 10px;margin-top:8px}details.adv summary{cursor:pointer;font-weight:700;font-size:14px}
+@media (max-width:860px){.steps10,.nov4{grid-template-columns:1fr 1fr}.three{grid-template-columns:1fr}.three .arr{transform:rotate(90deg)}.pmfasi,.pmck,.pmcard{grid-template-columns:1fr}}
+.nov4 p b,.tb p b,.steps10 p b,.pmcard p b{display:inline;font-size:inherit;margin:0;font-family:inherit}
+.pmtav{display:inline-block;max-width:100%;width:fit-content;justify-self:start;line-height:0}.ainfo p b{font-size:inherit}.pmtav img{width:auto;max-width:100%;height:min(64vh,620px)}body.present .pmtav img{height:620px}
+figure.ph img[src*="pimus_asso"]{object-fit:contain;background:#fff}
 </style>
 </head>
 <body>
@@ -399,6 +429,7 @@ table.cmp th.it,table.cmp td.it{background:#eef5ee}table.cmp th.en,table.cmp td.
       <span class="cbadge" id="cbadge" style="display:none"></span>
       <div class="mt" id="modTitle"></div>
       <div class="pos" id="pos"></div>
+      <button class="tbtn" id="teachBtn" title="Mostra le note e i riferimenti per il docente (tasto D)">📝 Docente</button>
       <button class="pbtn" id="presBtn" title="Presentazione a tutto schermo (tasto P)">▶ Presenta</button>
     </div>
     <div class="prog"><div id="bar"></div></div>
@@ -427,13 +458,14 @@ table.cmp th.it,table.cmp td.it{background:#eef5ee}table.cmp th.en,table.cmp td.
  <p>Telecomandi per presentazioni: i tasti avanti/indietro funzionano come PagSu/PagGiù.</p></div>
 <div id="pBlackout"></div>
 <div id="pToast"></div>
-<script src="base.js?v=20261126b"></script>
-<script src="pgfx.js?v=20261126b"></script>
-<script src="contenuti.js?v=20261126b"></script>
-<script src="ta.js?v=20261126b"></script>
-<script src="fall.js?v=20261126b"></script>
-<script src="sosp.js?v=20261126b"></script>
-<script src="eu.js?v=20261126b"></script>
+<script src="base.js?v=20261127a"></script>
+<script src="pgfx.js?v=20261127a"></script>
+<script src="contenuti.js?v=20261127a"></script>
+<script src="ta.js?v=20261127a"></script>
+<script src="fall.js?v=20261127a"></script>
+<script src="sosp.js?v=20261127a"></script>
+<script src="eu.js?v=20261127a"></script>
+<script src="revisione.js?v=20261127a"></script>
 <script>
 const $=id=>document.getElementById(id);
 const pad=n=>String(n).padStart(3,'0');
@@ -457,7 +489,7 @@ function chooser(){
   if(location.hash) history.replaceState(null,'',location.pathname+location.search);
 }
 function start(k,i){
-  mode=k; CRS=COURSES[k]; document.body.className='mode-'+k;
+  mode=k; CRS=COURSES[k]; const wasT=document.body.classList.contains('teacher'); document.body.className='mode-'+k+(wasT?' teacher':'');
   flat=[]; CRS.modules.forEach((m,mi)=>m.s.forEach((s,si)=>flat.push({mi,si,s})));
   $('ctag').textContent=CRS.full; $('cbadge').style.display=''; $('cbadge').textContent='PONTEGGI · 2 ORE';
   $('ctitle').innerHTML='Corso Ponteggi<br>Montaggio · Uso · Smontaggio';
@@ -489,8 +521,9 @@ function render(){
     const n=NOTES[s.img];
     if(n) h+=`<div class="note ${n.t||''}"><span class="lab">${n.t==='upd'?'Aggiornamento normativo':'Nel cantiere fibra ottica'}</span>${n.x}</div>`;
   } else if(s.quiz) h=`<div class="slide html">${quizHtml()}</div>`;
-  else if(s.fn) h=`<div class="slide html">${s.fn()}</div>`;
+  else if(s.fn) h=`<div class="slide html">${s.fn()}${s.key?`<div class="keymsg"><span>💡</span><p>${s.key}</p></div>`:''}</div>`;
   else h=`<div class="slide html">${s.html}</div>`;
+  if(s.nota) h+=`<div class="tnote"><b>📝 Note per il docente</b>${s.nota}</div>`;
   $('stage').innerHTML=h; $('stage').scrollTop=0;
   $('modTitle').textContent=`${f.mi}. ${m.t}`;
   $('pos').textContent=`Slide ${cur+1} / ${flat.length}`;
@@ -586,9 +619,12 @@ $('pLaser').onclick=()=>setLaser(!laser);
 $('pBlack').onclick=()=>$('pBlackout').classList.toggle('show');
 $('pBlackout').onclick=()=>$('pBlackout').classList.remove('show');
 $('pHelp').onclick=()=>$('pHelpBox').classList.toggle('show');
+function setTeacher(on){ document.body.classList.toggle('teacher',on); $('teachBtn').classList.toggle('on',on); try{localStorage.setItem('pontTeacher',on?'1':'0');}catch(e){} if(typeof fitPresent==='function') fitPresent(); }
+$('teachBtn').onclick=()=>setTeacher(!document.body.classList.contains('teacher'));
 document.addEventListener('keydown',e=>{
   if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT') return;
   const k=e.key.toLowerCase();
+  if(k==='d'&&mode){ setTeacher(!document.body.classList.contains('teacher')); return; }
   if(!presenting){ if(k==='p'&&mode){ e.preventDefault(); enterPresent(); } return; }
   if(k==='escape'){ exitPresent(); }
   else if(k==='l'){ setLaser(!laser); }
@@ -599,6 +635,7 @@ document.addEventListener('keydown',e=>{
 
 const hm=location.hash.match(/^#(pont)-(\d+)$/);
 start('pont', hm?+hm[2]-1:0);
+try{ if(localStorage.getItem('pontTeacher')==='1') setTeacher(true); }catch(e){}
 </script>
 </body>
 </html>
