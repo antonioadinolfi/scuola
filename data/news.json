@@ -1,9 +1,15 @@
 {
-  "updatedAt": "2026-11-27T22:33:28+00:00",
+  "updatedAt": "2026-11-28T07:01:22+00:00",
   "feeds": [
     {
       "source": "Liceo Cortese",
       "items": [
+        {
+          "title": "Gli alunni del Cortese Partecipano alle Giornate FAI d’Autunno",
+          "link": "https://www.liceoscientificocortese.edu.it/2026/11/28/gli-alunni-del-cortese-partecipano-alle-giornate-fai-dautunno/",
+          "pubDate": "Sat, 28 Nov 2026 07:00:38 +0000",
+          "description": "Ioccasione delle Giornate FAI per le Scuole, i nostri studenti sono diventati protagonisti di un’esperienza didattica immersiva, trasformando gli spazi museali…"
+        },
         {
           "title": "🇮🇹🤝🇪🇸 Un ponte tra Italia e Spagna nel segno dell’amicizia europea: il Liceo Scientifico “Nino Cortese” accoglie gli studenti Erasmus!",
           "link": "https://www.liceoscientificocortese.edu.it/2026/11/24/%f0%9f%87%ae%f0%9f%87%b9%f0%9f%a4%9d%f0%9f%87%aa%f0%9f%87%b8-un-ponte-tra-italia-e-spagna-nel-segno-dellamicizia-europea-il-liceo-scientifico-nino-cortese-accoglie-gli-studenti-erasmus/",
@@ -33,18 +39,18 @@
           "link": "https://www.liceoscientificocortese.edu.it/2026/11/20/un-rumore-che-rompe-il-silenzio-le-classi-terze-alla-visione-di-se-domani-non-torno/",
           "pubDate": "Fri, 20 Nov 2026 16:00:05 +0000",
           "description": "Ci sono film che non si limitano a raccontare una storia, ma chiedono a chi guarda di prendere posizione. È ciò che è accaduto durante la proiezione di “Se doma…"
-        },
-        {
-          "title": "GIORNATA ORIENTATIVA – BORSE DI STUDIO ERASMUS+",
-          "link": "https://www.liceoscientificocortese.edu.it/2026/11/16/giornata-orientativa-borse-di-studio-erasmus/",
-          "pubDate": "Mon, 16 Nov 2026 11:35:58 +0000",
-          "description": "Tirocini professionalizzanti post-diploma L&#8217;iniziativa, promossa e sostenuta dal Dirigente Scolastico Dott. Prof. Marcellino Falcone, conferma la costante…"
         }
       ]
     },
     {
       "source": "Orizzonte Scuola",
       "items": [
+        {
+          "title": "La responsabilità dell’esperto esterno nella vigilanza sugli alunni. A cura di Anna Armone",
+          "link": "https://www.orizzontescuola.it/la-responsabilita-dellesperto-esterno-nella-vigilanza-sugli-alunni-a-cura-di-anna-armone/",
+          "pubDate": "Sat, 28 Nov 2026 06:55:24 +0000",
+          "description": "Il ricorso a esperti esterni da parte delle istituzioni scolastiche deve essere giustificato dall’esigenza di acquisire competenze non disponibili all’interno d…"
+        },
         {
           "title": "Libri di testo scolastici, stop alle nuove edizioni prima di cinque anni e studenti coinvolti nella scelta dei volumi: Governo accoglie due ordini del giorno",
           "link": "https://www.orizzontescuola.it/libri-di-testo-scolastici-stop-alle-nuove-edizioni-prima-di-cinque-anni-e-studenti-coinvolti-nella-scelta-dei-volumi-governo-accoglie-due-ordini-del-giorno/",
@@ -74,12 +80,6 @@
           "link": "https://www.orizzontescuola.it/diplomati-magistrale-dal-2027-ok-al-ruolo-da-prima-fascia-gps-ed-elenco-aggiuntivo-su-posti-residui/",
           "pubDate": "Fri, 27 Nov 2026 17:56:03 +0000",
           "description": "L'approvazione della norma contenuta nel Decreto Scuola n. 170/2026, che ripristina il doppio canale di assunzione sui posti eventualmente residui dopo l'esauri…"
-        },
-        {
-          "title": "Posizioni economiche ATA, mancato pagamento della mensilità di settembre e dubbi sulla tredicesima. ANIEF chiede chiarimenti al Ministero anche sugli scorrimenti",
-          "link": "https://www.orizzontescuola.it/posizioni-economiche-ata-mancato-pagamento-della-mensilita-di-settembre-e-dubbi-sulla-tredicesima-anief-chiede-chiarimenti-al-ministero-anche-sugli-scorrimenti/",
-          "pubDate": "Fri, 27 Nov 2026 17:49:09 +0000",
-          "description": "Compensazioni, scorrimenti delle graduatorie e criticità nel pagamento delle posizioni economiche del personale ATA. Sono le questioni sulle quali ANIEF ha rich…"
         }
       ]
     },
